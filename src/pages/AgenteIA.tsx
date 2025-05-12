@@ -76,7 +76,22 @@ const AgenteIA = () => {
       
       // Processar a resposta do webhook
       const data = await response.json();
-      const responseContent = data.response || 'Não consegui processar sua solicitação. Por favor, tente novamente.';
+      
+      // Verificar se há uma resposta no objeto retornado
+      let responseContent = '';
+      
+      // Se o webhook retornou uma resposta específica, use-a
+      if (data.response) {
+        responseContent = data.response;
+      } 
+      // Se o webhook retornou uma mensagem, use-a 
+      else if (data.message) {
+        responseContent = data.message;
+      }
+      // Caso contrário, use uma resposta padrão
+      else {
+        responseContent = 'Recebi sua mensagem e estou processando. Entrarei em contato em breve.';
+      }
       
       // Adiciona a resposta do assistente
       const assistantMessage: Message = {
