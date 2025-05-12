@@ -15,6 +15,9 @@ interface Message {
   timestamp: Date;
 }
 
+// URL do webhook n8n
+const N8N_WEBHOOK_URL = 'https://pmogrupooscar.app.n8n.cloud/webhook-test/test-agent-backend15465';
+
 const AgenteIA = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -31,7 +34,7 @@ const AgenteIA = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   
   // Função para adicionar uma mensagem do usuário
-  const handleUserMessage = () => {
+  const handleUserMessage = async () => {
     if (input.trim() === '') return;
     
     // Adiciona a mensagem do usuário
@@ -45,34 +48,37 @@ const AgenteIA = () => {
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     
-    // Simula resposta do assistente
-    handleAssistantResponse(userMessage);
+    // Envia a mensagem para o webhook n8n
+    await handleN8nResponse(userMessage);
   };
   
-  // Função para simular resposta do assistente
-  const handleAssistantResponse = (userMessage: Message) => {
+  // Função para enviar mensagem para o n8n e processar a resposta
+  const handleN8nResponse = async (userMessage: Message) => {
     setIsLoading(true);
     
-    // Simula um delay para dar a impressão de processamento
-    setTimeout(() => {
-      // Respostas pré-definidas baseadas em palavras-chave
-      let responseContent = '';
-      const userInput = userMessage.content.toLowerCase();
+    try {
+      // Enviar a mensagem para o webhook n8n
+      const response = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage.content,
+          userId: 'user-' + Math.random().toString(36).substr(2, 9),
+          timestamp: new Date().toISOString(),
+        }),
+      });
       
-      if (userInput.includes('processos estratégicos') || userInput.includes('estratégico')) {
-        responseContent = 'Os processos estratégicos são aqueles que definem as diretrizes da organização, como planejamento estratégico, gestão financeira e desenvolvimento de novos negócios.';
-      } else if (userInput.includes('processos táticos') || userInput.includes('tático')) {
-        responseContent = 'Os processos táticos fazem a ligação entre o estratégico e o operacional, incluindo gestão de departamentos, projetos e equipes.';
-      } else if (userInput.includes('processos operacionais') || userInput.includes('operacional')) {
-        responseContent = 'Os processos operacionais são aqueles que executam as atividades do dia a dia da organização, como produção, atendimento ao cliente e vendas.';
-      } else if (userInput.includes('departamento')) {
-        responseContent = 'Temos vários departamentos em nossa estrutura. Você pode consultar a lista completa na guia "Departamentos" do menu lateral.';
-      } else if (userInput.includes('ajuda') || userInput.includes('help')) {
-        responseContent = 'Posso ajudar com informações sobre processos estratégicos, táticos e operacionais, além de responder dúvidas sobre departamentos e fluxo de trabalho.';
-      } else {
-        responseContent = 'Obrigado pela sua mensagem. Como assistente virtual especializado em processos, posso ajudar com informações sobre os fluxos de trabalho, departamentos e operações da empresa. Posso detalhar algo específico para você?';
+      if (!response.ok) {
+        throw new Error(`Erro na resposta do webhook: ${response.status}`);
       }
       
+      // Processar a resposta do webhook
+      const data = await response.json();
+      const responseContent = data.response || 'Não consegui processar sua solicitação. Por favor, tente novamente.';
+      
+      // Adiciona a resposta do assistente
       const assistantMessage: Message = {
         id: Date.now().toString(),
         content: responseContent,
@@ -81,8 +87,25 @@ const AgenteIA = () => {
       };
       
       setMessages((prev) => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error('Erro ao se comunicar com o webhook:', error);
+      
+      // Adiciona uma mensagem de erro
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        content: 'Desculpe, estou enfrentando problemas de conexão. Por favor, tente novamente mais tarde.',
+        role: 'assistant',
+        timestamp: new Date(),
+      };
+      
+      setMessages((prev) => [...prev, errorMessage]);
+      
+      toast.error('Falha na comunicação com o servidor', {
+        description: 'Não foi possível processar sua mensagem.',
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
   
   // Função para lidar com o envio por Enter (mas permite nova linha com Shift+Enter)
