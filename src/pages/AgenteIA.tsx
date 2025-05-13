@@ -80,8 +80,12 @@ const AgenteIA = () => {
       // Verificar se há uma resposta no objeto retornado
       let responseContent = '';
       
+      // Verificar primeiramente se há um campo output na resposta
+      if (data.output) {
+        responseContent = data.output;
+      }
       // Se o webhook retornou uma resposta específica, use-a
-      if (data.response) {
+      else if (data.response) {
         responseContent = data.response;
       } 
       // Se o webhook retornou uma mensagem, use-a 
