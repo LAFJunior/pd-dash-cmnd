@@ -3,6 +3,7 @@ import React from 'react';
 import CardProcesso from '@/components/dashboard/CardProcesso';
 import GraficoProcessos from '@/components/dashboard/GraficoProcessos';
 import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon } from 'lucide-react';
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 
 const Dashboard = () => {
   return (
@@ -52,36 +53,44 @@ const Dashboard = () => {
         </div>
         
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold mb-4">Processos Recentes</h3>
-          <div className="space-y-4">
-            {[
-              { id: 'PRO-1245', nome: 'Planejamento Orçamentário 2025', tipo: 'Estratégico', status: 'Em andamento' },
-              { id: 'PRO-1244', nome: 'Contratação de Desenvolvedores', tipo: 'Tático', status: 'Concluído' },
-              { id: 'PRO-1243', nome: 'Implantação do Sistema CRM', tipo: 'Operacional', status: 'Atrasado' },
-              { id: 'PRO-1242', nome: 'Revisão da Política de RH', tipo: 'Estratégico', status: 'Em andamento' },
-            ].map((processo) => (
-              <div key={processo.id} className="flex justify-between items-center p-3 border-b last:border-0">
-                <div>
-                  <div className="font-medium">{processo.nome}</div>
-                  <div className="text-sm text-gray-500">{processo.id}</div>
-                </div>
-                <div className="flex items-center">
-                  <span
-                    className={`px-2 py-1 rounded text-xs font-medium ${
-                      processo.tipo === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                      processo.tipo === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
-                      'bg-processo-operacionais/20 text-processo-operacionais'
-                    }`}
-                  >
-                    {processo.tipo}
-                  </span>
-                </div>
-              </div>
-            ))}
+          <h3 className="text-lg font-semibold mb-4">Processos</h3>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Nome Processo</TableHead>
+                  <TableHead className="w-20 text-center">ID</TableHead>
+                  <TableHead className="w-32 text-right">Nível</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {[
+                  { id: 'PRO-1245', nome: 'Planejamento Orçamentário 2025', tipo: 'Estratégico' },
+                  { id: 'PRO-1244', nome: 'Contratação de Desenvolvedores', tipo: 'Tático' },
+                  { id: 'PRO-1243', nome: 'Implantação do Sistema CRM', tipo: 'Operacional' },
+                  { id: 'PRO-1242', nome: 'Revisão da Política de RH', tipo: 'Estratégico' },
+                  { id: 'PRO-1241', nome: 'Gestão Financeira de Processos', tipo: 'Operacional' },
+                  { id: 'PRO-1240', nome: 'Controle do Fluxo de Despesas', tipo: 'Operacional' },
+                ].map((processo) => (
+                  <TableRow key={processo.id}>
+                    <TableCell>{processo.nome}</TableCell>
+                    <TableCell className="text-center">{processo.id.split('-')[1]}</TableCell>
+                    <TableCell className="text-right">
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-medium ${
+                          processo.tipo === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                          processo.tipo === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                          'bg-processo-operacionais/20 text-processo-operacionais'
+                        }`}
+                      >
+                        {processo.tipo}
+                      </span>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
-          <button className="w-full mt-4 py-2 text-blue-600 text-sm font-medium hover:underline">
-            Ver todos os processos
-          </button>
         </div>
       </div>
     </div>
