@@ -18,21 +18,55 @@ interface Message {
 // URL do webhook n8n
 const N8N_WEBHOOK_URL = 'https://pmogrupooscar.app.n8n.cloud/webhook-test/test-agent-backend15465';
 
+// Chave para armazenar o histórico no sessionStorage
+const CHAT_HISTORY_KEY = 'oscar_chat_history';
+
 const AgenteIA = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
+  // Inicializa o estado com dados do sessionStorage ou mensagem inicial padrão
+  const [messages, setMessages] = useState<Message[]>(() => {
+    // Tenta recuperar histórico do sessionStorage
+    const savedMessages = sessionStorage.getItem(CHAT_HISTORY_KEY);
+    if (savedMessages) {
+      try {
+        // Converte as strings de data de volta para objetos Date
+        const parsedMessages = JSON.parse(savedMessages).map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp)
+        }));
+        return parsedMessages;
+      } catch (error) {
+        console.error("Erro ao carregar histórico de chat:", error);
+      }
+    }
+    
+    // Retorna mensagem inicial padrão se não houver histórico
+    return [{
       id: '1',
       content: 'Olá! Sou o Oscar, seu assistente virtual para processos. Como posso ajudar você hoje?',
       role: 'assistant',
       timestamp: new Date(),
-    },
-  ]);
+    }];
+  });
   
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   
+  // Salva mensagens no sessionStorage sempre que o estado mudar
+  useEffect(() => {
+    sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(messages));
+  }, [messages]);
+  
+  // Limpa o histórico quando o componente é desmontado (usuário sai da página)
+  useEffect(() => {
+    return () => {
+      // Não removemos do sessionStorage para manter entre navegações internas
+      // Se quiser limpar completamente ao sair do site, usaria:
+      // window.addEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
   // Função para adicionar uma mensagem do usuário
   const handleUserMessage = async () => {
     if (input.trim() === '') return;
@@ -50,6 +84,18 @@ const AgenteIA = () => {
     
     // Envia a mensagem para o webhook n8n
     await handleN8nResponse(userMessage);
+  };
+
+  // Função para limpar o histórico de chat
+  const clearChatHistory = () => {
+    setMessages([{
+      id: '1',
+      content: 'Olá! Sou o Oscar, seu assistente virtual para processos. Como posso ajudar você hoje?',
+      role: 'assistant',
+      timestamp: new Date(),
+    }]);
+    sessionStorage.removeItem(CHAT_HISTORY_KEY);
+    toast.success('Histórico de conversa limpo');
   };
   
   // Função para enviar mensagem para o n8n e processar a resposta
@@ -150,9 +196,18 @@ const AgenteIA = () => {
 
   return (
     <div className="animate-fade-in flex flex-col h-[calc(100vh-120px)]">
-      <div className="mb-4">
-        <h1 className="text-3xl font-bold">Agente IA Oscar</h1>
-        <p className="text-gray-500">Assistente de Inteligência Artificial para processos</p>
+      <div className="mb-4 flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold">Agente IA Oscar</h1>
+          <p className="text-gray-500">Assistente de Inteligência Artificial para processos</p>
+        </div>
+        <Button 
+          variant="outline" 
+          onClick={clearChatHistory}
+          className="h-9"
+        >
+          Limpar Conversa
+        </Button>
       </div>
       
       <Card className="flex flex-col flex-1 bg-white rounded-lg shadow-md overflow-hidden">
