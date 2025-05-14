@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -135,5 +134,20 @@
 
   .grafico-titulo {
     @apply text-lg font-semibold mb-4 text-gray-700;
+  }
+
+  /* Estilos para o mapa interativo */
+  .mapa-container {
+    @apply w-full overflow-x-auto;
+  }
+
+  /* Adicionar efeito de hover nos departamentos */
+  .departamento-item.selected {
+    @apply font-medium shadow-sm;
+  }
+
+  /* Ajustar o estilo do SVG para melhor responsividade */
+  svg.mapa-contexto {
+    @apply w-full h-auto;
   }
 }

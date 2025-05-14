@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import ListaDepartamentos from '@/components/departamentos/ListaDepartamentos';
 
 const departamentosBackoffice = [
@@ -41,6 +42,40 @@ const parceirosComerciais = [
 ];
 
 const Departamentos = () => {
+  const location = useLocation();
+  const { selectedDepartamento, tipo } = location.state || {};
+
+  // Destaque o departamento selecionado se existir
+  const destacarDepartamento = (tipo: string | undefined, departamento: string) => {
+    if (!selectedDepartamento) return false;
+    
+    const nomeDepartamentoFormatado = formatarNomeDepartamento(departamento);
+    const selectedDepartamentoFormatado = formatarNomeDepartamento(selectedDepartamento);
+    
+    return tipo === location.state?.tipo && 
+           nomeDepartamentoFormatado === selectedDepartamentoFormatado;
+  };
+
+  // Função auxiliar para normalizar nomes de departamentos para comparação
+  const formatarNomeDepartamento = (nome: string) => {
+    // Remova parênteses e abreveações
+    const simplificado = nome
+      .replace(/\([^)]*\)/g, '')  // Remove tudo entre parênteses
+      .trim();
+      
+    // Mapeie nomes curtos para sua versão completa
+    const mapeamentoNomes: {[key: string]: string} = {
+      'DP': 'Departamento Pessoal',
+      'RH': 'Recursos Humanos',
+      'T.I': 'T.I',
+      'SJEC': 'São José Esporte Club',
+      'Estádio': 'Estádio Martins Pereira',
+      'Inst. Financeiras': 'Instituições Financeiras'
+    };
+    
+    return mapeamentoNomes[simplificado] || simplificado;
+  };
+
   return (
     <div className="animate-fade-in">
       <div className="mb-6">
@@ -53,18 +88,21 @@ const Departamentos = () => {
           titulo="BackOffice" 
           items={departamentosBackoffice} 
           color="#4C72B1"
+          selectedItem={selectedDepartamento && tipo === 'backoffice' ? selectedDepartamento : undefined}
         />
         
         <ListaDepartamentos 
           titulo="Varejo" 
           items={departamentosVarejo} 
           color="#499B54"
+          selectedItem={selectedDepartamento && tipo === 'varejo' ? selectedDepartamento : undefined}
         />
         
         <ListaDepartamentos 
           titulo="Parceiros Comerciais" 
           items={parceirosComerciais} 
           color="#E39D25"
+          selectedItem={selectedDepartamento && tipo === 'parceiros' ? selectedDepartamento : undefined}
         />
       </div>
     </div>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import MapaInterativo from '@/components/mapa-contexto/MapaInterativo';
 
 const MapaContexto = () => {
   return (
@@ -10,9 +11,21 @@ const MapaContexto = () => {
       </div>
       
       <div className="bg-white rounded-lg shadow-md p-6">
-        <p className="text-center text-gray-500 py-10">
-          Conteúdo do Mapa de Contexto em desenvolvimento
-        </p>
+        <MapaInterativo />
+        <div className="flex justify-center items-center gap-8 mt-6 text-sm text-gray-600">
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-[#4C72B1] rounded-sm mr-2"></div>
+            <span>BackOffice</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-[#499B54] rounded-sm mr-2"></div>
+            <span>Varejo</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-[#E39D25] rounded-sm mr-2"></div>
+            <span>Parceiros Comerciais</span>
+          </div>
+        </div>
       </div>
     </div>
   );
