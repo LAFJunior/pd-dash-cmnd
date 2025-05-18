@@ -1,13 +1,10 @@
-
 import React from 'react';
 import MapaInterativo from '@/components/mapa-contexto/MapaInterativo';
-
 const MapaContexto = () => {
-  return (
-    <div className="animate-fade-in">
+  return <div className="animate-fade-in">
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Mapa de Contexto</h1>
-        <p className="text-gray-500">Visualize o contexto dos processos corporativos</p>
+        <p className="text-gray-500">Visualização do Ecossistema Empresarial</p>
       </div>
       
       <div className="bg-white rounded-lg shadow-md p-6">
@@ -26,18 +23,10 @@ const MapaContexto = () => {
             <span>Parceiros Comerciais</span>
           </div>
           <div className="flex items-center">
-            <a 
-              href="https://professorannibal.com.br/2016/12/06/elaborando-o-mapa-de-contexto-de-sua-organizacao/" 
-              target="_blank" 
-              className="text-blue-600 hover:underline"
-            >
-              Saiba mais sobre mapas de contexto
-            </a>
+            
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MapaContexto;
