@@ -1,7 +1,10 @@
+
 import React from 'react';
 import MapaInterativo from '@/components/mapa-contexto/MapaInterativo';
+
 const MapaContexto = () => {
-  return <div className="animate-fade-in">
+  return (
+    <div className="animate-fade-in">
       <div className="mb-6">
         <h1 className="text-3xl font-bold">Mapa de Contexto</h1>
         <p className="text-gray-500">Visualização do Ecossistema Empresarial</p>
@@ -22,11 +25,10 @@ const MapaContexto = () => {
             <div className="w-4 h-4 bg-[#E39D25] rounded-sm mr-2"></div>
             <span>Parceiros Comerciais</span>
           </div>
-          <div className="flex items-center">
-            
-          </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default MapaContexto;
