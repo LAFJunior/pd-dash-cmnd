@@ -1,8 +1,6 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, ChevronUp, Info } from 'lucide-react';
-import { toast } from 'sonner';
 
 interface DepartamentoProps {
   titulo: string;
@@ -13,54 +11,316 @@ interface DepartamentoProps {
   color: string;
   tipo: 'backoffice' | 'varejo' | 'parceiros';
   conexoes?: string[];
+  subItens?: string[];
 }
 
 const MapaInterativo = () => {
   const navigate = useNavigate();
-  const [infoVisible, setInfoVisible] = useState(false);
   const [hoveredDepartamento, setHoveredDepartamento] = useState<string | null>(null);
   
   const handleDepartamentoClick = (tipo: string, departamento: string) => {
     navigate(`/departamentos`, { state: { selectedDepartamento: departamento, tipo } });
   };
 
-  const handleInfoClick = () => {
-    setInfoVisible(!infoVisible);
-  };
-
+  // Dados dos departamentos do BackOffice
   const departamentosBackoffice: DepartamentoProps[] = [
-    { titulo: "Compras", x: 50, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Fornecedores", "Controladoria", "CD/Operações"] },
-    { titulo: "Financeiro", x: 180, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Contábil", "Controladoria", "Inst. Financeiras"] },
-    { titulo: "Contábil", x: 310, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Financeiro", "Fiscal", "Auditoria"] },
-    { titulo: "Fiscal", x: 440, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Contábil", "Controladoria"] },
-    { titulo: "RH", x: 570, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["DP", "T.I"] },
-    { titulo: "DP", x: 700, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["RH"] },
-    { titulo: "Suplementos", x: 830, y: 220, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["CD/Operações", "Lojas"] },
-    { titulo: "Marketing", x: 50, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["E-Commerce", "Lojas", "Clientes"] },
-    { titulo: "T.I", x: 180, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["E-Commerce", "Infracommerce", "RH"] },
-    { titulo: "Controladoria", x: 310, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Financeiro", "Fiscal", "Compras", "Auditoria"] },
-    { titulo: "Auditoria", x: 440, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Controladoria", "Contábil"] },
-    { titulo: "Festcard", x: 570, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Credssytem", "Lojas", "Clientes"] },
-    { titulo: "CD/Operações", x: 700, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Lojas", "Compras", "Suplementos"] },
-    { titulo: "Defeitos", x: 830, y: 280, width: 120, height: 40, color: "#4C72B1", tipo: "backoffice", conexoes: ["Lojas", "CD/Operações"] },
+    { 
+      titulo: "Compras", 
+      x: 420, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Fornecedores", "Controladoria", "CD/Operações", "Lojas"],
+      subItens: ["Análise de Compras", "Solicitação de Compras", "Controle de Estoque"]
+    },
+    { 
+      titulo: "Financeiro", 
+      x: 600, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Contábil", "Controladoria", "Inst. Financeiras"],
+      subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
+    },
+    { 
+      titulo: "Principal", 
+      x: 240, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Diretoria Geral"],
+      subItens: []
+    },
+    { 
+      titulo: "Auditoria", 
+      x: 420, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Controladoria", "Contábil"],
+      subItens: ["Controles Internos", "Auditorias", "Compliance"]
+    },
+    { 
+      titulo: "Contábil", 
+      x: 600, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Financeiro", "Fiscal", "Auditoria"],
+      subItens: ["Fechamento Contábil", "Balancetes", "Tributos"]
+    },
+    { 
+      titulo: "T.I", 
+      x: 420, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["E-Commerce", "Infracommerce", "RH"],
+      subItens: ["Sistemas", "Infraestrutura", "Suporte"]
+    },
+    { 
+      titulo: "T.I / Operações", 
+      x: 600, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Lojas", "CD/Operações"],
+      subItens: ["Sistemas", "Logística", "Operacional"]
+    },
+    { 
+      titulo: "Recursos Humanos", 
+      x: 780, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["DP", "T.I"],
+      subItens: ["Recrutamento", "Treinamento", "Benefícios"]
+    },
+    { 
+      titulo: "Fiscal", 
+      x: 780, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Contábil", "Controladoria"],
+      subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
+    },
+    { 
+      titulo: "Marketing", 
+      x: 960, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["E-Commerce", "Lojas", "Clientes"],
+      subItens: ["Campanhas", "Mídia", "Marketing Digital"]
+    },
+    { 
+      titulo: "Departamento Pessoal", 
+      x: 960, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["RH"],
+      subItens: ["Folha de Pagamento", "Benefícios", "Contratos"]
+    },
+    { 
+      titulo: "Controladoria", 
+      x: 780, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Financeiro", "Fiscal", "Compras", "Auditoria"],
+      subItens: ["Orçamentos", "Análises", "Relatórios", "Indicadores"]
+    },
+    { 
+      titulo: "CD/Loja (Diferenciação)", 
+      x: 960, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice", 
+      conexoes: ["Lojas", "CD/Operações"],
+      subItens: ["Processos CD", "Processos Loja", "Diferenciação"]
+    },
+    { 
+      titulo: "Diretoria Geral", 
+      x: 240, 
+      y: 140, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["Principal"],
+      subItens: []
+    },
+    {
+      titulo: "São José Esporte Clube",
+      x: 240, 
+      y: 530, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["SJEC", "Estádio"],
+      subItens: []
+    },
+    {
+      titulo: "T.I. Processo e Recursos",
+      x: 420, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["T.I", "Lojas"],
+      subItens: ["Sistemas", "Processos", "Recursos"]
+    },
+    {
+      titulo: "Pessoal",
+      x: 600, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["RH", "DP"],
+      subItens: ["Folha", "Contratações", "Demissões"] 
+    },
+    {
+      titulo: "Suprimentos",
+      x: 780, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["CD/Operações", "Lojas"],
+      subItens: ["Estoque", "Distribuição", "Logística"]
+    },
+    {
+      titulo: "Defeitos",
+      x: 960, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "backoffice",
+      conexoes: ["Lojas", "CD/Operações"],
+      subItens: ["Análise", "Tratativa", "Devolução"]
+    },
   ];
 
+  // Dados dos departamentos de Varejo
   const departamentosVarejo: DepartamentoProps[] = [
-    { titulo: "Lojas", x: 310, y: 350, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Clientes", "CD/Operações", "Suplementos", "Marketing", "Festcard"] },
-    { titulo: "E-Commerce", x: 440, y: 350, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Infracommerce", "Marketing", "T.I", "Clientes"] },
-    { titulo: "Franquias", x: 570, y: 350, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Lojas", "Marketing"] },
-    { titulo: "Diadora Brasil", x: 310, y: 400, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Lojas", "Fornecedores"] },
-    { titulo: "SJEC", x: 440, y: 400, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Estádio", "Marketing"] },
-    { titulo: "Estádio", x: 570, y: 400, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["SJEC"] },
-    { titulo: "Recicalce", x: 440, y: 450, width: 120, height: 40, color: "#499B54", tipo: "varejo", conexoes: ["Lojas", "CD/Operações"] },
+    { 
+      titulo: "Lojas", 
+      x: 1140, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "varejo", 
+      conexoes: ["Clientes", "CD/Operações", "Suprimentos", "Marketing"]
+    },
+    { 
+      titulo: "E-Commerce", 
+      x: 1140, 
+      y: 450, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "varejo", 
+      conexoes: ["Infracommerce", "Marketing", "T.I", "Clientes"]
+    },
+    { 
+      titulo: "Vendas",
+      x: 240, 
+      y: 240, 
+      width: 120, 
+      height: 140, 
+      color: "#A0A0A0", 
+      tipo: "varejo",
+      conexoes: ["Lojas", "Marketing", "Compras"]
+    },
+    { 
+      titulo: "Serviços", 
+      x: 1140, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "varejo", 
+      conexoes: ["Lojas", "Clientes"]
+    },
   ];
 
+  // Dados dos parceiros comerciais
   const parceirosComerciais: DepartamentoProps[] = [
-    { titulo: "Clientes", x: 310, y: 520, width: 120, height: 40, color: "#E39D25", tipo: "parceiros", conexoes: ["Lojas", "E-Commerce", "Marketing", "Festcard"] },
-    { titulo: "Fornecedores", x: 440, y: 520, width: 120, height: 40, color: "#E39D25", tipo: "parceiros", conexoes: ["Compras", "CD/Operações", "Diadora Brasil"] },
-    { titulo: "Inst. Financeiras", x: 570, y: 520, width: 120, height: 40, color: "#E39D25", tipo: "parceiros", conexoes: ["Financeiro", "Credssytem"] },
-    { titulo: "Credssytem", x: 375, y: 570, width: 120, height: 40, color: "#E39D25", tipo: "parceiros", conexoes: ["Festcard", "Inst. Financeiras"] },
-    { titulo: "Infracommerce", x: 505, y: 570, width: 120, height: 40, color: "#E39D25", tipo: "parceiros", conexoes: ["E-Commerce", "T.I"] },
+    { 
+      titulo: "Clientes", 
+      x: 1320, 
+      y: 260, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "parceiros", 
+      conexoes: ["Lojas", "E-Commerce", "Marketing"]
+    },
+    { 
+      titulo: "Fornecedores", 
+      x: 60, 
+      y: 260, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "parceiros", 
+      conexoes: ["Compras", "CD/Operações"]
+    },
+    { 
+      titulo: "Inst. Financeiras", 
+      x: 650, 
+      y: 770, 
+      width: 180, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "parceiros", 
+      conexoes: ["Financeiro"]
+    },
+    { 
+      titulo: "Categorias", 
+      x: 960, 
+      y: 750, 
+      width: 120, 
+      height: 50, 
+      color: "#A0A0A0", 
+      tipo: "parceiros", 
+      conexoes: ["Compras", "Marketing", "Lojas"]
+    },
   ];
 
   const getAllDepartamentos = () => {
@@ -81,32 +341,83 @@ const MapaInterativo = () => {
         onClick={() => handleDepartamentoClick(departamento.tipo, departamento.titulo)}
         onMouseEnter={() => setHoveredDepartamento(departamento.titulo)}
         onMouseLeave={() => setHoveredDepartamento(null)}
-        className="cursor-pointer transform transition-transform duration-200 hover:scale-105"
+        className="cursor-pointer"
       >
+        {/* Caixa principal do departamento */}
         <rect
           x={departamento.x}
           y={departamento.y}
           width={departamento.width}
           height={departamento.height}
-          rx={6}
-          ry={6}
-          fill={isHovered ? `${departamento.color}` : departamento.color}
-          stroke={isHovered ? "#333" : "#555"}
-          strokeWidth={isHovered ? 2 : 1}
-          className={`${isHovered ? 'shadow-lg' : 'shadow-md'}`}
-          filter={isHovered ? "url(#glow)" : undefined}
+          fill={isHovered ? "#8C8C8C" : departamento.color}
+          stroke="#333"
+          strokeWidth="1"
+        />
+        
+        {/* Título do departamento */}
+        <rect
+          x={departamento.x}
+          y={departamento.y}
+          width={departamento.width}
+          height="20"
+          fill="#333"
         />
         <text
           x={departamento.x + departamento.width / 2}
-          y={departamento.y + departamento.height / 2}
+          y={departamento.y + 12}
           textAnchor="middle"
           dominantBaseline="middle"
           fill="white"
-          fontSize="12"
-          fontWeight={isHovered ? "bold" : "500"}
+          fontSize="10"
+          fontWeight="bold"
         >
           {departamento.titulo}
         </text>
+        
+        {/* Nome do departamento maior no centro */}
+        <text
+          x={departamento.x + departamento.width / 2}
+          y={departamento.y + (departamento.height / 2) + 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="#333"
+          fontSize={departamento.titulo === "Vendas" ? "12" : "14"}
+          fontWeight="bold"
+        >
+          {departamento.titulo}
+        </text>
+
+        {/* Subitens para departamentos que os têm */}
+        {departamento.subItens && departamento.subItens.length > 0 && (
+          <>
+            {departamento.subItens.map((item, idx) => (
+              <rect
+                key={`subitem-${idx}`}
+                x={departamento.x}
+                y={departamento.y + departamento.height + (idx * 15)}
+                width={departamento.width}
+                height="15"
+                fill="#CCC"
+                stroke="#333"
+                strokeWidth="0.5"
+              />
+            ))}
+            
+            {departamento.subItens.map((item, idx) => (
+              <text
+                key={`subitem-text-${idx}`}
+                x={departamento.x + departamento.width / 2}
+                y={departamento.y + departamento.height + (idx * 15) + 7.5}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="#333"
+                fontSize="8"
+              >
+                {item}
+              </text>
+            ))}
+          </>
+        )}
 
         {/* Mostrar linhas de conexão quando um departamento é destacado */}
         {isHovered && departamento.conexoes && departamento.conexoes.map((conexao, idx) => {
@@ -119,17 +430,26 @@ const MapaInterativo = () => {
           const x2 = depConexao.x + depConexao.width / 2;
           const y2 = depConexao.y + depConexao.height / 2;
 
+          // Calculando pontos de controle para curvas
+          const dx = Math.abs(x2 - x1) * 0.5;
+          const dy = Math.abs(y2 - y1) * 0.5;
+          const controlPoint1X = x1 + (x2 > x1 ? dx : -dx);
+          const controlPoint1Y = y1;
+          const controlPoint2X = x2 - (x2 > x1 ? dx : -dx);
+          const controlPoint2Y = y2;
+
+          // Construir o caminho curvo
+          const path = `M ${x1} ${y1} C ${controlPoint1X} ${controlPoint1Y}, ${controlPoint2X} ${controlPoint2Y}, ${x2} ${y2}`;
+
           return (
             <g key={`conexao-${departamento.titulo}-${conexao}-${idx}`}>
-              <line 
-                x1={x1} y1={y1} x2={x2} y2={y2} 
+              <path 
+                d={path} 
+                fill="none" 
                 stroke="#333" 
-                strokeWidth={2} 
-                strokeDasharray="5,5"
-                opacity={0.7} 
-                markerEnd="url(#arrowhead)" 
+                strokeWidth="1" 
+                opacity="0.7" 
               />
-              <circle cx={x2} cy={y2} r={5} fill={depConexao.color} />
             </g>
           );
         })}
@@ -137,89 +457,104 @@ const MapaInterativo = () => {
     );
   };
 
-  // Criar conectores entre grupos de departamentos
-  const criarConectores = () => {
+  const criarAreasGrupo = () => {
+    // BackOffice área
+    const backOfficeArea = {
+      x: 180,
+      y: 30,
+      width: 940,
+      height: 600,
+    };
+
+    // Varejo área
+    const varejoArea = {
+      x: 1090,
+      y: 180,
+      width: 200,
+      height: 450,
+    };
+
+    // Parceiros comerciais indicações
+    const parceirosTopLeft = {
+      x: 30, 
+      y: 30,
+      width: 130,
+      height: 500
+    };
+
+    const parceirosTopRight = {
+      x: 1310, 
+      y: 30,
+      width: 130,
+      height: 500
+    };
+
     return (
       <g>
-        {/* Linha vertical principal */}
-        <line x1="450" y1="120" x2="450" y2="190" stroke="#333" strokeWidth="2" />
+        {/* BackOffice */}
+        <rect 
+          x={backOfficeArea.x} 
+          y={backOfficeArea.y} 
+          width={backOfficeArea.width} 
+          height={backOfficeArea.height} 
+          stroke="#4C72B1" 
+          strokeWidth="2" 
+          fill="none" 
+        />
+        <text 
+          x={backOfficeArea.x + backOfficeArea.width - 80} 
+          y={backOfficeArea.y + 15} 
+          fill="#4C72B1" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          BACKOFFICE
+        </text>
         
-        {/* Linha horizontal backoffice */}
-        <line x1="450" y1="190" x2="450" y2="190" stroke="#333" strokeWidth="2" />
-        <line x1="90" y1="190" x2="900" y2="190" stroke="#4C72B1" strokeWidth="2" />
+        {/* Varejo */}
+        <rect 
+          x={varejoArea.x} 
+          y={varejoArea.y} 
+          width={varejoArea.width} 
+          height={varejoArea.height} 
+          stroke="#499B54" 
+          strokeWidth="2" 
+          fill="none" 
+        />
+        <text 
+          x={varejoArea.x + varejoArea.width - 60} 
+          y={varejoArea.y + 15} 
+          fill="#499B54" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          VAREJO
+        </text>
         
-        {/* Linha vertical para varejo */}
-        <line x1="450" y1="300" x2="450" y2="330" stroke="#333" strokeWidth="2" />
-        <line x1="300" y1="330" x2="600" y2="330" stroke="#499B54" strokeWidth="2" />
-        
-        {/* Linha vertical para parceiros */}
-        <line x1="450" y1="470" x2="450" y2="500" stroke="#333" strokeWidth="2" />
-        <line x1="300" y1="500" x2="600" y2="500" stroke="#E39D25" strokeWidth="2" />
-        
-        {/* Conectores verticais para backoffice */}
-        {[110, 240, 370, 500, 630, 760, 890].map((x, i) => (
-          <line key={`backoffice-v-${i}`} x1={x} y1="190" x2={x} y2="220" stroke="#4C72B1" strokeWidth="2" />
-        ))}
-        
-        {/* Conectores verticais para varejo */}
-        {[370, 500, 630].map((x, i) => (
-          <line key={`varejo-v-${i}`} x1={x} y1="330" x2={x} y2="350" stroke="#499B54" strokeWidth="2" />
-        ))}
-        
-        {/* Conectores verticais para parceiros */}
-        {[370, 500, 630].map((x, i) => (
-          <line key={`parceiro-v-${i}`} x1={x} y1="500" x2={x} y2="520" stroke="#E39D25" strokeWidth="2" />
-        ))}
+        {/* Parceiros Comerciais (Texto) */}
+        <text 
+          x={parceirosTopRight.x + parceirosTopRight.width - 120} 
+          y={parceirosTopRight.y + 15} 
+          fill="#E39D25" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          PARCEIROS COMERCIAIS
+        </text>
       </g>
     );
   };
 
-  const showMapaHelp = () => {
-    toast("Passe o mouse sobre um departamento para visualizar suas conexões!", {
-      duration: 5000,
-    });
-  };
-
   return (
-    <div className="w-full overflow-auto">
-      <div className="flex justify-end mb-2">
-        <button 
-          onClick={showMapaHelp}
-          className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 transition-colors"
-        >
-          <Info size={16} />
-          <span>Como usar</span>
-        </button>
-        <button 
-          onClick={handleInfoClick}
-          className="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-800 transition-colors ml-4"
-        >
-          {infoVisible ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          <span>{infoVisible ? "Ocultar informações" : "Saiba mais"}</span>
-        </button>
-      </div>
-      
-      {infoVisible && (
-        <div className="bg-gray-50 p-4 rounded-lg mb-4 text-sm">
-          <p className="font-medium mb-2">O que é um Mapa de Contexto?</p>
-          <p className="mb-2">Um Mapa de Contexto é uma representação gráfica que mostra como as diferentes áreas de uma organização se relacionam entre si e com entidades externas.</p>
-          <p className="mb-2">Ele ajuda a visualizar as interdependências entre departamentos, identificar gargalos e oportunidades de melhoria nos processos organizacionais.</p>
-          <p><a href="https://professorannibal.com.br/2016/12/06/elaborando-o-mapa-de-contexto-de-sua-organizacao/" target="_blank" className="text-blue-600 hover:underline">Leia mais sobre Mapas de Contexto →</a></p>
-        </div>
-      )}
-
+    <div className="w-full overflow-auto">      
       <svg 
-        width="1000" 
-        height="650" 
-        viewBox="0 0 1000 650" 
+        width="1500" 
+        height="850" 
+        viewBox="0 0 1500 850" 
         className="mx-auto border border-gray-200 rounded-lg shadow-inner bg-white"
       >
         {/* Definições para efeitos visuais */}
         <defs>
-          <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-          </filter>
           <marker
             id="arrowhead"
             markerWidth="10"
@@ -230,31 +565,9 @@ const MapaInterativo = () => {
             <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
           </marker>
         </defs>
-
-        {/* Cabeçalho do Mapa */}
-        <rect x="350" y="60" width="200" height="60" rx="8" ry="8" fill="#333" />
-        <text x="450" y="90" textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="18" fontWeight="bold">
-          Grupo Oscar
-        </text>
-        <text x="450" y="110" textAnchor="middle" dominantBaseline="middle" fill="white" fontSize="12">
-          Mapa de Contexto
-        </text>
         
-        {/* Conectores */}
-        {criarConectores()}
-        
-        {/* Cabeçalhos de Seções */}
-        <text x="450" y="170" textAnchor="middle" dominantBaseline="middle" fill="#4C72B1" fontSize="16" fontWeight="bold">
-          BackOffice
-        </text>
-        
-        <text x="450" y="320" textAnchor="middle" dominantBaseline="middle" fill="#499B54" fontSize="16" fontWeight="bold">
-          Varejo
-        </text>
-        
-        <text x="450" y="490" textAnchor="middle" dominantBaseline="middle" fill="#E39D25" fontSize="16" fontWeight="bold">
-          Parceiros Comerciais
-        </text>
+        {/* Áreas dos grupos */}
+        {criarAreasGrupo()}
         
         {/* Departamentos */}
         {departamentosBackoffice.map((departamento, index) => criarCaixaDepartamento(departamento, index))}

@@ -25,8 +25,14 @@ const MapaContexto = () => {
             <div className="w-4 h-4 bg-[#E39D25] rounded-sm mr-2"></div>
             <span>Parceiros Comerciais</span>
           </div>
-          <div className="flex items-center text-xs text-gray-500">
-            <span>Passe o mouse sobre os departamentos para ver suas conexões</span>
+          <div className="flex items-center">
+            <a 
+              href="https://professorannibal.com.br/2016/12/06/elaborando-o-mapa-de-contexto-de-sua-organizacao/" 
+              target="_blank" 
+              className="text-blue-600 hover:underline"
+            >
+              Saiba mais sobre mapas de contexto
+            </a>
           </div>
         </div>
       </div>
