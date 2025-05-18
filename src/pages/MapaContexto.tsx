@@ -12,7 +12,7 @@ const MapaContexto = () => {
       
       <div className="bg-white rounded-lg shadow-md p-6">
         <MapaInterativo />
-        <div className="flex justify-center items-center gap-8 mt-6 text-sm text-gray-600">
+        <div className="flex justify-center items-center gap-8 mt-6 text-sm text-gray-600 flex-wrap">
           <div className="flex items-center">
             <div className="w-4 h-4 bg-[#4C72B1] rounded-sm mr-2"></div>
             <span>BackOffice</span>

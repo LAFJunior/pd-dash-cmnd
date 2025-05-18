@@ -14,18 +14,19 @@ interface MenuItemProps {
   to: string;
   icon: React.ReactNode;
   text: string;
+  collapsed: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ to, icon, text }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ to, icon, text, collapsed }) => {
   return (
     <NavLink 
       to={to} 
       className={({ isActive }) => 
-        `menu-item ${isActive ? 'active' : ''}`
+        `menu-item ${isActive ? 'active' : ''} ${collapsed ? 'justify-center' : ''}`
       }
     >
-      {icon}
-      <span className="menu-item-text">{text}</span>
+      <span className="menu-item-icon">{icon}</span>
+      {!collapsed && <span className="menu-item-text">{text}</span>}
     </NavLink>
   );
 };
@@ -41,7 +42,7 @@ const Sidebar = () => {
         )}
         <button 
           onClick={() => setCollapsed(!collapsed)}
-          className="text-white p-1 rounded hover:bg-sidebar-accent"
+          className={`text-white p-1 rounded hover:bg-sidebar-accent ${collapsed ? 'mx-auto' : ''}`}
         >
           <ChevronLeft size={20} className={`transition-transform ${collapsed ? 'rotate-180' : ''}`} />
         </button>
@@ -52,30 +53,35 @@ const Sidebar = () => {
           to="/" 
           icon={<LayoutDashboard size={20} />} 
           text="Dashboard" 
+          collapsed={collapsed}
         />
         <MenuItem 
           to="/mapa-contexto" 
           icon={<MapPin size={20} />} 
           text="Mapa de Contexto" 
+          collapsed={collapsed}
         />
         <MenuItem 
           to="/departamentos" 
           icon={<Briefcase size={20} />} 
           text="Departamentos" 
+          collapsed={collapsed}
         />
         <MenuItem 
           to="/colaboradores" 
           icon={<Users size={20} />} 
           text="Colaboradores" 
+          collapsed={collapsed}
         />
         <MenuItem 
           to="/agente-ia" 
           icon={<Bot size={20} />} 
           text="Agente IA Oscar" 
+          collapsed={collapsed}
         />
       </div>
       
-      <div className="px-4 py-2 text-xs text-white/50">
+      <div className={`px-4 py-2 text-xs text-white/50 ${collapsed ? 'text-center' : ''}`}>
         {!collapsed && <p>© 2025 Processos Digitais</p>}
       </div>
     </div>
