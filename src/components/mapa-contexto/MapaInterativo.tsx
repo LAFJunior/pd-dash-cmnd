@@ -1,26 +1,15 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ReactFlow, { 
-  Background, 
-  Controls, 
-  MiniMap, 
-  ReactFlowProvider,
-  useNodesState, 
-  useEdgesState,
-  MarkerType
-} from 'reactflow';
-import 'reactflow/dist/style.css';
 
-interface SubItem {
-  id: string;
-  label: string;
-}
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface DepartamentoProps {
-  id: string;
   titulo: string;
-  tipo: 'backoffice' | 'varejo' | 'parceiros';
+  x: number;
+  y: number;
+  width: number;
+  height: number;
   color: string;
+  tipo: 'backoffice' | 'varejo' | 'parceiros';
   conexoes?: string[];
   subItens?: string[];
 }
@@ -29,155 +18,216 @@ const MapaInterativo = () => {
   const navigate = useNavigate();
   const [hoveredDepartamento, setHoveredDepartamento] = useState<string | null>(null);
   
+  const handleDepartamentoClick = (tipo: string, departamento: string) => {
+    navigate(`/departamentos`, { state: { selectedDepartamento: departamento, tipo } });
+  };
+
   // Dados dos departamentos do BackOffice
   const departamentosBackoffice: DepartamentoProps[] = [
     { 
-      id: 'compras',
       titulo: "Compras", 
+      x: 420, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
-      conexoes: ["fornecedores", "controladoria", "cd-operacoes", "lojas"],
+      conexoes: ["Fornecedores", "Controladoria", "CD/Operações", "Lojas"],
       subItens: ["Análise de Compras", "Solicitação de Compras", "Controle de Estoque"]
     },
     { 
-      id: 'financeiro',
       titulo: "Financeiro", 
+      x: 600, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
-      conexoes: ["contabil", "controladoria", "inst-financeiras"],
+      conexoes: ["Contábil", "Controladoria", "Inst. Financeiras"],
       subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
     },
     { 
-      id: 'principal',
       titulo: "Principal", 
+      x: 240, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Diretoria Geral"],
       subItens: []
     },
     { 
-      id: 'auditoria',
       titulo: "Auditoria", 
+      x: 420, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Controladoria", "Contábil"],
       subItens: ["Controles Internos", "Auditorias", "Compliance"]
     },
     { 
-      id: 'contabil',
       titulo: "Contábil", 
+      x: 600, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Financeiro", "Fiscal", "Auditoria"],
       subItens: ["Fechamento Contábil", "Balancetes", "Tributos"]
     },
     { 
-      id: 'ti',
       titulo: "T.I", 
+      x: 420, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["E-Commerce", "Infracommerce", "RH"],
       subItens: ["Sistemas", "Infraestrutura", "Suporte"]
     },
     { 
-      id: 'ti-operacoes',
       titulo: "T.I / Operações", 
+      x: 600, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Lojas", "CD/Operações"],
       subItens: ["Sistemas", "Logística", "Operacional"]
     },
     { 
-      id: 'recursos-humanos',
       titulo: "Recursos Humanos", 
+      x: 780, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["DP", "T.I"],
       subItens: ["Recrutamento", "Treinamento", "Benefícios"]
     },
     { 
-      id: 'fiscal',
       titulo: "Fiscal", 
+      x: 780, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Contábil", "Controladoria"],
       subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
     },
     { 
-      id: 'marketing',
       titulo: "Marketing", 
+      x: 960, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["E-Commerce", "Lojas", "Clientes"],
       subItens: ["Campanhas", "Mídia", "Marketing Digital"]
     },
     { 
-      id: 'departamento-pessoal',
       titulo: "Departamento Pessoal", 
+      x: 960, 
+      y: 70, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["RH"],
       subItens: ["Folha de Pagamento", "Benefícios", "Contratos"]
     },
     { 
-      id: 'controladoria',
       titulo: "Controladoria", 
+      x: 780, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Financeiro", "Fiscal", "Compras", "Auditoria"],
       subItens: ["Orçamentos", "Análises", "Relatórios", "Indicadores"]
     },
     { 
-      id: 'cd-loja-diferenciacao',
       titulo: "CD/Loja (Diferenciação)", 
+      x: 960, 
+      y: 390, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice", 
       conexoes: ["Lojas", "CD/Operações"],
       subItens: ["Processos CD", "Processos Loja", "Diferenciação"]
     },
     { 
-      id: 'diretoria-geral',
       titulo: "Diretoria Geral", 
+      x: 240, 
+      y: 140, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["Principal"],
       subItens: []
     },
     {
-      id: 'sao-jose-esporte-clube',
       titulo: "São José Esporte Clube",
+      x: 240, 
+      y: 530, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["SJEC", "Estádio"],
       subItens: []
     },
     {
-      id: 'ti-processo-recursos',
       titulo: "T.I. Processo e Recursos",
+      x: 420, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["T.I", "Lojas"],
       subItens: ["Sistemas", "Processos", "Recursos"]
     },
     {
-      id: 'pessoal',
       titulo: "Pessoal",
+      x: 600, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["RH", "DP"],
       subItens: ["Folha", "Contratações", "Demissões"] 
     },
     {
-      id: 'suprimentos',
       titulo: "Suprimentos",
+      x: 780, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["CD/Operações", "Lojas"],
       subItens: ["Estoque", "Distribuição", "Logística"]
     },
     {
-      id: 'defeitos',
       titulo: "Defeitos",
+      x: 960, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "backoffice",
       conexoes: ["Lojas", "CD/Operações"],
@@ -188,64 +238,88 @@ const MapaInterativo = () => {
   // Dados dos departamentos de Varejo
   const departamentosVarejo: DepartamentoProps[] = [
     { 
-      id: 'lojas',
       titulo: "Lojas", 
+      x: 1140, 
+      y: 230, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "varejo", 
-      conexoes: ["clientes", "cd-operacoes", "suprimentos", "marketing"]
+      conexoes: ["Clientes", "CD/Operações", "Suprimentos", "Marketing"]
     },
     { 
-      id: 'e-commerce',
       titulo: "E-Commerce", 
+      x: 1140, 
+      y: 450, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "varejo", 
-      conexoes: ["infracommerce", "marketing", "ti", "clientes"]
+      conexoes: ["Infracommerce", "Marketing", "T.I", "Clientes"]
     },
     { 
-      id: 'vendas',
       titulo: "Vendas",
+      x: 240, 
+      y: 240, 
+      width: 120, 
+      height: 140, 
       color: "#A0A0A0", 
       tipo: "varejo",
-      conexoes: ["lojas", "marketing", "compras"]
+      conexoes: ["Lojas", "Marketing", "Compras"]
     },
     { 
-      id: 'servicos',
       titulo: "Serviços", 
+      x: 1140, 
+      y: 550, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "varejo", 
-      conexoes: ["lojas", "clientes"]
+      conexoes: ["Lojas", "Clientes"]
     },
   ];
 
   // Dados dos parceiros comerciais
   const parceirosComerciais: DepartamentoProps[] = [
     { 
-      id: 'clientes',
       titulo: "Clientes", 
+      x: 1320, 
+      y: 260, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "parceiros", 
-      conexoes: ["lojas", "e-commerce", "marketing"]
+      conexoes: ["Lojas", "E-Commerce", "Marketing"]
     },
     { 
-      id: 'fornecedores',
       titulo: "Fornecedores", 
+      x: 60, 
+      y: 260, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "parceiros", 
-      conexoes: ["compras", "cd-operacoes"]
+      conexoes: ["Compras", "CD/Operações"]
     },
     { 
-      id: 'inst-financeiras',
       titulo: "Inst. Financeiras", 
+      x: 650, 
+      y: 770, 
+      width: 180, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "parceiros", 
-      conexoes: ["financeiro"]
+      conexoes: ["Financeiro"]
     },
     { 
-      id: 'categorias',
       titulo: "Categorias", 
+      x: 960, 
+      y: 750, 
+      width: 120, 
+      height: 50, 
       color: "#A0A0A0", 
       tipo: "parceiros", 
-      conexoes: ["compras", "marketing", "lojas"]
+      conexoes: ["Compras", "Marketing", "Lojas"]
     },
   ];
 
@@ -253,178 +327,253 @@ const MapaInterativo = () => {
     return [...departamentosBackoffice, ...departamentosVarejo, ...parceirosComerciais];
   };
 
-  // Convert departments to ReactFlow nodes
-  const initialNodes = useMemo(() => {
-    return getAllDepartamentos().map((dep) => {
-      // Use relative positioning with x and y values converted to coordinates
-      // These values need to be adjusted based on your specific layout
-      let posX = 0;
-      let posY = 0;
-      
-      // Map departamento ID to position (this is just an example, adjust coordinates as needed)
-      switch(dep.id) {
-        case 'compras': posX = 420; posY = 230; break;
-        case 'financeiro': posX = 600; posY = 230; break;
-        case 'principal': posX = 240; posY = 70; break;
-        case 'auditoria': posX = 420; posY = 70; break;
-        case 'contabil': posX = 600; posY = 70; break;
-        case 'ti': posX = 420; posY = 390; break;
-        case 'ti-operacoes': posX = 600; posY = 390; break;
-        case 'recursos-humanos': posX = 780; posY = 70; break;
-        case 'fiscal': posX = 780; posY = 230; break;
-        case 'marketing': posX = 960; posY = 230; break;
-        case 'departamento-pessoal': posX = 960; posY = 70; break;
-        case 'controladoria': posX = 780; posY = 390; break;
-        case 'cd-loja-diferenciacao': posX = 960; posY = 390; break;
-        case 'diretoria-geral': posX = 240; posY = 140; break;
-        case 'sao-jose-esporte-clube': posX = 240; posY = 530; break;
-        case 'ti-processo-recursos': posX = 420; posY = 550; break;
-        case 'pessoal': posX = 600; posY = 550; break;
-        case 'suprimentos': posX = 780; posY = 550; break;
-        case 'defeitos': posX = 960; posY = 550; break;
-        case 'lojas': posX = 1140; posY = 230; break;
-        case 'e-commerce': posX = 1140; posY = 450; break;
-        case 'vendas': posX = 240; posY = 240; break;
-        case 'servicos': posX = 1140; posY = 550; break;
-        case 'clientes': posX = 1320; posY = 260; break;
-        case 'fornecedores': posX = 60; posY = 260; break;
-        case 'inst-financeiras': posX = 650; posY = 770; break;
-        case 'categorias': posX = 960; posY = 750; break;
-        default: break;
-      }
-
-      // Set node color based on department type
-      let className = '';
-      if (dep.tipo === 'backoffice') className = 'bg-[#4C72B1]';
-      if (dep.tipo === 'varejo') className = 'bg-[#499B54]';
-      if (dep.tipo === 'parceiros') className = 'bg-[#E39D25]';
-
-      return {
-        id: dep.id,
-        position: { x: posX, y: posY },
-        data: { 
-          label: dep.titulo,
-          tipo: dep.tipo,
-          subItens: dep.subItens || []
-        },
-        className: `${className} rounded p-2 text-white`,
-        style: { width: 120, height: 50, background: dep.color },
-      };
-    });
-  }, []);
-
-  // Create edges based on department connections
-  const initialEdges = useMemo(() => {
-    const edges = [];
-    getAllDepartamentos().forEach(dep => {
-      if (dep.conexoes) {
-        dep.conexoes.forEach(conexao => {
-          // Only create edges for valid connections
-          if (getAllDepartamentos().find(d => d.id === conexao)) {
-            edges.push({
-              id: `${dep.id}-${conexao}`,
-              source: dep.id,
-              target: conexao,
-              type: 'smoothstep',
-              animated: false,
-              style: { stroke: '#333' },
-              markerEnd: {
-                type: MarkerType.ArrowClosed,
-                color: '#333',
-              },
-            });
-          }
-        });
-      }
-    });
-    return edges;
-  }, []);
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const handleNodeClick = (event, node) => {
-    navigate(`/departamentos`, { state: { selectedDepartamento: node.data.label, tipo: node.data.tipo } });
+  const getDepartamentoPorTitulo = (titulo: string) => {
+    return getAllDepartamentos().find(d => d.titulo === titulo);
   };
 
-  // This will highlight connected nodes when hovering
-  const onNodeMouseEnter = useCallback((event, node) => {
-    setHoveredDepartamento(node.id);
-    
-    // Highlight the hovered node
-    setNodes(nds => 
-      nds.map(n => ({
-        ...n,
-        style: {
-          ...n.style,
-          opacity: n.id === node.id ? 1 : 0.5,
-          border: n.id === node.id ? '2px solid #000' : n.style.border,
-        },
-      }))
-    );
+  const criarCaixaDepartamento = (departamento: DepartamentoProps, index: number) => {
+    const isHovered = hoveredDepartamento === departamento.titulo;
+    const relatedDepartments = isHovered ? departamento.conexoes || [] : [];
 
-    // Highlight connected edges
-    setEdges(eds => 
-      eds.map(e => ({
-        ...e,
-        style: {
-          ...e.style,
-          stroke: (e.source === node.id || e.target === node.id) ? '#000' : '#333',
-          strokeWidth: (e.source === node.id || e.target === node.id) ? 2 : 1,
-          opacity: (e.source === node.id || e.target === node.id) ? 1 : 0.3,
-        }
-      }))
-    );
-  }, [setNodes, setEdges]);
+    return (
+      <g 
+        key={`${departamento.tipo}-${index}`}
+        onClick={() => handleDepartamentoClick(departamento.tipo, departamento.titulo)}
+        onMouseEnter={() => setHoveredDepartamento(departamento.titulo)}
+        onMouseLeave={() => setHoveredDepartamento(null)}
+        className="cursor-pointer"
+      >
+        {/* Caixa principal do departamento */}
+        <rect
+          x={departamento.x}
+          y={departamento.y}
+          width={departamento.width}
+          height={departamento.height}
+          fill={isHovered ? "#8C8C8C" : departamento.color}
+          stroke="#333"
+          strokeWidth="1"
+        />
+        
+        {/* Título do departamento */}
+        <rect
+          x={departamento.x}
+          y={departamento.y}
+          width={departamento.width}
+          height="20"
+          fill="#333"
+        />
+        <text
+          x={departamento.x + departamento.width / 2}
+          y={departamento.y + 12}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="white"
+          fontSize="10"
+          fontWeight="bold"
+        >
+          {departamento.titulo}
+        </text>
+        
+        {/* Nome do departamento maior no centro */}
+        <text
+          x={departamento.x + departamento.width / 2}
+          y={departamento.y + (departamento.height / 2) + 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fill="#333"
+          fontSize={departamento.titulo === "Vendas" ? "12" : "14"}
+          fontWeight="bold"
+        >
+          {departamento.titulo}
+        </text>
 
-  const onNodeMouseLeave = useCallback(() => {
-    setHoveredDepartamento(null);
-    
-    // Reset all node styles
-    setNodes(nds => 
-      nds.map(n => ({
-        ...n,
-        style: {
-          ...n.style,
-          opacity: 1,
-          border: '0px solid transparent',
-        },
-      }))
-    );
+        {/* Subitens para departamentos que os têm */}
+        {departamento.subItens && departamento.subItens.length > 0 && (
+          <>
+            {departamento.subItens.map((item, idx) => (
+              <rect
+                key={`subitem-${idx}`}
+                x={departamento.x}
+                y={departamento.y + departamento.height + (idx * 15)}
+                width={departamento.width}
+                height="15"
+                fill="#CCC"
+                stroke="#333"
+                strokeWidth="0.5"
+              />
+            ))}
+            
+            {departamento.subItens.map((item, idx) => (
+              <text
+                key={`subitem-text-${idx}`}
+                x={departamento.x + departamento.width / 2}
+                y={departamento.y + departamento.height + (idx * 15) + 7.5}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="#333"
+                fontSize="8"
+              >
+                {item}
+              </text>
+            ))}
+          </>
+        )}
 
-    // Reset all edge styles
-    setEdges(eds => 
-      eds.map(e => ({
-        ...e,
-        style: {
-          ...e.style,
-          stroke: '#333',
-          strokeWidth: 1,
-          opacity: 1,
-        }
-      }))
+        {/* Mostrar linhas de conexão quando um departamento é destacado */}
+        {isHovered && departamento.conexoes && departamento.conexoes.map((conexao, idx) => {
+          const depConexao = getDepartamentoPorTitulo(conexao);
+          if (!depConexao) return null;
+
+          // Calcular pontos de conexão
+          const x1 = departamento.x + departamento.width / 2;
+          const y1 = departamento.y + departamento.height / 2;
+          const x2 = depConexao.x + depConexao.width / 2;
+          const y2 = depConexao.y + depConexao.height / 2;
+
+          // Calculando pontos de controle para curvas
+          const dx = Math.abs(x2 - x1) * 0.5;
+          const dy = Math.abs(y2 - y1) * 0.5;
+          const controlPoint1X = x1 + (x2 > x1 ? dx : -dx);
+          const controlPoint1Y = y1;
+          const controlPoint2X = x2 - (x2 > x1 ? dx : -dx);
+          const controlPoint2Y = y2;
+
+          // Construir o caminho curvo
+          const path = `M ${x1} ${y1} C ${controlPoint1X} ${controlPoint1Y}, ${controlPoint2X} ${controlPoint2Y}, ${x2} ${y2}`;
+
+          return (
+            <g key={`conexao-${departamento.titulo}-${conexao}-${idx}`}>
+              <path 
+                d={path} 
+                fill="none" 
+                stroke="#333" 
+                strokeWidth="1" 
+                opacity="0.7" 
+              />
+            </g>
+          );
+        })}
+      </g>
     );
-  }, [setNodes, setEdges]);
+  };
+
+  const criarAreasGrupo = () => {
+    // BackOffice área
+    const backOfficeArea = {
+      x: 180,
+      y: 30,
+      width: 940,
+      height: 600,
+    };
+
+    // Varejo área
+    const varejoArea = {
+      x: 1090,
+      y: 180,
+      width: 200,
+      height: 450,
+    };
+
+    // Parceiros comerciais indicações
+    const parceirosTopLeft = {
+      x: 30, 
+      y: 30,
+      width: 130,
+      height: 500
+    };
+
+    const parceirosTopRight = {
+      x: 1310, 
+      y: 30,
+      width: 130,
+      height: 500
+    };
+
+    return (
+      <g>
+        {/* BackOffice */}
+        <rect 
+          x={backOfficeArea.x} 
+          y={backOfficeArea.y} 
+          width={backOfficeArea.width} 
+          height={backOfficeArea.height} 
+          stroke="#4C72B1" 
+          strokeWidth="2" 
+          fill="none" 
+        />
+        <text 
+          x={backOfficeArea.x + backOfficeArea.width - 80} 
+          y={backOfficeArea.y + 15} 
+          fill="#4C72B1" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          BACKOFFICE
+        </text>
+        
+        {/* Varejo */}
+        <rect 
+          x={varejoArea.x} 
+          y={varejoArea.y} 
+          width={varejoArea.width} 
+          height={varejoArea.height} 
+          stroke="#499B54" 
+          strokeWidth="2" 
+          fill="none" 
+        />
+        <text 
+          x={varejoArea.x + varejoArea.width - 60} 
+          y={varejoArea.y + 15} 
+          fill="#499B54" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          VAREJO
+        </text>
+        
+        {/* Parceiros Comerciais (Texto) */}
+        <text 
+          x={parceirosTopRight.x + parceirosTopRight.width - 120} 
+          y={parceirosTopRight.y + 15} 
+          fill="#E39D25" 
+          fontSize="12" 
+          fontWeight="bold"
+        >
+          PARCEIROS COMERCIAIS
+        </text>
+      </g>
+    );
+  };
 
   return (
-    <div className="w-full h-[600px]">
-      <ReactFlowProvider>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onNodeClick={handleNodeClick}
-          onNodeMouseEnter={onNodeMouseEnter}
-          onNodeMouseLeave={onNodeMouseLeave}
-          fitView
-          attributionPosition="bottom-right"
-        >
-          <Background />
-          <Controls />
-          <MiniMap />
-        </ReactFlow>
-      </ReactFlowProvider>
+    <div className="w-full overflow-auto">      
+      <svg 
+        width="1500" 
+        height="850" 
+        viewBox="0 0 1500 850" 
+        className="mx-auto border border-gray-200 rounded-lg shadow-inner bg-white"
+      >
+        {/* Definições para efeitos visuais */}
+        <defs>
+          <marker
+            id="arrowhead"
+            markerWidth="10"
+            markerHeight="7"
+            refX="9"
+            refY="3.5"
+            orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+          </marker>
+        </defs>
+        
+        {/* Áreas dos grupos */}
+        {criarAreasGrupo()}
+        
+        {/* Departamentos */}
+        {departamentosBackoffice.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+        {departamentosVarejo.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+        {parceirosComerciais.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+      </svg>
     </div>
   );
 };
