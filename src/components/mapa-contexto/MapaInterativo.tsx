@@ -1,8 +1,12 @@
-
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { X, Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 
 interface DepartamentoProps {
+  id: string;
   titulo: string;
   x: number;
   y: number;
@@ -14,334 +18,570 @@ interface DepartamentoProps {
   subItens?: string[];
 }
 
-const MapaInterativo = () => {
+interface ConexaoProps {
+  id: string;
+  source: string;
+  target: string;
+}
+
+interface MapaInterativoProps {
+  editMode: boolean;
+}
+
+const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
   const navigate = useNavigate();
+  const svgRef = useRef<SVGSVGElement>(null);
   const [hoveredDepartamento, setHoveredDepartamento] = useState<string | null>(null);
+  const [departamentos, setDepartamentos] = useState<DepartamentoProps[]>([]);
+  const [conexoes, setConexoes] = useState<ConexaoProps[]>([]);
+  const [draggedDep, setDraggedDep] = useState<string | null>(null);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [editingDepartamento, setEditingDepartamento] = useState<DepartamentoProps | null>(null);
+  const [creatingConexao, setCreatingConexao] = useState<{source: string; inProgress: boolean} | null>(null);
+  const [tempConexao, setTempConexao] = useState<{x1: number; y1: number; x2: number; y2: number} | null>(null);
   
-  const handleDepartamentoClick = (tipo: string, departamento: string) => {
-    navigate(`/departamentos`, { state: { selectedDepartamento: departamento, tipo } });
-  };
+  // Inicialização dos dados
+  useEffect(() => {
+    // Dados dos departamentos do BackOffice
+    const departamentosBackoffice: DepartamentoProps[] = [
+      { 
+        id: "compras",
+        titulo: "Compras", 
+        x: 420, 
+        y: 230, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["fornecedores", "controladoria", "cd-operacoes", "lojas"],
+        subItens: ["Análise de Compras", "Solicitação de Compras", "Controle de Estoque"]
+      },
+      { 
+        id: "financeiro",
+        titulo: "Financeiro", 
+        x: 600, 
+        y: 230, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["contabil", "controladoria", "inst-financeiras"],
+        subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
+      },
+      { 
+        id: "principal",
+        titulo: "Principal", 
+        x: 240, 
+        y: 70, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["diretoria-geral"],
+        subItens: []
+      },
+      { 
+        id: "auditoria",
+        titulo: "Auditoria", 
+        x: 420, 
+        y: 70, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["controladoria", "contabil"],
+        subItens: ["Controles Internos", "Auditorias", "Compliance"]
+      },
+      { 
+        id: "contabil",
+        titulo: "Contábil", 
+        x: 600, 
+        y: 70, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["financeiro", "fiscal", "auditoria"],
+        subItens: ["Fechamento Contábil", "Balancetes", "Tributos"]
+      },
+      { 
+        id: "ti",
+        titulo: "T.I", 
+        x: 420, 
+        y: 390, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["e-commerce", "infracommerce", "rh"],
+        subItens: ["Sistemas", "Infraestrutura", "Suporte"]
+      },
+      { 
+        id: "ti-operacoes",
+        titulo: "T.I / Operações", 
+        x: 600, 
+        y: 390, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["lojas", "cd-operacoes"],
+        subItens: ["Sistemas", "Logística", "Operacional"]
+      },
+      { 
+        id: "rh",
+        titulo: "Recursos Humanos", 
+        x: 780, 
+        y: 70, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["dp", "ti"],
+        subItens: ["Recrutamento", "Treinamento", "Benefícios"]
+      },
+      { 
+        id: "fiscal",
+        titulo: "Fiscal", 
+        x: 780, 
+        y: 230, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["contabil", "controladoria"],
+        subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
+      },
+      { 
+        id: "marketing",
+        titulo: "Marketing", 
+        x: 960, 
+        y: 230, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["e-commerce", "lojas", "clientes"],
+        subItens: ["Campanhas", "Mídia", "Marketing Digital"]
+      },
+      { 
+        id: "departamento-pessoal",
+        titulo: "Departamento Pessoal", 
+        x: 960, 
+        y: 70, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["rh"],
+        subItens: ["Folha de Pagamento", "Benefícios", "Contratos"]
+      },
+      { 
+        id: "controladoria",
+        titulo: "Controladoria", 
+        x: 780, 
+        y: 390, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["financeiro", "fiscal", "compras", "auditoria"],
+        subItens: ["Orçamentos", "Análises", "Relatórios", "Indicadores"]
+      },
+      { 
+        id: "cd-loja",
+        titulo: "CD/Loja (Diferenciação)", 
+        x: 960, 
+        y: 390, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice", 
+        conexoes: ["lojas", "cd-operacoes"],
+        subItens: ["Processos CD", "Processos Loja", "Diferenciação"]
+      },
+      { 
+        id: "diretoria-geral",
+        titulo: "Diretoria Geral", 
+        x: 240, 
+        y: 140, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["principal"],
+        subItens: []
+      },
+      {
+        id: "sjec",
+        titulo: "São José Esporte Clube",
+        x: 240, 
+        y: 530, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["sjec", "estadio"],
+        subItens: []
+      },
+      {
+        id: "ti-processo-recursos",
+        titulo: "T.I. Processo e Recursos",
+        x: 420, 
+        y: 550, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["ti", "lojas"],
+        subItens: ["Sistemas", "Processos", "Recursos"]
+      },
+      {
+        id: "pessoal",
+        titulo: "Pessoal",
+        x: 600, 
+        y: 550, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["rh", "dp"],
+        subItens: ["Folha", "Contratações", "Demissões"] 
+      },
+      {
+        id: "suprimentos",
+        titulo: "Suprimentos",
+        x: 780, 
+        y: 550, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["cd-operacoes", "lojas"],
+        subItens: ["Estoque", "Distribuição", "Logística"]
+      },
+      {
+        id: "defeitos",
+        titulo: "Defeitos",
+        x: 960, 
+        y: 550, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "backoffice",
+        conexoes: ["lojas", "cd-operacoes"],
+        subItens: ["Análise", "Tratativa", "Devolução"]
+      },
+    ];
 
-  // Dados dos departamentos do BackOffice
-  const departamentosBackoffice: DepartamentoProps[] = [
-    { 
-      titulo: "Compras", 
-      x: 420, 
-      y: 230, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Fornecedores", "Controladoria", "CD/Operações", "Lojas"],
-      subItens: ["Análise de Compras", "Solicitação de Compras", "Controle de Estoque"]
-    },
-    { 
-      titulo: "Financeiro", 
-      x: 600, 
-      y: 230, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Contábil", "Controladoria", "Inst. Financeiras"],
-      subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
-    },
-    { 
-      titulo: "Principal", 
-      x: 240, 
-      y: 70, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Diretoria Geral"],
-      subItens: []
-    },
-    { 
-      titulo: "Auditoria", 
-      x: 420, 
-      y: 70, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Controladoria", "Contábil"],
-      subItens: ["Controles Internos", "Auditorias", "Compliance"]
-    },
-    { 
-      titulo: "Contábil", 
-      x: 600, 
-      y: 70, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Financeiro", "Fiscal", "Auditoria"],
-      subItens: ["Fechamento Contábil", "Balancetes", "Tributos"]
-    },
-    { 
-      titulo: "T.I", 
-      x: 420, 
-      y: 390, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["E-Commerce", "Infracommerce", "RH"],
-      subItens: ["Sistemas", "Infraestrutura", "Suporte"]
-    },
-    { 
-      titulo: "T.I / Operações", 
-      x: 600, 
-      y: 390, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Lojas", "CD/Operações"],
-      subItens: ["Sistemas", "Logística", "Operacional"]
-    },
-    { 
-      titulo: "Recursos Humanos", 
-      x: 780, 
-      y: 70, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["DP", "T.I"],
-      subItens: ["Recrutamento", "Treinamento", "Benefícios"]
-    },
-    { 
-      titulo: "Fiscal", 
-      x: 780, 
-      y: 230, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Contábil", "Controladoria"],
-      subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
-    },
-    { 
-      titulo: "Marketing", 
-      x: 960, 
-      y: 230, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["E-Commerce", "Lojas", "Clientes"],
-      subItens: ["Campanhas", "Mídia", "Marketing Digital"]
-    },
-    { 
-      titulo: "Departamento Pessoal", 
-      x: 960, 
-      y: 70, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["RH"],
-      subItens: ["Folha de Pagamento", "Benefícios", "Contratos"]
-    },
-    { 
-      titulo: "Controladoria", 
-      x: 780, 
-      y: 390, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Financeiro", "Fiscal", "Compras", "Auditoria"],
-      subItens: ["Orçamentos", "Análises", "Relatórios", "Indicadores"]
-    },
-    { 
-      titulo: "CD/Loja (Diferenciação)", 
-      x: 960, 
-      y: 390, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice", 
-      conexoes: ["Lojas", "CD/Operações"],
-      subItens: ["Processos CD", "Processos Loja", "Diferenciação"]
-    },
-    { 
-      titulo: "Diretoria Geral", 
-      x: 240, 
-      y: 140, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["Principal"],
-      subItens: []
-    },
-    {
-      titulo: "São José Esporte Clube",
-      x: 240, 
-      y: 530, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["SJEC", "Estádio"],
-      subItens: []
-    },
-    {
-      titulo: "T.I. Processo e Recursos",
-      x: 420, 
-      y: 550, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["T.I", "Lojas"],
-      subItens: ["Sistemas", "Processos", "Recursos"]
-    },
-    {
-      titulo: "Pessoal",
-      x: 600, 
-      y: 550, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["RH", "DP"],
-      subItens: ["Folha", "Contratações", "Demissões"] 
-    },
-    {
-      titulo: "Suprimentos",
-      x: 780, 
-      y: 550, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["CD/Operações", "Lojas"],
-      subItens: ["Estoque", "Distribuição", "Logística"]
-    },
-    {
-      titulo: "Defeitos",
-      x: 960, 
-      y: 550, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "backoffice",
-      conexoes: ["Lojas", "CD/Operações"],
-      subItens: ["Análise", "Tratativa", "Devolução"]
-    },
-  ];
+    // Dados dos departamentos de Varejo
+    const departamentosVarejo: DepartamentoProps[] = [
+      { 
+        id: "lojas",
+        titulo: "Lojas", 
+        x: 1140, 
+        y: 230, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "varejo", 
+        conexoes: ["clientes", "cd-operacoes", "suprimentos", "marketing"]
+      },
+      { 
+        id: "e-commerce",
+        titulo: "E-Commerce", 
+        x: 1140, 
+        y: 450, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "varejo", 
+        conexoes: ["infracommerce", "marketing", "ti", "clientes"]
+      },
+      { 
+        id: "vendas",
+        titulo: "Vendas",
+        x: 240, 
+        y: 240, 
+        width: 120, 
+        height: 140, 
+        color: "#A0A0A0", 
+        tipo: "varejo",
+        conexoes: ["lojas", "marketing", "compras"]
+      },
+      { 
+        id: "servicos",
+        titulo: "Serviços", 
+        x: 1140, 
+        y: 550, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "varejo", 
+        conexoes: ["lojas", "clientes"]
+      },
+    ];
 
-  // Dados dos departamentos de Varejo
-  const departamentosVarejo: DepartamentoProps[] = [
-    { 
-      titulo: "Lojas", 
-      x: 1140, 
-      y: 230, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "varejo", 
-      conexoes: ["Clientes", "CD/Operações", "Suprimentos", "Marketing"]
-    },
-    { 
-      titulo: "E-Commerce", 
-      x: 1140, 
-      y: 450, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "varejo", 
-      conexoes: ["Infracommerce", "Marketing", "T.I", "Clientes"]
-    },
-    { 
-      titulo: "Vendas",
-      x: 240, 
-      y: 240, 
-      width: 120, 
-      height: 140, 
-      color: "#A0A0A0", 
-      tipo: "varejo",
-      conexoes: ["Lojas", "Marketing", "Compras"]
-    },
-    { 
-      titulo: "Serviços", 
-      x: 1140, 
-      y: 550, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "varejo", 
-      conexoes: ["Lojas", "Clientes"]
-    },
-  ];
+    // Dados dos parceiros comerciais
+    const parceirosComerciais: DepartamentoProps[] = [
+      { 
+        id: "clientes",
+        titulo: "Clientes", 
+        x: 1320, 
+        y: 260, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "parceiros", 
+        conexoes: ["lojas", "e-commerce", "marketing"]
+      },
+      { 
+        id: "fornecedores",
+        titulo: "Fornecedores", 
+        x: 60, 
+        y: 260, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "parceiros", 
+        conexoes: ["compras", "cd-operacoes"]
+      },
+      { 
+        id: "inst-financeiras",
+        titulo: "Inst. Financeiras", 
+        x: 650, 
+        y: 770, 
+        width: 180, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "parceiros", 
+        conexoes: ["financeiro"]
+      },
+      { 
+        id: "categorias",
+        titulo: "Categorias", 
+        x: 960, 
+        y: 750, 
+        width: 120, 
+        height: 50, 
+        color: "#A0A0A0", 
+        tipo: "parceiros", 
+        conexoes: ["compras", "marketing", "lojas"]
+      },
+    ];
 
-  // Dados dos parceiros comerciais
-  const parceirosComerciais: DepartamentoProps[] = [
-    { 
-      titulo: "Clientes", 
-      x: 1320, 
-      y: 260, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "parceiros", 
-      conexoes: ["Lojas", "E-Commerce", "Marketing"]
-    },
-    { 
-      titulo: "Fornecedores", 
-      x: 60, 
-      y: 260, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "parceiros", 
-      conexoes: ["Compras", "CD/Operações"]
-    },
-    { 
-      titulo: "Inst. Financeiras", 
-      x: 650, 
-      y: 770, 
-      width: 180, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "parceiros", 
-      conexoes: ["Financeiro"]
-    },
-    { 
-      titulo: "Categorias", 
-      x: 960, 
-      y: 750, 
-      width: 120, 
-      height: 50, 
-      color: "#A0A0A0", 
-      tipo: "parceiros", 
-      conexoes: ["Compras", "Marketing", "Lojas"]
-    },
-  ];
+    // Combinar todos os departamentos
+    const todosDepartamentos = [...departamentosBackoffice, ...departamentosVarejo, ...parceirosComerciais];
+    setDepartamentos(todosDepartamentos);
 
-  const getAllDepartamentos = () => {
-    return [...departamentosBackoffice, ...departamentosVarejo, ...parceirosComerciais];
-  };
+    // Criar conexões com base nas informações de conexões dos departamentos
+    const conexoesGeradas: ConexaoProps[] = [];
+    
+    todosDepartamentos.forEach(departamento => {
+      if (departamento.conexoes) {
+        departamento.conexoes.forEach(conexao => {
+          // Evitar duplicações de conexões
+          const conexaoExistente = conexoesGeradas.some(
+            c => (c.source === departamento.id && c.target === conexao) || 
+                (c.source === conexao && c.target === departamento.id)
+          );
+          
+          if (!conexaoExistente) {
+            conexoesGeradas.push({
+              id: `${departamento.id}-${conexao}`,
+              source: departamento.id,
+              target: conexao
+            });
+          }
+        });
+      }
+    });
+    
+    setConexoes(conexoesGeradas);
+  }, []);
 
-  const getDepartamentoPorTitulo = (titulo: string) => {
-    return getAllDepartamentos().find(d => d.titulo === titulo);
-  };
+  const handleDepartamentoClick = useCallback((e: React.MouseEvent, departamento: DepartamentoProps) => {
+    if (!editMode) {
+      navigate(`/departamentos`, { state: { selectedDepartamento: departamento.titulo, tipo: departamento.tipo } });
+      return;
+    }
+    
+    if (creatingConexao?.inProgress) {
+      // Finalizar criação de conexão
+      const newConexao = {
+        id: `${creatingConexao.source}-${departamento.id}`,
+        source: creatingConexao.source,
+        target: departamento.id
+      };
+      
+      // Verificar se essa conexão já existe
+      const conexaoExistente = conexoes.some(
+        c => (c.source === newConexao.source && c.target === newConexao.target) || 
+            (c.source === newConexao.target && c.target === newConexao.source)
+      );
+      
+      if (!conexaoExistente && newConexao.source !== newConexao.target) {
+        setConexoes([...conexoes, newConexao]);
+        
+        // Atualizar as conexões do departamento de origem
+        setDepartamentos(deps => deps.map(dep => {
+          if (dep.id === creatingConexao.source) {
+            const novasConexoes = [...(dep.conexoes || [])];
+            if (!novasConexoes.includes(departamento.id)) {
+              novasConexoes.push(departamento.id);
+            }
+            return { ...dep, conexoes: novasConexoes };
+          }
+          return dep;
+        }));
+      }
+      
+      setCreatingConexao(null);
+      setTempConexao(null);
+    } else if (e.shiftKey && editMode) {
+      // Iniciar criação de conexão
+      setCreatingConexao({ source: departamento.id, inProgress: true });
+    } else if (editMode && e.ctrlKey) {
+      // Editar detalhes do departamento
+      setEditingDepartamento({...departamento});
+      setDialogOpen(true);
+    }
+  }, [editMode, navigate, creatingConexao, conexoes]);
 
-  const criarCaixaDepartamento = (departamento: DepartamentoProps, index: number) => {
-    const isHovered = hoveredDepartamento === departamento.titulo;
-    const relatedDepartments = isHovered ? departamento.conexoes || [] : [];
+  const handleMouseMove = useCallback((e: React.MouseEvent<SVGElement>) => {
+    if (editMode) {
+      // Arrastar departamento
+      if (draggedDep !== null) {
+        const svgRect = svgRef.current?.getBoundingClientRect();
+        if (svgRect) {
+          const x = e.clientX - svgRect.left - dragOffset.x;
+          const y = e.clientY - svgRect.top - dragOffset.y;
+          
+          setDepartamentos(deps => deps.map(dep => 
+            dep.id === draggedDep ? { ...dep, x, y } : dep
+          ));
+        }
+      }
+      
+      // Atualizar conexão temporária durante a criação
+      if (creatingConexao?.inProgress && tempConexao) {
+        const svgRect = svgRef.current?.getBoundingClientRect();
+        if (svgRect) {
+          setTempConexao({
+            ...tempConexao,
+            x2: e.clientX - svgRect.left,
+            y2: e.clientY - svgRect.top
+          });
+        }
+      }
+    }
+  }, [editMode, draggedDep, dragOffset, creatingConexao, tempConexao]);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent, departamento: DepartamentoProps) => {
+    if (editMode && !e.shiftKey && !e.ctrlKey) {
+      e.stopPropagation();
+      setDraggedDep(departamento.id);
+      const svgRect = svgRef.current?.getBoundingClientRect();
+      if (svgRect) {
+        setDragOffset({
+          x: e.clientX - svgRect.left - departamento.x,
+          y: e.clientY - svgRect.top - departamento.y
+        });
+      }
+      
+      if (creatingConexao?.inProgress) {
+        const sourceDep = departamentos.find(d => d.id === creatingConexao.source);
+        if (sourceDep) {
+          setTempConexao({
+            x1: sourceDep.x + sourceDep.width / 2,
+            y1: sourceDep.y + sourceDep.height / 2,
+            x2: e.clientX - (svgRect?.left || 0),
+            y2: e.clientY - (svgRect?.top || 0)
+          });
+        }
+      }
+    }
+  }, [editMode, creatingConexao, departamentos]);
+
+  const handleMouseUp = useCallback(() => {
+    setDraggedDep(null);
+  }, []);
+
+  const handleRemoveConexao = useCallback((conexaoId: string) => {
+    if (editMode) {
+      setConexoes(conexoes.filter(c => c.id !== conexaoId));
+    }
+  }, [editMode, conexoes]);
+
+  const handleAddDepartamento = useCallback(() => {
+    if (editMode) {
+      const newId = `novo-dep-${Date.now()}`;
+      const newDepartamento: DepartamentoProps = {
+        id: newId,
+        titulo: "Novo Departamento",
+        x: 500,
+        y: 300,
+        width: 120,
+        height: 50,
+        color: "#A0A0A0",
+        tipo: "backoffice",
+        conexoes: [],
+        subItens: []
+      };
+      
+      setDepartamentos([...departamentos, newDepartamento]);
+      setEditingDepartamento(newDepartamento);
+      setDialogOpen(true);
+    }
+  }, [editMode, departamentos]);
+
+  const handleRemoveDepartamento = useCallback((e: React.MouseEvent, departamentoId: string) => {
+    e.stopPropagation();
+    if (editMode) {
+      // Remover conexões associadas a este departamento
+      setConexoes(conexoes.filter(c => c.source !== departamentoId && c.target !== departamentoId));
+      
+      // Remover departamento
+      setDepartamentos(departamentos.filter(d => d.id !== departamentoId));
+    }
+  }, [editMode, conexoes, departamentos]);
+
+  const handleSaveDepartamento = useCallback(() => {
+    if (editingDepartamento) {
+      setDepartamentos(deps => deps.map(dep => 
+        dep.id === editingDepartamento.id ? editingDepartamento : dep
+      ));
+      setDialogOpen(false);
+      setEditingDepartamento(null);
+    }
+  }, [editingDepartamento]);
+
+  const getDepartamentoPorId = useCallback((id: string) => {
+    return departamentos.find(d => d.id === id);
+  }, [departamentos]);
+
+  const criarCaixaDepartamento = useCallback((departamento: DepartamentoProps, index: number) => {
+    const isHovered = hoveredDepartamento === departamento.id;
+    const isBeingDragged = draggedDep === departamento.id;
+    
+    const getTipoColor = (tipo: string) => {
+      switch (tipo) {
+        case 'backoffice': return "#4C72B1";
+        case 'varejo': return "#499B54";
+        case 'parceiros': return "#E39D25";
+        default: return "#A0A0A0";
+      }
+    };
 
     return (
       <g 
-        key={`${departamento.tipo}-${index}`}
-        onClick={() => handleDepartamentoClick(departamento.tipo, departamento.titulo)}
-        onMouseEnter={() => setHoveredDepartamento(departamento.titulo)}
+        key={`${departamento.tipo}-${departamento.id}-${index}`}
+        onClick={(e) => handleDepartamentoClick(e, departamento)}
+        onMouseEnter={() => setHoveredDepartamento(departamento.id)}
         onMouseLeave={() => setHoveredDepartamento(null)}
-        className="cursor-pointer"
+        onMouseDown={(e) => handleMouseDown(e, departamento)}
+        className={`cursor-pointer ${isBeingDragged ? 'opacity-60' : ''}`}
       >
         {/* Caixa principal do departamento */}
         <rect
@@ -350,8 +590,10 @@ const MapaInterativo = () => {
           width={departamento.width}
           height={departamento.height}
           fill={isHovered ? "#8C8C8C" : departamento.color}
-          stroke="#333"
-          strokeWidth="1"
+          stroke={getTipoColor(departamento.tipo)}
+          strokeWidth="1.5"
+          rx="2"
+          ry="2"
         />
         
         {/* Título do departamento */}
@@ -360,7 +602,9 @@ const MapaInterativo = () => {
           y={departamento.y}
           width={departamento.width}
           height="20"
-          fill="#333"
+          fill={getTipoColor(departamento.tipo)}
+          rx="2"
+          ry="2"
         />
         <text
           x={departamento.x + departamento.width / 2}
@@ -386,6 +630,32 @@ const MapaInterativo = () => {
         >
           {departamento.titulo}
         </text>
+
+        {/* Botão de remoção (visível apenas no modo de edição) */}
+        {editMode && (
+          <g 
+            onClick={(e) => handleRemoveDepartamento(e, departamento.id)} 
+            className="cursor-pointer"
+          >
+            <circle
+              cx={departamento.x + departamento.width - 8}
+              cy={departamento.y + 8}
+              r="7"
+              fill="red"
+            />
+            <text
+              x={departamento.x + departamento.width - 8}
+              y={departamento.y + 10}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill="white"
+              fontSize="10"
+              fontWeight="bold"
+            >
+              ×
+            </text>
+          </g>
+        )}
 
         {/* Subitens para departamentos que os têm */}
         {departamento.subItens && departamento.subItens.length > 0 && (
@@ -418,18 +688,25 @@ const MapaInterativo = () => {
             ))}
           </>
         )}
-
-        {/* Mostrar linhas de conexão quando um departamento é destacado */}
-        {isHovered && departamento.conexoes && departamento.conexoes.map((conexao, idx) => {
-          const depConexao = getDepartamentoPorTitulo(conexao);
-          if (!depConexao) return null;
-
+      </g>
+    ), [editMode, hoveredDepartamento, draggedDep, handleDepartamentoClick, handleMouseDown, handleRemoveDepartamento]);
+  
+  const criarConexoes = useCallback(() => {
+    return (
+      <g>
+        {/* Conexões existentes */}
+        {conexoes.map((conexao) => {
+          const sourceDep = getDepartamentoPorId(conexao.source);
+          const targetDep = getDepartamentoPorId(conexao.target);
+          
+          if (!sourceDep || !targetDep) return null;
+          
           // Calcular pontos de conexão
-          const x1 = departamento.x + departamento.width / 2;
-          const y1 = departamento.y + departamento.height / 2;
-          const x2 = depConexao.x + depConexao.width / 2;
-          const y2 = depConexao.y + depConexao.height / 2;
-
+          const x1 = sourceDep.x + sourceDep.width / 2;
+          const y1 = sourceDep.y + sourceDep.height / 2;
+          const x2 = targetDep.x + targetDep.width / 2;
+          const y2 = targetDep.y + targetDep.height / 2;
+          
           // Calculando pontos de controle para curvas
           const dx = Math.abs(x2 - x1) * 0.5;
           const dy = Math.abs(y2 - y1) * 0.5;
@@ -437,12 +714,16 @@ const MapaInterativo = () => {
           const controlPoint1Y = y1;
           const controlPoint2X = x2 - (x2 > x1 ? dx : -dx);
           const controlPoint2Y = y2;
-
+          
           // Construir o caminho curvo
           const path = `M ${x1} ${y1} C ${controlPoint1X} ${controlPoint1Y}, ${controlPoint2X} ${controlPoint2Y}, ${x2} ${y2}`;
+          
+          // Ponto médio para o botão de remoção
+          const midX = (x1 + x2) / 2;
+          const midY = (y1 + y2) / 2;
 
           return (
-            <g key={`conexao-${departamento.titulo}-${conexao}-${idx}`}>
+            <g key={conexao.id}>
               <path 
                 d={path} 
                 fill="none" 
@@ -450,14 +731,53 @@ const MapaInterativo = () => {
                 strokeWidth="1" 
                 opacity="0.7" 
               />
+              
+              {/* Botão para remover conexão (visível apenas no modo de edição) */}
+              {editMode && (
+                <g 
+                  onClick={() => handleRemoveConexao(conexao.id)} 
+                  className="cursor-pointer"
+                >
+                  <circle
+                    cx={midX}
+                    cy={midY}
+                    r="8"
+                    fill="white"
+                    stroke="#333"
+                    strokeWidth="1"
+                  />
+                  <text
+                    x={midX}
+                    y={midY}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fill="#333"
+                    fontSize="12"
+                    fontWeight="bold"
+                  >
+                    ×
+                  </text>
+                </g>
+              )}
             </g>
           );
         })}
+        
+        {/* Conexão temporária durante a criação */}
+        {tempConexao && (
+          <path 
+            d={`M ${tempConexao.x1} ${tempConexao.y1} C ${tempConexao.x1 + 50} ${tempConexao.y1}, ${tempConexao.x2 - 50} ${tempConexao.y2}, ${tempConexao.x2} ${tempConexao.y2}`} 
+            fill="none" 
+            stroke="#333" 
+            strokeWidth="1" 
+            strokeDasharray="5,5" 
+          />
+        )}
       </g>
     );
-  };
+  }, [conexoes, tempConexao, editMode, getDepartamentoPorId, handleRemoveConexao]);
 
-  const criarAreasGrupo = () => {
+  const criarAreasGrupo = useCallback(() => {
     // BackOffice área
     const backOfficeArea = {
       x: 180,
@@ -543,15 +863,38 @@ const MapaInterativo = () => {
         </text>
       </g>
     );
-  };
+  }, []);
 
   return (
-    <div className="w-full overflow-auto">      
+    <div className="w-full overflow-auto">
+      {editMode && (
+        <div className="mb-4 flex justify-between items-center bg-gray-100 p-3 rounded">
+          <div className="text-sm text-gray-600">
+            <p><strong>Instruções:</strong></p>
+            <ul className="list-disc pl-5 text-xs">
+              <li>Arraste os blocos para movê-los</li>
+              <li>Pressione Shift + clique para criar conexão entre dois blocos</li>
+              <li>Pressione Ctrl + clique para editar um bloco</li>
+              <li>Clique no X vermelho para remover um bloco</li>
+              <li>Clique no X nas conexões para removê-las</li>
+            </ul>
+          </div>
+          <Button onClick={handleAddDepartamento} variant="outline" size="sm" className="flex items-center gap-1">
+            <Plus size={16} />
+            Adicionar Bloco
+          </Button>
+        </div>
+      )}
+      
       <svg 
+        ref={svgRef}
         width="1500" 
         height="850" 
         viewBox="0 0 1500 850" 
         className="mx-auto border border-gray-200 rounded-lg shadow-inner bg-white"
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
       >
         {/* Definições para efeitos visuais */}
         <defs>
@@ -569,11 +912,98 @@ const MapaInterativo = () => {
         {/* Áreas dos grupos */}
         {criarAreasGrupo()}
         
+        {/* Conexões entre departamentos */}
+        {criarConexoes()}
+        
         {/* Departamentos */}
-        {departamentosBackoffice.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
-        {departamentosVarejo.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
-        {parceirosComerciais.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+        {departamentos.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
       </svg>
+      
+      {/* Dialog para editar departamentos */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Editar Departamento</DialogTitle>
+          </DialogHeader>
+          
+          {editingDepartamento && (
+            <div className="grid gap-4 py-4">
+              <div className="grid grid-cols-4 items-center gap-4">
+                <label htmlFor="titulo" className="text-right">Título:</label>
+                <Input
+                  id="titulo"
+                  className="col-span-3"
+                  value={editingDepartamento.titulo}
+                  onChange={(e) => setEditingDepartamento({...editingDepartamento, titulo: e.target.value})}
+                />
+              </div>
+              
+              <div className="grid grid-cols-4 items-center gap-4">
+                <label htmlFor="tipo" className="text-right">Tipo:</label>
+                <select
+                  id="tipo"
+                  className="col-span-3 border rounded p-2"
+                  value={editingDepartamento.tipo}
+                  onChange={(e) => setEditingDepartamento({
+                    ...editingDepartamento, 
+                    tipo: e.target.value as 'backoffice' | 'varejo' | 'parceiros'
+                  })}
+                >
+                  <option value="backoffice">BackOffice</option>
+                  <option value="varejo">Varejo</option>
+                  <option value="parceiros">Parceiros Comerciais</option>
+                </select>
+              </div>
+              
+              <div className="grid grid-cols-4 items-center gap-4">
+                <label className="text-right">Sub-itens:</label>
+                <div className="col-span-3 border rounded p-2 max-h-40 overflow-y-auto">
+                  {editingDepartamento.subItens?.map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-2 mb-2">
+                      <Input
+                        value={item}
+                        onChange={(e) => {
+                          const novoSubItens = [...(editingDepartamento.subItens || [])];
+                          novoSubItens[idx] = e.target.value;
+                          setEditingDepartamento({...editingDepartamento, subItens: novoSubItens});
+                        }}
+                        className="flex-1"
+                      />
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          const novoSubItens = [...(editingDepartamento.subItens || [])];
+                          novoSubItens.splice(idx, 1);
+                          setEditingDepartamento({...editingDepartamento, subItens: novoSubItens});
+                        }}
+                      >
+                        <X size={16} />
+                      </Button>
+                    </div>
+                  ))}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full mt-2"
+                    onClick={() => {
+                      const novoSubItens = [...(editingDepartamento.subItens || []), "Novo Item"];
+                      setEditingDepartamento({...editingDepartamento, subItens: novoSubItens});
+                    }}
+                  >
+                    <Plus size={16} className="mr-1" /> Adicionar Sub-item
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancelar</Button>
+            <Button onClick={handleSaveDepartamento}>Salvar</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
