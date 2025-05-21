@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
@@ -37,8 +36,21 @@ const Sidebar = () => {
   return (
     <div className={`bg-sidebar h-screen ${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 flex flex-col`}>
       <div className="p-4 flex items-center justify-between border-b border-sidebar-accent">
-        {!collapsed && (
-          <h1 className="text-white font-bold text-xl">Processos Digitais</h1>
+        {!collapsed ? (
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/5406f15c-6175-4a20-a820-150032c72f42.png" 
+              alt="Grupo Oscar" 
+              className="h-8 mr-2" 
+            />
+            <h1 className="text-white font-bold text-xl">Processos Digitais</h1>
+          </div>
+        ) : (
+          <img 
+            src="/lovable-uploads/5406f15c-6175-4a20-a820-150032c72f42.png" 
+            alt="Grupo Oscar" 
+            className="h-8 mx-auto" 
+          />
         )}
         <button 
           onClick={() => setCollapsed(!collapsed)}
