@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Plus } from 'lucide-react';
@@ -689,7 +690,8 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
           </>
         )}
       </g>
-    ), [editMode, hoveredDepartamento, draggedDep, handleDepartamentoClick, handleMouseDown, handleRemoveDepartamento]);
+    );
+  }, [editMode, hoveredDepartamento, draggedDep, handleDepartamentoClick, handleMouseDown, handleRemoveDepartamento]);
   
   const criarConexoes = useCallback(() => {
     return (
