@@ -29,6 +29,9 @@ interface MapaInterativoProps {
   editMode: boolean;
 }
 
+// Remover imagem de referência do mapa
+// Não há mais import mapaRef
+
 const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
   const navigate = useNavigate();
   const svgRef = useRef<SVGSVGElement>(null);
@@ -42,7 +45,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
   const [creatingConexao, setCreatingConexao] = useState<{source: string; inProgress: boolean} | null>(null);
   const [tempConexao, setTempConexao] = useState<{x1: number; y1: number; x2: number; y2: number} | null>(null);
 
-  // Cores fiéis ao mapa da imagem:
+  // Cores
   const deepBlue = "#1e3a8a";
   const boxGray = "#232738";
   const areaBackOffice = "#334155";
@@ -50,17 +53,16 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
   const areaParceiros = "#dfa23b";
   const textWhite = "#ffffff";
 
-  // Exemplo: redefinir departamentos para alinhar com a imagem fornecida
+  // Inicialização dos departamentos - apenas blocos (sem imagem/visual fiel)
   useEffect(() => {
-    // Apenas padrão visual/layout por enquanto
-    const departamentosFieis: DepartamentoProps[] = [
+    const departamentosIniciais: DepartamentoProps[] = [
       {
         id: "fiscal",
         titulo: "Fiscal",
-        x: 210,
+        x: 250,
         y: 150,
-        width: 145,
-        height: 52,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "backoffice",
         conexoes: [],
@@ -69,10 +71,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "compras",
         titulo: "Compras",
-        x: 370,
-        y: 78,
-        width: 145,
-        height: 52,
+        x: 400,
+        y: 90,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "backoffice",
         conexoes: [],
@@ -81,10 +83,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "financeiro",
         titulo: "Financeiro",
-        x: 540,
+        x: 570,
         y: 150,
-        width: 145,
-        height: 52,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "backoffice",
         conexoes: [],
@@ -93,10 +95,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "controladoria",
         titulo: "Controladoria",
-        x: 540,
+        x: 570,
         y: 230,
-        width: 145,
-        height: 52,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "backoffice",
         conexoes: [],
@@ -105,10 +107,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "marketing",
         titulo: "Marketing",
-        x: 710,
+        x: 730,
         y: 150,
-        width: 145,
-        height: 52,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "backoffice",
         conexoes: [],
@@ -117,10 +119,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "lojas",
         titulo: "Lojas",
-        x: 1100,
-        y: 112,
-        width: 145,
-        height: 52,
+        x: 1050,
+        y: 120,
+        width: 140,
+        height: 48,
         color: boxGray,
         tipo: "varejo",
         conexoes: [],
@@ -129,10 +131,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "clientes",
         titulo: "Clientes",
-        x: 1240,
-        y: 250,
-        width: 166,
-        height: 52,
+        x: 1220,
+        y: 230,
+        width: 150,
+        height: 48,
         color: boxGray,
         tipo: "parceiros",
         conexoes: [],
@@ -141,150 +143,33 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       {
         id: "fornecedores",
         titulo: "Fornecedores",
-        x: 40,
-        y: 250,
-        width: 166,
-        height: 52,
-        color: boxGray,
-        tipo: "parceiros",
-        conexoes: [],
-        subItens: [],
-      },
-      {
-        id: "instituicoes",
-        titulo: "Instituições Financeiras",
-        x: 650,
-        y: 550,
-        width: 280,
-        height: 52,
-        color: boxGray,
-        tipo: "parceiros",
-        conexoes: [],
-        subItens: [],
-      },
-      {
-        id: "sjec",
-        titulo: "São José Esporte Clube",
-        x: 370,
-        y: 550,
-        width: 180,
-        height: 52,
-        color: boxGray,
-        tipo: "parceiros",
-        conexoes: [],
-        subItens: [],
-      },
-      {
-        id: "estadio",
-        titulo: "Estádio Martins Pereira",
-        x: 370,
-        y: 620,
-        width: 180,
-        height: 52,
+        x: 70,
+        y: 230,
+        width: 150,
+        height: 48,
         color: boxGray,
         tipo: "parceiros",
         conexoes: [],
         subItens: [],
       },
     ];
-    setDepartamentos(departamentosFieis);
+    setDepartamentos(departamentosIniciais);
     setConexoes([]);
   }, []);
 
-  // Caixas e áreas com design fiel
-  const criarAreasGrupoFiel = useCallback(() => {
-    // Áreas BackOffice/Varejo/Clientes desenhadas igual a imagem
-    return (
-      <g>
-        {/* Fundo azul escuro */}
-        <rect
-          x={0}
-          y={0}
-          width={1500}
-          height={850}
-          fill={deepBlue}
-        />
-        {/* Área BackOffice */}
-        <rect
-          x={110}
-          y={60}
-          width={940}
-          height={384}
-          fill="none"
-          stroke={areaBackOffice}
-          strokeWidth={7}
-          rx={24}
-        />
-        <text
-          x={640}
-          y={95}
-          textAnchor="middle"
-          fill={areaBackOffice}
-          fontSize="32"
-          fontWeight="bold"
-        >
-          BACKOFFICE
-        </text>
-        {/* Área Varejo */}
-        <rect
-          x={1090}
-          y={60}
-          width={335}
-          height={384}
-          fill="none"
-          stroke={areaVarejo}
-          strokeWidth={7}
-          rx={24}
-        />
-        <text
-          x={1248}
-          y={95}
-          textAnchor="middle"
-          fill={areaVarejo}
-          fontSize="32"
-          fontWeight="bold"
-        >
-          VAREJO
-        </text>
-        {/* Área CLIENTES e Parceiros */}
-        <rect
-          x={20}
-          y={212}
-          width={1460}
-          height={180}
-          fill="none"
-          stroke={areaParceiros}
-          strokeWidth={7}
-          rx={24}
-        />
-        <text
-          x={730}
-          y={245}
-          textAnchor="middle"
-          fill={areaParceiros}
-          fontSize="32"
-          fontWeight="bold"
-        >
-          CLIENTES & PARCEIROS
-        </text>
-      </g>
-    );
-  }, []);
-
-  // Caixa fiel estilizada do departamento
-  const criarCaixaDepartamentoFiel = useCallback((departamento: DepartamentoProps, index: number) => (
+  // Apenas renderização dos blocos e conexões
+  const criarCaixaDepartamento = useCallback((departamento: DepartamentoProps, index: number) => (
     <g key={`dep-${departamento.id}-${index}`}>
       <rect
         x={departamento.x}
         y={departamento.y}
         width={departamento.width}
         height={departamento.height}
-        rx={14}
-        ry={14}
+        rx={12}
+        ry={12}
         fill={departamento.color}
         stroke="#fff"
-        strokeWidth={3}
-        filter="drop-shadow(2px 2px 7px rgba(0,0,0,0.22))"
+        strokeWidth={2}
       />
       <text
         x={departamento.x + departamento.width / 2}
@@ -292,9 +177,8 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
         textAnchor="middle"
         dominantBaseline="middle"
         fill={textWhite}
-        fontSize="20"
+        fontSize="18"
         fontWeight="bold"
-        style={{ letterSpacing: '0.5px' }}
       >
         {departamento.titulo}
       </text>
@@ -450,17 +334,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
 
   return (
     <div className="w-full overflow-auto">
-      {/* Imagem de referência fiel ao topo */}
-      <div className="flex flex-col items-center mb-8">
-        <img
-          src={mapaRef}
-          alt="Mapa de Contexto Referência"
-          className="w-full max-w-[900px] rounded-xl shadow-xl border border-gray-300"
-          style={{ background: '#1e3a8a' }}
-        />
-        <p className="text-xs text-gray-500 mt-2">Mapa de referência enviado pelo usuário</p>
-      </div>
-      {/* Resto do componente (editor, SVG, etc) */}
+      {/* Removido: Imagem de referência */}
       {editMode && (
         <div className="mb-4 flex justify-between items-center bg-gray-100 p-3 rounded">
           <div className="text-sm text-gray-600">
@@ -481,19 +355,118 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       )}
       <svg
         ref={svgRef}
-        width="1500"
-        height="850"
-        viewBox="0 0 1500 850"
+        width="1400"
+        height="600"
+        viewBox="0 0 1400 600"
         className="mx-auto border border-gray-200 rounded-lg shadow-inner"
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         style={{ background: deepBlue }}
       >
-        {/* NOVA: Fundo, áreas e rótulos fiéis */}
-        {criarAreasGrupoFiel()}
-        {/* NOVA: Blocos fiéis */}
-        {departamentos.map((departamento, index) => criarCaixaDepartamentoFiel(departamento, index))}
+        {/* Renderizar blocos */}
+        {departamentos.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+         {conexoes.map(conexao => {
+          const sourceDep = departamentos.find(d => d.id === conexao.source);
+          const targetDep = departamentos.find(d => d.id === conexao.target);
+
+          if (!sourceDep || !targetDep) {
+            return null;
+          }
+
+          const x1 = sourceDep.x + sourceDep.width / 2;
+          const y1 = sourceDep.y + sourceDep.height / 2;
+          const x2 = targetDep.x + targetDep.width / 2;
+          const y2 = targetDep.y + targetDep.height / 2;
+
+          return (
+            <g key={conexao.id}>
+              <path
+                d={`M${x1},${y1} L${x2},${y2}`}
+                stroke="#9ca3af"
+                strokeWidth="2"
+              />
+              {editMode && (
+                <X
+                  size={16}
+                  className="cursor-pointer absolute"
+                  style={{
+                    left: (x1 + x2) / 2 - 8,
+                    top: (y1 + y2) / 2 - 8,
+                    color: '#dc2626',
+                    backgroundColor: 'white',
+                    borderRadius: '50%'
+                  }}
+                  onClick={() => handleRemoveConexao(conexao.id)}
+                />
+              )}
+            </g>
+          );
+        })}
+        {creatingConexao?.inProgress && tempConexao && (
+          <line
+            x1={tempConexao.x1}
+            y1={tempConexao.y1}
+            x2={tempConexao.x2}
+            y2={tempConexao.y2}
+            stroke="#6b7280"
+            strokeWidth="2"
+            strokeDasharray="4"
+          />
+        )}
+        {departamentos.map((departamento) => (
+          <g
+            key={departamento.id}
+            onClick={(e) => handleDepartamentoClick(e, departamento)}
+            onMouseDown={(e) => handleMouseDown(e, departamento)}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            style={{ cursor: editMode ? 'grab' : 'pointer' }}
+            onMouseEnter={() => setHoveredDepartamento(departamento.id)}
+            onMouseLeave={() => setHoveredDepartamento(null)}
+          >
+            <rect
+              x={departamento.x}
+              y={departamento.y}
+              width={departamento.width}
+              height={departamento.height}
+              rx="12"
+              ry="12"
+              fill={departamento.color}
+              stroke="#fff"
+              strokeWidth="2"
+              style={{
+                filter: hoveredDepartamento === departamento.id ? 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))' : 'none',
+                transition: 'filter 0.3s ease'
+              }}
+            />
+            <text
+              x={departamento.x + departamento.width / 2}
+              y={departamento.y + departamento.height / 2 + 5}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill={textWhite}
+              fontSize="18"
+              fontWeight="bold"
+            >
+              {departamento.titulo}
+            </text>
+            {editMode && (
+              <X
+                size={16}
+                className="cursor-pointer absolute"
+                style={{
+                  top: departamento.y - 8,
+                  left: departamento.x + departamento.width - 8,
+                  color: '#dc2626',
+                  backgroundColor: 'white',
+                  borderRadius: '50%'
+                }}
+                onClick={(e) => handleRemoveDepartamento(e, departamento.id)}
+              />
+            )}
+          </g>
+        ))}
       </svg>
       {/* Dialog para editar departamentos */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
