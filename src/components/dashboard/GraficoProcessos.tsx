@@ -10,15 +10,46 @@ import {
   ResponsiveContainer,
   Legend
 } from 'recharts';
+import { FINData } from '@/hooks/useFINData';
 
-// Dados fictícios para o gráfico de processos por nível
-const data = [
-  { nome: 'Operacionais', quantidade: 87 },
-  { nome: 'Táticos', quantidade: 58 },
-  { nome: 'Estratégicos', quantidade: 42 },
-];
+interface GraficoProcessosProps {
+  finData?: FINData[];
+}
 
-const GraficoProcessos = () => {
+const GraficoProcessos = ({ finData }: GraficoProcessosProps) => {
+  console.log('GraficoProcessos - finData recebido:', finData);
+
+  // Processar dados para o gráfico
+  const processarDados = () => {
+    if (!finData || finData.length === 0) {
+      return [
+        { nome: 'Operacionais', quantidade: 0 },
+        { nome: 'Táticos', quantidade: 0 },
+        { nome: 'Estratégicos', quantidade: 0 },
+      ];
+    }
+
+    const operacionais = finData.filter(item => 
+      item['Classificação_Nível_Processo']?.toLowerCase().includes('operacion')
+    ).length;
+    
+    const taticos = finData.filter(item => 
+      item['Classificação_Nível_Processo']?.toLowerCase().includes('tát')
+    ).length;
+    
+    const estrategicos = finData.filter(item => 
+      item['Classificação_Nível_Processo']?.toLowerCase().includes('estratég')
+    ).length;
+
+    return [
+      { nome: 'Operacionais', quantidade: operacionais },
+      { nome: 'Táticos', quantidade: taticos },
+      { nome: 'Estratégicos', quantidade: estrategicos },
+    ];
+  };
+
+  const data = processarDados();
+
   return (
     <div className="grafico-area">
       <div className="mb-4">
