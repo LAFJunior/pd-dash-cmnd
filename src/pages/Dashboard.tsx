@@ -101,14 +101,14 @@ const Dashboard = () => {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
+                      <TableHead className="w-32">ID:</TableHead>
                       <TableHead>Descrição:</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {finData?.slice(0, 4).map((item, index) => (
                       <TableRow key={`tarefa-${index}`}>
-                        <TableCell className="font-medium">TRF-{String(index + 1).padStart(3, '0')}</TableCell>
+                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
                         <TableCell>{item.Descrição || item.Nome_Processo}</TableCell>
                       </TableRow>
                     ))}
@@ -124,7 +124,7 @@ const Dashboard = () => {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
+                      <TableHead className="w-32">ID:</TableHead>
                       <TableHead>Nome:</TableHead>
                       <TableHead className="w-32 text-right">Nível:</TableHead>
                     </TableRow>
@@ -132,7 +132,7 @@ const Dashboard = () => {
                   <TableBody>
                     {finData?.slice(0, 4).map((item, index) => (
                       <TableRow key={`subprocesso-${index}`}>
-                        <TableCell className="font-medium">SUB-{String(index + 101)}</TableCell>
+                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
                         <TableCell>{item.Nome_Processo}</TableCell>
                         <TableCell className="text-right">
                           <span
