@@ -8,16 +8,16 @@ export interface TarefaFIN {
   Processo_ID: string | number | null;
 }
 
+// Busca tarefas via fnc.FIN
 export function useTarefasFIN() {
   return useQuery({
     queryKey: ["fin-tarefas"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("FIN")
+        .from("fnc.FIN")
         .select("Tarefa_ID,Descrição_Tarefa,Processo_ID")
         .order("Tarefa_ID", { ascending: true })
-        .limit(1000)
-        .schema("fnc");
+        .limit(1000);
       if (error) throw error;
       return data as TarefaFIN[];
     },

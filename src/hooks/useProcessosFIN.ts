@@ -8,16 +8,16 @@ export interface ProcessoFIN {
   Classificação_Nível_Processo: string | null;
 }
 
+// Busca processos via fnc.FIN e agrupa pelo ID & outros campos
 export function useProcessosFIN() {
   return useQuery({
     queryKey: ["fin-processos"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("FIN")
+        .from("fnc.FIN")
         .select("Processo_ID,Nome_Processo,Classificação_Nível_Processo")
         .order("Nome_Processo", { ascending: true })
-        .limit(1000)
-        .schema("fnc");
+        .limit(1000);
       if (error) throw error;
       return data as ProcessoFIN[];
     },

@@ -8,16 +8,16 @@ export interface SubprocessoFIN {
   Classificação_Nível_Subprocesso: string | null;
 }
 
+// Busca subprocessos via fnc.FIN e agrupa pelo ID & outros campos
 export function useSubprocessosFIN() {
   return useQuery({
     queryKey: ["fin-subprocessos"],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from("FIN")
+        .from("fnc.FIN")
         .select("Subprocesso_ID,Nome_Subprocesso,Classificação_Nível_Subprocesso")
         .order("Nome_Subprocesso", { ascending: true })
-        .limit(1000)
-        .schema("fnc");
+        .limit(1000);
       if (error) throw error;
       return data as SubprocessoFIN[];
     },

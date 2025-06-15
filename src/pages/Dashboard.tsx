@@ -15,16 +15,21 @@ const Dashboard = () => {
 
   // Agregando os dados por tipo
   const totalProcessos = processos
-    ? new Set(processos.map(p => p.Processo_ID)).size
+    ? new Set(
+        processos
+          .map((p) => p.Processo_ID)
+          .filter((id) => id !== null && id !== undefined)
+          .map((id) => id!.toString())
+      ).size
     : 0;
   const totalEstrategicos = processos
-    ? processos.filter(p => p.Classificação_Nível_Processo === "Estratégico").length
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Estratégico").length
     : 0;
   const totalTaticos = processos
-    ? processos.filter(p => p.Classificação_Nível_Processo === "Tático").length
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Tático").length
     : 0;
   const totalOperacionais = processos
-    ? processos.filter(p => p.Classificação_Nível_Processo === "Operacional").length
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Operacional").length
     : 0;
 
   return (
