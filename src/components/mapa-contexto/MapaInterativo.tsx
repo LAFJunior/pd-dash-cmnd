@@ -4,6 +4,7 @@ import { X, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import mapaRef from '@/assets/mapa-contexto-ref.png';
 
 interface DepartamentoProps {
   id: string;
@@ -449,6 +450,17 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
 
   return (
     <div className="w-full overflow-auto">
+      {/* Imagem de referência fiel ao topo */}
+      <div className="flex flex-col items-center mb-8">
+        <img
+          src={mapaRef}
+          alt="Mapa de Contexto Referência"
+          className="w-full max-w-[900px] rounded-xl shadow-xl border border-gray-300"
+          style={{ background: '#1e3a8a' }}
+        />
+        <p className="text-xs text-gray-500 mt-2">Mapa de referência enviado pelo usuário</p>
+      </div>
+      {/* Resto do componente (editor, SVG, etc) */}
       {editMode && (
         <div className="mb-4 flex justify-between items-center bg-gray-100 p-3 rounded">
           <div className="text-sm text-gray-600">
@@ -480,7 +492,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       >
         {/* NOVA: Fundo, áreas e rótulos fiéis */}
         {criarAreasGrupoFiel()}
-        {/* NOVO: Blocos fiéis */}
+        {/* NOVA: Blocos fiéis */}
         {departamentos.map((departamento, index) => criarCaixaDepartamentoFiel(departamento, index))}
       </svg>
       {/* Dialog para editar departamentos */}
