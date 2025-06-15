@@ -94,30 +94,7 @@ const Dashboard = () => {
           <div className="space-y-6">
             <GraficoProcessos finData={finData} />
             
-            {/* Seção de Tarefas */}
-            <Card className="bg-white p-6">
-              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
-                      <TableHead>Descrição:</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {finData?.slice(0, 4).map((item, index) => (
-                      <TableRow key={`tarefa-${index}`}>
-                        <TableCell className="font-medium">TRF-{String(index + 1).padStart(3, '0')}</TableCell>
-                        <TableCell>{item.Descrição || item.Nome_Processo}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </Card>
-            
-            {/* Seção de Subprocessos */}
+            {/* Seção de Subprocessos ACIMA */}
             <Card className="bg-white p-6">
               <h3 className="text-lg font-semibold mb-4">Subprocessos:</h3>
               <div className="overflow-x-auto">
@@ -132,7 +109,7 @@ const Dashboard = () => {
                   <TableBody>
                     {finData?.slice(0, 4).map((item, index) => (
                       <TableRow key={`subprocesso-${index}`}>
-                        <TableCell className="font-medium">SUB-{String(index + 101)}</TableCell>
+                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
                         <TableCell>{item.Nome_Processo}</TableCell>
                         <TableCell className="text-right">
                           <span
@@ -145,6 +122,29 @@ const Dashboard = () => {
                             {item['Classificação_Nível_Processo']}
                           </span>
                         </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </Card>
+
+            {/* Seção de Tarefas ABAIXO */}
+            <Card className="bg-white p-6">
+              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-20">ID:</TableHead>
+                      <TableHead>Descrição:</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {finData?.slice(0, 4).map((item, index) => (
+                      <TableRow key={`tarefa-${index}`}>
+                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
+                        <TableCell>{item.Descrição || item.Nome_Processo}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
