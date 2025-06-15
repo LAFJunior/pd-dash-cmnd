@@ -15,10 +15,7 @@ export const useFINData = () => {
     queryFn: async () => {
       console.log('Buscando dados da tabela fnc.FIN...');
       
-      const { data, error } = await supabase
-        .schema('fnc')
-        .from('FIN')
-        .select('*');
+      const { data, error } = await supabase.rpc('get_fin_data');
       
       if (error) {
         console.error('Erro ao buscar dados FIN:', error);
