@@ -16,7 +16,7 @@ export const useFINData = () => {
       console.log('Buscando dados da tabela fnc.FIN...');
       
       const { data, error } = await supabase
-        .from('fnc.FIN' as any)
+        .from('FIN')
         .select('*');
       
       if (error) {
