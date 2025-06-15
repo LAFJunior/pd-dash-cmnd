@@ -14,16 +14,20 @@ export const useFINData = () => {
     queryKey: ['fin-data'],
     queryFn: async () => {
       console.log('Buscando dados da tabela fnc.FIN...');
-      
-      const { data, error } = await supabase.rpc('get_fin_data');
-      
+
+      // The type returned by supabase.rpc is not properly known, so cast explicitly:
+      const { data, error } = await supabase.rpc('get_fin_data') as {
+        data: FINData[] | null;
+        error: any;
+      };
+
       if (error) {
         console.error('Erro ao buscar dados FIN:', error);
         throw error;
       }
-      
+
       console.log('Dados FIN encontrados:', data);
-      return data as FINData[];
+      return data ?? [];
     },
   });
 };
