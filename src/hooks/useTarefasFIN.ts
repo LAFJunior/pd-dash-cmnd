@@ -13,8 +13,8 @@ export function useTarefasFIN() {
   return useQuery({
     queryKey: ["fin-tarefas"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("fnc.FIN")
+      // Cast table name as any to avoid TS error (missing supabase types)
+      const { data, error } = await (supabase.from as any)("fnc.FIN")
         .select("Tarefa_ID,Descrição_Tarefa,Processo_ID")
         .order("Tarefa_ID", { ascending: true })
         .limit(1000);

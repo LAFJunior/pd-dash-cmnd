@@ -13,8 +13,8 @@ export function useProcessosFIN() {
   return useQuery({
     queryKey: ["fin-processos"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("fnc.FIN")
+      // Cast table name as any to avoid TS error (missing supabase types)
+      const { data, error } = await (supabase.from as any)("fnc.FIN")
         .select("Processo_ID,Nome_Processo,Classificação_Nível_Processo")
         .order("Nome_Processo", { ascending: true })
         .limit(1000);

@@ -13,9 +13,11 @@ export function useSubprocessosFIN() {
   return useQuery({
     queryKey: ["fin-subprocessos"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("fnc.FIN")
-        .select("Subprocesso_ID,Nome_Subprocesso,Classificação_Nível_Subprocesso")
+      // Cast table name as any to avoid TS error (missing supabase types)
+      const { data, error } = await (supabase.from as any)("fnc.FIN")
+        .select(
+          "Subprocesso_ID,Nome_Subprocesso,Classificação_Nível_Subprocesso"
+        )
         .order("Nome_Subprocesso", { ascending: true })
         .limit(1000);
       if (error) throw error;
