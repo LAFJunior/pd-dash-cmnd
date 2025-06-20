@@ -17,7 +17,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <CardProcesso 
           titulo="Todos os Processos" 
-          quantidade={156}
+          quantidade={45}
           variacao={12}
           className="bg-processo-todos"
           iconRight={<ChartBarIcon size={20} />}
@@ -25,7 +25,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Estratégicos" 
-          quantidade={42}
+          quantidade={0}
           variacao={8}
           className="bg-processo-estrategicos"
           iconRight={<ChartPieIcon size={20} />}
@@ -33,7 +33,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Táticos" 
-          quantidade={58}
+          quantidade={15}
           variacao={-3}
           className="bg-processo-taticos"
           iconRight={<ClipboardListIcon size={20} />}
@@ -41,7 +41,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Operacionais" 
-          quantidade={87}
+          quantidade={20}
           variacao={15}
           className="bg-processo-operacionais"
           iconRight={<UsersIcon size={20} />}
