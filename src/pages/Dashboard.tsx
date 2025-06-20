@@ -1,52 +1,36 @@
-
 import React from 'react';
 import CardProcesso from '@/components/dashboard/CardProcesso';
 import GraficoProcessos from '@/components/dashboard/GraficoProcessos';
 import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon } from 'lucide-react';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
-import { useFINData } from '@/hooks/useFINData';
+import { useProcessosFIN } from "@/hooks/useProcessosFIN";
+import { useSubprocessosFIN } from "@/hooks/useSubprocessosFIN";
+import { useTarefasFIN } from "@/hooks/useTarefasFIN";
 
 const Dashboard = () => {
-  const { data: finData, isLoading, error } = useFINData();
+  const { data: processos, isLoading: loadingProcessos } = useProcessosFIN();
+  const { data: subprocessos, isLoading: loadingSub } = useSubprocessosFIN();
+  const { data: tarefas, isLoading: loadingTarefas } = useTarefasFIN();
 
-  console.log('Dashboard - finData:', finData);
-  console.log('Dashboard - isLoading:', isLoading);
-  console.log('Dashboard - error:', error);
-
-  // Processar dados para os cards
-  const todosProcessos = finData?.length || 0;
-  const processosEstrategicos = finData?.filter(item => 
-    item['Classificação_Nível_Processo']?.toLowerCase().includes('estratég')
-  ).length || 0;
-  const processosTaticos = finData?.filter(item => 
-    item['Classificação_Nível_Processo']?.toLowerCase().includes('tát')
-  ).length || 0;
-  const processosOperacionais = finData?.filter(item => 
-    item['Classificação_Nível_Processo']?.toLowerCase().includes('operacion')
-  ).length || 0;
-
-  if (isLoading) {
-    return (
-      <div className="animate-fade-in">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-gray-500">Carregando dados dos processos...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="animate-fade-in">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-red-500">Erro ao carregar dados: {error.message}</p>
-        </div>
-      </div>
-    );
-  }
+  // Agregando os dados por tipo
+  const totalProcessos = processos
+    ? new Set(
+        processos
+          .map((p) => p.Processo_ID)
+          .filter((id) => id !== null && id !== undefined)
+          .map((id) => id!.toString())
+      ).size
+    : 0;
+  const totalEstrategicos = processos
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Estratégico").length
+    : 0;
+  const totalTaticos = processos
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Tático").length
+    : 0;
+  const totalOperacionais = processos
+    ? processos.filter((p) => p.Classificação_Nível_Processo === "Operacional").length
+    : 0;
 
   return (
     <div className="animate-fade-in">
@@ -58,32 +42,32 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <CardProcesso 
           titulo="Todos os Processos" 
-          quantidade={todosProcessos}
-          variacao={12}
+          quantidade={loadingProcessos ? 0 : Number(totalProcessos)}
+          variacao={undefined}
           className="bg-processo-todos"
           iconRight={<ChartBarIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Estratégicos" 
-          quantidade={processosEstrategicos}
-          variacao={8}
+          quantidade={loadingProcessos ? 0 : Number(totalEstrategicos)}
+          variacao={undefined}
           className="bg-processo-estrategicos"
           iconRight={<ChartPieIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Táticos" 
-          quantidade={processosTaticos}
-          variacao={-3}
+          quantidade={loadingProcessos ? 0 : Number(totalTaticos)}
+          variacao={undefined}
           className="bg-processo-taticos"
           iconRight={<ClipboardListIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Operacionais" 
-          quantidade={processosOperacionais}
-          variacao={15}
+          quantidade={loadingProcessos ? 0 : Number(totalOperacionais)}
+          variacao={undefined}
           className="bg-processo-operacionais"
           iconRight={<UsersIcon size={20} />}
         />
@@ -92,11 +76,44 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <div className="space-y-6">
-            <GraficoProcessos finData={finData} />
+            <GraficoProcessos processos={processos} isLoading={loadingProcessos} />
             
-            {/* Seção de Subprocessos ACIMA */}
+            {/* Seção de Tarefas */}
             <Card className="bg-white p-6">
-              <h3 className="text-lg font-semibold mb-4">Subprocessos:</h3>
+              <h3 className="text-lg font-semibold mb-4">Tarefas</h3>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-20">ID:</TableHead>
+                      <TableHead>Descrição:</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {loadingTarefas ? (
+                      <TableRow>
+                        <TableCell colSpan={2}>Carregando...</TableCell>
+                      </TableRow>
+                    ) : tarefas && tarefas.length > 0 ? (
+                      tarefas.slice(0,6).map((tarefa) => (
+                        <TableRow key={String(tarefa.Tarefa_ID)}>
+                          <TableCell className="font-medium">{tarefa.Tarefa_ID}</TableCell>
+                          <TableCell>{tarefa.Descrição_Tarefa}</TableCell>
+                        </TableRow>
+                      ))
+                    ) : (
+                      <TableRow>
+                        <TableCell colSpan={2}>Nenhuma tarefa encontrada.</TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </div>
+            </Card>
+            
+            {/* Seção de Subprocessos */}
+            <Card className="bg-white p-6">
+              <h3 className="text-lg font-semibold mb-4">Subprocessos</h3>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -107,46 +124,35 @@ const Dashboard = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {finData?.slice(0, 4).map((item, index) => (
-                      <TableRow key={`subprocesso-${index}`}>
-                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
-                        <TableCell>{item.Nome_Processo}</TableCell>
-                        <TableCell className="text-right">
-                          <span
-                            className={`px-2 py-1 rounded text-xs font-medium ${
-                              item['Classificação_Nível_Processo']?.toLowerCase().includes('estratég') ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                              item['Classificação_Nível_Processo']?.toLowerCase().includes('tát') ? 'bg-processo-taticos/20 text-processo-taticos' :
-                              'bg-processo-operacionais/20 text-processo-operacionais'
-                            }`}
-                          >
-                            {item['Classificação_Nível_Processo']}
-                          </span>
-                        </TableCell>
+                    {loadingSub ? (
+                      <TableRow>
+                        <TableCell colSpan={3}>Carregando...</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-            </Card>
-
-            {/* Seção de Tarefas ABAIXO */}
-            <Card className="bg-white p-6">
-              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
-                      <TableHead>Descrição:</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {finData?.slice(0, 4).map((item, index) => (
-                      <TableRow key={`tarefa-${index}`}>
-                        <TableCell className="font-medium">{item.Processo_ID}</TableCell>
-                        <TableCell>{item.Descrição || item.Nome_Processo}</TableCell>
+                    ) : subprocessos && subprocessos.length > 0 ? (
+                      subprocessos.slice(0,6).map((sub) => (
+                        <TableRow key={String(sub.Subprocesso_ID)}>
+                          <TableCell className="font-medium">{sub.Subprocesso_ID}</TableCell>
+                          <TableCell>{sub.Nome_Subprocesso}</TableCell>
+                          <TableCell className="text-right">
+                            <span
+                              className={`px-2 py-1 rounded text-xs font-medium ${
+                                sub.Classificação_Nível_Subprocesso === 'Estratégico'
+                                  ? 'bg-processo-estrategicos/20 text-processo-estrategicos'
+                                  : sub.Classificação_Nível_Subprocesso === 'Tático'
+                                    ? 'bg-processo-taticos/20 text-processo-taticos'
+                                    : 'bg-processo-operacionais/20 text-processo-operacionais'
+                              }`}
+                            >
+                              {sub.Classificação_Nível_Subprocesso}
+                            </span>
+                          </TableCell>
+                        </TableRow>
+                      ))
+                    ) : (
+                      <TableRow>
+                        <TableCell colSpan={3}>Nenhum subprocesso encontrado.</TableCell>
                       </TableRow>
-                    ))}
+                    )}
                   </TableBody>
                 </Table>
               </div>
@@ -166,23 +172,35 @@ const Dashboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {finData?.map((processo, index) => (
-                  <TableRow key={`processo-${index}`}>
-                    <TableCell>{processo.Nome_Processo}</TableCell>
-                    <TableCell className="text-center">{processo.Processo_ID}</TableCell>
-                    <TableCell className="text-right">
-                      <span
-                        className={`px-2 py-1 rounded text-xs font-medium ${
-                          processo['Classificação_Nível_Processo']?.toLowerCase().includes('estratég') ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                          processo['Classificação_Nível_Processo']?.toLowerCase().includes('tát') ? 'bg-processo-taticos/20 text-processo-taticos' :
-                          'bg-processo-operacionais/20 text-processo-operacionais'
-                        }`}
-                      >
-                        {processo['Classificação_Nível_Processo']}
-                      </span>
-                    </TableCell>
+                {loadingProcessos ? (
+                  <TableRow>
+                    <TableCell colSpan={3}>Carregando...</TableCell>
                   </TableRow>
-                ))}
+                ) : processos && processos.length > 0 ? (
+                  processos.slice(0,10).map((processo) => (
+                    <TableRow key={String(processo.Processo_ID)}>
+                      <TableCell>{processo.Nome_Processo}</TableCell>
+                      <TableCell className="text-center">{processo.Processo_ID}</TableCell>
+                      <TableCell className="text-right">
+                        <span
+                          className={`px-2 py-1 rounded text-xs font-medium ${
+                            processo.Classificação_Nível_Processo === 'Estratégico'
+                              ? 'bg-processo-estrategicos/20 text-processo-estrategicos'
+                              : processo.Classificação_Nível_Processo === 'Tático'
+                                ? 'bg-processo-taticos/20 text-processo-taticos'
+                                : 'bg-processo-operacionais/20 text-processo-operacionais'
+                          }`}
+                        >
+                          {processo.Classificação_Nível_Processo}
+                        </span>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={3}>Nenhum processo encontrado.</TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
           </div>

@@ -15,15 +15,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_fin_data: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          Processo_ID: string
-          Nome_Processo: string
-          Classificação_Nível_Processo: string
-          Descrição: string
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
