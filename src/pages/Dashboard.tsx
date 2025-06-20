@@ -1,37 +1,12 @@
+
 import React from 'react';
 import CardProcesso from '@/components/dashboard/CardProcesso';
 import GraficoProcessos from '@/components/dashboard/GraficoProcessos';
 import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon } from 'lucide-react';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
-import { useProcessosFIN } from "@/hooks/useProcessosFIN";
-import { useSubprocessosFIN } from "@/hooks/useSubprocessosFIN";
-import { useTarefasFIN } from "@/hooks/useTarefasFIN";
 
 const Dashboard = () => {
-  const { data: processos, isLoading: loadingProcessos } = useProcessosFIN();
-  const { data: subprocessos, isLoading: loadingSub } = useSubprocessosFIN();
-  const { data: tarefas, isLoading: loadingTarefas } = useTarefasFIN();
-
-  // Agregando os dados por tipo
-  const totalProcessos = processos
-    ? new Set(
-        processos
-          .map((p) => p.Processo_ID)
-          .filter((id) => id !== null && id !== undefined)
-          .map((id) => id!.toString())
-      ).size
-    : 0;
-  const totalEstrategicos = processos
-    ? processos.filter((p) => p.Classificação_Nível_Processo === "Estratégico").length
-    : 0;
-  const totalTaticos = processos
-    ? processos.filter((p) => p.Classificação_Nível_Processo === "Tático").length
-    : 0;
-  const totalOperacionais = processos
-    ? processos.filter((p) => p.Classificação_Nível_Processo === "Operacional").length
-    : 0;
-
   return (
     <div className="animate-fade-in">
       <div className="mb-6">
@@ -42,32 +17,32 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <CardProcesso 
           titulo="Todos os Processos" 
-          quantidade={loadingProcessos ? 0 : Number(totalProcessos)}
-          variacao={undefined}
+          quantidade={156}
+          variacao={12}
           className="bg-processo-todos"
           iconRight={<ChartBarIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Estratégicos" 
-          quantidade={loadingProcessos ? 0 : Number(totalEstrategicos)}
-          variacao={undefined}
+          quantidade={42}
+          variacao={8}
           className="bg-processo-estrategicos"
           iconRight={<ChartPieIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Táticos" 
-          quantidade={loadingProcessos ? 0 : Number(totalTaticos)}
-          variacao={undefined}
+          quantidade={58}
+          variacao={-3}
           className="bg-processo-taticos"
           iconRight={<ClipboardListIcon size={20} />}
         />
         
         <CardProcesso 
           titulo="Processos Operacionais" 
-          quantidade={loadingProcessos ? 0 : Number(totalOperacionais)}
-          variacao={undefined}
+          quantidade={87}
+          variacao={15}
           className="bg-processo-operacionais"
           iconRight={<UsersIcon size={20} />}
         />
@@ -76,11 +51,11 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <div className="space-y-6">
-            <GraficoProcessos processos={processos} isLoading={loadingProcessos} />
+            <GraficoProcessos />
             
             {/* Seção de Tarefas */}
             <Card className="bg-white p-6">
-              <h3 className="text-lg font-semibold mb-4">Tarefas</h3>
+              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -90,22 +65,17 @@ const Dashboard = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {loadingTarefas ? (
-                      <TableRow>
-                        <TableCell colSpan={2}>Carregando...</TableCell>
+                    {[
+                      { id: 'TRF-001', descricao: 'Revisar documentação' },
+                      { id: 'TRF-002', descricao: 'Atualizar mapeamento de processos' },
+                      { id: 'TRF-003', descricao: 'Implementar melhorias no fluxo' },
+                      { id: 'TRF-004', descricao: 'Validar com stakeholders' },
+                    ].map((tarefa) => (
+                      <TableRow key={tarefa.id}>
+                        <TableCell className="font-medium">{tarefa.id}</TableCell>
+                        <TableCell>{tarefa.descricao}</TableCell>
                       </TableRow>
-                    ) : tarefas && tarefas.length > 0 ? (
-                      tarefas.slice(0,6).map((tarefa) => (
-                        <TableRow key={String(tarefa.Tarefa_ID)}>
-                          <TableCell className="font-medium">{tarefa.Tarefa_ID}</TableCell>
-                          <TableCell>{tarefa.Descrição_Tarefa}</TableCell>
-                        </TableRow>
-                      ))
-                    ) : (
-                      <TableRow>
-                        <TableCell colSpan={2}>Nenhuma tarefa encontrada.</TableCell>
-                      </TableRow>
-                    )}
+                    ))}
                   </TableBody>
                 </Table>
               </div>
@@ -113,7 +83,7 @@ const Dashboard = () => {
             
             {/* Seção de Subprocessos */}
             <Card className="bg-white p-6">
-              <h3 className="text-lg font-semibold mb-4">Subprocessos</h3>
+              <h3 className="text-lg font-semibold mb-4">Subprocessos:</h3>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -124,35 +94,28 @@ const Dashboard = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {loadingSub ? (
-                      <TableRow>
-                        <TableCell colSpan={3}>Carregando...</TableCell>
+                    {[
+                      { id: 'SUB-101', nome: 'Análise de Requisitos', nivel: 'Tático' },
+                      { id: 'SUB-102', nome: 'Gerenciamento de Indicadores', nivel: 'Estratégico' },
+                      { id: 'SUB-103', nome: 'Atendimento ao Cliente', nivel: 'Operacional' },
+                      { id: 'SUB-104', nome: 'Controle de Qualidade', nivel: 'Operacional' },
+                    ].map((subprocesso) => (
+                      <TableRow key={subprocesso.id}>
+                        <TableCell className="font-medium">{subprocesso.id}</TableCell>
+                        <TableCell>{subprocesso.nome}</TableCell>
+                        <TableCell className="text-right">
+                          <span
+                            className={`px-2 py-1 rounded text-xs font-medium ${
+                              subprocesso.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                              subprocesso.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                              'bg-processo-operacionais/20 text-processo-operacionais'
+                            }`}
+                          >
+                            {subprocesso.nivel}
+                          </span>
+                        </TableCell>
                       </TableRow>
-                    ) : subprocessos && subprocessos.length > 0 ? (
-                      subprocessos.slice(0,6).map((sub) => (
-                        <TableRow key={String(sub.Subprocesso_ID)}>
-                          <TableCell className="font-medium">{sub.Subprocesso_ID}</TableCell>
-                          <TableCell>{sub.Nome_Subprocesso}</TableCell>
-                          <TableCell className="text-right">
-                            <span
-                              className={`px-2 py-1 rounded text-xs font-medium ${
-                                sub.Classificação_Nível_Subprocesso === 'Estratégico'
-                                  ? 'bg-processo-estrategicos/20 text-processo-estrategicos'
-                                  : sub.Classificação_Nível_Subprocesso === 'Tático'
-                                    ? 'bg-processo-taticos/20 text-processo-taticos'
-                                    : 'bg-processo-operacionais/20 text-processo-operacionais'
-                              }`}
-                            >
-                              {sub.Classificação_Nível_Subprocesso}
-                            </span>
-                          </TableCell>
-                        </TableRow>
-                      ))
-                    ) : (
-                      <TableRow>
-                        <TableCell colSpan={3}>Nenhum subprocesso encontrado.</TableCell>
-                      </TableRow>
-                    )}
+                    ))}
                   </TableBody>
                 </Table>
               </div>
@@ -172,35 +135,30 @@ const Dashboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {loadingProcessos ? (
-                  <TableRow>
-                    <TableCell colSpan={3}>Carregando...</TableCell>
+                {[
+                  { id: 'PRO-1245', nome: 'Planejamento Orçamentário 2025', tipo: 'Estratégico' },
+                  { id: 'PRO-1244', nome: 'Contratação de Desenvolvedores', tipo: 'Tático' },
+                  { id: 'PRO-1243', nome: 'Implantação do Sistema CRM', tipo: 'Operacional' },
+                  { id: 'PRO-1242', nome: 'Revisão da Política de RH', tipo: 'Estratégico' },
+                  { id: 'PRO-1241', nome: 'Gestão Financeira de Processos', tipo: 'Operacional' },
+                  { id: 'PRO-1240', nome: 'Controle do Fluxo de Despesas', tipo: 'Operacional' },
+                ].map((processo) => (
+                  <TableRow key={processo.id}>
+                    <TableCell>{processo.nome}</TableCell>
+                    <TableCell className="text-center">{processo.id.split('-')[1]}</TableCell>
+                    <TableCell className="text-right">
+                      <span
+                        className={`px-2 py-1 rounded text-xs font-medium ${
+                          processo.tipo === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                          processo.tipo === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                          'bg-processo-operacionais/20 text-processo-operacionais'
+                        }`}
+                      >
+                        {processo.tipo}
+                      </span>
+                    </TableCell>
                   </TableRow>
-                ) : processos && processos.length > 0 ? (
-                  processos.slice(0,10).map((processo) => (
-                    <TableRow key={String(processo.Processo_ID)}>
-                      <TableCell>{processo.Nome_Processo}</TableCell>
-                      <TableCell className="text-center">{processo.Processo_ID}</TableCell>
-                      <TableCell className="text-right">
-                        <span
-                          className={`px-2 py-1 rounded text-xs font-medium ${
-                            processo.Classificação_Nível_Processo === 'Estratégico'
-                              ? 'bg-processo-estrategicos/20 text-processo-estrategicos'
-                              : processo.Classificação_Nível_Processo === 'Tático'
-                                ? 'bg-processo-taticos/20 text-processo-taticos'
-                                : 'bg-processo-operacionais/20 text-processo-operacionais'
-                          }`}
-                        >
-                          {processo.Classificação_Nível_Processo}
-                        </span>
-                      </TableCell>
-                    </TableRow>
-                  ))
-                ) : (
-                  <TableRow>
-                    <TableCell colSpan={3}>Nenhum processo encontrado.</TableCell>
-                  </TableRow>
-                )}
+                ))}
               </TableBody>
             </Table>
           </div>
