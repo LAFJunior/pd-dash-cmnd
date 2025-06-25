@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface ListaDepartamentosProps {
   titulo: string;
@@ -14,6 +15,8 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
   color, 
   selectedItem 
 }) => {
+  const navigate = useNavigate();
+
   // Função auxiliar para normalizar nomes de departamentos para comparação
   const formatarNomeDepartamento = (nome: string) => {
     // Remova parênteses e abreveações
@@ -43,6 +46,11 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
     return itemFormatado === selectedItemFormatado;
   };
 
+  const handleItemClick = (item: string) => {
+    const departamentoUrl = item.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/departamentos/${departamentoUrl}`);
+  };
+
   return (
     <div className="departamento-card">
       <h3 className="departamento-titulo" style={{ borderColor: color }}>
@@ -52,10 +60,11 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
         {items.map((item, index) => (
           <li 
             key={index} 
-            className={`departamento-item ${isSelected(item) 
+            className={`departamento-item cursor-pointer hover:bg-gray-50 transition-colors duration-200 ${isSelected(item) 
               ? `bg-${color.substring(1)} bg-opacity-20 font-medium border-l-4`
               : ''}`}
             style={isSelected(item) ? { borderLeftColor: color } : {}}
+            onClick={() => handleItemClick(item)}
           >
             {item}
           </li>

@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import MapaContexto from "./pages/MapaContexto";
 import Departamentos from "./pages/Departamentos";
+import DetalheDepartamento from "./pages/DetalheDepartamento";
 import Colaboradores from "./pages/Colaboradores";
 import AgenteIA from "./pages/AgenteIA";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Dashboard />} />
             <Route path="/mapa-contexto" element={<MapaContexto />} />
             <Route path="/departamentos" element={<Departamentos />} />
+            <Route path="/departamentos/:nome" element={<DetalheDepartamento />} />
             <Route path="/colaboradores" element={<Colaboradores />} />
             <Route path="/agente-ia" element={<AgenteIA />} />
             <Route path="*" element={<NotFound />} />
