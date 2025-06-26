@@ -7,7 +7,8 @@ import {
   Briefcase, 
   Users, 
   Bot, 
-  ChevronLeft
+  ChevronLeft,
+  Store
 } from 'lucide-react';
 
 interface MenuItemProps {
@@ -59,6 +60,12 @@ const Sidebar = () => {
           to="/mapa-contexto" 
           icon={<MapPin size={20} />} 
           text="Mapa de Contexto" 
+          collapsed={collapsed}
+        />
+        <MenuItem 
+          to="/mapa-lojas" 
+          icon={<Store size={20} />} 
+          text="Mapa das Lojas" 
           collapsed={collapsed}
         />
         <MenuItem 
