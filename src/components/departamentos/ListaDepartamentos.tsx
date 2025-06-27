@@ -47,7 +47,41 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
   };
 
   const handleItemClick = (item: string) => {
-    const departamentoUrl = item.toLowerCase().replace(/\s+/g, '-');
+    // Função para converter nome do departamento em URL
+    const converterNomeParaUrl = (nome: string) => {
+      // Mapear casos especiais primeiro
+      const mapeamentoEspecial: {[key: string]: string} = {
+        'E-Commerce': 'e-commerce',
+        'São José dos Campos (CD/Operações)': 'sao-jose-dos-campos',
+        'Departamento Pessoal (DP)': 'departamento-pessoal',
+        'Recursos Humanos (RH)': 'recursos-humanos',
+        'T.I Desenvolvimento': 't-i-desenvolvimento',
+        'T.I Operações': 't-i-operacoes',
+        'T.I Projetos': 't-i-projetos',
+        'São José Esporte Club': 'sao-jose-esporte-club',
+        'Estádio Martins Pereira': 'estadio-martins-pereira',
+        'Instituições Financeiras': 'instituicoes-financeiras',
+        'Sapucaia (CD/Operações)': 'sapucaia-cd-operacoes'
+      };
+      
+      if (mapeamentoEspecial[nome]) {
+        return mapeamentoEspecial[nome];
+      }
+      
+      // Conversão padrão
+      return nome
+        .toLowerCase()
+        .replace(/\([^)]*\)/g, '') // Remove parênteses e conteúdo
+        .replace(/[^\w\s-]/g, '') // Remove caracteres especiais exceto hífens
+        .replace(/\s+/g, '-') // Substitui espaços por hífens
+        .replace(/-+/g, '-') // Remove hífens múltiplos
+        .replace(/^-|-$/g, '') // Remove hífens do início e fim
+        .trim();
+    };
+    
+    const departamentoUrl = converterNomeParaUrl(item);
+    console.log('Item clicado:', item);
+    console.log('URL gerada:', departamentoUrl);
     navigate(`/departamentos/${departamentoUrl}`);
   };
 

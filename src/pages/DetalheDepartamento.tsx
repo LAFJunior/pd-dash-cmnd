@@ -12,7 +12,44 @@ const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
   const navigate = useNavigate();
   
-  const nomeDepartamento = nome?.replace('-', ' ') || '';
+  // Função para converter URL em nome do departamento
+  const converterUrlParaNome = (urlNome: string) => {
+    if (!urlNome) return '';
+    
+    // Mapear casos especiais
+    const mapeamentoEspecial: {[key: string]: string} = {
+      'e-commerce': 'E-Commerce',
+      'ecommerce': 'E-Commerce',
+      'sao-jose-dos-campos': 'São José dos Campos (CD/Operações)',
+      'são-jose-dos-campos': 'São José dos Campos (CD/Operações)',
+      'departamento-pessoal': 'Departamento Pessoal (DP)',
+      'recursos-humanos': 'Recursos Humanos (RH)',
+      't-i-desenvolvimento': 'T.I Desenvolvimento',
+      't-i-operacoes': 'T.I Operações',
+      't-i-projetos': 'T.I Projetos',
+      'sao-jose-esporte-club': 'São José Esporte Club',
+      'estadio-martins-pereira': 'Estádio Martins Pereira',
+      'instituicoes-financeiras': 'Instituições Financeiras',
+      'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)'
+    };
+    
+    const urlLowerCase = urlNome.toLowerCase();
+    
+    if (mapeamentoEspecial[urlLowerCase]) {
+      return mapeamentoEspecial[urlLowerCase];
+    }
+    
+    // Conversão padrão: trocar hífens por espaços e capitalizar
+    return urlNome
+      .split('-')
+      .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1))
+      .join(' ');
+  };
+  
+  const nomeDepartamento = converterUrlParaNome(nome || '');
+  
+  console.log('URL param:', nome);
+  console.log('Nome do departamento convertido:', nomeDepartamento);
   
   return (
     <div className="animate-fade-in">
@@ -27,7 +64,7 @@ const DetalheDepartamento = () => {
           Voltar
         </Button>
         <div>
-          <h1 className="text-3xl font-bold capitalize">{nomeDepartamento}</h1>
+          <h1 className="text-3xl font-bold">{nomeDepartamento}</h1>
           <p className="text-gray-500">Estrutura organizacional e processos do departamento</p>
         </div>
       </div>

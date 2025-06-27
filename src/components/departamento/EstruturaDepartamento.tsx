@@ -64,7 +64,20 @@ const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, nivel, icon, ema
 };
 
 const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departamento }) => {
-  if (departamento === 'Financeiro') {
+  // Função para normalizar nomes de departamentos
+  const normalizarNome = (nome: string) => {
+    return nome
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, '') // Remove parênteses e conteúdo
+      .replace(/\s+/g, ' ') // Normaliza espaços
+      .trim();
+  };
+
+  const departamentoNormalizado = normalizarNome(departamento);
+  console.log('Departamento recebido:', departamento);
+  console.log('Departamento normalizado:', departamentoNormalizado);
+
+  if (departamentoNormalizado.includes('financeiro')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Financeiro</h2>
@@ -129,7 +142,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamento === 'E-commerce') {
+  if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('ecommerce')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento E-commerce</h2>
@@ -183,7 +196,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamento === 'Fiscal') {
+  if (departamentoNormalizado.includes('fiscal')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Fiscal</h2>
@@ -233,7 +246,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamento === 'Controladoria') {
+  if (departamentoNormalizado.includes('controladoria')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Controladoria</h2>
@@ -287,7 +300,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamento === 'São José dos Campos') {
+  if (departamentoNormalizado.includes('são josé dos campos') || departamentoNormalizado.includes('sao jose dos campos')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura CD/Operações - São José dos Campos</h2>
@@ -343,7 +356,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamento === 'Defeito') {
+  if (departamentoNormalizado.includes('defeito')) {
     return (
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Defeito</h2>
@@ -398,8 +411,9 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
   return (
     <div className="p-6 text-center">
-      <h2 className="text-2xl font-bold mb-4">Departamento não encontrado</h2>
-      <p className="text-gray-600">Estrutura organizacional não disponível para este departamento.</p>
+      <h2 className="text-2xl font-bold mb-4">Departamento: {departamento}</h2>
+      <p className="text-gray-600 mb-4">Estrutura organizacional não disponível para este departamento.</p>
+      <p className="text-sm text-gray-500">Debug: Departamento normalizado = "{departamentoNormalizado}"</p>
     </div>
   );
 };
