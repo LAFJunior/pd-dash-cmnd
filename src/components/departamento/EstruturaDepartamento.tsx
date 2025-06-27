@@ -138,7 +138,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 2 - Gerência */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4">
           <Colaborador nome="Helen" cargo="CX" nivel={2} icon={<Phone size={18} />} />
           <Colaborador nome="Flávia" cargo="Consultora Comercial" nivel={2} icon={<ShoppingCart size={18} />} />
           <Colaborador nome="Robson" cargo="PO" nivel={2} icon={<Monitor size={18} />} />
