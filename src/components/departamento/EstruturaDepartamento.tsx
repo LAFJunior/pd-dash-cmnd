@@ -77,16 +77,15 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
 
-  if (departamentoNormalizado.includes('financeiro')) {
+  if (departamentoNormalizado.includes('Financeiro Varejo')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Financeiro</h2>
 
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center gap-4 mb-4">
           <Colaborador 
             nome="Márcio Sampaio" 
-            cargo="Diretor Financeiro" 
+            cargo="Diretor" 
             nivel={2}
             icon={<Star size={20} />}
           />
@@ -96,7 +95,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         <div className="flex justify-center gap-4 mb-4">
           <Colaborador 
             nome="Flávia Araujo" 
-            cargo="Gerente Financeiro - Varejo" 
+            cargo="Gerente" 
             nivel={3}
             icon={<Calculator size={18} />}
           />
@@ -104,7 +103,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
         {/* Nível 3 - Analistas */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-          <Colaborador nome="Tainá Leal" cargo="Analista Financeiro" nivel={4} icon={<FileText size={16} />} />
+          <Colaborador nome="Tainá Leal" cargo="Analista" nivel={4} icon={<FileText size={16} />} />
 
         </div>
 
@@ -122,17 +121,15 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('ecommerce')) {
+  if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('E-commerce')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento E-commerce</h2>
         
         {/* Nível 1 - Diretoria */}
         <div className="flex justify-center mb-4">
           <Colaborador 
             nome="Renan" 
             cargo="Diretor" 
-            setor="E-commerce"
             nivel={1}
             icon={<Crown size={24} />}
           />
@@ -149,7 +146,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {/* Nível 3 - Coordenação */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
           <Colaborador nome="Andrea" cargo="Coordenadora" setor="1P" nivel={3} icon={<Settings size={16} />} />
-          <Colaborador nome="Vanessa" cargo="Analista Sr." setor="Financeiro Ecommerce" nivel={3} icon={<Settings size={16} />} />
+          <Colaborador nome="Vanessa" cargo="Analista Sr." setor="Financeiro" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Priscila" cargo="Analista Sr." setor="3P" nivel={3} icon={<BarChart3 size={16} />} />
           <Colaborador nome="Eduardo" cargo="Coordenador" setor="Logistica" nivel={3} icon={<Package size={16} />} />
           <Colaborador nome="Tamires" cargo="Coordenadora" setor="Cadastro" nivel={3} icon={<FileText size={16} />} />
@@ -159,7 +156,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
         {/* Nível 4 - Analistas */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
-          <Colaborador nome="Bruna" cargo="Assistente" setor="Financeiro Ecommerce" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Bruna" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Matheus" cargo="Assistente" setor="1P" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Gian" cargo="Analista" setor="3P" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Felipe" cargo="Analista Pleno" setor="Logistica" nivel={4} icon={<Package size={14} />} />
@@ -193,7 +190,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   if (departamentoNormalizado.includes('fiscal')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Fiscal</h2>
         
         {/* Nível 1 - Diretoria */}
         <div className="flex justify-center mb-4">
@@ -244,7 +240,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   if (departamentoNormalizado.includes('controladoria')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Controladoria</h2>
         
         {/* Nível 1 - Diretoria */}
         <div className="flex justify-center mb-4">
@@ -298,7 +293,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   if (departamentoNormalizado.includes('são josé dos campos') || departamentoNormalizado.includes('sao jose dos campos')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura CD/Operações - São José dos Campos</h2>
         
         {/* Nível 1 - Diretoria */}
         <div className="flex justify-center mb-4">
@@ -354,7 +348,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   if (departamentoNormalizado.includes('defeito')) {
     return (
       <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center">Estrutura do Departamento Defeito</h2>
         
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center mb-4">
