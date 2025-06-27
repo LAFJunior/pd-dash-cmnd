@@ -77,7 +77,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
 
-  if (departamentoNormalizado.includes('Financeiro Varejo')) {
+  if (departamentoNormalizado.includes('financeiro')) {
     return (
       <div className="p-6">
 
