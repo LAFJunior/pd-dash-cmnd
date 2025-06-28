@@ -10,68 +10,116 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
   if (departamento.toLowerCase().includes('financeiro')) {
     const processos = [
       {
-        id: 'FIN-001',
-        nome: 'Gestão de Fluxo de Caixa',
+        id: 'FIN-1.1',
+        nome: 'Recebimento e controle de despesas a pagar',
         descricao: 'Controle e monitoramento do fluxo financeiro',
         icon: TrendingUp,
         cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Estratégico'
+        nivel: 'Operacional'
       },
       {
-        id: 'FIN-002', 
-        nome: 'Contas a Pagar',
+        id: 'FIN-1.2', 
+        nome: 'Organização e análise das despesas a pagar',
         descricao: 'Gerenciamento de pagamentos a fornecedores',
         icon: DollarSign,
         cor: 'bg-gradient-to-br from-green-500 to-green-600',
         nivel: 'Operacional'
       },
       {
-        id: 'FIN-003',
-        nome: 'Contas a Receber',
+        id: 'FIN-1.3',
+        nome: 'Pagamento das despesas',
         descricao: 'Controle de recebimentos de clientes',
         icon: Receipt,
         cor: 'bg-gradient-to-br from-purple-500 to-purple-600', 
         nivel: 'Operacional'
       },
       {
-        id: 'FIN-004',
-        nome: 'Conciliação Bancária',
+        id: 'FIN-1.4',
+        nome: 'Gestão das duplicatas',
         descricao: 'Reconciliação de movimentações bancárias',
         icon: FileCheck,
         cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
         nivel: 'Operacional'
       },
       {
-        id: 'FIN-005',
-        nome: 'Relatórios Gerenciais',
+        id: 'FIN-1.5',
+        nome: 'Pagamento das duplicatas',
         descricao: 'Geração de indicadores financeiros',
         icon: BarChart3,
         cor: 'bg-gradient-to-br from-teal-500 to-teal-600',
-        nivel: 'Tático'
+        nivel: 'Operacional'
       },
       {
-        id: 'FIN-006',
-        nome: 'Planejamento Orçamentário',
+        id: 'FIN-1.6',
+        nome: 'Pagamento de duplicatas via CNAB',
         descricao: 'Elaboração e controle do orçamento',
         icon: Calculator,
         cor: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
-        nivel: 'Estratégico'
+        nivel: 'Operacional'
       },
       {
-        id: 'FIN-007',
-        nome: 'Gestão de Cartões',
+        id: 'FIN-1.7',
+        nome: 'Gestão de divergências e correções com fornecedores',
         descricao: 'Controle de cartões corporativos',
         icon: CreditCard,
         cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
         nivel: 'Operacional'
       },
       {
-        id: 'FIN-008',
-        nome: 'Análise de Indicadores',
+        id: 'FIN-1.8',
+        nome: 'Gestão de Protestos Financeiros',
+        descricao: 'Controle de inadimplências financeiras',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.9',
+        nome: 'Cancelamento de Notas Fiscais',
+        descricao: 'Validação de informações fiscais',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.10',
+        nome: 'Controle do Fluxo de Caixa Realizado',
         descricao: 'Monitoramento de KPIs financeiros',
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
-        nivel: 'Tático'
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.11',
+        nome: 'Utilização do Sistema Seta, OSCAR e ABYS',
+        descricao: 'Sistemas externos',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.12',
+        nome: 'Pagamentos de despesas das franquias, Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
+        descricao: 'Realização de pagamentos dentro dos prazos estimados',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.13',
+        nome: 'Pagamentos de fornecedores das franquias, Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
+        descricao: 'Realização de pagamentos dentro dos prazos estimados',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
+      }
+      {
+        id: 'FIN-1.14',
+        nome: 'Gestão Financeira de Licenciada, Diadora',
+        descricao: 'Controle de conta a pagar e receber',
+        icon: PieChart,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional'
       }
     ];
 
