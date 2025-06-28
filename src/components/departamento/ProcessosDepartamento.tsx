@@ -72,7 +72,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.9',
         nome: 'Cancelamento de Notas Fiscais',
@@ -80,7 +80,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.10',
         nome: 'Controle do Fluxo de Caixa Realizado',
@@ -88,7 +88,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.11',
         nome: 'Utilização do Sistema Seta, OSCAR e ABYS',
@@ -96,7 +96,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.12',
         nome: 'Pagamentos de despesas das franquias, Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
@@ -104,7 +104,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.13',
         nome: 'Pagamentos de fornecedores das franquias, Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
@@ -112,7 +112,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         icon: PieChart,
         cor: 'bg-gradient-to-br from-red-500 to-red-600',
         nivel: 'Operacional'
-      }
+      },
       {
         id: 'FIN-1.14',
         nome: 'Gestão Financeira de Licenciada, Diadora',
