@@ -47,13 +47,70 @@ const InfoDepartamento: React.FC<InfoDepartamentoProps> = ({ endereco, telefone,
 };
 
 interface EstruturaDepartamentoProps {
-  colaboradores: ColaboradorProps[];
+  departamento: string;
+  colaboradores?: ColaboradorProps[];
 }
 
-const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ colaboradores }) => {
+const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departamento, colaboradores }) => {
+  // Get colaboradores based on department if not provided
+  const getColaboradoresPorDepartamento = (dept: string): ColaboradorProps[] => {
+    if (dept.toLowerCase().includes('financeiro')) {
+      return [
+        {
+          nome: "Ana Silva",
+          cargo: "Gerente Financeiro",
+          setor: "Financeiro",
+          nivel: 4,
+          icon: <TrendingUp className="h-4 w-4" />
+        },
+        {
+          nome: "Carlos Santos",
+          cargo: "Analista Financeiro Sênior",
+          setor: "Financeiro",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Maria Costa",
+          cargo: "Assistente Financeiro",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    // Default colaboradores for other departments
+    return [
+      {
+        nome: "João Silva",
+        cargo: "Gerente do Departamento",
+        setor: dept,
+        nivel: 4,
+        icon: <User className="h-4 w-4" />
+      },
+      {
+        nome: "Maria Santos",
+        cargo: "Coordenador",
+        setor: dept,
+        nivel: 3,
+        icon: <Award className="h-4 w-4" />
+      },
+      {
+        nome: "Pedro Costa",
+        cargo: "Analista",
+        setor: dept,
+        nivel: 2,
+        icon: <TrendingUp className="h-4 w-4" />
+      }
+    ];
+  };
+
+  const colaboradoresAtivos = colaboradores || getColaboradoresPorDepartamento(departamento);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {colaboradores.map((colaborador, index) => (
+      {colaboradoresAtivos.map((colaborador, index) => (
         <Card key={index} className="w-full">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -81,31 +138,32 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ colaborad
   );
 };
 
-const colaboradores: ColaboradorProps[] = [
-  {
-    nome: "Maria Silva",
-    cargo: "Gerente de Operações",
-    setor: "Operacional",
-    nivel: 3,
-    icon: <User className="h-4 w-4" />
-  },
-  {
-    nome: "João Santos",
-    cargo: "Analista Financeiro",
-    setor: "Financeiro",
-    nivel: 2,
-    icon: <TrendingUp className="h-4 w-4" />
-  },
-  {
-    nome: "Ana Costa",
-    cargo: "Coordenadora de RH",
-    setor: "Recursos Humanos",
-    nivel: 3,
-    icon: <Award className="h-4 w-4" />
-  }
-];
-
+// Keep the existing default component for backward compatibility
 const DepartamentoComponent: React.FC = () => {
+  const colaboradores: ColaboradorProps[] = [
+    {
+      nome: "Maria Silva",
+      cargo: "Gerente de Operações",
+      setor: "Operacional",
+      nivel: 3,
+      icon: <User className="h-4 w-4" />
+    },
+    {
+      nome: "João Santos",
+      cargo: "Analista Financeiro",
+      setor: "Financeiro",
+      nivel: 2,
+      icon: <TrendingUp className="h-4 w-4" />
+    },
+    {
+      nome: "Ana Costa",
+      cargo: "Coordenadora de RH",
+      setor: "Recursos Humanos",
+      nivel: 3,
+      icon: <Award className="h-4 w-4" />
+    }
+  ];
+
   const info = {
     endereco: "Rua Exemplo, 123 - Centro, Cidade/UF",
     telefone: "(12) 3456-7890",
@@ -116,9 +174,9 @@ const DepartamentoComponent: React.FC = () => {
   return (
     <div className="grid gap-4">
       <InfoDepartamento {...info} />
-      <EstruturaDepartamento colaboradores={colaboradores} />
+      <EstruturaDepartamento departamento="Exemplo" colaboradores={colaboradores} />
     </div>
   );
 };
 
-export default DepartamentoComponent;
+export default EstruturaDepartamento;
