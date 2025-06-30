@@ -19,8 +19,8 @@ interface Message {
   };
 }
 
-// URL do webhook n8n
-const N8N_WEBHOOK_URL = 'https://pmogrupooscar.app.n8n.cloud/webhook/processos-digitais-dash5465';
+// URL do webhook atualizada
+const N8N_WEBHOOK_URL = 'https://primary-production-7c6c.up.railway.app/webhook/sent-40bb';
 
 // Chave para armazenar o histórico no sessionStorage
 const CHAT_HISTORY_KEY = 'oscar_chat_history';
