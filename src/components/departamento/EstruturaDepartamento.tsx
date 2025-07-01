@@ -53,37 +53,25 @@ interface EstruturaDepartamentoProps {
 }
 
 const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departamento, colaboradores }) => {
+  // Função para normalizar nomes de departamentos
+  const normalizarNomeDepartamento = (nome: string): string => {
+    return nome.toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+      .replace(/[^a-z0-9\s]/g, '') // Remove caracteres especiais
+      .trim();
+  };
+
   // Get colaboradores based on department if not provided
   const getColaboradoresPorDepartamento = (dept: string): ColaboradorProps[] => {
-    const deptLower = dept.toLowerCase();
+    const deptNormalizado = normalizarNomeDepartamento(dept);
     
-    if (deptLower.includes('financeiro')) {
-      return [
-        {
-          nome: "Ana Silva",
-          cargo: "Gerente Financeiro",
-          setor: "Financeiro",
-          nivel: 4,
-          icon: <TrendingUp className="h-4 w-4" />
-        },
-        {
-          nome: "Carlos Santos",
-          cargo: "Analista Financeiro Sênior",
-          setor: "Financeiro",
-          nivel: 3,
-          icon: <User className="h-4 w-4" />
-        },
-        {
-          nome: "Maria Costa",
-          cargo: "Assistente Financeiro",
-          setor: "Financeiro",
-          nivel: 2,
-          icon: <User className="h-4 w-4" />
-        }
-      ];
-    }
+    console.log('Departamento original:', dept);
+    console.log('Departamento normalizado:', deptNormalizado);
     
-    if (deptLower.includes('e-commerce') || deptLower.includes('ecommerce')) {
+    // E-Commerce
+    if (deptNormalizado.includes('e-commerce') || deptNormalizado.includes('ecommerce') || deptNormalizado === 'e commerce') {
+      console.log('Retornando dados do E-Commerce');
       return [
         {
           nome: "Rafael Oliveira",
@@ -116,7 +104,35 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
       ];
     }
     
-    if (deptLower.includes('fiscal')) {
+    // Financeiro
+    if (deptNormalizado.includes('financeiro')) {
+      return [
+        {
+          nome: "Ana Silva",
+          cargo: "Gerente Financeiro",
+          setor: "Financeiro",
+          nivel: 4,
+          icon: <TrendingUp className="h-4 w-4" />
+        },
+        {
+          nome: "Carlos Santos",
+          cargo: "Analista Financeiro Sênior",
+          setor: "Financeiro",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Maria Costa",
+          cargo: "Assistente Financeiro",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    // Fiscal
+    if (deptNormalizado.includes('fiscal')) {
       return [
         {
           nome: "Eduardo Lima",
@@ -142,7 +158,8 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
       ];
     }
     
-    if (deptLower.includes('controladoria')) {
+    // Controladoria
+    if (deptNormalizado.includes('controladoria')) {
       return [
         {
           nome: "Fernanda Castro",
@@ -168,7 +185,8 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
       ];
     }
     
-    if (deptLower.includes('são josé dos campos') || deptLower.includes('sao jose dos campos')) {
+    // São José dos Campos
+    if (deptNormalizado.includes('sao jose dos campos') || deptNormalizado.includes('sao jose') || deptNormalizado.includes('cd') || deptNormalizado.includes('operacoes')) {
       return [
         {
           nome: "Marcos Almeida",
@@ -201,7 +219,8 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
       ];
     }
     
-    if (deptLower.includes('defeito')) {
+    // Defeito
+    if (deptNormalizado.includes('defeito')) {
       return [
         {
           nome: "André Gomes",
@@ -228,6 +247,7 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
     }
     
     // Default colaboradores for other departments
+    console.log('Retornando dados padrão para:', dept);
     return [
       {
         nome: "João Silva",
