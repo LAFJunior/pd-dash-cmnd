@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { User, MapPin, Phone, Mail, Calendar, Award, TrendingUp, ShoppingCart, Calculator, Building, Truck, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -69,6 +68,89 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
     console.log('Departamento original:', dept);
     console.log('Departamento normalizado:', deptNormalizado);
     
+    // Financeiro - Dados corretos da imagem
+    if (deptNormalizado.includes('financeiro')) {
+      return [
+        {
+          nome: "Márcio Sampaio",
+          cargo: "Diretor",
+          setor: "Financeiro",
+          nivel: 5,
+          icon: <Award className="h-4 w-4" />
+        },
+        {
+          nome: "Flávia Araújo",
+          cargo: "Gerente Financeiro",
+          setor: "Financeiro",
+          nivel: 4,
+          icon: <TrendingUp className="h-4 w-4" />
+        },
+        {
+          nome: "Karina Rocha",
+          cargo: "Analista",
+          setor: "Financeiro",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Tainá Leal",
+          cargo: "Analista",
+          setor: "Financeiro",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Debora Miyamoto",
+          cargo: "Assistente",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Igor Jesuino",
+          cargo: "Assistente",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Jully Silva",
+          cargo: "Assistente",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Milena Oliveira",
+          cargo: "Assistente",
+          setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Amanda Silva",
+          cargo: "Auxiliar",
+          setor: "Financeiro",
+          nivel: 1,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Carolina Lima",
+          cargo: "Auxiliar",
+          setor: "Financeiro",
+          nivel: 1,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Mateus Garcez",
+          cargo: "Auxiliar",
+          setor: "Financeiro",
+          nivel: 1,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
     // E-Commerce
     if (deptNormalizado.includes('e-commerce') || deptNormalizado.includes('ecommerce') || deptNormalizado === 'e commerce') {
       console.log('Retornando dados do E-Commerce');
@@ -98,33 +180,6 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
           nome: "Camila Rodrigues",
           cargo: "Assistente de E-Commerce",
           setor: "E-Commerce",
-          nivel: 2,
-          icon: <User className="h-4 w-4" />
-        }
-      ];
-    }
-    
-    // Financeiro
-    if (deptNormalizado.includes('financeiro')) {
-      return [
-        {
-          nome: "Ana Silva",
-          cargo: "Gerente Financeiro",
-          setor: "Financeiro",
-          nivel: 4,
-          icon: <TrendingUp className="h-4 w-4" />
-        },
-        {
-          nome: "Carlos Santos",
-          cargo: "Analista Financeiro Sênior",
-          setor: "Financeiro",
-          nivel: 3,
-          icon: <User className="h-4 w-4" />
-        },
-        {
-          nome: "Maria Costa",
-          cargo: "Assistente Financeiro",
-          setor: "Financeiro",
           nivel: 2,
           icon: <User className="h-4 w-4" />
         }
