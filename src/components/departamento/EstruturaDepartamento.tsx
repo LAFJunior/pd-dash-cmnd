@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { User, MapPin, Phone, Mail, Calendar, Award, TrendingUp } from 'lucide-react';
+import { User, MapPin, Phone, Mail, Calendar, Award, TrendingUp, ShoppingCart, Calculator, Building, Truck, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -54,7 +55,9 @@ interface EstruturaDepartamentoProps {
 const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departamento, colaboradores }) => {
   // Get colaboradores based on department if not provided
   const getColaboradoresPorDepartamento = (dept: string): ColaboradorProps[] => {
-    if (dept.toLowerCase().includes('financeiro')) {
+    const deptLower = dept.toLowerCase();
+    
+    if (deptLower.includes('financeiro')) {
       return [
         {
           nome: "Ana Silva",
@@ -74,6 +77,150 @@ const EstruturaDepartamento: React.FC<EstruturaDepartamentoProps> = ({ departame
           nome: "Maria Costa",
           cargo: "Assistente Financeiro",
           setor: "Financeiro",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    if (deptLower.includes('e-commerce') || deptLower.includes('ecommerce')) {
+      return [
+        {
+          nome: "Rafael Oliveira",
+          cargo: "Gerente de E-Commerce",
+          setor: "E-Commerce",
+          nivel: 4,
+          icon: <ShoppingCart className="h-4 w-4" />
+        },
+        {
+          nome: "Juliana Pereira",
+          cargo: "Analista de Marketplace",
+          setor: "E-Commerce",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Bruno Martins",
+          cargo: "Especialista em SEO",
+          setor: "E-Commerce",
+          nivel: 3,
+          icon: <TrendingUp className="h-4 w-4" />
+        },
+        {
+          nome: "Camila Rodrigues",
+          cargo: "Assistente de E-Commerce",
+          setor: "E-Commerce",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    if (deptLower.includes('fiscal')) {
+      return [
+        {
+          nome: "Eduardo Lima",
+          cargo: "Coordenador Fiscal",
+          setor: "Fiscal",
+          nivel: 4,
+          icon: <Calculator className="h-4 w-4" />
+        },
+        {
+          nome: "Patrícia Fernandes",
+          cargo: "Analista Fiscal Sênior",
+          setor: "Fiscal",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Roberto Silva",
+          cargo: "Assistente Fiscal",
+          setor: "Fiscal",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    if (deptLower.includes('controladoria')) {
+      return [
+        {
+          nome: "Fernanda Castro",
+          cargo: "Controller",
+          setor: "Controladoria",
+          nivel: 5,
+          icon: <Award className="h-4 w-4" />
+        },
+        {
+          nome: "Lucas Mendes",
+          cargo: "Analista de Controladoria",
+          setor: "Controladoria",
+          nivel: 3,
+          icon: <TrendingUp className="h-4 w-4" />
+        },
+        {
+          nome: "Aline Santos",
+          cargo: "Assistente de Controladoria",
+          setor: "Controladoria",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    if (deptLower.includes('são josé dos campos') || deptLower.includes('sao jose dos campos')) {
+      return [
+        {
+          nome: "Marcos Almeida",
+          cargo: "Gerente de Operações CD",
+          setor: "São José dos Campos",
+          nivel: 4,
+          icon: <Building className="h-4 w-4" />
+        },
+        {
+          nome: "Cristina Barbosa",
+          cargo: "Supervisora de Expedição",
+          setor: "São José dos Campos",
+          nivel: 3,
+          icon: <Truck className="h-4 w-4" />
+        },
+        {
+          nome: "Diego Carvalho",
+          cargo: "Operador de Estoque",
+          setor: "São José dos Campos",
+          nivel: 2,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Priscila Nunes",
+          cargo: "Auxiliar de Expedição",
+          setor: "São José dos Campos",
+          nivel: 1,
+          icon: <User className="h-4 w-4" />
+        }
+      ];
+    }
+    
+    if (deptLower.includes('defeito')) {
+      return [
+        {
+          nome: "André Gomes",
+          cargo: "Coordenador de Qualidade",
+          setor: "Defeito",
+          nivel: 4,
+          icon: <AlertTriangle className="h-4 w-4" />
+        },
+        {
+          nome: "Vanessa Costa",
+          cargo: "Analista de Qualidade",
+          setor: "Defeito",
+          nivel: 3,
+          icon: <User className="h-4 w-4" />
+        },
+        {
+          nome: "Thiago Ribeiro",
+          cargo: "Inspetor de Qualidade",
+          setor: "Defeito",
           nivel: 2,
           icon: <User className="h-4 w-4" />
         }
