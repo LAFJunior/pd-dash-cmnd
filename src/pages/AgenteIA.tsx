@@ -45,7 +45,7 @@ const AgenteIA = () => {
     // Retorna mensagem inicial padrão se não houver histórico
     return [{
       id: '1',
-      content: 'Olá! Sou o Oscar, seu assistente virtual para processos. Como posso ajudar você hoje?',
+      content: 'Olá! Sou o assistente virtual dos processos do Grupo Oscar. Como posso ajudar?',
       role: 'assistant',
       timestamp: new Date()
     }];
@@ -110,7 +110,7 @@ const AgenteIA = () => {
   const clearChatHistory = () => {
     setMessages([{
       id: '1',
-      content: 'Olá! Sou o Oscar, seu assistente virtual para processos. Como posso ajudar você hoje?',
+      content: 'Olá! Sou o assistente virtual dos processos do Grupo Oscar. Como posso ajudar?',
       role: 'assistant',
       timestamp: new Date()
     }]);
