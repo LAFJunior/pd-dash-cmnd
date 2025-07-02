@@ -1,7 +1,10 @@
 
 import React from 'react';
 import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, PieChart, Receipt, 
-         Truck, ShoppingCart, Users, Monitor, FileText, Phone, Store, Package } from 'lucide-react';
+         Truck, ShoppingCart, Users, Monitor, FileText, Phone, Store, Package, Headphones,
+         BarChart2, Repeat, FileSearch, Clock, AlertCircle, ListOrdered, ShoppingBag, Target,
+         UserPlus, Gift, LayoutGrid, Search, CalendarCheck, Megaphone, Camera, Edit, Folder,
+         Inbox, ClipboardPlus, CheckCircle } from 'lucide-react';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -24,7 +27,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         id: 'LOG-002',
         nome: 'Chamados Técnicos e Operacionais',
         descricao: 'Processamento e envio de pedidos',
-        icon: Headset,
+        icon: Headphones,
         cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
         nivel: 'Operacional'
       },
@@ -263,7 +266,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       {
         id: 'CAD-001',
         nome: 'Cadastro de Produto 1P ',
-        descricao: 'Produto marcado como “Pronto para cadastro” na planilha de cadastro (Coluna AE).',
+        descricao: 'Produto marcado como "Pronto para cadastro" na planilha de cadastro (Coluna AE).',
         icon: ClipboardPlus,
         cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
         nivel: 'Operacional'
