@@ -25,6 +25,7 @@ import {
 interface ColaboradorProps {
   nome: string;
   cargo: string;
+  setor?: string;
   nivel: number;
   icon?: React.ReactNode;
   email?: string;

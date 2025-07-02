@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, PieChart, Receipt, 
          Truck, ShoppingCart, Users, Monitor, FileText, Phone, Store, Package, Headphones,
@@ -322,20 +321,91 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     ]
   };
 
-  // Se há um pilar selecionado e é E-commerce, mostrar processos específicos
-  if (pilarSelecionado && departamento.toLowerCase().includes('e-commerce')) {
-    const processosPilar = processosPorPilar[pilarSelecionado] || [];
-    
-    return (
-      <div className="space-y-6">
-        <div className="bg-gradient-to-r from-orange-600 to-purple-600 text-white p-6 rounded-lg text-center">
-          <h3 className="text-xl font-bold mb-2">Processos - {pilarSelecionado}</h3>
-          <p className="text-orange-100">{processosPilar.length} processos mapeados</p>
-        </div>
+  // Função para obter todos os processos do E-commerce
+  const obterTodosProcessosEcommerce = () => {
+    const todosProcessos: any[] = [];
+    Object.values(processosPorPilar).forEach(processos => {
+      todosProcessos.push(...processos);
+    });
+    return todosProcessos;
+  };
 
-        {processosPilar.length > 0 ? (
+  // Se é E-commerce, usar a lógica de filtragem por pilar
+  if (departamento.toLowerCase().includes('e-commerce')) {
+    // Se há um pilar selecionado, mostrar apenas os processos desse pilar
+    if (pilarSelecionado) {
+      const processosPilar = processosPorPilar[pilarSelecionado] || [];
+      
+      return (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-orange-600 to-purple-600 text-white p-6 rounded-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Processos - {pilarSelecionado}</h3>
+            <p className="text-orange-100">{processosPilar.length} processos mapeados</p>
+          </div>
+
+          {processosPilar.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {processosPilar.map((processo) => {
+                const IconComponent = processo.icon;
+                return (
+                  <div
+                    key={processo.id}
+                    className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                  >
+                    <div className={`${processo.cor} p-4`}>
+                      <div className="flex items-center justify-between text-white">
+                        <IconComponent size={24} />
+                        <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                          {processo.id}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4">
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        {processo.nome}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {processo.descricao}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span
+                          className={`px-2 py-1 rounded text-xs font-medium ${
+                            processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                            processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                            'bg-green-100 text-green-800'
+                          }`}
+                        >
+                          {processo.nivel}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="bg-gray-50 p-6 rounded-lg text-center">
+              <FileCheck className="mx-auto mb-4 text-gray-400" size={48} />
+              <p className="text-gray-600">Processos em desenvolvimento para este pilar.</p>
+            </div>
+          )}
+        </div>
+      );
+    } else {
+      // Se nenhum pilar está selecionado, mostrar TODOS os processos do E-commerce
+      const todosProcessos = obterTodosProcessosEcommerce();
+      
+      return (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Todos os Processos - E-commerce</h3>
+            <p className="text-blue-100">{todosProcessos.length} processos mapeados em todos os pilares</p>
+            <p className="text-sm text-blue-200 mt-1">Selecione um pilar acima para filtrar os processos</p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {processosPilar.map((processo) => {
+            {todosProcessos.map((processo) => {
               const IconComponent = processo.icon;
               return (
                 <div
@@ -374,14 +444,9 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
               );
             })}
           </div>
-        ) : (
-          <div className="bg-gray-50 p-6 rounded-lg text-center">
-            <FileCheck className="mx-auto mb-4 text-gray-400" size={48} />
-            <p className="text-gray-600">Processos em desenvolvimento para este pilar.</p>
-          </div>
-        )}
-      </div>
-    );
+        </div>
+      );
+    }
   }
 
   // Processos originais do Financeiro

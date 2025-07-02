@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle } from 'lucide-react';
@@ -105,7 +104,7 @@ const DetalheDepartamento = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Puzzle className="text-orange-600" size={24} />
-                🧩 Pilares do E-commerce
+                Pilares do E-commerce
               </CardTitle>
             </CardHeader>
             <CardContent>
