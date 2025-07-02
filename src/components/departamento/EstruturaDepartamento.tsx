@@ -77,49 +77,44 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
 
-  if (departamentoNormalizado.includes('financeiro')) {
-    return (
-      <div className="p-6">
-
-        {/* Nível 1 - Gerência */}
-        <div className="flex justify-center gap-4 mb-4">
-          <Colaborador 
-            nome="Márcio Sampaio" 
-            cargo="Diretor" 
-            nivel={2}
-            icon={<Star size={20} />}
-          />
-        </div>
-
-        {/* Nível 2 - Coordenação */}
-        <div className="flex justify-center gap-4 mb-4">
-          <Colaborador 
-            nome="Flávia Araujo" 
-            cargo="Gerente" 
-            nivel={3}
-            icon={<Calculator size={18} />}
-          />
-        </div>
-
-        {/* Nível 3 - Analistas */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-          <Colaborador nome="Tainá Leal" cargo="Analista" nivel={4} icon={<FileText size={16} />} />
-
-        </div>
-
-        {/* Nível 4 - Auxiliares */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          <Colaborador nome="Igor Justino" cargo="Assitente" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Jully Silva" cargo="Assitente" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Milena Oliveira" cargo="Assitente" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Amanda Silva" cargo="Auxiliar" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Carolina Lima" cargo="Auxiliar" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" nivel={5} icon={<User size={14} />} />
-          <Colaborador nome="Savrina Souza" cargo="Auxiliar" nivel={5} icon={<User size={14} />} />
-        </div>
+if (departamentoNormalizado.includes('financeiro')) {
+  return (
+    <div className="p-6">
+      {/* Nível 1 - Gerência */}
+      <div className="flex justify-center gap-4 mb-4">
+        <Colaborador 
+          nome="Márcio Sampaio" 
+          cargo="Diretor" 
+          nivel={4}
+          icon={<Star size={20} />}
+        />
       </div>
-    );
-  }
+      {/* Nível 2 - Coordenação */}
+      <div className="flex justify-center gap-4 mb-4">
+        <Colaborador 
+          nome="Flávia Araujo" 
+          cargo="Gerente" 
+          nivel={4}
+          icon={<Calculator size={18} />}
+        />
+      </div>
+      {/* Nível 3 - Analistas */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <Colaborador nome="Tainá Leal" cargo="Analista" nivel={4} icon={<FileText size={16} />} />
+      </div>
+      {/* Nível 4 - Auxiliares */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <Colaborador nome="Igor Justino" cargo="Assitente" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Jully Silva" cargo="Assitente" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Milena Oliveira" cargo="Assitente" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Amanda Silva" cargo="Auxiliar" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Carolina Lima" cargo="Auxiliar" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Mateus Garcia" cargo="Auxiliar" nivel={4} icon={<User size={14} />} />
+        <Colaborador nome="Savrina Souza" cargo="Auxiliar" nivel={4} icon={<User size={14} />} />
+      </div>
+    </div>
+  );
+}
 
   if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('E-commerce')) {
     return (
