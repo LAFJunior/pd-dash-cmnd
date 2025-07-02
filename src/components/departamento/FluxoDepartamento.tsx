@@ -93,7 +93,7 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
     );
   }
 
-  if (departamento.toLowerCase().includes('e-commerce') || departamento.toLowerCase().includes('E-commerce')) {
+  if (departamento.toLowerCase().includes('e-commerce') || departamento.toLowerCase().includes('ecommerce')) {
     return (
       <div className="bg-gradient-to-r from-orange-50 to-purple-50 p-6 rounded-lg">
         <h3 className="text-lg font-semibold mb-6 text-center">Fluxo de Processos E-commerce</h3>
@@ -188,50 +188,4 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
   );
 };
 
-// Componente de exemplo para demonstração
-const App = () => {
-  const [departamentoSelecionado, setDepartamentoSelecionado] = React.useState('financeiro');
-
-  return (
-    <div className="p-8 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">Sistema de Fluxos Departamentais</h1>
-      
-      <div className="mb-6 flex justify-center gap-4">
-        <button
-          onClick={() => setDepartamentoSelecionado('financeiro')}
-          className={`px-4 py-2 rounded-lg font-medium ${
-            departamentoSelecionado === 'financeiro'
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-          }`}
-        >
-          Financeiro
-        </button>
-        <button
-          onClick={() => setDepartamentoSelecionado('e-commerce')}
-          className={`px-4 py-2 rounded-lg font-medium ${
-            departamentoSelecionado === 'e-commerce'
-              ? 'bg-orange-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-          }`}
-        >
-          E-commerce
-        </button>
-        <button
-          onClick={() => setDepartamentoSelecionado('outro')}
-          className={`px-4 py-2 rounded-lg font-medium ${
-            departamentoSelecionado === 'outro'
-              ? 'bg-gray-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-          }`}
-        >
-          Outro Departamento
-        </button>
-      </div>
-
-      <FluxoDepartamento departamento={departamentoSelecionado} />
-    </div>
-  );
-};
-
-export default App;
+export default FluxoDepartamento;
