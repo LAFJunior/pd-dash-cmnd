@@ -136,22 +136,22 @@ if (departamentoNormalizado.includes('financeiro')) {
 
         {/* Nível 2 - Gerência */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+          <Colaborador nome="Flávia" cargo="Gerente" setor="Consultora Comercial" nivel={2} icon={<ShoppingCart size={18} />} />
           <Colaborador nome="Helen" cargo="Gerente" setor="Customer Experience" nivel={2} icon={<Phone size={18} />} />
-          <Colaborador nome="Flávia" cargo="Gerente" setor="Comercial" nivel={2} icon={<ShoppingCart size={18} />} />
-          <Colaborador nome="Robson" cargo="PO" setor="Produto" nivel={2} icon={<Monitor size={18} />} />
-          <Colaborador nome="Viviane" cargo="Coordenadora" setor="SAC" nivel={2} icon={<Phone size={18} />} />
         </div>
 
         {/* Nível 3 - Coordenação */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
           <Colaborador nome="Andrea" cargo="Coordenadora" setor="1P" nivel={3} icon={<Settings size={16} />} />
-          <Colaborador nome="Vanessa" cargo="Coordenadora" setor="Financeiro" nivel={3} icon={<Settings size={16} />} />
-          <Colaborador nome="Priscila" cargo="Coordenadora" setor="3P" nivel={3} icon={<BarChart3 size={16} />} />
+          <Colaborador nome="Robson" cargo="PM" setor="Produto" nivel={2} icon={<Monitor size={18} />} />
+          <Colaborador nome="Viviane" cargo="Coordenadora" setor="SAC" nivel={2} icon={<Phone size={18} />} />
+          <Colaborador nome="Vanessa" cargo="Analista Sr." setor="Financeiro" nivel={3} icon={<Settings size={16} />} />
+          <Colaborador nome="Priscila" cargo="Analista Sr." setor="3P" nivel={3} icon={<BarChart3 size={16} />} />
           <Colaborador nome="Eduardo" cargo="Coordenador" setor="Logística" nivel={3} icon={<Package size={16} />} />
           <Colaborador nome="Tamires" cargo="Coordenadora" setor="Cadastro" nivel={3} icon={<FileText size={16} />} />
           <Colaborador nome="Ana" cargo="Coordenadora" setor="Visual Merchandising" nivel={3} icon={<Monitor size={16} />} />
-          <Colaborador nome="Carolina" cargo="Vendedora" setor="Vendas 3.0" nivel={3} icon={<TrendingUp size={16} />} />
-        </div>
+          <Colaborador nome="Carolina" cargo="Coordenadora" setor="Venda 3.0" nivel={3} icon={<TrendingUp size={16} />} />
+        </div>-
 
         {/* Nível 4 - Analistas */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
@@ -159,7 +159,7 @@ if (departamentoNormalizado.includes('financeiro')) {
           <Colaborador nome="Matheus" cargo="Assistente" setor="1P" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Gian" cargo="Analista" setor="3P" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Felipe" cargo="Analista Pleno" setor="Logística" nivel={4} icon={<Package size={14} />} />
-          <Colaborador nome="Adriana" cargo="Analista" setor="Cadastro" nivel={4} icon={<FileText size={14} />} />
+          <Colaborador nome="Adriana" cargo="Assistente" setor="Cadastro" nivel={4} icon={<FileText size={14} />} />
           <Colaborador nome="Rodrigo" cargo="Analista" setor="Visual Merchandising" nivel={4} icon={<FileText size={14} />} />
         </div>
 
