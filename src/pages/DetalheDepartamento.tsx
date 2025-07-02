@@ -1,16 +1,18 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, GitBranch, ClipboardList } from 'lucide-react';
+import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
 import FluxoDepartamento from '@/components/departamento/FluxoDepartamento';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
+import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
   const navigate = useNavigate();
+  const [pilarSelecionado, setPilarSelecionado] = useState<string>('');
   
   // Função para converter URL em nome do departamento
   const converterUrlParaNome = (urlNome: string) => {
@@ -47,6 +49,7 @@ const DetalheDepartamento = () => {
   };
   
   const nomeDepartamento = converterUrlParaNome(nome || '');
+  const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -96,6 +99,21 @@ const DetalheDepartamento = () => {
           </CardContent>
         </Card>
 
+        {/* Pilares do E-commerce - Só exibe para E-commerce */}
+        {isEcommerce && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Puzzle className="text-orange-600" size={24} />
+                🧩 Pilares do E-commerce
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <PilaresEcommerce onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+            </CardContent>
+          </Card>
+        )}
+
         {/* Processos Realizados */}
         <Card>
           <CardHeader>
@@ -105,7 +123,7 @@ const DetalheDepartamento = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ProcessosDepartamento departamento={nomeDepartamento} />
+            <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
           </CardContent>
         </Card>
       </div>
