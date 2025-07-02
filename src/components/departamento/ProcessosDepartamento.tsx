@@ -292,8 +292,8 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Financeiro': [
       {
         id: 'FIN-EC-001',
-        nome: 'Conciliação de Vendas',
-        descricao: 'Reconciliação de vendas online',
+        nome: 'Em validação',
+        descricao: 'revisar e coleta e informações',
         icon: CheckCircle,
         cor: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
         nivel: 'Operacional'
@@ -302,11 +302,11 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Marketplace': [
       {
         id: 'MKT-001',
-        nome: 'Gestão de Marketplaces',
-        descricao: 'Operação em plataformas externas',
+        nome: 'Validando...',
+        descricao: 'revisar e coleta e informações',
         icon: Store,
         cor: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
-        nivel: 'Estratégico'
+        nivel: 'Operacional'
       }
     ],
     'Produto': [
@@ -316,7 +316,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         descricao: 'Em coletea dos processos',
         icon: Package,
         cor: 'bg-gradient-to-br from-teal-500 to-teal-600',
-        nivel: 'Estratégico'
+        nivel: 'Operacional'
       }
     ]
   };
