@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, PieChart, Receipt, 
          Truck, ShoppingCart, Users, Monitor, FileText, Phone, Store, Package, Headphones,
          BarChart2, Repeat, FileSearch, Clock, AlertCircle, ListOrdered, ShoppingBag, Target,
          UserPlus, Gift, LayoutGrid, Search, CalendarCheck, Megaphone, Camera, Edit, Folder,
          Inbox, ClipboardPlus, CheckCircle } from 'lucide-react';
+import ProcessoDetalhe from './ProcessoDetalhe';
+import { processosLogisticaDetalhados } from '@/data/processos/ecommerce/logistica';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -11,17 +13,11 @@ interface ProcessosDepartamentoProps {
 }
 
 const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departamento, pilarSelecionado }) => {
-  // Processos específicos por pilar do E-commerce
+  const [processoExpandido, setProcessoExpandido] = useState<string | null>(null);
+
   const processosPorPilar: {[key: string]: any[]} = {
     'Logística': [
-      {
-        id: 'LOG-001',
-        nome: 'Operações no Sistema Aftersale',
-        descricao: 'Demanda de atualização cadastral ou necessidade de extração/atualização de dados referentes a devoluções e reversas via plataforma Aftersale',
-        icon: Package,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
+      ...processosLogisticaDetalhados,
       {
         id: 'LOG-002',
         nome: 'Chamados Técnicos e Operacionais',
@@ -321,7 +317,6 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     ]
   };
 
-  // Função para obter todos os processos do E-commerce
   const obterTodosProcessosEcommerce = () => {
     const todosProcessos: any[] = [];
     Object.values(processosPorPilar).forEach(processos => {
@@ -330,9 +325,18 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     return todosProcessos;
   };
 
-  // Se é E-commerce, usar a lógica de filtragem por pilar
+  const handleProcessoClick = (processo: any) => {
+    if (processo.subprocessos) {
+      setProcessoExpandido(processo.id);
+    }
+  };
+
+  const encontrarProcessoDetalhado = (id: string) => {
+    const todosProcessos = obterTodosProcessosEcommerce();
+    return todosProcessos.find(p => p.id === id && p.subprocessos);
+  };
+
   if (departamento.toLowerCase().includes('e-commerce')) {
-    // Se há um pilar selecionado, mostrar apenas os processos desse pilar
     if (pilarSelecionado) {
       const processosPilar = processosPorPilar[pilarSelecionado] || [];
       
@@ -347,10 +351,13 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {processosPilar.map((processo) => {
                 const IconComponent = processo.icon;
+                const temDetalhes = processo.subprocessos;
+                
                 return (
                   <div
                     key={processo.id}
-                    className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                    className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                    onClick={() => handleProcessoClick(processo)}
                   >
                     <div className={`${processo.cor} p-4`}>
                       <div className="flex items-center justify-between text-white">
@@ -378,6 +385,11 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                         >
                           {processo.nivel}
                         </span>
+                        {temDetalhes && (
+                          <span className="text-xs text-blue-600 font-medium">
+                            Clique para detalhes
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -390,10 +402,16 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
               <p className="text-gray-600">Processos em desenvolvimento para este pilar.</p>
             </div>
           )}
+
+          {processoExpandido && (
+            <ProcessoDetalhe
+              processo={encontrarProcessoDetalhado(processoExpandido)!}
+              onClose={() => setProcessoExpandido(null)}
+            />
+          )}
         </div>
       );
     } else {
-      // Se nenhum pilar está selecionado, mostrar TODOS os processos do E-commerce
       const todosProcessos = obterTodosProcessosEcommerce();
       
       return (
@@ -407,10 +425,13 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {todosProcessos.map((processo) => {
               const IconComponent = processo.icon;
+              const temDetalhes = processo.subprocessos;
+              
               return (
                 <div
                   key={processo.id}
-                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                  className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                  onClick={() => handleProcessoClick(processo)}
                 >
                   <div className={`${processo.cor} p-4`}>
                     <div className="flex items-center justify-between text-white">
@@ -438,18 +459,29 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                       >
                         {processo.nivel}
                       </span>
+                      {temDetalhes && (
+                        <span className="text-xs text-blue-600 font-medium">
+                          Clique para detalhes
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
               );
             })}
           </div>
+
+          {processoExpandido && (
+            <ProcessoDetalhe
+              processo={encontrarProcessoDetalhado(processoExpandido)!}
+              onClose={() => setProcessoExpandido(null)}
+            />
+          )}
         </div>
       );
     }
   }
 
-  // Processos originais do Financeiro
   if (departamento.toLowerCase().includes('financeiro')) {
     const processos = [
       {
