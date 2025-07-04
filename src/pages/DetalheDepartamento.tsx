@@ -5,8 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
 import FluxoDepartamento from '@/components/departamento/FluxoDepartamento';
+import FluxoControladoria from '@/components/departamento/FluxoControladoria';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
+import PilaresControladoria from '@/components/departamento/PilaresControladoria';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
@@ -49,6 +51,7 @@ const DetalheDepartamento = () => {
   
   const nomeDepartamento = converterUrlParaNome(nome || '');
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
+  const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -94,7 +97,11 @@ const DetalheDepartamento = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <FluxoDepartamento departamento={nomeDepartamento} />
+            {isControladoria ? (
+              <FluxoControladoria />
+            ) : (
+              <FluxoDepartamento departamento={nomeDepartamento} />
+            )}
           </CardContent>
         </Card>
 
@@ -109,6 +116,21 @@ const DetalheDepartamento = () => {
             </CardHeader>
             <CardContent>
               <PilaresEcommerce onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Pilares da Controladoria - Só exibe para Controladoria */}
+        {isControladoria && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Puzzle className="text-orange-600" size={24} />
+                Pilares da Controladoria
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
             </CardContent>
           </Card>
         )}

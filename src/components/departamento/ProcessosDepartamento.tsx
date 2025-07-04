@@ -3,7 +3,8 @@ import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, P
          Truck, ShoppingCart, Users, Monitor, FileText, Phone, Store, Package, Headphones,
          BarChart2, Repeat, FileSearch, Clock, AlertCircle, ListOrdered, ShoppingBag, Target,
          UserPlus, Gift, LayoutGrid, Search, CalendarCheck, Megaphone, Camera, Edit, Folder,
-         Inbox, ClipboardPlus, CheckCircle } from 'lucide-react';
+         Inbox, ClipboardPlus, CheckCircle, Scale, FileX, CreditCard as CreditCardIcon,
+         Building, UserCheck, AlertTriangle } from 'lucide-react';
 import ProcessoDetalhe from './ProcessoDetalhe';
 import { processosLogisticaDetalhados } from '@/data/processos/ecommerce/logistica';
 
@@ -314,6 +315,80 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         cor: 'bg-gradient-to-br from-teal-500 to-teal-600',
         nivel: 'Operacional'
       }
+    ],
+    'Auditoria': [
+      {
+        id: 'CON-001',
+        nome: 'Auditoria de caixa, lojas Oscar',
+        descricao: 'Dados dos caixas, registros de vendas, pagamentos realizados.',
+        icon: Search,
+        cor: 'bg-gradient-to-br from-green-500 to-green-600',
+        nivel: 'Operacional e Tático'
+      },
+      {
+        id: 'CON-002',
+        nome: 'Auditoria de caixa das franquias',
+        descricao: 'Registros dos fechamentos de caixa das franquias nos sistemas: Seta, Cigan e BShop., informações financeiras no Fiabilité, Equals, GetNet e VExpenses.',
+        icon: Building,
+        cor: 'bg-gradient-to-br from-green-500 to-green-600',
+        nivel: 'Operacional'
+      }
+    ],
+    'Apoio a loja': [
+      {
+        id: 'CON-003',
+        nome: 'Apoio à Loja',
+        descricao: 'Chamados via TopDesk, E-mail, WhatsApp e atendimento telefônico (Headsets), solicitações relacionadas a cadastro, cancelamentos, trocas, estornos ou ajustes de estoque/recebimento.',
+        icon: Store,
+        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
+        nivel: 'Operacional e Tático'
+      }
+    ],
+    'Conciliação': [
+      {
+        id: 'CON-004',
+        nome: 'Conciliação Financeira FestCard',
+        descricao: 'Dados de vendas realizadas via FestCard nas lojas do grupo, relatórios de faturamento, acordos de renegociação e super troco, comissões e valores a repassar às lojas credenciadas.',
+        icon: Scale,
+        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
+        nivel: 'Operacional'
+      },
+      {
+        id: 'CON-005',
+        nome: 'Conciliação Financeira e Bancária',
+        descricao: 'Extratos bancários, relatórios de vendas com cartões e Pix, lançamentos financeiros no sistema Mega',
+        icon: CreditCardIcon,
+        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
+        nivel: 'Operacional e Tático'
+      }
+    ],
+    'Contrato e despesas': [
+      {
+        id: 'CON-006',
+        nome: 'Gestão de Contratos',
+        descricao: 'Acordo firmado entre diretor responsável e locatário para locação de imóvel comercial',
+        icon: FileText,
+        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
+        nivel: 'Operacional e Tático'
+      },
+      {
+        id: 'CON-008',
+        nome: 'Gestão de Despesas',
+        descricao: 'Boletos, faturas mensais, contratos e comprovantes de despesas fixas ou variáveis recebidas por e-mail, site ou meio físico',
+        icon: Receipt,
+        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
+        nivel: 'Tático'
+      }
+    ],
+    'Recuperação de receitas': [
+      {
+        id: 'CON-007',
+        nome: 'Indenizações de Defeito',
+        descricao: 'Produto com defeito identificado pela loja e comunicado ao departamento responsável',
+        icon: AlertTriangle,
+        cor: 'bg-gradient-to-br from-red-500 to-red-600',
+        nivel: 'Operacional e Tático'
+      }
     ]
   };
 
@@ -325,6 +400,19 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     return todosProcessos;
   };
 
+  const obterTodosProcessosControladoria = () => {
+    const todosProcessos: any[] = [];
+    const pilaresControladoria = ['Auditoria', 'Apoio a loja', 'Conciliação', 'Contrato e despesas', 'Recuperação de receitas'];
+    
+    pilaresControladoria.forEach(pilar => {
+      if (processosPorPilar[pilar]) {
+        todosProcessos.push(...processosPorPilar[pilar]);
+      }
+    });
+    
+    return todosProcessos;
+  };
+
   const handleProcessoClick = (processo: any) => {
     if (processo.subprocessos) {
       setProcessoExpandido(processo.id);
@@ -332,9 +420,145 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
   };
 
   const encontrarProcessoDetalhado = (id: string) => {
-    const todosProcessos = obterTodosProcessosEcommerce();
+    const todosProcessos = departamento.toLowerCase().includes('controladoria') 
+      ? obterTodosProcessosControladoria()
+      : obterTodosProcessosEcommerce();
     return todosProcessos.find(p => p.id === id && p.subprocessos);
   };
+
+  if (departamento.toLowerCase().includes('controladoria')) {
+    if (pilarSelecionado) {
+      const processosPilar = processosPorPilar[pilarSelecionado] || [];
+      
+      return (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Processos - {pilarSelecionado}</h3>
+            <p className="text-purple-100">{processosPilar.length} processos mapeados</p>
+          </div>
+
+          {processosPilar.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {processosPilar.map((processo) => {
+                const IconComponent = processo.icon;
+                const temDetalhes = processo.subprocessos;
+                
+                return (
+                  <div
+                    key={processo.id}
+                    className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                    onClick={() => handleProcessoClick(processo)}
+                  >
+                    <div className={`${processo.cor} p-4`}>
+                      <div className="flex items-center justify-between text-white">
+                        <IconComponent size={24} />
+                        <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                          {processo.id}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4">
+                      <h4 className="font-semibold text-gray-800 mb-2">
+                        {processo.nome}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {processo.descricao}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                          {processo.nivel}
+                        </span>
+                        {temDetalhes && (
+                          <span className="text-xs text-blue-600 font-medium">
+                            Clique para detalhes
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="bg-gray-50 p-6 rounded-lg text-center">
+              <FileCheck className="mx-auto mb-4 text-gray-400" size={48} />
+              <p className="text-gray-600">Processos em desenvolvimento para este pilar.</p>
+            </div>
+          )}
+
+          {processoExpandido && (
+            <ProcessoDetalhe
+              processo={encontrarProcessoDetalhado(processoExpandido)!}
+              onClose={() => setProcessoExpandido(null)}
+            />
+          )}
+        </div>
+      );
+    } else {
+      const todosProcessos = obterTodosProcessosControladoria();
+      
+      return (
+        <div className="space-y-6">
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Todos os Processos - Controladoria</h3>
+            <p className="text-purple-100">{todosProcessos.length} processos mapeados em todos os pilares</p>
+            <p className="text-sm text-purple-200 mt-1">Selecione um pilar acima para filtrar os processos</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {todosProcessos.map((processo) => {
+              const IconComponent = processo.icon;
+              const temDetalhes = processo.subprocessos;
+              
+              return (
+                <div
+                  key={processo.id}
+                  className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                  onClick={() => handleProcessoClick(processo)}
+                >
+                  <div className={`${processo.cor} p-4`}>
+                    <div className="flex items-center justify-between text-white">
+                      <IconComponent size={24} />
+                      <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                        {processo.id}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      {processo.nome}
+                    </h4>
+                    <p className="text-sm text-gray-600 mb-3">
+                      {processo.descricao}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <span className="px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                        {processo.nivel}
+                      </span>
+                      {temDetalhes && (
+                        <span className="text-xs text-blue-600 font-medium">
+                          Clique para detalhes
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {processoExpandido && (
+            <ProcessoDetalhe
+              processo={encontrarProcessoDetalhado(processoExpandido)!}
+              onClose={() => setProcessoExpandido(null)}
+            />
+          )}
+        </div>
+      );
+    }
+  }
 
   if (departamento.toLowerCase().includes('e-commerce')) {
     if (pilarSelecionado) {
