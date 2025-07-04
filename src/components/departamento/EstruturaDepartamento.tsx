@@ -51,9 +51,13 @@ const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, ic
     }
   };
 
+  const getPadding = (nivel: number) => {
+    return nivel === 1 ? 'p-6' : 'p-4';
+  };
+
   return (
-    <div className={`${getBackgroundColor(nivel)} text-white p-4 rounded-lg shadow-lg m-2 transition-all hover:scale-105`}>
-      <div className="flex items-center gap-2 mb-2">
+    <div className={`${getBackgroundColor(nivel)} text-white ${getPadding(nivel)} rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
+      <div className="flex items-center justify-center gap-2 mb-2">
         {icon && <span className="text-white">{icon}</span>}
         <h3 className={getTextSize(nivel)}>{nome}</h3>
       </div>
@@ -78,46 +82,46 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
 
-if (departamentoNormalizado.includes('financeiro')) {
-  return (
-    <div className="p-6">
-      {/* Nível 1 - Gerência */}
-      <div className="flex justify-center gap-4 mb-4">
-        <Colaborador 
-          nome="Márcio Sampaio" 
-          cargo="Diretor" 
-          setor="Financeiro"
-          nivel={1}
-          icon={<Star size={20} />}
-        />
+  if (departamentoNormalizado.includes('financeiro')) {
+    return (
+      <div className="p-6">
+        {/* Nível 1 - Gerência */}
+        <div className="flex justify-center gap-4 mb-4">
+          <Colaborador 
+            nome="Márcio Sampaio" 
+            cargo="Diretor" 
+            setor="Financeiro"
+            nivel={1}
+            icon={<Star size={20} />}
+          />
+        </div>
+        {/* Nível 2 - Coordenação */}
+        <div className="flex justify-center gap-4 mb-4">
+          <Colaborador 
+            nome="Flávia Araujo" 
+            cargo="Gerente" 
+            setor="Financeiro"
+            nivel={2}
+            icon={<Calculator size={18} />}
+          />
+        </div>
+        {/* Nível 3 - Analistas */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+          <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
+        </div>
+        {/* Nível 4 - Auxiliares */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Amanda Silva" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Carolina Lima" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Sabrina Souza" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+        </div>
       </div>
-      {/* Nível 2 - Coordenação */}
-      <div className="flex justify-center gap-4 mb-4">
-        <Colaborador 
-          nome="Flávia Araujo" 
-          cargo="Gerente" 
-          setor="Financeiro"
-          nivel={2}
-          icon={<Calculator size={18} />}
-        />
-      </div>
-      {/* Nível 3 - Analistas */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-        <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
-      </div>
-      {/* Nível 4 - Auxiliares */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-        <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Amanda Silva" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Carolina Lima" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Mateus Garcia" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-        <Colaborador nome="Sabrina Souza" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-      </div>
-    </div>
-  );
-}
+    );
+  }
 
   if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('E-commerce')) {
     return (
