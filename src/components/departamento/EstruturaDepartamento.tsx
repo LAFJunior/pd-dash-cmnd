@@ -55,9 +55,9 @@ const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, ic
     return 'p-4';
   };
 
-  return (
-   <div className={`${getBackgroundColor(nivel)} text-white ${getPadding(nivel)} flex-1 min-w-[220px] rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
-      <div className="flex items-center justify-center gap-2 mb-2">
+  return ( 
+   <div className={`${getBackgroundColor(nivel)} text-white ${getPadding(nivel)} rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
+     <div className="flex items-center justify-center gap-2 mb-2">
         {icon && <span className="text-white">{icon}</span>}
         <h3 className={getTextSize(nivel)}>{nome}</h3>
       </div>
@@ -86,7 +86,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     return (
       <div className="p-4">
         {/* Nível 1 - Gerência */}
-        <div className="flex justify-center gap-4 mb-4">
+        <div className="flex justify-center grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
