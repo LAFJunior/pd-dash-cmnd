@@ -96,7 +96,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           />
         </div>
         {/* Nível 2 - Coordenação */}
-        <div className="flex justify-center gap-4 mb-4">
+        <div className="flex justify-center gap-1 mb-4">
           <Colaborador 
             nome="Flávia Araujo" 
             cargo="Gerente" 
