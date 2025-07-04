@@ -33,11 +33,11 @@ interface ColaboradorProps {
 const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, icon, email }) => {
   const getBackgroundColor = (nivel: number) => {
     switch (nivel) {
-      case 1: return 'bg-gradient-to-r from-purple-600 to-purple-800';
-      case 2: return 'bg-gradient-to-r from-blue-500 to-blue-700';
-      case 3: return 'bg-gradient-to-r from-green-500 to-green-700';
-      case 4: return 'bg-gradient-to-r from-yellow-500 to-yellow-600';
-      case 5: return 'bg-gradient-to-r from-gray-500 to-gray-600';
+      case 1: return 'bg-gradient-to-r from-purple-600 to-purple-900';
+      case 2: return 'bg-gradient-to-r from-amber-600 to-amber-900';
+      case 3: return 'bg-gradient-to-r from-emerald-600 to-emerald-900';
+      case 4: return 'bg-gradient-to-r from-blue-600 to-blue-900';
+      case 5: return 'bg-gradient-to-r from-gray-600 to-gray-800';
       default: return 'bg-gradient-to-r from-gray-400 to-gray-500';
     }
   };
@@ -87,7 +87,7 @@ if (departamentoNormalizado.includes('financeiro')) {
           nome="Márcio Sampaio" 
           cargo="Diretor" 
           setor="Financeiro"
-          nivel={4}
+          nivel={1}
           icon={<Star size={20} />}
         />
       </div>
@@ -97,13 +97,13 @@ if (departamentoNormalizado.includes('financeiro')) {
           nome="Flávia Araujo" 
           cargo="Gerente" 
           setor="Financeiro"
-          nivel={4}
+          nivel={2}
           icon={<Calculator size={18} />}
         />
       </div>
       {/* Nível 3 - Analistas */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-        <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={4} icon={<FileText size={16} />} />
+        <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
       </div>
       {/* Nível 4 - Auxiliares */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
