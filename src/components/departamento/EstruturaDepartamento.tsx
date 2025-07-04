@@ -84,7 +84,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
   if (departamentoNormalizado.includes('financeiro')) {
     return (
-      <div className="p-6">
+      <div className="p-4">
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center gap-4 mb-4">
           <Colaborador 
