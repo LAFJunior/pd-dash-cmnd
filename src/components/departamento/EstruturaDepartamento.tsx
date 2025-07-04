@@ -86,7 +86,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     return (
       <div className="p-4">
         {/* Nível 1 - Gerência */}
-        <div className="flex justify-center grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="flex justify-center gap-2 mb-4">
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
