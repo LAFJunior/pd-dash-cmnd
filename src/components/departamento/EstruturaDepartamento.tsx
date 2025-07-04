@@ -84,15 +84,15 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
   if (departamentoNormalizado.includes('financeiro')) {
     return (
-      <div className="p-4">
+      <div className="p-8">
         {/* Nível 1 - Gerência */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-4">
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
             setor="Financeiro"
             nivel={1}
-            icon={<Star size={40} />}
+            icon={<Star size={24} />}
           />
         </div>
         {/* Nível 2 - Coordenação */}
@@ -102,7 +102,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             cargo="Gerente" 
             setor="Financeiro"
             nivel={2}
-            icon={<Calculator size={38} />}
+            icon={<Calculator size={20} />}
           />
         </div>
         {/* Nível 3 - Analistas */}
