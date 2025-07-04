@@ -130,7 +130,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {/* Nível 1 - Diretoria */}
         <div className="flex justify-center mb-4">
           <Colaborador 
-            nome="Renan" 
+            nome="Renan Constantino" 
             cargo="Diretor" 
             setor="E-commerce"
             nivel={1}
@@ -141,14 +141,12 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {/* Nível 2 - Gerência */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
           <Colaborador nome="Flávia" cargo="Gerente" setor="Consultora Comercial" nivel={2} icon={<ShoppingCart size={18} />} />
-          <Colaborador nome="Helen" cargo="Gerente" setor="Customer Experience" nivel={2} icon={<Phone size={18} />} />
         </div>
 
         {/* Nível 3 - Coordenação */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
           <Colaborador nome="Andrea" cargo="Coordenadora" setor="1P" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Robson" cargo="PM" setor="Produto" nivel={2} icon={<Monitor size={18} />} />
-          <Colaborador nome="Viviane" cargo="Coordenadora" setor="SAC" nivel={2} icon={<Phone size={18} />} />
           <Colaborador nome="Vanessa" cargo="Analista Sr." setor="Financeiro" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Priscila" cargo="Analista Sr." setor="3P" nivel={3} icon={<BarChart3 size={16} />} />
           <Colaborador nome="Eduardo" cargo="Coordenador" setor="Logística" nivel={3} icon={<Package size={16} />} />
@@ -260,25 +258,24 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {/* Nível 2 - Coordenação */}
         <div className="flex justify-center mb-4">
           <Colaborador 
-            nome="Vilma" 
+            nome="Vilma Santos" 
             cargo="Coordenadora" 
             setor="Controladoria"
             nivel={2}
             icon={<Star size={20} />}
           />
         </div>
-
-        {/* Nível 3 - Analistas */}
-        <div className="flex justify-center mb-4">
-          <Colaborador 
+        
+       {/* Nível 3 - Analistas */}
+       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+          <Colaborador
             nome="Alexandra Soares" 
             cargo="Analista Sr." 
-            setor="Controladoria"
-            nivel={3}
-            icon={<BarChart3 size={18} />}
-          />
+            setor="Controladoria" 
+            nivel={3} 
+            icon={<BarChart3 size={16} />} />
         </div>
-
+        
         {/* Nível 4 - Assistentes */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
           <Colaborador nome="Laise" cargo="Assistente" setor="Controladoria" nivel={4} icon={<User size={14} />} />
