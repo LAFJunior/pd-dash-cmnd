@@ -78,16 +78,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
       .trim();
   };
 
-const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departamento }) => {
-  // Função para normalizar nomes de departamentos
-  const normalizarNome = (nome: string) => {
-    return nome
-      .toLowerCase()
-      .replace(/\([^)]*\)/g, '') // Remove parênteses e conteúdo
-      .replace(/\s+/g, ' ') // Normaliza espaços
-      .trim();
-  };
-  
   const departamentoNormalizado = normalizarNome(departamento);
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
@@ -97,9 +87,8 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
       <div className="p-8">
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center mb-4">
-         <div className="w-64">
           <Colaborador 
-            nome="Márcio Sampaio" 
+            nome="     Márcio Sampaio     " 
             cargo="Diretor" 
             setor="Financeiro"
             nivel={1}
@@ -108,7 +97,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
         {/* Nível 2 - Coordenação */}
         <div className="flex justify-center gap-1 mb-4">
-         <div className="w-64">
           <Colaborador 
             nome="Flávia Araujo" 
             cargo="Gerente" 
@@ -134,7 +122,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
       </div>
     );
   }
-  
+
   if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('E-commerce')) {
     return (
       <div className="p-6">
