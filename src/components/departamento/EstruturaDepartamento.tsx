@@ -86,13 +86,13 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     return (
       <div className="p-4">
         {/* Nível 1 - Gerência */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-8">
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
             setor="Financeiro"
             nivel={1}
-            icon={<Star size={20} />}
+            icon={<Star size={40} />}
           />
         </div>
         {/* Nível 2 - Coordenação */}
@@ -102,7 +102,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             cargo="Gerente" 
             setor="Financeiro"
             nivel={2}
-            icon={<Calculator size={18} />}
+            icon={<Calculator size={38} />}
           />
         </div>
         {/* Nível 3 - Analistas */}
