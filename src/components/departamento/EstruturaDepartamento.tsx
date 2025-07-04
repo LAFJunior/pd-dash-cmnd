@@ -78,37 +78,54 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
       .trim();
   };
 
+const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departamento }) => {
+  // Função para normalizar nomes de departamentos
+  const normalizarNome = (nome: string) => {
+    return nome
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, '') // Remove parênteses e conteúdo
+      .replace(/\s+/g, ' ') // Normaliza espaços
+      .trim();
+  };
+  
   const departamentoNormalizado = normalizarNome(departamento);
   console.log('Departamento recebido:', departamento);
   console.log('Departamento normalizado:', departamentoNormalizado);
-
+  
   if (departamentoNormalizado.includes('financeiro')) {
     return (
       <div className="p-8">
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center mb-4">
-          <Colaborador 
-            nome="     Márcio Sampaio     " 
-            cargo="Diretor" 
-            setor="Financeiro"
-            nivel={1}
-            icon={<Star size={24} />}
-          />
+          <div className="w-64"> {/* Largura fixa */}
+            <Colaborador 
+              nome="Márcio Sampaio" 
+              cargo="Diretor" 
+              setor="Financeiro"
+              nivel={1}
+              icon={<Star size={24} />}
+            />
+          </div>
         </div>
+        
         {/* Nível 2 - Coordenação */}
         <div className="flex justify-center gap-1 mb-4">
-          <Colaborador 
-            nome="Flávia Araujo" 
-            cargo="Gerente" 
-            setor="Financeiro"
-            nivel={2}
-            icon={<Calculator size={20} />}
-          />
+          <div className="w-64"> {/* Mesma largura fixa */}
+            <Colaborador 
+              nome="Flávia Araujo" 
+              cargo="Gerente" 
+              setor="Financeiro"
+              nivel={2}
+              icon={<Calculator size={20} />}
+            />
+          </div>
         </div>
+        
         {/* Nível 3 - Analistas */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
           <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
         </div>
+        
         {/* Nível 4 - Auxiliares */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
@@ -122,6 +139,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
       </div>
     );
   }
+};
 
   if (departamentoNormalizado.includes('e-commerce') || departamentoNormalizado.includes('E-commerce')) {
     return (
