@@ -56,7 +56,7 @@ const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, ic
   };
 
   return (
-    <div className={`${getBackgroundColor(nivel)} text-white ${getPadding(nivel)} rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
+   <div className={`${getBackgroundColor(nivel)} text-white ${getPadding(nivel)} flex-1 min-w-[220px] rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
       <div className="flex items-center justify-center gap-2 mb-2">
         {icon && <span className="text-white">{icon}</span>}
         <h3 className={getTextSize(nivel)}>{nome}</h3>
