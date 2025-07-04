@@ -382,8 +382,8 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {/* Nível 3 - Equipe */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           <Colaborador 
-            nome="Hilquias" 
-            cargo="Responsável Técnico" 
+            nome="Breno" 
+            cargo="Estoquista" 
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
@@ -391,7 +391,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           />
           <Colaborador 
             nome="Peterson" 
-            cargo="Técnico em Defeitos" 
+            cargo="Estoquista" 
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
@@ -399,7 +399,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           />
           <Colaborador 
             nome="Romulo" 
-            cargo="Técnico em Defeitos" 
+            cargo="Estoquista" 
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
