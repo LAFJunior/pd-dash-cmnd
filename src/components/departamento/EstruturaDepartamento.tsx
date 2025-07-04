@@ -52,7 +52,7 @@ const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, ic
   };
 
   const getPadding = (nivel: number) => {
-    return nivel === 1 ? 'p-6' : 'p-4';
+    return 'p-4';
   };
 
   return (
