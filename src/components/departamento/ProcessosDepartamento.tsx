@@ -327,32 +327,10 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-004') || p.id.includes('CON-005'))
     ],
     'Contrato e despesas': [
-      {
-        id: 'CON-006',
-        nome: 'Gestão de Contratos',
-        descricao: 'Acordo firmado entre diretor responsável e locatário para locação de imóvel comercial',
-        icon: FileText,
-        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
-        nivel: 'Operacional e Tático'
-      },
-      {
-        id: 'CON-008',
-        nome: 'Gestão de Despesas',
-        descricao: 'Boletos, faturas mensais, contratos e comprovantes de despesas fixas ou variáveis recebidas por e-mail, site ou meio físico',
-        icon: Receipt,
-        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
-        nivel: 'Tático'
-      }
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-006') || p.id.includes('CON-008'))
     ],
     'Recuperação de receitas': [
-      {
-        id: 'CON-007',
-        nome: 'Indenizações de Defeito',
-        descricao: 'Produto com defeito identificado pela loja e comunicado ao departamento responsável',
-        icon: AlertTriangle,
-        cor: 'bg-gradient-to-br from-red-500 to-red-600',
-        nivel: 'Operacional e Tático'
-      }
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-007'))
     ]
   };
 
