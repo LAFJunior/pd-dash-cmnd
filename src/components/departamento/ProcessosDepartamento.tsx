@@ -318,51 +318,13 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       }
     ],
     'Auditoria': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002')),
-      {
-        id: 'CON-001',
-        nome: 'Auditoria de caixa, lojas Oscar',
-        descricao: 'Dados dos caixas, registros de vendas, pagamentos realizados.',
-        icon: Search,
-        cor: 'bg-gradient-to-br from-green-500 to-green-600',
-        nivel: 'Operacional e Tático'
-      },
-      {
-        id: 'CON-002',
-        nome: 'Auditoria de caixa das franquias',
-        descricao: 'Registros dos fechamentos de caixa das franquias nos sistemas: Seta, Cigan e BShop., informações financeiras no Fiabilité, Equals, GetNet e VExpenses.',
-        icon: Building,
-        cor: 'bg-gradient-to-br from-green-500 to-green-600',
-        nivel: 'Operacional'
-      }
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002'))
     ],
     'Apoio a loja': [
-      {
-        id: 'CON-003',
-        nome: 'Apoio à Loja',
-        descricao: 'Chamados via TopDesk, E-mail, WhatsApp e atendimento telefônico (Headsets), solicitações relacionadas a cadastro, cancelamentos, trocas, estornos ou ajustes de estoque/recebimento.',
-        icon: Store,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional e Tático'
-      }
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-003'))
     ],
     'Conciliação': [
-      {
-        id: 'CON-004',
-        nome: 'Conciliação Financeira FestCard',
-        descricao: 'Dados de vendas realizadas via FestCard nas lojas do grupo, relatórios de faturamento, acordos de renegociação e super troco, comissões e valores a repassar às lojas credenciadas.',
-        icon: Scale,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'CON-005',
-        nome: 'Conciliação Financeira e Bancária',
-        descricao: 'Extratos bancários, relatórios de vendas com cartões e Pix, lançamentos financeiros no sistema Mega',
-        icon: CreditCardIcon,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional e Tático'
-      }
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-004') || p.id.includes('CON-005'))
     ],
     'Contrato e despesas': [
       {
