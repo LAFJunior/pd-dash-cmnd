@@ -1,9 +1,8 @@
 
 import React from 'react';
-import { X, ExternalLink, Clock, BarChart3, Settings, FolderOpen } from 'lucide-react';
+import { X, ExternalLink, Clock, BarChart3, Settings } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 import { Button } from '@/components/ui/button';
-import ProcessoArquivos from './ProcessoArquivos';
 
 interface ProcessoDetalheProps {
   processo: ProcessoDetalhado;
@@ -91,19 +90,6 @@ const ProcessoDetalhe: React.FC<ProcessoDetalheProps> = ({ processo, onClose }) 
               <p className="text-gray-700 leading-relaxed">{processo.saida}</p>
             </div>
           </div>
-
-          {/* Documentos e Arquivos */}
-          {processo.arquivos && processo.arquivos.length > 0 && (
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <FolderOpen size={20} className="text-orange-600" />
-                <h3 className="text-xl font-bold text-gray-800">Documentos e Arquivos</h3>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <ProcessoArquivos arquivos={processo.arquivos} />
-              </div>
-            </div>
-          )}
 
           {/* Subprocessos */}
           <div className="space-y-6">

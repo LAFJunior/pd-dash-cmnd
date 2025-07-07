@@ -14,16 +14,6 @@ export interface ProcessoSubprocesso {
   tarefas: ProcessoTarefa[];
 }
 
-export interface ProcessoArquivo {
-  id: string;
-  nome: string;
-  tipo: 'pdf' | 'docx' | 'xlsx' | 'png' | 'jpg' | 'svg' | 'md';
-  categoria: 'documentacao' | 'fluxograma' | 'template' | 'checklist';
-  url: string;
-  tamanho: string;
-  dataAtualizacao: string;
-}
-
 export interface ProcessoDetalhado {
   id: string;
   nome: string;
@@ -37,5 +27,4 @@ export interface ProcessoDetalhado {
   tempo_execucao?: string;
   frequencia?: string;
   sistemas_utilizados: string[];
-  arquivos?: ProcessoArquivo[];
 }
