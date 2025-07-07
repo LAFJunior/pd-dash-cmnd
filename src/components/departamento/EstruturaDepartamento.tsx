@@ -114,7 +114,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
         </div>
         {/* Nível 4 - Auxiliares */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
@@ -148,9 +148,9 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 3 - Coordenação */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
           <Colaborador nome="Andrea" cargo="Coordenadora" setor="1P" nivel={3} icon={<Settings size={16} />} />
-          <Colaborador nome="Robson" cargo="PM" setor="Produto" nivel={2} icon={<Monitor size={18} />} />
+          <Colaborador nome="Robson" cargo="PM" setor="Produto" nivel={3} icon={<Monitor size={18} />} />
           <Colaborador nome="Vanessa" cargo="Analista Sr." setor="Financeiro" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Priscila" cargo="Analista Sr." setor="3P" nivel={3} icon={<BarChart3 size={16} />} />
           <Colaborador nome="Eduardo" cargo="Coordenador" setor="Logística" nivel={3} icon={<Package size={16} />} />
@@ -160,7 +160,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>-
 
         {/* Nível 4 - Analistas */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
           <Colaborador nome="Bruna" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Matheus" cargo="Assistente" setor="1P" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Gian" cargo="Analista" setor="3P" nivel={4} icon={<User size={14} />} />
@@ -170,7 +170,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 5 - Assistentes  */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <Colaborador nome="Gabriella" cargo="Assistente" setor="Comercial" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Maria Fernanda" cargo="Assistente" setor="Comercial" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Luis" cargo="Assistente" setor="Logística" nivel={5} icon={<User size={12} />} />
@@ -179,7 +179,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 6 - Auxiliares  */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <Colaborador nome="Patricia" cargo="Assistente" setor="Logística" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Patricia" cargo="Assistente" setor="Cadastro" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Edna" cargo="Assistente" setor="Fotos" nivel={5} icon={<User size={12} />} />
@@ -281,7 +281,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
         
         {/* Nível 4 - Assistentes */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
           <Colaborador nome="Laise" cargo="Assistente" setor="Controladoria" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Kelly Braga" cargo="Assistente" setor="Controladoria" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Giovanna Gomes" cargo="Assistente" setor="Controladoria" nivel={4} icon={<User size={14} />} />
@@ -290,7 +290,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 5 - Auxiliares */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <Colaborador nome="Deborah Santos" cargo="Auxiliar" setor="Controladoria" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Claudia Rodrigues" cargo="Auxiliar" setor="Controladoria" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Patrícia Donda" cargo="Auxiliar" setor="Controladoria" nivel={5} icon={<User size={12} />} />
@@ -322,7 +322,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             setor="São José dos Campos"
             nivel={2}
             icon={<Star size={20} />}
-            email="cleber.silva@grupooscar.com.br"
           />
         </div>
 
@@ -334,12 +333,11 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             setor="São José dos Campos"
             nivel={3}
             icon={<Warehouse size={18} />}
-            email="cd@grupooscar.com.br"
           />
         </div>
 
         {/* Nível 4 - Estoquistas */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
           <Colaborador nome="Renan" cargo="Estoquista" setor="São José dos Campos" nivel={4} icon={<Package size={14} />} />
           <Colaborador nome="Felipe" cargo="Estoquista" setor="São José dos Campos" nivel={4} icon={<Package size={14} />} />
           <Colaborador nome="Marcelo" cargo="Estoquista" setor="São José dos Campos" nivel={4} icon={<Package size={14} />} />
@@ -348,7 +346,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 5 - Motoristas */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           <Colaborador nome="Sergio Rosa" cargo="Motorista" setor="São José dos Campos" nivel={5} icon={<Truck size={12} />} />
           <Colaborador nome="Sergio Assis" cargo="Motorista" setor="São José dos Campos" nivel={5} icon={<Truck size={12} />} />
           <Colaborador nome="Andre Luis" cargo="Motorista" setor="São José dos Campos" nivel={5} icon={<Truck size={12} />} />
@@ -384,14 +382,13 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 3 - Equipe */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
           <Colaborador 
             nome="Breno" 
             cargo="Estoquista" 
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
-            email="hilquias.rabello@grupooscar.com.br - RAMAL 4114"
           />
           <Colaborador 
             nome="Peterson" 
@@ -399,7 +396,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
-            email="peterson.aguiar@grupooscar.com - RAMAL 4114"
           />
           <Colaborador 
             nome="Romulo" 
@@ -407,7 +403,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             setor="Defeito"
             nivel={3} 
             icon={<Settings size={16} />}
-            email="romulo.moura@grupooscar.com - RAMAL 4114"
           />
         </div>
       </div>
