@@ -7,6 +7,7 @@ import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, P
          Building, UserCheck, AlertTriangle } from 'lucide-react';
 import ProcessoDetalhe from './ProcessoDetalhe';
 import { processosLogisticaDetalhados } from '@/data/processos/ecommerce/logistica';
+import { processosControladoriaDetalhados } from '@/data/processos/controladoria';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -317,6 +318,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       }
     ],
     'Auditoria': [
+      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002')),
       {
         id: 'CON-001',
         nome: 'Auditoria de caixa, lojas Oscar',
@@ -420,6 +422,13 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
   };
 
   const encontrarProcessoDetalhado = (id: string) => {
+    // Primeiro verifica nos processos detalhados da Controladoria
+    const processoControladoria = processosControladoriaDetalhados.find(p => p.id === id);
+    if (processoControladoria) {
+      return processoControladoria;
+    }
+
+    // Depois verifica nos processos detalhados do E-commerce  
     const todosProcessos = departamento.toLowerCase().includes('controladoria') 
       ? obterTodosProcessosControladoria()
       : obterTodosProcessosEcommerce();
