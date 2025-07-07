@@ -6,7 +6,7 @@ export const auditoriaOscar: ProcessoDetalhado = {
   id: 'CON-001',
   nome: 'Auditoria de caixa, lojas Oscar',
   descricao: 'Dados dos caixas, registros de vendas, pagamentos realizados.',
-  nivel: 'Operacional e Tático',
+  nivel: 'Tático',
   icon: Search,
   cor: 'bg-gradient-to-br from-green-500 to-green-600',
   entrada: 'Dados dos caixas, registros de vendas, pagamentos realizados.',
