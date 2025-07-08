@@ -374,14 +374,14 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 2 - Gestão */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="flex justify-center mb-4">
           <Colaborador nome="William Lima" cargo="Analista" setor="Categoria e Planejamento Comercial" nivel={3} icon={<Warehouse size={18} />} />
           <Colaborador nome="Wesley Mendes" cargo="Coordenador" setor="Visual Merchandising" nivel={3} icon={<Warehouse size={18} />} />
           <Colaborador nome="Cleber Silva" cargo="Gerente" setor="Pedidos" nivel={3} icon={<Warehouse size={18} />} />
         </div>
 
         {/* Nível 3 - Analistas */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+        <div className="flex justify-center mb-4">
           <Colaborador nome="Karen Akemi" cargo="Comprador" setor="Feminio (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />} />
           <Colaborador nome="Alice Bergamaschi" cargo="Comprador" setor="Feminio (Paquetá - Gaston)" nivel={4} icon={<Settings size={16} />} />
           <Colaborador nome="Claudinei" cargo="Comprador" setor="Masculino" nivel={4} icon={<Settings size={16} />} />
