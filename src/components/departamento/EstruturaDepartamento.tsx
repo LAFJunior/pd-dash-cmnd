@@ -370,7 +370,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         
         {/* Nível 1 - Gerência */}
         <div className="flex justify-center mb-4">
-          <Colaborador nome="Thomas Ventre" cargo="Gerente" setor="Categoria e Planejamento Comercial" nivel={2} icon={<Crown size={20} />}  />
+          <Colaborador nome="Thomas Ventre" cargo="Gerente" setor="Categoria e Planejamento Comercial" nivel={2} icon={<Crown size={20} />} />
         </div>
 
         {/* Nível 2 - Gestão */}
@@ -384,36 +384,35 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
           <Colaborador nome="Karen Akemi" cargo="Comprador" setor="Feminio (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />} />
           <Colaborador nome="Alice Bergamaschi" cargo="Comprador" setor="Feminio (Paquetá - Gaston)" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Claudinei" cargo="Comprador" setor="Masculino" nivel={4} icon={<Settings size={16} />}
-          <Colaborador nome="Raphael Tavares" cargo="Comprador" setor="Esportivo (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />}
-          <Colaborador nome="Jose Ferreria" cargo="Comprador" setor="Esportivo  (Paquetá - gaston)" nivel={4} icon={<Settings size={16} />}
-          <Colaborador nome="Carla Viana" cargo="Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />}
-          <Colaborador nome="Maristela Wollmann" cargo="Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />}
-          <Colaborador nome="Evandro Ribeiro" cargo="Lider" setor="Pedidos" nivel={4} icon={<Settings size={16} />}
+          <Colaborador nome="Claudinei" cargo="Comprador" setor="Masculino" nivel={4} icon={<Settings size={16} />} />
+          <Colaborador nome="Raphael Tavares" cargo="Comprador" setor="Esportivo (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />} />
+          <Colaborador nome="Jose Ferreria" cargo="Comprador" setor="Esportivo  (Paquetá - gaston)" nivel={4} icon={<Settings size={16} />} />
+          <Colaborador nome="Carla Viana" cargo="Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />} />
+          <Colaborador nome="Maristela Wollmann" cargo="Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />} />
+          <Colaborador nome="Evandro Ribeiro" cargo="Lider" setor="Pedidos" nivel={4} icon={<Settings size={16} />} />
         </div>
         
         {/* Nível 4 - Equipe */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
           <Colaborador nome="Vitoria Oliveira" cargo="-- - --" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
           <Colaborador nome="Alexya Freitas" cargo="-- - --" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Thaina Honorato" cargo="-- - --" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Suzana Araujo" cargo="-- - --" setor="Feminio (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Jeferson Oliveira" cargo="-- - --" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Larissa Perreira" cargo="-- - --" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Samanta Azambuja" cargo="-- - --" setor="Esportivo (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Jenifer Santos" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="João Paulo" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Guilherme Cardoso" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Whytini Marinho" cargo="-- - --" setor="Masculino" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Angelica Lopes" cargo="-- - --" setor="Têxtil" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Alicia Munhoz" cargo="-- - --" setor="isual Merchandising (Regional Farias)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Bruna Bruck" cargo="-- - --" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Renderson Silva" cargo="-- - --" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Andre Santos" cargo="-- - --" setor="Visual Merchandising (Carioca - Paquetá)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Camilla Fontoura" cargo="-- - --" setor="Visual Merchandising (Carioca)" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Matheus Ribeiro" cargo="-- - --" setor="Pedidos" nivel={5} icon={<Settings size={16} />}
-          <Colaborador nome="Caue Silva" cargo="-- - --" setor="Pedidos" nivel={5} icon={<Settings size={16} />}
-          />
+          <Colaborador nome="Thaina Honorato" cargo="-- - --" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Suzana Araujo" cargo="-- - --" setor="Feminio (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Jeferson Oliveira" cargo="-- - --" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Larissa Perreira" cargo="-- - --" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Samanta Azambuja" cargo="-- - --" setor="Esportivo (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Jenifer Santos" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="João Paulo" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Guilherme Cardoso" cargo="-- - --" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Whytini Marinho" cargo="-- - --" setor="Masculino" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Angelica Lopes" cargo="-- - --" setor="Têxtil" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Alicia Munhoz" cargo="-- - --" setor="Visual Merchandising (Regional Farias)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Bruna Bruck" cargo="-- - --" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Renderson Silva" cargo="-- - --" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Andre Santos" cargo="-- - --" setor="Visual Merchandising (Carioca - Paquetá)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Camilla Fontoura" cargo="-- - --" setor="Visual Merchandising (Carioca)" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Matheus Ribeiro" cargo="-- - --" setor="Pedidos" nivel={5} icon={<Settings size={16} />} />
+          <Colaborador nome="Caue Silva" cargo="-- - --" setor="Pedidos" nivel={5} icon={<Settings size={16} />} />
         </div>
       </div>
     );
