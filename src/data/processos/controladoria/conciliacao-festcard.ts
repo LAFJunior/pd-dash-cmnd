@@ -11,7 +11,7 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
   entrada: 'Dados de vendas realizadas via FestCard nas lojas do grupo, relatórios de faturamento, acordos de renegociação e super troco, comissões e valores a repassar às lojas credenciadas.',
   saida: 'Relatórios de vendas, faturamento, acordos e super troco analisados, validados e valores de repasse às lojas e credenciadas regularizados e prontos para execução financeira.',
-  tempo_execucao: 'Semanal',
+  tempo_execucao: 'Conforme demanda',
   frequencia: 'Semanal',
   sistemas_utilizados: ['PR Fiabilité', 'Excel', 'Mega', 'Portal FestCard', 'Banco'],
   subprocessos: [
