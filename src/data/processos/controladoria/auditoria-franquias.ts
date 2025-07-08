@@ -11,7 +11,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-green-500 to-green-600',
   entrada: 'Registros dos fechamentos de caixa das franquias nos sistemas: Seta, Cigan e BShop., informações financeiras no Fiabilité, Equals, GetNet e VExpenses.',
   saida: 'Caixas auditados com valores conciliados, despesas conferidas, validadas e aprovadas, saldo de fundo de caixa dentro do limite, pendências comunicadas à loja e registros atualizados com evidências (comprovantes, e-mail, registo em planilha).',
-  tempo_execucao: '3-5 horas por dia',
+  tempo_execucao: 'Conforme demanda',
   frequencia: 'Diária',
   sistemas_utilizados: ['Seta', 'Cigan', 'BShop', 'Fiabilité', 'Equals', 'GetNet', 'VExpenses', 'Microvix'],
   subprocessos: [
