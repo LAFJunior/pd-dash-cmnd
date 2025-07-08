@@ -250,7 +250,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
         
        {/* Nível 3 - Analistas */}
-       <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
+        <div className="flex justify-center mb-4">
           <Colaborador nome="Alexandra Soares" cargo="Analista Sr." setor="Auditoria de caixa + Apoio Loja" nivel={3} icon={<BarChart3 size={16} />} />
         </div>
         
@@ -326,7 +326,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
-            setor="CD - São José dos Campos"
+            setor="CD\Operação"
             nivel={1}
             icon={<Crown size={24} />}
           />
@@ -343,7 +343,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Nível 3 - Equipe */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+        <div className="flex justify-center mb-4">
           <Colaborador nome="Breno" cargo="Estoquista" setor="Defeito" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Peterson Aguiar" cargo="Estoquista" setor="Defeito" nivel={3} icon={<Settings size={16} />} />
           <Colaborador nome="Romulo Moura" cargo="Estoquista" setor="Defeito" nivel={3} icon={<Settings size={16} />}
