@@ -33,10 +33,10 @@ interface ColaboradorProps {
 const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, icon, email }) => {
   const getBackgroundColor = (nivel: number) => {
     switch (nivel) {
-      case 1: return 'bg-gradient-to-r from-purple-600 to-purple-900';
+      case 1: return 'bg-gradient-to-r from-blue-600 to-purple-900';
       case 2: return 'bg-gradient-to-r from-amber-600 to-amber-900';
       case 3: return 'bg-gradient-to-r from-emerald-600 to-emerald-900';
-      case 4: return 'bg-gradient-to-r from-blue-600 to-blue-900';
+      case 4: return 'bg-gradient-to-r from-pink-600 to-red-900';
       case 5: return 'bg-gradient-to-r from-gray-600 to-gray-800';
       default: return 'bg-gradient-to-r from-gray-400 to-gray-500';
     }
