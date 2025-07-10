@@ -6,7 +6,7 @@ import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, P
          Inbox, ClipboardPlus, CheckCircle, Scale, FileX, CreditCard as CreditCardIcon,
          Building, UserCheck, AlertTriangle } from 'lucide-react';
 import ProcessoDetalhe from './ProcessoDetalhe';
-import { processosLogisticaDetalhados } from '@/data/processos/ecommerce/logistica';
+import { processosEcommerce } from '@/data/processos/ecommerce';
 import { processosControladoriaDetalhados } from '@/data/processos/controladoria';
 
 interface ProcessosDepartamentoProps {
@@ -18,327 +18,33 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
   const [processoExpandido, setProcessoExpandido] = useState<string | null>(null);
 
   const processosPorPilar: {[key: string]: any[]} = {
-    'Logística': [
-      ...processosLogisticaDetalhados,
-      {
-        id: 'LOG-002',
-        nome: 'Chamados Técnicos e Operacionais',
-        descricao: 'Processamento e envio de pedidos',
-        icon: Headphones,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-003',
-        nome: 'Integrações com Correios (CWS)',
-        descricao: 'Processamento e envio de pedidos',
-        icon: Truck,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-004',
-        nome: 'Análise Operacional com Power BI (IFC)',
-        descricao: 'Necessidade de analisar indicadores de operação da Infracommerce.',
-        icon: BarChart2,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-005',
-        nome: 'Exportação e Tratamento de Reversas IFC',
-        descricao: 'Demanda de controle de reversas com base na data de solicitação.',
-        icon: Repeat,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-006',
-        nome: 'Relatórios de Extravio e Ressarcimento – GFL',
-        descricao: 'Identificação de pedidos extraviados, necessidade de solicitar ressarcimento e acompanhar pagamento.',
-        icon: FileSearch,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-007',
-        nome: 'Pendências de Faturamento e Entrega (VTEX e Infracommerce)',
-        descricao: 'Extração de pedidos pendentes e necessidade de análise e atualização de status.',
-        icon: Clock,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-008',
-        nome: 'Gestão de Pedidos Não Conformes (NC)',
-        descricao: 'Exportação de pedidos do Metabase e identificação de pedidos com problemas (erro no faturamento, troca de loja, cancelamento etc.).',
-        icon: AlertCircle,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-009',
-        nome: 'Exportação e Controle de Pedidos na VTEX',
-        descricao: 'Necessidade de consolidar os pedidos da VTEX para análise e atualização de status.',
-        icon: ListOrdered,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      },
-       {
-        id: 'LOG-010',
-        nome: 'Logística e Estratégias de Frete na VTEX',
-        descricao: 'Demanda de cadastro e manutenção de regras logísticas: docas, políticas de envio, pontos de retirada, tabelas de frete, promoções e taxas.',
-        icon: Truck,
-        cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Comercial 1P': [
-      {
-        id: 'COM-001',
-        nome: 'Gestão de Produtos',
-        descricao: 'Planejamento e gestão do portfólio 1P',
-        icon: ShoppingCart,
-        cor: 'bg-gradient-to-br from-green-500 to-green-600',
-        nivel: 'Estratégico'
-      },
-      {
-        id: 'COM-002',
-        nome: 'Precificação',
-        descricao: 'Definição de preços competitivos',
-        icon: DollarSign,
-        cor: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
-        nivel: 'Tático'
-      }
-    ],
-    'Vendedor 3.0': [
-      {
-        id: 'VEN-001',
-        nome: 'Venda através do Canal 3.0',
-        descricao: 'Interesse do cliente em comprar um produto disponível no e-commerce.',
-        icon: ShoppingBag,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-002',
-        nome: 'Acompanhamento de Desempenho de Vendas',
-        descricao: 'Vendas realizadas nos canais físicos e online.',
-        icon: TrendingUp,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-003',
-        nome: 'Gestão de Metas de Vendas 3.0',
-        descricao: 'Definição das metas de vendas do Canal 3.0 pela diretoria',
-        icon: Target,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Tático'
-      },
-      {
-        id: 'VEN-004',
-        nome: 'Cadastro de Loja e Vendedor no Sales App',
-        descricao: 'Solicitação de cadastro de nova loja ou novo vendedor para atuação no Canal de Vendas 3.0',
-        icon: UserPlus,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-005',
-        nome: 'Campanhas de Pontuação com o App Receba',
-        descricao: 'Disponibilização de valor mensal para campanhas de incentivo.',
-        icon: Gift,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Tático'
-      },
-      {
-        id: 'VEN-006',
-        nome: 'Troca de Maquininha Stone',
-        descricao: 'Identificação de necessidade de troca por defeito ou erro.',
-        icon: CreditCard,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-007',
-        nome: 'Gerenciamento de Vitrines no Sales App',
-        descricao: 'Atualizações de promoções e campanhas nos sites.',
-        icon: LayoutGrid,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Tático'
-      },
-      {
-        id: 'VEN-008',
-        nome: 'Como Vender dentro do Sales App',
-        descricao: 'Interesse do cliente em realizar uma compra presencialmente na loja, utilizando o Sales App.',
-        icon: ShoppingBag,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-009',
-        nome: 'Consulta de Desempenho das Lojas',
-        descricao: 'Vendas realizadas nas lojas e canais digitais.',
-        icon: BarChart2,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Tático'
-      },
-      {
-        id: 'VEN-010',
-        nome: 'Identificação de Vendas IFC ou Loja',
-        descricao: 'Pedido ou necessidade de identificar a origem da venda: Infracommerce ou Loja Física.',
-        icon: Search,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VEN-011',
-        nome: 'Consulta Detalhada de Pedidos na VTEX',
-        descricao: 'Solicitação de consulta de pedido por cliente ou gestão.',
-        icon: FileSearch,
-        cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Visual Merchandising': [
-      {
-        id: 'VM-001',
-        nome: 'Planejamento e Execução de Campanhas no Canal Digital',
-        descricao: 'Definição de calendário comercial e proposta de ações promocionais enviadas por Marketing, Cadastro ou Comercial.',
-        icon: CalendarCheck,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Tático'
-      },
-      {
-        id: 'VM-002',
-        nome: ' Criação e Publicação de Campanhas na VTEX e DECO',
-        descricao: 'Briefing aprovado com materiais visuais entregues pelo time de design para publicação no site e/ou app',
-        icon: Megaphone,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'VM-003',
-        nome: 'Solicitação de Produtos para Fotografia no Estúdio ',
-        descricao: 'Demanda de produto a ser fotografado, solicitada por setores como: Cadastro, Marketing, Comercial, Visual Merchandising ou Diretoria.',
-        icon: Camera,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-       },
-      {
-        id: 'VM-004',
-        nome: 'Fotografia e Edição de Imagens no Estúdio',
-        descricao: 'Produto registrado em planilha e preparado para fotografia, com finalidade de uso em VTEX, marketing, campanhas ou redes sociais.',
-        icon: Edit,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-       },
-      {
-        id: 'VM-005',
-        nome: 'Organização, Renomeação e Armazenamento das Fotos no Drive',
-        descricao: 'Fotos editadas e finalizadas, oriundas do processo de fotografia no estúdio.',
-        icon: Folder,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-       },
-      {
-        id: 'VM-006',
-        nome: 'Transferência de Produtos para Lojas Após Fotografia',
-        descricao: 'Produtos fotografados e prontos para devolução ou envio a lojas específicas, conforme direcionamento do solicitante ou política de giro de estoque.',
-        icon: Package,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-       },
-      {
-        id: 'VM-007',
-        nome: 'Recebimento e Inclusão de Produtos no Estúdio (Marcas Próprias e Multimarcas)',
-        descricao: 'Chegada de novos produtos ao estúdio, enviados por fornecedores, marcas próprias ou time de cadastro para fotografia.',
-        icon: Inbox,
-        cor: 'bg-gradient-to-br from-pink-500 to-pink-600',
-        nivel: 'Operacional'
-       }
-      ],
-    'Cadastro': [
-      {
-        id: 'CAD-001',
-        nome: 'Cadastro de Produto 1P ',
-        descricao: 'Produto marcado como "Pronto para cadastro" na planilha de cadastro (Coluna AE).',
-        icon: ClipboardPlus,
-        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
-        nivel: 'Operacional'
-      },
-      {
-        id: 'CAD-002',
-        nome: 'Cadastro de Produto 3P IN',
-        descricao: 'Produto cadastrado na plataforma Conecta.Lá, com dados fornecidos pelo time comercial: ID do produto, SKU pai e título base.',
-        icon: FileText,
-        cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'SAC': [
-      {
-        id: 'SAC-001',
-        nome: 'Validado',
-        descricao: 'Refinamento do processos',
-        icon: CheckCircle,
-        cor: 'bg-gradient-to-br from-red-500 to-red-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Financeiro': [
-      {
-        id: 'FIN-EC-001',
-        nome: 'Em validação',
-        descricao: 'revisar e coleta e informações',
-        icon: CheckCircle,
-        cor: 'bg-gradient-to-br from-yellow-500 to-yellow-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Marketplace': [
-      {
-        id: 'MKT-001',
-        nome: 'Validando...',
-        descricao: 'revisar e coleta e informações',
-        icon: Store,
-        cor: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Produto': [
-      {
-        id: 'PRD-001',
-        nome: 'Estruturando...',
-        descricao: 'Em coletea dos processos',
-        icon: Package,
-        cor: 'bg-gradient-to-br from-teal-500 to-teal-600',
-        nivel: 'Operacional'
-      }
-    ],
-    'Auditoria': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002'))
-    ],
-    'Apoio a loja': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-003'))
-    ],
-    'Conciliação': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-004') || p.id.includes('CON-005'))
-    ],
-    'Contrato e despesas': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-006') || p.id.includes('CON-008'))
-    ],
-    'Recuperação de receitas': [
-      ...processosControladoriaDetalhados.filter(p => p.id.includes('CON-007'))
-    ]
+    'Logística': processosEcommerce['Logística'] || [],
+    'Vendedor 3.0': processosEcommerce['Vendedor 3.0'] || [],
+    'Cadastro': processosEcommerce['Cadastro'] || [],
+    'Financeiro': processosEcommerce['Financeiro'] || [],
+    'Comercial 1P': processosEcommerce['Comercial 1P'] || [],
+    'Visual Merchandising': processosEcommerce['Visual Merchandising'] || [],
+    'SAC': processosEcommerce['SAC'] || [],
+    'Marketplace': processosEcommerce['Marketplace'] || [],
+    'Produto': processosEcommerce['Produto'] || [],
+    
+    'Auditoria': processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002')),
+    'Apoio a loja': processosControladoriaDetalhados.filter(p => p.id.includes('CON-003')),
+    'Conciliação': processosControladoriaDetalhados.filter(p => p.id.includes('CON-004') || p.id.includes('CON-005')),
+    'Contrato e despesas': processosControladoriaDetalhados.filter(p => p.id.includes('CON-006') || p.id.includes('CON-008')),
+    'Recuperação de receitas': processosControladoriaDetalhados.filter(p => p.id.includes('CON-007'))
   };
 
   const obterTodosProcessosEcommerce = () => {
     const todosProcessos: any[] = [];
-    Object.values(processosPorPilar).forEach(processos => {
-      todosProcessos.push(...processos);
+    const pilaresEcommerce = ['Logística', 'Vendedor 3.0', 'Cadastro', 'Financeiro', 'Comercial 1P', 'Visual Merchandising', 'SAC', 'Marketplace', 'Produto'];
+    
+    pilaresEcommerce.forEach(pilar => {
+      if (processosEcommerce[pilar]) {
+        todosProcessos.push(...processosEcommerce[pilar]);
+      }
     });
+    
     return todosProcessos;
   };
 

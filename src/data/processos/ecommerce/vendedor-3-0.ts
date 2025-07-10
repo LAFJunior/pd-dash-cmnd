@@ -1,5 +1,5 @@
 
-import { Users, Monitor, BarChart } from 'lucide-react';
+import { Users, BarChart } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const vendaCanalTresPontoZero: ProcessoDetalhado = {
