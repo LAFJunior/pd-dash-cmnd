@@ -1,5 +1,5 @@
 
-import { DollarSign } from 'lucide-react';
+import { DollarSign, RefreshCw, Users, AlertTriangle, FileCheck, CreditCard, Clock, Receipt } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
@@ -505,5 +505,12 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
 };
 
 export const processosFinanceiro: ProcessoDetalhado[] = [
-  cadastroDespesasFinanceiras
+  cadastroDespesasFinanceiras,
+  cadastroReembolsosPix,
+  cadastroRepassesSellers,
+  validacaoPendenciasRepasses,
+  validacaoDespesasFixas,
+  gestaoChargebacks,
+  gestaoPontoSenior,
+  emissaoNotasRepasses
 ];

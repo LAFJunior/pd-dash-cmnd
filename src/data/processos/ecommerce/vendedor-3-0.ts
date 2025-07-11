@@ -1,5 +1,5 @@
 
-import { Users, BarChart } from 'lucide-react';
+import { Users, BarChart, Target, UserPlus, Gift, Smartphone, Monitor, ShoppingCart, Search, FileText } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const vendaCanalTresPontoZero: ProcessoDetalhado = {
@@ -521,7 +521,7 @@ export const consultaDesempenhoLojas: ProcessoDetalhado = {
   id: 'VEN-009',
   nome: 'Consulta de Desempenho das Lojas',
   descricao: 'Vendas realizadas nas lojas e canais digitais',
-  icon: BarChart3,
+  icon: BarChart,
   cor: 'bg-gradient-to-br from-cyan-500 to-cyan-600',
   nivel: 'Tático',
   entrada: 'Vendas realizadas nas lojas e canais digitais.',
@@ -671,5 +671,14 @@ export const consultaPedidosVTEX: ProcessoDetalhado = {
 
 export const processosVendedorTresPontoZero: ProcessoDetalhado[] = [
   vendaCanalTresPontoZero,
-  acompanhamentoDesempenhoVendas
+  acompanhamentoDesempenhoVendas,
+  gestaoMetasVendas,
+  cadastroLojaVendedor,
+  campanhasPontuacao,
+  trocaMaquininhaStone,
+  gerenciamentoVitrines,
+  vendaSalesApp,
+  consultaDesempenhoLojas,
+  identificacaoVendasIFC,
+  consultaPedidosVTEX
 ];
