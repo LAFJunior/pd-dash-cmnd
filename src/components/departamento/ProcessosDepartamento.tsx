@@ -8,6 +8,9 @@ import { TrendingUp, DollarSign, FileCheck, BarChart3, Calculator, CreditCard, P
 import ProcessoDetalhe from './ProcessoDetalhe';
 import { processosEcommerce } from '@/data/processos/ecommerce';
 import { processosControladoriaDetalhados } from '@/data/processos/controladoria';
+import { processosFinanceiro } from '@/data/processos/financeiro';
+import { processosDefeito } from '@/data/processos/defeito';
+import { processosSaoJoseCampos } from '@/data/processos/sao-jose-campos';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -80,6 +83,210 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       : obterTodosProcessosEcommerce();
     return todosProcessos.find(p => p.id === id && p.subprocessos);
   };
+
+  // Add handling for Financeiro department
+  if (departamento.toLowerCase().includes('financeiro')) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-blue-100">Departamento Financeiro - {processosFinanceiro.length} processos mapeados</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {processosFinanceiro.map((processo) => {
+            const IconComponent = processo.icon;
+            const temDetalhes = processo.subprocessos && processo.subprocessos.length > 0;
+            
+            return (
+              <div
+                key={processo.id}
+                className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                onClick={() => temDetalhes && setProcessoExpandido(processo.id)}
+              >
+                <div className={`${processo.cor} p-4`}>
+                  <div className="flex items-center justify-between text-white">
+                    <IconComponent size={24} />
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                      {processo.id}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    {processo.nome}
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {processo.descricao}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className={`px-2 py-1 rounded text-xs font-medium ${
+                        processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                        processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}
+                    >
+                      {processo.nivel}
+                    </span>
+                    {temDetalhes && (
+                      <span className="text-xs text-blue-600 font-medium">
+                        Clique para detalhes
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={processosFinanceiro.find(p => p.id === processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
+  }
+
+  // Add handling for Defeito department
+  if (departamento.toLowerCase().includes('defeito')) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-red-100">Departamento Defeito - {processosDefeito.length} processos mapeados</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {processosDefeito.map((processo) => {
+            const IconComponent = processo.icon;
+            const temDetalhes = processo.subprocessos && processo.subprocessos.length > 0;
+            
+            return (
+              <div
+                key={processo.id}
+                className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                onClick={() => temDetalhes && setProcessoExpandido(processo.id)}
+              >
+                <div className={`${processo.cor} p-4`}>
+                  <div className="flex items-center justify-between text-white">
+                    <IconComponent size={24} />
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                      {processo.id}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    {processo.nome}
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {processo.descricao}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className={`px-2 py-1 rounded text-xs font-medium ${
+                        processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                        processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}
+                    >
+                      {processo.nivel}
+                    </span>
+                    {temDetalhes && (
+                      <span className="text-xs text-blue-600 font-medium">
+                        Clique para detalhes
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={processosDefeito.find(p => p.id === processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
+  }
+
+  // Add handling for São José dos Campos department
+  if (departamento.toLowerCase().includes('são josé dos campos')) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-green-100">São José dos Campos (CD/Operações) - {processosSaoJoseCampos.length} processos mapeados</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {processosSaoJoseCampos.map((processo) => {
+            const IconComponent = processo.icon;
+            const temDetalhes = processo.subprocessos && processo.subprocessos.length > 0;
+            
+            return (
+              <div
+                key={processo.id}
+                className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                onClick={() => temDetalhes && setProcessoExpandido(processo.id)}
+              >
+                <div className={`${processo.cor} p-4`}>
+                  <div className="flex items-center justify-between text-white">
+                    <IconComponent size={24} />
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                      {processo.id}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    {processo.nome}
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {processo.descricao}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className={`px-2 py-1 rounded text-xs font-medium ${
+                        processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                        processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}
+                    >
+                      {processo.nivel}
+                    </span>
+                    {temDetalhes && (
+                      <span className="text-xs text-blue-600 font-medium">
+                        Clique para detalhes
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={processosSaoJoseCampos.find(p => p.id === processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
+  }
 
   if (departamento.toLowerCase().includes('controladoria')) {
     if (pilarSelecionado) {
