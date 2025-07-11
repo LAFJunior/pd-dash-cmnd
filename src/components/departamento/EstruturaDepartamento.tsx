@@ -102,23 +102,23 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         
         {/* Nível 2 - Coordenação */}
         <div className="flex justify-center gap-1 mb-4">
-          <Colaborador nome="Flávia Araujo" cargo="Gerente" setor="Financeiro" nivel={2} icon={<Calculator size={20} />} />
+          <Colaborador nome="Flávia Araujo" cargo="Gerente" setor="Financeiro Varejo" nivel={2} icon={<Calculator size={20} />} />
         </div>
         
         {/* Nível 3 - Analistas */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
-          <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro" nivel={3} icon={<FileText size={16} />} />
+        <div className="flex justify-center gap-1 mb-4">
+          <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro Varejo" nivel={3} icon={<FileText size={16} />} />
         </div>
         
         {/* Nível 4 - Auxiliares */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Amanda Silva" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Carolina Lima" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Sabrina Souza" cargo="Auxiliar" setor="Financeiro" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Debora Miyamoto" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Amanda Silva" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Carolina Lima" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
         </div>
       </div>
     );
@@ -216,7 +216,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
         {/* Nível 4 - Auxiliares */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          <Colaborador nome="Gustavo" cargo="Auxiliar" setor="Fiscal" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Gustavo Luiz" cargo="Auxiliar" setor="Fiscal" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Juliana Almeida" cargo="Auxiliar" setor="Fiscal" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Cristiane" cargo="Auxiliar" setor="Fiscal" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Bianca" cargo="Auxiliar" setor="Fiscal" nivel={4} icon={<User size={14} />} />
@@ -256,18 +256,20 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         
         {/* Nível 4 - Assistentes */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
-          <Colaborador nome="Laise" cargo="Assistente" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Kelly Braga" cargo="Assistente" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Giovanna Gomes" cargo="Assistente" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Alica Carolina" cargo="Assistente" setor="Conciliação Fest Card" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Luana Vicente" cargo="Assistente" setor="Gestão de Contratos + Indenizações Defeitos" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Laise" cargo="Assistente Administrativo" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Kelly Braga" cargo="Assistente Administrativo" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Giovanna Gomes" cargo="Assistente Administrativo" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Gabriela Almeida" cargo="Assistente Administrativo" setor="Auditoria de caixa + Apoio Loja" nivel={4} icon={<User size={14} />} />          
+          <Colaborador nome="Alica Carolina" cargo="Assistente Administrativo" setor="Conciliação Fest Card" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Luana Vicente" cargo="Assistente Administrativo" setor="Gestão de Contratos + Indenizações Defeitos" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Tailane Morais" cargo="Assistente Administrativo" setor="Conciliação Fest Card" nivel={4} icon={<User size={14} />} />
         </div>
 
         {/* Nível 5 - Auxiliares */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          <Colaborador nome="Deborah Santos" cargo="Auxiliar" setor="Conciliação +  Despesas" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Claudia Rodrigues" cargo="Auxiliar" setor="Conciliação" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Patrícia Donda" cargo="Auxiliar" setor="Conciliação" nivel={5} icon={<User size={12} />} />
+          <Colaborador nome="Deborah Santos" cargo="Auxiliar Administrativo" setor="Conciliação +  Despesas" nivel={5} icon={<User size={12} />} />
+          <Colaborador nome="Claudia Rodrigues" cargo="Auxiliar Administrativo" setor="Conciliação" nivel={5} icon={<User size={12} />} />
+          <Colaborador nome="Patrícia Donda" cargo="Auxiliar Administrativo" setor="Conciliação" nivel={5} icon={<User size={12} />} />
         </div>
       </div>
     );
