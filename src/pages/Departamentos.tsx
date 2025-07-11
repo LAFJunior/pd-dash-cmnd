@@ -11,16 +11,16 @@ const departamentosBackoffice = [
   "Departamento Pessoal (DP)",
   "Defeito",
   "Festcard",
-  "Financeiro",
+  "Financeiro Varejo",
   "Fiscal",
   "Marketing",
   "Recursos Humanos (RH)",
-  "Sapucaia (CD/Operações)",
-  "São José dos Campos (CD/Operações)",
-  "Suplementos",
+  "CD/Operação São José dos Campos ",
+  "Suprimentos",
+  "SAC",
   "T.I Desenvolvimento",
   "T.I Operações",
-  "T.I Projetos"
+  "T.I Projetos e Inoãções"
 ];
 
 const departamentosVarejo = [
@@ -37,7 +37,7 @@ const parceirosComerciais = [
   "Clientes",
   "Credssytem",
   "Fornecedores",
-  "Infracommerce (CD/Operações)",
+  "Infracommerce ",
   "Instituições Financeiras"
 ];
 
