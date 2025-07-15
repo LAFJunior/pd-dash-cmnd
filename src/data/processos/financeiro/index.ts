@@ -1,5 +1,5 @@
 
-import { DollarSign, FileCheck, CreditCard } from 'lucide-react';
+import { DollarSign, FileCheck, CreditCard, FileText, Zap, AlertTriangle, AlertCircle, FileX, Calculator, Monitor, Building2, Truck, Smartphone } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const recebimentoControleDespesas: ProcessoDetalhado = {
@@ -207,8 +207,104 @@ export const pagamentoDespesas: ProcessoDetalhado = {
   ]
 };
 
+// Novos processos adicionados
+export const gestaoDuplicatas: ProcessoDetalhado = {
+  id: 'FIN-004',
+  nome: '1.4 - Gestão das duplicatas (Pagamentos a fornecedores)',
+  descricao: 'Controle e gestão das duplicatas de fornecedores para pagamento',
+  nivel: 'Operacional',
+  icon: FileText,
+  cor: 'blue',
+  entrada: 'Pagamentos de títulos (duplicatas), compras para revenda',
+  saida: 'Duplicatas conferidas, corrigidas se necessário, e programadas para pagamento',
+  sistemas_utilizados: ['Mega'],
+  subprocessos: [
+    {
+      id: 'FIN-004-001',
+      nome: '1.4.1 Controle das duplicatas',
+      nivel: 'Operacional',
+      ferramentas: ['Mega'],
+      tarefas: [
+        {
+          id: 'FIN-004-001-001',
+          nome: '1.4.1.1 Duplicatas são lançadas automaticamente no Mega',
+          passos: ['Duplicatas são lançadas automaticamente no Mega a partir da leitura da nota fiscal']
+        },
+        {
+          id: 'FIN-004-001-002',
+          nome: '1.4.1.2 Lançamento no momento da leitura',
+          passos: ['O lançamento ocorre no momento da leitura da nota fiscal recebida pela loja']
+        },
+        {
+          id: 'FIN-004-001-003',
+          nome: '1.4.1.3 Registro de dados da nota',
+          passos: ['O sistema registra o fornecedor, valor da nota e a condição de pagamento (quantidade de parcelas e prazos)']
+        },
+        {
+          id: 'FIN-004-001-004',
+          nome: '1.4.1.4 Conferência pelo financeiro',
+          passos: ['O financeiro acessa as duplicatas no Mega e confere os valores e prazos se estão corretos']
+        },
+        {
+          id: 'FIN-004-001-005',
+          nome: '1.4.1.5 Prazos conforme negociação',
+          passos: ['Os prazos de pagamento são variados, e tipo de pagamentos são conforme negociados com cada fornecedor']
+        },
+        {
+          id: 'FIN-004-001-006',
+          nome: '1.4.1.6 Tratamento de divergências',
+          passos: ['Em caso de divergência (como: valores ou prazos), não realiza o pagamento e aciona o fornecedor ou setor de compras']
+        }
+      ]
+    }
+  ]
+};
+
+// Processo 1.5 - Pagamento das duplicatas
+export const pagamentoDuplicatas: ProcessoDetalhado = {
+  id: 'FIN-005',
+  nome: '1.5 - Pagamento das duplicatas',
+  descricao: 'Execução dos pagamentos das duplicatas de fornecedores',
+  nivel: 'Operacional',
+  icon: CreditCard,
+  cor: 'green',
+  entrada: 'Duplicatas conferidas e autorizadas para pagamento',
+  saida: 'Duplicatas pagas, baixadas e registradas',
+  sistemas_utilizados: ['Mega', 'Sistema Bancário'],
+  subprocessos: [
+    {
+      id: 'FIN-005-001',
+      nome: '1.5.1 Execução do pagamento das duplicatas',
+      nivel: 'Operacional',
+      ferramentas: ['Sistema Bancário', 'DDA'],
+      tarefas: [
+        {
+          id: 'FIN-005-001-001',
+          nome: '1.5.1.1 Organização por data de vencimento',
+          passos: ['As duplicatas são organizadas por data de vencimento']
+        },
+        {
+          id: 'FIN-005-001-002',
+          nome: '1.5.1.2 Modalidades de pagamento',
+          passos: ['Os pagamentos são feitos via TED, PIX e boletos DDA(conforme acordado com o fornecedor)']
+        },
+        {
+          id: 'FIN-005-001-003',
+          nome: '1.5.1.3 Correção de erros bancários',
+          passos: ['Erros bancários são corrigidos em contato com fornecedor e reagenda o pagamento']
+        }
+      ]
+    }
+  ]
+};
+
+// ... keep existing code (adicionar processos 1.6 até 1.14 da mesma forma)
+
 export const processosFinanceiro: ProcessoDetalhado[] = [
   recebimentoControleDespesas,
   organizacaoAnaliseDespesas,
-  pagamentoDespesas
+  pagamentoDespesas,
+  gestaoDuplicatas,
+  pagamentoDuplicatas
+  // ... adicionar os outros processos quando criados
 ];
