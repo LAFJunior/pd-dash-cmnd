@@ -5,8 +5,11 @@ import GraficoProcessos from '@/components/dashboard/GraficoProcessos';
 import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon } from 'lucide-react';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
+import { useProcessosCount } from '@/hooks/useProcessosCount';
 
 const Dashboard = () => {
+  const { total, estrategicos, taticos, operacionais } = useProcessosCount();
+
   return (
     <div className="animate-fade-in">
       <div className="mb-6">
@@ -17,7 +20,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <CardProcesso 
           titulo="Todos os Processos" 
-          quantidade={45}
+          quantidade={total}
           variacao={12}
           className="bg-processo-todos"
           iconRight={<ChartBarIcon size={20} />}
@@ -25,7 +28,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Estratégicos" 
-          quantidade={0}
+          quantidade={estrategicos}
           variacao={8}
           className="bg-processo-estrategicos"
           iconRight={<ChartPieIcon size={20} />}
@@ -33,7 +36,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Táticos" 
-          quantidade={15}
+          quantidade={taticos}
           variacao={-3}
           className="bg-processo-taticos"
           iconRight={<ClipboardListIcon size={20} />}
@@ -41,7 +44,7 @@ const Dashboard = () => {
         
         <CardProcesso 
           titulo="Processos Operacionais" 
-          quantidade={20}
+          quantidade={operacionais}
           variacao={15}
           className="bg-processo-operacionais"
           iconRight={<UsersIcon size={20} />}
