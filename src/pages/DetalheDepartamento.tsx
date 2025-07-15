@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle } from 'lucide-react';
+import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
@@ -9,6 +9,7 @@ import FluxoControladoria from '@/components/departamento/FluxoControladoria';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
+import CentroCusto from '@/components/departamento/CentroCusto';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
@@ -54,6 +55,7 @@ const DetalheDepartamento = () => {
   const nomeDepartamento = converterUrlParaNome(nome || '');
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
+  const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -106,6 +108,21 @@ const DetalheDepartamento = () => {
             )}
           </CardContent>
         </Card>
+
+        {/* Centro de Custo - Só exibe para Financeiro Varejo */}
+        {isFinanceiroVarejo && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Building2 className="text-indigo-600" size={24} />
+                Centro de Custo
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CentroCusto />
+            </CardContent>
+          </Card>
+        )}
 
         {/* Pilares do E-commerce - Só exibe para E-commerce */}
         {isEcommerce && (
