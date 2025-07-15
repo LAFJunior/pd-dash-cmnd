@@ -23,6 +23,8 @@ const DetalheDepartamento = () => {
     const mapeamentoEspecial: {[key: string]: string} = {
       'e-commerce': 'E-Commerce',
       'ecommerce': 'E-Commerce',
+      'contbil': 'Contábil',
+      'contabil': 'Contábil',
       'sao-jose-dos-campos': 'São José dos Campos (CD/Operações)',
       'são-jose-dos-campos': 'São José dos Campos (CD/Operações)',
       'departamento-pessoal': 'Departamento Pessoal (DP)',
