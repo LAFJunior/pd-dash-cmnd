@@ -416,6 +416,49 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
+  if (departamentoNormalizado.includes('contábil') || departamentoNormalizado.includes('contabil')) {
+    return (
+      <div className="p-6">
+        
+        {/* Nível 1 - Diretoria */}
+        <div className="flex justify-center mb-4">
+          <Colaborador 
+            nome="Márcio Sampaio" 
+            cargo="Diretor" 
+            setor="Contábil"
+            nivel={1}
+            icon={<Crown size={24} />}
+          />
+        </div>
+
+        {/* Nível 2 - Gestão */}
+        <div className="flex justify-center mb-4">
+          <Colaborador nome="Edson" cargo="Gestor" setor="Contábil" nivel={2} icon={<Calculator size={20} />} />
+        </div>
+
+        {/* Nível 3 - Coordenação */}
+        <div className="flex justify-center mb-4">
+          <Colaborador nome="Rodolfo" cargo="Coordenador" setor="Contábil" nivel={3} icon={<BarChart3 size={18} />} />
+        </div>
+
+        {/* Nível 4 - Assistentes */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
+          <Colaborador nome="Layra" cargo="Assistente" setor="Contábil" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Gabriela" cargo="Assistente" setor="Contábil" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Camila" cargo="Assistente" setor="Contábil" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Vitoria" cargo="Assistente" setor="Contábil" nivel={4} icon={<User size={14} />} />
+        </div>
+
+        {/* Nível 5 - Auxiliares */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          <Colaborador nome="João" cargo="Auxiliar" setor="Contábil" nivel={5} icon={<User size={12} />} />
+          <Colaborador nome="Nicole" cargo="Auxiliar" setor="Contábil" nivel={5} icon={<User size={12} />} />
+          <Colaborador nome="Maria Eduarda" cargo="Auxiliar" setor="Contábil" nivel={5} icon={<User size={12} />} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-6 text-center">
       <h2 className="text-2xl font-bold mb-4">Departamento: {departamento}</h2>

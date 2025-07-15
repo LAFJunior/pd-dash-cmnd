@@ -67,7 +67,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
         height: 50, 
         color: "#A0A0A0", 
         tipo: "backoffice", 
-        conexoes: ["contabil", "controladoria", "inst-financeiras"],
+        conexoes: ["contábil", "controladoria", "inst-financeiras"],
         subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
       },
       { 
@@ -91,11 +91,11 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
         height: 50, 
         color: "#A0A0A0", 
         tipo: "backoffice", 
-        conexoes: ["controladoria", "contabil"],
+        conexoes: ["controladoria", "contábil"],
         subItens: ["Controles Internos", "Auditorias", "Compliance"]
       },
       { 
-        id: "contabil",
+        id: "contábil",
         titulo: "Contábil", 
         x: 600, 
         y: 70, 
@@ -151,7 +151,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
         height: 50, 
         color: "#A0A0A0", 
         tipo: "backoffice", 
-        conexoes: ["contabil", "controladoria"],
+        conexoes: ["contábil", "controladoria"],
         subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
       },
       { 
