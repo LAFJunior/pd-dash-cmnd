@@ -46,25 +46,40 @@ const GraficoProcessos = () => {
           margin={{
             top: 10,
             right: 30,
-            left: 80,
+            left: 150,
             bottom: 10,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis type="number" domain={[0, 100]} tickFormatter={(value) => `${value}%`} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <XAxis 
+            type="number" 
+            domain={[0, 100]} 
+            tickFormatter={(value) => `${value}%`}
+            tick={{ fontSize: 12, fill: '#666' }}
+            axisLine={{ stroke: '#e0e0e0' }}
+            tickLine={{ stroke: '#e0e0e0' }}
+          />
           <YAxis 
             dataKey="nome" 
             type="category" 
-            scale="band" 
+            tick={{ fontSize: 11, fill: '#333' }}
             tickLine={false}
-            axisLine={true}
-            width={120}
+            axisLine={false}
+            width={140}
           />
-          <Tooltip formatter={(value) => [`${value}%`, 'Progresso']} />
+          <Tooltip 
+            formatter={(value) => [`${value}%`, 'Progresso']}
+            contentStyle={{
+              backgroundColor: '#fff',
+              border: '1px solid #e0e0e0',
+              borderRadius: '4px',
+              fontSize: '12px'
+            }}
+          />
           <Bar 
             dataKey="porcentagem" 
-            name="Progresso %" 
-            radius={[0, 4, 4, 0]}
+            radius={[0, 3, 3, 0]}
+            barSize={20}
           />
         </BarChart>
       </ResponsiveContainer>
