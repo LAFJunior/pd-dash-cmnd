@@ -133,16 +133,16 @@ const Dashboard = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Nome Processo</TableHead>
-                  <TableHead className="w-20 text-center">ID</TableHead>
+                  <TableHead className="w-20">ID</TableHead>
+                  <TableHead>Nome</TableHead>
                   <TableHead className="w-32 text-right">Nível</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {todosOsProcessos.slice(0, 8).map((processo) => (
+                {todosOsProcessos.map((processo) => (
                   <TableRow key={processo.id}>
+                    <TableCell className="font-medium">{processo.id}</TableCell>
                     <TableCell>{processo.nome}</TableCell>
-                    <TableCell className="text-center">{processo.id}</TableCell>
                     <TableCell className="text-right">
                       <span
                         className={`px-2 py-1 rounded text-xs font-medium ${
