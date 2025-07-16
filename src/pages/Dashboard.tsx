@@ -7,9 +7,23 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@
 import { Card } from '@/components/ui/card';
 import { useProcessosCount } from '@/hooks/useProcessosCount';
 import { todosOsProcessos } from '@/data/processos';
+import { ProcessoSubprocesso, ProcessoTarefa } from '@/types/processo';
 
 const Dashboard = () => {
   const { total, estrategicos, taticos, operacionais } = useProcessosCount();
+
+  // Extrair todos os subprocessos e tarefas dos processos
+  const todosOsSubprocessos: ProcessoSubprocesso[] = [];
+  const todasAsTarefas: ProcessoTarefa[] = [];
+
+  todosOsProcessos.forEach(processo => {
+    processo.subprocessos.forEach(subprocesso => {
+      todosOsSubprocessos.push(subprocesso);
+      subprocesso.tarefas.forEach(tarefa => {
+        todasAsTarefas.push(tarefa);
+      });
+    });
+  });
 
   return (
     <div className="animate-fade-in">
@@ -58,79 +72,73 @@ const Dashboard = () => {
             <GraficoProcessos />
             
             {/* Seção de Tarefas */}
-            <Card className="bg-white p-6">
+            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
               <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
-                      <TableHead>Descrição:</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {[
-                      { id: 'TRF-001', descricao: 'Revisar documentação' },
-                      { id: 'TRF-002', descricao: 'Atualizar mapeamento de processos' },
-                      { id: 'TRF-003', descricao: 'Implementar melhorias no fluxo' },
-                      { id: 'TRF-004', descricao: 'Validar com stakeholders' },
-                    ].map((tarefa) => (
-                      <TableRow key={tarefa.id}>
-                        <TableCell className="font-medium">{tarefa.id}</TableCell>
-                        <TableCell>{tarefa.descricao}</TableCell>
+              <div className="overflow-x-auto flex-1">
+                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-20">ID:</TableHead>
+                        <TableHead>Nome:</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {todasAsTarefas.map((tarefa) => (
+                        <TableRow key={tarefa.id}>
+                          <TableCell className="font-medium">{tarefa.id}</TableCell>
+                          <TableCell>{tarefa.nome}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
             </Card>
             
             {/* Seção de Subprocessos */}
-            <Card className="bg-white p-6">
+            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
               <h3 className="text-lg font-semibold mb-4">Subprocessos:</h3>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-20">ID:</TableHead>
-                      <TableHead>Nome:</TableHead>
-                      <TableHead className="w-32 text-right">Nível:</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {[
-                      { id: 'SUB-101', nome: 'Análise de Requisitos', nivel: 'Tático' },
-                      { id: 'SUB-102', nome: 'Gerenciamento de Indicadores', nivel: 'Estratégico' },
-                      { id: 'SUB-103', nome: 'Atendimento ao Cliente', nivel: 'Operacional' },
-                      { id: 'SUB-104', nome: 'Controle de Qualidade', nivel: 'Operacional' },
-                    ].map((subprocesso) => (
-                      <TableRow key={subprocesso.id}>
-                        <TableCell className="font-medium">{subprocesso.id}</TableCell>
-                        <TableCell>{subprocesso.nome}</TableCell>
-                        <TableCell className="text-right">
-                          <span
-                            className={`px-2 py-1 rounded text-xs font-medium ${
-                              subprocesso.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                              subprocesso.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
-                              'bg-processo-operacionais/20 text-processo-operacionais'
-                            }`}
-                          >
-                            {subprocesso.nivel}
-                          </span>
-                        </TableCell>
+              <div className="overflow-x-auto flex-1">
+                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-20">ID:</TableHead>
+                        <TableHead>Nome:</TableHead>
+                        <TableHead className="w-32 text-right">Nível:</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {todosOsSubprocessos.map((subprocesso) => (
+                        <TableRow key={subprocesso.id}>
+                          <TableCell className="font-medium">{subprocesso.id}</TableCell>
+                          <TableCell>{subprocesso.nome}</TableCell>
+                          <TableCell className="text-right">
+                            <span
+                              className={`px-2 py-1 rounded text-xs font-medium ${
+                                subprocesso.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                                subprocesso.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                                'bg-processo-operacionais/20 text-processo-operacionais'
+                              }`}
+                            >
+                              {subprocesso.nivel}
+                            </span>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
             </Card>
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md p-6 max-h-[600px] flex flex-col">
+        <div className="bg-white rounded-lg shadow-md p-6 max-h-[820px] flex flex-col">
           <h3 className="text-lg font-semibold mb-4">Processos</h3>
           <div className="overflow-x-auto flex-1">
-            <div className="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+            <div className="max-h-[740px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
               <Table>
                 <TableHeader>
                   <TableRow>
