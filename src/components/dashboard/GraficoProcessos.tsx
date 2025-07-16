@@ -119,7 +119,7 @@ const GraficoProcessos = () => {
           <Bar 
             dataKey="porcentagem" 
             shape={<CustomBar />}
-            barSize={8}
+            barSize={16}
           />
         </BarChart>
         </ResponsiveContainer>
