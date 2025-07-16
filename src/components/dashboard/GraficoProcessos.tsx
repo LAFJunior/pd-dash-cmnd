@@ -33,53 +33,92 @@ const data = [
 ];
 
 const GraficoProcessos = () => {
+  const CustomBar = (props: any) => {
+    const { payload, x, y, width, height } = props;
+    const fill = payload.fill;
+    
+    return (
+      <g>
+        {/* Barra */}
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          fill={fill}
+          rx={0}
+          ry={0}
+          style={{ borderRadius: '0 4px 4px 0' }}
+        />
+        {/* Nome do departamento */}
+        <text
+          x={x + width + 10}
+          y={y + height / 2}
+          fill="#333"
+          fontSize="12"
+          fontWeight="500"
+          textAnchor="start"
+          dominantBaseline="middle"
+        >
+          {payload.nome}
+        </text>
+        {/* Porcentagem */}
+        <text
+          x={x + width + 10}
+          y={y + height / 2 + 15}
+          fill="#666"
+          fontSize="11"
+          textAnchor="start"
+          dominantBaseline="middle"
+        >
+          {payload.porcentagem}%
+        </text>
+      </g>
+    );
+  };
+
   return (
     <div className="grafico-area">
-      <div className="mb-4">
-        <h3 className="grafico-titulo">Evolução de Mapeamento</h3>
+      <div className="mb-6">
+        <h3 className="grafico-titulo text-xl font-semibold text-gray-800">
+          Evolução de Mapeamento
+        </h3>
       </div>
       
-      <ResponsiveContainer width="100%" height="80%">
+      <ResponsiveContainer width="100%" height={600}>
         <BarChart
           data={data}
           layout="vertical"
           margin={{
-            top: 10,
-            right: 30,
-            left: 150,
-            bottom: 10,
+            top: 20,
+            right: 250,
+            left: 20,
+            bottom: 20,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
           <XAxis 
             type="number" 
             domain={[0, 100]} 
-            tickFormatter={(value) => `${value}%`}
-            tick={{ fontSize: 12, fill: '#666' }}
-            axisLine={{ stroke: '#e0e0e0' }}
-            tickLine={{ stroke: '#e0e0e0' }}
+            hide
           />
           <YAxis 
-            dataKey="nome" 
-            type="category" 
-            tick={{ fontSize: 11, fill: '#333' }}
-            tickLine={false}
-            axisLine={false}
-            width={140}
+            type="category"
+            hide
           />
           <Tooltip 
             formatter={(value) => [`${value}%`, 'Progresso']}
             contentStyle={{
               backgroundColor: '#fff',
               border: '1px solid #e0e0e0',
-              borderRadius: '4px',
-              fontSize: '12px'
+              borderRadius: '8px',
+              fontSize: '12px',
+              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
             }}
           />
           <Bar 
             dataKey="porcentagem" 
-            radius={[0, 3, 3, 0]}
-            barSize={20}
+            shape={<CustomBar />}
+            barSize={30}
           />
         </BarChart>
       </ResponsiveContainer>
