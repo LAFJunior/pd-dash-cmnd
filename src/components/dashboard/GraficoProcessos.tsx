@@ -11,7 +11,7 @@ import {
   Legend
 } from 'recharts';
 
-// Dados para o gráfico de evolução de mapeamento com cores
+// Dados para o gráfico de evolução de mapeamento - ordem conforme especificado
 const data = [
   { nome: 'Financeiro Varejo', porcentagem: 95, fill: '#10B981' },
   { nome: 'Controladoria', porcentagem: 100, fill: '#10B981' },
