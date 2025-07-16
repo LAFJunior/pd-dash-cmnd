@@ -404,7 +404,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Grid de Departamentos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
           {/* Feminino */}
           <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
                style={{
@@ -719,27 +719,6 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
             </div>
           </div>
 
-          {/* Pedidos */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              PEDIDOS
-            </h3>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
-              OSCAR - CARIOCA
-            </div>
-            
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">CLEBER (GERENTE)</div>
-              <div className="text-xs text-gray-600 leading-tight">
-                CLEBER.MENEZES@GRUPOOSCAR.COM.BR<br />
-                (12) 99231-0915 - WHATSAPP
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );
