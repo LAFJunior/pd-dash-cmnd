@@ -15,12 +15,12 @@ const departamentosBackoffice = [
   "Fiscal",
   "Marketing",
   "Recursos Humanos (RH)",
-  "CD/Operação São José dos Campos ",
+  "CD/Operações (São José dos Campos)",
   "Suprimentos",
   "SAC",
   "T.I Desenvolvimento",
   "T.I Operações",
-  "T.I Projetos e Inoãções"
+  "T.I Projetos e Inovações"
 ];
 
 const departamentosVarejo = [
