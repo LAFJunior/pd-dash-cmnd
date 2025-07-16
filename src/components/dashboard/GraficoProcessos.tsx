@@ -85,14 +85,14 @@ const GraficoProcessos = () => {
         </h3>
       </div>
       
-      <div className="overflow-y-auto max-h-[350px] border border-gray-100 rounded-lg bg-white">
-        <ResponsiveContainer width="100%" height={600}>
+      <div className="overflow-y-auto max-h-[500px] border border-gray-100 rounded-lg bg-white">
+        <ResponsiveContainer width="100%" height={580}>
         <BarChart
           data={data}
           layout="vertical"
           margin={{
             top: 20,
-            right: 250,
+            right: 350,
             left: 20,
             bottom: 20,
           }}
