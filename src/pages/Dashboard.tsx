@@ -135,7 +135,7 @@ const Dashboard = () => {
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md p-6 max-h-[820px] flex flex-col">
+        <div className="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
           <h3 className="text-lg font-semibold mb-4">Processos</h3>
           <div className="overflow-x-auto flex-1">
             <div className="max-h-[740px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
