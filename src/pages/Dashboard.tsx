@@ -127,37 +127,39 @@ const Dashboard = () => {
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-6 max-h-[600px] flex flex-col">
           <h3 className="text-lg font-semibold mb-4">Processos</h3>
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-20">ID</TableHead>
-                  <TableHead>Nome</TableHead>
-                  <TableHead className="w-32 text-right">Nível</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {todosOsProcessos.map((processo) => (
-                  <TableRow key={processo.id}>
-                    <TableCell className="font-medium">{processo.id}</TableCell>
-                    <TableCell>{processo.nome}</TableCell>
-                    <TableCell className="text-right">
-                      <span
-                        className={`px-2 py-1 rounded text-xs font-medium ${
-                          processo.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                          processo.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
-                          'bg-processo-operacionais/20 text-processo-operacionais'
-                        }`}
-                      >
-                        {processo.nivel}
-                      </span>
-                    </TableCell>
+          <div className="overflow-x-auto flex-1">
+            <div className="max-h-[500px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-20">ID</TableHead>
+                    <TableHead>Nome</TableHead>
+                    <TableHead className="w-32 text-right">Nível</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {todosOsProcessos.map((processo) => (
+                    <TableRow key={processo.id}>
+                      <TableCell className="font-medium">{processo.id}</TableCell>
+                      <TableCell>{processo.nome}</TableCell>
+                      <TableCell className="text-right">
+                        <span
+                          className={`px-2 py-1 rounded text-xs font-medium ${
+                            processo.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                            processo.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                            'bg-processo-operacionais/20 text-processo-operacionais'
+                          }`}
+                        >
+                          {processo.nivel}
+                        </span>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           </div>
         </div>
       </div>
