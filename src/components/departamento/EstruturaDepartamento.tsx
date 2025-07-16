@@ -359,58 +359,176 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     return (
       <div className="p-6">
 
-        {/* Nível 1 - Diretoria */}
-        <div className="flex justify-center mb-4">
-          <Colaborador 
-            nome="Naiche Poel" 
-            cargo="Diretor" 
-            setor="Compras"
-            nivel={1}
-            icon={<Crown size={24} />}
-          />
+        {/* Nível 1 - DIRETOR */}
+        <div className="flex justify-center mb-6">
+          <div className="bg-black text-white p-6 rounded-lg shadow-lg w-80 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Crown size={24} />
+              <h3 className="text-xl font-bold">Naiche</h3>
+            </div>
+            <p className="text-sm">Diretor</p>
+          </div>
         </div>
         
-        {/* Nível 1 - Gerência */}
-        <div className="flex justify-center mb-4">
-          <Colaborador nome="Thomas Ventre" cargo="Gerente" setor="Categorias e Planejamento Comercial" nivel={2} icon={<Crown size={20} />} />
+        {/* Nível 2 - GERENTE DE CATEGORIA */}
+        <div className="flex justify-center mb-6">
+          <div className="bg-red-600 text-white p-5 rounded-lg shadow-lg w-96 text-center">
+            <div className="flex flex-col gap-3">
+              <div>
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <Star size={20} />
+                  <h3 className="text-lg font-semibold">Thomas</h3>
+                </div>
+                <p className="text-sm">Gerente de Categoria e Planejamento Comercial</p>
+              </div>
+              <div>
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <User size={16} />
+                  <h3 className="text-base font-medium">William</h3>
+                </div>
+                <p className="text-xs">Analista</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Nível 2 - Gestão */}
-        <div className="flex justify-center mb-4">
-          <Colaborador nome="William Lima" cargo="Analista" setor="Categorias e Planejamento Comercial" nivel={3} icon={<Warehouse size={18} />} />
-          <Colaborador nome="Wesley Mendes" cargo="Coordenador" setor="Visual Merchandising" nivel={3} icon={<Warehouse size={18} />} />
+        {/* Nível 3 - SETORES/CATEGORIAS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
+          
+          {/* FEMININO */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">FEMININO</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Multimarcas + Marcas Próprias</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca</p>
+                <p className="text-sm font-semibold">Karen</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs font-medium">Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">Alice</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* ESPORTIVO */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">ESPORTIVO</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Tênis + Meias + Equipamentos</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca</p>
+                <p className="text-sm font-semibold">Raphael</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs font-medium">Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">José</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* INFANTIL E BOLSAS */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">INFANTIL E BOLSAS</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Infantil + Bolsas</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca - Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">Carla</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* MASCULINO */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">MASCULINO</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Masculino + Chinelos + Acessórios</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca - Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">Claudinei</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* TÊXTIL */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">TÊXTIL</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Têxtil + Equipamentos + Meias</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca - Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">Maristela</p>
+                <p className="text-xs">Comprador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* VM */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">VM</h3>
+            <p className="text-xs text-center mb-3 opacity-80">Visual Merchandising</p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca - Paquetá - Gaston</p>
+                <p className="text-sm font-semibold">Wesley</p>
+                <p className="text-xs">Coordenador</p>
+              </div>
+            </div>
+          </div>
+
+          {/* PEDIDOS */}
+          <div className="bg-gray-500 text-white p-4 rounded-lg shadow-lg">
+            <h3 className="font-semibold text-center mb-3 text-lg">PEDIDOS</h3>
+            <p className="text-xs text-center mb-3 opacity-80"></p>
+            <div className="space-y-2">
+              <div className="text-center">
+                <p className="text-xs font-medium">Oscar - Carioca</p>
+                <p className="text-sm font-semibold">Cleber</p>
+                <p className="text-xs">Gerente</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Nível 3 - Analistas */}
-        <div className="grid grid-cols-1 md:grid-cols-4 mb-4 mx-auto">
-          <Colaborador nome="Karen Akemi" cargo="Gerente Feminino\Comprador" setor="Feminio (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Alice Bergamaschi" cargo="Gerente Feminino\Comprador" setor="Feminio (Paquetá - Gaston)" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Claudinei" cargo="Gerente Masculino\Comprador" setor="Masculino" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Raphael Tavares" cargo="Gerente Esportivo\Comprador" setor="Esportivo (Oscar - Carioca)" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Jose Ferreria" cargo="Gerente Esportivo\Comprador" setor="Esportivo  (Paquetá - gaston)" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Carla Viana" cargo="Gerente Infantil e Bolsas\Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />} />
-          <Colaborador nome="Maristela Wollmann" cargo="Gerente Têxtil\Comprador" setor="Infantil e Bolsas" nivel={4} icon={<Settings size={16} />} />
-        </div>
-        
-        {/* Nível 4 - Equipe */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
-          <Colaborador nome="Vitoria Oliveira" cargo="Asssistente de Compras" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Alexya Freitas" cargo="Asssistente de Compras" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Larissa" cargo="Asssistente de Compras" setor="Feminio (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Suzana Araujo" cargo="Asssistente de Compras" setor="Feminio (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Jeferson Oliveira" cargo="Asssistente de Compras" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Larissa Perreira" cargo="Asssistente de Compras" setor="Esportivo (Oscar - Carioca)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Samanta Azambuja" cargo="Asssistente de Compras" setor="Esportivo (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Jenifer Santos" cargo="Asssistente de Compras" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="João Paulo" cargo="Asssistente de Compras" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Guilherme Cardoso" cargo="Asssistente de Compras" setor="Infantil e Bolsas" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Whytini Marinho" cargo="Asssistente de Compras" setor="Masculino" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Angelica Lopes" cargo="Asssistente de Compras" setor="Têxtil" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Alicia Munhoz" cargo="Asssistente de Compras" setor="Visual Merchandising (Regional Farias)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Bruna Bruck" cargo="Asssistente de Compras" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Renderson Silva" cargo="Asssistente de Compras" setor="Visual Merchandising (Paquetá - Gaston)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Andre Santos" cargo="Asssistente de Compras" setor="Visual Merchandising (Carioca - Paquetá)" nivel={5} icon={<Settings size={16} />} />
-          <Colaborador nome="Camilla Fontoura" cargo="Asssistente de Compras" setor="Visual Merchandising (Carioca)" nivel={5} icon={<Settings size={16} />} />
+        {/* Nível 4 - ASSISTENTES E ANALISTAS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Bruna</h4>
+            <p className="text-xs">Assistente</p>
+            <p className="text-xs opacity-75">Feminino</p>
+          </div>
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Leticia</h4>
+            <p className="text-xs">Assistente</p>
+            <p className="text-xs opacity-75">Esportivo</p>
+          </div>
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Ana</h4>
+            <p className="text-xs">Assistente</p>
+            <p className="text-xs opacity-75">Infantil</p>
+          </div>
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Patricia</h4>
+            <p className="text-xs">Assistente</p>
+            <p className="text-xs opacity-75">Masculino</p>
+          </div>
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Julia</h4>
+            <p className="text-xs">Assistente</p>
+            <p className="text-xs opacity-75">Têxtil</p>
+          </div>
+          <div className="bg-gray-400 text-white p-3 rounded-lg shadow text-center">
+            <h4 className="text-sm font-medium">Carlos</h4>
+            <p className="text-xs">Analista</p>
+            <p className="text-xs opacity-75">Planejamento</p>
+          </div>
         </div>
       </div>
     );
