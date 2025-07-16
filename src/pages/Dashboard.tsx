@@ -6,6 +6,7 @@ import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon } from 'lucide
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
 import { useProcessosCount } from '@/hooks/useProcessosCount';
+import { todosOsProcessos } from '@/data/processos';
 
 const Dashboard = () => {
   const { total, estrategicos, taticos, operacionais } = useProcessosCount();
@@ -138,26 +139,19 @@ const Dashboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {[
-                  { id: 'PRO-1245', nome: 'Planejamento Orçamentário 2025', tipo: 'Estratégico' },
-                  { id: 'PRO-1244', nome: 'Contratação de Desenvolvedores', tipo: 'Tático' },
-                  { id: 'PRO-1243', nome: 'Implantação do Sistema CRM', tipo: 'Operacional' },
-                  { id: 'PRO-1242', nome: 'Revisão da Política de RH', tipo: 'Estratégico' },
-                  { id: 'PRO-1241', nome: 'Gestão Financeira de Processos', tipo: 'Operacional' },
-                  { id: 'PRO-1240', nome: 'Controle do Fluxo de Despesas', tipo: 'Operacional' },
-                ].map((processo) => (
+                {todosOsProcessos.slice(0, 8).map((processo) => (
                   <TableRow key={processo.id}>
                     <TableCell>{processo.nome}</TableCell>
-                    <TableCell className="text-center">{processo.id.split('-')[1]}</TableCell>
+                    <TableCell className="text-center">{processo.id}</TableCell>
                     <TableCell className="text-right">
                       <span
                         className={`px-2 py-1 rounded text-xs font-medium ${
-                          processo.tipo === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
-                          processo.tipo === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
+                          processo.nivel === 'Estratégico' ? 'bg-processo-estrategicos/20 text-processo-estrategicos' :
+                          processo.nivel === 'Tático' ? 'bg-processo-taticos/20 text-processo-taticos' :
                           'bg-processo-operacionais/20 text-processo-operacionais'
                         }`}
                       >
-                        {processo.tipo}
+                        {processo.nivel}
                       </span>
                     </TableCell>
                   </TableRow>
