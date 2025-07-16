@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   BarChart,
@@ -33,96 +32,73 @@ const data = [
 ];
 
 const GraficoProcessos = () => {
-  const CustomBar = (props: any) => {
-    const { payload, x, y, width, height } = props;
-    const fill = payload.fill;
-    
-    return (
-      <g>
-        {/* Barra */}
-        <rect
-          x={x}
-          y={y}
-          width={width}
-          height={height}
-          fill={fill}
-          rx={0}
-          ry={0}
-          style={{ borderRadius: '0 4px 4px 0' }}
-        />
-        {/* Nome do departamento */}
-        <text
-          x={x + width + 10}
-          y={y + height / 2}
-          fill="#333"
-          fontSize="12"
-          fontWeight="500"
-          textAnchor="start"
-          dominantBaseline="middle"
-        >
-          {payload.nome}
-        </text>
-        {/* Porcentagem */}
-        <text
-          x={x + width + 10}
-          y={y + height / 2 + 15}
-          fill="#666"
-          fontSize="11"
-          textAnchor="start"
-          dominantBaseline="middle"
-        >
-          {payload.porcentagem}%
-        </text>
-      </g>
-    );
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-lg">
+          <p className="font-medium text-gray-800">{payload[0].payload.nome}</p>
+          <p className="text-sm text-gray-600">{`${payload[0].value}%`}</p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
-    <div className="grafico-area">
+    <div className="w-full">
       <div className="mb-6">
-        <h3 className="grafico-titulo text-xl font-semibold text-gray-800">
+        <h3 className="text-xl font-semibold text-gray-800">
           Evolução de Mapeamento
         </h3>
       </div>
       
-      <div className="overflow-y-auto max-h-[350px] border border-gray-100 rounded-lg bg-white">
-        <ResponsiveContainer width="100%" height={300}>
-        <BarChart
-          data={data}
-          layout="vertical"
-          margin={{
-            top: 20,
-            right: 350,
-            left: 20,
-            bottom: 20,
-          }}
-        >
-          <XAxis 
-            type="number" 
-            domain={[0, 100]} 
-            hide
-          />
-          <YAxis 
-            type="category"
-            hide
-          />
-          <Tooltip 
-            formatter={(value) => [`${value}%`, 'Progresso']}
-            contentStyle={{
-              backgroundColor: '#fff',
-              border: '1px solid #e0e0e0',
-              borderRadius: '8px',
-              fontSize: '12px',
-              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
-            }}
-          />
-          <Bar 
-            dataKey="porcentagem" 
-            shape={<CustomBar />}
-            barSize={16}
-          />
-        </BarChart>
-        </ResponsiveContainer>
+      <div className="w-full border border-gray-200 rounded-lg bg-white p-4">
+        <div className="w-full">
+          {data.map((item, index) => (
+            <div key={index} className="flex items-center mb-3 last:mb-0">
+              {/* Barra de progresso */}
+              <div className="flex-1 flex items-center">
+                <div className="w-full bg-gray-100 rounded-sm h-4 mr-3 relative overflow-hidden">
+                  <div
+                    className="h-full rounded-sm transition-all duration-300"
+                    style={{
+                      width: `${item.porcentagem}%`,
+                      backgroundColor: item.fill
+                    }}
+                  />
+                </div>
+                
+                {/* Nome do departamento */}
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium text-gray-800 truncate">
+                    {item.nome}
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    {item.porcentagem}%
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Legenda */}
+        <div className="mt-6 pt-4 border-t border-gray-200">
+          <div className="flex flex-wrap gap-4 text-xs">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
+              <span>Concluído (≥90%)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-orange-500 rounded-sm"></div>
+              <span>Em Progresso (25-89%)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
+              <span>Iniciado (0-24%)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
