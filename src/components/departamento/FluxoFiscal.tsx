@@ -223,11 +223,6 @@ const FluxoFiscal = () => {
 
   return (
     <Card className="w-full h-full">
-      <CardHeader>
-        <CardTitle className="text-center text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-          Fluxo do Departamento Fiscal
-        </CardTitle>
-      </CardHeader>
       <CardContent>
         <div style={{ width: '100%', height: '500px' }}>
           <ReactFlow
