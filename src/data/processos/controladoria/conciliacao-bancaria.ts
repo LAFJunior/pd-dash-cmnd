@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { CreditCard } from 'lucide-react';
 
 export const conciliacaoBancaria: ProcessoDetalhado = {
-  id: 'CON-005',
+  id: 'CON-02.5',
   nome: 'Conciliação Financeira e Bancária',
   descricao: 'Extratos bancários, relatórios de vendas com cartões e Pix, lançamentos financeiros no sistema Mega',
   nivel: 'Tático',
@@ -16,13 +16,13 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
   sistemas_utilizados: ['ERP Mega', 'Internet Banking', 'Conciliador', 'Equals'],
   subprocessos: [
     {
-      id: '5.1',
+      id: '2.5.1',
       nome: 'Inclusão de Lançamentos no Sistema',
       nivel: 'Operacional',
       ferramentas: ['ERP Mega'],
       tarefas: [
         {
-          id: '5.1.1',
+          id: '2.5.1.1',
           nome: 'Registrar créditos e débitos',
           passos: [
             'Registrar créditos e débitos no Mega',
@@ -36,13 +36,13 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.2',
+      id: '2.5.2',
       nome: 'Conciliação Bancária',
       nivel: 'Operacional',
       ferramentas: ['Internet Banking', 'Conciliador', 'Mega'],
       tarefas: [
         {
-          id: '5.2.1',
+          id: '2.5.2.1',
           nome: 'Gerar extratos bancários',
           passos: [
             'Gerar e baixar extratos bancários',
@@ -53,7 +53,7 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.2.2',
+          id: '2.5.2.2',
           nome: 'Validar lançamentos',
           passos: [
             'Validar lançamentos no Mega com extratos bancários',
@@ -65,7 +65,7 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.2.3',
+          id: '2.5.2.3',
           nome: 'Acionar equipe para ajustes',
           passos: [
             'Acionar equipe financeira para ajustes',
@@ -77,13 +77,13 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.3',
+      id: '2.5.3',
       nome: 'Conferência de Recebimentos de Cartões e Pix',
       nivel: 'Operacional',
       ferramentas: ['Conciliador Equals', 'ERP Mega', 'Planilhas'],
       tarefas: [
         {
-          id: '5.3.1',
+          id: '2.5.3.1',
           nome: 'Validar recebimentos',
           passos: [
             'Validar recebimentos com cartões e Pix',
@@ -94,7 +94,7 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.3.2',
+          id: '2.5.3.2',
           nome: 'Tratar divergências',
           passos: [
             'Tratar divergências com suporte Equals ou financeiro',
@@ -104,7 +104,7 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.3.3',
+          id: '2.5.3.3',
           nome: 'Registrar taxas',
           passos: [
             'Registrar taxas de recebimento no Mega',
@@ -116,13 +116,13 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.4',
+      id: '2.5.4',
       nome: 'Finalização e Controle',
       nivel: 'Tático',
       ferramentas: ['Planilhas de conciliação', 'ERP Mega', 'Conciliador'],
       tarefas: [
         {
-          id: '5.4.1',
+          id: '2.5.4.1',
           nome: 'Atualizar controles',
           passos: [
             'Atualizar planilhas e controles internos',
@@ -132,7 +132,7 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.4.2',
+          id: '2.5.4.2',
           nome: 'Consolidar e travar período',
           passos: [
             'Consolidar mês e travar período no sistema',
