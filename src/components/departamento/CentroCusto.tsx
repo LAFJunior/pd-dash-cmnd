@@ -259,7 +259,7 @@ const CentroCusto = () => {
           {Array.from({ length: Math.max(...empresas.map(e => e.centros.length)) }).map((_, rowIndex) => (
             <TableRow key={rowIndex}>
               {empresas.map((empresa) => (
-                <TableCell key={empresa.id} className={`${empresa.cor} border text-xs p-2 vertical-align-top`}>
+                <TableCell key={empresa.id} className={`${empresa.cor} border text-xs p-2 text-center align-top`}>
                   {empresa.centros[rowIndex] && (
                     <div className="space-y-1">
                       <div className="font-semibold">
