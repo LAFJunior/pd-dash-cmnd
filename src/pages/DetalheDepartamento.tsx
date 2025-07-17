@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2 } from 'lucide-react';
+import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
 import FluxoDepartamento from '@/components/departamento/FluxoDepartamento';
 import FluxoControladoria from '@/components/departamento/FluxoControladoria';
+import FluxoFiscal from '@/components/departamento/FluxoFiscal';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
@@ -58,6 +59,7 @@ const DetalheDepartamento = () => {
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
+  const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -110,6 +112,8 @@ const DetalheDepartamento = () => {
               <CardContent>
                 {isControladoria ? (
                   <FluxoControladoria />
+                ) : isFiscal ? (
+                  <FluxoFiscal />
                 ) : (
                   <FluxoDepartamento departamento={nomeDepartamento} />
                 )}
