@@ -31,11 +31,11 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Marketplace': processosEcommerce['Marketplace'] || [],
     'Produto': processosEcommerce['Produto'] || [],
     
-    'Auditoria': processosControladoriaDetalhados.filter(p => p.id.includes('CON-001') || p.id.includes('CON-002')),
-    'Apoio a loja': processosControladoriaDetalhados.filter(p => p.id.includes('CON-003')),
-    'Conciliação': processosControladoriaDetalhados.filter(p => p.id.includes('CON-004') || p.id.includes('CON-005')),
-    'Contrato e despesas': processosControladoriaDetalhados.filter(p => p.id.includes('CON-006') || p.id.includes('CON-008')),
-    'Recuperação de receitas': processosControladoriaDetalhados.filter(p => p.id.includes('CON-007'))
+    'Auditoria': processosControladoriaDetalhados.filter(p => p.id.includes('02.1') || p.id.includes('02.2')),
+    'Apoio a loja': processosControladoriaDetalhados.filter(p => p.id.includes('02.3')),
+    'Conciliação': processosControladoriaDetalhados.filter(p => p.id.includes('02.4') || p.id.includes('02.5')),
+    'Contrato e despesas': processosControladoriaDetalhados.filter(p => p.id.includes('02.6') || p.id.includes('02.8')),
+    'Recuperação de receitas': processosControladoriaDetalhados.filter(p => p.id.includes('02.7'))
   };
 
   const obterTodosProcessosEcommerce = () => {
