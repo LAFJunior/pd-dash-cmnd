@@ -10,6 +10,7 @@ import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamen
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
 import CentroCusto from '@/components/departamento/CentroCusto';
+import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
@@ -56,6 +57,7 @@ const DetalheDepartamento = () => {
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
+  const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -79,93 +81,100 @@ const DetalheDepartamento = () => {
       </div>
 
       <div className="space-y-8">
-        {/* Estrutura do Departamento */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="text-blue-600" size={24} />
-              Estrutura do Departamento
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <EstruturaDepartamento departamento={nomeDepartamento} />
-          </CardContent>
-        </Card>
+        {/* Conteúdo específico para Recicalce */}
+        {isRecicalce ? (
+          <RecicalceInfo />
+        ) : (
+          <>
+            {/* Estrutura do Departamento */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="text-blue-600" size={24} />
+                  Estrutura do Departamento
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <EstruturaDepartamento departamento={nomeDepartamento} />
+              </CardContent>
+            </Card>
 
-        {/* Fluxo do Departamento */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <GitBranch className="text-green-600" size={24} />
-              Fluxo do Departamento
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {isControladoria ? (
-              <FluxoControladoria />
-            ) : (
-              <FluxoDepartamento departamento={nomeDepartamento} />
+            {/* Fluxo do Departamento */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <GitBranch className="text-green-600" size={24} />
+                  Fluxo do Departamento
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {isControladoria ? (
+                  <FluxoControladoria />
+                ) : (
+                  <FluxoDepartamento departamento={nomeDepartamento} />
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Centro de Custo - Só exibe para Financeiro Varejo */}
+            {isFinanceiroVarejo && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Building2 className="text-indigo-600" size={24} />
+                    Centro de Custo
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CentroCusto />
+                </CardContent>
+              </Card>
             )}
-          </CardContent>
-        </Card>
 
-        {/* Centro de Custo - Só exibe para Financeiro Varejo */}
-        {isFinanceiroVarejo && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Building2 className="text-indigo-600" size={24} />
-                Centro de Custo
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CentroCusto />
-            </CardContent>
-          </Card>
+            {/* Pilares do E-commerce - Só exibe para E-commerce */}
+            {isEcommerce && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Puzzle className="text-orange-600" size={24} />
+                    Pilares do E-commerce
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PilaresEcommerce onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Pilares da Controladoria - Só exibe para Controladoria */}
+            {isControladoria && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Puzzle className="text-orange-600" size={24} />
+                    Pilares da Controladoria
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Processos Realizados */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ClipboardList className="text-purple-600" size={24} />
+                  Mapeamento de Processos
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
+              </CardContent>
+            </Card>
+          </>
         )}
-
-        {/* Pilares do E-commerce - Só exibe para E-commerce */}
-        {isEcommerce && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Puzzle className="text-orange-600" size={24} />
-                Pilares do E-commerce
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <PilaresEcommerce onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Pilares da Controladoria - Só exibe para Controladoria */}
-        {isControladoria && (
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Puzzle className="text-orange-600" size={24} />
-                Pilares da Controladoria
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Processos Realizados */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <ClipboardList className="text-purple-600" size={24} />
-              Mapeamento de Processos
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
-          </CardContent>
-        </Card>
       </div>
     </div>
   );
