@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   User, 
@@ -357,16 +358,16 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
   if (departamentoNormalizado.includes('compras')) {
     return (
-      <div className="max-w-[1400px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
+      <div className="max-w-[3000px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
         {/* Diretor */}
-        <div className="text-center mb-8">
-          <div className="inline-block bg-gradient-to-br from-gray-700 to-black text-white p-10 min-w-[200px] shadow-xl relative text-center"
+        <div className="text-center mb-5">
+          <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-7 w-full max-w-[380px] min-w-[200px] shadow-xl relative text-center"
                style={{
                  clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
                  paddingBottom: '28px'
                }}>
             <h1 className="text-2xl font-bold mb-3" style={{ letterSpacing: '8px' }}>DIRETOR</h1>
-            <h2 className="text-lg mb-4" style={{ letterSpacing: '2px' }}>NAICHE POEL</h2>
+            <h2 className="text-xl mb-4" style={{ letterSpacing: '2px' }}>NAICHE POEL</h2>
             <div className="text-xs leading-tight">
               NAICHE.POEL@GRUPOOSCAR.COM.BR<br />
               (11) 96070-5041 - WHATSAPP
@@ -378,7 +379,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         <div className="text-center mb-8">
           <div className="inline-block bg-gradient-to-br from-red-600 to-red-700 text-white p-5 min-w-[300px] shadow-xl relative"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)',
+                 clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 95%, 0 85%)',
                  paddingBottom: '30px'
                }}>
             <h3 className="text-base font-bold mb-4" style={{ letterSpacing: '2px' }}>
@@ -404,70 +405,70 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         </div>
 
         {/* Grid de Departamentos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6 gap-5 mb-8">
           {/* Feminino */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               FEMININO
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (MULTIMARCAS+ MARCAS PRÓPRIAS)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">KAREN (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">KAREN (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 KAREN.AZEREDO@GRUPOOSCAR.COM.BR<br />
                 (12) 97407-5100 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">VITÓRIA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">VITÓRIA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 VITORIA.OLIVEIRA@GRUPOOSCAR.COM.BR<br />
                 (12) 97406-0652 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">ALEXYA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">ALEXYA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 ALEXYA.FREITAS@GRUPOOSCAR.COM.BR<br />
                 (12) 97411-0200 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">LARISSA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">LARISSA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 LARISSA.RAQUEL@GRUPOOSCAR.COM.BR<br />
                 (12) 99234-0825 - WHATSAPP
               </div>
             </div>
 
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">ALICE(COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">ALICE(COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 ALICE.GERMANO@GRUPOOSCAR.COM.BR<br />
                 (51) 9488-5876 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">SUZANA ARAÚJO</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">SUZANA ARAÚJO</div>
+              <div className="text-xs text-gray-600 leading-none">
                 SUZANA.SILVA@GRUPOOSCAR.COM.BR<br />
                 (51) 99968-6180 - WHATSAPP
               </div>
@@ -475,60 +476,60 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           </div>
 
           {/* Esportivo */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               ESPORTIVO
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (TÊNIS+ MEIAS+ EQUIPAMENTOS)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">RAPHAEL (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">RAPHAEL (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 RAPHAEL.VERTELO@GRUPOOSCAR.COM.BR<br />
                 (12) 97405-0730 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">JEFERSON</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">JEFERSON</div>
+              <div className="text-xs text-gray-600 leading-none">
                 JEFERSON.OLIVEIRA@GRUPOOSCAR.COM.BR<br />
                 (12) 99234-0915 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">LARISSA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">LARISSA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 LARISSA.PEREIRA@GRUPOOSCAR.COM.BR<br />
                 (12) 97403-7540 - WHATSAPP
               </div>
             </div>
 
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">JOSÉ (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">JOSÉ (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 JOSE.FERREIRA@GRUPOOSCAR.COM.BR<br />
                 (51) 8305-5884 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">SAMANTA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">SAMANTA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 SAMANTA.AZAMBUJA@GRUPOOSCAR.COM.BR<br />
                 (51) 98912-5337 - WHATSAPP
               </div>
@@ -536,48 +537,48 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           </div>
 
           {/* Infantil e Bolsas */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               INFANTIL E BOLSAS
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (INFANTIL + BOLSAS)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA - PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">CARLA (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">CARLA (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 CARLA.VIANA@GRUPOOSCAR.COM.BR<br />
                 (11) 99235-2438 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">JENIFER (ANALISTA)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">JENIFER (ANALISTA)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 JENIFER.SANTOS@GRUPOOSCAR.COM.BR<br />
                 (12) 97890-0735 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">JOÃO PAULO</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">JOÃO PAULO</div>
+              <div className="text-xs text-gray-600 leading-none">
                 JOAO.MARQUES@GRUPOOSCAR.COM.BR<br />
                 (12) 99234-1028 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">GUILHERME CARDOSO</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">GUILHERME CARDOSO</div>
+              <div className="text-xs text-gray-600 leading-none">
                 GUILHERME.CARDOSO@GRUPOOSCAR.COM.BR<br />
                 (11) 9367-2369 - WHATSAPP
               </div>
@@ -585,32 +586,32 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           </div>
 
           {/* Masculino */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               MASCULINO
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (MASCULINO + CHINELOS + ACESSÓRIOS)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA - PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">CLAUDINEI (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">CLAUDINEI (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 CLAUDINEI.MACHADO@GRUPOOSCAR.COM.BR<br />
                 (12) 99411-3778 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">WHITINI</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">WHITINI</div>
+              <div className="text-xs text-gray-600 leading-none">
                 WHITINI.WARNINGTON@GRUPOOSCAR.COM.BR<br />
                 (12) 97402-0001 - WHATSAPP
               </div>
@@ -618,32 +619,32 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           </div>
 
           {/* Têxtil */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               TÊXTIL
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (TÊXTIL + EQUIPAMENTOS + MEIAS)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA - PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">MARISTELA (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">MARISTELA (COMPRADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 MARISTELA.GUILHERMINO@GRUPOOSCAR.COM.BR<br />
                 (51) 99501-4141 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">ANGELICA</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">ANGELICA</div>
+              <div className="text-xs text-gray-600 leading-none">
                 ANGELICA.LOPES@GRUPOOSCAR.COM.BR<br />
                 (51) 98015-0285 - WHATSAPP
               </div>
@@ -651,92 +652,70 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           </div>
 
           {/* VM */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
+          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
                style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
+                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+                 paddingBottom: '45px'
                }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
               VM
             </h3>
-            <div className="text-xs text-gray-600 mb-4 font-bold text-center">
+            <div className="text-base text-gray-600 mb-4 font-bold text-center">
               (VISUAL MERCHANDISING)
             </div>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
+            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
               OSCAR - CARIOCA - PAQUETÁ - GASTON
             </div>
             
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">WESLEY (COORDENADOR)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">WESLEY (COORDENADOR)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 WESLEY.MENDOZA@GRUPOOSCAR.COM.BR<br />
                 (12) 99223-2450 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">ALICIA</div>
-              <div className="font-bold text-gray-700 text-sm mb-1">(SP OSCAR - REGIONAL FARIAS)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">ALICIA</div>
+              <div className="font-bold text-gray-700 text-xs mb-1">(SP OSCAR - REGIONAL FARIAS)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 ALICIA.MUNHOZ@GRUPOOSCAR.COM.BR<br />
                 (12) 99390-3443 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">BRUNA</div>
-              <div className="font-bold text-gray-700 text-sm mb-1">(RS - PAQUETÁ E GASTON)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">BRUNA</div>
+              <div className="font-bold text-gray-700 text-xs mb-1">(RS - PAQUETÁ E GASTON)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 BRUNA.BRUCK@GRUPOOSCAR.COM.BR<br />
                 (51) 99390-3443 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">RENDERSON</div>
-              <div className="font-bold text-gray-700 text-sm mb-1">(RS - PAQUETÁ E GASTON)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">RENDERSON</div>
+              <div className="font-bold text-gray-700 text-xs mb-1">(RS - PAQUETÁ E GASTON)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 RENDERSON.SILVA@GRUPOOSCAR.COM.BR<br />
                 (51) 98989-9072 - WHATSAPP GERAL
               </div>
             </div>
 
             <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-sm mb-1">ANDRE</div>
-              <div className="font-bold text-gray-700 text-sm mb-1">(SC - CARIOCA E PAQUETÁ)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">ANDRE</div>
+              <div className="font-bold text-gray-700 text-xs mb-1">(SC - CARIOCA E PAQUETÁ)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 ANDRE.SANTOS@GRUPOOSCAR.COM.BR<br />
                 (48) 99982-2692 - WHATSAPP
               </div>
             </div>
 
             <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">CAMILLA (CARIOCA)</div>
-              <div className="text-xs text-gray-600 leading-tight">
+              <div className="font-bold text-gray-700 text-xs mb-1">CAMILLA (CARIOCA)</div>
+              <div className="text-xs text-gray-600 leading-none">
                 CAMILLA.FONTOURA@GRUPOOSCAR.COM.BR<br />
                 (48) 9982-2629 - WHATSAPP
-              </div>
-            </div>
-          </div>
-
-          {/* Pedidos */}
-          <div className="bg-white p-5 shadow-md border-2 border-gray-200 relative text-center min-w-[280px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '25px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-4 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              PEDIDOS
-            </h3>
-            <div className="text-sm font-bold text-gray-700 mb-4 text-center underline">
-              OSCAR - CARIOCA
-            </div>
-            
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-sm mb-1">CLEBER (GERENTE)</div>
-              <div className="text-xs text-gray-600 leading-tight">
-                CLEBER.MENEZES@GRUPOOSCAR.COM.BR<br />
-                (12) 99231-0915 - WHATSAPP
               </div>
             </div>
           </div>
