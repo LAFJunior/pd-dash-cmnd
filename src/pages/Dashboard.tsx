@@ -70,31 +70,6 @@ const Dashboard = () => {
           <div className="space-y-6">
             <GraficoProcessos />
             
-            {/* Seção de Tarefas */}
-            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
-              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
-              <div className="overflow-x-auto flex-1">
-                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-20">ID:</TableHead>
-                        <TableHead>Nome:</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {todasAsTarefas.map((tarefa) => (
-                        <TableRow key={tarefa.id}>
-                          <TableCell className="font-medium">{tarefa.id}</TableCell>
-                          <TableCell>{tarefa.nome}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </div>
-            </Card>
-            
             {/* Seção de Subprocessos */}
             <Card className="bg-white p-6 max-h-[400px] flex flex-col">
               <h3 className="text-lg font-semibold mb-4">Subprocessos:</h3>
@@ -124,6 +99,31 @@ const Dashboard = () => {
                               {subprocesso.nivel}
                             </span>
                           </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
+            </Card>
+            
+            {/* Seção de Tarefas */}
+            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
+              <h3 className="text-lg font-semibold mb-4">Tarefas:</h3>
+              <div className="overflow-x-auto flex-1">
+                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-20">ID:</TableHead>
+                        <TableHead>Nome:</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {todasAsTarefas.map((tarefa) => (
+                        <TableRow key={tarefa.id}>
+                          <TableCell className="font-medium">{tarefa.id}</TableCell>
+                          <TableCell>{tarefa.nome}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
