@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { AlertTriangle } from 'lucide-react';
 
 export const indenizacoesDefeito: ProcessoDetalhado = {
-  id: 'CON-007',
+  id: 'CON-02.7',
   nome: 'Indenizações de Defeito',
   descricao: 'Produto com defeito identificado pela loja e comunicado ao departamento responsável',
   nivel: 'Tático',
@@ -16,13 +16,13 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
   sistemas_utilizados: ['E-mail corporativo', 'ERP Mega', 'Sistema financeiro'],
   subprocessos: [
     {
-      id: '7.1',
+      id: '2.7.1',
       nome: 'Acionamento do Fornecedor',
       nivel: 'Operacional',
       ferramentas: ['E-mail corporativo', 'ERP Mega'],
       tarefas: [
         {
-          id: '7.1.1',
+          id: '2.7.1.1',
           nome: 'Receber notificação da loja sobre produto com defeito',
           passos: [
             'Verificar e-mail com relatos de defeito, imagens e dados do produto',
@@ -30,7 +30,7 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.2',
+          id: '2.7.1.2',
           nome: 'Contatar fornecedor solicitando autorização de devolução',
           passos: [
             'Encaminhar e-mail com as informações do produto e solicitação de devolução',
@@ -38,7 +38,7 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.3',
+          id: '2.7.1.3',
           nome: 'Emitir nota fiscal de devolução no Mega',
           passos: [
             'Acessar Mega > Nota Fiscal > Emissão',
@@ -50,13 +50,13 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.2',
+      id: '2.7.2',
       nome: 'Coleta do Produto e Registro',
       nivel: 'Operacional',
       ferramentas: ['ERP Mega', 'E-mail'],
       tarefas: [
         {
-          id: '7.2.1',
+          id: '2.7.2.1',
           nome: 'Acompanhar coleta do produto pelo fornecedor',
           passos: [
             'Confirmar com a loja a retirada do produto',
@@ -64,7 +64,7 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.2.2',
+          id: '2.7.2.2',
           nome: 'Transferir itens para o estoque de defeito (092)',
           passos: [
             'Acessar Mega → Estoque → Listar Movimentações',
@@ -75,13 +75,13 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.3',
+      id: '2.7.3',
       nome: 'Conferência e Validação da Devolução',
       nivel: 'Operacional',
       ferramentas: ['ERP Mega', 'Planilhas', 'E-mail'],
       tarefas: [
         {
-          id: '7.3.1',
+          id: '2.7.3.1',
           nome: 'Conferir nota fiscal e itens da devolução',
           passos: [
             'Acessar Mega → Nota Fiscal → Listar NFe',
@@ -92,13 +92,13 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.4',
+      id: '2.7.4',
       nome: 'Tratativa da Indenização',
       nivel: 'Tático',
       ferramentas: ['E-mail corporativo', 'Sistema financeiro', 'ERP Mega'],
       tarefas: [
         {
-          id: '7.4.1',
+          id: '2.7.4.1',
           nome: 'Confirmar forma de indenização com o fornecedor',
           passos: [
             'Entrar em contato com o fornecedor',
@@ -106,7 +106,7 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.4.2',
+          id: '2.7.4.2',
           nome: 'Verificar compensação da indenização recebida',
           passos: [
             'Confirmar no extrato bancário ou relatório de duplicatas se a compensação foi efetivada',
@@ -114,7 +114,7 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.4.3',
+          id: '2.7.4.3',
           nome: 'Baixar produtos do estoque defeito (venda fictícia)',
           passos: [
             'Acessar frente de loja no Mega',
