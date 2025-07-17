@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Store } from 'lucide-react';
 
 export const apoioLoja: ProcessoDetalhado = {
-  id: 'CON-003',
+  id: 'CON-02.3',
   nome: 'Apoio à Loja',
   descricao: 'Chamados via TopDesk, E-mail, WhatsApp e atendimento telefônico (Headsets), solicitações relacionadas a cadastro, cancelamentos, trocas, estornos ou ajustes de estoque/recebimento.',
   nivel: 'Tático',
@@ -16,27 +16,27 @@ export const apoioLoja: ProcessoDetalhado = {
   sistemas_utilizados: ['TopDesk', 'E-mail', 'Mega', 'Fiabilité', 'ZZNet Portal'],
   subprocessos: [
     {
-      id: '3.1',
+      id: '2.3.1',
       nome: 'Atendimento de Chamados',
       nivel: 'Operacional',
       ferramentas: ['TopDesk', 'E-mail'],
       tarefas: [
         {
-          id: '3.1.1',
+          id: '2.3.1.1',
           nome: 'Verificar chamados diários',
           passos: [
             'Verificar diariamente os chamados novos ou pendentes via TopDesk'
           ]
         },
         {
-          id: '3.1.2',
+          id: '2.3.1.2',
           nome: 'Avaliar demandas não registradas',
           passos: [
             'Avaliar e organizar demandas enviadas por e-mail ou verbalmente pelas lojas (não registradas)'
           ]
         },
         {
-          id: '3.1.3',
+          id: '2.3.1.3',
           nome: 'Priorizar chamados',
           passos: [
             'Priorizar chamados com base em urgência e tipo de problema (ex: reembolso pendente, cancelamento fiscal, falha de estorno)'
@@ -45,20 +45,20 @@ export const apoioLoja: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.2',
+      id: '2.3.2',
       nome: 'Solução de Chamados',
       nivel: 'Tático',
       ferramentas: ['TopDesk', 'E-mail'],
       tarefas: [
         {
-          id: '3.2.1',
+          id: '2.3.2.1',
           nome: 'Análise do problema',
           passos: [
             'Análise do problema relatado pela loja (ex: desistência de cliente, erro de cadastro, troca não resolvida)'
           ]
         },
         {
-          id: '3.2.2',
+          id: '2.3.2.2',
           nome: 'Avaliar forma de pagamento',
           passos: [
             'Avaliar a forma de pagamento e define tratativa',
@@ -68,7 +68,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.2.3',
+          id: '2.3.2.3',
           nome: 'Atualizar chamado',
           passos: [
             'Atualizar o chamado com as ações tomadas, justificativas e, se aplicável, número de protocolo',
@@ -79,13 +79,13 @@ export const apoioLoja: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.3',
+      id: '2.3.3',
       nome: 'Regularização de Estoque e Recebimentos',
       nivel: 'Operacional',
       ferramentas: ['Mega', 'TopDesk', 'Fiabilité'],
       tarefas: [
         {
-          id: '3.3.1',
+          id: '2.3.3.1',
           nome: 'Verificar estorno no sistema',
           passos: [
             'Verificar se o produto devolvido ou cancelado foi corretamente estornado no sistema',
@@ -93,7 +93,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.3.2',
+          id: '2.3.3.2',
           nome: 'Tratar orçamentos cancelados',
           passos: [
             'Em caso de orçamentos que foram baixados e posteriormente cancelados',
@@ -102,7 +102,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.3.3',
+          id: '2.3.3.3',
           nome: 'Validar ressarcimento em dinheiro',
           passos: [
             'Para casos de ressarcimento ao cliente com pagamento em dinheiro (DH)',
@@ -111,7 +111,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.3.4',
+          id: '2.3.3.4',
           nome: 'Solicitar devolução manual',
           passos: [
             'Se a loja ainda não realizou o estorno no sistema',
@@ -119,7 +119,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.3.5',
+          id: '2.3.3.5',
           nome: 'Validar valores no sistema',
           passos: [
             'Validar se os valores da transação (original e estornada) constam corretamente no Mega e Fiabilité, incluindo:',
@@ -128,7 +128,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.3.6',
+          id: '2.3.3.6',
           nome: 'Registrar inconsistências',
           passos: [
             'Registrar qualquer inconsistência',
@@ -139,13 +139,13 @@ export const apoioLoja: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.4',
+      id: '2.3.4',
       nome: 'Acompanhamento de Casos Complexos',
       nivel: 'Tático',
       ferramentas: ['Planilhas de controle'],
       tarefas: [
         {
-          id: '3.4.1',
+          id: '2.3.4.1',
           nome: 'Monitorar casos complexos',
           passos: [
             'Monitoramento de casos complexos ou fora de rotina:',
@@ -154,21 +154,21 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.4.2',
+          id: '2.3.4.2',
           nome: 'Acompanhar ações da loja',
           passos: [
             'Acompanhar com a loja ações de retorno, contato ou solução'
           ]
         },
         {
-          id: '3.4.3',
+          id: '2.3.4.3',
           nome: 'Atualizar planilhas',
           passos: [
             'Atualizar as planilhas internas com status e histórico de contato'
           ]
         },
         {
-          id: '3.4.4',
+          id: '2.3.4.4',
           nome: 'Fornecer orientações preventivas',
           passos: [
             'Fornecer orientações preventivas para loja atualizar cadastros para evitar novos casos'
@@ -177,20 +177,20 @@ export const apoioLoja: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.5',
+      id: '2..5',
       nome: 'Gestão de Trocas com Defeito e Estornos',
       nivel: 'Tático',
       ferramentas: ['ZZNet Portal', 'TopDesk'],
       tarefas: [
         {
-          id: '3.5.1',
+          id: '2.3.5.1',
           nome: 'Receber chamado da loja',
           passos: [
             'Recebe o chamado da loja solicitando troca ou estorno por defeito'
           ]
         },
         {
-          id: '3.5.2',
+          id: '2.3.5.2',
           nome: 'Verificar aprovação ZZNet',
           passos: [
             'Verifica se a solicitação de troca foi aprovada pelo ZZNet Portal com envio de fotos e descrição do defeito',
@@ -200,7 +200,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.5.3',
+          id: '2.3.5.3',
           nome: 'Tratar recusa do cliente',
           passos: [
             'Se o cliente recusar nova mercadoria e solicitar devolução do valor:',
@@ -209,7 +209,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.5.4',
+          id: '2.3.5.4',
           nome: 'Avaliar reincidência',
           passos: [
             'Se reincidência ou valor alto, acionar a gestora para autorização',
@@ -217,7 +217,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.5.5',
+          id: '2.3.5.5',
           nome: 'Processar autorização',
           passos: [
             'Caso autorizado:',
@@ -226,7 +226,7 @@ export const apoioLoja: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.5.6',
+          id: '2.3.5.6',
           nome: 'Finalizar chamado',
           passos: [
             'Finaliza o chamado no TopDesk e alimentar controles internos com histórico do cliente, loja e decisão'
@@ -235,41 +235,41 @@ export const apoioLoja: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.6',
+      id: '2.3.6',
       nome: 'Prevenção de infração e Comunicação com Loja',
       nivel: 'Tático',
       ferramentas: ['Comunicação', 'Registro de Incidentes ou Ocorrências'],
       tarefas: [
         {
-          id: '3.6.1',
+          id: '2.3.6.1',
           nome: 'Identificar comportamentos suspeitos',
           passos: [
             'Identificar comportamentos suspeitos (cliente que realiza múltiplas trocas dentro de curto prazo)'
           ]
         },
         {
-          id: '3.6.2',
+          id: '2.3.6.2',
           nome: 'Comunicar à loja',
           passos: [
             'Comunicar à loja sobre reincidências e orientar postura com o cliente'
           ]
         },
         {
-          id: '3.6.3',
+          id: '2.3.6.3',
           nome: 'Alertar setores envolvidos',
           passos: [
             'Alertar setores envolvidos (ex: fiscal, Gestores) sobre clientes ou lojas com volume atípico de devoluções'
           ]
         },
         {
-          id: '3.6.4',
+          id: '2.3.6.4',
           nome: 'Avaliar acionamento jurídico',
           passos: [
             'Avaliar, junto à coordenação, quando acionar o jurídico preventivamente'
           ]
         },
         {
-          id: '3.6.5',
+          id: '2.3.6.5',
           nome: 'Decidir sobre cancelamento',
           passos: [
             'Decidir, caso a caso, sobre manter ou negar o cancelamento, sempre com autorização formal'
