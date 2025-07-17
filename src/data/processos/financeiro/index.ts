@@ -210,7 +210,7 @@ export const pagamentoDespesas: ProcessoDetalhado = {
 // Novos processos adicionados
 export const gestaoDuplicatas: ProcessoDetalhado = {
   id: 'FIN-01.4',
-  nome: '1.4 - Gestão das duplicatas (Pagamentos a fornecedores)',
+  nome: 'Gestão das duplicatas (Pagamentos a fornecedores)',
   descricao: 'Controle e gestão das duplicatas de fornecedores para pagamento',
   nivel: 'Operacional',
   icon: FileText,
@@ -221,38 +221,38 @@ export const gestaoDuplicatas: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '4.1',
-      nome: '1.4.1 Controle das duplicatas',
+      nome: 'Controle das duplicatas',
       nivel: 'Operacional',
       ferramentas: ['Mega'],
       tarefas: [
         {
           id: '4.1.1',
-          nome: '1.4.1.1 Duplicatas são lançadas automaticamente no Mega',
+          nome: 'Duplicatas são lançadas automaticamente no Mega',
           passos: ['Duplicatas são lançadas automaticamente no Mega a partir da leitura da nota fiscal']
         },
         {
           id: '4.1.2',
-          nome: '1.4.1.2 Lançamento no momento da leitura',
+          nome: 'Lançamento no momento da leitura',
           passos: ['O lançamento ocorre no momento da leitura da nota fiscal recebida pela loja']
         },
         {
           id: '4.1.3',
-          nome: '1.4.1.3 Registro de dados da nota',
+          nome: 'Registro de dados da nota',
           passos: ['O sistema registra o fornecedor, valor da nota e a condição de pagamento (quantidade de parcelas e prazos)']
         },
         {
           id: '4.1.4',
-          nome: '1.4.1.4 Conferência pelo financeiro',
+          nome: 'Conferência pelo financeiro',
           passos: ['O financeiro acessa as duplicatas no Mega e confere os valores e prazos se estão corretos']
         },
         {
           id: '4.1.5',
-          nome: '1.4.1.5 Prazos conforme negociação',
+          nome: 'Prazos conforme negociação',
           passos: ['Os prazos de pagamento são variados, e tipo de pagamentos são conforme negociados com cada fornecedor']
         },
         {
           id: '4.1.6',
-          nome: '1.4.1.6 Tratamento de divergências',
+          nome: 'Tratamento de divergências',
           passos: ['Em caso de divergência (como: valores ou prazos), não realiza o pagamento e aciona o fornecedor ou setor de compras']
         }
       ]
@@ -262,7 +262,7 @@ export const gestaoDuplicatas: ProcessoDetalhado = {
 
 export const pagamentoDuplicatas: ProcessoDetalhado = {
   id: 'FIN-01.5',
-  nome: '1.5 - Pagamento das duplicatas',
+  nome: 'Pagamento das duplicatas',
   descricao: 'Execução dos pagamentos das duplicatas de fornecedores',
   nivel: 'Operacional',
   icon: CreditCard,
@@ -273,33 +273,33 @@ export const pagamentoDuplicatas: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '5.1',
-      nome: '1.5.1 Execução do pagamento das duplicatas',
+      nome: 'Execução do pagamento das duplicatas',
       nivel: 'Operacional',
       ferramentas: ['Sistema Bancário', 'DDA'],
       tarefas: [
         {
           id: '5.1.1',
-          nome: '1.5.1.1 Organização por data de vencimento',
+          nome: 'Organização por data de vencimento',
           passos: ['As duplicatas são organizadas por data de vencimento']
         },
         {
           id: '5.1.2',
-          nome: '1.5.1.2 Modalidades de pagamento',
+          nome: 'Modalidades de pagamento',
           passos: ['Os pagamentos são feitos via TED, PIX e boletos DDA(conforme acordado com o fornecedor)']
         },
         {
           id: '5.1.3',
-          nome: '1.5.1.3 Correção de erros bancários',
+          nome: 'Correção de erros bancários',
           passos: ['Erros bancários são corrigidos em contato com fornecedor e reagenda o pagamento']
         },
         {
           id: '5.1.4',
-          nome: '1.5.1.4 Renegociações',
+          nome: 'Renegociações',
           passos: ['Renegociações podem ser feitas por desencaixes no fluxo de caixa, créditos gerados por devoluções de produtos e bonificação por ação ou parceria']
         },
         {
           id: '5.1.5',
-          nome: '1.5.1.5 Negociação de prazos',
+          nome: 'Negociação de prazos',
           passos: ['O financeiro pode negociar nova data de vencimento ou redução no valor a pagar mediante avaliação']
         }
       ]
@@ -309,7 +309,7 @@ export const pagamentoDuplicatas: ProcessoDetalhado = {
 
 export const pagamentoDuplicatasCNAB: ProcessoDetalhado = {
   id: 'FIN-01.6',
-  nome: '1.6 - Pagamento de duplicatas via CNAB',
+  nome: 'Pagamento de duplicatas via CNAB',
   descricao: 'Processamento automatizado de pagamentos via Centro Nacional de Automação Bancária',
   nivel: 'Operacional',
   icon: Zap,
@@ -320,81 +320,81 @@ export const pagamentoDuplicatasCNAB: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '6.1',
-      nome: '1.6.1 Processamento automatizado via CNAB',
+      nome: 'Processamento automatizado via CNAB',
       nivel: 'Operacional',
       ferramentas: ['CNAB', 'Mega'],
       tarefas: [
         {
           id: '6.1.1',
-          nome: '1.6.1.1 Convênio com fornecedores',
+          nome: 'onvênio com fornecedores',
           passos: ['O pagamento via CNAB é utilizado para fornecedores com convênio ativo com o banco, aplicado aos grupos F1, F2, F3 e F4']
         },
         {
           id: '6.1.2',
-          nome: '1.6.1.2 Conciliação automática',
+          nome: 'Conciliação automática',
           passos: ['O Mega concilia automaticamente os títulos, conforme o que recebe de informações do arquivo bancário']
         },
         {
           id: '6.1.3',
-          nome: '1.6.1.3 Organização em lotes',
+          nome: 'Organização em lotes',
           passos: ['Essa conciliação é feita mediante a outras ações do usuário, como colocar os títulos conciliados em lote']
         },
         {
           id: '6.1.4',
-          nome: '1.6.1.4 Configuração manual',
+          nome: 'Configuração manual',
           passos: ['Escolher a opção do tipo de pagamento "automático", escolher a conta a ser paga, manualmente']
         },
         {
           id: '6.1.5',
-          nome: '1.6.1.5 Envio ao banco',
+          nome: 'Envio ao banco',
           passos: ['Após essas definições do usuário, o arquivo é criado e enviado ao banco, que processa os pagamentos de forma automatizada']
         },
         {
           id: '6.1.6',
-          nome: '1.6.1.6 Retorno bancário',
+          nome: 'Retorno bancário',
           passos: ['Após a execução, o banco retorna um arquivo com a confirmação dos títulos pagos']
         },
         {
           id: '6.1.7',
-          nome: '1.6.1.7 Baixa automática',
+          nome: 'Baixa automática',
           passos: ['O Mega realiza automaticamente a baixa desses títulos']
         },
         {
           id: '6.1.8',
-          nome: '1.6.1.8 Acompanhamento',
+          nome: 'Acompanhamento',
           passos: ['O financeiro acompanha a geração, envio e retorno dos arquivos']
         },
         {
           id: '6.1.9',
-          nome: '1.6.1.9 Monitoramento',
+          nome: 'Monitoramento',
           passos: ['O processo é monitorado diariamente para garantir que todos os títulos previstos sejam processados corretamente']
         }
       ]
     },
     {
       id: '6.2',
-      nome: '1.6.2 Divergência no processamento do CNAB',
+      nome: 'Divergência no processamento do CNAB',
       nivel: 'Tático',
       ferramentas: ['Mega'],
       tarefas: [
         {
           id: '6.2.1',
-          nome: '1.6.2.1 Divergência de CNPJ',
+          nome: 'Divergência de CNPJ',
           passos: ['Problemas na conciliação podem ocorrer quando o CNPJ da nota fiscal difere do CNPJ usado no boleto (ex: filial vs. matriz), gerando erro de correspondência no Mega']
         },
         {
           id: '6.2.2',
-          nome: '1.6.2.2 Múltiplos boletos',
+          nome: 'Múltiplos boletos',
           passos: ['Múltiplos boletos podem se referir a uma única duplicata, exigindo investigação manual']
         },
         {
           id: '6.2.3',
-          nome: '1.6.2.3 Limitações de fornecedores',
+          nome: 'Limitações de fornecedores',
           passos: ['Alguns fornecedores não conseguem inserir número da nota no boleto, o que limita a conciliação automática ideal']
         },
         {
           id: '6.2.4',
-          nome: '1.6.2.4 Identificação ideal',
+          nome: 'Identificação ideal',
           passos: ['Ideal é o envio do número da nota como campo identificador no boleto, mas a maioria dos fornecedores não o fazem']
         }
       ]
@@ -404,7 +404,7 @@ export const pagamentoDuplicatasCNAB: ProcessoDetalhado = {
 
 export const gestaoDivergencias: ProcessoDetalhado = {
   id: 'FIN-01.7',
-  nome: '1.7 - Gestão de divergências e correções com fornecedores',
+  nome: 'Gestão de divergências e correções com fornecedores',
   descricao: 'Tratamento de erros e divergências em lançamentos de compras',
   nivel: 'Operacional',
   icon: AlertTriangle,
@@ -415,48 +415,48 @@ export const gestaoDivergencias: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '7.1',
-      nome: '1.7.1 Tratamento de divergências em lançamentos de compras a prazo',
+      nome: 'Tratamento de divergências em lançamentos de compras a prazo',
       nivel: 'Operacional',
       ferramentas: ['Mega'],
       tarefas: [
         {
           id: '7.1.1',
-          nome: '1.7.1.1 Divergências comuns',
+          nome: 'Divergências comuns',
           passos: ['As divergências mais comuns ocorrem em compras a prazo de produtos']
         },
         {
           id: '7.1.2',
-          nome: '1.7.1.2 Inconsistências de parcelamento',
+          nome: 'Inconsistências de parcelamento',
           passos: ['Inconsistência entre a nota fiscal e os lançamentos no Mega (como: uma nota emitida em três parcelas pode ser lançada por engano como uma única parcela)']
         },
         {
           id: '7.1.3',
-          nome: '1.7.1.3 Renegociação técnica',
+          nome: 'Renegociação técnica',
           passos: ['É realizada uma renegociação técnica no sistema, desmembrando o título lançado de forma incorreta (como: um único título de R$ 1.000,00 é transformado em três parcelas de R$ 333,33)']
         },
         {
           id: '7.1.4',
-          nome: '1.7.1.4 Ajuste de vencimentos',
+          nome: 'Ajuste de vencimentos',
           passos: ['Os vencimentos das novas parcelas são ajustados conforme os boletos reais recebidos, mantendo o valor total da nota inalterado']
         },
         {
           id: '7.1.5',
-          nome: '1.7.1.5 Validação com fornecedor',
+          nome: 'Validação com fornecedor',
           passos: ['A validação com o fornecedor é feita para verificar os vencimentos reais']
         },
         {
           id: '7.1.6',
-          nome: '1.7.1.6 Gestão de devoluções',
+          nome: 'Gestão de devoluções',
           passos: ['Em casos de devolução de produtos, os créditos gerados são vinculados a faturas futuras']
         },
         {
           id: '7.1.7',
-          nome: '1.7.1.7 Correção de notas',
+          nome: 'Correção de notas',
           passos: ['A nota fiscal original pode ser corrigida, conforme a negociação com o fornecedor']
         },
         {
           id: '7.1.8',
-          nome: '1.7.1.8 Prorrogação de vencimentos',
+          nome: 'Prorrogação de vencimentos',
           passos: ['Prorrogação dos vencimentos, podem ser negociados, desde que o valor total não seja alterado']
         }
       ]
@@ -466,7 +466,7 @@ export const gestaoDivergencias: ProcessoDetalhado = {
 
 export const gestaoProtestos: ProcessoDetalhado = {
   id: 'FIN-01.8',
-  nome: '1.8 - Gestão de Protestos Financeiros',
+  nome: 'Gestão de Protestos Financeiros',
   descricao: 'Controle e resolução de protestos em CNPJs do Grupo',
   nivel: 'Operacional',
   icon: AlertCircle,
@@ -477,51 +477,51 @@ export const gestaoProtestos: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '8.1',
-      nome: '1.8.1 Notificação de recebimento de protestos',
+      nome: 'Notificação de recebimento de protestos',
       nivel: 'Operacional',
       ferramentas: ['DDA'],
       tarefas: [
         {
           id: '8.1.1',
-          nome: '1.8.1.1 Fatores imprevisíveis',
+          nome: 'Fatores imprevisíveis',
           passos: ['Embora o controle financeiro seja rigoroso, protestos ocorrem por fatores imprevisíveis(como: falência de fornecedores ou falhas de comunicação)']
         },
         {
           id: '8.1.2',
-          nome: '1.8.1.2 Formas de recebimento',
+          nome: 'Formas de recebimento',
           passos: ['O protesto pode ser recebido por notificação direta pelo fornecedor, receber carta física na lojas, recusa de crédito bancário, ou análise de risco durante negociação com fornecedores']
         },
         {
           id: '8.1.3',
-          nome: '1.8.1.3 Identificação no DDA',
+          nome: 'Identificação no DDA',
           passos: ['Protestos podem aparecer no DDA, mas com informações limitadas, exigindo verificação adicional']
         },
         {
           id: '8.1.4',
-          nome: '1.8.1.4 Detecção por impacto',
+          nome: 'Detecção por impacto',
           passos: ['São detectados também após impacto prático como negativa de crédito, compra bloqueada ou alerta em abertura de nova loja']
         }
       ]
     },
     {
       id: '8.2',
-      nome: '1.8.2 Investigação e regularização de protestos',
+      nome: 'Investigação e regularização de protestos',
       nivel: 'Tático',
       ferramentas: ['Cartório'],
       tarefas: [
         {
           id: '8.2.1',
-          nome: '1.8.2.1 Identificação da origem',
+          nome: 'Identificação da origem',
           passos: ['Ao ser notificado, identifica a origem do protesto(como: nota não recebida, devolução não registrada, imposto não lançado)']
         },
         {
           id: '8.2.2',
-          nome: '1.8.2.2 Contato com fornecedor',
+          nome: 'Contato com fornecedor',
           passos: ['Inicia o contato com o fornecedor para apuração e negociação da retirada do protesto']
         },
         {
           id: '8.2.3',
-          nome: '1.8.2.3 Processo de baixa',
+          nome: 'Processo de baixa',
           passos: ['Se houver acordo, é solicitada carta de anuência para baixa no cartório, arcando com as taxas cartoriais']
         }
       ]
@@ -534,17 +534,17 @@ export const gestaoProtestos: ProcessoDetalhado = {
       tarefas: [
         {
           id: '8.3.1',
-          nome: '1.8.3.1 Ausência de rotina',
+          nome: 'Ausência de rotina',
           passos: ['Não há rotina definida para esse processo']
         },
         {
           id: '8.3.2',
-          nome: '1.8.3.2 Atenção constante',
+          nome: 'Atenção constante',
           passos: ['O financeiro mantém-se em atenção constante para evitar novos protestos']
         },
         {
           id: '8.3.3',
-          nome: '1.8.3.3 Tratamento prioritário',
+          nome: 'Tratamento prioritário',
           passos: ['Trata os casos com prioridade para evitar impactos operacionais']
         }
       ]
@@ -554,7 +554,7 @@ export const gestaoProtestos: ProcessoDetalhado = {
 
 export const cancelamentoNotasFiscais: ProcessoDetalhado = {
   id: 'FIN-01.9',
-  nome: '1.9 - Cancelamento de Notas Fiscais',
+  nome: 'Cancelamento de Notas Fiscais',
   descricao: 'Processo de cancelamento formal de notas fiscais',
   nivel: 'Operacional',
   icon: FileX,
@@ -565,76 +565,76 @@ export const cancelamentoNotasFiscais: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '9.1',
-      nome: '1.9.1 Solicitação e Triagem do Cancelamento Fiscal',
+      nome: 'Solicitação e Triagem do Cancelamento Fiscal',
       nivel: 'Operacional',
       ferramentas: ['Sistema Fiscal'],
       tarefas: [
         {
           id: '9.1.1',
-          nome: '1.9.1.1 Solicitação pelas lojas',
+          nome: 'Solicitação pelas lojas',
           passos: ['O cancelamento é solicitado por lojas, informando o número da nota e o motivo do cancelamento']
         },
         {
           id: '9.1.2',
-          nome: '1.9.1.2 Análise de motivos',
+          nome: 'Análise de motivos',
           passos: ['Analisa o motivo do cancelamento, mais comuns são: erro de referência, cor ou quantidade do produto, nota emitida por engano ou venda devolvida pelo cliente']
         },
         {
           id: '9.1.3',
-          nome: '1.9.1.3 Verificação da situação',
+          nome: 'Verificação da situação',
           passos: ['Verificar a situação da nota, se a nota ainda está ativa, já teve baixa automática ou foi processada como "vaga" no sistema']
         },
         {
           id: '9.1.4',
-          nome: '1.9.1.4 Tratamento de nota paga',
+          nome: 'Tratamento de nota paga',
           passos: ['Nota paga, é necessário estornar a baixa do pagamento no sistema, reabrindo a nota para permitir o cancelamento']
         }
       ]
     },
     {
       id: '9.2',
-      nome: '1.9.2 Avaliação e Execução do Cancelamento',
+      nome: 'Avaliação e Execução do Cancelamento',
       nivel: 'Tático',
       ferramentas: ['Sistema Fiscal', 'Controladoria'],
       tarefas: [
         {
           id: '9.2.1',
-          nome: '1.9.2.1 Validação de possibilidade',
+          nome: 'Validação de possibilidade',
           passos: ['Validar possibilidade de cancelamento direto']
         },
         {
           id: '9.2.2',
-          nome: '1.9.2.2 Cancelamento direto',
+          nome: ' Cancelamento direto',
           passos: ['Se a nota ainda estiver ativa, realizar o cancelamento diretamente no sistema e preenchendo o motivo (ex: erro de referência, devolução, etc)']
         },
         {
           id: '9.2.3',
-          nome: '1.9.2.3 Nota com baixa automática',
+          nome: 'Nota com baixa automática',
           passos: ['Se a nota já tiver baixa automática (vaga), não será possível cancelamento direto']
         },
         {
           id: '9.2.4',
-          nome: '1.9.2.4 Ajuste manual',
+          nome: 'Ajuste manual',
           passos: ['Realizar ajuste manual no sistema com apoio da controladoria']
         },
         {
           id: '9.2.5',
-          nome: '1.9.2.5 Documentação da justificativa',
+          nome: 'Documentação da justificativa',
           passos: ['Documentar a justificativa da correção']
         },
         {
           id: '9.2.6',
-          nome: '1.9.2.6 Verificação de prazo legal',
+          nome: 'Verificação de prazo legal',
           passos: ['Garantir que o prazo legal para cancelamento esteja vigente, se ultrapassado, aplicar procedimento alternativo (como emissão de nota de devolução)']
         },
         {
           id: '9.2.7',
-          nome: '1.9.2.7 Comunicação aos setores',
+          nome: 'Comunicação aos setores',
           passos: ['Comunicar setores envolvidos, a loja, compras, auditoria e fiscal sobre o cancelamento e eventuais correções necessárias']
         },
         {
           id: '9.2.8',
-          nome: '1.9.2.8 Registro e documentação',
+          nome: 'Registro e documentação',
           passos: ['Documentar, registrar o chamado, a justificativa e a ação tomada em repositório interno para controle e auditoria futura']
         }
       ]
@@ -644,7 +644,7 @@ export const cancelamentoNotasFiscais: ProcessoDetalhado = {
 
 export const controleFluxoCaixa: ProcessoDetalhado = {
   id: 'FIN-01.10',
-  nome: '1.10 - Controle do Fluxo de Caixa Realizado',
+  nome: 'Controle do Fluxo de Caixa Realizado',
   descricao: 'Controle diário das movimentações financeiras realizadas',
   nivel: 'Operacional',
   icon: Calculator,
@@ -655,43 +655,43 @@ export const controleFluxoCaixa: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '10.1',
-      nome: '1.10.1 Registro e validação do fluxo diário',
+      nome: 'Registro e validação do fluxo diário',
       nivel: 'Operacional',
       ferramentas: ['Excel', 'Sistema Bancário'],
       tarefas: [
         {
           id: '10.1.1',
-          nome: '1.10.1.1 Conferência diária',
+          nome: 'Conferência diária',
           passos: ['A conferência do fluxo é feita diariamente, foco no controle interno das movimentações do dia']
         },
         {
           id: '10.1.2',
-          nome: '1.10.1.2 Controle via planilha',
+          nome: 'Controle via planilha',
           passos: ['O controle não é realizado no Mega, feito por meio de planilha (Excel)']
         },
         {
           id: '10.1.3',
-          nome: '1.10.1.3 Registro de entradas',
+          nome: 'Registro de entradas',
           passos: ['Na planilha são registradas todas as entradas, classificadas por tipo (depósito, PIX e transferências), também classificadas por recebíveis de cartão de crédito e débito, e faturas festcard']
         },
         {
           id: '10.1.4',
-          nome: '1.10.1.4 Registro de pagamentos',
+          nome: 'Registro de pagamentos',
           passos: ['São lançados todos os pagamentos realizados, vinculando categorias e centros de custo']
         },
         {
           id: '10.1.5',
-          nome: '1.10.1.5 Fechamento diário',
+          nome: 'Fechamento diário',
           passos: ['Ao final de cada dia, é realizado o fechamento, conferência entre o saldo final registrado e o saldo em conta bancária']
         },
         {
           id: '10.1.6',
-          nome: '1.10.1.6 Alinhamento de previsões',
+          nome: 'Alinhamento de previsões',
           passos: ['O processo garante que as previsões estejam alinhadas com os valores efetivamente realizados']
         },
         {
           id: '10.1.7',
-          nome: '1.10.1.7 Identificação de falhas',
+          nome: 'Identificação de falhas',
           passos: ['Esse fluxo permite a identificação de falhas de lançamento, pagamentos indevidos ou não processados']
         }
       ]
@@ -701,7 +701,7 @@ export const controleFluxoCaixa: ProcessoDetalhado = {
 
 export const utilizacaoSistemas: ProcessoDetalhado = {
   id: 'FIN-01.11',
-  nome: '1.11 - Utilização do Sistema Seta, OSCAR e ABYS',
+  nome: 'Utilização do Sistema Seta, OSCAR e ABYS',
   descricao: 'Operações e movimentações nos sistemas Seta, OSCAR e ABYS',
   nivel: 'Operacional',
   icon: Monitor,
@@ -712,38 +712,38 @@ export const utilizacaoSistemas: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '11.1',
-      nome: '1.11.1 Registro do Aporte no Sistema',
+      nome: 'Registro do Aporte no Sistema',
       nivel: 'Tático',
       ferramentas: ['Seta'],
       tarefas: [
         {
           id: '11.1.1',
-          nome: '1.11.1.1 Verificação bancária',
+          nome: 'Verificação bancária',
           passos: ['Verificar na conta bancária se o valor do aporte foi realmente creditado']
         },
         {
           id: '11.1.2',
-          nome: '1.11.1.2 Acesso ao sistema',
+          nome: 'Acesso ao sistema',
           passos: ['No sistema, acessar a área de lançamentos de crédito']
         },
         {
           id: '11.1.3',
-          nome: '1.11.1.3 Configuração padrão',
+          nome: 'Configuração padrão',
           passos: ['Usar o nome padrão "APORTE FINANCEIRO" já cadastrado no campo "Pessoa"']
         },
         {
           id: '11.1.4',
-          nome: '1.11.1.4 Definição da operação',
+          nome: 'Definição da operação',
           passos: ['Escolher o tipo de operação: "Crédito - Aporte" e definir a conta que recebeu o valor']
         },
         {
           id: '11.1.5',
-          nome: '1.11.1.5 Preenchimento de dados',
+          nome: 'Preenchimento de dados',
           passos: ['Informar a data do depósito, valor exato e adicionar uma descrição clara (ex: "Aporte realizado por sócio para reforço de caixa")']
         },
         {
           id: '11.1.6',
-          nome: '1.11.1.6 Finalização',
+          nome: 'Finalização',
           passos: ['Finalizar clicando em Salvar']
         }
       ]
@@ -753,7 +753,7 @@ export const utilizacaoSistemas: ProcessoDetalhado = {
 
 export const pagamentoFranquiasDespesas: ProcessoDetalhado = {
   id: 'FIN-01.12',
-  nome: '1.12 - Pagamentos de despesas das franquias',
+  nome: 'Pagamentos de despesas das franquias',
   descricao: 'Gestão de pagamentos de despesas das franquias Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
   nivel: 'Operacional',
   icon: Building2,
@@ -764,28 +764,28 @@ export const pagamentoFranquiasDespesas: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '12.1',
-      nome: '1.12.1 Pagamento das Despesas – Arezzo e Ana Capri',
+      nome: 'Pagamento das Despesas – Arezzo e Ana Capri',
       nivel: 'Operacional',
       ferramentas: ['Seta'],
       tarefas: [
         {
           id: '12.1.1',
-          nome: '1.12.1.1 Sistema utilizado',
+          nome: 'Sistema utilizado',
           passos: ['Utiliza-se o sistema Seta']
         },
         {
           id: '12.1.2',
-          nome: '1.12.1.2 Compras da loja',
+          nome: 'Compras da loja',
           passos: ['Na compra de produtos (sacolas, frete, eventos, cafeteira e adesivagem), a loja recebe a nota fiscal e solicita a secretária a inclusão no sistema']
         },
         {
           id: '12.1.3',
-          nome: '1.12.1.3 Autorização do gerente',
+          nome: 'Autorização do gerente',
           passos: ['O gerente autoriza a despesa no sistema']
         },
         {
           id: '12.1.4',
-          nome: '1.12.1.4 Processamento financeiro',
+          nome: 'Processamento financeiro',
           passos: ['A despesa é recebida, o financeiro confere, coloca em lote, efetua o pagamento e baixa no sistema']
         }
       ]
@@ -795,7 +795,7 @@ export const pagamentoFranquiasDespesas: ProcessoDetalhado = {
 
 export const pagamentoFranquiasFornecedores: ProcessoDetalhado = {
   id: 'FIN-01.13',
-  nome: '1.13 - Pagamentos de fornecedores das franquias',
+  nome: 'Pagamentos de fornecedores das franquias',
   descricao: 'Gestão de pagamentos de fornecedores das franquias Arezzo, Ana Capri, Usaflex, Victor Hugo e Democrata',
   nivel: 'Operacional',
   icon: Truck,
@@ -806,33 +806,33 @@ export const pagamentoFranquiasFornecedores: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '13.1',
-      nome: '1.13.1 Pagamento dos Fornecedores – Arezzo e Ana Capri',
+      nome: 'Pagamento dos Fornecedores – Arezzo e Ana Capri',
       nivel: 'Operacional',
       ferramentas: ['Seta', 'ZZNet'],
       tarefas: [
         {
           id: '13.1.1',
-          nome: '1.13.1.1 Sistema utilizado',
+          nome: 'Sistema utilizado',
           passos: ['Utiliza-se o sistema Seta']
         },
         {
           id: '13.1.2',
-          nome: '1.13.1.2 Inclusão da nota',
+          nome: 'Inclusão da nota',
           passos: ['A loja recebe a nota fiscal e inclui no sistema']
         },
         {
           id: '13.1.3',
-          nome: '1.13.1.3 Conferência com ZZNet',
+          nome: 'Conferência com ZZNet',
           passos: ['O Financeiro realiza a conferência das notas e parcelas com o portal ZZNet (portal da Arezzo e Ana Capri)']
         },
         {
           id: '13.1.4',
-          nome: '1.13.1.4 Atualização de observações',
+          nome: 'Atualização de observações',
           passos: ['Caso haja observações no ZZNet (parcela bloqueada ou prorrogada), o Financeiro atualiza a informação no sistema antes do pagamento']
         },
         {
           id: '13.1.5',
-          nome: '1.13.1.5 Execução do pagamento',
+          nome: 'Execução do pagamento',
           passos: ['O Financeiro realiza o pagamento conforme o vencimento e efetua a baixa no Seta']
         }
       ]
@@ -842,7 +842,7 @@ export const pagamentoFranquiasFornecedores: ProcessoDetalhado = {
 
 export const gestaoFinanceiraDiadora: ProcessoDetalhado = {
   id: 'FIN-01.14',
-  nome: '1.14 - Gestão Financeira de Licenciada, Diadora',
+  nome: 'Gestão Financeira de Licenciada, Diadora',
   descricao: 'Gestão completa dos processos financeiros da licenciada Diadora',
   nivel: 'Operacional',
   icon: Smartphone,
@@ -853,43 +853,43 @@ export const gestaoFinanceiraDiadora: ProcessoDetalhado = {
   subprocessos: [
     {
       id: '14.1',
-      nome: '1.14.1 Gestão de Boletos da Diadora',
+      nome: 'Gestão de Boletos da Diadora',
       nivel: 'Operacional',
       ferramentas: ['Boleto Cloud', 'WhatsApp', 'E-mail'],
       tarefas: [
         {
           id: '14.1.1',
-          nome: '1.14.1.1 Monitoramento diário',
+          nome: 'Monitoramento diário',
           passos: ['Acessar o WhatsApp da Diadora e os e-mails diariamente']
         },
         {
           id: '14.1.2',
-          nome: '1.14.1.2 Resposta a solicitações',
+          nome: 'Resposta a solicitações',
           passos: ['Responder solicitações de envio de boletos, prorrogações, reemissão ou acordos']
         },
         {
           id: '14.1.3',
-          nome: '1.14.1.3 Solicitação de boletos',
+          nome: 'Solicitação de boletos',
           passos: ['Solicitar boletos atualizados ao time financeiro via WhatsApp da Diadora']
         },
         {
           id: '14.1.4',
-          nome: '1.14.1.4 Consulta no sistema',
+          nome: 'Consulta no sistema',
           passos: ['Acessar o sistema Boleto Cloud para consultar a situação dos boletos']
         },
         {
           id: '14.1.5',
-          nome: '1.14.1.5 Verificação de status',
+          nome: 'Verificação de status',
           passos: ['Verificar vencimentos, necessidade de reemissão ou segunda via']
         },
         {
           id: '14.1.6',
-          nome: '1.14.1.6 Avaliação de situação',
+          nome: 'Avaliação de situação',
           passos: ['Avaliar se o boleto está vencido, prestes a vencer ou se precisa de ajuste']
         },
         {
           id: '14.1.7',
-          nome: '1.14.1.7 Envio aos clientes',
+          nome: 'Envio aos clientes',
           passos: ['Enviar boletos atualizados aos clientes via WhatsApp ou E-mail']
         }
       ]
