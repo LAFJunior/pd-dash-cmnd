@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Receipt } from 'lucide-react';
 
 export const gestaoDespesas: ProcessoDetalhado = {
-  id: 'CON-008',
+  id: 'CON-02.8',
   nome: 'Gestão de Despesas',
   descricao: 'Boletos, faturas mensais, contratos e comprovantes de despesas fixas ou variáveis recebidas por e-mail, site ou meio físico',
   nivel: 'Tático',
@@ -16,13 +16,13 @@ export const gestaoDespesas: ProcessoDetalhado = {
   sistemas_utilizados: ['E-mail', 'VExpenses', 'Planilha de Controle de Despesas', 'Mega', 'Internet Banking'],
   subprocessos: [
     {
-      id: '8.1',
+      id: '2.8.1',
       nome: 'Recebimento e Verificação das Despesas',
       nivel: 'Operacional',
       ferramentas: ['E-mail', 'VExpenses'],
       tarefas: [
         {
-          id: '8.1.1',
+          id: '2.8.1.1',
           nome: 'Verificar e-mails e fornecedores',
           passos: [
             'Via e-mail e VExpenses onde as despesas são disponibilizadas',
@@ -31,7 +31,7 @@ export const gestaoDespesas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.2',
+          id: '2.8.1.2',
           nome: 'Conferir informações das despesas',
           passos: [
             'Verificar se o valor, vencimento e dados do fornecedor estão corretos',
@@ -42,13 +42,13 @@ export const gestaoDespesas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.2',
+      id: '2.8.2',
       nome: 'Lançamento das Despesas e Organização de Controle',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Controle de Despesas', 'Mega'],
       tarefas: [
         {
-          id: '8.2.1',
+          id: '2.8.2.1',
           nome: 'Registrar despesa na planilha de controle',
           passos: [
             'Inserir: Nome do fornecedor, Valor, Vencimento, Centro de custo e status de pagamento',
@@ -56,7 +56,7 @@ export const gestaoDespesas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.2.2',
+          id: '2.8.2.2',
           nome: 'Incluir despesa no sistema Mega Store',
           passos: [
             'Acessar Mega Store → Despesas → Incluir',
@@ -67,13 +67,13 @@ export const gestaoDespesas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.3',
+      id: '2.8.3',
       nome: 'Acompanhamento de Pagamentos',
       nivel: 'Tático',
       ferramentas: ['Internet Banking', 'Planilhas', 'ERP Mega'],
       tarefas: [
         {
-          id: '8.3.1',
+          id: '2.8.3.1',
           nome: 'Verificar pagamentos no extrato bancário',
           passos: [
             'Acessar o Internet Banking',
@@ -82,7 +82,7 @@ export const gestaoDespesas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.3.2',
+          id: '2.8.3.2',
           nome: 'Atualizar status na planilha de controle',
           passos: [
             'Marcar como "Pago" as despesas confirmadas no extrato',
@@ -93,13 +93,13 @@ export const gestaoDespesas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.4',
+      id: '2.8.4',
       nome: 'Revisão e Planejamento',
       nivel: 'Tático',
       ferramentas: ['Planilha de Controle de Despesas'],
       tarefas: [
         {
-          id: '8.4.1',
+          id: '2.8.4.1',
           nome: 'Revisar pendências e organizar prioridades',
           passos: [
             'Identificar despesas vencidas, com erro de valor ou faltando documentação',
@@ -107,7 +107,7 @@ export const gestaoDespesas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.4.2',
+          id: '2.8.4.2',
           nome: 'Planejar ações para o dia seguinte',
           passos: [
             'Listar ações pendentes (ex: envio de boletos para aprovação, dúvidas com valores)',
