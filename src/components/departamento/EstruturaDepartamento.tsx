@@ -356,373 +356,211 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
-  if (departamentoNormalizado.includes('compras')) {
-    return (
-      <div className="max-w-[3000px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
-        {/* Diretor */}
-        <div className="text-center mb-5">
-          <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-7 w-full max-w-[380px] min-w-[200px] shadow-xl relative text-center"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
-                 paddingBottom: '28px'
-               }}>
-            <h1 className="text-2xl font-bold mb-3" style={{ letterSpacing: '8px' }}>DIRETOR</h1>
-            <h2 className="text-xl mb-4" style={{ letterSpacing: '2px' }}>NAICHE POEL</h2>
+if (departamentoNormalizado.includes('compras')) {
+  // Dados estruturados para facilitar manutenção
+  const departamentos = {
+    feminino: {
+      title: "FEMININO",
+      subtitle: "(MULTIMARCAS+ MARCAS PRÓPRIAS)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA",
+          people: [
+            { name: "KAREN (COMPRADOR)", email: "KAREN.AZEREDO@GRUPOOSCAR.COM.BR", phone: "(12) 97407-5100" },
+            { name: "VITÓRIA", email: "VITORIA.OLIVEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 97406-0652" },
+            { name: "ALEXYA", email: "ALEXYA.FREITAS@GRUPOOSCAR.COM.BR", phone: "(12) 97411-0200" },
+            { name: "LARISSA", email: "LARISSA.RAQUEL@GRUPOOSCAR.COM.BR", phone: "(12) 99234-0825" }
+          ]
+        },
+        {
+          brand: "PAQUETÁ - GASTON",
+          people: [
+            { name: "ALICE(COMPRADOR)", email: "ALICE.GERMANO@GRUPOOSCAR.COM.BR", phone: "(51) 9488-5876" },
+            { name: "SUZANA ARAÚJO", email: "SUZANA.SILVA@GRUPOOSCAR.COM.BR", phone: "(51) 99968-6180" }
+          ]
+        }
+      ]
+    },
+    esportivo: {
+      title: "ESPORTIVO",
+      subtitle: "(TÊNIS+ MEIAS+ EQUIPAMENTOS)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA",
+          people: [
+            { name: "RAPHAEL (COMPRADOR)", email: "RAPHAEL.VERTELO@GRUPOOSCAR.COM.BR", phone: "(12) 97405-0730" },
+            { name: "JEFERSON", email: "JEFERSON.OLIVEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 99234-0915" },
+            { name: "LARISSA", email: "LARISSA.PEREIRA@GRUPOOSCAR.COM.BR", phone: "(12) 97403-7540" }
+          ]
+        },
+        {
+          brand: "PAQUETÁ - GASTON",
+          people: [
+            { name: "JOSÉ (COMPRADOR)", email: "JOSE.FERREIRA@GRUPOOSCAR.COM.BR", phone: "(51) 8305-5884" },
+            { name: "SAMANTA", email: "SAMANTA.AZAMBUJA@GRUPOOSCAR.COM.BR", phone: "(51) 98912-5337" }
+          ]
+        }
+      ]
+    },
+    infantil: {
+      title: "INFANTIL E BOLSAS",
+      subtitle: "(INFANTIL + BOLSAS)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
+          people: [
+            { name: "CARLA (COMPRADOR)", email: "CARLA.VIANA@GRUPOOSCAR.COM.BR", phone: "(11) 99235-2438" },
+            { name: "JENIFER (ANALISTA)", email: "JENIFER.SANTOS@GRUPOOSCAR.COM.BR", phone: "(12) 97890-0735" },
+            { name: "JOÃO PAULO", email: "JOAO.MARQUES@GRUPOOSCAR.COM.BR", phone: "(12) 99234-1028" },
+            { name: "GUILHERME CARDOSO", email: "GUILHERME.CARDOSO@GRUPOOSCAR.COM.BR", phone: "(11) 9367-2369" }
+          ]
+        }
+      ]
+    },
+    masculino: {
+      title: "MASCULINO",
+      subtitle: "(MASCULINO + CHINELOS + ACESSÓRIOS)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
+          people: [
+            { name: "CLAUDINEI (COMPRADOR)", email: "CLAUDINEI.MACHADO@GRUPOOSCAR.COM.BR", phone: "(12) 99411-3778" },
+            { name: "WHITINI", email: "WHITINI.WARNINGTON@GRUPOOSCAR.COM.BR", phone: "(12) 97402-0001" }
+          ]
+        }
+      ]
+    },
+    textil: {
+      title: "TÊXTIL",
+      subtitle: "(TÊXTIL + EQUIPAMENTOS + MEIAS)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
+          people: [
+            { name: "MARISTELA (COMPRADOR)", email: "MARISTELA.GUILHERMINO@GRUPOOSCAR.COM.BR", phone: "(51) 99501-4141" },
+            { name: "ANGELICA", email: "ANGELICA.LOPES@GRUPOOSCAR.COM.BR", phone: "(51) 98015-0285" }
+          ]
+        }
+      ]
+    },
+    vm: {
+      title: "VM",
+      subtitle: "(VISUAL MERCHANDISING)",
+      sections: [
+        {
+          brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
+          people: [
+            { name: "WESLEY (COORDENADOR)", email: "WESLEY.MENDOZA@GRUPOOSCAR.COM.BR", phone: "(12) 99223-2450" },
+            { name: "ALICIA", email: "ALICIA.MUNHOZ@GRUPOOSCAR.COM.BR", phone: "(12) 99390-3443", extra: "(SP OSCAR - REGIONAL FARIAS)" },
+            { name: "BRUNA", email: "BRUNA.BRUCK@GRUPOOSCAR.COM.BR", phone: "(51) 99390-3443", extra: "(RS - PAQUETÁ E GASTON)" },
+            { name: "RENDERSON", email: "RENDERSON.SILVA@GRUPOOSCAR.COM.BR", phone: "(51) 98989-9072", extra: "(RS - PAQUETÁ E GASTON)" },
+            { name: "ANDRE", email: "ANDRE.SANTOS@GRUPOOSCAR.COM.BR", phone: "(48) 99982-2692", extra: "(SC - CARIOCA E PAQUETÁ)" },
+            { name: "CAMILLA (CARIOCA)", email: "CAMILLA.FONTOURA@GRUPOOSCAR.COM.BR", phone: "(48) 9982-2629" }
+          ]
+        }
+      ]
+    }
+  };
+
+  // Componente para renderizar uma pessoa
+  const PersonCard = ({ person, isLast }) => (
+    <div className={`mb-4 pb-3 ${!isLast ? 'border-b border-gray-200' : ''}`}>
+      <div className="font-bold text-gray-700 text-xs mb-1">{person.name}</div>
+      {person.extra && <div className="font-bold text-gray-700 text-xs mb-1">{person.extra}</div>}
+      <div className="text-xs text-gray-600 leading-none">
+        {person.email}<br />
+        {person.phone} - WHATSAPP
+      </div>
+    </div>
+  );
+
+  // Componente para renderizar um card de departamento
+  const DepartmentCard = ({ dept }) => (
+    <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px] flex-1"
+         style={{
+           clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
+           paddingBottom: '45px'
+         }}>
+      <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
+        {dept.title}
+      </h3>
+      <div className="text-base text-gray-600 mb-4 font-bold text-center">
+        {dept.subtitle}
+      </div>
+      
+      {dept.sections.map((section, sectionIndex) => (
+        <div key={sectionIndex}>
+          <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
+            {section.brand}
+          </div>
+          {section.people.map((person, personIndex) => (
+            <PersonCard 
+              key={personIndex} 
+              person={person} 
+              isLast={personIndex === section.people.length - 1 && sectionIndex === dept.sections.length - 1}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="max-w-[3000px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
+      {/* Diretor */}
+      <div className="text-center mb-5">
+        <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-7 w-full max-w-[380px] min-w-[200px] shadow-xl relative text-center"
+             style={{
+               clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
+               paddingBottom: '28px'
+             }}>
+          <h1 className="text-2xl font-bold mb-3" style={{ letterSpacing: '8px' }}>DIRETOR</h1>
+          <h2 className="text-xl mb-4" style={{ letterSpacing: '2px' }}>NAICHE POEL</h2>
+          <div className="text-xs leading-tight">
+            NAICHE.POEL@GRUPOOSCAR.COM.BR<br />
+            (11) 96070-5041 - WHATSAPP
+          </div>
+        </div>
+      </div>
+
+      {/* Gerente */}
+      <div className="text-center mb-8">
+        <div className="inline-block bg-gradient-to-br from-red-600 to-red-700 text-white p-5 min-w-[300px] shadow-xl relative"
+             style={{
+               clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 95%, 0 85%)',
+               paddingBottom: '30px'
+             }}>
+          <h3 className="text-base font-bold mb-4" style={{ letterSpacing: '2px' }}>
+            GERENTE DE CATEGORIAS<br />E PLANEJAMENTO<br />COMERCIAL
+          </h3>
+          
+          <div className="mb-4">
+            <h4 className="text-sm font-bold mb-1">THOMAS VENTRE</h4>
             <div className="text-xs leading-tight">
-              NAICHE.POEL@GRUPOOSCAR.COM.BR<br />
-              (11) 96070-5041 - WHATSAPP
-            </div>
-          </div>
-        </div>
-
-        {/* Gerente */}
-        <div className="text-center mb-8">
-          <div className="inline-block bg-gradient-to-br from-red-600 to-red-700 text-white p-5 min-w-[300px] shadow-xl relative"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 95%, 0 85%)',
-                 paddingBottom: '30px'
-               }}>
-            <h3 className="text-base font-bold mb-4" style={{ letterSpacing: '2px' }}>
-              GERENTE DE CATEGORIA<br />E PLANEJAMENTO<br />COMERCIAL
-            </h3>
-            
-            <div className="mb-4">
-              <h4 className="text-sm font-bold mb-1">THOMAS VENTRE</h4>
-              <div className="text-xs leading-tight">
-                THOMAS.VERTELO@GRUPOOSCAR.COM.BR<br />
-                (51) 9239-2687 - WHATSAPP
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-bold mb-1">WILLIAM (ANALISTA)</h4>
-              <div className="text-xs leading-tight">
-                WILLIAM.LIMA@GRUPOOSCAR.COM.BR<br />
-                (51) 99389-3389 - WHATSAPP
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Grid de Departamentos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6 gap-5 mb-8">
-          {/* Feminino */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              FEMININO
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (MULTIMARCAS+ MARCAS PRÓPRIAS)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">KAREN (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                KAREN.AZEREDO@GRUPOOSCAR.COM.BR<br />
-                (12) 97407-5100 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">VITÓRIA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                VITORIA.OLIVEIRA@GRUPOOSCAR.COM.BR<br />
-                (12) 97406-0652 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">ALEXYA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                ALEXYA.FREITAS@GRUPOOSCAR.COM.BR<br />
-                (12) 97411-0200 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">LARISSA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                LARISSA.RAQUEL@GRUPOOSCAR.COM.BR<br />
-                (12) 99234-0825 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">ALICE(COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                ALICE.GERMANO@GRUPOOSCAR.COM.BR<br />
-                (51) 9488-5876 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">SUZANA ARAÚJO</div>
-              <div className="text-xs text-gray-600 leading-none">
-                SUZANA.SILVA@GRUPOOSCAR.COM.BR<br />
-                (51) 99968-6180 - WHATSAPP
-              </div>
+              THOMAS.VERTELO@GRUPOOSCAR.COM.BR<br />
+              (51) 9239-2687 - WHATSAPP
             </div>
           </div>
 
-          {/* Esportivo */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              ESPORTIVO
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (TÊNIS+ MEIAS+ EQUIPAMENTOS)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">RAPHAEL (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                RAPHAEL.VERTELO@GRUPOOSCAR.COM.BR<br />
-                (12) 97405-0730 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">JEFERSON</div>
-              <div className="text-xs text-gray-600 leading-none">
-                JEFERSON.OLIVEIRA@GRUPOOSCAR.COM.BR<br />
-                (12) 99234-0915 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">LARISSA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                LARISSA.PEREIRA@GRUPOOSCAR.COM.BR<br />
-                (12) 97403-7540 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">JOSÉ (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                JOSE.FERREIRA@GRUPOOSCAR.COM.BR<br />
-                (51) 8305-5884 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">SAMANTA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                SAMANTA.AZAMBUJA@GRUPOOSCAR.COM.BR<br />
-                (51) 98912-5337 - WHATSAPP
-              </div>
-            </div>
-          </div>
-
-          {/* Infantil e Bolsas */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              INFANTIL E BOLSAS
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (INFANTIL + BOLSAS)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA - PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">CARLA (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                CARLA.VIANA@GRUPOOSCAR.COM.BR<br />
-                (11) 99235-2438 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">JENIFER (ANALISTA)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                JENIFER.SANTOS@GRUPOOSCAR.COM.BR<br />
-                (12) 97890-0735 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">JOÃO PAULO</div>
-              <div className="text-xs text-gray-600 leading-none">
-                JOAO.MARQUES@GRUPOOSCAR.COM.BR<br />
-                (12) 99234-1028 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">GUILHERME CARDOSO</div>
-              <div className="text-xs text-gray-600 leading-none">
-                GUILHERME.CARDOSO@GRUPOOSCAR.COM.BR<br />
-                (11) 9367-2369 - WHATSAPP
-              </div>
-            </div>
-          </div>
-
-          {/* Masculino */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              MASCULINO
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (MASCULINO + CHINELOS + ACESSÓRIOS)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA - PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">CLAUDINEI (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                CLAUDINEI.MACHADO@GRUPOOSCAR.COM.BR<br />
-                (12) 99411-3778 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">WHITINI</div>
-              <div className="text-xs text-gray-600 leading-none">
-                WHITINI.WARNINGTON@GRUPOOSCAR.COM.BR<br />
-                (12) 97402-0001 - WHATSAPP
-              </div>
-            </div>
-          </div>
-
-          {/* Têxtil */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              TÊXTIL
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (TÊXTIL + EQUIPAMENTOS + MEIAS)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA - PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">MARISTELA (COMPRADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                MARISTELA.GUILHERMINO@GRUPOOSCAR.COM.BR<br />
-                (51) 99501-4141 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">ANGELICA</div>
-              <div className="text-xs text-gray-600 leading-none">
-                ANGELICA.LOPES@GRUPOOSCAR.COM.BR<br />
-                (51) 98015-0285 - WHATSAPP
-              </div>
-            </div>
-          </div>
-
-          {/* VM */}
-          <div className="bg-white p-5 shadow-md border border-gray-200 relative text-center min-w-[200px]"
-               style={{
-                 clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 96%, 0 90%)',
-                 paddingBottom: '45px'
-               }}>
-            <h3 className="bg-gray-600 text-white text-center p-2 -m-5 mb-5 text-base font-bold" style={{ letterSpacing: '1px' }}>
-              VM
-            </h3>
-            <div className="text-base text-gray-600 mb-4 font-bold text-center">
-              (VISUAL MERCHANDISING)
-            </div>
-            <div className="text-base font-bold text-gray-700 mb-5 text-center underline">
-              OSCAR - CARIOCA - PAQUETÁ - GASTON
-            </div>
-            
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">WESLEY (COORDENADOR)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                WESLEY.MENDOZA@GRUPOOSCAR.COM.BR<br />
-                (12) 99223-2450 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">ALICIA</div>
-              <div className="font-bold text-gray-700 text-xs mb-1">(SP OSCAR - REGIONAL FARIAS)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                ALICIA.MUNHOZ@GRUPOOSCAR.COM.BR<br />
-                (12) 99390-3443 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">BRUNA</div>
-              <div className="font-bold text-gray-700 text-xs mb-1">(RS - PAQUETÁ E GASTON)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                BRUNA.BRUCK@GRUPOOSCAR.COM.BR<br />
-                (51) 99390-3443 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">RENDERSON</div>
-              <div className="font-bold text-gray-700 text-xs mb-1">(RS - PAQUETÁ E GASTON)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                RENDERSON.SILVA@GRUPOOSCAR.COM.BR<br />
-                (51) 98989-9072 - WHATSAPP GERAL
-              </div>
-            </div>
-
-            <div className="mb-4 pb-3 border-b border-gray-200">
-              <div className="font-bold text-gray-700 text-xs mb-1">ANDRE</div>
-              <div className="font-bold text-gray-700 text-xs mb-1">(SC - CARIOCA E PAQUETÁ)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                ANDRE.SANTOS@GRUPOOSCAR.COM.BR<br />
-                (48) 99982-2692 - WHATSAPP
-              </div>
-            </div>
-
-            <div className="mb-0">
-              <div className="font-bold text-gray-700 text-xs mb-1">CAMILLA (CARIOCA)</div>
-              <div className="text-xs text-gray-600 leading-none">
-                CAMILLA.FONTOURA@GRUPOOSCAR.COM.BR<br />
-                (48) 9982-2629 - WHATSAPP
-              </div>
+          <div>
+            <h4 className="text-sm font-bold mb-1">WILLIAM (ANALISTA)</h4>
+            <div className="text-xs leading-tight">
+              WILLIAM.LIMA@GRUPOOSCAR.COM.BR<br />
+              (51) 99389-3389 - WHATSAPP
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+
+      {/* Grid de Departamentos - Horizontal */}
+      <div className="flex flex-wrap gap-5 justify-center mb-8">
+        {Object.values(departamentos).map((dept, index) => (
+          <DepartmentCard key={index} dept={dept} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
   if (departamentoNormalizado.includes('contábil') || departamentoNormalizado.includes('contabil')) {
     return (
