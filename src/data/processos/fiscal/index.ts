@@ -8,7 +8,7 @@ export const processosFiscal: ProcessoDetalhado[] = [
     descricao: 'Processo de importação de notas fiscais de fornecedores, emitidas pelas lojas e transferências entre lojas no sistema DOMINIO.',
     nivel: 'Operacional',
     icon: Upload,
-    cor: '#8B5CF6',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Notas fiscais emitidas pelos fornecedores, pelas lojas (diversas naturezas) e entre as lojas, extraídas do sistema MEGA.',
     saida: 'Notas importadas no sistema DOMINIO, separadas por tipo de operação, prontas para conferência e escrituração fiscal.',
     tempo_execucao: '2-3 horas',
