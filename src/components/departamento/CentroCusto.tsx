@@ -159,8 +159,46 @@ const CentroCusto = () => {
         { codigo: '382', nome: 'Shopping Gravataí - Gravataí', cnpj: '49.961.545/0019-82' },
         { codigo: '391', nome: 'Balneário Camburiu - SC', cnpj: '49.961.545/0065-18' }
       ],
-      observacoes: 'Paquetá/Gaston',
+      observacoes: 'Paquetá',
       totalLojas: '31 LOJAS'
+    },
+    {
+      id: 'F4',
+      nome: 'VarejoSul Ltda',
+      cor: 'bg-purple-50 border-purple-200',
+      centros: [
+        { codigo: '404', nome: 'Centro Histórico - POA', cnpj: '49.961.545/0043-02' },
+        { codigo: '411', nome: 'Centro - Rio Grande', cnpj: '49.961.545/0040-60' },
+        { codigo: '413', nome: 'Centro - POA', cnpj: '49.961.545/0053-84' },
+        { codigo: '414', nome: 'Vila Veranópolis - Cachoeirinha', cnpj: '49.961.545/0041-40' },
+        { codigo: '415', nome: 'Azenha - POA', cnpj: '49.961.545/0007-49' },
+        { codigo: '417', nome: 'Centro - Gravataí', cnpj: '49.961.545/0030-98' },
+        { codigo: '419', nome: 'Iguatemi Shop. - POA', cnpj: '49.961.545/0027-92' },
+        { codigo: '421', nome: 'Canoas Shop. - Canoas', cnpj: '49.961.545/0057-08' },
+        { codigo: '422', nome: 'Bourbom Assis Brasil Shop - POA', cnpj: '49.961.545/0014-78' },
+        { codigo: '423', nome: 'Passo D\'Areia - POA', cnpj: '49.961.545/0024-40' },
+        { codigo: '424', nome: 'Bela Vista - Alvorada', cnpj: '49.961.545/0058-99' },
+        { codigo: '426', nome: 'Tristeza - POA', cnpj: '49.961.545/0042-21' },
+        { codigo: '427', nome: 'Carrefour Partenon - POA', cnpj: '49.961.545/0004-04' },
+        { codigo: '428', nome: 'Carrefour Higienópolis - POA', cnpj: '49.961.545/0046-55' },
+        { codigo: '430', nome: 'Shopping Total - POA', cnpj: '49.961.545/0051-12' },
+        { codigo: '431', nome: 'Centro - Canoas', cnpj: '49.961.545/0048-17' },
+        { codigo: '432', nome: 'Shopping do Vale - Cachoeirinha', cnpj: '49.961.545/0038-45' },
+        { codigo: '434', nome: 'Primor - Sapucaia do Sul', cnpj: '49.961.545/0015-59' },
+        { codigo: '436', nome: 'Centro - Viamão', cnpj: '49.961.545/0032-50' },
+        { codigo: '439', nome: 'Leroy Merlin Sarandi - POA', cnpj: '49.961.545/0011-25' },
+        { codigo: '440', nome: 'Barra Shopping - POA', cnpj: '49.961.545/0013-97' },
+        { codigo: '441', nome: 'Bourbom Wallig - POA', cnpj: '49.961.545/0044-93' },
+        { codigo: '444', nome: 'Shopping Pelotas - Pelotas', cnpj: '49.961.545/0050-31' },
+        { codigo: '445', nome: 'Shopping Gravataí - Gravataí', cnpj: '49.961.545/0045-74' },
+        { codigo: '446', nome: 'Rio Grande Shop - Rio Grande', cnpj: '49.961.545/0052-01' },
+        { codigo: '447', nome: 'Park Shopping - Canoas', cnpj: '49.961.545/0039-26' },
+        { codigo: '449', nome: 'Patronato - Santa Maria', cnpj: '49.961.545/0003-15' },
+        { codigo: '300', nome: 'Matriz', cnpj: '49.961.545/0001-53' },
+        { codigo: '301', nome: 'CD SAPUCAIA', cnpj: '49.961.545/0055-46' }
+      ],
+      observacoes: 'Gaston',
+      totalLojas: '27 LOJAS'
     },
     {
       id: 'F5',
@@ -200,9 +238,15 @@ const CentroCusto = () => {
         { codigo: '037', nome: 'Scarlen Mogi - Helena', cnpj: '58.760.141/0001-92' },
         { codigo: '038', nome: 'Scarlen Mogi - Czarine', cnpj: '67.109.132/0001-27' },
         { codigo: '042', nome: 'Stock -Poá - Francisco', cnpj: '08.062.235/0001-10' },
-        { codigo: '404', nome: 'Centro Histórico - POA', cnpj: '49.961.545/0043-02' }
+        { codigo: '408', nome: 'Oxygen Mkt e Tecnologia', cnpj: '42.676.252/0001-85' },
+        { codigo: '093', nome: 'Matrix Online Ltda', cnpj: '42.673.133/0001-79' },
+        { codigo: '094', nome: 'Financial G. Financeira', cnpj: '46.759.779/0001-24' },
+        { codigo: '095', nome: 'Transport G. Logística Ltda', cnpj: '46.653.947/0001-00' },
+        { codigo: '096', nome: 'E.L. Dos Santos Contabilidade', cnpj: '11.800.724/0001-36' },
+        { codigo: '151', nome: 'Associaçãodos Locatários', cnpj: '54.620.686/0001-42' }
       ],
-      totalLojas: '9 LOJAS'
+      observacoes: 'BACKOFFICE',
+      totalLojas: '15 LOJAS'
     },
     {
       id: 'F9',
@@ -229,10 +273,16 @@ const CentroCusto = () => {
         { codigo: '301', nome: 'ABYS-CARUARU SH - O&A', cnpj: '37.765.702/0002-57' },
         { codigo: '302', nome: 'ABYS-CARUARU CT - O&A', cnpj: '37.765.702/0004-19' },
         { codigo: '303', nome: 'ABYS-PRAZERES - O&A', cnpj: '37.765.702/0005-08' },
-        { codigo: '304', nome: 'ABYS-TACARUNA -O&A', cnpj: '37.765.702/0003-38' }
+        { codigo: '304', nome: 'ABYS-TACARUNA -O&A', cnpj: '37.765.702/0003-38' },
+        { codigo: 'DCM-RCM', nome: 'Democrata - RCM (Rio Mar)', cnpj: '59.518.424/0001-95' },
+        { codigo: 'DCM-AVB', nome: 'Democrata - AVB (Tacaruna)', cnpj: '55.713.709/0001-26' },
+        { codigo: 'DCM-WP', nome: 'Democrata - WP (Recife)', cnpj: '41.374.683/0001-24' },
+        { codigo: 'DD-001', nome: 'Diadora - BRANDS', cnpj: '24.808.018/0001-82' },
+        { codigo: 'DD-002', nome: 'Diadora - BRANDS', cnpj: '24.808.018/0002-63' },
+        { codigo: 'FC-001', nome: 'FestClub - FESTCARD', cnpj: '15.674.394/0001-30' }
       ],
-      observacoes: 'Inclui Diadora, FestClub e outras marcas',
-      totalLojas: '21 LOJAS'
+      observacoes: '21 LOJAS + 1 Licenciada + 1 CD + 1 ADM DE CARTÃO',
+      totalLojas: '24 UNIDADES'
     }
   ];
 
