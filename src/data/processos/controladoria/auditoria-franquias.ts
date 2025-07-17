@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Building } from 'lucide-react';
 
 export const auditoriaFranquias: ProcessoDetalhado = {
-  id: 'CON-002',
+  id: 'CON-02.2',
   nome: 'Auditoria de caixa das franquias',
   descricao: 'Registros dos fechamentos de caixa das franquias nos sistemas: Seta, Cigan e BShop., informações financeiras no Fiabilité, Equals, GetNet e VExpenses.',
   nivel: 'Operacional',
@@ -16,13 +16,13 @@ export const auditoriaFranquias: ProcessoDetalhado = {
   sistemas_utilizados: ['Seta', 'Cigan', 'BShop', 'Fiabilité', 'Equals', 'GetNet', 'VExpenses', 'Microvix'],
   subprocessos: [
     {
-      id: '2.1',
+      id: '2.2.1',
       nome: 'Auditar de caixa da Arezzo e Anacapri',
       nivel: 'Operacional',
       ferramentas: ['Seta', 'Fiabilité', 'Retire & Entrega', 'Equals'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '2.2.1.1',
           nome: 'Acessar o sistema Seta e entrar em "Auditoria de Caixas"',
           passos: [
             'Selecionar a franquia Ana Capri 60, o período de auditoria',
@@ -30,7 +30,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.2',
+          id: '2.2.1.2',
           nome: 'Conferir os valores da Festcard',
           passos: [
             'Acessar o Equals ou Fiabilité',
@@ -39,7 +39,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.3',
+          id: '2.2.1.3',
           nome: 'Conferir pagamentos de fatura',
           passos: [
             'No Fiabilité, Acessar: "Pagamento de Fatura"',
@@ -48,7 +48,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.4',
+          id: '2.2.1.4',
           nome: 'Validar vendas por retirada e entrega',
           passos: [
             'Acessar o portal Retire & Entrega',
@@ -58,7 +58,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.5',
+          id: '2.2.1.5',
           nome: 'Validar valor de cartões com Equals',
           passos: [
             'Verificar se os valores recebidos no banco correspondem ao total informado pela loja',
@@ -71,13 +71,13 @@ export const auditoriaFranquias: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '2.2.2',
       nome: 'Auditar caixa da Victor Hugo',
       nivel: 'Operacional',
       ferramentas: ['Cigan', 'Equals', 'Planilha Interna'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '2.2.2.1',
           nome: 'Acessar o sistema: Cigan',
           passos: [
             'Ir em "Relatórios Diversos" → "Fechamento de Caixa"',
@@ -86,7 +86,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '2.2.2.2',
           nome: 'Validar valores de cartão',
           passos: [
             'Conferir o valor total de cartão recebido na Equals',
@@ -94,7 +94,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.3',
+          id: '2.2.2.3',
           nome: 'Analisar resumo de caixa',
           passos: [
             'Verificar fundo de caixa, entradas em dinheiro e saídas com despesas',
@@ -102,7 +102,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.4',
+          id: '2.2.2.4',
           nome: 'Confirmar conciliação',
           passos: [
             'Verificar no ICOS os recebimentos bancários',
@@ -113,13 +113,13 @@ export const auditoriaFranquias: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.3',
+      id: '2.2.3',
       nome: 'Auditar caixa da Usaflex',
       nivel: 'Operacional',
       ferramentas: ['BShop', 'Borderô', 'Mega', 'Equals/GetNet', 'Planilha Usaflex'],
       tarefas: [
         {
-          id: '2.3.1',
+          id: '2.2.3.1',
           nome: 'Acessar o sistema BShop',
           passos: [
             'Gerar o relatório em "Relatório de Faturamento" (diário ou semanal)',
@@ -127,7 +127,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.2',
+          id: '2.2.3.2',
           nome: 'Consultar o Borderô da loja',
           passos: [
             'Conferir valores recebidos, devoluções e fundo de caixa',
@@ -135,7 +135,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.3',
+          id: '2.2.3.3',
           nome: 'Validar recebimentos bancários',
           passos: [
             'Consultar Equals ou GetNet e conferir os valores por data',
@@ -143,14 +143,14 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.4',
+          id: '2.2.3.4',
           nome: 'Registrar conferência na planilha interna da Usaflex',
           passos: [
             'Incluir valores auditados e observações'
           ]
         },
         {
-          id: '2.3.5',
+          id: '2.2.3.5',
           nome: 'Caso haja valores recebidos em dinheiro',
           passos: [
             'Acessar o Mega → Módulo Financeiro',
@@ -161,20 +161,20 @@ export const auditoriaFranquias: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.4',
+      id: '2.2.4',
       nome: 'Auditar Caixa da Democrata',
       nivel: 'Operacional',
       ferramentas: ['Microvix', 'GetNet', 'Planilha Compartilhada', 'Santander', 'E-mail', 'VExpenses', 'Equals', 'Caixa', 'Itaú'],
       tarefas: [
         {
-          id: '2.4.1',
+          id: '2.2.4.1',
           nome: 'Acessar o sistema Microvix',
           passos: [
             'Selecionar a loja (ex: Democrata - RCM (Rio Mar) ou Democrata - WP (Recife)) e o período de apuração'
           ]
         },
         {
-          id: '2.4.2',
+          id: '2.2.4.2',
           nome: 'Gerar relatório de faturamento diário no Microvix',
           passos: [
             'Menu Favoritos → Faturamento Diário',
@@ -182,7 +182,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.3',
+          id: '2.2.4.3',
           nome: 'Acessar a GetNet e extrair valores recebidos via cartão e PIX',
           passos: [
             'Comparar com os valores declarados no Microvix',
@@ -190,7 +190,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.4',
+          id: '2.2.4.4',
           nome: 'Validar depósito diário',
           passos: [
             'Verificar valor de sobra no caixa (recebimento em dinheiro – despesas)',
@@ -199,7 +199,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.5',
+          id: '2.2.4.5',
           nome: 'Realizar conferência no banco (Santander, Caixa ou Itaú)',
           passos: [
             'Acessar extrato online, filtrar data e valor esperado',
@@ -207,7 +207,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.6',
+          id: '2.2.4.6',
           nome: 'Realizar movimentação no Microvix',
           passos: [
             'Menu: Conferência entre contas > transferência de valores',
@@ -216,7 +216,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.7',
+          id: '2.2.4.7',
           nome: 'Conferir sangrias registradas',
           passos: [
             'Acessar módulo de conferência de caixa',
@@ -225,7 +225,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.8',
+          id: '2.2.4.8',
           nome: 'Preencher e atualizar a planilha de controle',
           passos: [
             'Marcar valores validados com destaque',
@@ -233,7 +233,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.9',
+          id: '2.2.4.9',
           nome: 'Em caso de divergência',
           passos: [
             'Contatar a loja para solicitar comprovantes ou explicações',
@@ -243,20 +243,20 @@ export const auditoriaFranquias: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.5',
+      id: '2.2.5',
       nome: 'Conferência de despesas das franquias, Arezzo e Anacapri, Victor Hugo, Usaflex e Democrata',
       nivel: 'Operacional',
       ferramentas: ['VExpenses', 'Seta', 'Mega'],
       tarefas: [
         {
-          id: '2.5.1',
+          id: '2.2.5.1',
           nome: 'Acessar o VExpenses',
           passos: [
             'Filtrar o período (ex: 14 a 20 de abril) e loja (ex: Ana Capri 73)'
           ]
         },
         {
-          id: '2.5.2',
+          id: '2.2.5.2',
           nome: 'Verificar se as despesas lançadas no VExpenses batem com as baixas no caixa do sistema Seta',
           passos: [
             'As despesas da Usaflex, faz pelo Mega',
@@ -266,7 +266,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.5.3',
+          id: '2.2.5.3',
           nome: 'Analisar os documentos',
           passos: [
             'Abrir cada despesa',
@@ -276,7 +276,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.5.4',
+          id: '2.2.5.4',
           nome: 'Aprovar a despesa no sistema',
           passos: [
             'Clicar na despesa e alterar status de "Enviado" para "Aprovado"',
@@ -284,7 +284,7 @@ export const auditoriaFranquias: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.5.5',
+          id: '2.2.5.5',
           nome: 'Despesas acima de R$500',
           passos: [
             'Consultar o controle de fundo de caixa',
