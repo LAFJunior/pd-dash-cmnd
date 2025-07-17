@@ -509,7 +509,7 @@ if (departamentoNormalizado.includes('compras')) {
     <div className="max-w-[3000px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
       {/* Diretor */}
       <div className="text-center mb-5">
-        <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-7 w-full max-w-[380px] min-w-[200px] shadow-xl relative text-center"
+        <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-5 max-w-[280px] w-full shadow-md relative text-center"
              style={{
                clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
                paddingBottom: '28px'
@@ -525,7 +525,7 @@ if (departamentoNormalizado.includes('compras')) {
 
       {/* Gerente */}
       <div className="text-center mb-8">
-        <div className="inline-block bg-gradient-to-br from-red-600 to-red-700 text-white p-5 min-w-[300px] shadow-xl relative"
+        <div className="inline-block bg-gradient-to-br from-red-600 to-red-700 text-white p-4 max-w-[320px] w-full shadow-md relative"
              style={{
                clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 95%, 0 85%)',
                paddingBottom: '30px'
@@ -553,7 +553,7 @@ if (departamentoNormalizado.includes('compras')) {
       </div>
 
       {/* Grid de Departamentos - Horizontal */}
-      <div className="flex flex-wrap gap-5 justify-center mb-8">
+      <div className="flex gap-5 overflow-x-auto pb-4 px-2">
         {Object.values(departamentos).map((dept, index) => (
           <DepartmentCard key={index} dept={dept} />
         ))}
