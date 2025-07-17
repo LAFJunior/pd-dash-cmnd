@@ -467,7 +467,7 @@ if (departamentoNormalizado.includes('compras')) {
     <div className={`mb-4 pb-3 ${!isLast ? 'border-b border-gray-200' : ''}`}>
       <div className="font-bold text-gray-700 text-xs mb-1">{person.name}</div>
       {person.extra && <div className="font-bold text-gray-700 text-xs mb-1">{person.extra}</div>}
-      <div className="text-xs text-gray-600 leading-snug break-words">
+      <div className="text-[10px] text-gray-600 leading-snug break-words">
         {person.email}<br />
         {person.phone} - WHATSAPP
       </div>
@@ -509,14 +509,14 @@ if (departamentoNormalizado.includes('compras')) {
     <div className="max-w-[3000px] mx-auto p-5 bg-gray-50 min-h-screen font-sans">
       {/* Diretor */}
       <div className="text-center mb-5">
-        <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-3 max-w-[200px] w-full shadow-md relative text-center"
+        <div className="inline-block bg-gradient-to-r from-black to-gray-600 text-white p-3 max-w-[260px] w-full shadow-md relative text-center"
              style={{
                clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%)',
                paddingBottom: '28px'
              }}>
           <h1 className="text-lg font-bold mb-2 tracking-wider">DIRETOR</h1>
           <h2 className="text-sm mb-3 tracking-wide font-semibold">NAICHE POEL</h2>
-          <div className="text-xs leading-tight">
+          <div className="text-[10px] leading-snug break-all">
             NAICHE.POEL@GRUPOOSCAR.COM.BR<br />
             (11) 96070-5041 - WHATSAPP
           </div>
@@ -536,7 +536,7 @@ if (departamentoNormalizado.includes('compras')) {
           
           <div className="mb-4">
             <h4 className="text-xs font-semibold mb-1">THOMAS VENTRE</h4>
-            <div className="text-[11px] leading-snug break-all">
+            <div className="text-[10px] leading-snug break-all">
               THOMAS.VERTELO@GRUPOOSCAR.COM.BR<br />
               (51) 9239-2687 - WHATSAPP
             </div>
@@ -544,7 +544,7 @@ if (departamentoNormalizado.includes('compras')) {
 
           <div>
             <h4 className="text-xs font-semibold mb-1">WILLIAM (ANALISTA)</h4>
-             <div className="text-[11px] leading-snug break-all">
+             <div className="text-[10px] leading-snug break-all">
               WILLIAM.LIMA@GRUPOOSCAR.COM.BR<br />
               (51) 99389-3389 - WHATSAPP
             </div>
