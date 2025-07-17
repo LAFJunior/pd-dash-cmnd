@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Scale } from 'lucide-react';
 
 export const conciliacaoFestcard: ProcessoDetalhado = {
-  id: 'CON-004',
+  id: 'CON-02.4',
   nome: 'Conciliação Financeira FestCard',
   descricao: 'Dados de vendas realizadas via FestCard nas lojas do grupo, relatórios de faturamento, acordos de renegociação e super troco, comissões e valores a repassar às lojas credenciadas.',
   nivel: 'Operacional',
@@ -16,13 +16,13 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
   sistemas_utilizados: ['PR Fiabilité', 'Excel', 'Mega', 'Portal FestCard', 'Banco'],
   subprocessos: [
     {
-      id: '4.1',
+      id: '2.4.1',
       nome: 'Conferência de Ordens de Pagamento - Vendas',
       nivel: 'Operacional',
       ferramentas: ['PR FIABILITE – Módulo de Ordem de Pagamento (Analítico)', 'Planilha - Encontro de Contas', 'Tabela de Código Externo'],
       tarefas: [
         {
-          id: '4.1.1',
+          id: '2.4.1.1',
           nome: 'Validar ordens de pagamento',
           passos: [
             'Coletar e validar as ordens de pagamento geradas pelas vendas realizadas nas lojas',
@@ -34,7 +34,7 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.1.2',
+          id: '2.4.1.2',
           nome: 'Tratar dados no Excel',
           passos: [
             'Exportar a listagem das vendas realizadas nas lojas físicas e credenciadas',
@@ -49,13 +49,13 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.2',
+      id: '2.4.2',
       nome: 'Conferência e Conciliação de Faturas Pagas',
       nivel: 'Tático',
       ferramentas: ['PR FIABILITE – Módulo de Pagamento de Faturas', 'Excel'],
       tarefas: [
         {
-          id: '4.2.1',
+          id: '2.4.2.1',
           nome: 'Apurar pagamentos de faturas',
           passos: [
             'Apurar, filtrar e conciliar os pagamentos de faturas realizadas nas lojas',
@@ -69,14 +69,14 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.2.2',
+          id: '2.4.2.2',
           nome: 'Filtrar por grupo',
           passos: [
             'Utilizar a tabela de Grupos e realizar comparativo (PROCV) para identificar a qual Grupo "F" pertence cada loja'
           ]
         },
         {
-          id: '4.2.3',
+          id: '2.4.2.3',
           nome: 'Conciliar valores',
           passos: [
             'Conciliar os valores de faturamento apurados com o extrato bancário, validando a correção dos valores e a efetividade dos repasses'
@@ -85,13 +85,13 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.3',
+      id: '2.4.3',
       nome: 'Apuração de Acordos de Renegociação',
       nivel: 'Operacional',
       ferramentas: ['Mega - Relatórios', 'PR FIABILITE', 'Excel'],
       tarefas: [
         {
-          id: '4.3.1',
+          id: '2.4.3.1',
           nome: 'Processar acordos no Mega',
           passos: [
             'No Mega:',
@@ -110,13 +110,13 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.4',
+      id: '2.4.4',
       nome: 'Apuração de Vendas do Super Troco',
       nivel: 'Operacional',
       ferramentas: ['Mega – Relatórios', 'Excel'],
       tarefas: [
         {
-          id: '4.4.1',
+          id: '2.4.4.1',
           nome: 'Gerar relatório de apuração',
           passos: [
             'Gerar o relatório de apuração dos valores',
@@ -133,13 +133,13 @@ export const conciliacaoFestcard: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.5',
+      id: '2.4.5',
       nome: 'Repasses e Pagamentos',
       nivel: 'Tático',
       ferramentas: ['Portal FestCard', 'Excel', 'Banco', 'Mega'],
       tarefas: [
         {
-          id: '4.5.1',
+          id: '2.4.5.1',
           nome: 'Executar rotina semanal',
           passos: [
             'Rotina Semanal de repasses',
