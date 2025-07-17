@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { FileText } from 'lucide-react';
 
 export const gestaoContratos: ProcessoDetalhado = {
-  id: 'CON-006',
+  id: 'CON-02.6',
   nome: 'Gestão de Contratos',
   descricao: 'Acordo firmado entre diretor responsável e locatário para locação de imóvel comercial',
   nivel: 'Tático',
@@ -16,13 +16,13 @@ export const gestaoContratos: ProcessoDetalhado = {
   sistemas_utilizados: ['E-mail corporativo', 'D4Sign', 'Linte'],
   subprocessos: [
     {
-      id: '6.1',
+      id: '2.6.1',
       nome: 'Formalização do Contrato',
       nivel: 'Tático',
       ferramentas: ['E-mail corporativo'],
       tarefas: [
         {
-          id: '6.1.1',
+          id: '2.6.1.1',
           nome: 'Coletar e enviar documentos ao locador',
           passos: [
             'Reunir documentos exigidos (ex: CNPJ, documentos da empresa, dados do fiador)',
@@ -30,7 +30,7 @@ export const gestaoContratos: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.1.2',
+          id: '2.6.1.2',
           nome: 'Encaminhar contrato para análise jurídica',
           passos: [
             'Receber minuta elaborada pelo locador',
@@ -41,13 +41,13 @@ export const gestaoContratos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.2',
+      id: '2.6.2',
       nome: 'Assinatura e Armazenamento',
       nivel: 'Operacional',
       ferramentas: ['D4Sign', 'Linte'],
       tarefas: [
         {
-          id: '6.2.1',
+          id: '2.6.2.1',
           nome: 'Enviar contrato para assinatura digital',
           passos: [
             'Acessar a plataforma D4Sign',
@@ -57,7 +57,7 @@ export const gestaoContratos: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.2.2',
+          id: '2.6.2.2',
           nome: 'Armazenar contrato assinado na Linte',
           passos: [
             'Fazer upload do contrato assinado na plataforma Linte',
@@ -67,13 +67,13 @@ export const gestaoContratos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.3',
+      id: '2.6.3',
       nome: 'Atualização e Acompanhamento Contratual',
       nivel: 'Tático',
       ferramentas: ['Linte', 'E-mail'],
       tarefas: [
         {
-          id: '6.3.1',
+          id: '2.6.3.1',
           nome: 'Atualizar dados contratuais na plataforma Linte',
           passos: [
             'Inserir datas de vigência, valores de aluguel, índices de reajuste e demais cláusulas contratuais',
@@ -81,7 +81,7 @@ export const gestaoContratos: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.3.2',
+          id: '2.6.3.2',
           nome: 'Monitorar ciclo de vida dos contratos',
           passos: [
             'Acompanhar os contratos ativos e próximos ao vencimento pela Linte, garantindo:',
