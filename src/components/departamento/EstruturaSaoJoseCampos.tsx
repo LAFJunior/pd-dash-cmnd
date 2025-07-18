@@ -1,83 +1,118 @@
 import React from 'react';
-import { Users, User, Truck, Package } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { 
+  User, 
+  Users, 
+  Crown, 
+  Star, 
+  Shield, 
+  Briefcase,
+  Building2,
+  Calculator,
+  TrendingUp,
+  Package,
+  Truck,
+  Settings,
+  ShoppingCart,
+  Monitor,
+  Phone,
+  BarChart3,
+  FileText,
+  Warehouse,
+  MapPin
+} from 'lucide-react';
+
+interface ColaboradorProps {
+  nome: string;
+  cargo: string;
+  setor?: string;
+  nivel: number;
+  icon?: React.ReactNode;
+  email?: string;
+}
+
+const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, icon, email }) => {
+  const getBackgroundColor = (nivel: number) => {
+    switch (nivel) {
+      case 1: return 'bg-gradient-to-r from-blue-600 to-purple-900';
+      case 2: return 'bg-gradient-to-r from-amber-600 to-amber-900';
+      case 3: return 'bg-gradient-to-r from-emerald-600 to-emerald-900';
+      case 4: return 'bg-gradient-to-r from-pink-600 to-red-900';
+      case 5: return 'bg-gradient-to-r from-gray-600 to-gray-800';
+      default: return 'bg-gradient-to-r from-gray-400 to-gray-500';
+    }
+  };
+
+  const getTextSize = (nivel: number) => {
+    switch (nivel) {
+      case 1: return 'text-lg font-bold';
+      case 2: return 'text-base font-semibold';
+      case 3: return 'text-sm font-medium';
+      default: return 'text-sm';
+    }
+  };
+
+  const getPadding = (nivel: number) => {
+    return 'p-4';
+  };
+
+  const getWidth = (nivel: number) => {
+    return 'w-72'; // largura igual para todos os níveis
+  };
+
+  return ( 
+    <div className={`${getBackgroundColor(nivel)} ${getWidth(nivel)} text-white ${getPadding(nivel)} rounded-lg shadow-lg m-2 transition-all hover:scale-105 text-center`}>
+      <div className="flex items-center justify-center gap-2 mb-2">
+        {icon && <span className="text-white">{icon}</span>}
+        <h3 className={getTextSize(nivel)}>{nome}</h3>
+      </div>
+      <p className="text-sm opacity-90">{cargo}</p>
+      {setor && <p className="text-xs opacity-75 mt-1">{setor}</p>}
+      {email && <p className="text-xs opacity-75 mt-1">{email}</p>}
+    </div>
+  );
+};
 
 const EstruturaSaoJoseCampos: React.FC = () => {
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Users className="w-5 h-5" />
-          Estrutura do Departamento - CD/Operações (São José dos Campos)
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-6">
-          {/* Diretor */}
-          <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-            <div className="flex items-center gap-3">
-              <User className="w-6 h-6 text-blue-600" />
-              <div>
-                <h3 className="font-semibold text-lg text-blue-800">Márcio Sampaio</h3>
-                <p className="text-blue-600">Diretor</p>
-              </div>
-            </div>
-          </div>
+    <div className="p-6">
+      
+      {/* Nível 1 - Diretoria */}
+      <div className="flex justify-center mb-4">
+        <Colaborador 
+          nome="Márcio Sampaio" 
+          cargo="Diretor" 
+          setor="CD/Operações"
+          nivel={1}
+          icon={<Crown size={24} />}
+        />
+      </div>
 
-          {/* Gerente */}
-          <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 ml-6">
-            <div className="flex items-center gap-3">
-              <User className="w-5 h-5 text-green-600" />
-              <div>
-                <h3 className="font-semibold text-lg text-green-800">Cleber Silva</h3>
-                <p className="text-green-600">Gerente</p>
-              </div>
-            </div>
-          </div>
+      {/* Nível 2 - Gerência */}
+      <div className="flex justify-center mb-4">
+        <Colaborador nome="Cleber Silva" cargo="Gerente" setor="CD/Operações" nivel={2} icon={<Star size={20} />} />
+      </div>
 
-          {/* Gestor de Estoque */}
-          <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500 ml-12">
-            <div className="flex items-center gap-3">
-              <Package className="w-5 h-5 text-yellow-600" />
-              <div>
-                <h3 className="font-semibold text-lg text-yellow-800">Daniel</h3>
-                <p className="text-yellow-600">Gestor de Estoque</p>
-              </div>
-            </div>
-          </div>
+      {/* Nível 3 - Gestão */}
+      <div className="flex justify-center mb-4">
+        <Colaborador nome="Daniel" cargo="Gestor de Estoque" setor="CD/Operações" nivel={3} icon={<Warehouse size={18} />} />
+      </div>
 
-          <div className="grid md:grid-cols-2 gap-6 ml-18">
-            {/* Motoristas */}
-            <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
-              <div className="flex items-center gap-3 mb-3">
-                <Truck className="w-5 h-5 text-purple-600" />
-                <h4 className="font-semibold text-purple-800">Motoristas</h4>
-              </div>
-              <ul className="space-y-1 text-purple-700">
-                <li>• Sergio Rosa</li>
-                <li>• Sergio Assis</li>
-                <li>• Andre Luis</li>
-              </ul>
-            </div>
+      {/* Nível 4 - Estoquistas */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
+        <Colaborador nome="Renan" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Felipe" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Marcelo" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Matheus" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Patrick Julio" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+      </div>
 
-            {/* Estoquistas */}
-            <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <div className="flex items-center gap-3 mb-3">
-                <Package className="w-5 h-5 text-orange-600" />
-                <h4 className="font-semibold text-orange-800">Estoquistas</h4>
-              </div>
-              <ul className="space-y-1 text-orange-700">
-                <li>• Renan</li>
-                <li>• Felipe</li>
-                <li>• Marcelo</li>
-                <li>• Matheus</li>
-                <li>• Patrick Julio</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+      {/* Nível 5 - Motoristas */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+        <Colaborador nome="Sergio Rosa" cargo="Motorista" setor="CD/Operações" nivel={5} icon={<Truck size={12} />} />
+        <Colaborador nome="Sergio Assis" cargo="Motorista" setor="CD/Operações" nivel={5} icon={<Truck size={12} />} />
+        <Colaborador nome="Andre Luis" cargo="Motorista" setor="CD/Operações" nivel={5} icon={<Truck size={12} />} />
+      </div>
+    </div>
   );
 };
 
