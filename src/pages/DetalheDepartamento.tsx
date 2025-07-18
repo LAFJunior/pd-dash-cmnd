@@ -31,6 +31,8 @@ const DetalheDepartamento = () => {
       'contabil': 'Contábil',
       'sao-jose-dos-campos': 'São José dos Campos (CD/Operações)',
       'são-jose-dos-campos': 'São José dos Campos (CD/Operações)',
+      'cdoperaes': 'São José dos Campos (CD/Operações)',
+      'cd-operacoes': 'São José dos Campos (CD/Operações)',
       'departamento-pessoal': 'Departamento Pessoal (DP)',
       'recursos-humanos': 'Recursos Humanos (RH)',
       't-i-desenvolvimento': 'T.I Desenvolvimento',

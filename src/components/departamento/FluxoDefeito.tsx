@@ -191,42 +191,44 @@ const FluxoDefeito: React.FC = () => {
   return (
     <Card className="w-full h-[600px]">
       <CardContent className="p-0 h-full">
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
-          fitView
-          attributionPosition="top-right"
-        >
-          <MiniMap zoomable pannable />
-          <Controls />
-          <Background />
-        </ReactFlow>
-        
-        <div className="mt-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
-          <h4 className="font-semibold text-center mb-3">Legenda do Fluxo</h4>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded"></div>
-              <span>Recebimento</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-700 rounded"></div>
-              <span>Triagem</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-700 rounded"></div>
-              <span>Organização</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
-              <span>Destino Final</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-pink-500 to-pink-700 rounded"></div>
-              <span>Registro</span>
+        <div className="relative h-full">
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+            fitView
+            attributionPosition="top-right"
+          >
+            <MiniMap zoomable pannable />
+            <Controls />
+            <Background />
+          </ReactFlow>
+          
+          <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 border shadow-sm">
+            <h4 className="font-semibold text-center mb-3">Legenda do Fluxo</h4>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded"></div>
+                <span>Recebimento</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-700 rounded"></div>
+                <span>Triagem</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-700 rounded"></div>
+                <span>Organização</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
+                <span>Destino Final</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 bg-gradient-to-r from-pink-500 to-pink-700 rounded"></div>
+                <span>Registro</span>
+              </div>
             </div>
           </div>
         </div>
