@@ -12,6 +12,7 @@ import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
 import CentroCusto from '@/components/departamento/CentroCusto';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
+import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
@@ -60,6 +61,7 @@ const DetalheDepartamento = () => {
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
+  const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -97,7 +99,11 @@ const DetalheDepartamento = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <EstruturaDepartamento departamento={nomeDepartamento} />
+                {isSaoJoseCampos ? (
+                  <EstruturaSaoJoseCampos />
+                ) : (
+                  <EstruturaDepartamento departamento={nomeDepartamento} />
+                )}
               </CardContent>
             </Card>
 

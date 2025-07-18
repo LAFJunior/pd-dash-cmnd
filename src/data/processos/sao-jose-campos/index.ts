@@ -198,7 +198,115 @@ export const separacaoProdutos: ProcessoDetalhado = {
   ]
 };
 
+// Processo 5.3 - Remanejamento entre Lojas
+const remanejamentoLojas: ProcessoDetalhado = {
+  id: '5.3',
+  nome: 'Remanejamento entre Lojas',
+  descricao: 'Redistribuição de produtos entre filiais para otimizar vendas e exposição',
+  icon: Package,
+  cor: 'bg-gray-500',
+  nivel: 'Operacional',
+  entrada: 'Solicitação ou planejamento de redistribuição de produtos entre filiais',
+  saida: 'Produtos redistribuídos para as lojas com maior potencial de venda ou demanda',
+  sistemas_utilizados: ['Mega Relatórios', 'transporte interno'],
+  tempo_execucao: 'Variável conforme volume',
+  frequencia: 'Conforme necessidade',
+  subprocessos: [
+    {
+      id: '5.3.1',
+      nome: 'Planejamento e Geração do Remanejamento',
+      nivel: 'Operacional',
+      ferramentas: ['Sistema Mega', 'planilha de controle'],
+      tarefas: [
+        {
+          id: '5.3.1.1',
+          nome: 'Identificar Necessidade de Remanejamento',
+          passos: ['Observar produtos parados, com grade incompleta ou com giro baixo', 'Validar com comprador se itens podem ser remanejados', 'Solicitar cadastro no sistema ou planilha de controle']
+        },
+        {
+          id: '5.3.1.2',
+          nome: 'Gerar Relatório de Remanejamento',
+          passos: ['Acessar sistema Mega na aba Remanejamento', 'Filtrar itens por loja de origem', 'Gerar relatório com produto, numeração, loja destino e quantidade', 'Imprimir relatório para execução']
+        }
+      ]
+    }
+  ]
+};
+
+// Processo 5.4 - Recebimento e Inclusão de Notas Fiscais
+const recebimentoNotasFiscais: ProcessoDetalhado = {
+  id: '5.4',
+  nome: 'Recebimento e Inclusão de Notas Fiscais',
+  descricao: 'Recebimento físico de produtos e registro de notas fiscais no sistema',
+  icon: Package,
+  cor: 'bg-indigo-500',
+  nivel: 'Operacional',
+  entrada: 'Produtos entregues fisicamente via transportadora ou fornecedor, acompanhados de Nota Fiscal',
+  saida: 'Nota fiscal registrada no sistema e produtos prontos para movimentação e controle de estoque',
+  sistemas_utilizados: ['Sistema Mega', 'e-mail', 'WhatsApp'],
+  tempo_execucao: '30-60 minutos por nota',
+  frequencia: 'Diária',
+  subprocessos: [
+    {
+      id: '5.4.1',
+      nome: 'Recebimento Físico da Nota Fiscal',
+      nivel: 'Operacional',
+      ferramentas: ['Comprovante de entrega', 'nota fiscal', 'produtos físicos'],
+      tarefas: [
+        {
+          id: '5.4.1.1',
+          nome: 'Retirada da Nota Fiscal na Portaria',
+          passos: ['Dirigir-se à portaria quando chamado', 'Assinar comprovante de entrega da transportadora', 'Trazer produtos ao setor de conferência de estoque']
+        },
+        {
+          id: '5.4.1.2',
+          nome: 'Conferência Física dos Itens da Nota',
+          passos: ['Abrir caixas recebidas', 'Comparar itens com nota fiscal (quantidade, modelos, cores, numeração)', 'Validar condições dos produtos (limpos, corretos, sem defeitos)', 'Registrar divergências e comunicar responsável se necessário']
+        }
+      ]
+    }
+  ]
+};
+
+// Processo 5.9 - E-commerce
+const ecommerce: ProcessoDetalhado = {
+  id: '5.9',
+  nome: 'E-commerce',
+  descricao: 'Processamento de pedidos de venda via site, marketplaces ou canal digital',
+  icon: Search,
+  cor: 'bg-purple-500',
+  nivel: 'Operacional',
+  entrada: 'Pedido de venda gerado via site, marketplaces ou canal digital (VTEX, Mercado Livre, etc.)',
+  saida: 'Pedido embalado, etiquetado e disponível para coleta ou postagem dentro do prazo',
+  sistemas_utilizados: ['VTEX', 'Mercado Livre', 'sistema de e-commerce'],
+  tempo_execucao: '15-30 minutos por pedido',
+  frequencia: 'Contínua durante horário comercial',
+  subprocessos: [
+    {
+      id: '5.9.1',
+      nome: 'Geração e Impressão de Pedidos',
+      nivel: 'Operacional',
+      ferramentas: ['VTEX', 'dashboard do e-commerce', 'impressora'],
+      tarefas: [
+        {
+          id: '5.9.1.1',
+          nome: 'Acessar Sistema de Pedidos',
+          passos: ['Entrar no sistema onde pedidos caem (painel verde, VTEX)', 'Verificar lista de pedidos pendentes', 'Priorizar por vencimento próximo e status pronto para separar']
+        },
+        {
+          id: '5.9.1.2',
+          nome: 'Imprimir Lista de Separação',
+          passos: ['Gerar relatório com código, nome, numeração do produto', 'Incluir nome do cliente, data do pedido e canal de venda', 'Imprimir para uso físico na área de estoque']
+        }
+      ]
+    }
+  ]
+};
+
 export const processosSaoJoseCampos: ProcessoDetalhado[] = [
   reposicaoArmazenamentoEstoque,
-  separacaoProdutos
+  separacaoProdutos,
+  remanejamentoLojas,
+  recebimentoNotasFiscais,
+  ecommerce,
 ];
