@@ -35,7 +35,7 @@ const departamentosVarejo = [
 
 const parceirosComerciais = [
   "Clientes",
-  "Credssytem",
+  "CredSytem",
   "Fornecedores",
   "Infracommerce ",
   "Instituições Financeiras"
