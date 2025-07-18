@@ -4,6 +4,7 @@ import FluxoControladoria from './FluxoControladoria';
 import FluxoFinanceiro from './FluxoFinanceiro';
 import FluxoEcommerce from './FluxoEcommerce';
 import FluxoFiscal from './FluxoFiscal';
+import FluxoDefeito from './FluxoDefeito';
 
 interface FluxoDepartamentoProps {
   departamento: string;
@@ -24,6 +25,10 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
 
   if (departamento.toLowerCase().includes('fiscal')) {
     return <FluxoFiscal />;
+  }
+
+  if (departamento.toLowerCase().includes('defeito')) {
+    return <FluxoDefeito />;
   }
 
   return (
