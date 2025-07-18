@@ -1,20 +1,5 @@
-import React, { useCallback } from 'react';
-import {
-  ReactFlow,
-  MiniMap,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Connection,
-  Edge,
-  Node,
-  MarkerType,
-} from '@xyflow/react';
-import '@xyflow/react/dist/style.css';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import financialBuilding from '@/assets/financial-building.jpg';
+import React from 'react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 interface CentroCusto {
   codigo: string;
@@ -36,7 +21,7 @@ const CentroCusto = () => {
     {
       id: 'F1',
       nome: 'Oscar Calçados Ltda',
-      cor: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+      cor: 'bg-blue-50 border-blue-200',
       centros: [
         { codigo: '001', nome: 'Centro SJC - RSO', cnpj: '50.915.875/0012-44' },
         { codigo: '003', nome: 'Centro SJC - RCPR', cnpj: '50.915.875/0013-25' },
@@ -72,7 +57,7 @@ const CentroCusto = () => {
     {
       id: 'F2',
       nome: 'Jô Calçados Ltda',
-      cor: 'linear-gradient(135deg, #22c55e, #16a34a)',
+      cor: 'bg-green-50 border-green-200',
       centros: [
         { codigo: '008', nome: 'S. J. Rio Preto', cnpj: '48.973.705/0013-55' },
         { codigo: '041', nome: 'S. J. Rio Preto', cnpj: '48.973.705/0009-79' },
@@ -110,7 +95,7 @@ const CentroCusto = () => {
     {
       id: 'F3',
       nome: 'Carioca Calçados Ltda',
-      cor: 'linear-gradient(135deg, #f97316, #ea580c)',
+      cor: 'bg-orange-50 border-orange-200',
       centros: [
         { codigo: '201', nome: 'Estreito/Floripa', cnpj: '78.842.440/0001-83' },
         { codigo: '202', nome: 'Joinville', cnpj: '78.842.440/0023-99' },
@@ -139,8 +124,8 @@ const CentroCusto = () => {
     },
     {
       id: 'F4',
-      nome: 'VarejoSul Ltda (Paquetá)',
-      cor: 'linear-gradient(135deg, #a855f7, #7c3aed)',
+      nome: 'VarejoSul Ltda',
+      cor: 'bg-purple-50 border-purple-200',
       centros: [
         { codigo: '302', nome: 'Centro POA', cnpj: '49.961.545/0033-30' },
         { codigo: '306', nome: 'Park Shop - Canoas', cnpj: '49.961.545/0036-83' },
@@ -174,12 +159,13 @@ const CentroCusto = () => {
         { codigo: '382', nome: 'Shopping Gravataí - Gravataí', cnpj: '49.961.545/0019-82' },
         { codigo: '391', nome: 'Balneário Camburiu - SC', cnpj: '49.961.545/0065-18' }
       ],
+      observacoes: 'Paquetá',
       totalLojas: '31 LOJAS'
     },
     {
-      id: 'F4G',
-      nome: 'VarejoSul Ltda (Gaston)',
-      cor: 'linear-gradient(135deg, #8b5cf6, #6d28d9)',
+      id: 'F4',
+      nome: 'VarejoSul Ltda',
+      cor: 'bg-purple-50 border-purple-200',
       centros: [
         { codigo: '404', nome: 'Centro Histórico - POA', cnpj: '49.961.545/0043-02' },
         { codigo: '411', nome: 'Centro - Rio Grande', cnpj: '49.961.545/0040-60' },
@@ -211,12 +197,13 @@ const CentroCusto = () => {
         { codigo: '300', nome: 'Matriz', cnpj: '49.961.545/0001-53' },
         { codigo: '301', nome: 'CD SAPUCAIA', cnpj: '49.961.545/0055-46' }
       ],
+      observacoes: 'Gaston',
       totalLojas: '27 LOJAS'
     },
     {
       id: 'F5',
-      nome: 'Oscar E-commerce',
-      cor: 'linear-gradient(135deg, #6366f1, #4f46e5)',
+      nome: 'Oscar Calçados Comércio Eletrônico Ltda',
+      cor: 'bg-indigo-50 border-indigo-200',
       centros: [
         { codigo: '600', nome: 'Oscar Calç . Com Eletrônico', cnpj: '54.650.901/0001-58' }
       ],
@@ -226,7 +213,7 @@ const CentroCusto = () => {
     {
       id: 'F7',
       nome: 'SIMPLES OSCAR/SPORT',
-      cor: 'linear-gradient(135deg, #eab308, #ca8a04)',
+      cor: 'bg-yellow-50 border-yellow-200',
       centros: [
         { codigo: '002', nome: 'Jd. Paulista São José - EN C.', cnpj: '54.237.938/0001-59' },
         { codigo: '005', nome: 'Centro - Jacareí RACSO', cnpj: '72.014.681/0001-58' },
@@ -241,7 +228,7 @@ const CentroCusto = () => {
     {
       id: 'F8',
       nome: 'SIMPLES SCARLEN/STOCK/CONST',
-      cor: 'linear-gradient(135deg, #ef4444, #dc2626)',
+      cor: 'bg-red-50 border-red-200',
       centros: [
         { codigo: '024', nome: 'Stock - Estoque V', cnpj: '08.77.666/0001-48' },
         { codigo: '031', nome: 'MG - Constantino', cnpj: '10.980.442/0001-03' },
@@ -264,7 +251,7 @@ const CentroCusto = () => {
     {
       id: 'F9',
       nome: 'FRANQUIAS',
-      cor: 'linear-gradient(135deg, #64748b, #475569)',
+      cor: 'bg-gray-50 border-gray-200',
       centros: [
         { codigo: '011', nome: 'Arezzo - AVS', cnpj: '09.108.526/0001-64' },
         { codigo: '012', nome: 'SJC - R Const (L.Presumido)', cnpj: '02.139.784/0001-69' },
@@ -299,109 +286,56 @@ const CentroCusto = () => {
     }
   ];
 
-  // Criar nodes para cada empresa
-  const createNodes = (): Node[] => {
-    const nodes: Node[] = [];
-    
-    empresas.forEach((empresa, index) => {
-      const x = (index % 3) * 400;
-      const y = Math.floor(index / 3) * 300;
-      
-      nodes.push({
-        id: empresa.id,
-        type: 'default',
-        position: { x, y },
-        data: {
-          label: (
-            <div className="text-center p-3">
-              <img 
-                src={financialBuilding} 
-                alt="Empresa" 
-                className="w-12 h-12 mx-auto mb-2 rounded-lg object-cover"
-              />
-              <div className="text-lg font-bold mb-1">{empresa.id}</div>
-              <div className="text-sm font-medium mb-2">{empresa.nome}</div>
-              <div className="text-xs bg-white/20 px-2 py-1 rounded">
-                {empresa.totalLojas}
-              </div>
-              {empresa.observacoes && (
-                <div className="text-xs italic mt-1">{empresa.observacoes}</div>
-              )}
-              <div className="text-xs mt-1">
-                {empresa.centros.length} centros de custo
-              </div>
-            </div>
-          )
-        },
-        style: {
-          background: empresa.cor,
-          color: 'white',
-          border: 'none',
-          borderRadius: '12px',
-          width: 200,
-          height: 150,
-          fontSize: '11px'
-        }
-      });
-    });
-    
-    return nodes;
-  };
-
-  const initialNodes = createNodes();
-  const initialEdges: Edge[] = [];
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const onConnect = useCallback(
-    (params: Connection) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges],
-  );
-
   return (
-    <div className="w-full h-full">
-      <Card className="w-full h-full">
-        <CardHeader>
-          <CardTitle className="text-center">Estrutura de Centros de Custo</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div style={{ width: '100%', height: '600px' }}>
-            <ReactFlow
-              nodes={nodes}
-              edges={edges}
-              onNodesChange={onNodesChange}
-              onEdgesChange={onEdgesChange}
-              onConnect={onConnect}
-              fitView
-              attributionPosition="top-right"
-              style={{ backgroundColor: "#F7F9FB" }}
-            >
-              <MiniMap zoomable pannable />
-              <Controls />
-              <Background />
-            </ReactFlow>
-          </div>
-          
-          <div className="mt-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
-            <h4 className="font-semibold text-center mb-3">Resumo das Empresas</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
-              {empresas.map((empresa) => (
-                <div key={empresa.id} className="flex items-center gap-2">
-                  <div 
-                    className="w-4 h-4 rounded" 
-                    style={{ background: empresa.cor }}
-                  ></div>
-                  <div>
-                    <div className="font-medium">{empresa.id}</div>
-                    <div className="text-xs text-gray-600">{empresa.totalLojas}</div>
-                  </div>
+    <div className="w-full overflow-x-auto">
+      <Table className="min-w-[1200px]">
+        <TableHeader>
+          <TableRow>
+            {empresas.map((empresa) => (
+              <TableHead key={empresa.id} className={`text-center font-bold ${empresa.cor} border-2`}>
+                <div className="space-y-1">
+                  <div className="text-sm font-bold">{empresa.id}</div>
+                  <div className="text-xs font-medium">{empresa.nome}</div>
+                  {empresa.observacoes && (
+                    <div className="text-xs italic">{empresa.observacoes}</div>
+                  )}
                 </div>
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {/* Determine max number of rows needed */}
+          {Array.from({ length: Math.max(...empresas.map(e => e.centros.length)) }).map((_, rowIndex) => (
+            <TableRow key={rowIndex}>
+              {empresas.map((empresa) => (
+                <TableCell key={empresa.id} className={`${empresa.cor} border text-xs p-2 text-center align-top`}>
+                  {empresa.centros[rowIndex] && (
+                    <div className="space-y-1">
+                      <div className="font-semibold">
+                        {empresa.centros[rowIndex].codigo} - {empresa.centros[rowIndex].nome}
+                      </div>
+                      {empresa.centros[rowIndex].cnpj && (
+                        <div className="text-xs text-gray-600">
+                          {empresa.centros[rowIndex].cnpj}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </TableCell>
               ))}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+            </TableRow>
+          ))}
+          {/* Footer row with totals */}
+          <TableRow>
+            {empresas.map((empresa) => (
+              <TableCell key={empresa.id} className={`${empresa.cor} border text-center font-bold text-sm`}>
+                {empresa.totalLojas}
+              </TableCell>
+            ))}
+          </TableRow>
+        </TableBody>
+      </Table>
     </div>
   );
 };
