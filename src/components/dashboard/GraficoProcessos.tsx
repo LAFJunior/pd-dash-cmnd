@@ -43,8 +43,8 @@ const GraficoProcessos = () => {
         <h3 className="grafico-titulo">Evolução de Mapeamento</h3>
       </div>
       
-      <div className="h-80 overflow-y-auto overflow-x-hidden pr-1">
-        <div className="space-y-1">
+      <div className="h-full overflow-y-auto overflow-x-hidden pr-1" style={{ height: '80%' }}>
+        <div className="space-y-2">
           {data.map((item, index) => (
             <div key={item.nome} className="flex items-center gap-2 min-h-10">
               <div className="w-32 text-xs font-medium text-gray-700 text-right pr-1 flex-shrink-0 leading-tight">
