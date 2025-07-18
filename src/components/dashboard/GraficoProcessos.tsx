@@ -44,7 +44,7 @@ const GraficoProcessos = () => {
       </div>
       
       <div className="h-full overflow-y-auto overflow-x-hidden pr-1" style={{ height: '80%' }}>
-        <div className="space-y-2">
+        <div className="space-y-1">
           {data.map((item, index) => (
             <div key={item.nome} className="flex items-center gap-2 min-h-10">
               <div className="w-32 text-xs font-medium text-gray-700 text-right pr-1 flex-shrink-0 leading-tight">
@@ -75,25 +75,25 @@ const GraficoProcessos = () => {
         </div>
       </div>
       
-      <div className="flex justify-center gap-4 mt-4 pt-4 border-t border-gray-200">
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
+      <div className="flex flex-wrap justify-center gap-2 mt-2 pt-2 border-t border-gray-200">
+        <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
           <span>100%</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"></div>
+        <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"></div>
           <span>95%</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <div className="w-4 h-4 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"></div>
+        <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"></div>
           <span>20-40%</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-red-400 rounded-full"></div>
+        <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-400 rounded-full"></div>
           <span>10%</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <div className="w-4 h-4 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
+        <div className="flex items-center gap-1 text-xs text-gray-600">
+          <div className="w-3 h-3 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
           <span>0%</span>
         </div>
       </div>
