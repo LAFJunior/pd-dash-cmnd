@@ -43,14 +43,14 @@ const GraficoProcessos = () => {
         <h3 className="grafico-titulo">Evolução de Mapeamento</h3>
       </div>
       
-      <div className="h-80 overflow-y-auto pr-2">
-        <div className="space-y-3">
+      <div className="h-80 overflow-y-auto overflow-x-hidden pr-1">
+        <div className="space-y-2">
           {data.map((item, index) => (
-            <div key={item.nome} className="flex items-center gap-4 min-h-10">
-              <div className="w-40 text-sm font-medium text-gray-700 text-right pr-2 flex-shrink-0">
+            <div key={item.nome} className="flex items-center gap-2 min-h-10">
+              <div className="w-32 text-xs font-medium text-gray-700 text-right pr-1 flex-shrink-0 leading-tight">
                 {item.nome}
               </div>
-              <div className="flex-1 h-8 bg-gray-200 rounded-full overflow-hidden relative">
+              <div className="flex-1 h-7 bg-gray-200 rounded-full overflow-hidden relative min-w-0">
                 <div
                   className={`h-full rounded-full transition-all duration-1000 ease-out ${getBarClass(item.percentage)}`}
                   style={{
@@ -58,10 +58,17 @@ const GraficoProcessos = () => {
                     transitionDelay: `${index * 100}ms`
                   }}
                 >
-                  <div className={`absolute right-3 top-1/2 transform -translate-y-1/2 text-xs font-semibold ${getTextColor(item.percentage)}`}>
-                    {item.percentage}%
-                  </div>
+                  {item.percentage > 0 && (
+                    <div className={`absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold ${getTextColor(item.percentage)}`}>
+                      {item.percentage}%
+                    </div>
+                  )}
                 </div>
+                {item.percentage === 0 && (
+                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2 text-xs font-semibold text-gray-600">
+                    0%
+                  </div>
+                )}
               </div>
             </div>
           ))}
