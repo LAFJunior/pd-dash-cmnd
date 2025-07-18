@@ -14,6 +14,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import financialBuilding from '@/assets/financial-building.jpg';
 
 interface CentroCusto {
   codigo: string;
@@ -313,7 +314,12 @@ const CentroCusto = () => {
         data: {
           label: (
             <div className="text-center p-3">
-              <div className="text-lg font-bold mb-2">{empresa.id}</div>
+              <img 
+                src={financialBuilding} 
+                alt="Empresa" 
+                className="w-12 h-12 mx-auto mb-2 rounded-lg object-cover"
+              />
+              <div className="text-lg font-bold mb-1">{empresa.id}</div>
               <div className="text-sm font-medium mb-2">{empresa.nome}</div>
               <div className="text-xs bg-white/20 px-2 py-1 rounded">
                 {empresa.totalLojas}
@@ -321,7 +327,7 @@ const CentroCusto = () => {
               {empresa.observacoes && (
                 <div className="text-xs italic mt-1">{empresa.observacoes}</div>
               )}
-              <div className="text-xs mt-2">
+              <div className="text-xs mt-1">
                 {empresa.centros.length} centros de custo
               </div>
             </div>
