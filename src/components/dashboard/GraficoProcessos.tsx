@@ -75,28 +75,7 @@ const GraficoProcessos = () => {
         </div>
       </div>
       
-      <div className="flex flex-wrap justify-center gap-2 mt-2 pt-2 border-t border-gray-200">
-        <div className="flex items-center gap-1 text-xs text-gray-600">
-          <div className="w-3 h-3 bg-gradient-to-r from-green-500 to-green-400 rounded-full"></div>
-          <span>100%</span>
-        </div>
-        <div className="flex items-center gap-1 text-xs text-gray-600">
-          <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"></div>
-          <span>95%</span>
-        </div>
-        <div className="flex items-center gap-1 text-xs text-gray-600">
-          <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-full"></div>
-          <span>20-40%</span>
-        </div>
-        <div className="flex items-center gap-1 text-xs text-gray-600">
-          <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-red-400 rounded-full"></div>
-          <span>10%</span>
-        </div>
-        <div className="flex items-center gap-1 text-xs text-gray-600">
-          <div className="w-3 h-3 bg-gradient-to-r from-gray-500 to-gray-400 rounded-full"></div>
-          <span>0%</span>
-        </div>
-      </div>
+
     </div>
   );
 };
