@@ -44,7 +44,7 @@ const GraficoProcessos = () => {
       </div>
       
       <div className="h-80 overflow-y-auto overflow-x-hidden pr-1">
-        <div className="space-y-2">
+        <div className="space-y-1">
           {data.map((item, index) => (
             <div key={item.nome} className="flex items-center gap-2 min-h-10">
               <div className="w-32 text-xs font-medium text-gray-700 text-right pr-1 flex-shrink-0 leading-tight">
