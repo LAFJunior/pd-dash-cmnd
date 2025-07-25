@@ -18,63 +18,63 @@ const MapaLojas = () => {
 
   const lojas = [
     // São José dos Campos e Região
-    { nome: "001 - Oscar Calçados Ltda", lat: -23.1890, lng: -45.8869, endereco: "Rua 7 de Setembro, nº 344 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
-    { nome: "002 - E N Constantino Calçados Eireli", lat: -23.1950, lng: -45.8820, endereco: "Av. Pedro Álvares Cabral, nº 905 - Jardim Paulista, São José dos Campos, SP - 12.216-000", tipo: "loja" },
-    { nome: "003 - Oscar Calçados Ltda", lat: -23.1885, lng: -45.8875, endereco: "Rua 7 de Setembro, nº 142 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
-    { nome: "006 - Oscar Calçados Ltda", lat: -23.2050, lng: -45.8950, endereco: "Avenida Deputado Benedito Matarazzo, nº 9403 - Loja 205/206 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.215-900", tipo: "loja" },
-    { nome: "007 - Oscar Calçados Ltda", lat: -23.2100, lng: -45.8700, endereco: "Avenida São João, nº 2200 - Loja NS 101/102/103/104 - Vila Higienópolis, São José dos Campos, SP - 12.242-000", tipo: "loja" },
-    { nome: "009 - Oscar Calçados Ltda", lat: -23.2300, lng: -45.8600, endereco: "Avenida Andrômeda, nº 1868 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
-    { nome: "011 - AVS Comércio de Calçados Ltda", lat: -23.2290, lng: -45.8610, endereco: "Avenida Andrômeda, nº 227 - Loja 204 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
-    { nome: "012 - R. Constantino Calçados Ltda", lat: -23.2045, lng: -45.8945, endereco: "Avenida Dep. Benedito Matarazzo, nº 9403 - Loja S112/113 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.216-580", tipo: "loja" },
-    { nome: "013 - OFS Comércio de Calçados Ltda", lat: -23.2105, lng: -45.8705, endereco: "Avenida São João, nº 2200 - Loja 10/11 - Vila Higienópolis, São José dos Campos, SP - 12.242-000", tipo: "loja" },
-    { nome: "015 - IACR Comercial Ltda", lat: -23.2055, lng: -45.8955, endereco: "Avenida Dep. Benedito Matarazzo, nº 9403 - Loja 509/510 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.215-900", tipo: "loja" },
-    { nome: "017 - VSC Calçados Ltda", lat: -23.2295, lng: -45.8615, endereco: "Avenida Andrômeda, nº 227 - SUC 102 A - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
-    { nome: "022 - JSC Comércio de Calçados Ltda", lat: -23.1892, lng: -45.8872, endereco: "Rua 7 de Setembro, nº 156 - Centro, São José dos Campos, SP - 12.210-060", tipo: "loja" },
-    { nome: "024 - Estoque Vale Comércio", lat: -23.1900, lng: -45.8850, endereco: "Rua Sebastião Humel, nº 301 - Centro, São José dos Campos, SP - 12.210-200", tipo: "loja" },
-    { nome: "026 - Oscar Calçados Ltda", lat: -23.2285, lng: -45.8605, endereco: "Avenida Andrômeda, nº 227 - SUC 170 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
-    { nome: "030 - Oscar Calçados Ltda", lat: -23.2350, lng: -45.8500, endereco: "Rua Serra do Parimã, nº 123 - Jardim Anhembi, São José dos Campos, SP - 12.235-210", tipo: "loja" },
+    { nome: "001 - Cl2", lat: -23.1890, lng: -45.8869, endereco: "Rua 7 de Setembro, nº 344 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
+    { nome: "002 - Jp", lat: -23.1950, lng: -45.8820, endereco: "Av. Pedro Álvares Cabral, nº 905 - Jardim Paulista, São José dos Campos, SP - 12.216-000", tipo: "loja" },
+    { nome: "003 - Cl 1", lat: -23.1885, lng: -45.8875, endereco: "Rua 7 de Setembro, nº 142 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
+    { nome: "006 - Sh 2", lat: -23.2050, lng: -45.8950, endereco: "Avenida Deputado Benedito Matarazzo, nº 9403 - Loja 205/206 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.215-900", tipo: "loja" },
+    { nome: "007 - Cn", lat: -23.2100, lng: -45.8700, endereco: "Avenida São João, nº 2200 - Loja NS 101/102/103/104 - Vila Higienópolis, São José dos Campos, SP - 12.242-000", tipo: "loja" },
+    { nome: "009 - Js", lat: -23.2300, lng: -45.8600, endereco: "Avenida Andrômeda, nº 1868 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
+    { nome: "011 - Arezzo Vale Sul Shopp", lat: -23.2290, lng: -45.8610, endereco: "Avenida Andrômeda, nº 227 - Loja 204 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
+    { nome: "012 - Arezzo Center Vale", lat: -23.2045, lng: -45.8945, endereco: "Avenida Dep. Benedito Matarazzo, nº 9403 - Loja S112/113 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.216-580", tipo: "loja" },
+    { nome: "013 - Arezzo Shopp Colinas", lat: -23.2105, lng: -45.8705, endereco: "Avenida São João, nº 2200 - Loja 10/11 - Vila Higienópolis, São José dos Campos, SP - 12.242-000", tipo: "loja" },
+    { nome: "015 - Victor Hugo CV", lat: -23.2055, lng: -45.8955, endereco: "Avenida Dep. Benedito Matarazzo, nº 9403 - Loja 509/510 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.215-900", tipo: "loja" },
+    { nome: "017 - Tênis VS", lat: -23.2295, lng: -45.8615, endereco: "Avenida Andrômeda, nº 227 - SUC 102 A - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
+    { nome: "022 - Tenis Calçadão", lat: -23.1892, lng: -45.8872, endereco: "Rua 7 de Setembro, nº 156 - Centro, São José dos Campos, SP - 12.210-060", tipo: "loja" },
+    { nome: "024 - Stock Show SJC", lat: -23.1900, lng: -45.8850, endereco: "Rua Sebastião Humel, nº 301 - Centro, São José dos Campos, SP - 12.210-200", tipo: "loja" },
+    { nome: "026 - Vale Sul 2", lat: -23.2285, lng: -45.8605, endereco: "Avenida Andrômeda, nº 227 - SUC 170 - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
+    { nome: "030 - E-commerce", lat: -23.2350, lng: -45.8500, endereco: "Rua Serra do Parimã, nº 123 - Jardim Anhembi, São José dos Campos, SP - 12.235-210", tipo: "loja" },
     { nome: "046 - Constantino SJC", lat: -23.2040, lng: -45.8940, endereco: "Avenida Deputado Benedito Matarazzo - Jardim Oswaldo Cruz, São José dos Campos, SP - 12216580", tipo: "loja" },
-    { nome: "050 - Bruno Cazarine Constantino", lat: -23.2110, lng: -45.8710, endereco: "Avenida São João, nº 2.200 - Loja NS 73/74/75 - Jardim Das Colinas, São José dos Campos, SP - 12.242-000", tipo: "loja" },
-    { nome: "067 - Oscar Calçados Ltda", lat: -23.2355, lng: -45.8505, endereco: "R Andorra n° 500 Loja 304 A 307 - Jd América, São José dos Campos, SP - 12.235-050", tipo: "loja" },
-    { nome: "070 - ACCV Calçados Ltda", lat: -23.2042, lng: -45.8942, endereco: "Av. Deputado Benedito Matarazzo, nº 9403 - Loja M 305 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.216-580", tipo: "loja" },
-    { nome: "071 - ACVS Calçados Ltda", lat: -23.2292, lng: -45.8612, endereco: "Avenida Andrômeda, nº 227 - SUC 202A - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
-    { nome: "073 - ACCV Calçados Ltda", lat: -23.2352, lng: -45.8502, endereco: "R: Andorra, 500 Loja 214 - Jd América, São José dos Campos, SP - 12.235-050", tipo: "loja" },
-    { nome: "076 - Bruno Cazarine Constantino", lat: -23.2250, lng: -45.8450, endereco: "R DOS LIRIOS 459 - ANEXO 461 LOJA 2 - JARDIM MOTORAMA, São José dos Campos, SP - 12.224-010", tipo: "loja" },
+    { nome: "050 - Victor Hugo CN", lat: -23.2110, lng: -45.8710, endereco: "Avenida São João, nº 2.200 - Loja NS 73/74/75 - Jardim Das Colinas, São José dos Campos, SP - 12.242-000", tipo: "loja" },
+    { nome: "067 - Oriente Shopp", lat: -23.2355, lng: -45.8505, endereco: "R Andorra n° 500 Loja 304 A 307 - Jd América, São José dos Campos, SP - 12.235-050", tipo: "loja" },
+    { nome: "070 - Anacapri CenterVale", lat: -23.2042, lng: -45.8942, endereco: "Av. Deputado Benedito Matarazzo, nº 9403 - Loja M 305 - Jardim Oswaldo Cruz, São José dos Campos, SP - 12.216-580", tipo: "loja" },
+    { nome: "071 - Anacapri ValeSul", lat: -23.2292, lng: -45.8612, endereco: "Avenida Andrômeda, nº 227 - SUC 202A - Jardim Satélite, São José dos Campos, SP - 12.230-000", tipo: "loja" },
+    { nome: "073 - Anacapri Oriente Shopp", lat: -23.2352, lng: -45.8502, endereco: "R: Andorra, 500 Loja 214 - Jd América, São José dos Campos, SP - 12.235-050", tipo: "loja" },
+    { nome: "076 - Outlet Oscar Motorama", lat: -23.2250, lng: -45.8450, endereco: "R DOS LIRIOS 459 - ANEXO 461 LOJA 2 - JARDIM MOTORAMA, São José dos Campos, SP - 12.224-010", tipo: "loja" },
     { nome: "124 - Oscar Calçados Ltda", lat: -23.1888, lng: -45.8868, endereco: "Rua 7 de Setembro, nº 115 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
     { nome: "125 - Oscar Calçados Ltda", lat: -23.1893, lng: -45.8873, endereco: "Rua 7 de Setembro, nº 358 - Centro, São José dos Campos, SP - 12.210-260", tipo: "loja" },
     { nome: "129 - Jô Js Ltda", lat: -23.2288, lng: -45.8608, endereco: "Avenida Andromeda, 1846 - Jardim Satelite, Sao Jose dos Campos, SP - 12230001", tipo: "loja" },
-    { nome: "010 - CD São José dos Campos", lat: -23.2150, lng: -45.8800, endereco: "Rua Paraibuna, 1692 - Vila Nair, São José dos Campos, SP - 12231010", tipo: "cd" },
+    { nome: "010 - Cd Oscar", lat: -23.2150, lng: -45.8800, endereco: "Rua Paraibuna, 1692 - Vila Nair, São José dos Campos, SP - 12231010", tipo: "cd" },
     
     // Jacareí
-    { nome: "004 - Oscar Calçados Ltda", lat: -23.3055, lng: -45.9696, endereco: "Rua Sargento Acrísio Santana, nº 141 e 149 - Centro, Jacareí, SP - 12.300-000", tipo: "loja" },
-    { nome: "005 - RACSO Calçados Ltda", lat: -23.3050, lng: -45.9700, endereco: "Praça Raul Chaves, nº 79 - Centro, Jacareí, SP - 12.308-011", tipo: "loja" },
-    { nome: "018 - ARSJ Comércio de Calçados", lat: -23.3060, lng: -45.9692, endereco: "Rua Barão de Jacareí, nº 364 - Loja 23 - Centro, Jacareí, SP - 12.308-001", tipo: "loja" },
-    { nome: "019 - Oscar Calçados Ltda", lat: -23.3058, lng: -45.9694, endereco: "Rua Barão de Jacareí, nº 364 - Loja 020/021 A - Centro, Jacareí, SP - 12.308-001", tipo: "loja" },
+    { nome: "004 - Jc 2", lat: -23.3055, lng: -45.9696, endereco: "Rua Sargento Acrísio Santana, nº 141 e 149 - Centro, Jacareí, SP - 12.300-000", tipo: "loja" },
+    { nome: "005 - Jc 1", lat: -23.3050, lng: -45.9700, endereco: "Praça Raul Chaves, nº 79 - Centro, Jacareí, SP - 12.308-011", tipo: "loja" },
+    { nome: "018 - Arezzo Jacarei Shopp", lat: -23.3060, lng: -45.9692, endereco: "Rua Barão de Jacareí, nº 364 - Loja 23 - Centro, Jacareí, SP - 12.308-001", tipo: "loja" },
+    { nome: "019 - Jc Sh", lat: -23.3058, lng: -45.9694, endereco: "Rua Barão de Jacareí, nº 364 - Loja 020/021 A - Centro, Jacareí, SP - 12.308-001", tipo: "loja" },
     { nome: "127 - Oscar Calçados Ltda", lat: -23.3052, lng: -45.9698, endereco: "Rua Alfredo Schurig, nº 148 - Centro, Jacareí, SP - 12.327-005", tipo: "loja" },
     
     // Guaratinguetá
-    { nome: "016 - Oscar Calçados Ltda", lat: -22.8163, lng: -45.1931, endereco: "Rua Comendador João Galvão, nº 36 - Centro, Guaratinguetá, SP - 12.500-150", tipo: "loja" },
-    { nome: "023 - Oscar Calçados Ltda", lat: -22.8100, lng: -45.1950, endereco: "Avenida Juscelino Kubitschek de Oliveira, nº 351 - Loja 10, 11 e 12 - Campo do Galvão, Guaratinguetá, SP - 12.505-300", tipo: "loja" },
+    { nome: "016 - Guara Ct", lat: -22.8163, lng: -45.1931, endereco: "Rua Comendador João Galvão, nº 36 - Centro, Guaratinguetá, SP - 12.500-150", tipo: "loja" },
+    { nome: "023 - Guará Shopp", lat: -22.8100, lng: -45.1950, endereco: "Avenida Juscelino Kubitschek de Oliveira, nº 351 - Loja 10, 11 e 12 - Campo do Galvão, Guaratinguetá, SP - 12.505-300", tipo: "loja" },
     { nome: "126 - Oscar Calçados Ltda", lat: -22.8160, lng: -45.1935, endereco: "Rua Com. Rodrigues Alves, nº 107 - Centro, Guaratinguetá, SP - 12.500-000", tipo: "loja" },
     
     // Taubaté
-    { nome: "020 - Oscar Calçados Ltda", lat: -23.0326, lng: -45.5527, endereco: "Avenida Charles Schnneider, nº 1700 - Loja 06/10 - Parque Senhor do Bom Fim, Taubaté, SP - 12.040-900", tipo: "loja" },
-    { nome: "028 - Oscar Calçados Ltda", lat: -23.0320, lng: -45.5530, endereco: "Dr Pedro Costa nº 06 - Centro, Taubaté, SP - 12010-160", tipo: "loja" },
+    { nome: "020 - Taub Shopp", lat: -23.0326, lng: -45.5527, endereco: "Avenida Charles Schnneider, nº 1700 - Loja 06/10 - Parque Senhor do Bom Fim, Taubaté, SP - 12.040-900", tipo: "loja" },
+    { nome: "028 - Taub Ct", lat: -23.0320, lng: -45.5530, endereco: "Dr Pedro Costa nº 06 - Centro, Taubaté, SP - 12010-160", tipo: "loja" },
     { nome: "122 - Oscar Calçados Ltda", lat: -23.0322, lng: -45.5525, endereco: "Av. Charles Schneider, nº 1700 - Loja 142/145 - Vila Costa, Taubaté, SP - 12.040-900", tipo: "loja" },
     { nome: "128 - Oscar Calçados Ltda", lat: -23.0330, lng: -45.5535, endereco: "Rua Carneiro de Souza, nº 147 - Centro, Taubaté, SP - 12.010-070", tipo: "loja" },
     
     // Pindamonhangaba
-    { nome: "047 - OPS Comércio de Calçados", lat: -22.9246, lng: -45.4619, endereco: "Rua Alcides Ramos Nogueira, nº 650 - Loja 067, 069, 071, S08 e S09 - Mombaça, Pindamonhangaba, SP - 12.421-705", tipo: "loja" },
-    { nome: "048 - Oscar Calçados Ltda", lat: -22.9240, lng: -45.4615, endereco: "Praça Monsenhor Marcondes, nº 50 - Centro, Pindamonhangaba, SP - 12.400-470", tipo: "loja" },
+    { nome: "047 - Pinda Shopp", lat: -22.9246, lng: -45.4619, endereco: "Rua Alcides Ramos Nogueira, nº 650 - Loja 067, 069, 071, S08 e S09 - Mombaça, Pindamonhangaba, SP - 12.421-705", tipo: "loja" },
+    { nome: "048 - Pinda Ct", lat: -22.9240, lng: -45.4615, endereco: "Praça Monsenhor Marcondes, nº 50 - Centro, Pindamonhangaba, SP - 12.400-470", tipo: "loja" },
     
     // Lorena
-    { nome: "049 - Oscar Calçados Ltda", lat: -22.7308, lng: -45.1252, endereco: "Rua Rodrigues de Azevedo, nº 240 - Centro, Lorena, SP - 12.600-000", tipo: "loja" },
+    { nome: "049 - Lorena", lat: -22.7308, lng: -45.1252, endereco: "Rua Rodrigues de Azevedo, nº 240 - Centro, Lorena, SP - 12.600-000", tipo: "loja" },
     
     // Cruzeiro
-    { nome: "075 - Cruzeiro Ltda", lat: -22.5759, lng: -44.9637, endereco: "R Doutor Othon Barcelos, 05 Loja 09/10/11/12/13 - Itagaçaba, Cruzeiro, SP - 12.730-010", tipo: "loja" },
+    { nome: "075 - Cruzeiro", lat: -22.5759, lng: -44.9637, endereco: "R Doutor Othon Barcelos, 05 Loja 09/10/11/12/13 - Itagaçaba, Cruzeiro, SP - 12.730-010", tipo: "loja" },
     
     // Caraguatatuba
-    { nome: "044 - Oscar Calçados Ltda", lat: -23.6203, lng: -45.4134, endereco: "Avenida José Herculano, nº 1086 - Loja C 03/04 - Santa Marina, Caraguatatuba, SP - 11.666-000", tipo: "loja" },
+    { nome: "044 - Caragua Shopp", lat: -23.6203, lng: -45.4134, endereco: "Avenida José Herculano, nº 1086 - Loja C 03/04 - Santa Marina, Caraguatatuba, SP - 11.666-000", tipo: "loja" },
     
     // Caçapava
     { nome: "121 - BVB Calçados Eireli", lat: -23.1057, lng: -45.7113, endereco: "Rua Sete de Setembro, nº 185 - Centro, Caçapava, SP - 12.281-620", tipo: "loja" },
@@ -83,58 +83,58 @@ const MapaLojas = () => {
     { nome: "123 - Oscar Calçados Ltda", lat: -22.4681, lng: -44.4462, endereco: "Av: Albino de Almeida,185 - Campos Eliseos, Resende, RJ - 27.542-080", tipo: "loja" },
     
     // Mogi das Cruzes e Região
-    { nome: "031 - Constantino Calçados", lat: -23.5229, lng: -46.1881, endereco: "Avenida Ver. Narciso Yague Guimarães, nº 1001 - Loja 234/235 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
-    { nome: "032 - Oscar Calçados Ltda", lat: -23.5225, lng: -46.1885, endereco: "Av. Ver. Narciso Yague Guimarães, nº 1001 - Lojas 128, 129, 130, 131 e 133 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
-    { nome: "033 - Mogi Centro Ltda", lat: -23.5200, lng: -46.1850, endereco: "Rua Doutor Paulo Frontin, 161 - Centro, Mogi das Cruzes, SP - 08710050", tipo: "loja" },
-    { nome: "034 - Stock Bras Cubas Ltda", lat: -23.5300, lng: -46.1900, endereco: "Rua Francisco Afonso de Melo, nº 135 - Vila Brás Cubas, Mogi das Cruzes, SP - 08.740-310", tipo: "loja" },
-    { nome: "037 - Helena Regina Cazarine", lat: -23.5180, lng: -46.1830, endereco: "Rua Brás Cubas, nº 163, 167 e 171 - Centro, Mogi das Cruzes, SP - 08.710-410", tipo: "loja" },
-    { nome: "038 - Cazarine e Constantino", lat: -23.5227, lng: -46.1883, endereco: "Avenida Ver. Narciso Yague Guimarães, nº 1001- Loja 230 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
-    { nome: "039 - Oscar Calçados Ltda", lat: -23.5190, lng: -46.1840, endereco: "Rua Dr. Deodato Wertheimer, nº 1395 - Centro, Mogi das Cruzes, SP - 08.710-430", tipo: "loja" },
-    { nome: "040 - CCRH Comércio de Calçados", lat: -23.5223, lng: -46.1887, endereco: "Avenida Ver Narciso Yague Guimarães, nº 1001 - Loja 201 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
-    { nome: "055 - Lucon Ferraz Calçados", lat: -23.5221, lng: -46.1889, endereco: "Avenida Vereador Narciso Yague Guimarães - 1001 - Loja 313 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
-    { nome: "090 - CD Ponta Sz Ltda", lat: -23.5250, lng: -46.1900, endereco: "Rua Professor Flaviano de Melo,01 - Centro, Mogi das Cruzes, SP - 08710000", tipo: "cd" },
+    { nome: "031 - Constantino Mogi", lat: -23.5229, lng: -46.1881, endereco: "Avenida Ver. Narciso Yague Guimarães, nº 1001 - Loja 234/235 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
+    { nome: "032 - Mogi Shopp", lat: -23.5225, lng: -46.1885, endereco: "Av. Ver. Narciso Yague Guimarães, nº 1001 - Lojas 128, 129, 130, 131 e 133 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
+    { nome: "033 - Mogi Centro", lat: -23.5200, lng: -46.1850, endereco: "Rua Doutor Paulo Frontin, 161 - Centro, Mogi das Cruzes, SP - 08710050", tipo: "loja" },
+    { nome: "034 - Stock Show BC", lat: -23.5300, lng: -46.1900, endereco: "Rua Francisco Afonso de Melo, nº 135 - Vila Brás Cubas, Mogi das Cruzes, SP - 08.740-310", tipo: "loja" },
+    { nome: "037 - Scarlen Mogi Centro", lat: -23.5180, lng: -46.1830, endereco: "Rua Brás Cubas, nº 163, 167 e 171 - Centro, Mogi das Cruzes, SP - 08.710-410", tipo: "loja" },
+    { nome: "038 - Scarlen Mogi Shopp", lat: -23.5227, lng: -46.1883, endereco: "Avenida Ver. Narciso Yague Guimarães, nº 1001- Loja 230 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
+    { nome: "039 - CL Mg", lat: -23.5190, lng: -46.1840, endereco: "Rua Dr. Deodato Wertheimer, nº 1395 - Centro, Mogi das Cruzes, SP - 08.710-430", tipo: "loja" },
+    { nome: "040 - Arezzo Shopp Mogi", lat: -23.5223, lng: -46.1887, endereco: "Avenida Ver Narciso Yague Guimarães, nº 1001 - Loja 201 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
+    { nome: "055 - Usaflex Mogi Shopp", lat: -23.5221, lng: -46.1889, endereco: "Avenida Vereador Narciso Yague Guimarães - 1001 - Loja 313 - Jardim Armênia, Mogi das Cruzes, SP - 08.780-910", tipo: "loja" },
+    { nome: "090 - Cd- Ponta Sz", lat: -23.5250, lng: -46.1900, endereco: "Rua Professor Flaviano de Melo,01 - Centro, Mogi das Cruzes, SP - 08710000", tipo: "cd" },
     
     // Suzano
-    { nome: "035 - Stock Show Suzano", lat: -23.5426, lng: -46.3107, endereco: "Rua Eliziel Alves Costa, nº 34 - Centro, Suzano, SP - 08.674-185", tipo: "loja" },
-    { nome: "036 - Scarlen Calçados", lat: -23.5430, lng: -46.3110, endereco: "Rua 7 de Setembro, nº 555, - Loja 72, 123, 124 e 139 - Jardim Irai/Jardim Nena, Suzano, SP - 08.673-020", tipo: "loja" },
-    { nome: "043 - Oscar Calçados Ltda", lat: -23.5420, lng: -46.3100, endereco: "Rua Sete de setembro, nº 555 - Loja 115/116 - Cidade Cruzeiro do Sul, Suzano, SP - 08.674-000", tipo: "loja" },
-    { nome: "057 - Uss Comércio de Calçados", lat: -23.5432, lng: -46.3112, endereco: "Rua Sete de Setembro, 555 - Loja 139 - Parque Suzano, Suzano, SP - 08.673-020", tipo: "loja" },
-    { nome: "060 - ACS Comércio de Calçados", lat: -23.5428, lng: -46.3108, endereco: "Rua Sete de Setembro, nº 555 - Loja 81 - Parque Suzano, Suzano, SP - 08.673-020", tipo: "loja" },
+    { nome: "035 - Stock Show Sz", lat: -23.5426, lng: -46.3107, endereco: "Rua Eliziel Alves Costa, nº 34 - Centro, Suzano, SP - 08.674-185", tipo: "loja" },
+    { nome: "036 - Scarlen Shopp Suzan", lat: -23.5430, lng: -46.3110, endereco: "Rua 7 de Setembro, nº 555, - Loja 72, 123, 124 e 139 - Jardim Irai/Jardim Nena, Suzano, SP - 08.673-020", tipo: "loja" },
+    { nome: "043 - Suzano Shopp", lat: -23.5420, lng: -46.3100, endereco: "Rua Sete de setembro, nº 555 - Loja 115/116 - Cidade Cruzeiro do Sul, Suzano, SP - 08.674-000", tipo: "loja" },
+    { nome: "057 - Usaflex Suzano Shopp", lat: -23.5432, lng: -46.3112, endereco: "Rua Sete de Setembro, 555 - Loja 139 - Parque Suzano, Suzano, SP - 08.673-020", tipo: "loja" },
+    { nome: "060 - Anacapri Suzano Shopp", lat: -23.5428, lng: -46.3108, endereco: "Rua Sete de Setembro, nº 555 - Loja 81 - Parque Suzano, Suzano, SP - 08.673-020", tipo: "loja" },
     
     // Poá
-    { nome: "042 - Francisco Telles Marcondes", lat: -23.5318, lng: -46.3450, endereco: "Rua Silverio Pereira Jordão, nº 37 - Centro, Poá, SP - 08.550-030", tipo: "loja" },
+    { nome: "042 - Stock Show Poá", lat: -23.5318, lng: -46.3450, endereco: "Rua Silverio Pereira Jordão, nº 37 - Centro, Poá, SP - 08.550-030", tipo: "loja" },
     
     // Interior SP - Bauru
-    { nome: "053 - RC Bauru Calçados", lat: -22.3149, lng: -49.0581, endereco: "RUA HENRIQUE SAVI 15-55 - VILA CIDADE UNIVERSITARIA, BAURU, SP - 17.011-900", tipo: "loja" },
-    { nome: "052 - Outlet Bauru Ltda", lat: -22.3100, lng: -49.0600, endereco: "Vila Cardia, Bauru, SP - 17011066", tipo: "loja" },
-    { nome: "068 - Jô Calçados Ltda", lat: -22.3140, lng: -49.0575, endereco: "Rua Batista de Carvalho, nº 526 - Centro, Bauru, SP - 17010-001", tipo: "loja" },
+    { nome: "053 - Bauru Shopp", lat: -22.3149, lng: -49.0581, endereco: "RUA HENRIQUE SAVI 15-55 - VILA CIDADE UNIVERSITARIA, BAURU, SP - 17.011-900", tipo: "loja" },
+    { nome: "052 - Outlet Bauru", lat: -22.3100, lng: -49.0600, endereco: "Vila Cardia, Bauru, SP - 17011066", tipo: "loja" },
+    { nome: "068 - Bauru Ct", lat: -22.3140, lng: -49.0575, endereco: "Rua Batista de Carvalho, nº 526 - Centro, Bauru, SP - 17010-001", tipo: "loja" },
     { nome: "117 - Jô Calçados Ltda", lat: -22.3145, lng: -49.0578, endereco: "Rua Batista de Carvalho, nº 461 - Centro, Bauru, SP - 17.010-001", tipo: "loja" },
     
     // Ribeirão Preto
-    { nome: "054 - Jô Calçados Ltda", lat: -21.1699, lng: -47.8099, endereco: "Rua Alvares Cabral, nº 470 - Centro, Ribeirão Preto, SP - 14.010-080", tipo: "loja" },
-    { nome: "058 - Jô Calçados Ltda", lat: -21.1650, lng: -47.8150, endereco: "Av Coronel Fernando Ferreira Leite, 1540 - Lojas 92/93 - Jardim California, Ribeirão Preto, SP - 14.026-900", tipo: "loja" },
+    { nome: "054 - Ribeirão Centro", lat: -21.1699, lng: -47.8099, endereco: "Rua Alvares Cabral, nº 470 - Centro, Ribeirão Preto, SP - 14.010-080", tipo: "loja" },
+    { nome: "058 - Ribeirão Shopp", lat: -21.1650, lng: -47.8150, endereco: "Av Coronel Fernando Ferreira Leite, 1540 - Lojas 92/93 - Jardim California, Ribeirão Preto, SP - 14.026-900", tipo: "loja" },
     
     // São José do Rio Preto
-    { nome: "008 - Jô Calçados Ltda", lat: -20.8194, lng: -49.3794, endereco: "Av. Brigadeiro Faria Lima, nº 6363 - Loja 218, 219, 220, 221, 222, 237 - Jardim Morumbi, São José do Rio Preto, SP - 15.090-900", tipo: "loja" },
-    { nome: "041 - Jô Calçados Ltda", lat: -20.8190, lng: -49.3790, endereco: "Rua General Glicério, nº 2826 - Centro, São José do Rio Preto, SP - 15.015-400", tipo: "loja" },
+    { nome: "008 - Rio Preto Shopp", lat: -20.8194, lng: -49.3794, endereco: "Av. Brigadeiro Faria Lima, nº 6363 - Loja 218, 219, 220, 221, 222, 237 - Jardim Morumbi, São José do Rio Preto, SP - 15.090-900", tipo: "loja" },
+    { nome: "041 - Rio Preto Ct", lat: -20.8190, lng: -49.3790, endereco: "Rua General Glicério, nº 2826 - Centro, São José do Rio Preto, SP - 15.015-400", tipo: "loja" },
     { nome: "106 - Jô Calçados Ltda", lat: -20.8185, lng: -49.3785, endereco: "Rua General Glicério, nº 2928 - Centro, São José do Rio Preto, SP - 15.015-400", tipo: "loja" },
     
     // Guarulhos
-    { nome: "056 - APC Fernandes Calçados", lat: -23.4538, lng: -46.5333, endereco: "Rua Engenheiro Camilo Olivetti, nº 295 - Loja 125 - Vila Endres, Guarulhos, SP - 07.042-040", tipo: "loja" },
+    { nome: "056 - Usaflex Guarulhos Shopp", lat: -23.4538, lng: -46.5333, endereco: "Rua Engenheiro Camilo Olivetti, nº 295 - Loja 125 - Vila Endres, Guarulhos, SP - 07.042-040", tipo: "loja" },
     
     // São Paulo
-    { nome: "059 - UST Comércio de Calçados", lat: -23.5505, lng: -46.6333, endereco: "Rua Domingos Agostim, nº 91 loja 266 - Cidade mãe do céu, São Paulo, SP - 03.306-010", tipo: "loja" },
+    { nome: "059 - Usaflex Tatuapé Shopp", lat: -23.5505, lng: -46.6333, endereco: "Rua Domingos Agostim, nº 91 loja 266 - Cidade mãe do céu, São Paulo, SP - 03.306-010", tipo: "loja" },
     
     // Outras cidades SP
-    { nome: "061 - Jô Calçados Ltda", lat: -23.1864, lng: -46.8840, endereco: "Rua Barão de Jundiaí, 636 - Centro, Jundiaí, SP - 13.201-011", tipo: "loja" },
-    { nome: "062 - Jô Calçados Ltda", lat: -22.7253, lng: -47.6486, endereco: "Rua Governador Pedro de Toledo, nº 1.211 - Centro, Piracicaba, SP - 13.400-070", tipo: "loja" },
-    { nome: "069 - Jô Calçados Ltda", lat: -22.7250, lng: -47.6480, endereco: "Rua Governador Pedro de Toledo, nº 1.118 - Centro, Piracicaba, SP - 13.400-060", tipo: "loja" },
-    { nome: "074 - Jô Calçados Ltda", lat: -22.7255, lng: -47.6490, endereco: "Av: Limeira,722 Sala C57/59/62/63 P-58 EDIF SHOPPING CENTER PIRA - Areão, Piracicaba, SP - 13.414-900", tipo: "loja" },
-    { nome: "063 - Jô Calçados Ltda", lat: -23.5015, lng: -47.4526, endereco: "Rua Doutor Braguinha, nº 262/264 - Centro, Sorocaba, SP - 18.010-120", tipo: "loja" },
-    { nome: "064 - Jô Calçados Ltda", lat: -21.7948, lng: -48.1757, endereco: "Rua Nove de Julho, nº 793 - Centro, Araraquara, SP - 14.801-295", tipo: "loja" },
+    { nome: "061 - Jundiaí", lat: -23.1864, lng: -46.8840, endereco: "Rua Barão de Jundiaí, 636 - Centro, Jundiaí, SP - 13.201-011", tipo: "loja" },
+    { nome: "062 - Piracicaba", lat: -22.7253, lng: -47.6486, endereco: "Rua Governador Pedro de Toledo, nº 1.211 - Centro, Piracicaba, SP - 13.400-070", tipo: "loja" },
+    { nome: "069 - Piracicaba", lat: -22.7250, lng: -47.6480, endereco: "Rua Governador Pedro de Toledo, nº 1.118 - Centro, Piracicaba, SP - 13.400-060", tipo: "loja" },
+    { nome: "074 - Piracicaba Shopping", lat: -22.7255, lng: -47.6490, endereco: "Av: Limeira,722 Sala C57/59/62/63 P-58 EDIF SHOPPING CENTER PIRA - Areão, Piracicaba, SP - 13.414-900", tipo: "loja" },
+    { nome: "063 - Sorocaba", lat: -23.5015, lng: -47.4526, endereco: "Rua Doutor Braguinha, nº 262/264 - Centro, Sorocaba, SP - 18.010-120", tipo: "loja" },
+    { nome: "064 - Araraquara", lat: -21.7948, lng: -48.1757, endereco: "Rua Nove de Julho, nº 793 - Centro, Araraquara, SP - 14.801-295", tipo: "loja" },
     { nome: "109 - Jô Calçados Ltda", lat: -21.7945, lng: -48.1760, endereco: "Rua Nove de Julho, nº 991 - Centro, Araraquara, SP - 14.801-295", tipo: "loja" },
-    { nome: "065 - Jô Calçados Ltda", lat: -22.4326, lng: -46.9576, endereco: "R Quinze de Novembro nº 102 - Centro, Mogi Mirim, SP - 13.800-185", tipo: "loja" },
-    { nome: "066 - Jô Calçados Ltda", lat: -22.3689, lng: -46.9433, endereco: "R Apolinário n° 79 - Centro, Mogi Guaçu, SP - 13.840-035", tipo: "loja" },
+    { nome: "065 - Mogi Mirim", lat: -22.4326, lng: -46.9576, endereco: "R Quinze de Novembro nº 102 - Centro, Mogi Mirim, SP - 13.800-185", tipo: "loja" },
+    { nome: "066 - Mogi Guaçu", lat: -22.3689, lng: -46.9433, endereco: "R Apolinário n° 79 - Centro, Mogi Guaçu, SP - 13.840-035", tipo: "loja" },
     { nome: "101 - Jô Calçados Ltda", lat: -22.8854, lng: -48.4457, endereco: "Praça Comendador Emilio Pedutti, nº 35 - Centro, Botucatu, SP - 18.600-410", tipo: "loja" },
     { nome: "103 - Jô Calçados Ltda", lat: -22.2198, lng: -49.9353, endereco: "Rua São Luiz, nº 637 - Centro, Marília, SP - 17.500-001", tipo: "loja" },
     { nome: "108 - Jô Calçados Ltda", lat: -20.4237, lng: -49.9858, endereco: "Rua Amazonas, nº 3281 - Patrimônio Novo, Votuporanga, SP - 15.500-004", tipo: "loja" },
@@ -145,8 +145,8 @@ const MapaLojas = () => {
     { nome: "118 - Jô Calçados Ltda", lat: -21.1378, lng: -48.9721, endereco: "Praça Monsenhor Albino, nº 80 - Centro, Catanduva, SP - 15.800-215", tipo: "loja" },
     { nome: "119 - Jô Calçados Ltda", lat: -20.5569, lng: -48.5675, endereco: "Av. Dezenove, nº 875 - Centro, Barretos, SP - 14.780-300", tipo: "loja" },
     { nome: "120 - Jô Calçados Ltda", lat: -22.1257, lng: -51.3893, endereco: "Rua Siqueira Campos, nº 615 - Centro, Presidente Prudente, SP - 19.010-061", tipo: "loja" },
-    { nome: "045 - Jô Calçados Ltda", lat: -21.2089, lng: -50.4328, endereco: "Rua Marechal Deodoro Fonseca, nº 139 - Centro, Araçatuba, SP - 16.010-300", tipo: "loja" },
-    { nome: "072 - Jô Calçados Ltda", lat: -21.2085, lng: -50.4325, endereco: "R: Marechal Deodoro Fonseca, 217 - Centro, Araçatuba, SP - 16.010-300", tipo: "loja" },
+    { nome: "045 - Araçatuba", lat: -21.2089, lng: -50.4328, endereco: "Rua Marechal Deodoro Fonseca, nº 139 - Centro, Araçatuba, SP - 16.010-300", tipo: "loja" },
+    { nome: "072 - Novo Shopp Ribeirão", lat: -21.2085, lng: -50.4325, endereco: "R: Marechal Deodoro Fonseca, 217 - Centro, Araçatuba, SP - 16.010-300", tipo: "loja" },
     { nome: "104 - Jô Calçados Ltda", lat: -21.2090, lng: -50.4330, endereco: "Rua Marechal Deodoro Fonseca, nº 217 - Centro, Araçatuba, SP - 16.010-300", tipo: "loja" },
     
     // Minas Gerais
