@@ -1,58 +1,31 @@
-
 import React, { useState } from 'react';
 import MapaInterativo from '@/components/mapa-contexto/MapaInterativo';
 import { Button } from '@/components/ui/button';
 import { Edit, Save } from 'lucide-react';
 import { toast } from 'sonner';
-
 const MapaContexto = () => {
   const [editMode, setEditMode] = useState(false);
-  
   const handleToggleEditMode = () => {
     setEditMode(!editMode);
-    
     if (!editMode) {
       toast.info("Modo de edição ativado", {
         description: "Agora você pode mover, editar, conectar e adicionar blocos."
       });
     }
   };
-  
   const handleSaveChanges = () => {
     setEditMode(false);
     toast.success("Alterações salvas com sucesso!", {
       description: "Seu mapa de contexto foi atualizado."
     });
   };
-
-  return (
-    <div className="animate-fade-in">
+  return <div className="animate-fade-in">
       <div className="mb-6 flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold">Mapa de Contexto</h1>
           <p className="text-gray-500">Visualização do Ecossistema Empresarial</p>
         </div>
-        <div className="flex gap-2">
-          {!editMode ? (
-            <Button 
-              variant="outline" 
-              onClick={handleToggleEditMode}
-              className="flex items-center gap-1"
-            >
-              <Edit size={16} />
-              Editar Mapa
-            </Button>
-          ) : (
-            <Button 
-              variant="default" 
-              onClick={handleSaveChanges}
-              className="flex items-center gap-1"
-            >
-              <Save size={16} />
-              Salvar Alterações
-            </Button>
-          )}
-        </div>
+        
       </div>
       
       <div className="bg-white rounded-lg shadow-md p-6">
@@ -75,8 +48,6 @@ const MapaContexto = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MapaContexto;
