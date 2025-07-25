@@ -54,104 +54,16 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
   useEffect(() => {
     // Dados dos departamentos do BackOffice
     const departamentosBackoffice: DepartamentoProps[] = [{
-      id: "franquias",
-      titulo: "Franquias",
-      x: 240,
-      y: 50,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["diadora-brasil", "lojas"],
-      subItens: []
-    }, {
-      id: "diadora-brasil",
-      titulo: "Diadora Brasil",
-      x: 240,
-      y: 140,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["franquias", "lojas", "compras"],
-      subItens: []
-    }, {
-      id: "auditorias",
-      titulo: "Auditorias",
-      x: 420,
-      y: 50,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["contabil", "controladoria"],
-      subItens: []
-    }, {
-      id: "contabil",
-      titulo: "Contábil",
-      x: 600,
-      y: 50,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["auditorias", "recursos-humanos", "financeiro"],
-      subItens: []
-    }, {
-      id: "recursos-humanos",
-      titulo: "Recursos Humanos",
-      x: 780,
-      y: 50,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["contabil", "departamento-pessoal"],
-      subItens: []
-    }, {
-      id: "departamento-pessoal",
-      titulo: "Departamento Pessoal",
-      x: 960,
-      y: 50,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["recursos-humanos", "especial-cd", "mercados-cd"],
-      subItens: []
-    }, {
-      id: "especial-cd",
-      titulo: "Especial (CD/Operações)",
-      x: 1140,
-      y: 140,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["departamento-pessoal", "mercados-cd"],
-      subItens: []
-    }, {
-      id: "mercados-cd",
-      titulo: "Mercados Comercializados (CD/Operações)",
-      x: 1320,
-      y: 140,
-      width: 140,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["especial-cd", "departamento-pessoal"],
-      subItens: []
-    }, {
       id: "compras",
       titulo: "Compras",
       x: 420,
       y: 230,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["diadora-brasil", "financeiro", "desenvolvimento"],
-      subItens: []
+      conexoes: ["fornecedores", "controladoria", "cd-operacoes", "lojas"],
+      subItens: ["Análise de Compras", "Solicitação de Compras", "Controle de Estoque"]
     }, {
       id: "financeiro",
       titulo: "Financeiro",
@@ -159,10 +71,76 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 230,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["contabil", "compras", "fiscal", "ti-operacoes"],
+      conexoes: ["contábil", "controladoria", "inst-financeiras"],
+      subItens: ["Contas a Pagar", "Contas a Receber", "Fluxo de Caixa"]
+    }, {
+      id: "principal",
+      titulo: "Principal",
+      x: 240,
+      y: 70,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["diretoria-geral"],
       subItens: []
+    }, {
+      id: "auditoria",
+      titulo: "Auditoria",
+      x: 420,
+      y: 70,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["controladoria", "contábil"],
+      subItens: ["Controles Internos", "Auditorias", "Compliance"]
+    }, {
+      id: "contábil",
+      titulo: "Contábil",
+      x: 600,
+      y: 70,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["financeiro", "fiscal", "auditoria"],
+      subItens: ["Fechamento Contábil", "Balancetes", "Tributos"]
+    }, {
+      id: "ti",
+      titulo: "T.I",
+      x: 420,
+      y: 390,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["e-commerce", "infracommerce", "rh"],
+      subItens: ["Sistemas", "Infraestrutura", "Suporte"]
+    }, {
+      id: "ti-operacoes",
+      titulo: "T.I / Operações",
+      x: 600,
+      y: 390,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["lojas", "cd-operacoes"],
+      subItens: ["Sistemas", "Logística", "Operacional"]
+    }, {
+      id: "rh",
+      titulo: "Recursos Humanos",
+      x: 780,
+      y: 70,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["dp", "ti"],
+      subItens: ["Recrutamento", "Treinamento", "Benefícios"]
     }, {
       id: "fiscal",
       titulo: "Fiscal",
@@ -170,10 +148,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 230,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["financeiro", "marketing", "controladoria"],
-      subItens: []
+      conexoes: ["contábil", "controladoria"],
+      subItens: ["Impostos", "Notas Fiscais", "Obrigações"]
     }, {
       id: "marketing",
       titulo: "Marketing",
@@ -181,43 +159,21 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 230,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["fiscal", "lojas", "sao-jose-cd"],
-      subItens: []
+      conexoes: ["e-commerce", "lojas", "clientes"],
+      subItens: ["Campanhas", "Mídia", "Marketing Digital"]
     }, {
-      id: "caixa",
-      titulo: "Caixa",
-      x: 1140,
-      y: 290,
+      id: "departamento-pessoal",
+      titulo: "Departamento Pessoal",
+      x: 960,
+      y: 70,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["lojas", "e-commerce"],
-      subItens: []
-    }, {
-      id: "desenvolvimento",
-      titulo: "Desenvolvimento",
-      x: 420,
-      y: 370,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["compras", "ti-operacoes"],
-      subItens: []
-    }, {
-      id: "ti-operacoes",
-      titulo: "T.I - Operações",
-      x: 600,
-      y: 370,
-      width: 120,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["financeiro", "desenvolvimento", "controladoria"],
-      subItens: []
+      conexoes: ["rh"],
+      subItens: ["Folha de Pagamento", "Benefícios", "Contratos"]
     }, {
       id: "controladoria",
       titulo: "Controladoria",
@@ -225,54 +181,65 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 390,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["fiscal", "ti-operacoes", "sao-jose-cd"],
-      subItens: []
+      conexoes: ["financeiro", "fiscal", "compras", "auditoria"],
+      subItens: ["Orçamentos", "Análises", "Relatórios", "Indicadores"]
     }, {
-      id: "sao-jose-cd",
-      titulo: "São José dos Campos (CD/Operações)",
+      id: "cd-loja",
+      titulo: "CD/Loja (Diferenciação)",
       x: 960,
       y: 390,
-      width: 140,
-      height: 50,
-      color: "#4C72B1",
-      tipo: "backoffice",
-      conexoes: ["marketing", "controladoria", "defeitos"],
-      subItens: []
-    }, {
-      id: "vendas",
-      titulo: "Vendas",
-      x: 1140,
-      y: 380,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["lojas"],
+      conexoes: ["lojas", "cd-operacoes"],
+      subItens: ["Processos CD", "Processos Loja", "Diferenciação"]
+    }, {
+      id: "diretoria-geral",
+      titulo: "Diretoria Geral",
+      x: 240,
+      y: 140,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["principal"],
       subItens: []
     }, {
-      id: "ti-projetos",
-      titulo: "T.I - Projetos e Inovações",
+      id: "sjec",
+      titulo: "São José Esporte Clube",
+      x: 240,
+      y: 530,
+      width: 120,
+      height: 50,
+      color: "#A0A0A0",
+      tipo: "backoffice",
+      conexoes: ["sjec", "estadio"],
+      subItens: []
+    }, {
+      id: "ti-processo-recursos",
+      titulo: "T.I. Processo e Recursos",
       x: 420,
       y: 550,
-      width: 140,
+      width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["festcard"],
-      subItens: []
+      conexoes: ["ti", "lojas"],
+      subItens: ["Sistemas", "Processos", "Recursos"]
     }, {
-      id: "festcard",
-      titulo: "Festcard",
+      id: "pessoal",
+      titulo: "Pessoal",
       x: 600,
       y: 550,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["ti-projetos", "suprimentos"],
-      subItens: []
+      conexoes: ["rh", "dp"],
+      subItens: ["Folha", "Contratações", "Demissões"]
     }, {
       id: "suprimentos",
       titulo: "Suprimentos",
@@ -280,10 +247,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 550,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["festcard", "defeitos"],
-      subItens: []
+      conexoes: ["cd-operacoes", "lojas"],
+      subItens: ["Estoque", "Distribuição", "Logística"]
     }, {
       id: "defeitos",
       titulo: "Defeitos",
@@ -291,10 +258,10 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       y: 550,
       width: 120,
       height: 50,
-      color: "#4C72B1",
+      color: "#A0A0A0",
       tipo: "backoffice",
-      conexoes: ["sao-jose-cd", "suprimentos", "recalce"],
-      subItens: []
+      conexoes: ["lojas", "cd-operacoes"],
+      subItens: ["Análise", "Tratativa", "Devolução"]
     }];
 
     // Dados dos departamentos de Varejo
@@ -302,32 +269,42 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       id: "lojas",
       titulo: "Lojas",
       x: 1140,
-      y: 220,
+      y: 230,
       width: 120,
       height: 50,
-      color: "#499B54",
+      color: "#A0A0A0",
       tipo: "varejo",
-      conexoes: ["franquias", "diadora-brasil", "marketing", "caixa", "vendas", "clientes"]
+      conexoes: ["clientes", "cd-operacoes", "suprimentos", "marketing"]
     }, {
       id: "e-commerce",
-      titulo: "E-commerce",
+      titulo: "E-Commerce",
       x: 1140,
       y: 450,
       width: 120,
       height: 50,
-      color: "#499B54",
+      color: "#A0A0A0",
       tipo: "varejo",
-      conexoes: ["caixa", "recalce", "clientes"]
+      conexoes: ["infracommerce", "marketing", "ti", "clientes"]
     }, {
-      id: "recalce",
-      titulo: "Recalce",
+      id: "vendas",
+      titulo: "Vendas",
+      x: 240,
+      y: 240,
+      width: 120,
+      height: 140,
+      color: "#A0A0A0",
+      tipo: "varejo",
+      conexoes: ["lojas", "marketing", "compras"]
+    }, {
+      id: "servicos",
+      titulo: "Serviços",
       x: 1140,
       y: 550,
       width: 120,
       height: 50,
-      color: "#499B54",
+      color: "#A0A0A0",
       tipo: "varejo",
-      conexoes: ["e-commerce", "defeitos", "clientes"]
+      conexoes: ["lojas", "clientes"]
     }];
 
     // Dados dos parceiros comerciais
@@ -335,62 +312,42 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
       id: "clientes",
       titulo: "Clientes",
       x: 1320,
-      y: 380,
+      y: 260,
       width: 120,
       height: 50,
-      color: "#E39D25",
+      color: "#A0A0A0",
       tipo: "parceiros",
-      conexoes: ["lojas", "e-commerce", "recalce", "credisystem"]
+      conexoes: ["lojas", "e-commerce", "marketing"]
     }, {
       id: "fornecedores",
       titulo: "Fornecedores",
       x: 60,
-      y: 380,
+      y: 260,
       width: 120,
       height: 50,
-      color: "#E39D25",
+      color: "#A0A0A0",
       tipo: "parceiros",
-      conexoes: ["estadio-martins", "sao-jose-esporte"]
-    }, {
-      id: "estadio-martins",
-      titulo: "Estádio Martins Pereira",
-      x: 240,
-      y: 480,
-      width: 140,
-      height: 50,
-      color: "#E39D25",
-      tipo: "parceiros",
-      conexoes: ["fornecedores", "sao-jose-esporte"]
-    }, {
-      id: "sao-jose-esporte",
-      titulo: "São José Esporte Clube",
-      x: 240,
-      y: 550,
-      width: 140,
-      height: 50,
-      color: "#E39D25",
-      tipo: "parceiros",
-      conexoes: ["estadio-martins", "fornecedores"]
+      conexoes: ["compras", "cd-operacoes"]
     }, {
       id: "inst-financeiras",
-      titulo: "Instituições Financeiras",
-      x: 660,
-      y: 720,
+      titulo: "Inst. Financeiras",
+      x: 650,
+      y: 770,
       width: 180,
       height: 50,
-      color: "#E39D25",
+      color: "#A0A0A0",
       tipo: "parceiros",
-      conexoes: ["credisystem"]
+      conexoes: ["financeiro"]
     }, {
-      id: "credisystem",
-      titulo: "Credisystem",
+      id: "categorias",
+      titulo: "Categorias",
       x: 960,
-      y: 720,
+      y: 750,
       width: 120,
       height: 50,
-      color: "#E39D25",
+      color: "#A0A0A0",
       tipo: "parceiros",
-      conexoes: ["inst-financeiras", "clientes"]
+      conexoes: ["compras", "marketing", "lojas"]
     }];
 
     // Combinar todos os departamentos
