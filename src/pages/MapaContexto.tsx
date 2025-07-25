@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MapaInterativo from '@/components/mapa-contexto/MapaInterativo';
+import MapaContextoReactFlow from '@/components/mapa-contexto/MapaContextoReactFlow';
 import { Button } from '@/components/ui/button';
 import { Edit, Save } from 'lucide-react';
 import { toast } from 'sonner';
@@ -29,22 +29,23 @@ const MapaContexto = () => {
       </div>
       
       <div className="bg-white rounded-lg shadow-md p-6">
-        <MapaInterativo editMode={editMode} />
+        <MapaContextoReactFlow editMode={editMode} />
         <div className="flex justify-center items-center gap-8 mt-6 text-sm text-gray-600 flex-wrap">
           <div className="flex items-center">
-            <div className="w-4 h-4 bg-[#4C72B1] rounded-sm mr-2"></div>
-            <span>BackOffice</span>
+            <div className="w-4 h-4 bg-[#D4E6D4] rounded-sm mr-2"></div>
+            <span>Área Comercial</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 bg-[#499B54] rounded-sm mr-2"></div>
-            <span>Varejo</span>
+            <div className="w-4 h-4 bg-[#E8D4D4] rounded-sm mr-2"></div>
+            <span>Área Administrativa</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 bg-[#E39D25] rounded-sm mr-2"></div>
-            <span>Parceiros Comerciais</span>
+            <div className="w-4 h-4 bg-[#D4D4E8] rounded-sm mr-2"></div>
+            <span>Área Financeira</span>
           </div>
           <div className="flex items-center">
-            
+            <div className="w-4 h-4 bg-[#F0E8D4] rounded-sm mr-2"></div>
+            <span>Área Operacional</span>
           </div>
         </div>
       </div>
