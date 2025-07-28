@@ -12,19 +12,19 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
       nome: 'Azul', 
       icon: Building, 
       cor: 'bg-blue-500 hover:bg-blue-600',
-      detalhes: ['F2', 'Jô Calçados Ltda', 'BackOffice', 'ABYS', 'Blumenau - SC']
+      detalhes: ['F2', 'Jô Calçados Ltda', 'BackOffice', 'ABYS O&A', 'Blumenau - SC']
     },
     { 
       nome: 'Verde', 
       icon: Store, 
       cor: 'bg-green-500 hover:bg-green-600',
-      detalhes: ['F1', 'Oscar Calçados Ltda', 'F3', 'Carioca Calçados Ltda']
+      detalhes: ['F1 Oscar Calçados Ltda', 'F3 Carioca Calçados Ltda']
     },
     { 
       nome: 'Vermelho', 
       icon: Store, 
       cor: 'bg-red-500 hover:bg-red-600',
-      detalhes: ['F4', 'VarejoSul Ltda', 'Paquetá + Gaston', 'F9', 'FRANQUIAS']
+      detalhes: ['F4 VarejoSul Ltda Paquetá', 'F4 VarejoSul Ltda Gaston', 'F9 FRANQUIAS']
     }
   ];
 
