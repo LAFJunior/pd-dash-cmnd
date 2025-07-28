@@ -10,6 +10,7 @@ import FluxoFiscal from '@/components/departamento/FluxoFiscal';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
+import PilaresDepartamentoPessoal from '@/components/departamento/PilaresDepartamentoPessoal';
 import CentroCusto from '@/components/departamento/CentroCusto';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
@@ -64,6 +65,7 @@ const DetalheDepartamento = () => {
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
+  const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -169,6 +171,21 @@ const DetalheDepartamento = () => {
                 </CardHeader>
                 <CardContent>
                   <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+                </CardContent>
+              </Card>
+            )}
+
+            {/* Pilares do Departamento Pessoal - Só exibe para DP */}
+            {isDepartamentoPessoal && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Puzzle className="text-orange-600" size={24} />
+                    Pilares do Departamento Pessoal
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PilaresDepartamentoPessoal onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
                 </CardContent>
               </Card>
             )}
