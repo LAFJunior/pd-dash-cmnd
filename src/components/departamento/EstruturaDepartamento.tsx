@@ -380,16 +380,12 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         <div className="flex justify-center mb-4">
           <Colaborador nome="Talitha Olveira" cargo="Líder" setor="DP" nivel={3} icon={<Users size={18} />} />
         </div>
-
-        {/* Nível 4 - Analistas */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-2 mb-4">
-          <Colaborador nome="Simone" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
-        </div>
         
         {/* Nível 4 - Analistas */}
-         <div className="flex justify-center mb-4">
+        <div className="flex justify-center gap-4 mb-4">
+          <Colaborador nome="Simone" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Fabina" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
-        </div>       
+        </div>    
         
         {/* Nível 5 - Assistentes */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
