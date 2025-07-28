@@ -365,7 +365,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <Colaborador 
             nome="Marcio Sampaio" 
             cargo="Diretor" 
-            setor="Departamento Pessoal"
+            setor=""
             nivel={1}
             icon={<Crown size={24} />}
           />
@@ -386,7 +386,12 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <Colaborador nome="Simone" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
           <Colaborador nome="Fabina" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
         </div>
-
+        
+        {/* Nível 4 - Analistas */}
+         <div className="flex justify-center mb-4">
+          <Colaborador nome="Fabina" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
+        </div>       
+        
         {/* Nível 5 - Assistentes */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
           <Colaborador nome="Naimara" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
