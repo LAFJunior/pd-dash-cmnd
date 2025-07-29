@@ -132,7 +132,7 @@ const EstruturaDepartamentoPessoal = () => {
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Artemis</div>
                   <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Clovis</div>
-                  <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Elaine</div>
+                  <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Viviane</div>
                   <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Jorge</div>
                   <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Katiane</div>
                   <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Patricia</div>
