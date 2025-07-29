@@ -357,46 +357,12 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   }
 
   if (departamentoNormalizado.includes('pessoal') || departamentoNormalizado.includes('dp')) {
+    // Retorna o componente específico para Departamento Pessoal
+    const EstruturaDepartamentoPessoal = React.lazy(() => import('./EstruturaDepartamentoPessoal'));
     return (
-      <div className="p-6">
-        
-        {/* Nível 1 - Diretoria */}
-        <div className="flex justify-center mb-4">
-          <Colaborador 
-            nome="Marcio Sampaio" 
-            cargo="Diretor" 
-            setor=""
-            nivel={1}
-            icon={<Crown size={24} />}
-          />
-        </div>
-
-        {/* Nível 2 - Gerência */}
-        <div className="flex justify-center mb-4">
-          <Colaborador nome="Maria Macedo" cargo="Gerente" setor="DP" nivel={2} icon={<Star size={20} />} />
-        </div>
-
-        {/* Nível 3 - Liderança */}
-        <div className="flex justify-center mb-4">
-          <Colaborador nome="Talitha Olveira" cargo="Líder" setor="DP" nivel={3} icon={<Users size={18} />} />
-        </div>
-        
-        {/* Nível 4 - Analistas */}
-        <div className="flex justify-center gap-4 mb-4">
-          <Colaborador nome="Simone" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Fabina" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
-        </div>    
-        
-        {/* Nível 5 - Assistentes */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
-          <Colaborador nome="Naimara" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Fabiana" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Ana Carolina" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Camila" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Rafaela" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-          <Colaborador nome="Nicole" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
-        </div>
-      </div>
+      <React.Suspense fallback={<div>Carregando...</div>}>
+        <EstruturaDepartamentoPessoal />
+      </React.Suspense>
     );
   }
 
