@@ -99,4 +99,18 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
   );
 };
 
-export default PilaresDepartamentoPessoal;
+// Componente de demonstração
+const App = () => {
+  const [pilarSelecionado, setPilarSelecionado] = React.useState('Azul');
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <PilaresDepartamentoPessoal 
+        onPilarSelect={setPilarSelecionado}
+        pilarSelecionado={pilarSelecionado}
+      />
+    </div>
+  );
+};
+
+export default App;

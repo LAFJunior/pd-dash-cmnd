@@ -358,174 +358,36 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
 
   if (departamentoNormalizado.includes('pessoal') || departamentoNormalizado.includes('dp')) {
     return (
-      <div className="p-8 space-y-8">
+      <div className="p-6">
         
-        {/* DIRETOR */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-900 text-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Crown size={24} />
-              <h3 className="text-xl font-bold">Marcio Sampaio</h3>
-            </div>
-            <p className="text-lg opacity-90">DIRETOR</p>
-            <p className="text-sm opacity-75 mt-2">marcio.sampaio@GRUPOOSCAR.COM.BR</p>
-            <p className="text-sm opacity-75">(12) 97405-0730 - WHATSAPP</p>
-          </div>
+        {/* Nível 1 - Diretoria */}
+        <div className="flex justify-center mb-4">
+          <Colaborador 
+            nome="Marcio Sampaio" 
+            cargo="Diretor" 
+            setor=""
+            nivel={1}
+            icon={<Crown size={24} />}
+          />
         </div>
 
-        {/* GERENTE DE DEPARTAMENTO */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-amber-600 to-amber-900 text-white p-5 rounded-lg shadow-lg max-w-md mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Star size={20} />
-              <h3 className="text-lg font-semibold">Maria Macedo</h3>
-            </div>
-            <p className="text-base opacity-90">Gerente de Departamento</p>
-            <p className="text-sm opacity-75 mt-2">maria.macedo@GRUPOOSCAR.COM.BR</p>
-            <p className="text-sm opacity-75">(12) 97405-0730 - WHATSAPP</p>
-          </div>
+        {/* Nível 2 - Gerência */}
+        <div className="flex justify-center mb-4">
+          <Colaborador nome="Maria Macedo" cargo="Gerente" setor="DP" nivel={2} icon={<Star size={20} />} />
         </div>
 
-        {/* LÍDER DE EQUIPE */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-emerald-600 to-emerald-900 text-white p-4 rounded-lg shadow-lg max-w-sm mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Users size={18} />
-              <h3 className="text-base font-medium">Thalita</h3>
-            </div>
-            <p className="text-sm opacity-90">Líder de Equipe</p>
-            <p className="text-xs opacity-75 mt-2">thalita.reitano@GRUPOOSCAR.COM.BR</p>
-            <p className="text-xs opacity-75">(12) 97405-0730 - WHATSAPP</p>
-          </div>
+        {/* Nível 3 - Liderança */}
+        <div className="flex justify-center mb-4">
+          <Colaborador nome="Talitha Olveira" cargo="Líder" setor="DP" nivel={3} icon={<Users size={18} />} />
         </div>
-
-        {/* GRUPO AZUL */}
-        <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-          <h3 className="text-xl font-bold text-blue-700 mb-4 flex items-center gap-2">
-            <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-            GRUPO AZUL
-          </h3>
-          
-          {/* Analista do Grupo Azul */}
-          <div className="mb-4">
-            <div className="bg-blue-100 p-4 rounded-lg">
-              <h4 className="font-semibold text-blue-800">SIMONE (ANALISTA)</h4>
-              <p className="text-sm text-blue-700">simone.reitano@GRUPOOSCAR.COM.BR</p>
-              <p className="text-sm text-blue-700">(12) 97405-0730 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Assistentes do Grupo Azul */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-            <div className="bg-white p-3 rounded border border-blue-200">
-              <h5 className="font-medium">BIA</h5>
-              <p className="text-sm text-gray-600">fabiana.silva@grupooscar.com.br</p>
-              <p className="text-sm text-gray-600">(12) 99234-0913 - WHATSAPP</p>
-            </div>
-            <div className="bg-white p-3 rounded border border-blue-200">
-              <h5 className="font-medium">RAFAELA</h5>
-              <p className="text-sm text-gray-600">rafaleaa.sia@grupooscar.com.br</p>
-              <p className="text-sm text-gray-600">(12) 99234-0913 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Atendimento aos Regionais - Grupo Azul */}
-          <div className="bg-blue-100 p-4 rounded-lg">
-            <h5 className="font-medium text-blue-800 mb-2">ATENDIMENTO AOS REGIONAIS E BACKOFFICE</h5>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <span className="bg-white p-2 rounded text-center">Aríane</span>
-              <span className="bg-white p-2 rounded text-center">Amaro</span>
-              <span className="bg-white p-2 rounded text-center">Cláudio</span>
-              <span className="bg-white p-2 rounded text-center">Ericson</span>
-              <span className="bg-white p-2 rounded text-center">João Paulo</span>
-              <span className="bg-white p-2 rounded text-center">Rodrigo</span>
-              <span className="bg-white p-2 rounded text-center">BackOffice</span>
-            </div>
-          </div>
-        </div>
-
-        {/* GRUPO VERDE */}
-        <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-          <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
-            <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-            GRUPO VERDE
-          </h3>
-          
-          {/* Analista do Grupo Verde */}
-          <div className="mb-4">
-            <div className="bg-green-100 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800">ANA CAROLINA (ANALISTA)</h4>
-              <p className="text-sm text-green-700">ana.carolina@GRUPOOSCAR.COM.BR</p>
-              <p className="text-sm text-green-700">(12) 97405-0730 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Assistente do Grupo Verde */}
-          <div className="mb-4">
-            <div className="bg-white p-3 rounded border border-green-200">
-              <h5 className="font-medium">NAIMARA</h5>
-              <p className="text-sm text-gray-600">naimara.silva@grupooscar.com.br</p>
-              <p className="text-sm text-gray-600">(12) 99234-0913 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Atendimento aos Regionais - Grupo Verde */}
-          <div className="bg-green-100 p-4 rounded-lg">
-            <h5 className="font-medium text-green-800 mb-2">ATENDIMENTO AOS REGIONAIS</h5>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
-              <span className="bg-white p-2 rounded text-center">Bernardo</span>
-              <span className="bg-white p-2 rounded text-center">Estefan</span>
-              <span className="bg-white p-2 rounded text-center">Luis Américo</span>
-              <span className="bg-white p-2 rounded text-center">Mauricio</span>
-              <span className="bg-white p-2 rounded text-center">Peterson</span>
-            </div>
-          </div>
-        </div>
-
-        {/* GRUPO VERMELHO */}
-        <div className="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
-          <h3 className="text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
-            <div className="w-4 h-4 bg-red-500 rounded-full"></div>
-            GRUPO VERMELHO
-          </h3>
-          
-          {/* Analista do Grupo Vermelho */}
-          <div className="mb-4">
-            <div className="bg-red-100 p-4 rounded-lg">
-              <h4 className="font-semibold text-red-800">Fabiana (ANALISTA)</h4>
-              <p className="text-sm text-red-700">fabiana.micaele@GRUPOOSCAR.COM.BR</p>
-              <p className="text-sm text-red-700">(12) 97405-0730 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Assistentes do Grupo Vermelho */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-            <div className="bg-white p-3 rounded border border-red-200">
-              <h5 className="font-medium">NICOLLE</h5>
-              <p className="text-sm text-gray-600">nicolle.santos@grupooscar.com.br</p>
-              <p className="text-sm text-gray-600">(12) 99234-0913 - WHATSAPP</p>
-            </div>
-            <div className="bg-white p-3 rounded border border-red-200">
-              <h5 className="font-medium">CAMILLA</h5>
-              <p className="text-sm text-gray-600">camilla.oliver@grupooscar.com.br</p>
-              <p className="text-sm text-gray-600">(12) 99234-0913 - WHATSAPP</p>
-            </div>
-          </div>
-
-          {/* Atendimento aos Regionais - Grupo Vermelho */}
-          <div className="bg-red-100 p-4 rounded-lg">
-            <h5 className="font-medium text-red-800 mb-2">ATENDIMENTO AOS REGIONAIS</h5>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-              <span className="bg-white p-2 rounded text-center">Artemis</span>
-              <span className="bg-white p-2 rounded text-center">Clovis</span>
-              <span className="bg-white p-2 rounded text-center">Elaine</span>
-              <span className="bg-white p-2 rounded text-center">Jorge</span>
-              <span className="bg-white p-2 rounded text-center">Katiane</span>
-              <span className="bg-white p-2 rounded text-center">Patricia</span>
-              <span className="bg-white p-2 rounded text-center">Suila</span>
-            </div>
-          </div>
-        </div>
+        
+        {/* Nível 4 - Analistas */}
+        <div className="flex justify-center gap-4 mb-4">
+          <Colaborador nome="Simone" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Fabina" cargo="Analista" setor="DP" nivel={4} icon={<User size={14} />} />
+        </div>    
+        
+        {/* Nível 5 - Assistentes */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
           <Colaborador nome="Naimara" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
           <Colaborador nome="Fabiana" cargo="Assistente" setor="DP" nivel={5} icon={<User size={12} />} />
