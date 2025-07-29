@@ -8,8 +8,8 @@ const EstruturaDepartamentoPessoal = () => {
         {/* Diretor */}
         <div className="flex justify-center">
           <div className="bg-gray-800 text-white p-6 rounded-lg text-center min-w-[300px]">
-            <div className="font-bold text-lg mb-2">DIRETOR</div>
-            <div className="font-semibold mb-2">MÁRCIO SAMPAIO</div>
+            <div className="font-bold text-lg mb-2">MÁRCIO SAMPAIO</div>
+            <div className="font-semibold mb-2">DIRETOR</div>
             <div className="text-sm opacity-90 mb-1">MARCIO.SAMPAIO@GRUPOOSCAR.COM.BR</div>
             <div className="text-sm opacity-90">(12) 97411-1367 - WHATSAPP</div>
           </div>
@@ -18,8 +18,8 @@ const EstruturaDepartamentoPessoal = () => {
         {/* Gerente */}
         <div className="flex justify-center">
           <div className="bg-emerald-600 text-white p-6 rounded-lg text-center min-w-[300px]">
-            <div className="font-bold text-lg mb-2">GERENTE DO DEPARTAMENTO</div>
-            <div className="font-semibold mb-2">MARIA MACEDO</div>
+            <div className="font-bold text-lg mb-2">MARIA MACEDO</div>
+            <div className="font-semibold mb-2">GERENTE DO DEPARTAMENTO</div>
             <div className="text-sm opacity-90 mb-1">MARIA.MACEDO@GRUPOOSCAR.COM.BR</div>
             <div className="text-sm opacity-90">(12) 99193-1537 - WHATSAPP</div>
           </div>
@@ -28,8 +28,8 @@ const EstruturaDepartamentoPessoal = () => {
         {/* Líder de Equipe */}
         <div className="flex justify-center">
           <div className="bg-pink-600 text-white p-6 rounded-lg text-center min-w-[300px]">
-            <div className="font-bold text-lg mb-2">LÍDER DO TIME</div>
-            <div className="font-semibold mb-2">TALITHA OLIVEIRA</div>
+            <div className="font-bold text-lg mb-2">TALITHA OLIVEIRA</div>
+            <div className="font-semibold mb-2">LÍDER DO TIME</div>
             <div className="text-sm opacity-90 mb-1">THALITA.SOUZA@GRUPOOSCAR.COM.BR</div>
             <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
           </div>
