@@ -16,7 +16,7 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
         { codigo: 'F2', empresa: 'Jô Calçados\nLtda' },
         { codigo: '', empresa: 'BackOffice' },
         { codigo: '', empresa: 'ABYS\nO&A' },
-        { codigo: '', empresa: '053/052' }
+        { codigo: 'F7', empresa: '053/052' }
       ]
     },
     { 
@@ -25,7 +25,7 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
       cor: 'bg-green-500 hover:bg-green-600',
       detalhes: [
         { codigo: 'F1', empresa: 'Oscar Calçados\nLtda' },
-        { codigo: 'F3', empresa: 'Carioca Calçados\nLtda' }
+        { codigo: 'F3', empresa: 'Carioca Calçados\nLtda' },
         { codigo: 'F7', empresa: 'Oscar/Sport' }
       ]
     },
