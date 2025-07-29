@@ -410,7 +410,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA",
           people: [
-            { name: "KAREN (COMPRADOR)", email: "KAREN.AZEREDO@GRUPOOSCAR.COM.BR", phone: "(12) 97407-5100" },
+            { name: "KAREN (COMPRADOR)", email: "KAREN.AKEMI@GRUPOOSCAR.COM.BR", phone: "(12) 97407-5100" },
             { name: "VITÓRIA", email: "VITORIA.OLIVEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 97406-0652" },
             { name: "ALEXYA", email: "ALEXYA.FREITAS@GRUPOOSCAR.COM.BR", phone: "(12) 97411-0200" },
             { name: "LARISSA", email: "LARISSA.RAQUEL@GRUPOOSCAR.COM.BR", phone: "(12) 99234-0825" }
@@ -419,8 +419,8 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "PAQUETÁ - GASTON",
           people: [
-            { name: "ALICE(COMPRADOR)", email: "ALICE.GERMANO@GRUPOOSCAR.COM.BR", phone: "(51) 9488-5876" },
-            { name: "SUZANA ARAÚJO", email: "SUZANA.SILVA@GRUPOOSCAR.COM.BR", phone: "(51) 99968-6180" }
+            { name: "ALICE(COMPRADOR)", email: "ALICE.BERGAMACHI@GRUPOOSCAR.COM.BR", phone: "(51) 9488-5876" },
+            { name: "SUZANA ARAÚJO", email: "SUZANA.SILVA@GRUPOOSCAR.COM.BR", phone: "(51) 99988-6180" }
           ]
         }
       ]
@@ -432,8 +432,8 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA",
           people: [
-            { name: "RAPHAEL (COMPRADOR)", email: "RAPHAEL.VERTELO@GRUPOOSCAR.COM.BR", phone: "(12) 97405-0730" },
-            { name: "JEFERSON", email: "JEFERSON.OLIVEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 99234-0915" },
+            { name: "RAPHAEL (COMPRADOR)", email: "RAPHAEL.TAVARES@GRUPOOSCAR.COM.BR", phone: "(12) 97405-0730" },
+            { name: "JEFERSON", email: "JEFERSON.OLIVEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 99234-0913" },
             { name: "LARISSA", email: "LARISSA.PEREIRA@GRUPOOSCAR.COM.BR", phone: "(12) 97403-7540" }
           ]
         },
@@ -453,10 +453,10 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
           people: [
-            { name: "CARLA (COMPRADOR)", email: "CARLA.VIANA@GRUPOOSCAR.COM.BR", phone: "(11) 99235-2438" },
+            { name: "CARLA (COMPRADOR)", email: "CARLA.VIANA@GRUPOOSCAR.COM.BR", phone: "(12) 99235-2438" },
             { name: "JENIFER (ANALISTA)", email: "JENIFER.SANTOS@GRUPOOSCAR.COM.BR", phone: "(12) 97890-0735" },
             { name: "JOÃO PAULO", email: "JOAO.MARQUES@GRUPOOSCAR.COM.BR", phone: "(12) 99234-1028" },
-            { name: "GUILHERME CARDOSO", email: "GUILHERME.CARDOSO@GRUPOOSCAR.COM.BR", phone: "(11) 9367-2369" }
+            { name: "GUILHERME CARDOSO", email: "GUILHERME.CARDOSO@GRUPOOSCAR.COM.BR", phone: "(12) 9367-2369" }
           ]
         }
       ]
@@ -468,8 +468,8 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
           people: [
-            { name: "CLAUDINEI (COMPRADOR)", email: "CLAUDINEI.MACHADO@GRUPOOSCAR.COM.BR", phone: "(12) 99411-3778" },
-            { name: "WHITINI", email: "WHITINI.WARNINGTON@GRUPOOSCAR.COM.BR", phone: "(12) 97402-0001" }
+            { name: "CLAUDINEI (COMPRADOR)", email: "CLAUDINEI.SIQUEIRA@GRUPOOSCAR.COM.BR", phone: "(12) 99411-3778" },
+            { name: "WHYTINI", email: "WHYTINI.MARINHO@GRUPOOSCAR.COM.BR", phone: "(12) 97402-0001" }
           ]
         }
       ]
@@ -481,7 +481,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
           people: [
-            { name: "MARISTELA (COMPRADOR)", email: "MARISTELA.GUILHERMINO@GRUPOOSCAR.COM.BR", phone: "(51) 99501-4141" },
+            { name: "MARISTELA (COMPRADOR)", email: "MARISTELA.WOLLMANN@GRUPOOSCAR.COM.BR", phone: "(51) 99501-4141" },
             { name: "ANGELICA", email: "ANGELICA.LOPES@GRUPOOSCAR.COM.BR", phone: "(51) 98015-0285" }
           ]
         }
@@ -494,12 +494,12 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         {
           brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
           people: [
-            { name: "WESLEY (COORDENADOR)", email: "WESLEY.MENDOZA@GRUPOOSCAR.COM.BR", phone: "(12) 99223-2450" },
-            { name: "ALICIA", email: "ALICIA.MUNHOZ@GRUPOOSCAR.COM.BR", phone: "(12) 99390-3443", extra: "(SP OSCAR - REGIONAL FARIAS)" },
+            { name: "WESLEY (COORDENADOR)", email: "WESLEY.MENDOCA@GRUPOOSCAR.COM.BR", phone: "(12) 99223-2450" },
+            { name: "ALICIA", email: "ALICIA.MUNHOZ@GRUPOOSCAR.COM.BR", phone: "(12) 99248-7896", extra: "(SP OSCAR - REGIONAL FARIAS)" },
             { name: "BRUNA", email: "BRUNA.BRUCK@GRUPOOSCAR.COM.BR", phone: "(51) 99390-3443", extra: "(RS - PAQUETÁ E GASTON)" },
             { name: "RENDERSON", email: "RENDERSON.SILVA@GRUPOOSCAR.COM.BR", phone: "(51) 98989-9072", extra: "(RS - PAQUETÁ E GASTON)" },
-            { name: "ANDRE", email: "ANDRE.SANTOS@GRUPOOSCAR.COM.BR", phone: "(48) 99982-2692", extra: "(SC - CARIOCA E PAQUETÁ)" },
-            { name: "CAMILLA (CARIOCA)", email: "CAMILLA.FONTOURA@GRUPOOSCAR.COM.BR", phone: "(48) 9982-2629" }
+            { name: "ANDRE", email: "ANDRE.SANTOS@GRUPOOSCAR.COM.BR", phone: "(48) 99982-2629", extra: "(SC - CARIOCA E PAQUETÁ)" },
+            { name: "CAMILLA", email: "CAMILLA.FONTOURA@GRUPOOSCAR.COM.BR", phone: "(48) 9982-2629", extra: "(CARIOCA)" }
           ]
         }
       ]
@@ -562,7 +562,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <h2 className="text-sm mb-3 tracking-wide font-semibold">NAICHE POEL</h2>
           <div className="text-[10px] leading-snug break-all">
             NAICHE.POEL@GRUPOOSCAR.COM.BR<br />
-            (11) 96070-5041 - WHATSAPP
+            (11) 98070-5041 - WHATSAPP
           </div>
         </div>
       </div>
@@ -581,7 +581,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <div className="mb-4">
             <h4 className="text-xs font-semibold mb-1">THOMAS VENTRE</h4>
             <div className="text-[10px] leading-snug break-all">
-              THOMAS.VERTELO@GRUPOOSCAR.COM.BR<br />
+              THOMAS.VERTRE@GRUPOOSCAR.COM.BR<br />
               (51) 9239-2687 - WHATSAPP
             </div>
           </div>
