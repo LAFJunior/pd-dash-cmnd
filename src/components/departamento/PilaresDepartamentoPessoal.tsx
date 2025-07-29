@@ -1,4 +1,4 @@
-import React from 'react';
+   import React from 'react';
 import { Building, Store } from 'lucide-react';
 
 interface PilaresDepartamentoPessoalProps {
@@ -16,7 +16,7 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
         { codigo: 'F2', empresa: 'Jô Calçados\nLtda' },
         { codigo: '', empresa: 'BackOffice' },
         { codigo: '', empresa: 'ABYS\nO&A' },
-        { codigo: '', empresa: 'Blumenau - SC' }
+        { codigo: '', empresa: '053/052' }
       ]
     },
     { 
@@ -26,6 +26,7 @@ const PilaresDepartamentoPessoal: React.FC<PilaresDepartamentoPessoalProps> = ({
       detalhes: [
         { codigo: 'F1', empresa: 'Oscar Calçados\nLtda' },
         { codigo: 'F3', empresa: 'Carioca Calçados\nLtda' }
+        { codigo: 'F7', empresa: 'Oscar/Sport' }
       ]
     },
     { 
