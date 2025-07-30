@@ -28,9 +28,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* BAURU (16 LOJAS) - GRUPO AZUL */}
           <div className="bg-blue-500 text-white rounded-lg">
             <div className="bg-blue-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO AZUL
-              <div className="text-sm font-normal mt-1">BAURU (16 LOJAS)</div>
-            </div>
+              BAURU (16 LOJAS)
             <div className="p-4 space-y-4">
               <div className="bg-blue-400 p-3 rounded text-center">
                 <div className="font-semibold">DANIEL CARVALHO (AUDITOR)</div>
@@ -48,8 +46,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* ARARAQUARA (14 LOJAS) - GRUPO VERDE */}
           <div className="bg-green-500 text-white rounded-lg">
             <div className="bg-green-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERDE
-              <div className="text-sm font-normal mt-1">ARARAQUARA (14 LOJAS)</div>
+              ARARAQUARA (14 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-green-400 p-3 rounded text-center">
@@ -68,8 +65,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* S. J. DOS CAMPOS (19 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">S. J. DOS CAMPOS (19 LOJAS)</div>
+              S. J. DOS CAMPOS (19 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -88,8 +84,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* S. J. DOS CAMPOS (15 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">S. J. DOS CAMPOS (15 LOJAS)</div>
+              S. J. DOS CAMPOS (15 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -108,8 +103,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* MOGI DAS CRUZES (25 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">MOGI DAS CRUZES (25 LOJAS)</div>
+              MOGI DAS CRUZES (25 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -128,8 +122,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* FLORIANÓPOLIS (27 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">FLORIANÓPOLIS (27 LOJAS)</div>
+              FLORIANÓPOLIS (27 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -148,8 +141,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* PORTO ALEGRE (20 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">PORTO ALEGRE (20 LOJAS)</div>
+              PORTO ALEGRE (20 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -168,8 +160,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* PORTO ALEGRE (19 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">PORTO ALEGRE (19 LOJAS)</div>
+              PORTO ALEGRE (19 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
@@ -188,8 +179,7 @@ const EstruturaDepartamentoAuditoria = () => {
           {/* PORTO ALEGRE (17 LOJAS) - GRUPO VERMELHO */}
           <div className="bg-red-500 text-white rounded-lg">
             <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
-              GRUPO VERMELHO
-              <div className="text-sm font-normal mt-1">PORTO ALEGRE (17 LOJAS)</div>
+              PORTO ALEGRE (17 LOJAS)
             </div>
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
