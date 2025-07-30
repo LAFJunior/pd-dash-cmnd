@@ -102,17 +102,17 @@ const EstruturaDepartamentoAuditoria = () => {
           </div>
 
           {/* MOGI DAS CRUZES (25 LOJAS) - GRUPO VERMELHO */}
-          <div className="bg-red-500 text-white rounded-lg">
-            <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+          <div className="bg-gray-500 text-white rounded-lg">
+            <div className="bg-gray-600 p-4 rounded-t-lg text-center font-bold">
               MOGI DAS CRUZES (25 LOJAS)
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-gray-400 p-3 rounded text-center">
                 <div className="font-semibold">LUCAS FARIAS (AUDITOR)</div>
                 <div className="text-sm opacity-90">LUCAS.FARIAS@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-gray-400 p-3 rounded text-center">
                 <div className="font-semibold">JEAN PEREIRA (CONFERENTE)</div>
                 <div className="text-sm opacity-90">JEAN.PEREIRA@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -121,12 +121,12 @@ const EstruturaDepartamentoAuditoria = () => {
           </div>
 
           {/* FLORIANÓPOLIS (27 LOJAS) - GRUPO VERMELHO */}
-          <div className="bg-red-500 text-white rounded-lg">
-            <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+          <div className="bg-orange-500 text-white rounded-lg">
+            <div className="bg-orange-600 p-4 rounded-t-lg text-center font-bold">
               FLORIANÓPOLIS (27 LOJAS)
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-orange-400 p-3 rounded text-center">
                 <div className="font-semibold">JHOANY JOSE (AUDITOR)</div>
                 <div className="text-sm opacity-90">JHOANY.JOSE@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -140,12 +140,12 @@ const EstruturaDepartamentoAuditoria = () => {
           </div>
 
           {/* PORTO ALEGRE (20 LOJAS) - GRUPO VERMELHO */}
-          <div className="bg-red-500 text-white rounded-lg">
-            <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+          <div className="bg-violet-500 text-white rounded-lg">
+            <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
               PORTO ALEGRE (20 LOJAS)
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">MARCELINO RODRIGUES (AUDITOR)</div>
                 <div className="text-sm opacity-90">MARCELINO.RODRIGUES@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -159,12 +159,12 @@ const EstruturaDepartamentoAuditoria = () => {
           </div>
 
           {/* PORTO ALEGRE (19 LOJAS) - GRUPO VERMELHO */}
-          <div className="bg-red-500 text-white rounded-lg">
-            <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+          <div className="bg-violet-500 text-white rounded-lg">
+            <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
               PORTO ALEGRE (19 LOJAS)
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">YURI SANTOS (AUDITOR)</div>
                 <div className="text-sm opacity-90">YURI.SANTOS@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -178,20 +178,20 @@ const EstruturaDepartamentoAuditoria = () => {
           </div>
 
           {/* PORTO ALEGRE (17 LOJAS) - GRUPO VERMELHO */}
-          <div className="bg-red-500 text-white rounded-lg">
-            <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+          <div className="bg-violet-500 text-white rounded-lg">
+            <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
               PORTO ALEGRE (17 LOJAS)
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">CRISTIANO FREITAS (AUDITOR)</div>
                 <div className="text-sm opacity-90">CRISTIANO.FREITAS@GRUPOOSCAR.COM.BR</div>
                 <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">ISAC ALVES (CONFERENTE)</div>
-                <div className="text-sm opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-sm opacity-80">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
+                <div className="text-sm opacity-80">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
