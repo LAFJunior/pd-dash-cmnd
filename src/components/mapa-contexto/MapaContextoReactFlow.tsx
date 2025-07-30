@@ -29,126 +29,110 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
 
   // Definindo os nós baseados na imagem fornecida
   const initialNodes: Node[] = [
-    // Linha superior
-    { id: 'diretor-presidente', type: 'department', position: { x: 500, y: 50 }, data: { label: 'Diretor Presidente', color: '#E8E8E8', width: 120, height: 40 } },
+    // BackOffice - Lado esquerdo
+    { id: 'franquias', type: 'department', position: { x: 50, y: 100 }, data: { label: 'Franquias', color: '#E8E8E8', width: 80, height: 40 } },
+    { id: 'auditoria', type: 'department', position: { x: 200, y: 100 }, data: { label: 'Auditoria', color: '#E8E8E8', width: 80, height: 50 } },
+    { id: 'contabil', type: 'department', position: { x: 350, y: 100 }, data: { label: 'Contábil', color: '#E8E8E8', width: 80, height: 50 } },
+    { id: 'recursos-humanos', type: 'department', position: { x: 500, y: 50 }, data: { label: 'Recursos Humanos', color: '#E8E8E8', width: 100, height: 60 } },
+    { id: 'depto-pessoal', type: 'department', position: { x: 650, y: 100 }, data: { label: 'Departamento Pessoal', color: '#E8E8E8', width: 90, height: 50 } },
     
-    // Segunda linha - Diretores
-    { id: 'diretor-comercial', type: 'department', position: { x: 200, y: 150 }, data: { label: 'Diretor Comercial', color: '#E8E8E8', width: 120, height: 40 } },
-    { id: 'diretor-administrativo', type: 'department', position: { x: 400, y: 150 }, data: { label: 'Diretor Administrativo', color: '#E8E8E8', width: 120, height: 40 } },
-    { id: 'diretor-financeiro', type: 'department', position: { x: 600, y: 150 }, data: { label: 'Diretor Financeiro', color: '#E8E8E8', width: 120, height: 40 } },
-    { id: 'diretor-operacional', type: 'department', position: { x: 800, y: 150 }, data: { label: 'Diretor Operacional', color: '#E8E8E8', width: 120, height: 40 } },
+    { id: 'dissolve-brasil', type: 'department', position: { x: 50, y: 200 }, data: { label: 'Dissolve Brasil', color: '#D4E6D4', width: 80, height: 40 } },
     
-    // Terceira linha - Gerentes e Coordenadores
-    { id: 'gerente-vendas', type: 'department', position: { x: 50, y: 250 }, data: { label: 'Gerente de Vendas', color: '#D4E6D4', width: 110, height: 40 } },
-    { id: 'coord-marketing', type: 'department', position: { x: 200, y: 250 }, data: { label: 'Coord. Marketing', color: '#D4E6D4', width: 110, height: 40 } },
-    { id: 'coord-ecommerce', type: 'department', position: { x: 350, y: 250 }, data: { label: 'Coord. E-commerce', color: '#D4E6D4', width: 110, height: 40 } },
+    // Segunda linha
+    { id: 'compras', type: 'department', position: { x: 200, y: 250 }, data: { label: 'Compras', color: '#D4E6D4', width: 80, height: 50 } },
+    { id: 'financeiro', type: 'department', position: { x: 350, y: 250 }, data: { label: 'Financeiro', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'fiscal', type: 'department', position: { x: 500, y: 250 }, data: { label: 'Fiscal', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'marketing', type: 'department', position: { x: 650, y: 250 }, data: { label: 'Marketing', color: '#D4E6D4', width: 80, height: 50 } },
     
-    { id: 'gerente-rh', type: 'department', position: { x: 500, y: 250 }, data: { label: 'Gerente de RH', color: '#E8D4D4', width: 110, height: 40 } },
-    { id: 'coord-ti', type: 'department', position: { x: 650, y: 250 }, data: { label: 'Coord. T.I.', color: '#E8D4D4', width: 110, height: 40 } },
+    // LOJAS - Centro
+    { id: 'lojas', type: 'department', position: { x: 800, y: 150 }, data: { label: 'LOJAS', color: '#F0E8D4', width: 100, height: 60 } },
+    { id: 'gerentes', type: 'department', position: { x: 800, y: 250 }, data: { label: 'Gerentes', color: '#F0E8D4', width: 80, height: 40 } },
+    { id: 'caixa', type: 'department', position: { x: 800, y: 320 }, data: { label: 'Caixa', color: '#F0E8D4', width: 60, height: 35 } },
+    { id: 'vendas', type: 'department', position: { x: 800, y: 380 }, data: { label: 'Vendas', color: '#F0E8D4', width: 60, height: 35 } },
     
-    { id: 'gerente-financeiro', type: 'department', position: { x: 800, y: 250 }, data: { label: 'Gerente Financeiro', color: '#D4D4E8', width: 110, height: 40 } },
-    { id: 'coord-controladoria', type: 'department', position: { x: 950, y: 250 }, data: { label: 'Coord. Controladoria', color: '#D4D4E8', width: 110, height: 40 } },
+    // Terceira linha
+    { id: 'desenvolvimento', type: 'department', position: { x: 200, y: 400 }, data: { label: 'Desenvolvimento', color: '#D4E6D4', width: 90, height: 50 } },
+    { id: 'ti-operacoes', type: 'department', position: { x: 350, y: 400 }, data: { label: 'T.I. Operações', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'controladoria', type: 'department', position: { x: 500, y: 400 }, data: { label: 'Controladoria', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'sao-jose-campos', type: 'department', position: { x: 650, y: 400 }, data: { label: 'São José dos Campos', color: '#F0E8D4', width: 90, height: 50 } },
     
-    { id: 'gerente-operacoes', type: 'department', position: { x: 1100, y: 250 }, data: { label: 'Gerente de Operações', color: '#F0E8D4', width: 110, height: 40 } },
+    // Quarta linha
+    { id: 'ti-projetos', type: 'department', position: { x: 200, y: 550 }, data: { label: 'T.I. Projetos e Inovações', color: '#D4E6D4', width: 90, height: 50 } },
+    { id: 'festcard', type: 'department', position: { x: 350, y: 550 }, data: { label: 'Festcard', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'suprimentos', type: 'department', position: { x: 500, y: 550 }, data: { label: 'Suprimentos', color: '#D4D4E8', width: 80, height: 50 } },
+    { id: 'defeitos', type: 'department', position: { x: 650, y: 550 }, data: { label: 'Defeitos', color: '#F0E8D4', width: 80, height: 50 } },
     
-    // Quarta linha - Supervisores e Coordenadores
-    { id: 'supervisor-vendas', type: 'department', position: { x: 50, y: 350 }, data: { label: 'Supervisor de Vendas', color: '#D4E6D4', width: 100, height: 35 } },
-    { id: 'analista-marketing', type: 'department', position: { x: 200, y: 350 }, data: { label: 'Analista Marketing', color: '#D4E6D4', width: 100, height: 35 } },
-    { id: 'analista-ecommerce', type: 'department', position: { x: 350, y: 350 }, data: { label: 'Analista E-commerce', color: '#D4E6D4', width: 100, height: 35 } },
+    // Clientes - Lado direito
+    { id: 'ecommerce', type: 'department', position: { x: 950, y: 150 }, data: { label: 'E-commerce', color: '#D4E6D4', width: 80, height: 50 } },
+    { id: 'reciclar', type: 'department', position: { x: 950, y: 450 }, data: { label: 'Reciclar', color: '#D4E6D4', width: 80, height: 50 } },
     
-    { id: 'analista-rh', type: 'department', position: { x: 500, y: 350 }, data: { label: 'Analista RH', color: '#E8D4D4', width: 100, height: 35 } },
-    { id: 'analista-ti', type: 'department', position: { x: 650, y: 350 }, data: { label: 'Analista T.I.', color: '#E8D4D4', width: 100, height: 35 } },
+    // Estoque Logística Reversa
+    { id: 'estoque-logistica', type: 'department', position: { x: 50, y: 450 }, data: { label: 'Estoque Logística Reversa', color: '#E8E8E8', width: 100, height: 50 } },
     
-    { id: 'analista-financeiro', type: 'department', position: { x: 800, y: 350 }, data: { label: 'Analista Financeiro', color: '#D4D4E8', width: 100, height: 35 } },
-    { id: 'analista-controladoria', type: 'department', position: { x: 950, y: 350 }, data: { label: 'Analista Controladoria', color: '#D4D4E8', width: 100, height: 35 } },
+    // São José Esporte Clube
+    { id: 'sao-jose-esporte', type: 'department', position: { x: 50, y: 550 }, data: { label: 'São José Esporte Clube', color: '#E8E8E8', width: 100, height: 50 } },
     
-    { id: 'supervisor-cd', type: 'department', position: { x: 1100, y: 350 }, data: { label: 'Supervisor CD', color: '#F0E8D4', width: 100, height: 35 } },
-    { id: 'supervisor-lojas', type: 'department', position: { x: 1250, y: 350 }, data: { label: 'Supervisor Lojas', color: '#F0E8D4', width: 100, height: 35 } },
+    // Diretorias Financeiras
+    { id: 'diretorias-financeiras', type: 'department', position: { x: 500, y: 700 }, data: { label: 'Diretorias Financeiras', color: '#D4D4E8', width: 120, height: 50 } },
     
-    // Quinta linha - Assistentes e Auxiliares
-    { id: 'assistente-vendas', type: 'department', position: { x: 50, y: 450 }, data: { label: 'Assistente Vendas', color: '#D4E6D4', width: 90, height: 30 } },
-    { id: 'aux-marketing', type: 'department', position: { x: 200, y: 450 }, data: { label: 'Aux. Marketing', color: '#D4E6D4', width: 90, height: 30 } },
-    { id: 'aux-ecommerce', type: 'department', position: { x: 350, y: 450 }, data: { label: 'Aux. E-commerce', color: '#D4E6D4', width: 90, height: 30 } },
+    // Credysystem
+    { id: 'credysystem', type: 'department', position: { x: 750, y: 700 }, data: { label: 'Credysystem', color: '#D4D4E8', width: 80, height: 50 } },
     
-    { id: 'assistente-rh', type: 'department', position: { x: 500, y: 450 }, data: { label: 'Assistente RH', color: '#E8D4D4', width: 90, height: 30 } },
-    { id: 'aux-ti', type: 'department', position: { x: 650, y: 450 }, data: { label: 'Aux. T.I.', color: '#E8D4D4', width: 90, height: 30 } },
+    // Especial (CD/Operação)
+    { id: 'especial-cd', type: 'department', position: { x: 800, y: 50 }, data: { label: 'Especial (CD/Operação)', color: '#F0E8D4', width: 100, height: 50 } },
     
-    { id: 'assistente-financeiro', type: 'department', position: { x: 800, y: 450 }, data: { label: 'Assistente Financeiro', color: '#D4D4E8', width: 90, height: 30 } },
-    { id: 'aux-controladoria', type: 'department', position: { x: 950, y: 450 }, data: { label: 'Aux. Controladoria', color: '#D4D4E8', width: 90, height: 30 } },
-    
-    { id: 'operador-cd', type: 'department', position: { x: 1100, y: 450 }, data: { label: 'Operador CD', color: '#F0E8D4', width: 90, height: 30 } },
-    { id: 'vendedor', type: 'department', position: { x: 1250, y: 450 }, data: { label: 'Vendedor', color: '#F0E8D4', width: 90, height: 30 } },
-    
-    // Sexta linha - Executores
-    { id: 'executores-comercial', type: 'department', position: { x: 200, y: 550 }, data: { label: 'Executores', color: '#D4E6D4', width: 150, height: 30 } },
-    { id: 'executores-admin', type: 'department', position: { x: 575, y: 550 }, data: { label: 'Executores', color: '#E8D4D4', width: 150, height: 30 } },
-    { id: 'executores-financeiro', type: 'department', position: { x: 875, y: 550 }, data: { label: 'Executores', color: '#D4D4E8', width: 150, height: 30 } },
-    { id: 'executores-operacional', type: 'department', position: { x: 1175, y: 550 }, data: { label: 'Executores', color: '#F0E8D4', width: 150, height: 30 } },
+    // Infl-ecommerce (CD/Operação)
+    { id: 'infl-ecommerce', type: 'department', position: { x: 950, y: 50 }, data: { label: 'Infl-ecommerce (CD/Operação)', color: '#F0E8D4', width: 100, height: 50 } },
   ];
 
-  // Definindo as conexões hierárquicas
+  // Definindo as conexões baseadas na imagem
   const initialEdges: Edge[] = [
-    // Conexões do Diretor Presidente
-    { id: 'e1', source: 'diretor-presidente', target: 'diretor-comercial', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e2', source: 'diretor-presidente', target: 'diretor-administrativo', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e3', source: 'diretor-presidente', target: 'diretor-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e4', source: 'diretor-presidente', target: 'diretor-operacional', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões BackOffice
+    { id: 'e1', source: 'auditoria', target: 'compras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e2', source: 'contabil', target: 'financeiro', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e3', source: 'recursos-humanos', target: 'depto-pessoal', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e4', source: 'recursos-humanos', target: 'fiscal', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    // Área Comercial
-    { id: 'e5', source: 'diretor-comercial', target: 'gerente-vendas', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e6', source: 'diretor-comercial', target: 'coord-marketing', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e7', source: 'diretor-comercial', target: 'coord-ecommerce', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões com LOJAS
+    { id: 'e5', source: 'lojas', target: 'gerentes', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e6', source: 'gerentes', target: 'caixa', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e7', source: 'gerentes', target: 'vendas', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    { id: 'e8', source: 'gerente-vendas', target: 'supervisor-vendas', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e9', source: 'coord-marketing', target: 'analista-marketing', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e10', source: 'coord-ecommerce', target: 'analista-ecommerce', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões departamentais
+    { id: 'e8', source: 'compras', target: 'desenvolvimento', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e9', source: 'financeiro', target: 'ti-operacoes', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e10', source: 'fiscal', target: 'controladoria', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e11', source: 'marketing', target: 'sao-jose-campos', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    { id: 'e11', source: 'supervisor-vendas', target: 'assistente-vendas', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e12', source: 'analista-marketing', target: 'aux-marketing', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e13', source: 'analista-ecommerce', target: 'aux-ecommerce', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões com T.I. e projetos
+    { id: 'e12', source: 'desenvolvimento', target: 'ti-projetos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e13', source: 'ti-operacoes', target: 'festcard', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e14', source: 'controladoria', target: 'suprimentos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e15', source: 'sao-jose-campos', target: 'defeitos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    // Área Administrativa
-    { id: 'e14', source: 'diretor-administrativo', target: 'gerente-rh', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e15', source: 'diretor-administrativo', target: 'coord-ti', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões com clientes/externos
+    { id: 'e16', source: 'marketing', target: 'ecommerce', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e17', source: 'ecommerce', target: 'lojas', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e18', source: 'lojas', target: 'reciclar', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    { id: 'e16', source: 'gerente-rh', target: 'analista-rh', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e17', source: 'coord-ti', target: 'analista-ti', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões com fornecedores/parceiros
+    { id: 'e19', source: 'dissolve-brasil', target: 'compras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e20', source: 'estoque-logistica', target: 'desenvolvimento', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e21', source: 'sao-jose-esporte', target: 'ti-projetos', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    { id: 'e18', source: 'analista-rh', target: 'assistente-rh', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e19', source: 'analista-ti', target: 'aux-ti', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões financeiras
+    { id: 'e22', source: 'festcard', target: 'diretorias-financeiras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e23', source: 'suprimentos', target: 'diretorias-financeiras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e24', source: 'diretorias-financeiras', target: 'credysystem', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    // Área Financeira
-    { id: 'e20', source: 'diretor-financeiro', target: 'gerente-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e21', source: 'diretor-financeiro', target: 'coord-controladoria', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões CD/Operação
+    { id: 'e25', source: 'especial-cd', target: 'lojas', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e26', source: 'infl-ecommerce', target: 'ecommerce', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
-    { id: 'e22', source: 'gerente-financeiro', target: 'analista-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e23', source: 'coord-controladoria', target: 'analista-controladoria', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e24', source: 'analista-financeiro', target: 'assistente-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e25', source: 'analista-controladoria', target: 'aux-controladoria', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    // Área Operacional
-    { id: 'e26', source: 'diretor-operacional', target: 'gerente-operacoes', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e27', source: 'gerente-operacoes', target: 'supervisor-cd', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e28', source: 'gerente-operacoes', target: 'supervisor-lojas', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e29', source: 'supervisor-cd', target: 'operador-cd', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e30', source: 'supervisor-lojas', target: 'vendedor', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    // Conexões para executores
-    { id: 'e31', source: 'assistente-vendas', target: 'executores-comercial', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e32', source: 'aux-marketing', target: 'executores-comercial', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e33', source: 'aux-ecommerce', target: 'executores-comercial', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e34', source: 'assistente-rh', target: 'executores-admin', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e35', source: 'aux-ti', target: 'executores-admin', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e36', source: 'assistente-financeiro', target: 'executores-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e37', source: 'aux-controladoria', target: 'executores-financeiro', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    
-    { id: 'e38', source: 'operador-cd', target: 'executores-operacional', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e39', source: 'vendedor', target: 'executores-operacional', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    // Conexões internas
+    { id: 'e27', source: 'franquias', target: 'dissolve-brasil', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e28', source: 'caixa', target: 'financeiro', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
+    { id: 'e29', source: 'vendas', target: 'marketing', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
   ];
 
   const [nodes, setNodes, onNodesChange] = useNodesState(
