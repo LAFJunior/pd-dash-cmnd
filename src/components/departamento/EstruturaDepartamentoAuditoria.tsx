@@ -29,6 +29,7 @@ const EstruturaDepartamentoAuditoria = () => {
           <div className="bg-blue-500 text-white rounded-lg">
             <div className="bg-blue-600 p-4 rounded-t-lg text-center font-bold">
               BAURU (16 LOJAS)
+            </div>
             <div className="p-4 space-y-4">
               <div className="bg-blue-400 p-3 rounded text-center">
                 <div className="font-semibold">DANIEL CARVALHO (AUDITOR)</div>
