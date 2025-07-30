@@ -131,7 +131,7 @@ const EstruturaDepartamentoAuditoria = () => {
                 <div className="text-xs opacity-90">JHOANY.JOSE@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-orange-400 p-3 rounded text-center">
                 <div className="font-semibold">PABLO DANIEL (CONFERENTE)</div>
                 <div className="text-xs opacity-90">PABLO.DANIEL@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -150,7 +150,7 @@ const EstruturaDepartamentoAuditoria = () => {
                 <div className="text-xs opacity-90">MARCELINO.RODRIGUES@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">XXX (CONFERENTE)</div>
                 <div className="text-xs opacity-90">XX.XX@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -169,7 +169,7 @@ const EstruturaDepartamentoAuditoria = () => {
                 <div className="text-xs opacity-90">YURI.SANTOS@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">RODRIGO VAREIRA (CONFERENTE)</div>
                 <div className="text-xs opacity-90">RODRIGO.VAREIRA@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
@@ -188,7 +188,7 @@ const EstruturaDepartamentoAuditoria = () => {
                 <div className="text-xs opacity-90">CRISTIANO.FREITAS@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
-              <div className="bg-red-400 p-3 rounded text-center">
+              <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">ISAC ALVES (CONFERENTE)</div>
                 <div className="text-xs opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
