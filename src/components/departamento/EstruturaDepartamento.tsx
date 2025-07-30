@@ -366,6 +366,16 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
+  if (departamentoNormalizado.includes('auditoria')) {
+    // Retorna o componente específico para Auditoria
+    const EstruturaDepartamentoAuditoria = React.lazy(() => import('./EstruturaDepartamentoAuditoria'));
+    return (
+      <React.Suspense fallback={<div>Carregando...</div>}>
+        <EstruturaDepartamentoAuditoria />
+      </React.Suspense>
+    );
+  }
+
   if (departamentoNormalizado.includes('compras')) {
   // Dados estruturados para facilitar manutenção
   const departamentos = {
