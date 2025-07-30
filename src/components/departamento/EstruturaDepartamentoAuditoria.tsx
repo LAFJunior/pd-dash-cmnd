@@ -190,8 +190,8 @@ const EstruturaDepartamentoAuditoria = () => {
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">ISAC ALVES (CONFERENTE)</div>
-                <div className="text-sm opacity-80">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-80">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-sm opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
+                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
