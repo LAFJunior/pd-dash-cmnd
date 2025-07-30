@@ -33,13 +33,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-blue-400 p-3 rounded text-center">
                 <div className="font-semibold">DANIEL CARVALHO (AUDITOR)</div>
-                <div className="text-sm opacity-90">DANIEL.CARVALHO@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                <div className="text-xs opacity-90">DANIEL.CARVALHO@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) 97405-0730 - WHATSAPP</div>
               </div>
               <div className="bg-blue-400 p-3 rounded text-center">
                 <div className="font-semibold">GUILHERME ESTORINO (CONFERENTE)</div>
-                <div className="text-sm opacity-90">GUILHERME.ESTORINO@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                <div className="text-xs opacity-90">GUILHERME.ESTORINO@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) 99234-0913 - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -52,13 +52,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-green-400 p-3 rounded text-center">
                 <div className="font-semibold">WALDEIR CABRERA (AUDITOR)</div>
-                <div className="text-sm opacity-90">WALDEIR.CABRERA@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                <div className="text-xs opacity-90">WALDEIR.CABRERA@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) 97405-0730 - WHATSAPP</div>
               </div>
               <div className="bg-green-400 p-3 rounded text-center">
                 <div className="font-semibold">FABIO RIBEIRO (CONFERENTE)</div>
-                <div className="text-sm opacity-90">FABIO.RIBEIRO@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                <div className="text-xs opacity-90">FABIO.RIBEIRO@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) 99234-0913 - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -71,13 +71,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">CLEVERSON RIBEIRO (AUDITOR)</div>
-                <div className="text-sm opacity-90">CLEVERSON.RIBEIRO@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">CLEVERSON.RIBEIRO@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">PEDRO AUGUSTO (CONFERENTE)</div>
-                <div className="text-sm opacity-90">PEDRO.AUGUSTO@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">PEDRO.AUGUSTO@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -90,13 +90,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">GABRIEL ELIAS (AUDITOR)</div>
-                <div className="text-sm opacity-90">GABRIEL.ELIAS@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">GABRIEL.ELIAS@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">EMELLYN THACIANE (CONFERENTE)</div>
-                <div className="text-sm opacity-90">EMELLYN.THACIANE@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">EMELLYN.THACIANE@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -109,13 +109,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-gray-400 p-3 rounded text-center">
                 <div className="font-semibold">LUCAS FARIAS (AUDITOR)</div>
-                <div className="text-sm opacity-90">LUCAS.FARIAS@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">LUCAS.FARIAS@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-gray-400 p-3 rounded text-center">
                 <div className="font-semibold">JEAN PEREIRA (CONFERENTE)</div>
-                <div className="text-sm opacity-90">JEAN.PEREIRA@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">JEAN.PEREIRA@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -128,13 +128,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-orange-400 p-3 rounded text-center">
                 <div className="font-semibold">JHOANY JOSE (AUDITOR)</div>
-                <div className="text-sm opacity-90">JHOANY.JOSE@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">JHOANY.JOSE@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">PABLO DANIEL (CONFERENTE)</div>
-                <div className="text-sm opacity-90">PABLO.DANIEL@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">PABLO.DANIEL@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -147,13 +147,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">MARCELINO RODRIGUES (AUDITOR)</div>
-                <div className="text-sm opacity-90">MARCELINO.RODRIGUES@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">MARCELINO.RODRIGUES@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">XXX (CONFERENTE)</div>
-                <div className="text-sm opacity-90">XX.XX@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">XX.XX@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -166,13 +166,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">YURI SANTOS (AUDITOR)</div>
-                <div className="text-sm opacity-90">YURI.SANTOS@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">YURI.SANTOS@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">RODRIGO VAREIRA (CONFERENTE)</div>
-                <div className="text-sm opacity-90">RODRIGO.VAREIRA@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">RODRIGO.VAREIRA@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
@@ -185,13 +185,13 @@ const EstruturaDepartamentoAuditoria = () => {
             <div className="p-4 space-y-4">
               <div className="bg-violet-400 p-3 rounded text-center">
                 <div className="font-semibold">CRISTIANO FREITAS (AUDITOR)</div>
-                <div className="text-sm opacity-90">CRISTIANO.FREITAS@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">CRISTIANO.FREITAS@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-red-400 p-3 rounded text-center">
                 <div className="font-semibold">ISAC ALVES (CONFERENTE)</div>
-                <div className="text-sm opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
-                <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                <div className="text-xs opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
+                <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
           </div>
