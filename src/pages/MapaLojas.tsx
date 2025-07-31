@@ -354,7 +354,10 @@ const MapaLojas = () => {
 
   const totalLojas = lojas.filter(l => l.tipo === 'loja').length;
   const totalCDs = lojas.filter(l => l.tipo === 'cd').length;
-  const totalEstados = new Set(lojas.map(l => l.endereco.split(', ')[1])).size;
+  const totalEstados = new Set(lojas.map(l => {
+    const match = l.endereco.match(/,\s([A-Z]{2})\s-/);
+    return match ? match[1] : null;
+  }).filter(Boolean)).size;
 
   return (
     <div className="animate-fade-in h-full flex flex-col">
