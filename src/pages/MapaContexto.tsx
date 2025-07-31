@@ -13,7 +13,7 @@ const MapaContexto = () => {
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="w-full h-full flex justify-center items-center">
           <img 
-            src="/lovable-uploads/1d62d2d6-c131-428e-9334-97bdedf371de.png" 
+            src="/lovable-uploads/f47813ca-8548-47f0-ab12-53610d1fc22a.png" 
             alt="Mapa de Contexto Empresarial" 
             className="max-w-full h-auto rounded-lg shadow-sm"
           />
