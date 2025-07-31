@@ -151,8 +151,8 @@ const EstruturaDepartamentoAuditoria = () => {
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
               <div className="bg-violet-400 p-3 rounded text-center">
-                <div className="font-semibold">XXX (CONFERENTE)</div>
-                <div className="text-xs opacity-90">XX.XX@GRUPOOSCAR.COM.BR</div>
+                <div className="font-semibold"> MURILO (CONFERENTE)</div>
+                <div className="text-xs opacity-90"> MURILO@GRUPOOSCAR.COM.BR</div>
                 <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
               </div>
             </div>
