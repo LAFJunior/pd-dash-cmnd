@@ -81,7 +81,7 @@ const EstruturaSaoJoseCampos: React.FC = () => {
         <Colaborador 
           nome="Márcio Sampaio" 
           cargo="Diretor" 
-          setor="CD/Operações"
+          setor=""
           nivel={1}
           icon={<Crown size={24} />}
         />
@@ -99,11 +99,12 @@ const EstruturaSaoJoseCampos: React.FC = () => {
 
       {/* Nível 4 - Estoquistas */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
-        <Colaborador nome="Renan" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
-        <Colaborador nome="Felipe" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Julio" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
         <Colaborador nome="Marcelo" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Renan" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Paulo" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
+        <Colaborador nome="Abner" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
         <Colaborador nome="Matheus" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
-        <Colaborador nome="Patrick Julio" cargo="Estoquista" setor="CD/Operações" nivel={4} icon={<Package size={14} />} />
       </div>
 
       {/* Nível 5 - Motoristas */}
