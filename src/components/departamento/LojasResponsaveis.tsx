@@ -36,7 +36,7 @@ const LojasResponsaveis = () => {
                 <span className="block font-bold mb-1">F5</span>
                 <span className="block font-bold mb-1">Oscar Calçados Comércio Eletrônico Ltda</span>
                 <div className="text-left text-sm text-gray-700 border-t border-gray-300 pt-2 mt-2">
-                  <div className="mb-1">Loja E-commerce</div>
+                  <div className="mb-1 text-center">Loja E-commerce</div>
                 </div>
               </td>
               <td className="border border-black p-3 text-center align-top">
@@ -45,9 +45,9 @@ const LojasResponsaveis = () => {
                  <span className="block font-bold mb-1">Paquetá</span>
                  <span className="block font-bold mb-1">Gaston</span>
                 <div className="text-left text-sm text-gray-700 border-t border-gray-300 pt-2 mt-2">
-                  <div className="mb-1"><strong>FestClub - FESTCARD</strong> - CNPJ: 15.674.394/0001-</div>
-                  <div className="mb-1"><strong>300 - Matriz</strong> - CNPJ: 49.961.545/0001-</div>
-                  <div className="mb-1"><strong>301 - CD SAPUCAIA</strong> - CNPJ: 49.961.545/0005-</div>
+                  <div className="mb-1 text-center"><strong>FestClub - FESTCARD</strong> </div>
+                  <div className="mb-1 text-center"><strong>300 - Matriz</strong> </div>
+                  <div className="mb-1 text-center"><strong>301 - CD SAPUCAIA</strong> </div>
                 </div>
               </td>
               <td className="border border-black p-3 text-center align-top">
