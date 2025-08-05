@@ -136,7 +136,7 @@ const DetalheDepartamento = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Building2 className="text-indigo-600" size={24} />
-                    Centro de Custo
+                    Grupos de Lojas
                   </CardTitle>
                 </CardHeader>
                 <CardContent>

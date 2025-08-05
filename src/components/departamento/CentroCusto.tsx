@@ -77,9 +77,9 @@ const CentroCusto = () => {
           <div className="text-[7px] mb-0.5">123 - Resende<br/><span className="text-[6px] text-gray-600">50.915.875/0033-79</span></div>
           <div className="text-[7px] mb-0.5">124 - Centro SJC<br/><span className="text-[6px] text-gray-600">50.915.875/0027-20</span></div>
           <div className="text-[7px] mb-0.5">125 – Centro SJC<br/><span className="text-[6px] text-gray-600">50.915.875/0028-01</span></div>
-          <div className="text-[7px] mb-0.5">126 - Centro Guaratinguetá<br/><span className="text-[6px] text-gray-600">50.915.875/0029-92</span></div>
-          <div className="text-[7px] mb-0.5">127 - Centro Jacareí<br/><span className="text-[6px] text-gray-600">50.915.875/0030-26</span></div>
-          <div className="text-[7px] mb-0.5">128 - Centro - Taubaté<br/><span className="text-[6px] text-gray-600">50.915.875/0031-07</span></div>
+          <div className="text-[7px] mb-0.5 text-center">126 - Centro Guaratinguetá<br/><span className="text-[6px] text-gray-600">50.915.875/0029-92</span></div>
+          <div className="text-[7px] mb-0.5 text-center">127 - Centro Jacareí<br/><span className="text-[6px] text-gray-600">50.915.875/0030-26</span></div>
+          <div className="text-[7px] mb-0.5 text-center">128 - Centro - Taubaté<br/><span className="text-[6px] text-gray-600">50.915.875/0031-07</span></div>
           <div className="mt-2 text-[7px] text-center font-bold">28 LOJAS</div>
         </div>
 
