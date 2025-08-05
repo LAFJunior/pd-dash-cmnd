@@ -4,7 +4,7 @@ const CentroCusto = () => {
   return (
     <div className="w-full max-w-[1400px] mx-auto bg-white text-[11px] leading-tight">
       {/* Header Row */}
-      <div className="flex bg-gray-100 border border-black font-bold text-center">
+      <div className="flex bg-slate-200 border border-black font-bold text-center">
         <div className="flex-1 border-r border-black p-1 min-h-[40px] flex flex-col justify-center">
           <div>F1</div>
           <div className="text-[10px]">Oscar Calçados Ltda</div>
@@ -80,7 +80,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">126 - Centro Guaratinguetá<br/><span className="text-[10px] text-gray-600">50.915.875/0029-92</span></div>
           <div className="text-[8px] mb-0.5 text-center">127 - Centro Jacareí<br/><span className="text-[10px] text-gray-600">50.915.875/0030-26</span></div>
           <div className="text-[8px] mb-0.5 text-center">128 - Centro - Taubaté<br/><span className="text-[10px] text-gray-600">50.915.875/0031-07</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">28 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">28 LOJAS</div>
         </div>
 
         {/* Coluna F2 - Jô Calçados */}
@@ -115,7 +115,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">118 - Catanduva<br/><span className="text-[10px] text-gray-600">48.973.705/0015-17</span></div>
           <div className="text-[8px] mb-0.5 text-center">119 - Barretos<br/><span className="text-[10px] text-gray-600">48.973.705/0029-12</span></div>
           <div className="text-[8px] mb-0.5 text-center">120 - Pres. Prudente<br/><span className="text-[10px] text-gray-600">48.973.705/0007-07</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">30 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">30 LOJAS</div>
         </div>
 
         {/* Coluna F3 - Carioca Calçados */}
@@ -142,7 +142,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">227 - Forquilhinhas / São José<br/><span className="text-[10px] text-gray-600">78.842.440/0022-08</span></div>
           <div className="text-[8px] mb-0.5 text-center">228 - Centro / Biguaçu<br/><span className="text-[10px] text-gray-600">78.842.440/0019-02</span></div>
           <div className="text-[8px] mb-0.5 text-center">297 - CD-Bela Vista/São José<br/><span className="text-[10px] text-gray-600">78.842.440/0008-50</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">21 LOJAS + 1 CD</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">21 LOJAS + 1 CD</div>
         </div>
 
         {/* Coluna F4 - Varejo Sul (Paquetá) */}
@@ -178,7 +178,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">378 - Shopping Pelotas - Pelotas<br/><span className="text-[10px] text-gray-600">49.961.545/0005-87</span></div>
           <div className="text-[8px] mb-0.5 text-center">382 - Shopping Gravataí - Gravataí<br/><span className="text-[10px] text-gray-600">49.961.545/0019-82</span></div>
           <div className="text-[8px] mb-0.5 text-center">391 - Balneário Camburiu - SC<br/><span className="text-[10px] text-gray-600">49.961.545/0065-18</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">31 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">31 LOJAS</div>
         </div>
 
         {/* Coluna F4 - Varejo Sul (Gaston) */}
@@ -213,13 +213,13 @@ const CentroCusto = () => {
           <div className="border-t border-gray-300 my-1"></div>
           <div className="text-[8px] mb-0.5 text-center">300 - Matriz<br/><span className="text-[10px] text-gray-600">49.961.545/0001-53</span></div>
           <div className="text-[8px] mb-0.5 text-center">301 - CD SAPUCAIA<br/><span className="text-[10px] text-gray-600">49.961.545/0055-46</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">27 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">27 LOJAS</div>
         </div>
 
         {/* Coluna F5 - E-commerce */}
         <div className="flex-1 border-r border-black p-1 align-top">
           <div className="text-[8px] mb-0.5 text-center">600 - Oscar Calç. Com Eletrônico<br/><span className="text-[10px] text-gray-600">54.650.901/0001-58</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">8 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-red-200 p-1 rounded">8 LOJAS</div>
         </div>
 
         {/* Coluna F7 - OSCAR/SPORT */}
@@ -232,7 +232,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">052 - Outlet Bauru  - RC . Bauru - OPS<br/><span className="text-[10px] text-gray-600">61.195.652/0001-13</span></div>
           <div className="text-[8px] mb-0.5 text-center">053 - Shop. Bauru - RC . Bauru<br/><span className="text-[10px] text-gray-600">45.151.240/0001-25</span></div>
           <div className="text-[8px] mb-0.5 text-center">076 - Bruno Const. - Oscar Motorama<br/><span className="text-[10px] text-gray-600">09.332.225/0001-10</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">8 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-purple-200 p-1 rounded">8 LOJAS</div>
         </div>
 
         {/* Coluna F8 - SCARLEN/STOCK/CONST */}
@@ -253,7 +253,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">151 - Associação dos Locatários<br/><span className="text-[10px] text-gray-600">54.620.686/0001-42</span></div>
           <div className="border-t border-gray-300 my-1"></div>
           <div className="text-[8px] mb-0.5 text-center font-bold">BACKOFFICE</div>
-          <div className="mt-2 text-[8px] text-center font-bold">15 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-purple-200 p-1 rounded">15 LOJAS</div>
         </div>
 
         {/* Coluna F9 - FRANQUIAS */}
@@ -285,7 +285,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">DD-001 - Diadora - BRANDS<br/><span className="text-[10px] text-gray-600">24.808.018/0001-82</span></div>
           <div className="text-[8px] mb-0.5 text-center">DD-002 - Diadora - BRANDS<br/><span className="text-[10px] text-gray-600">24.808.018/0002-63</span></div>
           <div className="text-[8px] mb-0.5 text-center">FC-001 - FestClub - FESTCARD<br/><span className="text-[10px] text-gray-600">15.674.394/0001-30</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">24 UNIDADES</div>
+          <div className="mt-2 text-[8px] text-center font-bold bg-purple-200 p-1 rounded">24 UNIDADES</div>
         </div>
       </div>
 
