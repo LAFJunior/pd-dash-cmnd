@@ -51,16 +51,6 @@ const ProcessoDetalhe: React.FC<ProcessoDetalheProps> = ({ processo, onClose }) 
 
         {/* Content */}
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
-          {/* Sistemas Utilizados */}
-          <div className="text-center mb-6">
-            <div className="bg-gray-50 p-6 rounded-lg max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <Settings size={20} className="text-purple-600" />
-                <span className="font-semibold text-lg">Sistemas Utilizados</span>
-              </div>
-              <p className="text-gray-700 text-base">{processo.sistemas_utilizados.join(', ')}</p>
-            </div>
-          </div>
 
           {/* Entrada e Saída */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -131,6 +121,17 @@ const ProcessoDetalhe: React.FC<ProcessoDetalheProps> = ({ processo, onClose }) 
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Sistemas Utilizados */}
+          <div className="text-center mt-8">
+            <div className="bg-gray-50 p-6 rounded-lg max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Settings size={20} className="text-purple-600" />
+                <span className="font-semibold text-lg">Sistemas Utilizados</span>
+              </div>
+              <p className="text-gray-700 text-base">{processo.sistemas_utilizados.join(', ')}</p>
+            </div>
           </div>
         </div>
       </div>
