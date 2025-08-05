@@ -23,7 +23,6 @@ const LojasResponsaveis = () => {
               <td className="border border-black p-3 text-center align-top">
                 <span className="block font-bold mb-1">F1</span>
                 <span className="block font-bold mb-1">Oscar Calçados Ltda</span>
-                <span className="block italic mb-2">Jully - Mateus</span>
               </td>
               <td className="border border-black p-3 text-center align-top">
                 <span className="block font-bold mb-1">F2</span>
