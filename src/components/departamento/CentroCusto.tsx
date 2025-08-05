@@ -290,7 +290,7 @@ const CentroCusto = () => {
 
       {/* Footer with company codes */}
       <div className="mt-2 text-center text-[10px] font-bold">
-        F1 F2 F3 F4 F4 F5 F7 F8 F9
+        Atualizado em 01/05/2025
       </div>
     </div>
   );
