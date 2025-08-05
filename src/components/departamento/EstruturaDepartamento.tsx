@@ -28,10 +28,11 @@ interface ColaboradorProps {
   setor?: string;
   nivel: number;
   icon?: React.ReactNode;
+  contato: number;
   email?: string;
 }
 
-const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, icon, email }) => {
+const Colaborador: React.FC<ColaboradorProps> = ({ nome, cargo, setor, nivel, icon, contato, email }) => {
   const getBackgroundColor = (nivel: number) => {
     switch (nivel) {
       case 1: return 'bg-gradient-to-r from-blue-600 to-purple-900';
@@ -95,7 +96,7 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
           <Colaborador 
             nome="Márcio Sampaio" 
             cargo="Diretor" 
-            setor="Financeiro"
+            setor=""
             nivel={1}
             icon={<Star size={24} />}
           />
@@ -103,23 +104,23 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
         
         {/* Nível 2 - Coordenação */}
         <div className="flex justify-center gap-1 mb-4">
-          <Colaborador nome="Flávia Araujo" cargo="Gerente" setor="Financeiro Varejo" nivel={2} icon={<Calculator size={20} />} />
+          <Colaborador nome="Flávia Araujo" cargo="Gerente" email="flavia.araujo@grupooscar.com.br" nivel={2} icon={<Calculator size={20} />} />
         </div>
         
         {/* Nível 3 - Analistas */}
         <div className="flex justify-center gap-1 mb-4">
-          <Colaborador nome="Tainá Leal" cargo="Analista" setor="Financeiro Varejo" nivel={3} icon={<FileText size={16} />} />
+          <Colaborador nome="Tainá Leal" cargo="Analista" email="taina.leal@grupooscar.com.br" nivel={3} icon={<FileText size={16} />} />
         </div>
         
         {/* Nível 4 - Auxiliares */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-          <Colaborador nome="Igor Justino" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Jully Silva" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Milena Oliveira" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Debora Miyamoto" cargo="Assistente" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Amanda Silva" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Carolina Lima" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
-          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" setor="Financeiro Varejo" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Igor Justino" cargo="Assistente" email="igor.jesuino@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Jully Silva" cargo="Assistente" email="jully.silva@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Milena Oliveira" cargo="Assistente" email="milena.oliveira@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Amanda Silva" cargo="Assistente" email="amanda.silva@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Carolina Lima" cargo="Auxiliar" email="carolina.lima@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Mateus Garcia" cargo="Auxiliar" email="mateus.garcia@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
+          <Colaborador nome="Sabrina Souza" cargo="Auxiliar" email="sabrina.souza@grupooscar.com.br" nivel={4} icon={<User size={14} />} />
         </div>
       </div>
     );
