@@ -11,8 +11,6 @@ export const auditoriaOscar: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-green-500 to-green-600',
   entrada: 'Dados dos caixas, registros de vendas, pagamentos realizados.',
   saida: 'Caixas fechados e auditados sem pendências. Recebíveis conferidos (PIX, Cartão, Festcard). Despesas corretamente validadas. Divergências corrigidas ou tratadas. Monitoramento de eficiência atualizado.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Diária',
   sistemas_utilizados: ['Mega', 'SITEF', 'Fiabilité', 'Equals', 'GetNet', 'QlikView'],
   subprocessos: [
     {

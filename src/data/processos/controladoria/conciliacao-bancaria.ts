@@ -11,8 +11,6 @@ export const conciliacaoBancaria: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
   entrada: 'Extratos bancários, relatórios de vendas com cartões e Pix, lançamentos financeiros no sistema Mega',
   saida: 'Conciliação bancária e de recebíveis concluída, com registros financeiros consistentes no sistema, pendências tratadas e dados prontos para fechamento contábil.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Diária',
   sistemas_utilizados: ['ERP Mega', 'Internet Banking', 'Conciliador', 'Equals'],
   subprocessos: [
     {

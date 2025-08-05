@@ -11,8 +11,6 @@ export const reposicaoArmazenamentoEstoque: ProcessoDetalhado = {
   entrada: 'Produtos recebidos após separações, devoluções ou movimentações internas.',
   saida: 'Produtos armazenados corretamente no estoque, organizados por marca, referência e numeração.',
   sistemas_utilizados: ['Estrutura física de estoque (prateleiras, caixas)', 'etiquetas'],
-  tempo_execucao: '45-60 minutos',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '5.1.1',
@@ -82,8 +80,6 @@ export const separacaoProdutos: ProcessoDetalhado = {
   entrada: 'Pedido de separação gerado por e-commerce, influenciador, loja ou estoque mínimo.',
   saida: 'Produtos separados corretamente para seus destinos (cliente, loja, influenciador), prontos para envio.',
   sistemas_utilizados: ['Mega', 'Relatórios', 'e-mail'],
-  tempo_execucao: '30-45 minutos por pedido',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '5.2.1',

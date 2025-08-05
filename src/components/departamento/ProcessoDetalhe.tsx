@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { X, ExternalLink, Clock, BarChart3, Settings } from 'lucide-react';
+import { X, ExternalLink, Settings } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 import { Button } from '@/components/ui/button';
 
@@ -51,30 +51,14 @@ const ProcessoDetalhe: React.FC<ProcessoDetalheProps> = ({ processo, onClose }) 
 
         {/* Content */}
         <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
-          {/* Informações Gerais */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <Clock size={16} className="text-blue-600" />
-                <span className="font-medium text-sm">Tempo de Execução</span>
+          {/* Sistemas Utilizados */}
+          <div className="text-center mb-6">
+            <div className="bg-gray-50 p-6 rounded-lg max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Settings size={20} className="text-purple-600" />
+                <span className="font-semibold text-lg">Sistemas Utilizados</span>
               </div>
-              <p className="text-gray-700">{processo.tempo_execucao}</p>
-            </div>
-            
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <BarChart3 size={16} className="text-green-600" />
-                <span className="font-medium text-sm">Frequência</span>
-              </div>
-              <p className="text-gray-700">{processo.frequencia}</p>
-            </div>
-            
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <div className="flex items-center gap-2 mb-2">
-                <Settings size={16} className="text-purple-600" />
-                <span className="font-medium text-sm">Sistemas</span>
-              </div>
-              <p className="text-gray-700">{processo.sistemas_utilizados.join(', ')}</p>
+              <p className="text-gray-700 text-base">{processo.sistemas_utilizados.join(', ')}</p>
             </div>
           </div>
 

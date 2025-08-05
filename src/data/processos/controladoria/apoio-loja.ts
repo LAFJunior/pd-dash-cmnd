@@ -11,8 +11,6 @@ export const apoioLoja: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
   entrada: 'Chamados via TopDesk, E-mail, WhatsApp e atendimento telefônico (Headsets), solicitações relacionadas a cadastro, cancelamentos, trocas, estornos ou ajustes de estoque/recebimento.',
   saida: 'Chamados resolvidos com tratativas registradas, trocas, estornos e devoluções processadas com conformidade, estoques corrigidos e clientes atendidos com rastreabilidade e casos reincidentes monitorados com suporte da controladoria e setores decisórios.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Diária',
   sistemas_utilizados: ['TopDesk', 'E-mail', 'Mega', 'Fiabilité', 'ZZNet Portal'],
   subprocessos: [
     {

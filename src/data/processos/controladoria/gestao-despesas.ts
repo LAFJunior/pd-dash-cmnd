@@ -11,8 +11,6 @@ export const gestaoDespesas: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
   entrada: 'Boletos, faturas mensais, contratos e comprovantes de despesas fixas ou variáveis recebidas por e-mail, site ou meio físico',
   saida: 'Despesas corretamente registradas, acompanhadas e quitadas, com rastreabilidade por planilhas e sistemas, garantindo controle financeiro eficiente.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Diária',
   sistemas_utilizados: ['E-mail', 'VExpenses', 'Planilha de Controle de Despesas', 'Mega', 'Internet Banking'],
   subprocessos: [
     {

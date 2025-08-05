@@ -11,8 +11,6 @@ export const indenizacoesDefeito: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-red-500 to-red-600',
   entrada: 'Produto com defeito identificado pela loja e comunicado ao departamento responsável',
   saida: 'Produtos defeituosos devidamente devolvidos, recebidos e registrados no estoque de defeito, com indenização concluída e baixa executada no sistema.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Conforme necessidade',
   sistemas_utilizados: ['E-mail corporativo', 'ERP Mega', 'Sistema financeiro'],
   subprocessos: [
     {

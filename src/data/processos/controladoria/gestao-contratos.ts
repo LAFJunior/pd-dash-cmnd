@@ -11,8 +11,6 @@ export const gestaoContratos: ProcessoDetalhado = {
   cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
   entrada: 'Acordo firmado entre diretor responsável e locatário para locação de imóvel comercial',
   saida: 'Contrato formalizado, assinado e digitalizado, com informações organizadas e atualizadas na ferramenta de gestão para controle contínuo.',
-  tempo_execucao: 'Conforme demanda',
-  frequencia: 'Conforme necessidade',
   sistemas_utilizados: ['E-mail corporativo', 'D4Sign', 'Linte'],
   subprocessos: [
     {

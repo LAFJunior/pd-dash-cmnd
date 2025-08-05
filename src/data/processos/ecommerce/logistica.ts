@@ -12,8 +12,6 @@ export const operacoesAftersale: ProcessoDetalhado = {
   entrada: 'Demanda de atualização cadastral ou necessidade de extração/atualização de dados referentes a devoluções e reversas via plataforma Aftersale.',
   saida: 'Lojas cadastradas/atualizadas corretamente no Aftersale, base de reversas exportada e tratada, planilha e dashboard atualizados, ações tomadas com base nas análises de dados.',
   sistemas_utilizados: ['Aftersale', 'Google Sheets', 'Jira', 'Looker Studio'],
-  tempo_execucao: '2-4 horas',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.1',

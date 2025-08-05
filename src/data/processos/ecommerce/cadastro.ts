@@ -12,8 +12,6 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
   entrada: 'Produto marcado como "Pronto para cadastro" na planilha de cadastro (Coluna AE).',
   saida: 'Produto cadastrado corretamente na VTEX, com título e descrição otimizados, imagens atribuídas e status "Finalizado" na planilha de controle.',
   sistemas_utilizados: ['Planilha de Cadastro', 'Mega', 'Google Drive', 'VTEX', 'Planilha de Descrição', 'ChatGPT'],
-  tempo_execucao: '30-60 minutos',
-  frequencia: 'Conforme demanda',
   subprocessos: [
     {
       id: '1.1',

@@ -12,8 +12,6 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
   entrada: 'Produto com defeito recebido da loja via remessa, com ou sem nota fiscal.',
   saida: 'Produtos com defeito devidamente triados, classificados e alocados para indenização, retorno ou descarte.',
   sistemas_utilizados: ['Puxadas organizadas por marca e departamento', 'planilha de controle', 'sistema interno'],
-  tempo_execucao: '30-45 minutos por produto',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.1',
@@ -123,8 +121,6 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
   entrada: 'Produto defeituoso classificado como indenizável, com base em triagem técnica e política de garantia.',
   saida: 'Indenização registrada, cobrada e compensada junto ao fornecedor com nota fiscal e controle interno.',
   sistemas_utilizados: ['Planilha de controle de defeitos', 'e-mail', 'nota de débito', 'sistema fiscal interno'],
-  tempo_execucao: '60-90 minutos',
-  frequencia: 'Mensal',
   subprocessos: [
     {
       id: '2.1',

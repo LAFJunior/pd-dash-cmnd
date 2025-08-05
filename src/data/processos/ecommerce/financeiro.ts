@@ -12,8 +12,6 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
   entrada: 'Documento fiscal ou solicitação de despesa enviada por e-mail.',
   saida: 'Despesa registrada no Mega, pendente de aprovação.',
   sistemas_utilizados: ['Mega', 'e-mail', 'planilha de controle de despesas', 'plataformas de fornecedores'],
-  tempo_execucao: '15-30 minutos',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.1',

@@ -12,8 +12,6 @@ export const recebimentoControleDespesas: ProcessoDetalhado = {
   entrada: 'Recebimento de despesas dos departamentos (T.I, Compras, RH, etc.).',
   saida: 'Despesas recebidas, conferidas e preparadas para pagamento.',
   sistemas_utilizados: ['Mega', 'e-mail interno', 'sistema de centro de custo'],
-  tempo_execucao: '30-45 minutos',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.1.1',
@@ -87,8 +85,6 @@ export const organizacaoAnaliseDespesas: ProcessoDetalhado = {
   entrada: 'Despesas validadas e autorizadas pelos gestores.',
   saida: 'Despesas organizadas em lotes prontos para pagamento.',
   sistemas_utilizados: ['Mega', 'DDA bancário', 'e-mail'],
-  tempo_execucao: '45-60 minutos',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.2.1',
@@ -155,8 +151,6 @@ export const pagamentoDespesas: ProcessoDetalhado = {
   entrada: 'Despesas organizadas para pagamentos.',
   saida: 'Despesas pagas conforme cronograma.',
   sistemas_utilizados: ['Mega', 'sistema bancário', 'e-mail', 'WhatsApp'],
-  tempo_execucao: '60-90 minutos',
-  frequencia: 'Diária',
   subprocessos: [
     {
       id: '1.3.1',

@@ -11,8 +11,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Notas fiscais emitidas pelos fornecedores, pelas lojas (diversas naturezas) e entre as lojas, extraídas do sistema MEGA.',
     saida: 'Notas importadas no sistema DOMINIO, separadas por tipo de operação, prontas para conferência e escrituração fiscal.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Diária',
     sistemas_utilizados: ['MEGA ERP', 'DOMINIO', 'NF STOCK'],
     subprocessos: [
       {
@@ -153,8 +151,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-green-500 to-emerald-600',
     entrada: 'Notas fiscais de fornecedores lançadas no sistema MEGA pelas lojas.',
     saida: 'Notas conferidas, ajustadas (quando necessário) e corretamente escrituradas no sistema DOMINIO, prontas para geração de obrigações acessórias.',
-    tempo_execucao: '3-4 horas',
-    frequencia: 'Diária',
     sistemas_utilizados: ['MEGA ERP', 'DOMINIO', 'NF STOCK'],
     subprocessos: [
       {
@@ -223,8 +219,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-amber-500 to-orange-600',
     entrada: 'Notas fiscais de entrada e saída devidamente escrituradas no sistema DOMINIO.',
     saida: 'Apuração do ICMS conferida e validada. Caso haja saldo a pagar, guia gerada para pagamento pelo financeiro. Caso haja saldo credor, o valor será acumulado para períodos futuros.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'MEGA ERP'],
     subprocessos: [
       {
@@ -302,8 +296,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-red-500 to-rose-600',
     entrada: 'ICMS devidamente apurado e validado no sistema DOMINIO.',
     saida: 'Arquivo SPED Fiscal (EFD ICMS/IPI) gerado, validado e transmitido à Receita Federal.',
-    tempo_execucao: '1-2 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Programa Validador EFD ICMS IPI'],
     subprocessos: [
       {
@@ -369,8 +361,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-violet-500 to-purple-600',
     entrada: 'Apuração do ICMS finalizada no sistema DOMINIO, contendo informações completas de entradas, saídas, créditos e débitos do período.',
     saida: 'Arquivo gerado, validado e transmitido com sucesso às Secretarias da Fazenda Estaduais (SP, RS e MG), com recibo de entrega salvo para controle interno.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Portal Sefaz/SP', 'Portal Sefaz/RS', 'Portal Sefaz/MG'],
     subprocessos: [
       {
@@ -496,8 +486,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Faturamento mensal apurado após o fechamento fiscal das lojas. Planilhas de controle de fechamento fiscal e cálculos baseados na Receita Federal.',
     saida: 'Guias de pagamento (DAS) geradas corretamente no portal do Simples Nacional e encaminhadas ao Departamento Financeiro para quitação dos tributos.',
-    tempo_execucao: '1-2 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['Portal e-CAC', 'Planilhas de controle'],
     subprocessos: [
       {
@@ -545,8 +533,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Encerramento da apuração do ICMS do mês, com as informações completas sobre operações sujeitas a Substituição Tributária (ST), Diferencial de Alíquota (DIFAL) e Antecipação Tributária.',
     saida: 'Arquivo da DESTDA gerado, validado e transmitido com sucesso para a Sefaz/SP, com recibo de entrega salvo, e eventuais débitos encaminhados ao setor financeiro para pagamento.',
-    tempo_execucao: '1-2 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Programa validador DESTDA'],
     subprocessos: [
       {
@@ -612,8 +598,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-indigo-500 to-blue-600',
     entrada: 'Análise de todas as notas fiscais de serviços recebidas pelas empresas do Grupo Oscar, identificando aquelas que possuem retenções federais (PIS, COFINS, Imposto de Renda PJ e PF, CSLL).',
     saida: 'Arquivo gerado com as informações de retenções federais (PIS, COFINS, Imposto de Renda PJ e PF, CSLL) e transmitido via Web Service à Receita Federal, com a conferência dos saldos devedores dentro da EFD Reinf e dados para a DCTF Web.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Web Service Receita Federal'],
     subprocessos: [
       {
@@ -691,8 +675,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-teal-500 to-cyan-600',
     entrada: 'Apuração do ICMS validada. Informações fiscais separadas por CFOP. Planilha interna de PIS e COFINS com base na apuração de ICMS.',
     saida: 'Apuração correta de PIS e COFINS validada. Geração e envio do SPED Contribuições à Receita Federal.',
-    tempo_execucao: '3-4 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Planilha PIS/COFINS', 'Validador SPED Contribuições'],
     subprocessos: [
       {
@@ -770,8 +752,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-orange-500 to-red-600',
     entrada: 'Cálculo e conferência dos impostos federais: PIS, COFINS, CSLL e IRPJ. Informações detalhadas sobre os tributos federais apurados.',
     saida: 'Arquivo gerado contendo os valores dos tributos federais, transmitido à Receita Federal. Débito gerado e registrado na DCTF Web.',
-    tempo_execucao: '1-2 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'DCTF Web'],
     subprocessos: [
       {
@@ -854,8 +834,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-rose-500 to-pink-600',
     entrada: 'Informações do eSocial enviadas pelo Departamento Pessoal, contendo dados sobre as obrigações trabalhistas e previdenciárias (INSS, IR, etc.). Dados relativos aos tributos federais a serem pagos.',
     saida: 'Arquivo da DCTF Web gerado com os débitos de tributos federais a serem pagos, transmitido à Receita Federal. Comprovante de envio com os débitos registrados.',
-    tempo_execucao: '1-2 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['eSocial', 'DCTF Web'],
     subprocessos: [
       {
@@ -933,8 +911,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Arquivos contendo as informações do MIT, REINF e eSocial (Senior – Departamento Pessoal), que já foram apurados e validados em processos anteriores.',
     saida: 'Envio consolidado das informações de MIT, REINF e eSocial para a DCTFWeb. Geração das guias dos impostos devidos para pagamento pelo Departamento Financeiro.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'eSocial Senior', 'REINF', 'DCTFWeb'],
     subprocessos: [
       {
@@ -1017,8 +993,6 @@ export const processosFiscal: ProcessoDetalhado[] = [
     cor: 'bg-gradient-to-r from-green-500 to-emerald-600',
     entrada: 'Competência fiscal encerrada (último dia do mês). Certificado digital da empresa. Notas fiscais com créditos disponíveis. Extrato da SEFAZ-PE da competência vigente.',
     saida: 'Planilha atualizada com os lançamentos de crédito. Créditos lançados corretamente no sistema DOMÍNIO. Guia de pagamento do extrato de fronteira gerada e disponível para o financeiro.',
-    tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal',
     sistemas_utilizados: ['DOMINIO', 'Portal SEFAZ-PE', 'Planilha de controle'],
     subprocessos: [
       {
