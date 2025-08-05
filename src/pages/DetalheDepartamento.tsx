@@ -12,6 +12,7 @@ import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
 import PilaresDepartamentoPessoal from '@/components/departamento/PilaresDepartamentoPessoal';
 import CentroCusto from '@/components/departamento/CentroCusto';
+import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 
@@ -129,6 +130,21 @@ const DetalheDepartamento = () => {
                 )}
               </CardContent>
             </Card>
+
+            {/* Lojas e responsáveis - Só exibe para Financeiro Varejo */}
+            {isFinanceiroVarejo && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Users className="text-blue-600" size={24} />
+                    Lojas e responsáveis
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <LojasResponsaveis />
+                </CardContent>
+              </Card>
+            )}
 
             {/* Centro de Custo - Só exibe para Financeiro Varejo */}
             {isFinanceiroVarejo && (
