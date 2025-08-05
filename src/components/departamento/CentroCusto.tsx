@@ -232,7 +232,7 @@ const CentroCusto = () => {
           <div className="text-[8px] mb-0.5 text-center">052 - Outlet Bauru  - RC . Bauru - OPS<br/><span className="text-[10px] text-gray-600">61.195.652/0001-13</span></div>
           <div className="text-[8px] mb-0.5 text-center">053 - Shop. Bauru - RC . Bauru<br/><span className="text-[10px] text-gray-600">45.151.240/0001-25</span></div>
           <div className="text-[8px] mb-0.5 text-center">076 - Bruno Const. - Oscar Motorama<br/><span className="text-[10px] text-gray-600">09.332.225/0001-10</span></div>
-          <div className="mt-2 text-[8px] text-center font-bold">7 LOJAS</div>
+          <div className="mt-2 text-[8px] text-center font-bold">8 LOJAS</div>
         </div>
 
         {/* Coluna F8 - SCARLEN/STOCK/CONST */}
