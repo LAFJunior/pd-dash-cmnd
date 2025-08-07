@@ -28,7 +28,7 @@ interface ColaboradorProps {
   setor?: string;
   nivel: number;
   icon?: React.ReactNode;
-  contato: number;
+  contato?: number;
   email?: string;
 }
 

@@ -8,7 +8,8 @@ import {
   Users, 
   Bot, 
   ChevronLeft,
-  Store
+  Store,
+  BookOpen
 } from 'lucide-react';
 
 interface MenuItemProps {
@@ -84,6 +85,15 @@ const Sidebar = () => {
           to="/agente-ia" 
           icon={<Bot size={20} />} 
           text="Agente IA Oscar" 
+          collapsed={collapsed}
+        />
+      </div>
+      
+      <div className="flex flex-col gap-1 p-2">
+        <MenuItem 
+          to="/docs-pd" 
+          icon={<BookOpen size={20} />} 
+          text="Docs - PD" 
           collapsed={collapsed}
         />
       </div>
