@@ -9,7 +9,8 @@ import {
   Bot, 
   ChevronLeft,
   Store,
-  BookOpen
+  BookOpen,
+  FileText
 } from 'lucide-react';
 
 interface MenuItemProps {
@@ -94,6 +95,12 @@ const Sidebar = () => {
           to="/docs-pd" 
           icon={<BookOpen size={20} />} 
           text="Docs - PD" 
+          collapsed={collapsed}
+        />
+        <MenuItem 
+          to="/documentacao" 
+          icon={<FileText size={20} />} 
+          text="Documentação" 
           collapsed={collapsed}
         />
       </div>

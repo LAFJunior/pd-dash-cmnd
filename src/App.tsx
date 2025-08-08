@@ -14,6 +14,7 @@ import Colaboradores from "./pages/Colaboradores";
 import AgenteIA from "./pages/AgenteIA";
 import NotFound from "./pages/NotFound";
 import DocumentacaoPD from "./pages/DocumentacaoPD";
+import Documentacao from "./pages/Documentacao";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +33,8 @@ const App = () => (
             <Route path="/departamentos/:nome" element={<DetalheDepartamento />} />
             <Route path="/colaboradores" element={<Colaboradores />} />
             <Route path="/agente-ia" element={<AgenteIA />} />
-            <Route path="/docs-pd" element={<DocumentacaoPD />} />
+          <Route path="/docs-pd" element={<DocumentacaoPD />} />
+          <Route path="/documentacao" element={<Documentacao />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
