@@ -98,6 +98,7 @@ const EstruturaDepartamentoPessoal = () => {
                   <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Estefan</div>
                   <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Luis Américo</div>
                   <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Mauricio</div>
+                  <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Thiago Miglioli</div>
                 </div>
                 <div className="mt-2">
                   <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Peterson</div>
