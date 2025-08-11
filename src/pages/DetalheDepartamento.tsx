@@ -15,6 +15,7 @@ import CentroCusto from '@/components/departamento/CentroCusto';
 import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
+import LojaVirtual from '@/components/departamento/LojaVirtual';
 
 const DetalheDepartamento = () => {
   const { nome } = useParams<{ nome: string }>();
@@ -67,6 +68,7 @@ const DetalheDepartamento = () => {
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
+  const isLojas = nomeDepartamento.toLowerCase().includes('lojas');
   
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
@@ -93,6 +95,9 @@ const DetalheDepartamento = () => {
         {/* Conteúdo específico para Recicalce */}
         {isRecicalce ? (
           <RecicalceInfo />
+        ) : isLojas ? (
+          /* Conteúdo específico para Lojas */
+          <LojaVirtual />
         ) : (
           <>
             {/* Estrutura do Departamento */}
