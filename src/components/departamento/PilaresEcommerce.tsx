@@ -16,8 +16,7 @@ const PilaresEcommerce: React.FC<PilaresEcommerceProps> = ({ onPilarSelect, pila
     { nome: 'Cadastro', icon: FileText, cor: 'bg-orange-500 hover:bg-orange-600' },
     { nome: 'SAC', icon: Phone, cor: 'bg-red-500 hover:bg-red-600' },
     { nome: 'Financeiro', icon: DollarSign, cor: 'bg-yellow-500 hover:bg-yellow-600' },
-    { nome: 'Marketplace', icon: Store, cor: 'bg-indigo-500 hover:bg-indigo-600' },
-    { nome: 'Produto', icon: Package, cor: 'bg-teal-500 hover:bg-teal-600' }
+    { nome: 'Marketplace', icon: Store, cor: 'bg-indigo-500 hover:bg-indigo-600' }
   ];
 
   return (
