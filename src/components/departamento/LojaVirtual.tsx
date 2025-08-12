@@ -58,7 +58,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Store className="text-green-600" size={20} />
-              🏪 Entrada da Loja
+              🏪 Frente da Loja
             </CardTitle>
           </CardHeader>
           <CardContent>
