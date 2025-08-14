@@ -557,23 +557,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent>
                       <Card className="mt-2 border-green-200">
                         <CardContent className="pt-4">
+                          {/* Videos da Gerência Operacional */}
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-3">
-                              
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                            <div className="space-y-3">
-                              
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
+                            <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
+                            <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
+                            <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
+                            <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
+                            <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
+                            <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
                           </div>
                         </CardContent>
                       </Card>
