@@ -125,7 +125,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BarChart3 className="text-purple-600" size={20} />
-              💼 Programa de Gestão de Lojas - PGL
+              Programa de Gestão de Lojas - PGL
             </CardTitle>
           </CardHeader>
           <CardContent>
