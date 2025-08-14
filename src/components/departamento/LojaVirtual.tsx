@@ -495,55 +495,49 @@ const LojaVirtual = () => {
                     <CollapsibleContent>
                       <Card className="mt-2 border-blue-200">
                         <CardContent className="pt-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                           <div className="space-y-6">
-                             
-                             {/* Vídeo VOCE-GESTOR-1 */}
-                             <div className="space-y-3">
-                               <h4 className="font-semibold text-sm flex items-center gap-2">
-                                 <PlayCircle className="text-blue-600" size={16} />
-                                 VOCE-GESTOR-1: Fundamentos da Gestão
-                               </h4>
-                               <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
-                             </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Primeira linha */}
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm flex items-center gap-2">
+                                <PlayCircle className="text-blue-600" size={16} />
+                                VOCE-GESTOR-1: Fundamentos da Gestão
+                              </h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
+                            </div>
 
-                             {/* Vídeo VOCE-GESTOR-2 */}
-                             <div className="space-y-3">
-                               <h4 className="font-semibold text-sm flex items-center gap-2">
-                                 <PlayCircle className="text-blue-600" size={16} />
-                                 VOCE-GESTOR-2: Liderança de Equipe
-                               </h4>
-                               <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
-                             </div>
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm flex items-center gap-2">
+                                <PlayCircle className="text-blue-600" size={16} />
+                                VOCE-GESTOR-2: Liderança de Equipe
+                              </h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
+                            </div>
 
-                             {/* Vídeo VOCE-GESTOR-3 */}
-                             <div className="space-y-3">
-                               <h4 className="font-semibold text-sm flex items-center gap-2">
-                                 <PlayCircle className="text-blue-600" size={16} />
-                                 VOCE-GESTOR-3: Gestão de Performance
-                               </h4>
-                               <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
-                             </div>
+                            {/* Segunda linha */}
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm flex items-center gap-2">
+                                <PlayCircle className="text-blue-600" size={16} />
+                                VOCE-GESTOR-3: Gestão de Performance
+                              </h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
+                            </div>
 
-                             {/* Vídeo VOCE-GESTOR-4 */}
-                             <div className="space-y-3">
-                               <h4 className="font-semibold text-sm flex items-center gap-2">
-                                 <PlayCircle className="text-blue-600" size={16} />
-                                 VOCE-GESTOR-4: Tomada de Decisão
-                               </h4>
-                               <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
-                             </div>
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm flex items-center gap-2">
+                                <PlayCircle className="text-blue-600" size={16} />
+                                VOCE-GESTOR-4: Tomada de Decisão
+                              </h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
+                            </div>
 
-                             {/* Vídeo VOCE-GESTOR-5 */}
-                             <div className="space-y-3">
-                               <h4 className="font-semibold text-sm flex items-center gap-2">
-                                 <PlayCircle className="text-blue-600" size={16} />
-                                 VOCE-GESTOR-5: Desenvolvimento de Equipe
-                               </h4>
-                               <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
-                             </div>
-                             
-                           </div>
+                            {/* Terceira linha - vídeo único */}
+                            <div className="space-y-3 md:col-span-1">
+                              <h4 className="font-semibold text-sm flex items-center gap-2">
+                                <PlayCircle className="text-blue-600" size={16} />
+                                VOCE-GESTOR-5: Desenvolvimento de Equipe
+                              </h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
