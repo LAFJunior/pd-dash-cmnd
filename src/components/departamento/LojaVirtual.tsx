@@ -44,24 +44,18 @@ const LojaVirtual = () => {
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">Meta vs Realizado</span>
-                <Badge variant={progressoVendas >= 80 ? "default" : "secondary"}>
-                  {progressoVendas.toFixed(1)}%
-                </Badge>
+                
+                
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-green-600 h-2 rounded-full transition-all duration-300" style={{
-                width: `${Math.min(progressoVendas, 100)}%`
-              }}></div>
-              </div>
+              
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="text-center">
-                  <div className="font-semibold">R$ {performanceData.vendaRealizada.toLocaleString()}</div>
-                  <div className="text-muted-foreground">Realizado</div>
+                  
+                  
                 </div>
                 <div className="text-center">
-                  <div className="font-semibold">{performanceData.colaboradoresPresentes}/{performanceData.colaboradoresTotal}</div>
-                  <div className="text-muted-foreground">Colaboradores</div>
+                  
+                  
                 </div>
               </div>
             </div>
@@ -79,8 +73,8 @@ const LojaVirtual = () => {
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <Star className="text-yellow-500" size={16} />
-                <span className="text-sm">Satisfação: {performanceData.satisfacaoCliente}/5.0</span>
+                
+                
               </div>
               <div className="space-y-2">
                 <Badge variant="outline" className="w-full justify-center">
@@ -109,21 +103,17 @@ const LojaVirtual = () => {
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="text-center">
-                  <div className="font-semibold">85%</div>
-                  <div className="text-muted-foreground">Metas</div>
+                  
+                  
                 </div>
                 <div className="text-center">
-                  <div className="font-semibold">12</div>
-                  <div className="text-muted-foreground">Tarefas</div>
+                  
+                  
                 </div>
               </div>
               <div className="space-y-2">
-                <Badge variant="outline" className="w-full justify-center">
-                  Gestão de Equipe
-                </Badge>
-                <Badge variant="outline" className="w-full justify-center">
-                  Indicadores & KPIs
-                </Badge>
+                <Badge variant="outline" className="w-full justify-center">Gestor</Badge>
+                <Badge variant="outline" className="w-full justify-center">Gerência Operacional</Badge>
               </div>
             </div>
           </CardContent>
@@ -140,8 +130,8 @@ const LojaVirtual = () => {
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm">Progresso Geral</span>
-                <Badge variant="secondary">73%</Badge>
+                
+                
               </div>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm">
@@ -169,12 +159,12 @@ const LojaVirtual = () => {
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="text-center">
-                  <div className="font-semibold">94%</div>
-                  <div className="text-muted-foreground">Disponível</div>
+                  
+                  
                 </div>
                 <div className="text-center">
-                  <div className="font-semibold">6</div>
-                  <div className="text-muted-foreground">Pendências</div>
+                  
+                  
                 </div>
               </div>
               <div className="space-y-2">
@@ -200,8 +190,8 @@ const LojaVirtual = () => {
           <CardContent>
             <div className="space-y-3">
               <div className="text-center">
-                <div className="text-2xl font-bold text-yellow-600">1,250</div>
-                <div className="text-xs text-muted-foreground">Pontos Acumulados</div>
+                
+                
               </div>
               <div className="space-y-2">
                 <Badge className="w-full justify-center bg-yellow-500">
@@ -569,34 +559,19 @@ const LojaVirtual = () => {
                         <CardContent className="pt-4">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Eficiência Operacional</h4>
+                              
                               <div className="space-y-2">
-                                <Badge variant="outline" className="w-full justify-start">
-                                  ⚡ Otimização de Processos
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  📊 Controles de Qualidade
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🔄 Melhoria Contínua
-                                </Badge>
+                                
+                                
+                                
                               </div>
                             </div>
                             <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Foco no Salão de Vendas</h4>
+                              
                               <div className="space-y-2">
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Gestão de Tempo
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Delegação Efetiva
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Priorização de Atividades
-                                </Button>
+                                
+                                
+                                
                               </div>
                             </div>
                           </div>
