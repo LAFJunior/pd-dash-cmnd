@@ -544,7 +544,7 @@ const LojaVirtual = () => {
                                     <iframe
                                       width="100%"
                                       height="100%"
-                                      src="https://www.youtube.com/embed/HksINnLtfPY"
+                                      src="https://www.youtube.com/embed/HksINnLtfPY?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
                                       title="Gestor - Módulo 1"
                                       frameBorder="0"
                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -563,7 +563,7 @@ const LojaVirtual = () => {
                                     <iframe
                                       width="100%"
                                       height="100%"
-                                      src="https://www.youtube.com/embed/ghHGDFEeFIA"
+                                      src="https://www.youtube.com/embed/ghHGDFEeFIA?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
                                       title="Gestor - Módulo 2"
                                       frameBorder="0"
                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -582,7 +582,7 @@ const LojaVirtual = () => {
                                     <iframe
                                       width="100%"
                                       height="100%"
-                                      src="https://www.youtube.com/embed/sekQM9ArF4A"
+                                      src="https://www.youtube.com/embed/sekQM9ArF4A?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
                                       title="Gestor - Módulo 3"
                                       frameBorder="0"
                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -601,7 +601,7 @@ const LojaVirtual = () => {
                                     <iframe
                                       width="100%"
                                       height="100%"
-                                      src="https://www.youtube.com/embed/Rf7T7VUqCOs"
+                                      src="https://www.youtube.com/embed/Rf7T7VUqCOs?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
                                       title="Gestor - Módulo 4"
                                       frameBorder="0"
                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -620,7 +620,7 @@ const LojaVirtual = () => {
                                     <iframe
                                       width="100%"
                                       height="100%"
-                                      src="https://www.youtube.com/embed/wXTzIi1lEpg"
+                                      src="https://www.youtube.com/embed/wXTzIi1lEpg?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
                                       title="Gestor - Módulo 5"
                                       frameBorder="0"
                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
