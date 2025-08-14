@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import VideoPlayer from '@/components/VideoPlayer';
 import { 
   Store, 
   Users, 
@@ -543,23 +544,23 @@ const LojaVirtual = () => {
                                 </Badge>
                               </div>
                             </div>
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Competências Essenciais</h4>
-                              <div className="space-y-2">
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Gestão de Equipe
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Tomada de Decisão
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Resolução de Conflitos
-                                </Button>
-                              </div>
-                            </div>
+                             <div className="space-y-3">
+                               <h4 className="font-semibold text-sm">Competências Essenciais</h4>
+                               <div className="space-y-2">
+                                 <div className="w-full">
+                                   <h5 className="text-sm font-medium mb-2">🎥 VOCE-GESTOR-1</h5>
+                                   <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
+                                 </div>
+                                 <Button variant="outline" size="sm" className="w-full justify-start">
+                                   <PlayCircle size={14} className="mr-2" />
+                                   Tomada de Decisão
+                                 </Button>
+                                 <Button variant="outline" size="sm" className="w-full justify-start">
+                                   <PlayCircle size={14} className="mr-2" />
+                                   Resolução de Conflitos
+                                 </Button>
+                               </div>
+                             </div>
                           </div>
                         </CardContent>
                       </Card>
