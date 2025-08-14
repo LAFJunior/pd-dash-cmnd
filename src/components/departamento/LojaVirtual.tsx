@@ -514,7 +514,7 @@ const LojaVirtual = () => {
                           <CardTitle className="text-lg flex items-center justify-between">
                             <div className="flex items-center gap-2">
                               <UserCog className="text-blue-600" size={20} />
-                              Você: Gestor
+                              Gestor - Curso
                             </div>
                             <ChevronDown className="h-4 w-4 text-blue-600" />
                           </CardTitle>
