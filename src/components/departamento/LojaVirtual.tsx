@@ -598,32 +598,17 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Organização da Equipe</h4>
                               <div className="space-y-2">
-                                <Badge variant="outline" className="w-full justify-start">
-                                  📅 Escalas de Trabalho
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  📋 Definição de Papéis
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🎯 Metas Individuais
-                                </Badge>
+                                
+                                
+                                
                               </div>
                             </div>
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Aspectos Disciplinares</h4>
                               <div className="space-y-2">
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Políticas e Procedimentos
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Feedback Construtivo
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Planos de Ação
-                                </Button>
+                                
+                                
+                                
                               </div>
                             </div>
                           </div>
@@ -659,32 +644,17 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Monitoramento de Performance</h4>
                               <div className="space-y-2">
-                                <Badge variant="outline" className="w-full justify-start">
-                                  📈 Indicadores de Vendas
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  ⭐ Satisfação do Cliente
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🎯 Cumprimento de Metas
-                                </Badge>
+                                
+                                
+                                
                               </div>
                             </div>
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Ferramentas de Acompanhamento</h4>
                               <div className="space-y-2">
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  FOP - Observação de Procedimentos
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  FODQ - Orientação Quinzenal
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Relatórios de Performance
-                                </Button>
+                                
+                                
+                                
                               </div>
                             </div>
                           </div>
@@ -720,32 +690,17 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Papel do Treinador</h4>
                               <div className="space-y-2">
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🎓 Metodologias de Ensino
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  📚 Preservação de Conhecimento
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🔄 Desenvolvimento Contínuo
-                                </Badge>
+                                
+                                
+                                
                               </div>
                             </div>
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm">Métodos de Treinamento</h4>
                               <div className="space-y-2">
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Onboarding de Novos Funcionários
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Capacitação Técnica
-                                </Button>
-                                <Button variant="outline" size="sm" className="w-full justify-start">
-                                  <PlayCircle size={14} className="mr-2" />
-                                  Avaliação de Conhecimento
-                                </Button>
+                                
+                                
+                                
                               </div>
                             </div>
                           </div>
