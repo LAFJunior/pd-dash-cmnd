@@ -360,7 +360,7 @@ const LojaVirtual = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <BarChart3 className="text-purple-600" />
-                  PGL - Programa de Gestão de Lojas
+                  Programa de Gestão de Lojas - PGL 
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Card>
