@@ -5,31 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import VideoPlayer from '@/components/VideoPlayer';
-import { 
-  Store, 
-  Users, 
-  Target, 
-  TrendingUp, 
-  BookOpen, 
-  Package, 
-  ShoppingCart, 
-  UserCheck,
-  Star,
-  PlayCircle,
-  Award,
-  BarChart3,
-  MessageSquare,
-  CheckCircle,
-  Clock,
-  Trophy,
-  ChevronDown,
-  BookOpenCheck,
-  UserCog,
-  Settings,
-  Eye,
-  GraduationCap
-} from 'lucide-react';
-
+import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap } from 'lucide-react';
 const LojaVirtual = () => {
   const [areaAtiva, setAreaAtiva] = useState('entrada');
 
@@ -41,11 +17,8 @@ const LojaVirtual = () => {
     colaboradoresPresentes: 8,
     colaboradoresTotal: 10
   };
-
-  const progressoVendas = (performanceData.vendaRealizada / performanceData.metaVendas) * 100;
-
-  return (
-    <div className="space-y-6">
+  const progressoVendas = performanceData.vendaRealizada / performanceData.metaVendas * 100;
+  return <div className="space-y-6">
       {/* Header da Loja Virtual */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
@@ -61,8 +34,7 @@ const LojaVirtual = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* ENTRADA DA LOJA */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'entrada' ? 'ring-2 ring-green-500 bg-green-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('entrada')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'entrada' ? 'ring-2 ring-green-500 bg-green-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('entrada')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Store className="text-green-600" size={20} />
@@ -78,10 +50,9 @@ const LojaVirtual = () => {
                 </Badge>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-green-600 h-2 rounded-full transition-all duration-300" 
-                  style={{ width: `${Math.min(progressoVendas, 100)}%` }}
-                ></div>
+                <div className="bg-green-600 h-2 rounded-full transition-all duration-300" style={{
+                width: `${Math.min(progressoVendas, 100)}%`
+              }}></div>
               </div>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="text-center">
@@ -98,8 +69,7 @@ const LojaVirtual = () => {
         </Card>
 
         {/* ÁREA DE VENDAS */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'vendas' ? 'ring-2 ring-blue-500 bg-blue-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('vendas')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'vendas' ? 'ring-2 ring-blue-500 bg-blue-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('vendas')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <ShoppingCart className="text-blue-600" size={20} />
@@ -128,8 +98,7 @@ const LojaVirtual = () => {
         </Card>
 
         {/* ÁREA GERENCIAL */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'gerencial' ? 'ring-2 ring-purple-500 bg-purple-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('gerencial')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'gerencial' ? 'ring-2 ring-purple-500 bg-purple-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('gerencial')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BarChart3 className="text-purple-600" size={20} />
@@ -161,8 +130,7 @@ const LojaVirtual = () => {
         </Card>
 
         {/* ÁREA DE TREINAMENTO */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'treinamento' ? 'ring-2 ring-orange-500 bg-orange-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('treinamento')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'treinamento' ? 'ring-2 ring-orange-500 bg-orange-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('treinamento')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BookOpen className="text-orange-600" size={20} />
@@ -190,8 +158,7 @@ const LojaVirtual = () => {
         </Card>
 
         {/* ESTOQUE/RETAGUARDA */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'estoque' ? 'ring-2 ring-teal-500 bg-teal-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('estoque')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'estoque' ? 'ring-2 ring-teal-500 bg-teal-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('estoque')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Package className="text-teal-600" size={20} />
@@ -223,8 +190,7 @@ const LojaVirtual = () => {
         </Card>
 
         {/* GAMIFICAÇÃO */}
-        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'gamificacao' ? 'ring-2 ring-yellow-500 bg-yellow-50' : 'hover:shadow-lg'}`}
-              onClick={() => setAreaAtiva('gamificacao')}>
+        <Card className={`cursor-pointer transition-all duration-200 ${areaAtiva === 'gamificacao' ? 'ring-2 ring-yellow-500 bg-yellow-50' : 'hover:shadow-lg'}`} onClick={() => setAreaAtiva('gamificacao')}>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Trophy className="text-yellow-600" size={20} />
@@ -531,34 +497,22 @@ const LojaVirtual = () => {
                         <CardContent className="pt-4">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Perfil do Gestor Ideal</h4>
+                              
                               <div className="space-y-2">
-                                <Badge variant="outline" className="w-full justify-start">
-                                  👥 Liderança Inspiradora
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🎯 Foco em Resultados
-                                </Badge>
-                                <Badge variant="outline" className="w-full justify-start">
-                                  🗣️ Comunicação Efetiva
-                                </Badge>
+                                
+                                
+                                
                               </div>
                             </div>
                              <div className="space-y-3">
-                               <h4 className="font-semibold text-sm">Competências Essenciais</h4>
+                               
                                <div className="space-y-2">
                                  <div className="w-full">
-                                   <h5 className="text-sm font-medium mb-2">🎥 VOCE-GESTOR-1</h5>
+                                   <h5 className="text-sm font-medium mb-2">🎥 GESTOR-1</h5>
                                    <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
                                  </div>
-                                 <Button variant="outline" size="sm" className="w-full justify-start">
-                                   <PlayCircle size={14} className="mr-2" />
-                                   Tomada de Decisão
-                                 </Button>
-                                 <Button variant="outline" size="sm" className="w-full justify-start">
-                                   <PlayCircle size={14} className="mr-2" />
-                                   Resolução de Conflitos
-                                 </Button>
+                                 
+                                 
                                </div>
                              </div>
                           </div>
@@ -1011,8 +965,6 @@ const LojaVirtual = () => {
           </Tabs>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default LojaVirtual;
