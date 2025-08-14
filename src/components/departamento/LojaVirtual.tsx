@@ -500,7 +500,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE-GESTOR-1: Fundamentos da Gestão
+                                VOCE GESTOR-1: Pré-requisitos do Líder 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
                             </div>
@@ -508,7 +508,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE-GESTOR-2: Liderança de Equipe
+                                VOCE GESTOR-2: 10 Competências do Gestor
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
                             </div>
@@ -517,7 +517,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE-GESTOR-3: Gestão de Performance
+                                VOCE GESTOR-3: Competência na prática 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
                             </div>
@@ -525,7 +525,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE-GESTOR-4: Tomada de Decisão
+                                VOCE GESTOR-4: Liderança 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
                             </div>
@@ -534,7 +534,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3 md:col-span-1">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE-GESTOR-5: Desenvolvimento de Equipe
+                                VOCE GESTOR-5: Administração do tempo
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
                             </div>
