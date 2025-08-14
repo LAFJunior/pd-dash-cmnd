@@ -528,138 +528,36 @@ const LojaVirtual = () => {
                     <CollapsibleContent>
                       <Card className="mt-2 border-blue-200">
                         <CardContent className="pt-4">
-                          <div className="space-y-6">
-                            {/* Vídeos do PGL - Gestor */}
-                            <div className="space-y-4">
-                              <h4 className="font-semibold text-sm border-b pb-2">📚 Módulos de Treinamento</h4>
-                              
-                              <div className="grid grid-cols-1 gap-4">
-                                {/* Gestor-1 */}
-                                <div className="border rounded-lg p-4 bg-slate-50">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Badge variant="outline" className="text-xs px-2 py-1">1</Badge>
-                                    <h5 className="font-medium">Gestor - Módulo 1</h5>
-                                  </div>
-                                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                                    <iframe
-                                      width="100%"
-                                      height="100%"
-                                      src="https://www.youtube.com/embed/HksINnLtfPY?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
-                                      title="Gestor - Módulo 1"
-                                      frameBorder="0"
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                      allowFullScreen
-                                    ></iframe>
-                                  </div>
-                                </div>
-
-                                {/* Gestor-2 */}
-                                <div className="border rounded-lg p-4 bg-slate-50">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Badge variant="outline" className="text-xs px-2 py-1">2</Badge>
-                                    <h5 className="font-medium">Gestor - Módulo 2</h5>
-                                  </div>
-                                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                                    <iframe
-                                      width="100%"
-                                      height="100%"
-                                      src="https://www.youtube.com/embed/ghHGDFEeFIA?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
-                                      title="Gestor - Módulo 2"
-                                      frameBorder="0"
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                      allowFullScreen
-                                    ></iframe>
-                                  </div>
-                                </div>
-
-                                {/* Gestor-3 */}
-                                <div className="border rounded-lg p-4 bg-slate-50">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Badge variant="outline" className="text-xs px-2 py-1">3</Badge>
-                                    <h5 className="font-medium">Gestor - Módulo 3</h5>
-                                  </div>
-                                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                                    <iframe
-                                      width="100%"
-                                      height="100%"
-                                      src="https://www.youtube.com/embed/sekQM9ArF4A?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
-                                      title="Gestor - Módulo 3"
-                                      frameBorder="0"
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                      allowFullScreen
-                                    ></iframe>
-                                  </div>
-                                </div>
-
-                                {/* Gestor-4 */}
-                                <div className="border rounded-lg p-4 bg-slate-50">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Badge variant="outline" className="text-xs px-2 py-1">4</Badge>
-                                    <h5 className="font-medium">Gestor - Módulo 4</h5>
-                                  </div>
-                                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                                    <iframe
-                                      width="100%"
-                                      height="100%"
-                                      src="https://www.youtube.com/embed/Rf7T7VUqCOs?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
-                                      title="Gestor - Módulo 4"
-                                      frameBorder="0"
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                      allowFullScreen
-                                    ></iframe>
-                                  </div>
-                                </div>
-
-                                {/* Gestor-5 */}
-                                <div className="border rounded-lg p-4 bg-slate-50">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Badge variant="outline" className="text-xs px-2 py-1">5</Badge>
-                                    <h5 className="font-medium">Gestor - Módulo 5</h5>
-                                  </div>
-                                  <div className="aspect-video rounded-lg overflow-hidden bg-black">
-                                    <iframe
-                                      width="100%"
-                                      height="100%"
-                                      src="https://www.youtube.com/embed/wXTzIi1lEpg?rel=0&modestbranding=1&showinfo=0&controls=1&disablekb=1"
-                                      title="Gestor - Módulo 5"
-                                      frameBorder="0"
-                                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                      allowFullScreen
-                                    ></iframe>
-                                  </div>
-                                </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm">Perfil do Gestor Ideal</h4>
+                              <div className="space-y-2">
+                                <Badge variant="outline" className="w-full justify-start">
+                                  👥 Liderança Inspiradora
+                                </Badge>
+                                <Badge variant="outline" className="w-full justify-start">
+                                  🎯 Foco em Resultados
+                                </Badge>
+                                <Badge variant="outline" className="w-full justify-start">
+                                  🗣️ Comunicação Efetiva
+                                </Badge>
                               </div>
                             </div>
-
-                            {/* Competências e Perfil */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div className="space-y-3">
-                                <h4 className="font-semibold text-sm">Perfil do Gestor Ideal</h4>
-                                <div className="space-y-2">
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    👥 Liderança Inspiradora
-                                  </Badge>
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    🎯 Foco em Resultados
-                                  </Badge>
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    🗣️ Comunicação Efetiva
-                                  </Badge>
-                                </div>
-                              </div>
-                              <div className="space-y-3">
-                                <h4 className="font-semibold text-sm">Competências Essenciais</h4>
-                                <div className="space-y-2">
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    📊 Gestão de Equipe
-                                  </Badge>
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    ⚡ Tomada de Decisão
-                                  </Badge>
-                                  <Badge variant="outline" className="w-full justify-start">
-                                    🤝 Resolução de Conflitos
-                                  </Badge>
-                                </div>
+                            <div className="space-y-3">
+                              <h4 className="font-semibold text-sm">Competências Essenciais</h4>
+                              <div className="space-y-2">
+                                <Button variant="outline" size="sm" className="w-full justify-start">
+                                  <PlayCircle size={14} className="mr-2" />
+                                  Gestão de Equipe
+                                </Button>
+                                <Button variant="outline" size="sm" className="w-full justify-start">
+                                  <PlayCircle size={14} className="mr-2" />
+                                  Tomada de Decisão
+                                </Button>
+                                <Button variant="outline" size="sm" className="w-full justify-start">
+                                  <PlayCircle size={14} className="mr-2" />
+                                  Resolução de Conflitos
+                                </Button>
                               </div>
                             </div>
                           </div>
