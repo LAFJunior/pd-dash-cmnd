@@ -655,17 +655,17 @@ const LojaVirtual = () => {
                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 1</h4>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento: Chegando na Meta</h4>
                                  <VideoPlayer fileName="Acompanhamento-1.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 3</h4>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento: Como Extrair Informações</h4>
                                  <VideoPlayer fileName="Acompanhamento-3.mp4" />
                                </div>
                              </div>
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 2</h4>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento: Dados Estatísticos </h4>
                                  <VideoPlayer fileName="Acompanhamento-2.mp4" />
                                </div>
                              </div>
@@ -701,21 +701,21 @@ const LojaVirtual = () => {
                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 1</h4>
+                                 <h4 className="text-sm font-medium mb-2">Evolução: Evolução De Equipe </h4>
                                  <VideoPlayer fileName="Evolucao-1.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 3</h4>
+                                 <h4 className="text-sm font-medium mb-2">Evolução: Feedback</h4>
                                  <VideoPlayer fileName="Evolucao-3.mp4" />
                                </div>
                              </div>
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 2</h4>
+                                 <h4 className="text-sm font-medium mb-2">Evolução: Orientação Quinzenal</h4>
                                  <VideoPlayer fileName="Evolucao-2.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 4</h4>
+                                 <h4 className="text-sm font-medium mb-2">Evolução: Jogos e Competições</h4>
                                  <VideoPlayer fileName="Evolucao-4.mp4" />
                                </div>
                              </div>
@@ -751,21 +751,21 @@ const LojaVirtual = () => {
                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 1</h4>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento: Seleção e Qualidade </h4>
                                  <VideoPlayer fileName="Treinamento-1.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 3</h4>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento: Formatos de Treinamentos </h4>
                                  <VideoPlayer fileName="Treinamento-3.mp4" />
                                </div>
                              </div>
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 2</h4>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento: Multiplicador</h4>
                                  <VideoPlayer fileName="Treinamento-2.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 4</h4>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento: Treinamento de Sucesso </h4>
                                  <VideoPlayer fileName="Treinamento-4.mp4" />
                                </div>
                              </div>
