@@ -883,7 +883,7 @@ const LojaVirtual = () => {
                       <Button 
                         size="sm" 
                         className="w-full" 
-                        onClick={() => window.open('/lovable-uploads/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}
+                        onClick={() => window.open('/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
@@ -901,7 +901,7 @@ const LojaVirtual = () => {
                       <Button 
                         size="sm" 
                         className="w-full" 
-                        onClick={() => window.open('/lovable-uploads/CHECK LIST GESTOR 3.0  2025.pdf', '_blank')}
+                        onClick={() => window.open('/CHECK LIST GESTOR 3.0 2025.pdf', '_blank')}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
@@ -919,7 +919,7 @@ const LojaVirtual = () => {
                       <Button 
                         size="sm" 
                         className="w-full" 
-                        onClick={() => window.open('/lovable-uploads/CHECK LIST LIDER CAIXA 3.0  2025.pdf', '_blank')}
+                        onClick={() => window.open('/CHECK LIST LIDER CAIXA 3.0 2025.pdf', '_blank')}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
@@ -937,7 +937,7 @@ const LojaVirtual = () => {
                       <Button 
                         size="sm" 
                         className="w-full" 
-                        onClick={() => window.open('/lovable-uploads/CHECK LIST LÍDER DE ESTOQUE 3.0  2025.pdf', '_blank')}
+                        onClick={() => window.open('/CHECK LIST LÍDER DE ESTOQUE 3.0 2025.pdf', '_blank')}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
@@ -955,7 +955,7 @@ const LojaVirtual = () => {
                       <Button 
                         size="sm" 
                         className="w-full" 
-                        onClick={() => window.open('/lovable-uploads/Check List Gerente Regional 2025.pdf', '_blank')}
+                        onClick={() => window.open('/Check List Gerente Regional 2025.pdf', '_blank')}
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
