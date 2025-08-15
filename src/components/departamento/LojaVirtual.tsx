@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import VideoPlayer from '@/components/VideoPlayer';
-import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap } from 'lucide-react';
+import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap, CheckSquare, Download, CreditCard, Building } from 'lucide-react';
 
 const LojaVirtual = () => {
   const [areaAtiva, setAreaAtiva] = useState('entrada');
@@ -610,12 +610,109 @@ const LojaVirtual = () => {
             </TabsContent>
 
             <TabsContent value="treinamento" className="mt-4">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <BookOpen className="text-orange-600" />
-                  Área de Treinamento
+                  Check-Lists (Lojas)
                 </h3>
-                <p className="text-muted-foreground">Conteúdo em desenvolvimento...</p>
+                
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Um check-list em uma loja de varejo serve para garantir que todas as tarefas importantes sejam realizadas de maneira eficiente e consistente. Ele ajuda a manter a organização, a qualidade do atendimento ao cliente, o controle de estoque e a eficiência e organização dos processos. Além disso, um checklist pode assegurar que as normas de segurança sejam seguidas e que todas as áreas da loja estejam limpas e bem apresentadas. Em resumo, é uma ferramenta fundamental para garantir que a loja funcione de maneira organizada e eficaz.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CheckSquare className="text-blue-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Encarregado de Vendas</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Check-list para coordenação da equipe de vendas</p>
+                      <Button 
+                        size="sm" 
+                        className="w-full" 
+                        onClick={() => window.open('/lovable-uploads/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Users className="text-purple-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Gestor 3.0</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Check-list para gestão moderna de loja</p>
+                      <Button 
+                        size="sm" 
+                        className="w-full" 
+                        onClick={() => window.open('/lovable-uploads/CHECK LIST GESTOR 3.0  2025.pdf', '_blank')}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CreditCard className="text-green-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Líder de Caixa 3.0</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Check-list para operações de caixa</p>
+                      <Button 
+                        size="sm" 
+                        className="w-full" 
+                        onClick={() => window.open('/lovable-uploads/CHECK LIST LIDER CAIXA 3.0  2025.pdf', '_blank')}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Package className="text-teal-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Líder de Estoque 3.0</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Check-list para gestão de estoque</p>
+                      <Button 
+                        size="sm" 
+                        className="w-full" 
+                        onClick={() => window.open('/lovable-uploads/CHECK LIST LÍDER DE ESTOQUE 3.0  2025.pdf', '_blank')}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </Card>
+
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Building className="text-red-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Gerente Regional</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Check-list para gestão regional</p>
+                      <Button 
+                        size="sm" 
+                        className="w-full" 
+                        onClick={() => window.open('/lovable-uploads/Check List Gerente Regional 2025.pdf', '_blank')}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
+                  </Card>
+                </div>
               </div>
             </TabsContent>
 
