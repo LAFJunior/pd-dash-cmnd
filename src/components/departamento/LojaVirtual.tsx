@@ -148,24 +148,232 @@ const LojaVirtual = () => {
             </TabsContent>
 
             <TabsContent value="vendas" className="mt-4">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <ShoppingCart className="text-blue-600" />
                   PVA - Programa de Vendas e Atendimento
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Card>
-                    <CardHeader>
+                
+                {/* Roteiro de Aplicação do Treinamento */}
+                <Card className="border-blue-200 bg-blue-50">
+                  <CardHeader>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <BookOpenCheck className="text-blue-600" size={20} />
+                      Roteiro de Aplicação do Treinamento
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-sm leading-relaxed">
+                        Nesse roteiro vamos trazer algumas importantes orientações e organização sobre como aplicar o treinamento, para que ele seja aproveitado da melhor maneira possível.
+                      </p>
                       
-                    </CardHeader>
-                    
-                  </Card>
-                  <Card>
-                    <CardHeader>
+                      <p className="text-sm leading-relaxed">
+                        Esse onboarding foi planejado para ser aplicado ao longo de 5 dias, e sugerimos que as agendas sejam de no máximo 3 horas por dia, garantindo o foco sem sobrecarregar.
+                      </p>
                       
+                      <p className="text-sm leading-relaxed">
+                        Reserve sempre um local adequado, silencioso e reservado, onde o nosso novo vendedor possa ter foco e acima de tudo assimile todo o conteúdo.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Esteja com o material de apoio, apostila, em mãos e garante que o novo colaborador também esteja com o material.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Alterne a teoria com demonstrações e exemplos práticos, mostrando produto e simulando os diálogos, além de trazer exemplos do dia a dia da loja.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Estimule a participação do novo vendedor.
+                      </p>
+                      
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 my-4">
+                        <p className="text-sm font-semibold text-blue-800 mb-2">🎯 Objetivo</p>
+                        <p className="text-sm text-blue-700">
+                          O objetivo aqui é desenvolver o potencial de vendas do novo contratado e prepará-lo para que atinja os melhores resultados ao iniciar as atividades em nossa loja, oferecendo uma experiência incrível aos nossos clientes e aumentando as chances de sucesso em sua trajetória conosco.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-3 text-sm">
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 1</Badge>
+                          <div>
+                            <span className="font-semibold">Boas-Vindas ao novo Colaborador e Introdução ao PVA e Chavão Oscar</span><br />
+                            <span className="text-muted-foreground">Passo 1 – Organize o seu dia + Avaliação do Conhecimento</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 2</Badge>
+                          <div>
+                            <span className="font-semibold">Passo 2 – Seja Bem-Vindo à Oscar + Avaliação</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 3</Badge>
+                          <div>
+                            <span className="font-semibold">Passo 3 – Construa o Perfil do Cliente + Avaliação</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 4</Badge>
+                          <div>
+                            <span className="font-semibold">Passo 4 – Apresente, Adicione e Contorne objeções + Avaliação</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 5</Badge>
+                          <div>
+                            <span className="font-semibold">Passo 5 – Retome com o Fechamento e Pós-venda + Avaliação</span><br />
+                            <span className="text-muted-foreground">Fechamento do Programa</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Blocos de Vídeos PVA */}
+                <div className="space-y-4">
+                  
+                  {/* PVA INTRODUÇÃO */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA INTRODUÇÃO
+                      </CardTitle>
                     </CardHeader>
-                    
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA Introducao.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
                   </Card>
+
+                  {/* PVA - LETRA O */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA - LETRA O (ORGANIZE SEU DIA)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA O.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* PVA - LETRA S */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA - LETRA S (SEJA BEM VINDO A OSCAR)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA S.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* PVA - LETRA C */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA - LETRA C (CONSTRUA O PERFIL DO CLIENTE)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA C.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* PVA - LETRA A */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA - LETRA A (APRESENTE E ADICIONE)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA A.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* PVA - LETRA R */}
+                  <Card className="border-blue-200 bg-blue-50">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <PlayCircle className="text-blue-600" size={20} />
+                        PVA - LETRA R (RETORNE O FECHAMENTO E PÓS VENDA)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div>
+                          <VideoPlayer fileName="PVA R.mp4" />
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <Button variant="outline" className="flex items-center gap-2">
+                            <Eye size={16} />
+                            Ver Descrição
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  
                 </div>
               </div>
             </TabsContent>
