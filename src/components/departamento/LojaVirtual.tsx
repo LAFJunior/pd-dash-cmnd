@@ -42,7 +42,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Store className="text-green-600" size={20} />
-              🏪 Frente da Loja
+              Frente da Loja
             </CardTitle>
           </CardHeader>
         </Card>
@@ -52,7 +52,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <ShoppingCart className="text-blue-600" size={20} />
-              👥 Área de Vendas (PVA)
+              Área de Vendas (PVA)
             </CardTitle>
           </CardHeader>
         </Card>
@@ -72,7 +72,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BookOpen className="text-orange-600" size={20} />
-              📚 Área de Treinamento
+              Check-Lists (Lojas)
             </CardTitle>
           </CardHeader>
         </Card>
@@ -82,7 +82,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Package className="text-teal-600" size={20} />
-              📦 Estoque & Retaguarda
+              Estoque & Retaguarda
             </CardTitle>
           </CardHeader>
         </Card>
@@ -92,7 +92,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Trophy className="text-yellow-600" size={20} />
-              🏆 Desafios & Conquistas
+              Metas
             </CardTitle>
           </CardHeader>
         </Card>
