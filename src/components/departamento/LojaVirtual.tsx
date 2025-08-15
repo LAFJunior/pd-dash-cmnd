@@ -23,7 +23,7 @@ const LojaVirtual = () => {
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
           <Store className="text-green-600" size={28} />
-          Lojas Oscar - Ambiente de Processos
+          Loja Virtual - Ambiente de Processos
         </h2>
         <p className="text-muted-foreground">
           Navegue pela representação digital da loja e explore os processos de cada área
@@ -41,25 +41,7 @@ const LojaVirtual = () => {
               🏪 Frente da Loja
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                
-                
-              </div>
-              
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="text-center">
-                  
-                  
-                </div>
-                <div className="text-center">
-                  
-                  
-                </div>
-              </div>
-            </div>
-          </CardContent>
+          
         </Card>
 
         {/* ÁREA DE VENDAS */}
@@ -70,25 +52,7 @@ const LojaVirtual = () => {
               👥 Área de Vendas (PVA)
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                
-                
-              </div>
-              <div className="space-y-2">
-                <Badge variant="outline" className="w-full justify-center">
-                  Abordagem & Atendimento
-                </Badge>
-                <Badge variant="outline" className="w-full justify-center">
-                  Técnicas de Vendas
-                </Badge>
-                <Badge variant="outline" className="w-full justify-center">
-                  Fechamento
-                </Badge>
-              </div>
-            </div>
-          </CardContent>
+          
         </Card>
 
         {/* ÁREA GERENCIAL */}
@@ -99,24 +63,7 @@ const LojaVirtual = () => {
               Programa de Gestão de Lojas - PGL
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="text-center">
-                  
-                  
-                </div>
-                <div className="text-center">
-                  
-                  
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Badge variant="outline" className="w-full justify-center">Gestor</Badge>
-                <Badge variant="outline" className="w-full justify-center">Gerência Operacional</Badge>
-              </div>
-            </div>
-          </CardContent>
+          
         </Card>
 
         {/* ÁREA DE TREINAMENTO */}
@@ -127,24 +74,7 @@ const LojaVirtual = () => {
               📚 Área de Treinamento
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                
-                
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle className="text-green-500" size={14} />
-                  <span>PVA Módulo 1-3</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="text-yellow-500" size={14} />
-                  <span>PGL Módulo 2</span>
-                </div>
-              </div>
-            </div>
-          </CardContent>
+          
         </Card>
 
         {/* ESTOQUE/RETAGUARDA */}
@@ -155,28 +85,7 @@ const LojaVirtual = () => {
               📦 Estoque & Retaguarda
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <div className="text-center">
-                  
-                  
-                </div>
-                <div className="text-center">
-                  
-                  
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Badge variant="outline" className="w-full justify-center">
-                  Controle de Inventário
-                </Badge>
-                <Badge variant="outline" className="w-full justify-center">
-                  Visual Merchandising
-                </Badge>
-              </div>
-            </div>
-          </CardContent>
+          
         </Card>
 
         {/* GAMIFICAÇÃO */}
@@ -193,14 +102,7 @@ const LojaVirtual = () => {
                 
                 
               </div>
-              <div className="space-y-2">
-                <Badge className="w-full justify-center bg-yellow-500">
-                  🥇 Top Vendedor da Semana
-                </Badge>
-                <Badge variant="outline" className="w-full justify-center">
-                  🎯 Meta de Satisfação
-                </Badge>
-              </div>
+              
             </div>
           </CardContent>
         </Card>
@@ -228,35 +130,17 @@ const LojaVirtual = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
                     <CardContent className="p-4">
-                      <div className="flex items-center gap-2">
-                        <Target className="text-blue-500" size={20} />
-                        <div>
-                          <div className="text-sm text-muted-foreground">Meta do Dia</div>
-                          <div className="text-2xl font-bold">R$ {performanceData.metaVendas.toLocaleString()}</div>
-                        </div>
-                      </div>
+                      
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4">
-                      <div className="flex items-center gap-2">
-                        <TrendingUp className="text-green-500" size={20} />
-                        <div>
-                          <div className="text-sm text-muted-foreground">Realizado</div>
-                          <div className="text-2xl font-bold">R$ {performanceData.vendaRealizada.toLocaleString()}</div>
-                        </div>
-                      </div>
+                      
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4">
-                      <div className="flex items-center gap-2">
-                        <Users className="text-purple-500" size={20} />
-                        <div>
-                          <div className="text-sm text-muted-foreground">Equipe Presente</div>
-                          <div className="text-2xl font-bold">{performanceData.colaboradoresPresentes}/{performanceData.colaboradoresTotal}</div>
-                        </div>
-                      </div>
+                      
                     </CardContent>
                   </Card>
                 </div>
@@ -272,49 +156,15 @@ const LojaVirtual = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Jornada do Cliente</CardTitle>
+                      
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 p-2 bg-green-50 rounded">
-                          <UserCheck size={16} className="text-green-600" />
-                          <span className="text-sm">1. Recepção e Saudação</span>
-                        </div>
-                        <div className="flex items-center gap-2 p-2 bg-blue-50 rounded">
-                          <MessageSquare size={16} className="text-blue-600" />
-                          <span className="text-sm">2. Identificação de Necessidades</span>
-                        </div>
-                        <div className="flex items-center gap-2 p-2 bg-purple-50 rounded">
-                          <Star size={16} className="text-purple-600" />
-                          <span className="text-sm">3. Apresentação de Produtos</span>
-                        </div>
-                        <div className="flex items-center gap-2 p-2 bg-orange-50 rounded">
-                          <CheckCircle size={16} className="text-orange-600" />
-                          <span className="text-sm">4. Fechamento da Venda</span>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Técnicas de Vendas</CardTitle>
+                      
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <Button variant="outline" className="w-full justify-start">
-                          <PlayCircle size={16} className="mr-2" />
-                          Curso: Abordagem Efetiva
-                        </Button>
-                        <Button variant="outline" className="w-full justify-start">
-                          <PlayCircle size={16} className="mr-2" />
-                          Curso: Objeções e Respostas
-                        </Button>
-                        <Button variant="outline" className="w-full justify-start">
-                          <PlayCircle size={16} className="mr-2" />
-                          Curso: Cross-selling
-                        </Button>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                 </div>
               </div>
@@ -790,43 +640,13 @@ const LojaVirtual = () => {
                     <CardHeader>
                       <CardTitle className="text-lg">Módulos PVA</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Fundamentos de Vendas</span>
-                          <Badge className="bg-green-500">Concluído</Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Atendimento ao Cliente</span>
-                          <Badge className="bg-green-500">Concluído</Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Técnicas Avançadas</span>
-                          <Badge variant="secondary">Em Progresso</Badge>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">Módulos PGL</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Liderança de Equipe</span>
-                          <Badge className="bg-green-500">Concluído</Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Gestão de Performance</span>
-                          <Badge variant="secondary">Em Progresso</Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-2 border rounded">
-                          <span className="text-sm">Indicadores e KPIs</span>
-                          <Badge variant="outline">Não Iniciado</Badge>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                 </div>
               </div>
@@ -841,62 +661,21 @@ const LojaVirtual = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Controle de Inventário</CardTitle>
+                      <CardTitle className="text-lg">Inventário</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-teal-600">94%</div>
-                          <div className="text-sm text-muted-foreground">Disponibilidade</div>
-                        </div>
-                        <div className="space-y-1">
-                          <div className="flex justify-between text-xs">
-                            <span>Produtos em Estoque</span>
-                            <span>1,247</span>
-                          </div>
-                          <div className="flex justify-between text-xs">
-                            <span>Produtos em Falta</span>
-                            <span className="text-red-500">23</span>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">Visual Merchandising</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="p-2 bg-green-50 rounded text-sm">
-                          ✅ Vitrine Atualizada
-                        </div>
-                        <div className="p-2 bg-green-50 rounded text-sm">
-                          ✅ Preços Conferidos
-                        </div>
-                        <div className="p-2 bg-yellow-50 rounded text-sm">
-                          ⏳ Exposição Sazonal
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">Processos Admin</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <Button variant="outline" size="sm" className="w-full">
-                          📋 Relatório Diário
-                        </Button>
-                        <Button variant="outline" size="sm" className="w-full">
-                          📊 Análise de Vendas
-                        </Button>
-                        <Button variant="outline" size="sm" className="w-full">
-                          📈 Metas e Resultados
-                        </Button>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                 </div>
               </div>
@@ -913,61 +692,13 @@ const LojaVirtual = () => {
                     <CardHeader>
                       <CardTitle className="text-lg">Conquistas Recentes</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 p-3 bg-yellow-50 rounded-lg">
-                          <Trophy className="text-yellow-600" size={24} />
-                          <div>
-                            <div className="font-semibold">Top Vendedor da Semana</div>
-                            <div className="text-sm text-muted-foreground">+500 pontos</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                          <Star className="text-blue-600" size={24} />
-                          <div>
-                            <div className="font-semibold">Meta de Satisfação</div>
-                            <div className="text-sm text-muted-foreground">+200 pontos</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
-                          <Award className="text-green-600" size={24} />
-                          <div>
-                            <div className="font-semibold">Curso PVA Completo</div>
-                            <div className="text-sm text-muted-foreground">+300 pontos</div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">Ranking da Loja</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between p-2 bg-yellow-50 rounded">
-                          <div className="flex items-center gap-2">
-                            <span className="text-lg">🥇</span>
-                            <span className="font-semibold">Maria Silva</span>
-                          </div>
-                          <span className="text-sm">2,150 pts</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                          <div className="flex items-center gap-2">
-                            <span className="text-lg">🥈</span>
-                            <span className="font-semibold">João Santos</span>
-                          </div>
-                          <span className="text-sm">1,890 pts</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2 bg-orange-50 rounded">
-                          <div className="flex items-center gap-2">
-                            <span className="text-lg">🥉</span>
-                            <span className="font-semibold">Ana Costa</span>
-                          </div>
-                          <span className="text-sm">1,650 pts</span>
-                        </div>
-                      </div>
-                    </CardContent>
+                    
                   </Card>
                 </div>
               </div>
