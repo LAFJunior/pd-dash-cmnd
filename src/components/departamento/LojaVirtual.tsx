@@ -23,7 +23,7 @@ const LojaVirtual = () => {
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
           <Store className="text-green-600" size={28} />
-          Loja Virtual - Ambiente de Processos
+          Ambiente de Processos - Lojas
         </h2>
         <p className="text-muted-foreground">
           Navegue pela representação digital da loja e explore os processos de cada área
