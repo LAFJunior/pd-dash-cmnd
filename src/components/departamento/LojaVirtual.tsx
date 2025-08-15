@@ -237,142 +237,208 @@ const LojaVirtual = () => {
                 <div className="space-y-4">
                   
                   {/* PVA INTRODUÇÃO */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA INTRODUÇÃO
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA Introducao.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA INTRODUÇÃO
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA Introducao.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   {/* PVA - LETRA O */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA - LETRA O (ORGANIZE SEU DIA)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA O.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA - LETRA O (ORGANIZE SEU DIA)
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA O.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   {/* PVA - LETRA S */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA - LETRA S (SEJA BEM VINDO A OSCAR)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA S.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA - LETRA S (SEJA BEM VINDO A OSCAR)
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA S.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   {/* PVA - LETRA C */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA - LETRA C (CONSTRUA O PERFIL DO CLIENTE)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA C.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA - LETRA C (CONSTRUA O PERFIL DO CLIENTE)
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA C.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   {/* PVA - LETRA A */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA - LETRA A (APRESENTE E ADICIONE)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA A.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA - LETRA A (APRESENTE E ADICIONE)
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA A.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
 
                   {/* PVA - LETRA R */}
-                  <Card className="border-blue-200 bg-blue-50">
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <PlayCircle className="text-blue-600" size={20} />
-                        PVA - LETRA R (RETORNE O FECHAMENTO E PÓS VENDA)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div>
-                          <VideoPlayer fileName="PVA R.mp4" />
-                        </div>
-                        <div className="flex items-center justify-center">
-                          <Button variant="outline" className="flex items-center gap-2">
-                            <Eye size={16} />
-                            Ver Descrição
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-blue-600" size={20} />
+                              PVA - LETRA R (RETORNE O FECHAMENTO E PÓS VENDA)
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                            <div>
+                              <VideoPlayer fileName="PVA R.mp4" />
+                            </div>
+                            <div className="flex items-center justify-center">
+                              <Button variant="outline" className="flex items-center gap-2">
+                                <Eye size={16} />
+                                Ver Descrição
+                              </Button>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
                   
                 </div>
               </div>
