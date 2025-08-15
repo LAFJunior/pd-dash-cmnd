@@ -593,26 +593,38 @@ const LojaVirtual = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <Card className="mt-2 border-orange-200">
-                        <CardContent className="pt-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Organização da Equipe</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Aspectos Disciplinares</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
+                         <CardContent className="pt-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 1</h4>
+                                 <VideoPlayer fileName="Seu-Time-1.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 3</h4>
+                                 <VideoPlayer fileName="Seu-Time-3.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 5</h4>
+                                 <VideoPlayer fileName="Seu-Time-5.mp4" />
+                               </div>
+                             </div>
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 2</h4>
+                                 <VideoPlayer fileName="Seu-Time-2.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 4</h4>
+                                 <VideoPlayer fileName="Seu-Time-4.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 6</h4>
+                                 <VideoPlayer fileName="Seu-Time-6.mp4" />
+                               </div>
+                             </div>
+                           </div>
+                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
@@ -639,75 +651,129 @@ const LojaVirtual = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <Card className="mt-2 border-teal-200">
-                        <CardContent className="pt-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Monitoramento de Performance</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Ferramentas de Acompanhamento</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
+                         <CardContent className="pt-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 1</h4>
+                                 <VideoPlayer fileName="Acompanhamento-1.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 3</h4>
+                                 <VideoPlayer fileName="Acompanhamento-3.mp4" />
+                               </div>
+                             </div>
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Acompanhamento - Módulo 2</h4>
+                                 <VideoPlayer fileName="Acompanhamento-2.mp4" />
+                               </div>
+                             </div>
+                           </div>
+                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* Treinamento */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="cursor-pointer hover:shadow-md transition-shadow border-indigo-200 bg-indigo-50">
-                        <CardHeader className="pb-3">
-                          <CardTitle className="text-lg flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <GraduationCap className="text-indigo-600" size={20} />
-                              Treinamento
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-indigo-600" />
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-sm text-indigo-700">
-                            Como ser um treinador e não permitir que os métodos da empresa sejam perdidos
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent>
-                      <Card className="mt-2 border-indigo-200">
-                        <CardContent className="pt-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Papel do Treinador</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                            <div className="space-y-3">
-                              <h4 className="font-semibold text-sm">Métodos de Treinamento</h4>
-                              <div className="space-y-2">
-                                
-                                
-                                
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
+                   {/* Evolução */}
+                   <Collapsible>
+                     <CollapsibleTrigger asChild>
+                       <Card className="cursor-pointer hover:shadow-md transition-shadow border-purple-200 bg-purple-50">
+                         <CardHeader className="pb-3">
+                           <CardTitle className="text-lg flex items-center justify-between">
+                             <div className="flex items-center gap-2">
+                               <TrendingUp className="text-purple-600" size={20} />
+                               Evolução
+                             </div>
+                             <ChevronDown className="h-4 w-4 text-purple-600" />
+                           </CardTitle>
+                         </CardHeader>
+                         <CardContent>
+                           <p className="text-sm text-purple-700">
+                             Ferramentas para acompanhar evolução e crescimento da equipe e resultados
+                           </p>
+                         </CardContent>
+                       </Card>
+                     </CollapsibleTrigger>
+                     <CollapsibleContent>
+                       <Card className="mt-2 border-purple-200">
+                         <CardContent className="pt-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 1</h4>
+                                 <VideoPlayer fileName="Evolucao-1.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 3</h4>
+                                 <VideoPlayer fileName="Evolucao-3.mp4" />
+                               </div>
+                             </div>
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 2</h4>
+                                 <VideoPlayer fileName="Evolucao-2.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Evolução - Módulo 4</h4>
+                                 <VideoPlayer fileName="Evolucao-4.mp4" />
+                               </div>
+                             </div>
+                           </div>
+                         </CardContent>
+                       </Card>
+                     </CollapsibleContent>
+                   </Collapsible>
+
+                   {/* Treinamento */}
+                   <Collapsible>
+                     <CollapsibleTrigger asChild>
+                       <Card className="cursor-pointer hover:shadow-md transition-shadow border-indigo-200 bg-indigo-50">
+                         <CardHeader className="pb-3">
+                           <CardTitle className="text-lg flex items-center justify-between">
+                             <div className="flex items-center gap-2">
+                               <GraduationCap className="text-indigo-600" size={20} />
+                               Treinamento
+                             </div>
+                             <ChevronDown className="h-4 w-4 text-indigo-600" />
+                           </CardTitle>
+                         </CardHeader>
+                         <CardContent>
+                           <p className="text-sm text-indigo-700">
+                             Como ser um treinador e não permitir que os métodos da empresa sejam perdidos
+                           </p>
+                         </CardContent>
+                       </Card>
+                     </CollapsibleTrigger>
+                     <CollapsibleContent>
+                       <Card className="mt-2 border-indigo-200">
+                         <CardContent className="pt-4">
+                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 1</h4>
+                                 <VideoPlayer fileName="Treinamento-1.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 3</h4>
+                                 <VideoPlayer fileName="Treinamento-3.mp4" />
+                               </div>
+                             </div>
+                             <div className="space-y-4">
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 2</h4>
+                                 <VideoPlayer fileName="Treinamento-2.mp4" />
+                               </div>
+                               <div>
+                                 <h4 className="text-sm font-medium mb-2">Treinamento - Módulo 4</h4>
+                                 <VideoPlayer fileName="Treinamento-4.mp4" />
+                               </div>
+                             </div>
+                           </div>
+                         </CardContent>
+                       </Card>
+                     </CollapsibleContent>
+                   </Collapsible>
 
                 </div>
               </div>
