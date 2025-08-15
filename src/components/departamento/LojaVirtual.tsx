@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import VideoPlayer from '@/components/VideoPlayer';
 import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap } from 'lucide-react';
+
 const LojaVirtual = () => {
   const [areaAtiva, setAreaAtiva] = useState('entrada');
 
@@ -17,8 +18,11 @@ const LojaVirtual = () => {
     colaboradoresPresentes: 8,
     colaboradoresTotal: 10
   };
+
   const progressoVendas = performanceData.vendaRealizada / performanceData.metaVendas * 100;
-  return <div className="space-y-6">
+
+  return (
+    <div className="space-y-6">
       {/* Header da Loja Virtual */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
@@ -41,7 +45,6 @@ const LojaVirtual = () => {
               🏪 Frente da Loja
             </CardTitle>
           </CardHeader>
-          
         </Card>
 
         {/* ÁREA DE VENDAS */}
@@ -52,7 +55,6 @@ const LojaVirtual = () => {
               👥 Área de Vendas (PVA)
             </CardTitle>
           </CardHeader>
-          
         </Card>
 
         {/* ÁREA GERENCIAL */}
@@ -63,7 +65,6 @@ const LojaVirtual = () => {
               Programa de Gestão de Lojas - PGL
             </CardTitle>
           </CardHeader>
-          
         </Card>
 
         {/* ÁREA DE TREINAMENTO */}
@@ -74,7 +75,6 @@ const LojaVirtual = () => {
               📚 Área de Treinamento
             </CardTitle>
           </CardHeader>
-          
         </Card>
 
         {/* ESTOQUE/RETAGUARDA */}
@@ -85,7 +85,6 @@ const LojaVirtual = () => {
               📦 Estoque & Retaguarda
             </CardTitle>
           </CardHeader>
-          
         </Card>
 
         {/* GAMIFICAÇÃO */}
@@ -96,15 +95,6 @@ const LojaVirtual = () => {
               🏆 Desafios & Conquistas
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="text-center">
-                
-                
-              </div>
-              
-            </div>
-          </CardContent>
         </Card>
       </div>
 
@@ -253,23 +243,24 @@ const LojaVirtual = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                            <div>
-                              <VideoPlayer fileName="PVA Introducao.mp4" />
-                            </div>
-                            <div className="flex items-center justify-center">
-                              <Collapsible>
-                                <CollapsibleTrigger asChild>
-                                  <Button variant="outline" className="flex items-center gap-2">
-                                    <Eye size={16} />
-                                    Ver Descrição
-                                  </Button>
-                                </CollapsibleTrigger>
-                                <CollapsibleContent className="mt-4">
-                                  <div className="max-w-4xl mx-auto space-y-6 p-6 bg-white rounded-lg border">
-                                    
-                                    {/* Quote */}
+                         <CardContent className="pt-6 space-y-4">
+                           <div className="space-y-4">
+                             <div>
+                               <VideoPlayer fileName="PVA Introducao.mp4" />
+                             </div>
+                             <div className="container mx-auto px-4">
+                               <Collapsible>
+                                 <CollapsibleTrigger asChild>
+                                   <Button variant="outline" className="flex items-center gap-2">
+                                     <Eye size={16} />
+                                     Ver Descrição
+                                   </Button>
+                                 </CollapsibleTrigger>
+                                 <CollapsibleContent className="mt-4">
+                                   <Card className="border">
+                                     <CardContent className="p-6">
+                                       <div className="space-y-6">
+                                         {/* Quote */}
                                     <div className="text-center mb-6">
                                       <blockquote className="text-lg italic font-semibold text-gray-700 mb-2">
                                         "E sem saber que era impossível, ele foi lá e fez"
@@ -492,14 +483,13 @@ const LojaVirtual = () => {
                                             <p><strong>Tato e observação:</strong> capacidade de saber observar, abordar e tratar os clientes de gostos e necessidades próprias, considerando suas diferenças e peculiaridades.</p>
                                             <p><strong>Habilidade de relacionamento interpessoal:</strong> capacidade de estabelecer com facilidade relações de amizade, apresentando empatia, disposição para aceitar e entender as diferenças pessoais, partilhando situações favoráveis ou não, sem deixar de respeitar os limites dos demais.</p>
                                           </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CollapsibleContent>
-                              </Collapsible>
-                            </div>
-                          </div>
+                                       </div>
+                                     </CardContent>
+                                   </Card>
+                                 </CollapsibleContent>
+                               </Collapsible>
+                             </div>
+                           </div>
                         </CardContent>
                       </Card>
                     </CollapsibleContent>
@@ -523,14 +513,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="space-y-4">
                             <div>
                               <VideoPlayer fileName="PVA O.mp4" />
                             </div>
-                            <div className="flex items-center justify-center">
+                            <div className="container mx-auto px-4">
                               <Button variant="outline" className="flex items-center gap-2">
                                 <Eye size={16} />
-                                Ver Descrição
+                                Ver Descrição (Em breve)
                               </Button>
                             </div>
                           </div>
@@ -557,14 +547,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="space-y-4">
                             <div>
                               <VideoPlayer fileName="PVA S.mp4" />
                             </div>
-                            <div className="flex items-center justify-center">
+                            <div className="container mx-auto px-4">
                               <Button variant="outline" className="flex items-center gap-2">
                                 <Eye size={16} />
-                                Ver Descrição
+                                Ver Descrição (Em breve)
                               </Button>
                             </div>
                           </div>
@@ -591,14 +581,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="space-y-4">
                             <div>
                               <VideoPlayer fileName="PVA C.mp4" />
                             </div>
-                            <div className="flex items-center justify-center">
+                            <div className="container mx-auto px-4">
                               <Button variant="outline" className="flex items-center gap-2">
                                 <Eye size={16} />
-                                Ver Descrição
+                                Ver Descrição (Em breve)
                               </Button>
                             </div>
                           </div>
@@ -625,14 +615,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="space-y-4">
                             <div>
                               <VideoPlayer fileName="PVA A.mp4" />
                             </div>
-                            <div className="flex items-center justify-center">
+                            <div className="container mx-auto px-4">
                               <Button variant="outline" className="flex items-center gap-2">
                                 <Eye size={16} />
-                                Ver Descrição
+                                Ver Descrição (Em breve)
                               </Button>
                             </div>
                           </div>
@@ -659,14 +649,14 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                          <div className="space-y-4">
                             <div>
                               <VideoPlayer fileName="PVA R.mp4" />
                             </div>
-                            <div className="flex items-center justify-center">
+                            <div className="container mx-auto px-4">
                               <Button variant="outline" className="flex items-center gap-2">
                                 <Eye size={16} />
-                                Ver Descrição
+                                Ver Descrição (Em breve)
                               </Button>
                             </div>
                           </div>
@@ -1215,6 +1205,8 @@ const LojaVirtual = () => {
           </Tabs>
         </CardContent>
       </Card>
-    </div>;
+    </div>
+  );
 };
+
 export default LojaVirtual;
