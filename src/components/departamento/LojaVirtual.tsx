@@ -490,7 +490,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE GESTOR-1: Pré-requisitos do Líder 
+                                Você Gestor: Pré-requisitos do Líder 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
                             </div>
@@ -498,7 +498,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE GESTOR-2: 10 Competências do Gestor
+                                Você Gestor: 10 Competências do Gestor
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
                             </div>
@@ -507,7 +507,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE GESTOR-3: Competência na prática 
+                                Você Gestor: Competência na prática 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
                             </div>
@@ -515,7 +515,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE GESTOR-4: Liderança 
+                                Você Gestor: Liderança 
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
                             </div>
@@ -524,7 +524,7 @@ const LojaVirtual = () => {
                             <div className="space-y-3 md:col-span-1">
                               <h4 className="font-semibold text-sm flex items-center gap-2">
                                 <PlayCircle className="text-blue-600" size={16} />
-                                VOCE GESTOR-5: Administração do tempo
+                                Você Gestor: Administração do tempo
                               </h4>
                               <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
                             </div>
@@ -597,29 +597,29 @@ const LojaVirtual = () => {
                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 1</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: Estrutura de Loja</h4>
                                  <VideoPlayer fileName="Seu-Time-1.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 3</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: Funções De Seu Time </h4>
                                  <VideoPlayer fileName="Seu-Time-3.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 5</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: Analisando Seu Time </h4>
                                  <VideoPlayer fileName="Seu-Time-5.mp4" />
                                </div>
                              </div>
                              <div className="space-y-4">
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 2</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: F.O.P's</h4>
                                  <VideoPlayer fileName="Seu-Time-2.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 4</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: Sem Falhas</h4>
                                  <VideoPlayer fileName="Seu-Time-4.mp4" />
                                </div>
                                <div>
-                                 <h4 className="text-sm font-medium mb-2">Seu Time - Módulo 6</h4>
+                                 <h4 className="text-sm font-medium mb-2">Seu Time: Cumprir Normas</h4>
                                  <VideoPlayer fileName="Seu-Time-6.mp4" />
                                </div>
                              </div>
