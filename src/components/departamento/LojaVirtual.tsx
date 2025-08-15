@@ -259,10 +259,245 @@ const LojaVirtual = () => {
                               <VideoPlayer fileName="PVA Introducao.mp4" />
                             </div>
                             <div className="flex items-center justify-center">
-                              <Button variant="outline" className="flex items-center gap-2">
-                                <Eye size={16} />
-                                Ver Descrição
-                              </Button>
+                              <Collapsible>
+                                <CollapsibleTrigger asChild>
+                                  <Button variant="outline" className="flex items-center gap-2">
+                                    <Eye size={16} />
+                                    Ver Descrição
+                                  </Button>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent className="mt-4">
+                                  <div className="max-w-4xl mx-auto space-y-6 p-6 bg-white rounded-lg border">
+                                    
+                                    {/* Quote */}
+                                    <div className="text-center mb-6">
+                                      <blockquote className="text-lg italic font-semibold text-gray-700 mb-2">
+                                        "E sem saber que era impossível, ele foi lá e fez"
+                                      </blockquote>
+                                      <cite className="text-sm text-gray-500">(Jean Cocteau)</cite>
+                                    </div>
+
+                                    {/* Company History */}
+                                    <div className="prose prose-sm max-w-none space-y-4">
+                                      <p className="text-sm leading-relaxed">
+                                        Em 1982, quando a primeira loja Oscar Calçados foi inaugurada, teve início uma história de sucesso. Hoje, todos carregam com orgulho o nome da empresa que cresce a cada dia no mercado de varejo, sempre obtendo novas conquistas.
+                                      </p>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        E se o negócio da Oscar Calçados é vender, sua força motriz é o profissional de vendas. Por essa razão, o papel do vendedor é de grande responsabilidade. Quando esse profissional não está comprometido com o aumento de suas vendas, ele contribui para o enfraquecimento dos resultados e o fracasso da empresa, prejudicando a todos.
+                                      </p>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        Como toda empresa bem-sucedida, o Grupo Oscar Calçados busca o aprimoramento contínuo para superar seus próprios resultados, dando condições para que seus vendedores possam se destacar e atingir uma carreira de sucesso em vendas. Assim, o vendedor torna-se capaz de obter novos patamares, o que, além de garantir uma vida tranquila para si e sua família, impulsiona novas conquistas a sua empresa.
+                                      </p>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        Mas, para crescer, é preciso estar disposto a ampliar sua zona de conforto, isto é, as ações que já se tem por hábito fazer. Profissionais que se mantêm vendendo do mesmo modo por anos, sem experimentar novas abordagens ou formas de satisfazer o cliente, podem prosperar apenas uma parte do que poderiam caso arriscam mais.
+                                      </p>
+                                      
+                                      <div className="bg-blue-100 border border-blue-300 rounded-lg p-4 my-6">
+                                        <p className="text-sm font-semibold text-blue-800">
+                                          Nossa missão é proporcionar moda aos clientes e a satisfação de estar bem a cada passo.
+                                        </p>
+                                      </div>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        Pensando nesse propósito a Oscar disponibilizou este guia completo sobre como atender os clientes em sua loja e cumprir essa tarefa com perfeição. Esse manual foi desenvolvido para que você, vendedor, possa se preparar totalmente para aumentar seu desempenho profissional, alcançar os melhores resultados em sua loja e dar continuidade ao sucesso dessa história.
+                                      </p>
+                                    </div>
+
+                                    {/* Welcome Box */}
+                                    <div className="bg-blue-800 text-white p-6 rounded-lg text-center my-6">
+                                      <p className="font-semibold">Seja bem-vindo ao Programa de Vendas e Atendimento - PVA.</p>
+                                    </div>
+
+                                    {/* Learning Process */}
+                                    <div className="space-y-4">
+                                      <h3 className="text-lg font-bold text-red-600">Como é o processo de Aprendizado?</h3>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        Competência é resultado de um conjunto de fatores. Uma pessoa competente conhece sua área de atuação, aplica o que aprendeu em seu dia a dia e quer sempre fazer o seu melhor. Assim é, também, no processo de venda.
+                                      </p>
+                                      
+                                      <p className="text-sm leading-relaxed">
+                                        Para ser um bom profissional de vendas, é preciso ser competente no que faz. O bom vendedor conhece o produto que vende, é hábil ao lidar com o cliente e tem predisposição para agir. Competência é isso, é a união do conhecimento com as habilidades e a atitude.
+                                      </p>
+
+                                      {/* CHA Formula */}
+                                      <div className="bg-gray-100 border-2 border-gray-300 rounded-lg p-6 text-center my-6">
+                                        <p className="text-lg font-bold">Competência = C + H + A = CHA</p>
+                                      </div>
+
+                                      {/* Knowledge Section */}
+                                      <div className="space-y-3">
+                                        <h4 className="text-base font-bold text-red-600">Conhecimento = Aprendizado</h4>
+                                        <p className="text-sm leading-relaxed">
+                                          Conhecimento vai além da informação pura e simples. É a compreensão de todas as informações adquiridas na convivência com as pessoas, na escola, na empresa em que se trabalha, nos livros, nos treinamentos e nas experiências do dia a dia.
+                                        </p>
+                                        <p className="text-sm leading-relaxed">
+                                          O vendedor competente tem grandes conhecimentos sobre o produto que trabalha, pois isso é fundamental para a argumentação de vendas. Ele não apenas recebe as informações sobre o produto, mas compreende os processos, as características, os diferenciais. O profissional de vendas também conhece o espaço em que trabalha, a disposição dos produtos, o estoque, a arrumação da loja. Tudo isso engloba seu conhecimento sobre o que vende.
+                                        </p>
+                                        <p className="text-sm leading-relaxed italic">
+                                          Mas de que adianta o conhecimento sem a prática?
+                                        </p>
+                                      </div>
+
+                                      {/* Skills Section */}
+                                      <div className="space-y-3">
+                                        <h4 className="text-base font-bold text-red-600">Habilidade = Prática</h4>
+                                        <p className="text-sm leading-relaxed">
+                                          Habilidade é característica de quem sabe fazer. É a soma do aprendizado do "o quê" e de "como" fazer com a experiência adquirida. E o bom profissional de vendas sabe colocar na prática tudo aquilo que aprendeu.
+                                        </p>
+                                        <p className="text-sm leading-relaxed">
+                                          O vendedor competente tem a habilidade de identificar o perfil do cliente, o que lhe foi pedido, o que está sendo dito. Ele é capaz de relacionar as informações que estão sendo fornecidas, analisar o problema que está sendo colocado e resumir toda a situação, apresentando os produtos que a loja oferece. É isso que o torna hábil no que faz: colocar em prática o conhecimento adquirido. Porém, para praticar o que aprendeu, ele precisa estar disposto.
+                                        </p>
+                                      </div>
+
+                                      {/* Attitude Section */}
+                                      <div className="space-y-3">
+                                        <h4 className="text-base font-bold text-red-600">Atitudes = Querer fazer</h4>
+                                        <p className="text-sm leading-relaxed">
+                                          Atitude é o comportamento ditado por uma disposição interior. É à vontade, o "querer fazer", é a predisposição para agir. Ter atitude é isso: agir. É uma qualidade que se percebe em todas as áreas do comportamento da pessoa, seja no trabalho, com a família ou com os amigos.
+                                        </p>
+                                        <p className="text-sm leading-relaxed">
+                                          O vendedor competente quer fazer seu trabalho bem-feito, tem disposição para aprender sempre e iniciativa para buscar novas técnicas de vendas. Ele tem foco, motivação, iniciativa e comprometimento. Trabalha a inteligência emocional, o autodesenvolvimento e se adequa ao ritmo do cliente. É criativo, ético e persistente. Essas são as características de um vendedor de atitude.
+                                        </p>
+                                      </div>
+
+                                      {/* Behavior Table */}
+                                      <div className="mt-6">
+                                        <h4 className="text-base font-bold mb-4">Tabela de Comportamentos</h4>
+                                        <div className="overflow-x-auto">
+                                          <table className="w-full border-collapse border border-gray-300">
+                                            <thead>
+                                              <tr className="bg-gray-100">
+                                                <th className="border border-gray-300 p-3 text-left font-bold">COMPORTAMENTO DO CLIENTE</th>
+                                                <th className="border border-gray-300 p-3 text-left font-bold">COMPORTAMENTO DO VENDEDOR</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody className="text-sm">
+                                              <tr>
+                                                <td className="border border-gray-300 p-3">Sabe o que quer. Está concentrado e tem objetivo.</td>
+                                                <td className="border border-gray-300 p-3">Seja objetivo. Apresente só o que interessa às necessidades do cliente. Provoque o entusiasmo, apresentando as vantagens.</td>
+                                              </tr>
+                                              <tr className="bg-gray-50">
+                                                <td className="border border-gray-300 p-3">Preocupa-se com qualidade e preço.</td>
+                                                <td className="border border-gray-300 p-3">Procure descobrir a necessidade e o gosto. Demonstre segurança, conhecimento e entusiasmo. Conquiste a confiança.</td>
+                                              </tr>
+                                              <tr>
+                                                <td className="border border-gray-300 p-3">Parece indiferente, desconfiado e/ou inibido.</td>
+                                                <td className="border border-gray-300 p-3">Deixe o cliente falar. Dê direcionamento à fala, fazendo perguntas ligadas ao produto, dando continuidade à sondagem das necessidades e dos gostos. Resume as vantagens e reforce os benefícios.</td>
+                                              </tr>
+                                              <tr className="bg-gray-50">
+                                                <td className="border border-gray-300 p-3">Não sabe ouvir. Fala bastante. Desvia a atenção para outros assuntos.</td>
+                                                <td className="border border-gray-300 p-3">Dê as informações que o cliente quer e guarde um ótimo argumento para o fechamento.</td>
+                                              </tr>
+                                              <tr>
+                                                <td className="border border-gray-300 p-3">Faz muitas perguntas, quer saber tudo.</td>
+                                                <td className="border border-gray-300 p-3">Apresente as características do produto, utilizando uma linguagem leve.</td>
+                                              </tr>
+                                              <tr className="bg-gray-50">
+                                                <td className="border border-gray-300 p-3">É moderno, descontraído, sem cerimônias.</td>
+                                                <td className="border border-gray-300 p-3">Não intime o cliente. Utilize as mídias sociais a seu favor!</td>
+                                              </tr>
+                                              <tr>
+                                                <td className="border border-gray-300 p-3">Cria muitas objeções e quer vantagem financeira.</td>
+                                                <td className="border border-gray-300 p-3">Demonstre o diferencial do produto, plano de pagamento e o quanto a compra vai agregar à vida dele.</td>
+                                              </tr>
+                                              <tr className="bg-gray-50">
+                                                <td className="border border-gray-300 p-3">Ficar se lamentando. Tudo é ruim, é "do contra".</td>
+                                                <td className="border border-gray-300 p-3">Seja paciente, mostre respeito.</td>
+                                              </tr>
+                                              <tr>
+                                                <td className="border border-gray-300 p-3">Insatisfação pela empresa ou pelo atendimento. (Nessa situação, o cliente está oferecendo uma oportunidade de melhoria.)</td>
+                                                <td className="border border-gray-300 p-3">Escute o cliente e resolva a questão.</td>
+                                              </tr>
+                                              <tr className="bg-gray-50">
+                                                <td className="border border-gray-300 p-3">Demonstra conhecimento e domina o diálogo.</td>
+                                                <td className="border border-gray-300 p-3">Elogie sem discutir. Venda o benefício, não o produto.</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+
+                                      {/* 5 Pillars */}
+                                      <div className="space-y-4 mt-6">
+                                        <p className="text-sm leading-relaxed">
+                                          O PVA Oscar foi desenvolvido com base nas melhores experiências práticas de nossos vendedores e especialistas. Por isso, além de conhecer as técnicas de vendas, retratadas no chavão Oscar, é importante, desde o primeiro dia de trabalho, conhecer os cinco pilares que sustentam as principais características comportamentais deste profissional. Retratamos estas características dentro de um círculo único, formando 360 graus, unindo cada uma delas.
+                                        </p>
+
+                                        <div className="bg-red-600 text-white p-4 rounded-lg">
+                                          <h4 className="font-bold mb-2">Gostar de Gente e Foco no Cliente</h4>
+                                          <ul className="text-sm space-y-1">
+                                            <li>• Ter foco em realizar o desejo do cliente</li>
+                                            <li>• Habilidade estruturar</li>
+                                            <li>• Satisfazê-lo, falando</li>
+                                            <li>• Sempre a verdade e relacionamento pessoas</li>
+                                            <li>• Desenvolver a capacidade de empatia</li>
+                                          </ul>
+                                        </div>
+
+                                        <div className="bg-red-600 text-white p-4 rounded-lg">
+                                          <h4 className="font-bold mb-2 text-center">05 PILARES DE UM VENDEDOR DE SUCESSO</h4>
+                                          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-sm">
+                                            <div>
+                                              <p className="font-semibold">1. Resolvendo os problemas</p>
+                                              <p className="text-xs">Garantir sua fidelização</p>
+                                            </div>
+                                            <div>
+                                              <p className="font-semibold">2. Amar o que faz</p>
+                                            </div>
+                                            <div>
+                                              <p className="font-semibold">3. Objetivos</p>
+                                              <p className="text-xs">Ter metas e resultados claros</p>
+                                            </div>
+                                            <div>
+                                              <p className="font-semibold">4. Valorizar a profissão de vendas</p>
+                                              <p className="text-xs">motivar-se diante de desafios pessoais para atingir</p>
+                                            </div>
+                                            <div>
+                                              <p className="font-semibold">5. Formular soluções</p>
+                                              <p className="text-xs">para alcançar os seus objetivos</p>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                          <p className="text-sm leading-relaxed">
+                                            <strong>Persistir e Dominar o PVA e as competências</strong> não desanimar em frente às adversidades.
+                                          </p>
+                                          <p className="text-sm leading-relaxed">
+                                            Dominar os passos da venda contidos no chavão O.S.C.A.R e as competências fundamentais do vendedor.
+                                          </p>
+                                          <p className="text-sm leading-relaxed font-semibold">
+                                            Lembre-se: de nada adiantará a técnica se você não tiver esses pilares.
+                                          </p>
+                                        </div>
+
+                                        {/* Fundamental Competencies */}
+                                        <div className="space-y-3">
+                                          <h4 className="text-base font-bold">Entendido o conceito, vamos ver as competências fundamentais do vendedor:</h4>
+                                          
+                                          <div className="space-y-3 text-sm">
+                                            <p><strong>Receptividade:</strong> capacidade de ouvir opiniões, críticas e sugestões dos demais, analisando as contribuições dos outros.</p>
+                                            <p><strong>Afetividade:</strong> capacidade para estabelecer laços de afetividade e simpatia, por meio de postura pessoal participativa e amável.</p>
+                                            <p><strong>Capacidade de comunicação:</strong> capacidade de se comunicar de forma objetiva, clara e eficaz e de captar o pensamento dos demais de forma coerente.</p>
+                                            <p><strong>Facilidade de argumentação/persuasão:</strong> habilidade para convencer os demais por meio da argumentação e representatividade lógica e objetiva.</p>
+                                            <p><strong>Autoconfiança:</strong> capacidade de acreditar nos próprios recursos e demonstrar segurança nas relações com pessoas e situações novas.</p>
+                                            <p><strong>Flexibilidade e disposição de rever posições:</strong> capacidade de não temer o novo e mostrar-se aberto a receber informações; disposição pessoal para adaptar-se em diferentes contextos de trabalho, encontrando soluções apropriadas.</p>
+                                            <p><strong>Comprometimento:</strong> estar envolvido com os prazos e metas da empresa e perceber suas responsabilidades e os impactos do seu trabalho.</p>
+                                            <p><strong>Proatividade:</strong> capacidade de agir autonomamente, antecipando decisões, criando condições favoráveis e tomando providências que visem à prevenção ou à resolução de problemas.</p>
+                                            <p><strong>Trabalho em equipe e cooperação:</strong> facilidade de engajamento pessoal e capacidade de manter-se acessível e disponível à equipe, demonstrando interesse, num clima de interdependência e confiança mútua.</p>
+                                            <p><strong>Tato e observação:</strong> capacidade de saber observar, abordar e tratar os clientes de gostos e necessidades próprias, considerando suas diferenças e peculiaridades.</p>
+                                            <p><strong>Habilidade de relacionamento interpessoal:</strong> capacidade de estabelecer com facilidade relações de amizade, apresentando empatia, disposição para aceitar e entender as diferenças pessoais, partilhando situações favoráveis ou não, sem deixar de respeitar os limites dos demais.</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </CollapsibleContent>
+                              </Collapsible>
                             </div>
                           </div>
                         </CardContent>
