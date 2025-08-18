@@ -48,7 +48,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <ShoppingCart className="text-blue-600" size={20} />
-              Área de Vendas (PVA)
+              Programa de Vendas e Atendimento - PVA
             </CardTitle>
           </CardHeader>
         </Card>
@@ -102,7 +102,7 @@ const LojaVirtual = () => {
               <TabsTrigger value="entrada">Entrada</TabsTrigger>
               <TabsTrigger value="vendas">Vendas</TabsTrigger>
               <TabsTrigger value="gerencial">Gerencial</TabsTrigger>
-              <TabsTrigger value="treinamento">Treinamento</TabsTrigger>
+              <TabsTrigger value="treinamento">Material</TabsTrigger>
               <TabsTrigger value="estoque">Estoque</TabsTrigger>
               <TabsTrigger value="gamificacao">Conquistas</TabsTrigger>
             </TabsList>
@@ -259,7 +259,7 @@ const LojaVirtual = () => {
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6 space-y-4">
                           <div className="space-y-4">
-                            <div>
+                            <div className="w-full max-w-[540px] mx-auto">
                               <VideoPlayer fileName="PVA Introducao.mp4" />
                             </div>
                             <div className="container mx-auto px-4">
@@ -768,7 +768,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-blue-200 bg-blue-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 1</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
@@ -813,7 +813,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-green-200 bg-green-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 1</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
@@ -862,7 +862,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-orange-200 bg-orange-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 1</h4>
                               <VideoPlayer fileName="Seu-Time-1.mp4" />
@@ -911,7 +911,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-purple-200 bg-purple-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 1</h4>
                               <VideoPlayer fileName="Acompanhamento-1.mp4" />
@@ -948,7 +948,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-teal-200 bg-teal-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 1</h4>
                               <VideoPlayer fileName="Treinamento-1.mp4" />
@@ -989,7 +989,7 @@ const LojaVirtual = () => {
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-yellow-200 bg-yellow-50">
                         <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 1</h4>
                               <VideoPlayer fileName="Evolucao-1.mp4" />
