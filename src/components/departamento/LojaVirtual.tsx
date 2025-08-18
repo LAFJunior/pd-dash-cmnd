@@ -661,123 +661,158 @@ const LojaVirtual = () => {
                 {/* Blocos de Vídeos PGL */}
                 <div className="space-y-4">
                   
-                  {/* PGL MÓDULO 1 */}
+                  {/* Você Gestor */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 1 - Fundamentos da Gestão
+                              <UserCog className="text-blue-600" size={20} />
+                              Você Gestor
                             </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                            <ChevronDown className="h-4 w-4 text-blue-600" />
                           </CardTitle>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                      <Card className="border-blue-200 bg-blue-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 1</h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 2</h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 3</h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 4</h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 5</h4>
+                              <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* PGL MÓDULO 2 */}
+                  {/* Gerência Operacional */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                      <Card className="border-green-200 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 2 - Indicadores e KPIs
+                              <Settings className="text-green-600" size={20} />
+                              Gerência Operacional
                             </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                            <ChevronDown className="h-4 w-4 text-green-600" />
                           </CardTitle>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                      <Card className="border-green-200 bg-green-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 1</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 2</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 3</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 4</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 5</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 6</h4>
+                              <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* PGL MÓDULO 3 */}
+                  {/* Seu Time */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                      <Card className="border-orange-200 bg-orange-50 cursor-pointer hover:bg-orange-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 3 - Gestão de Equipes
+                              <Users className="text-orange-600" size={20} />
+                              Seu Time
                             </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                            <ChevronDown className="h-4 w-4 text-orange-600" />
                           </CardTitle>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                      <Card className="border-orange-200 bg-orange-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 1</h4>
+                              <VideoPlayer fileName="Seu-Time-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 2</h4>
+                              <VideoPlayer fileName="Seu-Time-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 3</h4>
+                              <VideoPlayer fileName="Seu-Time-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 4</h4>
+                              <VideoPlayer fileName="Seu-Time-4.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 5</h4>
+                              <VideoPlayer fileName="Seu-Time-5.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 6</h4>
+                              <VideoPlayer fileName="Seu-Time-6.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* PGL MÓDULO 4 */}
+                  {/* Acompanhamento */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
                       <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 4 - Processos Operacionais
+                              <Eye className="text-purple-600" size={20} />
+                              Acompanhamento
                             </div>
                             <ChevronDown className="h-4 w-4 text-purple-600" />
                           </CardTitle>
@@ -786,55 +821,102 @@ const LojaVirtual = () => {
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
                       <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 1</h4>
+                              <VideoPlayer fileName="Acompanhamento-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 2</h4>
+                              <VideoPlayer fileName="Acompanhamento-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 3</h4>
+                              <VideoPlayer fileName="Acompanhamento-3.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* PGL MÓDULO 5 */}
+                  {/* Treinamento */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                      <Card className="border-teal-200 bg-teal-50 cursor-pointer hover:bg-teal-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 5 - Atendimento e Experiência do Cliente
+                              <GraduationCap className="text-teal-600" size={20} />
+                              Treinamento
                             </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                            <ChevronDown className="h-4 w-4 text-teal-600" />
                           </CardTitle>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                      <Card className="border-teal-200 bg-teal-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 1</h4>
+                              <VideoPlayer fileName="Treinamento-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 2</h4>
+                              <VideoPlayer fileName="Treinamento-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 3</h4>
+                              <VideoPlayer fileName="Treinamento-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 4</h4>
+                              <VideoPlayer fileName="Treinamento-4.mp4" />
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  {/* Evolução */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-yellow-200 bg-yellow-50 cursor-pointer hover:bg-yellow-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <Trophy className="text-yellow-600" size={20} />
+                              Evolução
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-yellow-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-yellow-200 bg-yellow-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 1</h4>
+                              <VideoPlayer fileName="Evolucao-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 2</h4>
+                              <VideoPlayer fileName="Evolucao-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 3</h4>
+                              <VideoPlayer fileName="Evolucao-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 4</h4>
+                              <VideoPlayer fileName="Evolucao-4.mp4" />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
