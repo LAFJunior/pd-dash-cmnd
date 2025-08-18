@@ -377,6 +377,16 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
     );
   }
 
+  if (departamentoNormalizado.includes('marketing')) {
+    // Retorna o componente específico para Marketing
+    const EstruturaMarketing = React.lazy(() => import('./EstruturaMarketing'));
+    return (
+      <React.Suspense fallback={<div>Carregando...</div>}>
+        <EstruturaMarketing />
+      </React.Suspense>
+    );
+  }
+
   if (departamentoNormalizado.includes('compras')) {
   // Dados estruturados para facilitar manutenção
   const departamentos = {
