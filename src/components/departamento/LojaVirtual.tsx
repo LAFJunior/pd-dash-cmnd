@@ -672,189 +672,93 @@ const LojaVirtual = () => {
                   </CardContent>
                 </Card>
 
-                {/* Blocos de Vídeos PGL */}
-                <div className="space-y-4">
-                  
-                  {/* PGL MÓDULO 1 */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                {/* Blocos de Vídeos PGL - Layout 2x2+1 */}
+                <div className="space-y-6">
+                  {/* Primeira linha - Módulos 1 e 2 */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* PGL MÓDULO 1 */}
+                    <Card className="border-purple-200 bg-purple-50">
+                      <CardHeader>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                          <PlayCircle className="text-purple-600" size={20} />
+                          PGL MÓDULO 1 - Fundamentos da Gestão
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="w-full max-w-[320px] mx-auto">
+                          <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* PGL MÓDULO 2 */}
+                    <Card className="border-purple-200 bg-purple-50">
+                      <CardHeader>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                          <PlayCircle className="text-purple-600" size={20} />
+                          PGL MÓDULO 2 - Indicadores e KPIs
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="w-full max-w-[320px] mx-auto">
+                          <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Segunda linha - Módulos 3 e 4 */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* PGL MÓDULO 3 */}
+                    <Card className="border-purple-200 bg-purple-50">
+                      <CardHeader>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                          <PlayCircle className="text-purple-600" size={20} />
+                          PGL MÓDULO 3 - Gestão de Equipes
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="w-full max-w-[320px] mx-auto">
+                          <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* PGL MÓDULO 4 */}
+                    <Card className="border-purple-200 bg-purple-50">
+                      <CardHeader>
+                        <CardTitle className="text-lg flex items-center gap-2">
+                          <PlayCircle className="text-purple-600" size={20} />
+                          PGL MÓDULO 4 - Processos Operacionais
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="w-full max-w-[320px] mx-auto">
+                          <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Terceira linha - Módulo 5 centralizado */}
+                  <div className="flex justify-center">
+                    <div className="w-full lg:w-1/2">
+                      {/* PGL MÓDULO 5 */}
+                      <Card className="border-purple-200 bg-purple-50">
                         <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 1 - Fundamentos da Gestão
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                          <CardTitle className="text-lg flex items-center gap-2">
+                            <PlayCircle className="text-purple-600" size={20} />
+                            PGL MÓDULO 5 - Atendimento e Experiência do Cliente
                           </CardTitle>
                         </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
+                        <CardContent>
+                          <div className="w-full max-w-[320px] mx-auto">
+                            <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
                           </div>
                         </CardContent>
                       </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* PGL MÓDULO 2 */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 2 - Indicadores e KPIs
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
-                          </CardTitle>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* PGL MÓDULO 3 */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 3 - Gestão de Equipes
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
-                          </CardTitle>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* PGL MÓDULO 4 */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 4 - Processos Operacionais
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
-                          </CardTitle>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* PGL MÓDULO 5 */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <PlayCircle className="text-purple-600" size={20} />
-                              PGL MÓDULO 5 - Atendimento e Experiência do Cliente
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-purple-600" />
-                          </CardTitle>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-purple-200 bg-purple-50">
-                        <CardContent className="pt-6 space-y-4">
-                          <div className="space-y-4">
-                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
-                              <CardContent className="p-6">
-                                <div className="text-center space-y-2">
-                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
-                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
-                                  <p className="text-purple-600">
-                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
-                                  </p>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
+                    </div>
+                  </div>
                 </div>
               </div>
             </TabsContent>
