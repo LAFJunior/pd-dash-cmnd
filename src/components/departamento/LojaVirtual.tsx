@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import VideoPlayer from '@/components/VideoPlayer';
 import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap, CheckSquare, Download, CreditCard, Building } from 'lucide-react';
-
 const LojaVirtual = () => {
   const [areaAtiva, setAreaAtiva] = useState('entrada');
 
@@ -18,11 +17,8 @@ const LojaVirtual = () => {
     colaboradoresPresentes: 8,
     colaboradoresTotal: 10
   };
-
   const progressoVendas = performanceData.vendaRealizada / performanceData.metaVendas * 100;
-
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       {/* Header da Loja Virtual */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
@@ -120,23 +116,10 @@ const LojaVirtual = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
                     <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-medium text-muted-foreground">Meta de Vendas</p>
-                          <p className="text-2xl font-bold">R$ {performanceData.metaVendas.toLocaleString()}</p>
-                        </div>
-                        <Target className="h-8 w-8 text-green-600" />
-                      </div>
+                      
                       <div className="mt-2">
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div 
-                            className="bg-green-600 h-2 rounded-full" 
-                            style={{ width: `${progressoVendas}%` }}
-                          ></div>
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {progressoVendas.toFixed(1)}% da meta atingida
-                        </p>
+                        
+                        
                       </div>
                     </CardContent>
                   </Card>
@@ -144,33 +127,24 @@ const LojaVirtual = () => {
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm font-medium text-muted-foreground">Satisfação do Cliente</p>
-                          <p className="text-2xl font-bold flex items-center gap-1">
-                            {performanceData.satisfacaoCliente}
-                            <Star className="h-5 w-5 text-yellow-500 fill-current" />
-                          </p>
+                          
+                          
                         </div>
-                        <UserCheck className="h-8 w-8 text-blue-600" />
+                        
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">
-                        Baseado em 127 avaliações
-                      </p>
+                      
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm font-medium text-muted-foreground">Equipe Presente</p>
-                          <p className="text-2xl font-bold">
-                            {performanceData.colaboradoresPresentes}/{performanceData.colaboradoresTotal}
-                          </p>
+                          
+                          
                         </div>
-                        <Users className="h-8 w-8 text-purple-600" />
+                        
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">
-                        {((performanceData.colaboradoresPresentes / performanceData.colaboradoresTotal) * 100).toFixed(0)}% da equipe
-                      </p>
+                      
                     </CardContent>
                   </Card>
                 </div>
@@ -554,14 +528,27 @@ const LojaVirtual = () => {
                   </Collapsible>
 
                   {/* Other PVA modules with "Em breve" status */}
-                  {[
-                    { letra: "O", titulo: "ORGANIZE SEU DIA", file: "PVA O.mp4" },
-                    { letra: "S", titulo: "SEJA BEM VINDO A OSCAR", file: "PVA S.mp4" },
-                    { letra: "C", titulo: "CONSTRUA O PERFIL DO CLIENTE", file: "PVA C.mp4" },
-                    { letra: "A", titulo: "APRESENTE E ADICIONE", file: "PVA A.mp4" },
-                    { letra: "R", titulo: "RETORNE O FECHAMENTO E PÓS VENDA", file: "PVA R.mp4" }
-                  ].map((item) => (
-                    <Collapsible key={item.letra}>
+                  {[{
+                  letra: "O",
+                  titulo: "ORGANIZE SEU DIA",
+                  file: "PVA O.mp4"
+                }, {
+                  letra: "S",
+                  titulo: "SEJA BEM VINDO A OSCAR",
+                  file: "PVA S.mp4"
+                }, {
+                  letra: "C",
+                  titulo: "CONSTRUA O PERFIL DO CLIENTE",
+                  file: "PVA C.mp4"
+                }, {
+                  letra: "A",
+                  titulo: "APRESENTE E ADICIONE",
+                  file: "PVA A.mp4"
+                }, {
+                  letra: "R",
+                  titulo: "RETORNE O FECHAMENTO E PÓS VENDA",
+                  file: "PVA R.mp4"
+                }].map(item => <Collapsible key={item.letra}>
                       <CollapsibleTrigger asChild>
                         <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
                           <CardHeader>
@@ -592,8 +579,7 @@ const LojaVirtual = () => {
                           </CardContent>
                         </Card>
                       </CollapsibleContent>
-                    </Collapsible>
-                  ))}
+                    </Collapsible>)}
                 </div>
               </div>
             </TabsContent>
@@ -606,402 +592,255 @@ const LojaVirtual = () => {
                   Programa de Gestão de Lojas - PGL
                 </h3>
                 
+                {/* Roteiro de Aplicação do Treinamento PGL */}
+                <Card className="border-purple-200 bg-purple-50">
+                  <CardHeader>
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <BookOpenCheck className="text-purple-600" size={20} />
+                      Roteiro de Aplicação do Treinamento PGL
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="prose prose-sm max-w-none">
+                      <p className="text-sm leading-relaxed">
+                        O Programa de Gestão de Lojas (PGL) foi desenvolvido para capacitar gestores e líderes na administração eficaz de lojas, abordando desde indicadores de desempenho até gestão de equipes e processos operacionais.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Este programa é estruturado em módulos progressivos que abordam os principais pilares da gestão de varejo, proporcionando uma visão completa e prática do negócio.
+                      </p>
+                      
+                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 my-4">
+                        <p className="text-sm font-semibold text-purple-800 mb-2">🎯 Objetivo</p>
+                        <p className="text-sm text-purple-700">
+                          Desenvolver competências gerenciais essenciais para o sucesso na gestão de lojas, focando em resultados, liderança de equipes e excelência operacional.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-3 text-sm">
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 1</Badge>
+                          <div>
+                            <span className="font-semibold">Fundamentos da Gestão</span><br />
+                            <span className="text-muted-foreground">Introdução aos conceitos básicos de gestão de lojas</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 2</Badge>
+                          <div>
+                            <span className="font-semibold">Indicadores e KPIs</span><br />
+                            <span className="text-muted-foreground">Métricas essenciais para tomada de decisão</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 3</Badge>
+                          <div>
+                            <span className="font-semibold">Gestão de Equipes</span><br />
+                            <span className="text-muted-foreground">Liderança e desenvolvimento de pessoas</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 4</Badge>
+                          <div>
+                            <span className="font-semibold">Processos Operacionais</span><br />
+                            <span className="text-muted-foreground">Otimização e controle de processos</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 5</Badge>
+                          <div>
+                            <span className="font-semibold">Atendimento e Experiência do Cliente</span><br />
+                            <span className="text-muted-foreground">Excelência no atendimento e fidelização</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Blocos de Vídeos PGL */}
                 <div className="space-y-4">
-                  {/* Gestor - Curso */}
-                  <Collapsible defaultOpen>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <UserCog className="text-blue-600" size={20} />
-                              Gestor - Curso
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-blue-600" />
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Principais características do gestor de loja, preparando-o para lidar com sua equipe
-                          </p>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* PGL MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">VOCE-GESTOR-1: Fundamentos da Gestão</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
-                          </div>
-                        </div>
-
-                        {/* PGL MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">VOCE-GESTOR-2: Liderança de Equipe</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulos 3 e 4 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* PGL MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">VOCE-GESTOR-3: Gestão de Performance</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
-                          </div>
-                        </div>
-
-                        {/* PGL MÓDULO 4 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">VOCE-GESTOR-4: Tomada de Decisão</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Terceira linha - Módulo 5 centralizado */}
-                      <div className="flex justify-center">
-                        <div className="w-full lg:w-1/2">
-                          <div className="space-y-2">
-                            <h4 className="text-sm font-medium text-muted-foreground">VOCE-GESTOR-5: Desenvolvimento de Equipe</h4>
-                            <div className="w-full">
-                              <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* Gerência Operacional */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-green-200 bg-green-50 cursor-pointer hover:bg-green-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <Settings className="text-green-600" size={20} />
-                              Gerência Operacional
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-green-600" />
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Práticas de gestão operacional buscando eficiência e libertação das rotinas que desfocam os gestores do salão de venda
-                          </p>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulos 3 e 4 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 4 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 4</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Terceira linha - Módulos 5 e 6 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 5 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 5</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 6 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 6</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
-                          </div>
-                        </div>
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* Seu Time */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-orange-200 bg-orange-50 cursor-pointer hover:bg-orange-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <Users className="text-orange-600" size={20} />
-                              Seu Time
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-orange-600" />
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Conteúdo voltado para a forma que o gestor deverá conduzir aspectos organizacionais e disciplinares na loja
-                          </p>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-1.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulos 3 e 4 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-3.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 4 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 4</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-4.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Terceira linha - Módulos 5 e 6 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 5 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 5</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-5.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 6 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 6</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Seu-Time-6.mp4" />
-                          </div>
-                        </div>
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* Acompanhamento */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-cyan-200 bg-cyan-50 cursor-pointer hover:bg-cyan-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <Eye className="text-cyan-600" size={20} />
-                              Acompanhamento
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-cyan-600" />
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Capítulo dedicado para direcionar o gestor sobre aspectos relacionados ao desempenho
-                          </p>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Acompanhamento-1.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Acompanhamento-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulo 3 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Acompanhamento-3.mp4" />
-                          </div>
-                        </div>
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* Treinamento */}
+                  
+                  {/* PGL MÓDULO 1 */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
                       <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <GraduationCap className="text-purple-600" size={20} />
-                              Treinamento
+                              <PlayCircle className="text-purple-600" size={20} />
+                              PGL MÓDULO 1 - Fundamentos da Gestão
                             </div>
                             <ChevronDown className="h-4 w-4 text-purple-600" />
                           </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Como ser um treinador e não permitir que os métodos da empresa sejam perdidos
-                          </p>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Treinamento-1.mp4" />
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-purple-200 bg-purple-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="space-y-4">
+                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
+                              <CardContent className="p-6">
+                                <div className="text-center space-y-2">
+                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
+                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
+                                  <p className="text-purple-600">
+                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
+                                  </p>
+                                </div>
+                              </CardContent>
+                            </Card>
                           </div>
-                        </div>
-
-                        {/* MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Treinamento-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulos 3 e 4 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Treinamento-3.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 4 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 4</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Treinamento-4.mp4" />
-                          </div>
-                        </div>
-                      </div>
+                        </CardContent>
+                      </Card>
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* Evolução */}
+                  {/* PGL MÓDULO 2 */}
                   <Collapsible>
                     <CollapsibleTrigger asChild>
-                      <Card className="border-emerald-200 bg-emerald-50 cursor-pointer hover:bg-emerald-100 transition-colors">
+                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
                         <CardHeader>
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
-                              <TrendingUp className="text-emerald-600" size={20} />
-                              Evolução
+                              <PlayCircle className="text-purple-600" size={20} />
+                              PGL MÓDULO 2 - Indicadores e KPIs
                             </div>
-                            <ChevronDown className="h-4 w-4 text-emerald-600" />
+                            <ChevronDown className="h-4 w-4 text-purple-600" />
                           </CardTitle>
-                          <p className="text-sm text-muted-foreground mt-2">
-                            Desenvolvimento contínuo e crescimento profissional
-                          </p>
                         </CardHeader>
                       </Card>
                     </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-4 mt-4">
-                      {/* Primeira linha - Módulos 1 e 2 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 1 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Evolucao-1.mp4" />
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-purple-200 bg-purple-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="space-y-4">
+                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
+                              <CardContent className="p-6">
+                                <div className="text-center space-y-2">
+                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
+                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
+                                  <p className="text-purple-600">
+                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
+                                  </p>
+                                </div>
+                              </CardContent>
+                            </Card>
                           </div>
-                        </div>
-
-                        {/* MÓDULO 2 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Evolucao-2.mp4" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Segunda linha - Módulos 3 e 4 */}
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        {/* MÓDULO 3 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Evolucao-3.mp4" />
-                          </div>
-                        </div>
-
-                        {/* MÓDULO 4 */}
-                        <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 4</h4>
-                          <div className="w-full">
-                            <VideoPlayer fileName="Evolucao-4.mp4" />
-                          </div>
-                        </div>
-                      </div>
+                        </CardContent>
+                      </Card>
                     </CollapsibleContent>
                   </Collapsible>
+
+                  {/* PGL MÓDULO 3 */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-purple-600" size={20} />
+                              PGL MÓDULO 3 - Gestão de Equipes
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-purple-200 bg-purple-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="space-y-4">
+                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
+                              <CardContent className="p-6">
+                                <div className="text-center space-y-2">
+                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
+                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
+                                  <p className="text-purple-600">
+                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
+                                  </p>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  {/* PGL MÓDULO 4 */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-purple-600" size={20} />
+                              PGL MÓDULO 4 - Processos Operacionais
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-purple-200 bg-purple-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="space-y-4">
+                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
+                              <CardContent className="p-6">
+                                <div className="text-center space-y-2">
+                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
+                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
+                                  <p className="text-purple-600">
+                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
+                                  </p>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  {/* PGL MÓDULO 5 */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-purple-200 bg-purple-50 cursor-pointer hover:bg-purple-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <PlayCircle className="text-purple-600" size={20} />
+                              PGL MÓDULO 5 - Atendimento e Experiência do Cliente
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-purple-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-purple-200 bg-purple-50">
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="space-y-4">
+                            <Card className="border-dashed border-2 border-purple-200 bg-purple-50">
+                              <CardContent className="p-6">
+                                <div className="text-center space-y-2">
+                                  <Clock className="mx-auto h-12 w-12 text-purple-400" />
+                                  <h4 className="text-lg font-medium text-purple-800">Em breve</h4>
+                                  <p className="text-purple-600">
+                                    Este módulo está sendo desenvolvido e será disponibilizado em breve.
+                                  </p>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
+
                 </div>
               </div>
             </TabsContent>
@@ -1027,11 +866,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Encarregado de Vendas</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para coordenação da equipe de vendas</p>
-                      <Button 
-                        size="sm" 
-                        className="w-full" 
-                        onClick={() => window.open('/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}
-                      >
+                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1045,11 +880,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gestor 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão moderna de loja</p>
-                      <Button 
-                        size="sm" 
-                        className="w-full" 
-                        onClick={() => window.open('/CHECK LIST GESTOR 3.0 2025.pdf', '_blank')}
-                      >
+                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST GESTOR 3.0 2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1063,11 +894,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Caixa 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para operações de caixa</p>
-                      <Button 
-                        size="sm" 
-                        className="w-full" 
-                        onClick={() => window.open('/CHECK LIST LIDER CAIXA 3.0 2025.pdf', '_blank')}
-                      >
+                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST LIDER CAIXA 3.0 2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1081,11 +908,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Estoque 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão de estoque</p>
-                      <Button 
-                        size="sm" 
-                        className="w-full" 
-                        onClick={() => window.open('/CHECK LIST LÍDER DE ESTOQUE 3.0 2025.pdf', '_blank')}
-                      >
+                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST LÍDER DE ESTOQUE 3.0 2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1099,11 +922,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gerente Regional</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão regional</p>
-                      <Button 
-                        size="sm" 
-                        className="w-full" 
-                        onClick={() => window.open('/Check List Gerente Regional 2025.pdf', '_blank')}
-                      >
+                      <Button size="sm" className="w-full" onClick={() => window.open('/Check List Gerente Regional 2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1135,8 +954,6 @@ const LojaVirtual = () => {
           </Tabs>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default LojaVirtual;
