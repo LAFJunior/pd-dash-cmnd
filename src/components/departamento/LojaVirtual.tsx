@@ -697,9 +697,61 @@ const LojaVirtual = () => {
                       </Card>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-4 mt-4">
-                      <div className="text-center py-8">
-                        <Clock className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-                        <p className="text-muted-foreground">Conteúdo em breve</p>
+                      {/* Primeira linha - Módulos 1 e 2 */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* MÓDULO 1 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 1</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
+                          </div>
+                        </div>
+
+                        {/* MÓDULO 2 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 2</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Segunda linha - Módulos 3 e 4 */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* MÓDULO 3 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 3</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
+                          </div>
+                        </div>
+
+                        {/* MÓDULO 4 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 4</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Terceira linha - Módulos 5 e 6 */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* MÓDULO 5 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 5</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
+                          </div>
+                        </div>
+
+                        {/* MÓDULO 6 */}
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-medium text-muted-foreground">MÓDULO 6</h4>
+                          <div className="w-full">
+                            <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
+                          </div>
+                        </div>
                       </div>
                     </CollapsibleContent>
                   </Collapsible>
