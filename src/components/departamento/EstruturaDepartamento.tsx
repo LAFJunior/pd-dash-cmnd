@@ -358,32 +358,459 @@ const EstruturaDepartamento: React.FC<{ departamento: string }> = ({ departament
   }
 
   if (departamentoNormalizado.includes('pessoal') || departamentoNormalizado.includes('dp')) {
-    // Retorna o componente específico para Departamento Pessoal
-    const EstruturaDepartamentoPessoal = React.lazy(() => import('./EstruturaDepartamentoPessoal'));
     return (
-      <React.Suspense fallback={<div>Carregando...</div>}>
-        <EstruturaDepartamentoPessoal />
-      </React.Suspense>
+      <div className="min-h-screen bg-gray-50 p-6">
+        {/* Estrutura Organizacional */}
+        <div className="space-y-6">
+          {/* Diretor */}
+          <div className="flex justify-center">
+            <div className="bg-gray-800 text-white p-6 rounded-lg text-center min-w-[300px]">
+              <div className="font-bold text-lg mb-2">MÁRCIO SAMPAIO</div>
+              <div className="font-semibold mb-2">DIRETOR</div>
+              <div className="text-sm opacity-90 mb-1">MARCIO.SAMPAIO@GRUPOOSCAR.COM.BR</div>
+              <div className="text-sm opacity-90">(12) 97411-1367 - WHATSAPP</div>
+            </div>
+          </div>
+
+          {/* Gerente */}
+          <div className="flex justify-center">
+            <div className="bg-emerald-600 text-white p-6 rounded-lg text-center min-w-[300px]">
+              <div className="font-bold text-lg mb-2">MARIA MACEDO</div>
+              <div className="font-semibold mb-2">GERENTE DO DEPARTAMENTO</div>
+              <div className="text-sm opacity-90 mb-1">MARIA.MACEDO@GRUPOOSCAR.COM.BR</div>
+              <div className="text-sm opacity-90">(12) 99193-1537 - WHATSAPP</div>
+            </div>
+          </div>
+
+          {/* Líder de Equipe */}
+          <div className="flex justify-center">
+            <div className="bg-pink-600 text-white p-6 rounded-lg text-center min-w-[300px]">
+              <div className="font-bold text-lg mb-2">TALITHA OLIVEIRA</div>
+              <div className="font-semibold mb-2">LÍDER DO TIME</div>
+              <div className="text-sm opacity-90 mb-1">THALITA.SOUZA@GRUPOOSCAR.COM.BR</div>
+              <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
+            </div>
+          </div>
+
+          {/* Grupos de Trabalho */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+            {/* Grupo Azul */}
+            <div className="bg-blue-500 text-white rounded-lg">
+              <div className="bg-blue-600 p-4 rounded-t-lg text-center font-bold">
+                GRUPO AZUL
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-blue-400 p-3 rounded text-center">
+                  <div className="font-semibold">SIMONE REITANO(ANALISTA)</div>
+                  <div className="text-sm opacity-90">SIMONE.REITANO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                </div>
+                <div className="bg-blue-400 p-3 rounded text-center">
+                  <div className="font-semibold">BIA</div>
+                  <div className="text-sm opacity-90">FABIANA.SILVA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                </div>
+                <div className="bg-blue-400 p-3 rounded text-center">
+                  <div className="font-semibold">RAFAELA</div>
+                  <div className="text-sm opacity-90">RAFAELA.FERREIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                </div>
+                <div className="bg-blue-300 p-3 rounded">
+                  <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS E BACKOFFICE</div>
+                  <div className="grid grid-cols-3 gap-2 text-sm">
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">Aríane</div>
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">Amaro</div>
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">Cláudio</div>
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">Ericson</div>
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">João Paulo</div>
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">Rodrigo</div>
+                  </div>
+                  <div className="mt-2">
+                    <div className="bg-white text-blue-600 p-2 rounded text-center font-medium">BackOffice</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Grupo Verde */}
+            <div className="bg-green-500 text-white rounded-lg">
+              <div className="bg-green-600 p-4 rounded-t-lg text-center font-bold">
+                GRUPO VERDE
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">ANA CAROLINA</div>
+                  <div className="text-sm opacity-90">ANA.VELOSO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                </div>
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">NAIMARA</div>
+                  <div className="text-sm opacity-90">NAIMARA.CAMARGO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                </div>
+                <div className="bg-green-300 p-3 rounded">
+                  <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS</div>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Bernardo</div>
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Estefan</div>
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Luis Américo</div>
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Mauricio</div>
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Thiago Miglioli</div>
+                  </div>
+                  <div className="mt-2">
+                    <div className="bg-white text-green-600 p-2 rounded text-center font-medium">Peterson</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Grupo Vermelho */}
+            <div className="bg-red-500 text-white rounded-lg">
+              <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+                GRUPO VERMELHO
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">FABIANA (ANALISTA)</div>
+                  <div className="text-sm opacity-90">FABIANA.FERREIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">NICOLLE</div>
+                  <div className="text-sm opacity-90">NICOLLE.OLIVEIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">CAMILLA</div>
+                  <div className="text-sm opacity-90">CAMILLA.SILVA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-red-300 p-3 rounded">
+                  <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS</div>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Artemis</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Clovis</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Viviane</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Jorge</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Katiane</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Patricia</div>
+                  </div>
+                  <div className="mt-2">
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Suila</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
   if (departamentoNormalizado.includes('auditoria')) {
-    // Retorna o componente específico para Auditoria
-    const EstruturaDepartamentoAuditoria = React.lazy(() => import('./EstruturaDepartamentoAuditoria'));
     return (
-      <React.Suspense fallback={<div>Carregando...</div>}>
-        <EstruturaDepartamentoAuditoria />
-      </React.Suspense>
+      <div className="min-h-screen bg-gray-50 p-6">
+        {/* Estrutura Organizacional */}
+        <div className="space-y-6">
+          {/* CEO */}
+          <div className="flex justify-center">
+            <div className="bg-gray-800 text-white p-6 rounded-lg text-center min-w-[300px]">
+              <div className="font-bold text-lg mb-2">BRUNO CONSTANTINO</div>
+              <div className="font-semibold mb-2">CEO GRUPO OSCAR</div>
+            </div>
+          </div>
+
+          {/* COORDENADOR */}
+          <div className="flex justify-center">
+            <div className="bg-emerald-600 text-white p-6 rounded-lg text-center min-w-[300px]">
+              <div className="font-bold text-lg mb-2">KLEBERSON SOARES</div>
+              <div className="font-semibold mb-2">COORDENADOR</div>
+              <div className="text-sm opacity-90 mb-1">KLEBERSON.SOARES@GRUPOOSCAR.COM.BR</div>
+              <div className="text-sm opacity-90">(16) 98202-1247 - WHATSAPP</div>
+            </div>
+          </div>
+
+          {/* Equipes de Trabalho */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+            {/* BAURU (16 LOJAS) - GRUPO AZUL */}
+            <div className="bg-blue-500 text-white rounded-lg">
+              <div className="bg-blue-600 p-4 rounded-t-lg text-center font-bold">
+                BAURU (16 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-blue-400 p-3 rounded text-center">
+                  <div className="font-semibold">DANIEL CARVALHO (AUDITOR)</div>
+                  <div className="text-xs opacity-90">DANIEL.CARVALHO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                </div>
+                <div className="bg-blue-400 p-3 rounded text-center">
+                  <div className="font-semibold">GUILHERME ESTORINO (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">GUILHERME.ESTORINO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* ARARAQUARA (14 LOJAS) - GRUPO VERDE */}
+            <div className="bg-green-500 text-white rounded-lg">
+              <div className="bg-green-600 p-4 rounded-t-lg text-center font-bold">
+                ARARAQUARA (14 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">WALDEIR CABRERA (AUDITOR)</div>
+                  <div className="text-xs opacity-90">WALDEIR.CABRERA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) 97405-0730 - WHATSAPP</div>
+                </div>
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">FABIO RIBEIRO (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">FABIO.RIBEIRO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) 99234-0913 - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* S. J. DOS CAMPOS (19 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-red-500 text-white rounded-lg">
+              <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+                S. J. DOS CAMPOS (19 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">CLEVERSON RIBEIRO (AUDITOR)</div>
+                  <div className="text-xs opacity-90">CLEVERSON.RIBEIRO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">PEDRO AUGUSTO (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">PEDRO.AUGUSTO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* S. J. DOS CAMPOS (15 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-red-500 text-white rounded-lg">
+              <div className="bg-red-600 p-4 rounded-t-lg text-center font-bold">
+                S. J. DOS CAMPOS (15 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">GABRIEL ELIAS (AUDITOR)</div>
+                  <div className="text-xs opacity-90">GABRIEL.ELIAS@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-red-400 p-3 rounded text-center">
+                  <div className="font-semibold">EMELLYN THACIANE (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">EMELLYN.THACIANE@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* MOGI DAS CRUZES (25 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-gray-500 text-white rounded-lg">
+              <div className="bg-gray-600 p-4 rounded-t-lg text-center font-bold">
+                MOGI DAS CRUZES (25 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-gray-400 p-3 rounded text-center">
+                  <div className="font-semibold">LUCAS FARIAS (AUDITOR)</div>
+                  <div className="text-xs opacity-90">LUCAS.FARIAS@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-gray-400 p-3 rounded text-center">
+                  <div className="font-semibold">JEAN PEREIRA (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">JEAN.PEREIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* FLORIANÓPOLIS (27 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-orange-500 text-white rounded-lg">
+              <div className="bg-orange-600 p-4 rounded-t-lg text-center font-bold">
+                FLORIANÓPOLIS (27 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-orange-400 p-3 rounded text-center">
+                  <div className="font-semibold">JHOANY JOSE (AUDITOR)</div>
+                  <div className="text-xs opacity-90">JHOANY.JOSE@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-orange-400 p-3 rounded text-center">
+                  <div className="font-semibold">PABLO DANIEL (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">PABLO.DANIEL@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* PORTO ALEGRE (20 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-violet-500 text-white rounded-lg">
+              <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
+                PORTO ALEGRE (20 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold">MARCELINO RODRIGUES (AUDITOR)</div>
+                  <div className="text-xs opacity-90">MARCELINO.RODRIGUES@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold"> MURILO (CONFERENTE)</div>
+                  <div className="text-xs opacity-90"> MURILO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* PORTO ALEGRE (19 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-violet-500 text-white rounded-lg">
+              <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
+                PORTO ALEGRE (19 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold">YURI SANTOS (AUDITOR)</div>
+                  <div className="text-xs opacity-90">YURI.SANTOS@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold">RODRIGO VAREIRA (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">RODRIGO.VAREIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+
+            {/* PORTO ALEGRE (17 LOJAS) - GRUPO VERMELHO */}
+            <div className="bg-violet-500 text-white rounded-lg">
+              <div className="bg-violet-600 p-4 rounded-t-lg text-center font-bold">
+                PORTO ALEGRE (17 LOJAS)
+              </div>
+              <div className="p-4 space-y-4">
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold">CRISTIANO FREITAS (AUDITOR)</div>
+                  <div className="text-xs opacity-90">CRISTIANO.FREITAS@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+                <div className="bg-violet-400 p-3 rounded text-center">
+                  <div className="font-semibold">ISAC ALVES (CONFERENTE)</div>
+                  <div className="text-xs opacity-90">ISAC.ALVES@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-xs opacity-90">(12) XXXX-XXXX - WHATSAPP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 
   if (departamentoNormalizado.includes('marketing')) {
-    // Retorna o componente específico para Marketing
-    const EstruturaMarketing = React.lazy(() => import('./EstruturaMarketing'));
+    const lideranca = [
+      { name: "Renan Constantino", role: "CMO", icon: <Crown size={20} /> },
+      { name: "Helena Alves", role: "Diretora", icon: <Star size={18} /> }
+    ];
+
+    const departamentos = [
+      {
+        title: "Atendimento",
+        people: [
+          { name: "Amanda Monique", role: "Executiva de Contas", icon: <Phone size={16} /> },
+          { name: "Giulia Moreira", role: "Executiva de Contas", icon: <Phone size={16} /> },
+          { name: "Leticia Aguiar", role: "Executiva de Contas", icon: <Phone size={16} /> }
+        ]
+      },
+      {
+        title: "Redes Sociais",
+        people: [
+          { name: "Priscila Oliveira", role: "Head Social Media, Influenciadores e Campanhas", icon: <Users size={16} /> },
+          { name: "Mateus Moreira", role: "Analista de Influenciadores", icon: <User size={16} /> },
+          { name: "Lucas Dantas", role: "Analista de Mídias Sociais | Estrategista", icon: <TrendingUp size={16} /> },
+          { name: "Caio Dutra", role: "Analista de Mídias Sociais | Estrategista", icon: <TrendingUp size={16} /> },
+          { name: "Marina Selbach", role: "Analista de Mídias Sociais | Estrategista", icon: <TrendingUp size={16} /> },
+          { name: "Jefferson Carlos", role: "Analista de Mídias Sociais | Produção de Vídeos", icon: <Monitor size={16} /> },
+          { name: "Natalie Bordignon", role: "Assistente de Marketing e Produção", icon: <User size={16} /> },
+          { name: "Isabela Constantino", role: "Auxiliar de Marketing", icon: <User size={16} /> }
+        ]
+      },
+      {
+        title: "Criação",
+        people: [
+          { name: "Raul Pacheco", role: "Diretor de Criação", icon: <Star size={16} /> },
+          { name: "Mariana Teodoro", role: "Diretora de Arte", icon: <Monitor size={16} /> },
+          { name: "Alvaro Reitman", role: "Diretor de Arte", icon: <Monitor size={16} /> },
+          { name: "Raphael Takamatsu", role: "Diretor de Arte", icon: <Monitor size={16} /> },
+          { name: "Gabriella Lemes", role: "Designer E-commerce", icon: <Monitor size={16} /> },
+          { name: "Tiago Coronas", role: "Designer E-commerce", icon: <Monitor size={16} /> },
+          { name: "Rodrigo Oliveira", role: "Motion Designer e Diretor de Arte", icon: <Monitor size={16} /> },
+          { name: "Priscila Martins", role: "Redatora", icon: <FileText size={16} /> },
+          { name: "Jorge Abel", role: "Redator", icon: <FileText size={16} /> },
+          { name: "Anderson Sousa", role: "Diretor de Arte", icon: <Monitor size={16} /> }
+        ]
+      },
+      {
+        title: "Performance",
+        people: [
+          { name: "Lais Calabreze", role: "Head de Growth", icon: <TrendingUp size={16} /> },
+          { name: "Leticia Calabreze", role: "Analista de SEO", icon: <BarChart3 size={16} /> },
+          { name: "Caio Guimarães", role: "Analista de Tráfego Pago", icon: <BarChart3 size={16} /> },
+          { name: "Pedro Cruz", role: "Analista de Tráfego Pago", icon: <BarChart3 size={16} /> },
+          { name: "Vitor Prado", role: "Analista de CRM", icon: <User size={16} /> },
+          { name: "Maisa Gonçalves", role: "Assistente de CRM", icon: <User size={16} /> }
+        ]
+      }
+    ];
+
     return (
-      <React.Suspense fallback={<div>Carregando...</div>}>
-        <EstruturaMarketing />
-      </React.Suspense>
+      <div className="min-h-screen bg-gradient-to-br from-purple-800 via-purple-900 to-indigo-900 p-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Título */}
+          <h1 className="text-5xl md:text-6xl font-black text-yellow-400 text-center mb-4 tracking-wider drop-shadow-lg">
+            QUEM FAZ ACONTECER
+          </h1>
+          
+          {/* Liderança */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-yellow-400 mb-8">LIDERANÇA</h2>
+            <div className="flex flex-col md:flex-row justify-center gap-6">
+              {lideranca.map((person, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    {person.icon}
+                    <h3 className="text-xl font-semibold text-white">{person.name}</h3>
+                  </div>
+                  <p className="text-purple-200 text-lg italic">{person.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Departamentos */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {departamentos.map((dept, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center uppercase tracking-wide border-b-2 border-yellow-400 pb-3">
+                  {dept.title}
+                </h3>
+                <div className="space-y-4">
+                  {dept.people.map((person, personIndex) => (
+                    <div key={personIndex} className="p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-center">
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        {person.icon && <span className="text-yellow-400">{person.icon}</span>}
+                        <h4 className="font-semibold text-white text-lg">{person.name}</h4>
+                      </div>
+                      <p className="text-purple-200 text-sm leading-relaxed">{person.role}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     );
   }
 
