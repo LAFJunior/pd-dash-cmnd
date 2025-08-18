@@ -603,54 +603,143 @@ const LojaVirtual = () => {
                   <CardContent className="space-y-4">
                     <div className="prose prose-sm max-w-none">
                       <p className="text-sm leading-relaxed">
-                        O Programa de Gestão de Lojas (PGL) foi desenvolvido para capacitar gestores e líderes na administração eficaz de lojas, abordando desde indicadores de desempenho até gestão de equipes e processos operacionais.
+                        Você faz parte do Programa de Gestão de Vendas, desenvolvido com o objetivo de auxiliá-lo no aprimoramento de suas habilidades como profissional de varejo.
+                      </p>
+                      
+                      <div className="bg-orange-100 border border-orange-300 rounded-lg p-4 my-4">
+                        <p className="text-sm font-semibold text-orange-800">
+                          Atenção é fundamental!
+                        </p>
+                      </div>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Esteja sempre atento a todas as informações contidas neste manual, ele será seu companheiro na busca pela excelência em gestão de lojas.
+                      </p>
+                      
+                      <div className="bg-red-100 border border-red-300 rounded-lg p-4 my-4">
+                        <p className="text-sm font-semibold text-red-800">
+                          De nada adianta a teoria sem prática.
+                        </p>
+                      </div>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Por isso, realize todas as atividades sugeridas pelo PGL. Elas irão ajudá-lo a extrair o melhor de todo o processo de treinamento.
                       </p>
                       
                       <p className="text-sm leading-relaxed">
-                        Este programa é estruturado em módulos progressivos que abordam os principais pilares da gestão de varejo, proporcionando uma visão completa e prática do negócio.
+                        O PGL é um programa de treinamento que abrange conceitos e técnicas exclusivas para o gestor de lojas. Trata-se de um material desenvolvido por profissionais que atuaram ativamente no varejo e que dominam as diversas dificuldades vivenciadas no dia a dia de qualquer salão de vendas.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Os capítulos a seguir têm, basicamente, o objetivo de contextualizar cada uma das ferramentas apresentadas. É preciso que você, gestor de loja, entenda o porquê de cada ferramenta, bem como suas particularidades. Ao compreender o que está por trás de cada uma, você terá maior facilidade para adaptar as técnicas expostas à sua realidade.
                       </p>
                       
                       <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 my-4">
-                        <p className="text-sm font-semibold text-purple-800 mb-2">🎯 Objetivo</p>
-                        <p className="text-sm text-purple-700">
-                          Desenvolver competências gerenciais essenciais para o sucesso na gestão de lojas, focando em resultados, liderança de equipes e excelência operacional.
+                        <p className="text-sm font-semibold text-purple-800">
+                          O seu objetivo é aplicar todas as ferramentas, não apenas algumas delas.
                         </p>
                       </div>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Lembre-se: você tem um papel importante como multiplicador interno, visto que ninguém melhor do que você conhece as rotinas de loja.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        A partir de exemplos práticos, sua participação será fundamental para adaptar os conceitos descritos ao seu dia a dia. Nosso maior objetivo é aumentar cada vez mais o conhecimento das equipes e, consequentemente, atuar como facilitadores para o crescimento pessoal e profissional de todos os envolvidos.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Prepare-se para ter acesso a verdadeiros "tesouros", que darão o upgrade que sua loja precisa para despontar nas vendas.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        O FOP "Formulário de Observação de Procedimentos" é uma ferramenta que vai incentivar sua equipe a ser mais disciplinada.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Já o "Formulário de Orientação de Desempenho Quinzenal" tem o intuito de indicar aos seus vendedores "o que fazer" e, principalmente, "como fazer", fornecendo táticas para aumentar as vendas e atingir as metas com facilidade.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed">
+                        Essas são apenas algumas das ferramentas que você verá ao longo do programa.
+                      </p>
+                      
+                      <div className="bg-green-100 border border-green-300 rounded-lg p-4 my-4">
+                        <p className="text-sm font-semibold text-green-800">
+                          Então, mãos à obra!
+                        </p>
+                      </div>
+                      
+                      <p className="text-sm leading-relaxed">
+                        O Programa de Gestão de Loja (PGL) é a melhor ferramenta para coordenar as atividades de um gestor em seu cotidiano na loja.
+                      </p>
+                      
+                      <p className="text-sm leading-relaxed font-semibold">
+                        Este programa está dividido em 09 capítulos:
+                      </p>
 
-                      <div className="grid grid-cols-1 gap-3 text-sm">
+                      <div className="grid grid-cols-1 gap-3 text-sm mt-4">
                         <div className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 1</Badge>
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 1</Badge>
                           <div>
-                            <span className="font-semibold">Fundamentos da Gestão</span><br />
-                            <span className="text-muted-foreground">Introdução aos conceitos básicos de gestão de lojas</span>
+                            <span className="font-semibold">Introdução ao PGL</span><br />
+                            <span className="text-muted-foreground">Este capítulo contempla alguns requisitos para o decorrer do manual, e seus temas.</span>
                           </div>
                         </div>
                         <div className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 2</Badge>
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 2</Badge>
                           <div>
-                            <span className="font-semibold">Indicadores e KPIs</span><br />
-                            <span className="text-muted-foreground">Métricas essenciais para tomada de decisão</span>
+                            <span className="font-semibold">Você: Gestor</span><br />
+                            <span className="text-muted-foreground">Este capítulo aborda as principais características do gestor de loja, preparando-o para lidar com sua equipe.</span>
                           </div>
                         </div>
                         <div className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 3</Badge>
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 3</Badge>
                           <div>
-                            <span className="font-semibold">Gestão de Equipes</span><br />
-                            <span className="text-muted-foreground">Liderança e desenvolvimento de pessoas</span>
+                            <span className="font-semibold">Gerência Operacional</span><br />
+                            <span className="text-muted-foreground">Contempla práticas de gestão operacional buscando eficiência e libertação das rotinas que desfocam os gestores do salão de venda.</span>
                           </div>
                         </div>
                         <div className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 4</Badge>
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 4</Badge>
                           <div>
-                            <span className="font-semibold">Processos Operacionais</span><br />
-                            <span className="text-muted-foreground">Otimização e controle de processos</span>
+                            <span className="font-semibold">Seu Time</span><br />
+                            <span className="text-muted-foreground">Um conteúdo voltado para a forma que o gestor deverá conduzir aspectos organizacionais e disciplinares na loja.</span>
                           </div>
                         </div>
                         <div className="flex items-start gap-2">
-                          <Badge variant="outline" className="text-xs px-2 py-1">Módulo 5</Badge>
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 5</Badge>
                           <div>
-                            <span className="font-semibold">Atendimento e Experiência do Cliente</span><br />
-                            <span className="text-muted-foreground">Excelência no atendimento e fidelização</span>
+                            <span className="font-semibold">Acompanhamento</span><br />
+                            <span className="text-muted-foreground">Um capítulo dedicado para direcionar o gestor sobre aspectos relacionados ao desempenho.</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 6</Badge>
+                          <div>
+                            <span className="font-semibold">Evolução</span><br />
+                            <span className="text-muted-foreground">Como produzir melhores indicadores através da observação e da análise estatística.</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 7</Badge>
+                          <div>
+                            <span className="font-semibold">Recrutamento e Seleção</span><br />
+                            <span className="text-muted-foreground">Práticas e rotinas para buscar um time campeão e permanente.</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 8</Badge>
+                          <div>
+                            <span className="font-semibold">Treinamento</span><br />
+                            <span className="text-muted-foreground">Como ser um treinador e não permitir que os métodos da empresa sejam perdidos.</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Cap. 9</Badge>
+                          <div>
+                            <span className="font-semibold">Ferramentas</span><br />
+                            <span className="text-muted-foreground">Todos os capítulos serão trabalhados em uma verdadeira imersão que, basicamente, engloba todos os aspectos envolvidos no aumento da produtividade da loja, ou seja, o aumento das vendas. E, para que possamos garantir os melhores resultados, escolhemos os temas mais importantes.</span>
                           </div>
                         </div>
                       </div>
