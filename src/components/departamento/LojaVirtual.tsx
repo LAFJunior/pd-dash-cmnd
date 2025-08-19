@@ -1037,7 +1037,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Encarregado de Vendas</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para coordenação da equipe de vendas</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST ENCARREGADO DE VENDAS 2025.pdf', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => window.open('/check_list_encarregado_vedas_2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1051,7 +1051,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gestor 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão moderna de loja</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST GESTOR 3.0 2025.pdf', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => window.open('/check_list_gestor_3.0_2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1065,7 +1065,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Caixa 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para operações de caixa</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST LIDER CAIXA 3.0 2025.pdf', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => window.open('/check_list_Caixa_lider_3.0_2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1079,7 +1079,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Estoque 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão de estoque</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('/CHECK LIST LÍDER DE ESTOQUE 3.0 2025.pdf', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => window.open('/check_list_lider_estoque_3.0_2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1093,7 +1093,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gerente Regional</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão regional</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('/Check List Gerente Regional 2025.pdf', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => window.open('/check_list_gerente_regional_2025.pdf', '_blank')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
