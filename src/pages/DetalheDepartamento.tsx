@@ -211,6 +211,40 @@ const DetalheDepartamento = () => {
               </Card>
             )}
 
+            {/* Materiais e Treinamentos - Só exibe para DP */}
+            {isDepartamentoPessoal && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <ClipboardList className="text-blue-600" size={24} />
+                    Materiais e Treinamentos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-white border rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <div className="flex items-start gap-3">
+                      <input type="checkbox" className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300" defaultChecked />
+                      <div className="flex-1 space-y-2">
+                        <h4 className="font-medium text-gray-900">Manual Gestão de Ponto</h4>
+                        <p className="text-sm text-gray-600">Principais funcionalidades existentes na nova Plataforma de Gestão de Ponto.</p>
+                        <Button 
+                          variant="default" 
+                          size="sm" 
+                          className="bg-gray-800 hover:bg-gray-900 text-white"
+                          onClick={() => window.open('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', '_blank')}
+                        >
+                          <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                          </svg>
+                          Baixar PDF
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Processos Realizados */}
             <Card>
               <CardHeader>
