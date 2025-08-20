@@ -16,18 +16,23 @@ import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
-
 const DetalheDepartamento = () => {
-  const { nome } = useParams<{ nome: string }>();
+  const {
+    nome
+  } = useParams<{
+    nome: string;
+  }>();
   const navigate = useNavigate();
   const [pilarSelecionado, setPilarSelecionado] = useState<string>('');
-  
+
   // Função para converter URL em nome do departamento
   const converterUrlParaNome = (urlNome: string) => {
     if (!urlNome) return '';
-    
+
     // Mapear casos especiais
-    const mapeamentoEspecial: {[key: string]: string} = {
+    const mapeamentoEspecial: {
+      [key: string]: string;
+    } = {
       'e-commerce': 'E-Commerce',
       'ecommerce': 'E-Commerce',
       'contbil': 'Contábil',
@@ -46,20 +51,14 @@ const DetalheDepartamento = () => {
       'instituicoes-financeiras': 'Instituições Financeiras',
       'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)'
     };
-    
     const urlLowerCase = urlNome.toLowerCase();
-    
     if (mapeamentoEspecial[urlLowerCase]) {
       return mapeamentoEspecial[urlLowerCase];
     }
-    
+
     // Conversão padrão: trocar hífens por espaços e capitalizar
-    return urlNome
-      .split('-')
-      .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1))
-      .join(' ');
+    return urlNome.split('-').map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1)).join(' ');
   };
-  
   const nomeDepartamento = converterUrlParaNome(nome || '');
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
@@ -69,19 +68,11 @@ const DetalheDepartamento = () => {
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
   const isLojas = nomeDepartamento.toLowerCase().includes('lojas');
-  
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
-  
-  return (
-    <div className="animate-fade-in">
+  return <div className="animate-fade-in">
       <div className="mb-6 flex items-center gap-4">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          onClick={() => navigate('/departamentos')}
-          className="flex items-center gap-2"
-        >
+        <Button variant="outline" size="sm" onClick={() => navigate('/departamentos')} className="flex items-center gap-2">
           <ArrowLeft size={16} />
           Voltar
         </Button>
@@ -93,13 +84,8 @@ const DetalheDepartamento = () => {
 
       <div className="space-y-8">
         {/* Conteúdo específico para Recicalce */}
-        {isRecicalce ? (
-          <RecicalceInfo />
-        ) : isLojas ? (
-          /* Conteúdo específico para Lojas */
-          <LojaVirtual />
-        ) : (
-          <>
+        {isRecicalce ? <RecicalceInfo /> : isLojas ? (/* Conteúdo específico para Lojas */
+      <LojaVirtual />) : <>
             {/* Estrutura do Departamento */}
             <Card>
               <CardHeader>
@@ -109,11 +95,7 @@ const DetalheDepartamento = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {isSaoJoseCampos ? (
-                  <EstruturaSaoJoseCampos />
-                ) : (
-                  <EstruturaDepartamento departamento={nomeDepartamento} />
-                )}
+                {isSaoJoseCampos ? <EstruturaSaoJoseCampos /> : <EstruturaDepartamento departamento={nomeDepartamento} />}
               </CardContent>
             </Card>
 
@@ -126,19 +108,12 @@ const DetalheDepartamento = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {isControladoria ? (
-                  <FluxoControladoria />
-                ) : isFiscal ? (
-                  <FluxoFiscal />
-                ) : (
-                  <FluxoDepartamento departamento={nomeDepartamento} />
-                )}
+                {isControladoria ? <FluxoControladoria /> : isFiscal ? <FluxoFiscal /> : <FluxoDepartamento departamento={nomeDepartamento} />}
               </CardContent>
             </Card>
 
             {/* Lojas e responsáveis - Só exibe para Financeiro Varejo */}
-            {isFinanceiroVarejo && (
-              <Card>
+            {isFinanceiroVarejo && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Users className="text-blue-600" size={24} />
@@ -148,12 +123,10 @@ const DetalheDepartamento = () => {
                 <CardContent>
                   <LojasResponsaveis />
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Centro de Custo - Só exibe para Financeiro Varejo */}
-            {isFinanceiroVarejo && (
-              <Card>
+            {isFinanceiroVarejo && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Building2 className="text-indigo-600" size={24} />
@@ -163,12 +136,10 @@ const DetalheDepartamento = () => {
                 <CardContent>
                   <CentroCusto />
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Pilares do E-commerce - Só exibe para E-commerce */}
-            {isEcommerce && (
-              <Card>
+            {isEcommerce && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Puzzle className="text-orange-600" size={24} />
@@ -178,12 +149,10 @@ const DetalheDepartamento = () => {
                 <CardContent>
                   <PilaresEcommerce onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Pilares da Controladoria - Só exibe para Controladoria */}
-            {isControladoria && (
-              <Card>
+            {isControladoria && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Puzzle className="text-orange-600" size={24} />
@@ -193,12 +162,10 @@ const DetalheDepartamento = () => {
                 <CardContent>
                   <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Pilares do Departamento Pessoal - Só exibe para DP */}
-            {isDepartamentoPessoal && (
-              <Card>
+            {isDepartamentoPessoal && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Puzzle className="text-orange-600" size={24} />
@@ -208,12 +175,10 @@ const DetalheDepartamento = () => {
                 <CardContent>
                   <PilaresDepartamentoPessoal onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Materiais e Treinamentos - Só exibe para DP */}
-            {isDepartamentoPessoal && (
-              <Card>
+            {isDepartamentoPessoal && <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <ClipboardList className="text-blue-600" size={24} />
@@ -225,14 +190,9 @@ const DetalheDepartamento = () => {
                     <div className="flex items-start gap-3">
                       <input type="checkbox" className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300" defaultChecked />
                       <div className="flex-1 space-y-2">
-                        <h4 className="font-medium text-gray-900">Manual Gestão de Ponto</h4>
+                        <h4 className="font-medium text-gray-900">Manual - Gestão de Ponto</h4>
                         <p className="text-sm text-gray-600">Principais funcionalidades existentes na nova Plataforma de Gestão de Ponto.</p>
-                        <Button 
-                          variant="default" 
-                          size="sm" 
-                          className="bg-gray-800 hover:bg-gray-900 text-white"
-                          onClick={() => window.open('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', '_blank')}
-                        >
+                        <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', '_blank')}>
                           <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                           </svg>
@@ -242,8 +202,7 @@ const DetalheDepartamento = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
 
             {/* Processos Realizados */}
             <Card>
@@ -257,11 +216,8 @@ const DetalheDepartamento = () => {
                 <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
               </CardContent>
             </Card>
-          </>
-        )}
+          </>}
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default DetalheDepartamento;
