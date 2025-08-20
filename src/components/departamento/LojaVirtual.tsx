@@ -68,7 +68,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BookOpen className="text-orange-600" size={20} />
-              Check-Lists (Lojas)
+              Check-Lists e Materiais (Lojas)
             </CardTitle>
           </CardHeader>
         </Card>
@@ -111,7 +111,7 @@ const LojaVirtual = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <Store className="text-green-600" />
-                  Dashboard de Entrada - KPIs em Tempo Real
+                  (em desenvolvimento)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <Card>
@@ -155,7 +155,7 @@ const LojaVirtual = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <ShoppingCart className="text-blue-600" />
-                  PVA - Programa de Vendas e Atendimento
+                  Programa de Vendas e Atendimento - PVA
                 </h3>
                 
                 {/* Roteiro de Aplicação do Treinamento */}
@@ -204,7 +204,12 @@ const LojaVirtual = () => {
                           <Badge variant="outline" className="text-xs px-2 py-1">Dia 1</Badge>
                           <div>
                             <span className="font-semibold">Boas-Vindas ao novo Colaborador e Introdução ao PVA e Chavão Oscar</span><br />
-                            <span className="text-muted-foreground">Passo 1 – Organize o seu dia + Avaliação do Conhecimento</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Badge variant="outline" className="text-xs px-2 py-1">Dia 1</Badge>
+                          <div>
+                            <span className="font-semibold">Passo 1 – Organize o seu dia + Avaliação do Conhecimento</span>
                           </div>
                         </div>
                         <div className="flex items-start gap-2">
@@ -248,7 +253,7 @@ const LojaVirtual = () => {
                           <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
                             <div className="flex items-center gap-2">
                               <PlayCircle className="text-blue-600" size={20} />
-                              PVA INTRODUÇÃO
+                              PVA - INTRODUÇÃO
                             </div>
                             <ChevronDown className="h-4 w-4 text-blue-600" />
                           </CardTitle>
@@ -566,9 +571,9 @@ const LojaVirtual = () => {
                         <Card className="border-blue-200 bg-blue-50">
                           <CardContent className="pt-6 space-y-4">
                             <div className="space-y-4">
-                              <div>
+                              <div className="w-full max-w-[540px] mx-auto">
                                 <VideoPlayer fileName={item.file} />
-                              </div>
+                              </div >
                               <div className="container mx-auto px-4">
                                 <Button variant="outline" className="flex items-center gap-2" disabled>
                                   <Eye size={16} />
@@ -770,23 +775,23 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 1</h4>
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Pré-resquisitos do Líder</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 2</h4>
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - 10 Competência do Gestor</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 3</h4>
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Prática</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 4</h4>
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Líderança</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Módulo 5</h4>
+                              <h4 className="text-sm font-medium text-blue-700">Você Gestor - Administração do Tempo</h4>
                               <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
                             </div>
                           </div>
@@ -815,27 +820,27 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 1</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Melhores Resultados</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 2</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Onde Moram Os Seus Problemas</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 3</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Foco no Atendimento</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 4</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Quadros Informativos</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 5</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Disciplina</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Módulo 6</h4>
+                              <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Arquivos e Pastas do Gestor</h4>
                               <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
                             </div>
                           </div>
@@ -864,27 +869,27 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 1</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Estrutura de Loja</h4>
                               <VideoPlayer fileName="Seu-Time-1.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 2</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Funções do seu Time</h4>
                               <VideoPlayer fileName="Seu-Time-2.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 3</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Analisando seu Time</h4>
                               <VideoPlayer fileName="Seu-Time-3.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 4</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - F.O.P'.s</h4>
                               <VideoPlayer fileName="Seu-Time-4.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 5</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Sem Falhas</h4>
                               <VideoPlayer fileName="Seu-Time-5.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Módulo 6</h4>
+                              <h4 className="text-sm font-medium text-orange-700">Seu Time - Disposição para Cumprir Normas</h4>
                               <VideoPlayer fileName="Seu-Time-6.mp4" />
                             </div>
                           </div>
@@ -913,57 +918,16 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 1</h4>
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Chegando na Meta</h4>
                               <VideoPlayer fileName="Acompanhamento-1.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 2</h4>
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Como Extrair Informações</h4>
                               <VideoPlayer fileName="Acompanhamento-2.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Módulo 3</h4>
+                              <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Dados Estatísticos</h4>
                               <VideoPlayer fileName="Acompanhamento-3.mp4" />
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CollapsibleContent>
-                  </Collapsible>
-
-                  {/* Treinamento */}
-                  <Collapsible>
-                    <CollapsibleTrigger asChild>
-                      <Card className="border-teal-200 bg-teal-50 cursor-pointer hover:bg-teal-100 transition-colors">
-                        <CardHeader>
-                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
-                            <div className="flex items-center gap-2">
-                              <GraduationCap className="text-teal-600" size={20} />
-                              Treinamento
-                            </div>
-                            <ChevronDown className="h-4 w-4 text-teal-600" />
-                          </CardTitle>
-                        </CardHeader>
-                      </Card>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-2">
-                      <Card className="border-teal-200 bg-teal-50">
-                        <CardContent className="pt-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
-                            <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 1</h4>
-                              <VideoPlayer fileName="Treinamento-1.mp4" />
-                            </div>
-                            <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 2</h4>
-                              <VideoPlayer fileName="Treinamento-2.mp4" />
-                            </div>
-                            <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 3</h4>
-                              <VideoPlayer fileName="Treinamento-3.mp4" />
-                            </div>
-                            <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Módulo 4</h4>
-                              <VideoPlayer fileName="Treinamento-4.mp4" />
                             </div>
                           </div>
                         </CardContent>
@@ -991,19 +955,19 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 1</h4>
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Compromentimento</h4>
                               <VideoPlayer fileName="Evolucao-1.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 2</h4>
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Feedback</h4>
                               <VideoPlayer fileName="Evolucao-2.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 3</h4>
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Formulário Quinzenal</h4>
                               <VideoPlayer fileName="Evolucao-3.mp4" />
                             </div>
                             <div className="space-y-2">
-                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Módulo 4</h4>
+                              <h4 className="text-sm font-medium text-yellow-700">Evolução - Jogos e Competições</h4>
                               <VideoPlayer fileName="Evolucao-4.mp4" />
                             </div>
                           </div>
@@ -1012,6 +976,47 @@ const LojaVirtual = () => {
                     </CollapsibleContent>
                   </Collapsible>
 
+                  {/* Treinamento */}
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Card className="border-teal-200 bg-teal-50 cursor-pointer hover:bg-teal-100 transition-colors">
+                        <CardHeader>
+                          <CardTitle className="text-lg flex items-center justify-between gap-2 w-full">
+                            <div className="flex items-center gap-2">
+                              <GraduationCap className="text-teal-600" size={20} />
+                              Treinamento
+                            </div>
+                            <ChevronDown className="h-4 w-4 text-teal-600" />
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-2">
+                      <Card className="border-teal-200 bg-teal-50">
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Seleção</h4>
+                              <VideoPlayer fileName="Treinamento-1.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Definições de Treinamentos</h4>
+                              <VideoPlayer fileName="Treinamento-2.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Multiplicador</h4>
+                              <VideoPlayer fileName="Treinamento-3.mp4" />
+                            </div>
+                            <div className="space-y-2">
+                              <h4 className="text-sm font-medium text-teal-700">Treinamento - Treinamento de Sucesso</h4>
+                              <VideoPlayer fileName="Treinamento-4.mp4" />
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
                 </div>
               </div>
             </TabsContent>
