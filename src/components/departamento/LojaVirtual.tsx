@@ -1105,6 +1105,124 @@ const LojaVirtual = () => {
                     </div>
                   </Card>
                 </div>
+
+                {/* Materiais Section */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <BookOpen className="text-blue-600" />
+                    Materiais
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <ShoppingCart className="text-blue-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Programa de Vendas e Atendimento – PVA</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Material completo do programa de vendas</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1ZYI2kPo3_g49CSK5Exu9ahKXic2xhLRR', '_blank')}>
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar PDF
+                        </Button>
+                      </div>
+                    </Card>
+
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <BarChart3 className="text-purple-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Programa de Gestão de Lojas – PGL</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Material completo do programa de gestão</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1ZBKcQ2VWJZz83c6BZ22wvcIV1jYr6tdA', '_blank')}>
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar PDF
+                        </Button>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Teste de Conhecimentos Section */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <GraduationCap className="text-green-600" />
+                    Teste de Conhecimentos
+                  </h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <Trophy className="text-orange-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Prova Letra O</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Teste de conhecimentos - Letra O</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSefAZOc04R6UwK1fayglpEW_3O5xIhW3dKH-gdUrQcAmlamCg/viewform', '_blank')}>
+                          <PlayCircle className="h-4 w-4 mr-2" />
+                          Iniciar
+                        </Button>
+                      </div>
+                    </Card>
+
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <Star className="text-yellow-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Prova Letra S</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Teste de conhecimentos - Letra S</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSefAZOc04R6UwK1fayglpEW_3O5xIhW3dKH-gdUrQcAmlamCg/viewform', '_blank')}>
+                          <PlayCircle className="h-4 w-4 mr-2" />
+                          Iniciar
+                        </Button>
+                      </div>
+                    </Card>
+
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle className="text-blue-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Prova Letra C</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Teste de conhecimentos - Letra C</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSefAZOc04R6UwK1fayglpEW_3O5xIhW3dKH-gdUrQcAmlamCg/viewform', '_blank')}>
+                          <PlayCircle className="h-4 w-4 mr-2" />
+                          Iniciar
+                        </Button>
+                      </div>
+                    </Card>
+
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <Award className="text-red-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Prova Letra A</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Teste de conhecimentos - Letra A</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSefAZOc04R6UwK1fayglpEW_3O5xIhW3dKH-gdUrQcAmlamCg/viewform', '_blank')}>
+                          <PlayCircle className="h-4 w-4 mr-2" />
+                          Iniciar
+                        </Button>
+                      </div>
+                    </Card>
+
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <TrendingUp className="text-teal-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Prova Letra R</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">Teste de conhecimentos - Letra R</p>
+                        <Button size="sm" className="w-full" onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSefAZOc04R6UwK1fayglpEW_3O5xIhW3dKH-gdUrQcAmlamCg/viewform', '_blank')}>
+                          <PlayCircle className="h-4 w-4 mr-2" />
+                          Iniciar
+                        </Button>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
               </div>
             </TabsContent>
 
