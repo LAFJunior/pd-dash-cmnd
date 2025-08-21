@@ -299,7 +299,7 @@ const EstruturaDepartamento: React.FC<{
             <div className="bg-gray-800 text-white p-6 rounded-lg text-center min-w-[300px]">
               <div className="font-bold text-lg mb-2">MÁRCIO SAMPAIO</div>
               <div className="font-semibold mb-2">DIRETOR</div>
-              
+              <div className="text-sm opacity-90 mb-1">MARCIO.SAMPAIO@GRUPOOSCAR.COM.BR</div>
               <div className="text-sm opacity-90">
             </div>
             </div>
