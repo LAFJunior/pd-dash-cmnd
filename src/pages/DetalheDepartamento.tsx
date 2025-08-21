@@ -15,6 +15,7 @@ import CentroCusto from '@/components/departamento/CentroCusto';
 import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import SaoJoseEsporteClubInfo from '@/components/departamento/SaoJoseEsporteClubInfo';
+import EstadioMartinsPereira from '@/components/departamento/EstadioMartinsPereira';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
 const DetalheDepartamento = () => {
@@ -66,6 +67,7 @@ const DetalheDepartamento = () => {
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   const isSaoJoseEsporteClub = nomeDepartamento.toLowerCase().includes('são josé esporte club');
+  const isEstadioMartinsPereira = nomeDepartamento.toLowerCase().includes('estádio martins pereira');
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
@@ -89,6 +91,8 @@ const DetalheDepartamento = () => {
         {isRecicalce ? <RecicalceInfo /> : 
         /* Conteúdo específico para São José Esporte Club */
         isSaoJoseEsporteClub ? <SaoJoseEsporteClubInfo /> : 
+        /* Conteúdo específico para Estádio Martins Pereira */
+        isEstadioMartinsPereira ? <EstadioMartinsPereira /> : 
         /* Conteúdo específico para Lojas */
         isLojas ? <LojaVirtual /> : <>
             {/* Estrutura do Departamento */}
