@@ -14,6 +14,7 @@ import PilaresDepartamentoPessoal from '@/components/departamento/PilaresDeparta
 import CentroCusto from '@/components/departamento/CentroCusto';
 import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
+import SaoJoseEsporteClubInfo from '@/components/departamento/SaoJoseEsporteClubInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
 const DetalheDepartamento = () => {
@@ -64,6 +65,7 @@ const DetalheDepartamento = () => {
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
+  const isSaoJoseEsporteClub = nomeDepartamento.toLowerCase().includes('são josé esporte club');
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
@@ -84,8 +86,11 @@ const DetalheDepartamento = () => {
 
       <div className="space-y-8">
         {/* Conteúdo específico para Recicalce */}
-        {isRecicalce ? <RecicalceInfo /> : isLojas ? (/* Conteúdo específico para Lojas */
-      <LojaVirtual />) : <>
+        {isRecicalce ? <RecicalceInfo /> : 
+        /* Conteúdo específico para São José Esporte Club */
+        isSaoJoseEsporteClub ? <SaoJoseEsporteClubInfo /> : 
+        /* Conteúdo específico para Lojas */
+        isLojas ? <LojaVirtual /> : <>
             {/* Estrutura do Departamento */}
             <Card>
               <CardHeader>
