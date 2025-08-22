@@ -13,92 +13,14 @@ const FluxoRH = () => {
   }, []);
 
   const processCards = [
-    {
-      icon: Target,
-      title: "Recrutamento & Seleção",
-      items: [
-        "Solicitações via Topdesk",
-        "Job description e divulgação",
-        "Triagem e entrevistas",
-        "Coleta de documentos",
-        "Envio ao DP"
-      ]
-    },
-    {
-      icon: GraduationCap,
-      title: "Admissões Específicas",
-      items: [
-        "Jovem Aprendiz (SENAC/CIEE/FUNDHAS)",
-        "Estagiários via CIEE",
-        "Controle de cotas",
-        "Planilhas de acompanhamento"
-      ]
-    },
-    {
-      icon: Rocket,
-      title: "Integração & Desenvolvimento",
-      items: [
-        "Onboarding de colaboradores",
-        "Treinamentos técnicos/gerenciais",
-        "Eventos corporativos",
-        "Programas internos (PIT, PEG, PES)",
-        "9BOX e trilhamento SENAC"
-      ]
-    },
-    {
-      icon: BarChart3,
-      title: "Gestão de Performance",
-      items: [
-        "Avaliação de desempenho anual",
-        "Avaliação de experiência (45/90 dias)",
-        "Gestão de benefícios",
-        "Controle de uniformes",
-        "Endomarketing"
-      ]
-    },
-    {
-      icon: TrendingUp,
-      title: "Movimentações de Pessoas",
-      items: [
-        "Promoções (análise e aprovação)",
-        "Promoção salarial",
-        "Transferências e alterações",
-        "Emissão de documentos",
-        "Comunicação ao DP"
-      ]
-    },
-    {
-      icon: ClipboardList,
-      title: "Encerramento de Ciclo",
-      items: [
-        "Entrevistas de desligamento",
-        "Comunicação formal",
-        "Indicadores mensais",
-        "Turnover e absenteísmo"
-      ]
-    },
-    {
-      icon: Settings,
-      title: "Controles Administrativos",
-      items: [
-        "Cadastro de biometria",
-        "Atualização de planilhas",
-        "Gestão de despesas (Mega)",
-        "Quadro de vagas",
-        "Squad de comunicação"
-      ]
-    },
-    {
-      icon: MessageCircle,
-      title: "Comunicação & Engajamento",
-      items: [
-        "Comunicação interna",
-        "Datas sazonais",
-        "Aniversariantes",
-        "Eventos corporativos",
-        "Feedback e melhorias"
-      ]
-    }
+    { icon: Target, title: "Recrutamento & Seleção" },
+    { icon: GraduationCap, title: "Admissões Específicas" },
+    { icon: Rocket, title: "Integração & Desenvolvimento" },
+    { icon: BarChart3, title: "Gestão de Performance" },
+    { icon: TrendingUp, title: "Movimentações de Pessoas" },
+    { icon: ClipboardList, title: "Encerramento de Ciclo" },
+    { icon: Settings, title: "Controles Administrativos" },
+    { icon: MessageCircle, title: "Comunicação & Engajamento" }
   ];
 
   return (
@@ -146,21 +68,12 @@ const FluxoRH = () => {
                 <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-white/20 relative overflow-hidden group">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-accent/80"></div>
                   
-                  <div className="text-center mb-4">
+                  <div className="text-center">
                     <IconComponent className="w-10 h-10 text-accent mx-auto mb-3" />
-                    <h3 className="text-lg font-semibold text-foreground">
+                    <h3 className="text-lg font-bold text-foreground">
                       {card.title}
                     </h3>
                   </div>
-                  
-                  <ul className="text-sm text-muted-foreground space-y-2">
-                    {card.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="flex items-start">
-                        <span className="text-accent font-bold mr-2">•</span>
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             );
