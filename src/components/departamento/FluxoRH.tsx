@@ -25,13 +25,13 @@ const FluxoRH = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary/90 to-secondary p-8 flex justify-center items-center">
-      <div className="max-w-3xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 relative">
+      <div className="max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 relative">
           
           {/* Centro */}
           <div className="lg:col-start-2 lg:row-start-2 flex justify-center items-center z-10">
-            <div className="w-40 h-40 bg-gradient-to-br from-accent to-accent/80 rounded-full flex flex-col justify-center items-center text-black text-lg font-semibold shadow-2xl hover:scale-105 transition-transform duration-300">
-              <Users className="w-10 h-10 mb-2 text-black" />
+            <div className="w-32 h-32 bg-gradient-to-br from-accent to-accent/80 rounded-full flex flex-col justify-center items-center text-black text-sm font-semibold shadow-2xl hover:scale-105 transition-transform duration-300">
+              <Users className="w-8 h-8 mb-1 text-black" />
               <div className="text-center leading-tight">
                 Gestão<br />Estratégica<br />de Pessoas
               </div>
@@ -62,9 +62,9 @@ const FluxoRH = () => {
                 } transition-all duration-700 ease-out`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 h-28 flex justify-center items-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/30">
-                  <h3 className="text-base font-bold text-center text-foreground flex items-center gap-2">
-                    <IconComponent className="w-5 h-5 text-accent" />
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 h-24 flex justify-center items-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/30">
+                  <h3 className="text-sm font-bold text-center text-foreground flex items-center gap-1">
+                    <IconComponent className="w-4 h-4 text-accent" />
                     {card.title}
                   </h3>
                 </div>
