@@ -6,15 +6,15 @@ const data = [
   { nome: 'Fiscal', percentage: 100 },
   { nome: 'CD/Operações', percentage: 100 },
   { nome: 'Defeito', percentage: 100 },
-  { nome: 'E-commerce', percentage: 95 },
-  { nome: 'Compras', percentage: 40 },
-  { nome: 'Auditoria', percentage: 20 },
-  { nome: 'Recursos Humanos (RH)', percentage: 20 },
-  { nome: 'Lojas', percentage: 10 },
-  { nome: 'Departamento Pessoal (DP)', percentage: 0 },
+  { nome: 'E-commerce', percentage: 100 },
+  { nome: 'Compras', percentage: 100 },
+  { nome: 'Auditoria', percentage: 100 },
+  { nome: 'Recursos Humanos (RH)', percentage: 100 },
+  { nome: 'Lojas', percentage: 99 },
+  { nome: 'Departamento Pessoal (DP)', percentage: 100 },
   { nome: 'Festcard', percentage: 0 },
-  { nome: 'Marketing', percentage: 0 },
-  { nome: 'T.I', percentage: 0 }
+  { nome: 'Marketing', percentage: 40 },
+  { nome: 'T.I', percentage: 70 }
 ];
 
 const GraficoProcessos = () => {
