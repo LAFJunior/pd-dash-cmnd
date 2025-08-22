@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Users, Calendar, Trophy } from 'lucide-react';
 // Using direct public paths for the uploaded images
+const saoJoseLogo = '/lovable-uploads/9363cc1b-f5ea-4176-87b6-73837424144b.png';
 const mascoteImageFull = '/lovable-uploads/1d0d2eba-6756-49b1-988c-d9f619866450.png';
 const estadioSetoresImage = '/lovable-uploads/0030c477-c17b-41a8-a255-1d9e10f33d3b.png';
 const estadioAereoImage = '/lovable-uploads/d0f82617-3645-48bc-8073-e25f0d9c5dc1.png';
@@ -15,8 +16,8 @@ const EstadioMartinsPereira = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-2xl text-blue-900">
             <img 
-              src={mascoteImageFull} 
-              alt="Águia do Vale - Mascote do São José EC" 
+              src={saoJoseLogo} 
+              alt="São José E.C. - Logo oficial" 
               className="h-16 w-16 object-contain"
             />
             Estádio Municipal Martins Pereira
