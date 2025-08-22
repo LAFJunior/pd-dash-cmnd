@@ -25,8 +25,8 @@ const FluxoRH = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary/90 to-secondary p-8 flex justify-center items-center">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+      <div className="max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 relative">
           
           {/* Centro */}
           <div className="lg:col-start-2 lg:row-start-2 flex justify-center items-center z-10">
