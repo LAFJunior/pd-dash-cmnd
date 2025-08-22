@@ -25,13 +25,13 @@ const FluxoRH = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary/90 to-secondary p-8 flex justify-center items-center">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
           
           {/* Centro */}
           <div className="lg:col-start-2 lg:row-start-2 flex justify-center items-center z-10">
-            <div className="w-40 h-40 bg-gradient-to-br from-accent to-accent/80 rounded-full flex flex-col justify-center items-center text-white text-lg font-semibold shadow-2xl hover:scale-105 transition-transform duration-300">
-              <Users className="w-10 h-10 mb-2" />
+            <div className="w-40 h-40 bg-gradient-to-br from-accent to-accent/80 rounded-full flex flex-col justify-center items-center text-black text-lg font-semibold shadow-2xl hover:scale-105 transition-transform duration-300">
+              <Users className="w-10 h-10 mb-2 text-black" />
               <div className="text-center leading-tight">
                 Gestão<br />Estratégica<br />de Pessoas
               </div>
