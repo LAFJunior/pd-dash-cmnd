@@ -59,29 +59,6 @@ const EstadioMartinsPereira = () => {
         </CardContent>
       </Card>
 
-      {/* Mascote */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-blue-900">Águia do Vale - Mascote Oficial</CardTitle>
-        </CardHeader>
-        <CardContent className="text-center">
-          <img 
-            src={mascoteImageFull} 
-            alt="Águia do Vale - Mascote oficial do São José Esporte Clube" 
-            className="mx-auto h-80 w-auto object-contain mb-4"
-          />
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <p className="text-blue-900 font-medium">
-              <strong>Águia do Vale</strong> é o mascote oficial do São José Esporte Clube, 
-              representando a força, garra e determinação do time joseense.
-            </p>
-            <p className="text-blue-700 text-sm mt-2">
-              Símbolo de orgulho para toda a torcida e comunidade de São José dos Campos.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Informações Básicas */}
         <Card>
@@ -121,6 +98,48 @@ const EstadioMartinsPereira = () => {
                 Jardim Jussara - São José dos Campos, SP
               </p>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Águia do Vale - Mascote Oficial */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-blue-900">Águia do Vale - Mascote Oficial</CardTitle>
+          </CardHeader>
+          <CardContent className="text-center">
+            <img 
+              src={mascoteImageFull} 
+              alt="Águia do Vale - Mascote oficial do São José Esporte Clube" 
+              className="mx-auto h-64 w-auto object-contain mb-4"
+            />
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <p className="text-blue-900 font-medium">
+                <strong>Águia do Vale</strong> é o mascote oficial do São José Esporte Clube, 
+                representando a força, garra e determinação do time joseense.
+              </p>
+              <p className="text-blue-700 text-sm mt-2">
+                Símbolo de orgulho para toda a torcida e comunidade de São José dos Campos.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Vista Aérea */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-blue-900">Vista Aérea</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <img 
+              src={estadioAereoImage} 
+              alt="Vista aérea do Estádio Martins Pereira" 
+              className="w-full h-64 object-cover rounded-lg"
+            />
+            <p className="text-gray-600 text-sm mt-2">
+              O Estádio Martins Pereira com sua capacidade atual de 12.234 espectadores
+            </p>
           </CardContent>
         </Card>
 
@@ -169,45 +188,38 @@ const EstadioMartinsPereira = () => {
         </Card>
       </div>
 
-      {/* Imagens do Estádio */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-blue-900">Vista Aérea</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <img 
-              src={estadioAereoImage} 
-              alt="Vista aérea do Estádio Martins Pereira" 
-              className="w-full h-64 object-cover rounded-lg"
-            />
-            <p className="text-gray-600 text-sm mt-2">
-              O Estádio Martins Pereira com sua capacidade atual de 12.234 espectadores
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-blue-900">Setores e Acessos</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <img 
-              src={estadioSetoresImage} 
-              alt="Mapa de setores e acessos do estádio" 
-              className="w-full h-80 object-cover rounded-lg"
-            />
-            <div className="mt-3 space-y-2">
-              <h5 className="font-semibold text-gray-800">Setores disponíveis:</h5>
+      {/* Setores e Acessos - Imagem Completa */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-blue-900">Setores e Acessos</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <img 
+            src="/lovable-uploads/b3d313a1-b674-4951-8a6a-e07395b9abb8.png" 
+            alt="Mapa completo de setores e acessos do Estádio Martins Pereira" 
+            className="w-full h-auto object-contain rounded-lg"
+          />
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Setores disponíveis:</h5>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Setor Polipet - Portões 7 (Cadeira) e 9 (Entrada Sócio)</li>
-                <li>• Setor Pontz e Setor 3 - Portão Principal</li>
-                <li>• Setor 5 - Portão 1 (Visitante)</li>
+                <li>• <strong>Setor Polipet:</strong> Portão 7 (Cadeira) e Portão 9 (Entrada Sócio)</li>
+                <li>• <strong>Setor Pontz e Setor 3:</strong> Portão Principal</li>
+                <li>• <strong>Setor 5:</strong> Portão 1 (Visitante)</li>
               </ul>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+            <div>
+              <h5 className="font-semibold text-gray-800 mb-2">Informações dos Acessos:</h5>
+              <ul className="text-sm text-gray-600 space-y-1">
+                <li>• Entrada Sócio Bronze - Torcida do São José</li>
+                <li>• Entrada de Sócio Ouro/Prata e Patrocinadores</li>
+                <li>• Portão Principal para setores gerais</li>
+                <li>• Acesso específico para visitantes</li>
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Hino Oficial */}
       <Card>
