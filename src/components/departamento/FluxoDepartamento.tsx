@@ -6,6 +6,7 @@ import FluxoEcommerce from './FluxoEcommerce';
 import FluxoFiscal from './FluxoFiscal';
 import FluxoDefeito from './FluxoDefeito';
 import FluxoSaoJoseCampos from './FluxoSaoJoseCampos';
+import FluxoRH from './FluxoRH';
 
 interface FluxoDepartamentoProps {
   departamento: string;
@@ -34,6 +35,10 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
 
   if (departamento.toLowerCase().includes('são josé dos campos') || departamento.toLowerCase().includes('cd/operações')) {
     return <FluxoSaoJoseCampos />;
+  }
+
+  if (departamento.toLowerCase().includes('recursos humanos') || departamento.toLowerCase().includes('rh')) {
+    return <FluxoRH />;
   }
 
   return (
