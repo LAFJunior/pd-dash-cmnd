@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
 const data = [
+  { nome: 'Construção Dash', percentage: 80 },
+  { nome: 'Subir Processos Dash', percentage: 70 },
   { nome: 'Financeiro', percentage: 100 },
   { nome: 'Controladoria', percentage: 100 },
   { nome: 'Fiscal', percentage: 100 },
