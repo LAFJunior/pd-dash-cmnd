@@ -15,7 +15,7 @@ const EstadioMartinsPereira = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-2xl text-blue-900">
             <img 
-              src={mascoteImageHeader} 
+              src={mascoteImageFull} 
               alt="Águia do Vale - Mascote do São José EC" 
               className="h-16 w-16 object-contain"
             />
