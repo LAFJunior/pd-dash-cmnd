@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MapPin, Users, Calendar, Trophy } from 'lucide-react';
 // Using direct public paths for the uploaded images
-const mascoteImage = '/lovable-uploads/6b8e5dde-e727-44d0-9645-e036c9ab975a.png';
+const mascoteImageHeader = '/lovable-uploads/6b8e5dde-e727-44d0-9645-e036c9ab975a.png';
+const mascoteImageFull = '/lovable-uploads/1d0d2eba-6756-49b1-988c-d9f619866450.png';
 const estadioSetoresImage = '/lovable-uploads/0030c477-c17b-41a8-a255-1d9e10f33d3b.png';
 const estadioAereoImage = '/lovable-uploads/d0f82617-3645-48bc-8073-e25f0d9c5dc1.png';
 
@@ -15,7 +16,7 @@ const EstadioMartinsPereira = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-2xl text-blue-900">
             <img 
-              src={mascoteImage} 
+              src={mascoteImageHeader} 
               alt="Águia do Vale - Mascote do São José EC" 
               className="h-16 w-16 object-contain"
             />
@@ -25,6 +26,60 @@ const EstadioMartinsPereira = () => {
             "Estádio do Vale do Paraíba" - O orgulho da comunidade joseense
           </p>
         </CardHeader>
+      </Card>
+
+      {/* História do Estádio */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-blue-900">História</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4 text-gray-700">
+            <p>
+              O estádio no final dos anos 1960, localizado na rua Antonio Saes, já era denominado 
+              Estádio Martins Pereira desde 15 de novembro de 1942, com capacidade máxima de apenas 5.000 pessoas.
+            </p>
+            
+            <p>
+              A construção do atual estádio começou em 1968, durante um período em que o time de futebol 
+              da cidade estava desativado. O jogo inaugural aconteceu em 15 de março de 1970, 
+              marcando o início de uma nova era para o futebol joseense.
+            </p>
+
+            <div className="bg-gray-50 p-4 rounded-lg mt-4">
+              <h4 className="font-semibold text-gray-800 mb-2">Dados Curiosos:</h4>
+              <ul className="text-gray-600 space-y-1">
+                <li>• Denominação oficial: 15 de novembro de 1942</li>
+                <li>• Início da construção: 1968</li>
+                <li>• Capacidade original: 5.000 pessoas (estádio anterior)</li>
+                <li>• Recorde não oficial: 25.000 pessoas (janeiro de 2007, Copinha)</li>
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Mascote */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-blue-900">Águia do Vale - Mascote Oficial</CardTitle>
+        </CardHeader>
+        <CardContent className="text-center">
+          <img 
+            src={mascoteImageFull} 
+            alt="Águia do Vale - Mascote oficial do São José Esporte Clube" 
+            className="mx-auto h-80 w-auto object-contain mb-4"
+          />
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <p className="text-blue-900 font-medium">
+              <strong>Águia do Vale</strong> é o mascote oficial do São José Esporte Clube, 
+              representando a força, garra e determinação do time joseense.
+            </p>
+            <p className="text-blue-700 text-sm mt-2">
+              Símbolo de orgulho para toda a torcida e comunidade de São José dos Campos.
+            </p>
+          </div>
+        </CardContent>
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -140,7 +195,7 @@ const EstadioMartinsPereira = () => {
             <img 
               src={estadioSetoresImage} 
               alt="Mapa de setores e acessos do estádio" 
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-80 object-cover rounded-lg"
             />
             <div className="mt-3 space-y-2">
               <h5 className="font-semibold text-gray-800">Setores disponíveis:</h5>
@@ -192,37 +247,6 @@ const EstadioMartinsPereira = () => {
               <p>Não há quem te aguente,</p>
               <p>És forte, és varonil</p>
               <p>Campeão do meu Brasil…</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* História do Estádio */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-blue-900">História</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4 text-gray-700">
-            <p>
-              O estádio no final dos anos 1960, localizado na rua Antonio Saes, já era denominado 
-              Estádio Martins Pereira desde 15 de novembro de 1942, com capacidade máxima de apenas 5.000 pessoas.
-            </p>
-            
-            <p>
-              A construção do atual estádio começou em 1968, durante um período em que o time de futebol 
-              da cidade estava desativado. O jogo inaugural aconteceu em 15 de março de 1970, 
-              marcando o início de uma nova era para o futebol joseense.
-            </p>
-
-            <div className="bg-gray-50 p-4 rounded-lg mt-4">
-              <h4 className="font-semibold text-gray-800 mb-2">Dados Curiosos:</h4>
-              <ul className="text-gray-600 space-y-1">
-                <li>• Denominação oficial: 15 de novembro de 1942</li>
-                <li>• Início da construção: 1968</li>
-                <li>• Capacidade original: 5.000 pessoas (estádio anterior)</li>
-                <li>• Recorde não oficial: 25.000 pessoas (janeiro de 2007, Copinha)</li>
-              </ul>
             </div>
           </div>
         </CardContent>
