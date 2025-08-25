@@ -658,7 +658,7 @@ const LojaVirtual = () => {
                       </p>
                       
                       <p className="text-sm leading-relaxed">
-                        O FOP "Formulário de Observação de Procedimentos" é uma ferramenta que vai incentivar sua equipe a ser mais disciplinada.
+                        O F.O.P'.s "Formulário de Observação de Procedimentos" é uma ferramenta que vai incentivar sua equipe a ser mais disciplinada.
                       </p>
                       
                       <p className="text-sm leading-relaxed">
@@ -1110,7 +1110,7 @@ const LojaVirtual = () => {
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold flex items-center gap-2">
                     <BookOpen className="text-blue-600" />
-                    Materiais
+                    Processos de Vendas
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1148,7 +1148,7 @@ const LojaVirtual = () => {
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold flex items-center gap-2">
                     <GraduationCap className="text-green-600" />
-                    Teste de Conhecimentos
+                    Teste de Aprendizado das Etapas do Processo de Venda
                   </h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1230,7 +1230,7 @@ const LojaVirtual = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <Package className="text-teal-600" />
-                  Estoque & Retaguarda
+                  Processos de Estoque
                 </h3>
                 
                 <Card className="p-6">
