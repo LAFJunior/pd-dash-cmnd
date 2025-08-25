@@ -68,7 +68,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <BookOpen className="text-orange-600" size={20} />
-              Check-Lists e Materiais (Lojas)
+              Recursos para Operação de Lojas
             </CardTitle>
           </CardHeader>
         </Card>
@@ -78,7 +78,7 @@ const LojaVirtual = () => {
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Package className="text-teal-600" size={20} />
-              Estoque & Retaguarda
+              Processos de Estoque
             </CardTitle>
           </CardHeader>
         </Card>
@@ -102,9 +102,9 @@ const LojaVirtual = () => {
               <TabsTrigger value="entrada">Entrada</TabsTrigger>
               <TabsTrigger value="vendas">Vendas</TabsTrigger>
               <TabsTrigger value="gerencial">Gerencial</TabsTrigger>
-              <TabsTrigger value="treinamento">Material</TabsTrigger>
+              <TabsTrigger value="treinamento">Recursos</TabsTrigger>
               <TabsTrigger value="estoque">Estoque</TabsTrigger>
-              <TabsTrigger value="gamificacao">Conquistas</TabsTrigger>
+              <TabsTrigger value="gamificacao">Metas</TabsTrigger>
             </TabsList>
 
             <TabsContent value="entrada" className="mt-4">
