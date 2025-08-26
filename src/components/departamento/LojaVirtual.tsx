@@ -1274,9 +1274,43 @@ const LojaVirtual = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <Trophy className="text-yellow-600" />
-                  Desafios & Conquistas
+                  (em desenvolvimento)
                 </h3>
-                <p className="text-muted-foreground">Conteúdo em desenvolvimento...</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <Card>
+                    <CardContent className="p-4">
+                      
+                      <div className="mt-2">
+                        
+                        
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          
+                          
+                        </div>
+                        
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          
+                          
+                        </div>
+                        
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </TabsContent>
           </Tabs>
