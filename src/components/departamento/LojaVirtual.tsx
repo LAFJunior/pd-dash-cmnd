@@ -101,7 +101,7 @@ const LojaVirtual = () => {
             <TabsList className="grid w-full grid-cols-6">
               <TabsTrigger value="entrada">Entrada</TabsTrigger>
               <TabsTrigger value="vendas">Vendas</TabsTrigger>
-              <TabsTrigger value="gerencial">Gerencial</TabsTrigger>
+              <TabsTrigger value="gerencial">Gestor</TabsTrigger>
               <TabsTrigger value="treinamento">Recursos</TabsTrigger>
               <TabsTrigger value="estoque">Estoque</TabsTrigger>
               <TabsTrigger value="gamificacao">Metas</TabsTrigger>
