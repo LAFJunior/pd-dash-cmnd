@@ -1230,28 +1230,43 @@ const LojaVirtual = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <Package className="text-teal-600" />
-                  Processos de Estoque
+                  (em desenvolvimento)
                 </h3>
-                
-                <Card className="p-6">
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-lg font-semibold text-foreground">
-                        Pesquisar Pedido no Mega
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Passo a passo de como pesquisar o pedido de compras no sistema Mega no ato do recebimento da Nota Fiscal na loja.
-                      </p>
-                    </div>
-                    
-                    <div className="w-full max-w-[540px] mx-auto">
-                      <VideoPlayer 
-                        fileName="pedido_no_mega"
-                        bucketName="lojas-vds"
-                      />
-                    </div>
-                  </div>
-                </Card>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <Card>
+                    <CardContent className="p-4">
+                      
+                      <div className="mt-2">
+                        
+                        
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          
+                          
+                        </div>
+                        
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          
+                          
+                        </div>
+                        
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </TabsContent>
 
