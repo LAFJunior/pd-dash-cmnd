@@ -13,8 +13,8 @@ const data = [
   { nome: 'Lojas', percentage: 99 },
   { nome: 'Departamento Pessoal (DP)', percentage: 100 },
   { nome: 'Festcard', percentage: 0 },
-  { nome: 'Marketing', percentage: 40 },
-  { nome: 'T.I', percentage: 70 }
+  { nome: 'Marketing', percentage: 90 },
+  { nome: 'T.I', percentage: 90 }
 ];
 
 const GraficoProcessos = () => {
