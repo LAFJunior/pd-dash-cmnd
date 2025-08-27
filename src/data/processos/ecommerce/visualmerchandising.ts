@@ -3,7 +3,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 
 // Processo 1
 export const planejamentoCampanhasDigital: ProcessoDetalhado = {
-  id: 'VM-001',
+  id: 'VM-04.32',
   nome: 'Planejamento e Execução de Campanhas no Canal Digital',
   descricao: 'Definir, aprovar e planejar campanhas digitais com base no calendário comercial.',
   icon: ClipboardList,
@@ -16,13 +16,13 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
   frequencia: 'Mensal ou sazonal',
   subprocessos: [
     {
-      id: '1.1',
+      id: '4.32.1',
       nome: 'Levantamento de Oportunidades de Campanha',
       nivel: 'Tático',
       ferramentas: ['Calendário Comercial', 'Google Sheets'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '4.32.1.1',
           nome: 'Identificar Datas-Chave',
           passos: [
             'Analisar calendário de ações comerciais.',
@@ -31,7 +31,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.2',
+          id: '4.32.1.2',
           nome: 'Levantar Produtos e Propostas',
           passos: [
             'Avaliar produtos junto às áreas parceiras (Cadastro, Comercial).',
@@ -41,7 +41,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.2',
+      id: '4.32.2',
       nome: 'Registro e Análise de Propostas',
       nivel: 'Tático',
       ferramentas: ['Google Sheets'],
@@ -54,7 +54,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.2.2',
+          id: '4.32.2.2',
           nome: 'Análise e Aprovação pela Líder de VM',
           passos: [
             'Revisar diariamente as sugestões.',
@@ -64,7 +64,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.3',
+      id: '4.32.3',
       nome: 'Criação do Briefing para Design',
       nivel: 'Tático',
       ferramentas: ['ClickUp', 'Google Docs'],
@@ -78,7 +78,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.3.2',
+          id: '4.32.3.2',
           nome: 'Registrar Demanda no ClickUp',
           passos: [
             'Criar tarefa com briefing anexado.',
@@ -93,7 +93,7 @@ export const planejamentoCampanhasDigital: ProcessoDetalhado = {
 
 // Processo 2
 export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
-  id: 'VM-002',
+  id: 'VM-04.33',
   nome: 'Criação e Publicação de Campanhas na VTEX e Deco',
   descricao: 'Publicar campanhas no site (Deco) e app (CMS VTEX) com os materiais visuais aprovados.',
   icon: Upload,
@@ -106,13 +106,13 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
   frequencia: 'Conforme cronograma de campanhas',
   subprocessos: [
     {
-      id: '2.1',
+      id: '4.33.1',
       nome: 'Inserção no Site via Deco',
       nivel: 'Operacional',
       ferramentas: ['Deco'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '4.33.1.1',
           nome: 'Acessar a Plataforma Deco',
           passos: [
             'Login administrativo no Deco.',
@@ -120,7 +120,7 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.2',
+          id: '4.33.1.2',
           nome: 'Inserir Blocos e Imagens',
           passos: [
             'Criar ou reutilizar blocos.',
@@ -129,7 +129,7 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.3',
+          id: '4.33.1.3',
           nome: 'Configurar Links',
           passos: [
             'Configurar link em cada banner.',
@@ -139,13 +139,13 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '4.33.2',
       nome: 'Publicação no App via CMS VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX CMS'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '4.33.2.1',
           nome: 'Acessar o CMS do App',
           passos: [
             'Login no CMS VTEX.',
@@ -153,7 +153,7 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '4.33.2.2',
           nome: 'Criar Componentes da Campanha',
           passos: [
             'Criar banner com layout definido.',
@@ -161,7 +161,7 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.3',
+          id: '4.33.2.3',
           nome: 'Validar Visualização Mobile',
           passos: [
             'Simular visualização em telas diversas.',
@@ -175,7 +175,7 @@ export const publicacaoCampanhasVtexDeco: ProcessoDetalhado = {
 
 // Processo 3
 export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
-  id: 'EST-001',
+  id: 'EST-04.34',
   nome: 'Solicitação de Produtos para Fotografia no Estúdio',
   descricao: 'Receber e registrar solicitações de produtos a serem fotografados.',
   icon: Camera,
@@ -188,13 +188,13 @@ export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '3.1',
+      id: '4.34.1',
       nome: 'Recebimento e Registro',
       nivel: 'Operacional',
       ferramentas: ['Planilha de controle'],
       tarefas: [
         {
-          id: '3.1.1',
+          id: '4.34.1.1',
           nome: 'Receber Demanda',
           passos: [
             'Receber solicitação com descrição, código, motivo.',
@@ -202,7 +202,7 @@ export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.1.2',
+          id: '4.34.1.2',
           nome: 'Registrar Solicitação',
           passos: [
             'Inserir dados na planilha de controle.',
@@ -212,13 +212,13 @@ export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
       ]
     },
     {
-      id: '3.2',
+      id: '4.34.2',
       nome: 'Coleta Física do Produto',
       nivel: 'Operacional',
       ferramentas: ['Estoque físico'],
       tarefas: [
         {
-          id: '3.2.1',
+          id: '4.34.2.1',
           nome: 'Verificar Disponibilidade',
           passos: [
             'Buscar produto ou requisitar envio.',
@@ -226,7 +226,7 @@ export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.2.2',
+          id: '4.34.2.2',
           nome: 'Identificar Produto',
           passos: [
             'Etiquetar com nome do solicitante e protocolo.',
@@ -240,7 +240,7 @@ export const solicitacaoProdutoFotografia: ProcessoDetalhado = {
 
 // Processo 4
 export const fotografiaEdicaoImagens: ProcessoDetalhado = {
-  id: 'EST-002',
+  id: 'EST-04.35',
   nome: 'Fotografia e Edição de Imagens no Estúdio',
   descricao: 'Preparar, fotografar e editar imagens para uso em campanhas, VTEX ou redes sociais.',
   icon: Camera,
@@ -253,13 +253,13 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '4.1',
+      id: '4.35.1',
       nome: 'Preparação para Fotografia',
       nivel: 'Operacional',
       ferramentas: ['Câmera', 'Iluminação'],
       tarefas: [
         {
-          id: '4.1.1',
+          id: '4.35.1.1',
           nome: 'Organizar Produtos do Dia',
           passos: [
             'Listar produtos na planilha.',
@@ -268,7 +268,7 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.1.2',
+          id: '4.35.1.2',
           nome: 'Preparar Ambiente e Equipamentos',
           passos: [
             'Regular iluminação e fundo.',
@@ -278,13 +278,13 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.2',
+      id: '4.35.2',
       nome: 'Execução da Fotografia',
       nivel: 'Operacional',
       ferramentas: ['Câmera', 'Lightroom'],
       tarefas: [
         {
-          id: '4.2.1',
+          id: '4.35.2.1',
           nome: 'Fotografar Produto',
           passos: [
             'Capturar ângulos diversos.',
@@ -295,13 +295,13 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.3',
+      id: '4.35.3',
       nome: 'Edição e Finalização',
       nivel: 'Operacional',
       ferramentas: ['Photoshop', 'Lightroom'],
       tarefas: [
         {
-          id: '4.3.1',
+          id: '4.35.3.1',
           nome: 'Selecionar e Editar Fotos',
           passos: [
             'Importar e aplicar ajustes.',
@@ -309,7 +309,7 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.3.2',
+          id: '4.35.3.2',
           nome: 'Exportar e Nomear Arquivos',
           passos: [
             'Salvar em alta resolução.',
@@ -323,7 +323,7 @@ export const fotografiaEdicaoImagens: ProcessoDetalhado = {
 
 // Processo 5
 export const organizacaoDriveFotos: ProcessoDetalhado = {
-  id: 'EST-003',
+  id: 'EST-04.36',
   nome: 'Organização e Armazenamento das Fotos no Drive',
   descricao: 'Organizar, renomear e armazenar fotos no Drive para disponibilização.',
   icon: Folder,
@@ -336,13 +336,13 @@ export const organizacaoDriveFotos: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '5.1',
+      id: '4.36.1',
       nome: 'Organização das Imagens',
       nivel: 'Operacional',
       ferramentas: ['Google Drive'],
       tarefas: [
         {
-          id: '5.1.1',
+          id: '4.36.1.1',
           nome: 'Criar Pasta no Drive',
           passos: [
             'Criar pasta com padrão de nome.',
@@ -352,13 +352,13 @@ export const organizacaoDriveFotos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.2',
+      id: '4.36.2',
       nome: 'Renomeação dos Arquivos',
       nivel: 'Operacional',
       ferramentas: ['Explorador de Arquivos'],
       tarefas: [
         {
-          id: '5.2.1',
+          id: '4.36.2.1',
           nome: 'Renomear Arquivos',
           passos: [
             'Seguir padrão visual definido.',
@@ -368,13 +368,13 @@ export const organizacaoDriveFotos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.3',
+      id: '4.36.3',
       nome: 'Compartilhamento e Atualização',
       nivel: 'Operacional',
       ferramentas: ['Google Drive', 'Planilha de controle'],
       tarefas: [
         {
-          id: '5.3.1',
+          id: '4.36.3.1',
           nome: 'Gerar Link e Compartilhar',
           passos: [
             'Gerar link compartilhável.',
@@ -388,7 +388,7 @@ export const organizacaoDriveFotos: ProcessoDetalhado = {
 
 // Processo 6
 export const transferenciaProdutosLojas: ProcessoDetalhado = {
-  id: 'EST-004',
+  id: 'EST-04.37',
   nome: 'Transferência de Produtos para Lojas Após Fotografia',
   descricao: 'Preparar e enviar produtos fotografados de volta para as lojas.',
   icon: Truck,
@@ -401,13 +401,13 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '6.1',
+      id: '4.37.1',
       nome: 'Separação dos Produtos',
       nivel: 'Operacional',
       ferramentas: ['Planilha de controle'],
       tarefas: [
         {
-          id: '6.1.1',
+          id: '4.37.1.1',
           nome: 'Identificar Produtos Finalizados',
           passos: [
             'Conferir planilha.',
@@ -415,7 +415,7 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.1.2',
+          id: '4.37.1.2',
           nome: 'Etiquetar Produtos',
           passos: [
             'Anexar etiqueta com loja e código.',
@@ -425,13 +425,13 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.2',
+      id: '4.37.2',
       nome: 'Organização para Envio',
       nivel: 'Operacional',
       ferramentas: ['Caixas', 'Etiquetas'],
       tarefas: [
         {
-          id: '6.2.1',
+          id: '4.37.2.1',
           nome: 'Embalar Produtos',
           passos: [
             'Utilizar caixas reaproveitáveis.',
@@ -439,7 +439,7 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.2.2',
+          id: '4.37.2.2',
           nome: 'Identificar e Lacrar Volumes',
           passos: [
             'Colar etiqueta externa.',
@@ -449,13 +449,13 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.3',
+      id: '4.37.3',
       nome: 'Liberação e Atualização',
       nivel: 'Operacional',
       ferramentas: ['Planilha de controle'],
       tarefas: [
         {
-          id: '6.3.1',
+          id: '4.37.3.1',
           nome: 'Confirmar Envio',
           passos: [
             'Avisar responsável da loja.',
@@ -469,7 +469,7 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
 
 // Processo 7
 export const recebimentoProdutosEstudio: ProcessoDetalhado = {
-  id: 'EST-005',
+  id: 'EST-04.38',
   nome: 'Recebimento e Inclusão de Produtos no Estúdio',
   descricao: 'Receber e registrar novos produtos no estúdio para fotografia.',
   icon: Box,
@@ -482,13 +482,13 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '7.1',
+      id: '4.38.1',
       nome: 'Recebimento Físico',
       nivel: 'Operacional',
       ferramentas: ['Planilha de controle'],
       tarefas: [
         {
-          id: '7.1.1',
+          id: '4.38.1.1',
           nome: 'Conferir Produtos',
           passos: [
             'Verificar condições físicas.',
@@ -496,7 +496,7 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.2',
+          id: '4.38.1.2',
           nome: 'Registrar Entrada',
           passos: [
             'Inserir dados na planilha.',
@@ -506,13 +506,13 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.2',
+      id: '4.38.2',
       nome: 'Organização Interna',
       nivel: 'Operacional',
       ferramentas: ['Etiquetas', 'Prateleiras'],
       tarefas: [
         {
-          id: '7.2.1',
+          id: '4.38.2.1',
           nome: 'Etiquetar Produtos',
           passos: [
             'Gerar etiqueta com código, origem e destino.',
@@ -520,7 +520,7 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.2.2',
+          id: '4.38.2.2',
           nome: 'Armazenar por Prioridade',
           passos: [
             'Separar por tipo de demanda.',
