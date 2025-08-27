@@ -3,7 +3,7 @@ import { DollarSign, RefreshCw, Users, AlertTriangle, FileCheck, CreditCard, Clo
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
-  id: 'FIN-001',
+  id: 'FIN-04.24',
   nome: 'Cadastro de Despesas Financeiras',
   descricao: 'Documento fiscal ou solicitação de despesa enviada por e-mail',
   icon: DollarSign,
@@ -14,13 +14,13 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
   sistemas_utilizados: ['Mega', 'e-mail', 'planilha de controle de despesas', 'plataformas de fornecedores'],
   subprocessos: [
     {
-      id: '1.1',
+      id: '4.24.1',
       nome: 'Validação da Despesa',
       nivel: 'Operacional',
       ferramentas: ['e-mail', 'plataformas de fornecedores'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '4.24.1.1',
           nome: 'Analisar Origem e Natureza da Despesa',
           passos: [
             'Validar se é despesa recorrente, esporádica, ou relacionada a:',
@@ -32,7 +32,7 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.2',
+          id: '4.24.1.2',
           nome: 'Validar Valores e Dados do Documento',
           passos: [
             'Conferir boleto, nota fiscal, CNPJ do fornecedor e valores',
@@ -42,13 +42,13 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.2',
+      id: '4.24.2',
       nome: 'Cadastro no Mega',
       nivel: 'Operacional',
       ferramentas: ['Mega', 'planilha de controle de despesas'],
       tarefas: [
         {
-          id: '1.2.1',
+          id: '4.24.2.1',
           nome: 'Preencher Informações no Mega',
           passos: [
             'Selecionar o CNPJ correto (geralmente 600 – Oscar Calçados Comércio Eletrônico)',
@@ -57,7 +57,7 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.2.2',
+          id: '4.24.2.2',
           nome: 'Atualizar Planilha de Controle',
           passos: [
             'Registrar status da despesa:',
@@ -73,7 +73,7 @@ export const cadastroDespesasFinanceiras: ProcessoDetalhado = {
 };
 
 export const cadastroReembolsosPix: ProcessoDetalhado = {
-  id: 'FIN-002',
+  id: 'FIN-04.25',
   nome: 'Cadastro e Pagamento de Reembolsos PIX',
   descricao: 'Solicitação de estorno de pedido pago via PIX (cancelado na VTEX)',
   icon: RefreshCw,
@@ -86,13 +86,13 @@ export const cadastroReembolsosPix: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '2.1',
+      id: '4.25.1',
       nome: 'Análise da Solicitação',
       nivel: 'Operacional',
       ferramentas: ['VTEX', 'GetNet'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '4.25.1.1',
           nome: 'Verificar Inexistência de Estorno Automático',
           passos: [
             'Validar se a adquirente GetNet realizou o estorno',
@@ -102,13 +102,13 @@ export const cadastroReembolsosPix: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '4.25.2',
       nome: 'Registro Manual no Mega',
       nivel: 'Operacional',
       ferramentas: ['Mega'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '4.25.2.1',
           nome: 'Cadastro da Devolução como Despesa',
           passos: [
             'Preencher despesa no Mega com subgrupo "Estorno de cliente via PIX"',
@@ -117,7 +117,7 @@ export const cadastroReembolsosPix: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '4.25.2.2',
           nome: 'Acompanhar Aprovação',
           passos: [
             'Acompanhar status no Mega para garantir pagamento no prazo',
@@ -130,7 +130,7 @@ export const cadastroReembolsosPix: ProcessoDetalhado = {
 };
 
 export const cadastroRepassesSellers: ProcessoDetalhado = {
-  id: 'FIN-003',
+  id: 'FIN-04.26',
   nome: 'Cadastro de Despesa de Repasses aos Sellers',
   descricao: 'Fechamento mensal dos pedidos dos sellers (planilha enviada pela Vanessa)',
   icon: Users,
@@ -143,13 +143,13 @@ export const cadastroRepassesSellers: ProcessoDetalhado = {
   frequencia: 'Mensal',
   subprocessos: [
     {
-      id: '3.1',
+      id: '4.26.1',
       nome: 'Lançamento no Mega',
       nivel: 'Operacional',
       ferramentas: ['Mega', 'planilha de repasses', 'Seller Center', 'VTEX'],
       tarefas: [
         {
-          id: '3.1.1',
+          id: '4.26.1.1',
           nome: 'Receber Planilha de Fechamento',
           passos: [
             'Conferir se os pedidos foram entregues e faturados',
@@ -157,7 +157,7 @@ export const cadastroRepassesSellers: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.1.2',
+          id: '4.26.1.2',
           nome: 'Cadastro de Despesas Individuais',
           passos: [
             'Cadastrar despesa por seller:',
@@ -167,7 +167,7 @@ export const cadastroRepassesSellers: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.1.3',
+          id: '4.26.1.3',
           nome: 'Atualizar Planilha de Controle',
           passos: [
             'Marcar cada repasse já cadastrado',
@@ -180,7 +180,7 @@ export const cadastroRepassesSellers: ProcessoDetalhado = {
 };
 
 export const validacaoPendenciasRepasses: ProcessoDetalhado = {
-  id: 'FIN-004',
+  id: 'FIN-04.27',
   nome: 'Validação e Ajuste de Pendências em Repasses',
   descricao: 'Divergências de seller ou faturamento em pedidos repassados',
   icon: AlertTriangle,
@@ -193,13 +193,13 @@ export const validacaoPendenciasRepasses: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '4.1',
+      id: '4.27.1',
       nome: 'Análise de Erros nos Pedidos',
       nivel: 'Tático',
       ferramentas: ['VTEX', 'Seller Center', 'planilha de controle'],
       tarefas: [
         {
-          id: '4.1.1',
+          id: '4.27.1.1',
           nome: 'Verificar Pedido com Divergência',
           passos: [
             'Consultar VTEX e Seller Center',
@@ -208,7 +208,7 @@ export const validacaoPendenciasRepasses: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.1.2',
+          id: '4.27.1.2',
           nome: 'Corrigir Pendência',
           passos: [
             'Lançar manualmente no Seller Center, se necessário',
@@ -216,7 +216,7 @@ export const validacaoPendenciasRepasses: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.1.3',
+          id: '4.27.1.3',
           nome: 'Estorno de Valor Indevido',
           passos: [
             'Se repasse indevido, lançar despesa negativa no Mega',
@@ -229,7 +229,7 @@ export const validacaoPendenciasRepasses: ProcessoDetalhado = {
 };
 
 export const validacaoDespesasFixas: ProcessoDetalhado = {
-  id: 'FIN-005',
+  id: 'FIN-04.28',
   nome: 'Validação de Despesas Fixas e Serviços',
   descricao: 'Cobrança mensal de fornecedores recorrentes',
   icon: FileCheck,
@@ -242,13 +242,13 @@ export const validacaoDespesasFixas: ProcessoDetalhado = {
   frequencia: 'Mensal',
   subprocessos: [
     {
-      id: '5.1',
+      id: '4.28.1',
       nome: 'Conferência de Valores',
       nivel: 'Tático',
       ferramentas: ['Omnichat', 'After Sale', 'Pagar.me', 'Mundipagg', 'Correios'],
       tarefas: [
         {
-          id: '5.1.1',
+          id: '4.28.1.1',
           nome: 'Acesso aos Relatórios',
           passos: [
             'Entrar nos portais dos fornecedores: Omnichat, After Sale, Pagar.me, Mundipagg, Correios, etc.',
@@ -256,7 +256,7 @@ export const validacaoDespesasFixas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '5.1.2',
+          id: '4.28.1.2',
           nome: 'Validar Cobrança com Contrato',
           passos: [
             'Conferir volume (ex: pedidos, acessos, mensagens) x valores contratados',
@@ -266,13 +266,13 @@ export const validacaoDespesasFixas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.2',
+      id: '4.28.2',
       nome: 'Cadastro no Mega',
       nivel: 'Tático',
       ferramentas: ['Mega'],
       tarefas: [
         {
-          id: '5.2.1',
+          id: '4.28.2.1',
           nome: 'Registrar Despesa com Classificação Correta',
           passos: [
             'Informar grupo e subgrupo de despesa (ex: Marketing, Atendimento)',
@@ -285,7 +285,7 @@ export const validacaoDespesasFixas: ProcessoDetalhado = {
 };
 
 export const gestaoChargebacks: ProcessoDetalhado = {
-  id: 'FIN-006',
+  id: 'FIN-04.29',
   nome: 'Gestão de Chargebacks',
   descricao: 'Notificação de contestação de compra via e-mail ou plataforma da adquirente',
   icon: CreditCard,
@@ -298,13 +298,13 @@ export const gestaoChargebacks: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '6.1',
+      id: '4.29.1',
       nome: 'Identificação e Coleta de Evidências',
       nivel: 'Tático',
       ferramentas: ['GetNet', 'Pagar.me', 'CredSystem', 'VTEX', 'Mega'],
       tarefas: [
         {
-          id: '6.1.1',
+          id: '4.29.1.1',
           nome: 'Acessar plataforma da adquirente',
           passos: [
             'Logar na plataforma da GetNet, Pagar.me ou CredSystem',
@@ -312,7 +312,7 @@ export const gestaoChargebacks: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.1.2',
+          id: '4.29.1.2',
           nome: 'Localizar dados da venda',
           passos: [
             'Acessar VTEX para consultar o pedido',
@@ -321,7 +321,7 @@ export const gestaoChargebacks: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.1.3',
+          id: '4.29.1.3',
           nome: 'Coletar documentos comprobatórios',
           passos: [
             'Baixar nota fiscal',
@@ -332,13 +332,13 @@ export const gestaoChargebacks: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.2',
+      id: '4.29.2',
       nome: 'Envio de Defesa do Chargeback',
       nivel: 'Tático',
       ferramentas: ['GetNet', 'Pagar.me', 'CredSystem', 'Signify'],
       tarefas: [
         {
-          id: '6.2.1',
+          id: '4.29.2.1',
           nome: 'Submeter defesa na plataforma da adquirente',
           passos: [
             'Preencher formulário ou upload de defesa',
@@ -347,7 +347,7 @@ export const gestaoChargebacks: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.2.2',
+          id: '4.29.2.2',
           nome: 'Registrar caso no Signify',
           passos: [
             'Acessar Signify',
@@ -357,7 +357,7 @@ export const gestaoChargebacks: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.2.3',
+          id: '4.29.2.3',
           nome: 'Acompanhamento do desfecho',
           passos: [
             'Monitorar retorno da adquirente',
@@ -370,7 +370,7 @@ export const gestaoChargebacks: ProcessoDetalhado = {
 };
 
 export const gestaoPontoSenior: ProcessoDetalhado = {
-  id: 'FIN-007',
+  id: 'FIN-04.30',
   nome: 'Gestão de Ponto no Sistema Senior',
   descricao: 'Solicitações e acompanhamento de ponto de colaboradores específicos do e-commerce',
   icon: Clock,
@@ -383,13 +383,13 @@ export const gestaoPontoSenior: ProcessoDetalhado = {
   frequencia: 'Diária',
   subprocessos: [
     {
-      id: '7.1',
+      id: '4.30.1',
       nome: 'Monitoramento e Ajustes de Ponto',
       nivel: 'Operacional',
       ferramentas: ['Sistema Senior', 'e-mail interno'],
       tarefas: [
         {
-          id: '7.1.1',
+          id: '4.30.1.1',
           nome: 'Acessar o sistema Senior',
           passos: [
             'Logar com perfil de gestor ou apoio',
@@ -401,7 +401,7 @@ export const gestaoPontoSenior: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.2',
+          id: '4.30.1.2',
           nome: 'Realizar correções necessárias',
           passos: [
             'Validar justificativas enviadas pelos colaboradores',
@@ -410,7 +410,7 @@ export const gestaoPontoSenior: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.3',
+          id: '4.30.1.3',
           nome: 'Apoiar colaboradores em dúvidas ou correções',
           passos: [
             'Explicar inconsistências',
@@ -424,7 +424,7 @@ export const gestaoPontoSenior: ProcessoDetalhado = {
 };
 
 export const emissaoNotasRepasses: ProcessoDetalhado = {
-  id: 'FIN-008',
+  id: 'FIN-04.31',
   nome: 'Emissão de Notas para Repasses – Sellers 3P IN',
   descricao: 'Fechamento mensal de vendas dos sellers integrados ao modelo 3P IN',
   icon: Receipt,
@@ -437,13 +437,13 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
   frequencia: 'Mensal',
   subprocessos: [
     {
-      id: '8.1',
+      id: '4.31.1',
       nome: 'Verificação dos Pedidos Entregues',
       nivel: 'Tático',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '8.1.1',
+          id: '4.31.1.1',
           nome: 'Validar pedidos faturados',
           passos: [
             'Acessar VTEX',
@@ -452,7 +452,7 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.2',
+          id: '4.31.1.2',
           nome: 'Conferência de valores e comissão',
           passos: [
             'Verificar o valor total do pedido',
@@ -463,13 +463,13 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.2',
+      id: '4.31.2',
       nome: 'Emissão e Envio da Nota Fiscal',
       nivel: 'Tático',
       ferramentas: ['Mega', 'Sistema Fiscal', 'e-mail'],
       tarefas: [
         {
-          id: '8.2.1',
+          id: '4.31.2.1',
           nome: 'Emitir nota no sistema fiscal',
           passos: [
             'Acessar sistema de emissão de nota fiscal (Mega ou ERP fiscal)',
@@ -481,7 +481,7 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.2.2',
+          id: '4.31.2.2',
           nome: 'Validar e salvar nota',
           passos: [
             'Conferir dados antes de finalizar emissão',
@@ -490,7 +490,7 @@ export const emissaoNotasRepasses: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.2.3',
+          id: '4.31.2.3',
           nome: 'Enviar nota ao seller',
           passos: [
             'Encaminhar nota fiscal por e-mail',
