@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { TrendingUp, Package, FileCheck, Megaphone, Store, Search, Target, AlertTriangle } from 'lucide-react';
 
 export const analiseResultadosComerciais: ProcessoDetalhado = {
-  id: 'ECOM-4.38',
+  id: 'COM-4.38',
   nome: 'Análise de Resultados Comerciais',
   descricao: 'Processo de análise e monitoramento dos resultados comerciais para tomada de decisões estratégicas',
   icon: TrendingUp,
@@ -164,7 +164,7 @@ export const analiseResultadosComerciais: ProcessoDetalhado = {
 };
 
 export const gestaoEstoqueCentralizado: ProcessoDetalhado = {
-  id: 'ECOM-4.39',
+  id: 'COM-4.39',
   nome: 'Gestão do Estoque Centralizado',
   descricao: 'Processo de gestão e otimização do estoque centralizado para maximizar performance comercial',
   icon: Package,
@@ -246,7 +246,7 @@ export const gestaoEstoqueCentralizado: ProcessoDetalhado = {
 };
 
 export const validacaoManutencaoCadastro: ProcessoDetalhado = {
-  id: 'ECOM-4.40',
+  id: 'COM-4.40',
   nome: 'Validação e Manutenção do Cadastro de Produtos',
   descricao: 'Processo de validação e manutenção do cadastro de produtos para garantir consistência no catálogo',
   icon: FileCheck,
@@ -297,7 +297,7 @@ export const validacaoManutencaoCadastro: ProcessoDetalhado = {
 };
 
 export const criacaoGestaoCampanhas: ProcessoDetalhado = {
-  id: 'ECOM-4.41',
+  id: 'COM-4.41',
   nome: 'Criação e Gestão de Campanhas Comerciais',
   descricao: 'Processo de criação, configuração e gestão de campanhas comerciais para aumentar vendas',
   icon: Megaphone,
@@ -383,7 +383,7 @@ export const criacaoGestaoCampanhas: ProcessoDetalhado = {
 };
 
 export const manutencaoLojaVirtual: ProcessoDetalhado = {
-  id: 'ECOM-4.42',
+  id: 'COM-4.42',
   nome: 'Manutenção da Loja Virtual',
   descricao: 'Processo de manutenção e otimização da loja virtual para maximizar conversão',
   icon: Store,
@@ -478,7 +478,7 @@ export const manutencaoLojaVirtual: ProcessoDetalhado = {
 };
 
 export const analiseConcorrencia: ProcessoDetalhado = {
-  id: 'ECOM-4.43',
+  id: 'COM-4.43',
   nome: 'Análise da Concorrência',
   descricao: 'Processo de monitoramento e análise da concorrência para identificar oportunidades competitivas',
   icon: Search,
@@ -541,7 +541,7 @@ export const analiseConcorrencia: ProcessoDetalhado = {
 };
 
 export const ativacoesRedesSociais: ProcessoDetalhado = {
-  id: 'ECOM-4.45',
+  id: 'COM-4.45',
   nome: 'Ativações com Redes Sociais, App e Vendas 3.0',
   descricao: 'Processo de integração e ativação de campanhas através de múltiplos canais digitais',
   icon: Target,
@@ -617,7 +617,7 @@ export const ativacoesRedesSociais: ProcessoDetalhado = {
 };
 
 export const prevencaoCorrecaoErros: ProcessoDetalhado = {
-  id: 'ECOM-4.46',
+  id: 'COM-4.46',
   nome: 'Prevenção e Correção de Erros',
   descricao: 'Processo de identificação, prevenção e correção de erros técnicos e de integração',
   icon: AlertTriangle,
