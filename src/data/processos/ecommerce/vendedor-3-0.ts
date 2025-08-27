@@ -3,7 +3,7 @@ import { Users, BarChart, Target, UserPlus, Gift, Smartphone, Monitor, ShoppingC
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const vendaCanalTresPontoZero: ProcessoDetalhado = {
-  id: 'VEN-001',
+  id: 'VEN-04.11',
   nome: 'Venda através do Canal 3.0',
   descricao: 'Interesse do cliente em comprar um produto disponível no e-commerce',
   icon: Users,
@@ -16,13 +16,13 @@ export const vendaCanalTresPontoZero: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '1.1',
+      id: '4.11.1',
       nome: 'Utilização do Canal de Vendas 3.0',
       nivel: 'Operacional',
       ferramentas: ['Sales App', 'App Oscar'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '4.11.1.1',
           nome: 'Acesso ao Canal de Vendas',
           passos: [
             'Acessar o Canal 3.0 por um dispositivo da loja (tablet, computador ou smartphone)',
@@ -32,7 +32,7 @@ export const vendaCanalTresPontoZero: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.2',
+          id: '4.11.1.2',
           nome: 'Registro da Venda',
           passos: [
             'No Sales App ou App Oscar, localizar o produto pelo campo de busca utilizando: nome, marca ou código do produto (8x9)',
@@ -48,7 +48,7 @@ export const vendaCanalTresPontoZero: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.3',
+          id: '4.11.1.3',
           nome: 'Preenchimento de Dados do Cliente',
           passos: [
             'Se for a primeira compra do cliente, preencher: Nome completo',
@@ -59,7 +59,7 @@ export const vendaCanalTresPontoZero: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.4',
+          id: '4.11.1.4',
           nome: 'Finalização da Venda',
           passos: [
             'Revisar todos os dados na tela de resumo do pedido',
@@ -78,7 +78,7 @@ export const vendaCanalTresPontoZero: ProcessoDetalhado = {
 };
 
 export const acompanhamentoDesempenhoVendas: ProcessoDetalhado = {
-  id: 'VEN-002',
+  id: 'VEN-04.12',
   nome: 'Acompanhamento de Desempenho de Vendas',
   descricao: 'Vendas realizadas nos canais físicos e online',
   icon: BarChart,
@@ -91,13 +91,13 @@ export const acompanhamentoDesempenhoVendas: ProcessoDetalhado = {
   frequencia: 'Diária',
   subprocessos: [
     {
-      id: '2.1',
+      id: '4.12.1',
       nome: 'Monitoramento via Portal KPI',
       nivel: 'Operacional',
       ferramentas: ['Portal KPI'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '4.12.1.1',
           nome: 'Acesso ao Portal KPI',
           passos: [
             'Acessar o Portal KPI através do navegador da loja ou dispositivo autorizado',
@@ -115,13 +115,13 @@ export const acompanhamentoDesempenhoVendas: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '4.12.2',
       nome: 'Relatórios e Indicadores/Métricas',
       nivel: 'Operacional',
       ferramentas: ['Portal KPI'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '4.12.2.1',
           nome: 'Exportação de Relatórios',
           passos: [
             'Posicionar o cursor sobre a área desejada do relatório',
@@ -130,7 +130,7 @@ export const acompanhamentoDesempenhoVendas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '4.12.2.2',
           nome: 'Indicadores/Métricas que devem ser acompanhadas',
           passos: [
             'Meta do mês: valor estabelecido pela diretoria para cada loja',
@@ -150,7 +150,7 @@ export const acompanhamentoDesempenhoVendas: ProcessoDetalhado = {
 };
 
 export const gestaoMetasVendas: ProcessoDetalhado = {
-  id: 'VEN-003',
+  id: 'VEN-04.13',
   nome: 'Gestão de Metas de Vendas 3.0',
   descricao: 'Definição das metas de vendas do Canal 3.0 pela diretoria',
   icon: Target,
@@ -163,13 +163,13 @@ export const gestaoMetasVendas: ProcessoDetalhado = {
   frequencia: 'Mensal',
   subprocessos: [
     {
-      id: '3.1',
+      id: '4.13.1',
       nome: 'Distribuição e Registro das Metas',
       nivel: 'Tático',
       ferramentas: ['E-mail corporativo', 'Planilha Excel de Metas'],
       tarefas: [
         {
-          id: '3.1.1',
+          id: '4.13.1.1',
           nome: 'Definição e Distribuição das Metas',
           passos: [
             'A diretoria define o valor total das metas mensais para o Canal de Vendas 3.0',
@@ -179,7 +179,7 @@ export const gestaoMetasVendas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '3.1.2',
+          id: '4.13.1.2',
           nome: 'Envio e Lançamento da Meta no Sistema',
           passos: [
             'Após o preenchimento da planilha, enviar por e-mail para andre.guimaraes@grupooscar.com.br',
@@ -195,7 +195,7 @@ export const gestaoMetasVendas: ProcessoDetalhado = {
 };
 
 export const cadastroLojaVendedor: ProcessoDetalhado = {
-  id: 'VEN-004',
+  id: 'VEN-04.14',
   nome: 'Cadastro de Loja e Vendedor no Sales App',
   descricao: 'Solicitação de cadastro de nova loja ou novo vendedor para atuação no Canal de Vendas 3.0',
   icon: UserPlus,
@@ -208,13 +208,13 @@ export const cadastroLojaVendedor: ProcessoDetalhado = {
   frequencia: 'Sob demanda',
   subprocessos: [
     {
-      id: '4.1',
+      id: '4.14.1',
       nome: 'Cadastro de Loja na VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '4.1.1',
+          id: '4.14.1.1',
           nome: 'Cadastro da Loja para uso no Sales App',
           passos: [
             'Acessar a VTEX com perfil administrativo',
@@ -229,13 +229,13 @@ export const cadastroLojaVendedor: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.2',
+      id: '4.14.2',
       nome: 'Cadastro de Vendedor na VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '4.2.1',
+          id: '4.14.2.1',
           nome: 'Cadastrar novo vendedor na plataforma',
           passos: [
             'Acessar a aba "Vendedores" dentro da VTEX',
@@ -252,7 +252,7 @@ export const cadastroLojaVendedor: ProcessoDetalhado = {
 };
 
 export const campanhasPontuacao: ProcessoDetalhado = {
-  id: 'VEN-005',
+  id: 'VEN-04.15',
   nome: 'Campanhas de Pontuação com o App Receba',
   descricao: 'Disponibilização de valor mensal para campanhas de incentivo',
   icon: Gift,
@@ -265,13 +265,13 @@ export const campanhasPontuacao: ProcessoDetalhado = {
   frequencia: 'Mensal',
   subprocessos: [
     {
-      id: '5.1',
+      id: '4.15.1',
       nome: 'Cadastro de Pontos no Receba',
       nivel: 'Operacional',
       ferramentas: ['App Receba'],
       tarefas: [
         {
-          id: '5.1.1',
+          id: '4.15.1.1',
           nome: 'Inserção de Pontos',
           passos: [
             'Acessar o App Receba através do sistema corporativo',
@@ -288,7 +288,7 @@ export const campanhasPontuacao: ProcessoDetalhado = {
 };
 
 export const trocaMaquininhaStone: ProcessoDetalhado = {
-  id: 'VEN-006',
+  id: 'VEN-04.16',
   nome: 'Troca de Maquininha Stone',
   descricao: 'Identificação de necessidade de troca por defeito ou erro',
   icon: Smartphone,
@@ -301,13 +301,13 @@ export const trocaMaquininhaStone: ProcessoDetalhado = {
   frequencia: 'Sob demanda',
   subprocessos: [
     {
-      id: '6.1',
+      id: '4.16.1',
       nome: 'Solicitação de Troca',
       nivel: 'Operacional',
       ferramentas: ['E-mail corporativo'],
       tarefas: [
         {
-          id: '6.1.1',
+          id: '4.16.1.1',
           nome: 'Envio de Solicitação',
           passos: [
             'Enviar e-mail para bruna.ariane@grupooscar.com.br e vanessa.souza@grupooscar.com.br',
@@ -320,13 +320,13 @@ export const trocaMaquininhaStone: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.2',
+      id: '4.16.2',
       nome: 'Configuração da Nova Maquininha',
       nivel: 'Operacional',
       ferramentas: ['Maquininha POS Stone'],
       tarefas: [
         {
-          id: '6.2.1',
+          id: '4.16.2.1',
           nome: 'Inicialização e Configuração',
           passos: [
             'Ao receber a nova maquininha, ligar o equipamento',
@@ -336,7 +336,7 @@ export const trocaMaquininhaStone: ProcessoDetalhado = {
           ]
         },
         {
-          id: '6.2.2',
+          id: '4.16.2.2',
           nome: 'Comunicação com o Sales App',
           passos: [
             'Após clicar em "Concluir compra" no Sales App, caso apareça a mensagem de que não está conectado',
@@ -351,7 +351,7 @@ export const trocaMaquininhaStone: ProcessoDetalhado = {
 };
 
 export const gerenciamentoVitrines: ProcessoDetalhado = {
-  id: 'VEN-007',
+  id: 'VEN-04.17',
   nome: 'Gerenciamento de Vitrines no Sales App',
   descricao: 'Atualizações de promoções e campanhas nos sites',
   icon: Monitor,
@@ -364,13 +364,13 @@ export const gerenciamentoVitrines: ProcessoDetalhado = {
   frequencia: 'Semanal',
   subprocessos: [
     {
-      id: '7.1',
+      id: '4.17.1',
       nome: 'Atualização das Vitrines',
       nivel: 'Tático',
       ferramentas: ['VTEX', 'Sales App'],
       tarefas: [
         {
-          id: '7.1.1',
+          id: '4.17.1.1',
           nome: 'Levantamento de Campanhas',
           passos: [
             'Acessar o site oficial da empresa',
@@ -379,7 +379,7 @@ export const gerenciamentoVitrines: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.2',
+          id: '4.17.1.2',
           nome: 'Identificação da Coleção',
           passos: [
             'No site, clicar no banner da campanha ativa',
@@ -388,7 +388,7 @@ export const gerenciamentoVitrines: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.3',
+          id: '4.17.1.3',
           nome: 'Alteração no Sales App via VTEX',
           passos: [
             'Acessar a plataforma VTEX',
@@ -401,7 +401,7 @@ export const gerenciamentoVitrines: ProcessoDetalhado = {
           ]
         },
         {
-          id: '7.1.4',
+          id: '4.17.1.4',
           nome: 'Validação no Sales App',
           passos: [
             'Acessar o Sales App e confirmar se a nova coleção foi corretamente atualizada'
@@ -413,7 +413,7 @@ export const gerenciamentoVitrines: ProcessoDetalhado = {
 };
 
 export const vendaSalesApp: ProcessoDetalhado = {
-  id: 'VEN-008',
+  id: 'VEN-04.18',
   nome: 'Como Vender dentro do Sales App',
   descricao: 'Interesse do cliente em realizar uma compra presencialmente na loja, utilizando o Sales App',
   icon: ShoppingCart,
@@ -426,13 +426,13 @@ export const vendaSalesApp: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '8.1',
+      id: '4.18.1',
       nome: 'Realização da Venda',
       nivel: 'Operacional',
       ferramentas: ['Sales App', 'POS Stone'],
       tarefas: [
         {
-          id: '8.1.1',
+          id: '4.18.1.1',
           nome: 'Acesso e Navegação',
           passos: [
             'Acessar o Sales App no dispositivo da loja',
@@ -441,7 +441,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.2',
+          id: '4.18.1.2',
           nome: 'Localização do Produto',
           passos: [
             'Utilizar o campo de busca para localizar o produto: nome da marca, nome do produto ou código (8x9)',
@@ -449,7 +449,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.3',
+          id: '4.18.1.3',
           nome: 'Apresentação de Condições ao Cliente',
           passos: [
             'Escolher o produto e a numeração desejada',
@@ -457,7 +457,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.4',
+          id: '4.18.1.4',
           nome: 'Ajuste de CEP',
           passos: [
             'O CEP padrão estará com o endereço da loja',
@@ -468,7 +468,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.5',
+          id: '4.18.1.5',
           nome: 'Aplicação do Código e Cupom',
           passos: [
             'Inserir o código de vendas (identificação do vendedor)',
@@ -486,7 +486,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.7',
+          id: '4.18.1.7',
           nome: 'Finalização do Pedido',
           passos: [
             'Revisar todos os dados na tela de resumo do pedido',
@@ -494,7 +494,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.8',
+          id: '4.18.1.8',
           nome: 'Seleção da Forma de Pagamento',
           passos: [
             'Escolher uma das opções:',
@@ -506,7 +506,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
           ]
         },
         {
-          id: '8.1.9',
+          id: '4.18.1.9',
           nome: 'Envio de Confirmação ao Cliente',
           passos: [
             'Após a finalização da venda, o cliente receberá confirmação via e-mail e WhatsApp com o resumo e passo a passo do pedido'
@@ -518,7 +518,7 @@ export const vendaSalesApp: ProcessoDetalhado = {
 };
 
 export const consultaDesempenhoLojas: ProcessoDetalhado = {
-  id: 'VEN-009',
+  id: 'VEN-04.19',
   nome: 'Consulta de Desempenho das Lojas',
   descricao: 'Vendas realizadas nas lojas e canais digitais',
   icon: BarChart,
@@ -531,13 +531,13 @@ export const consultaDesempenhoLojas: ProcessoDetalhado = {
   frequencia: 'Diária',
   subprocessos: [
     {
-      id: '9.1',
+      id: '4.19.1',
       nome: 'Acompanhamento de Indicadores',
       nivel: 'Tático',
       ferramentas: ['Portal KPI'],
       tarefas: [
         {
-          id: '9.1.1',
+          id: '4.19.1.1',
           nome: 'Acesso ao Portal KPI',
           passos: [
             'Acessar o Portal KPI via navegador autorizado pela empresa',
@@ -545,7 +545,7 @@ export const consultaDesempenhoLojas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '9.1.2',
+          id: '4.19.1.2',
           nome: 'Aplicação de Filtros para Consulta',
           passos: [
             'No topo da tela, utilizar os filtros disponíveis:',
@@ -555,7 +555,7 @@ export const consultaDesempenhoLojas: ProcessoDetalhado = {
           ]
         },
         {
-          id: '9.1.3',
+          id: '4.19.1.3',
           nome: 'Análise e Exportação de Relatórios',
           passos: [
             'Acompanhar os indicadores: Meta do mês, Valor faturado, Número de pedidos, % atingida da meta',
@@ -570,7 +570,7 @@ export const consultaDesempenhoLojas: ProcessoDetalhado = {
 };
 
 export const identificacaoVendasIFC: ProcessoDetalhado = {
-  id: 'VEN-010',
+  id: 'VEN-04.20',
   nome: 'Identificação de Vendas IFC ou Loja',
   descricao: 'Pedido ou necessidade de identificar a origem da venda: Infracommerce ou Loja Física',
   icon: Search,
@@ -583,20 +583,20 @@ export const identificacaoVendasIFC: ProcessoDetalhado = {
   frequencia: 'Sob demanda',
   subprocessos: [
     {
-      id: '10.1',
+      id: '4.20.1',
       nome: 'Identificação do Canal na VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '10.1.1',
+          id: '4.20.1.1',
           nome: 'Acesso ao Sistema',
           passos: [
             'Acessar a plataforma VTEX com credenciais autorizadas'
           ]
         },
         {
-          id: '10.1.2',
+          id: '4.20.1.2',
           nome: 'Abertura de Consulta',
           passos: [
             'Navegar até o menu "Canais"',
@@ -604,7 +604,7 @@ export const identificacaoVendasIFC: ProcessoDetalhado = {
           ]
         },
         {
-          id: '10.1.3',
+          id: '4.20.1.3',
           nome: 'Classificação da Venda',
           passos: [
             'Se a venda for através de Infracommerce, verificar se está vinculada a: Oscar Calçados, Gaston, Paquetá Calçados, Paquetá Esportes',
@@ -617,7 +617,7 @@ export const identificacaoVendasIFC: ProcessoDetalhado = {
 };
 
 export const consultaPedidosVTEX: ProcessoDetalhado = {
-  id: 'VEN-011',
+  id: 'VEN-04.21',
   nome: 'Consulta Detalhada de Pedidos na VTEX',
   descricao: 'Solicitação de consulta de pedido por cliente ou gestão',
   icon: FileText,
@@ -630,27 +630,27 @@ export const consultaPedidosVTEX: ProcessoDetalhado = {
   frequencia: 'Sob demanda',
   subprocessos: [
     {
-      id: '11.1',
+      id: '4.21.1',
       nome: 'Consulta Completa de Pedido',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '11.1.1',
+          id: '4.21.1.1',
           nome: 'Acesso à VTEX',
           passos: [
             'Acessar a plataforma VTEX utilizando credenciais autorizadas'
           ]
         },
         {
-          id: '11.1.2',
+          id: '4.21.1.2',
           nome: 'Realização da Pesquisa',
           passos: [
             'Consultar o pedido usando: CPF do cliente, Nome do cliente ou Número do pedido'
           ]
         },
         {
-          id: '11.1.3',
+          id: '4.21.1.3',
           nome: 'Análise das Informações',
           passos: [
             'Verificar: Dados completos do cliente e endereço de entrega',
