@@ -3,7 +3,7 @@ import { AlertTriangle, FileSearch, DollarSign } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const tratamentoProdutosDefeito: ProcessoDetalhado = {
-  id: 'DEF-001',
+  id: 'DEF-06.1',
   nome: 'Tratamento de Produtos com Defeito',
   descricao: 'Produto com defeito recebido da loja via remessa, com ou sem nota fiscal',
   icon: AlertTriangle,
@@ -14,13 +14,13 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
   sistemas_utilizados: ['Puxadas organizadas por marca e departamento', 'planilha de controle', 'sistema interno'],
   subprocessos: [
     {
-      id: '1.1',
+      id: '6.1.1',
       nome: 'Conferência e Triagem de Produtos com Defeito',
       nivel: 'Operacional',
       ferramentas: ['Puxadas organizadas por marca', 'planilha de controle', 'sistema interno'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '6.1.1.1',
           nome: 'Conferência Física do Produto Recebido',
           passos: [
             'Verificar a integridade do produto ao recebê-lo:',
@@ -31,7 +31,7 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.2',
+          id: '6.1.1.2',
           nome: 'Avaliação Técnica de Defeito',
           passos: [
             'Conferir itens como:',
@@ -45,7 +45,7 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.2',
+      id: '6.1.2',
       nome: 'Organização e Armazenamento dos Produtos Defeituosos',
       nivel: 'Operacional',
       ferramentas: ['Prateleiras por marca e categoria'],
@@ -60,7 +60,7 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.2.2',
+          id: '6.1.2.2',
           nome: 'Armazenamento nas Puxadas',
           passos: [
             'Alocar os produtos nas prateleiras identificadas por:',
@@ -72,13 +72,13 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.3',
+      id: '6.1.3',
       nome: 'Tratamento de Itens Não Indenizáveis',
       nivel: 'Operacional',
       ferramentas: ['Planilha de ajustes', 'etiquetas', 'estoque virtual "Stock Show"', 'sistema interno'],
       tarefas: [
         {
-          id: '1.3.1',
+          id: '6.1.3.1',
           nome: 'Análise de Produto Fora do Prazo ou Sem Defeito Real',
           passos: [
             'Verificar:',
@@ -88,7 +88,7 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.3.2',
+          id: '6.1.3.2',
           nome: 'Classificação para Destino Final',
           passos: [
             'Opções:',
@@ -99,7 +99,7 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.3.3',
+          id: '6.1.3.3',
           nome: 'Registrar o Ajuste no Sistema',
           passos: [
             'Preencher planilha com número de ajuste e motivo',
@@ -112,24 +112,24 @@ export const tratamentoProdutosDefeito: ProcessoDetalhado = {
 };
 
 export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
-  id: 'DEF-002',
+  id: 'DEF-06.2',
   nome: 'Indenização de Produtos com Defeito',
   descricao: 'Produto defeituoso classificado como indenizável, com base em triagem técnica e política de garantia',
   icon: DollarSign,
-  cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
+  cor: 'bg-gradient-to-br from-red-500 to-red-600',
   nivel: 'Tático',
   entrada: 'Produto defeituoso classificado como indenizável, com base em triagem técnica e política de garantia.',
   saida: 'Indenização registrada, cobrada e compensada junto ao fornecedor com nota fiscal e controle interno.',
   sistemas_utilizados: ['Planilha de controle de defeitos', 'e-mail', 'nota de débito', 'sistema fiscal interno'],
   subprocessos: [
     {
-      id: '2.1',
+      id: '6.2.1',
       nome: 'Levantamento de Dados para Indenização',
       nivel: 'Tático',
       ferramentas: ['Planilha de controle de defeitos', 'sistema interno', 'nota fiscal'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '6.2.1.1',
           nome: 'Verificar Documentação e Informações do Produto',
           passos: [
             'Confirmar os dados do produto:',
@@ -142,7 +142,7 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.2',
+          id: '6.2.1.2',
           nome: 'Registrar na Planilha de Controle',
           passos: [
             'Incluir os dados do produto na aba de indenização:',
@@ -156,13 +156,13 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '6.2.2',
       nome: 'Elaboração do Orçamento para Fornecedor',
       nivel: 'Tático',
       ferramentas: ['Planilha de orçamento', 'e-mail', 'modelo de tabela de valores por marca'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '6.2.2.1',
           nome: 'Calcular o Valor Indenizável',
           passos: [
             'Aplicar valor fixo por par ou modelo conforme política por fornecedor (Ex: Diadora: R$ xx,xx por tipo)',
@@ -171,7 +171,7 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '6.2.2.2',
           nome: 'Enviar Orçamento ao Fornecedor para Aprovação',
           passos: [
             'Criar planilha mensal com os produtos daquela marca',
@@ -184,13 +184,13 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.3',
+      id: '6.2.3',
       nome: 'Emissão e Controle da Nota de Débito',
       nivel: 'Tático',
       ferramentas: ['Sistema fiscal interno', 'planilha de indenizações', 'modelo de nota'],
       tarefas: [
         {
-          id: '2.3.1',
+          id: '6.2.3.1',
           nome: 'Emitir Nota de Débito ao Fornecedor',
           passos: [
             'Com base na planilha aprovada, gerar nota de débito com valor total',
@@ -198,7 +198,7 @@ export const indenizacaoProdutosDefeito: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.2',
+          id: '6.2.3.2',
           nome: 'Acompanhar Pagamento ou Compensação',
           passos: [
             'Verificar retorno do fornecedor:',
