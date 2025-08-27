@@ -3,6 +3,7 @@ import { processosLogisticaDetalhados } from './logistica';
 import { processosVendedorTresPontoZero } from './vendedor-3-0';
 import { processosCadastro } from './cadastro';
 import { processosFinanceiro } from './financeiro';
+import { processosVmEstudio } from './visualmerchandising';
 
 export const processosEcommerce = {
   'Logística': processosLogisticaDetalhados,
@@ -10,7 +11,7 @@ export const processosEcommerce = {
   'Cadastro': processosCadastro,
   'Financeiro': processosFinanceiro,
   'Comercial 1P': [],
-  'Visual Merchandising': [],
+  'Visual Merchandising': processosVmEstudio,
   'SAC': [],
   'Marketplace': [],
   'Produto': []
