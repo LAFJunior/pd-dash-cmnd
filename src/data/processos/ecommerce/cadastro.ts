@@ -3,7 +3,7 @@ import { FileText, Package } from 'lucide-react';
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const cadastroProdutoUmP: ProcessoDetalhado = {
-  id: 'CAD-001',
+  id: 'CAD-04.22',
   nome: 'Cadastro de Produto 1P',
   descricao: 'Produto marcado como "Pronto para cadastro" na planilha de cadastro (Coluna AE)',
   icon: Package,
@@ -14,13 +14,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
   sistemas_utilizados: ['Planilha de Cadastro', 'Mega', 'Google Drive', 'VTEX', 'Planilha de Descrição', 'ChatGPT'],
   subprocessos: [
     {
-      id: '1.1',
+      id: '4.22.1',
       nome: 'Consulta da Planilha de Cadastro',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Cadastro (Drive)'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '4.22.1.1',
           nome: 'Identificação dos Produtos para Cadastro',
           passos: [
             'Abrir a planilha de cadastro',
@@ -30,7 +30,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.1.2',
+          id: '4.22.1.2',
           nome: 'Preenchimento Inicial da Descrição',
           passos: [
             'Adicionar na planilha: Seu nome (coluna "Responsável")',
@@ -41,13 +41,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.2',
+      id: '4.22.2',
       nome: 'Consulta no Mega',
       nivel: 'Operacional',
       ferramentas: ['Mega'],
       tarefas: [
         {
-          id: '1.2.1',
+          id: '4.22.2.1',
           nome: 'Localização de Informações do Produto',
           passos: [
             'Buscar o produto no Mega utilizando: Código EAN ou SKU',
@@ -55,7 +55,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.2.2',
+          id: '4.22.2.2',
           nome: 'Resgate do Código de Barras',
           passos: [
             'Acessar o campo "Código de Barras" no Mega',
@@ -65,13 +65,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.3',
+      id: '4.22.3',
       nome: 'Verificação de Imagens do Produto',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Cadastro', 'Google Drive', 'link do fornecedor'],
       tarefas: [
         {
-          id: '1.3.1',
+          id: '4.22.3.1',
           nome: 'Checar Link da Foto (Coluna O)',
           passos: [
             'Clicar no link da Coluna O da planilha para visualizar a foto do produto',
@@ -80,7 +80,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.3.2',
+          id: '4.22.3.2',
           nome: 'Verificar Link Editado no Drive (Coluna P)',
           passos: [
             'Validar se há imagem final pronta no Drive (foto editada)',
@@ -90,13 +90,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.4',
+      id: '4.22.4',
       nome: 'Montagem da Descrição e Título',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Descrição', 'ChatGPT'],
       tarefas: [
         {
-          id: '1.4.1',
+          id: '4.22.4.1',
           nome: 'Montar Descrição do Produto',
           passos: [
             'Com base nas informações do fornecedor, montar a descrição completa do produto',
@@ -104,7 +104,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.4.2',
+          id: '4.22.4.2',
           nome: 'Estruturar Título com SEO',
           passos: [
             'Seguir a regra: Tipo do Produto + Marca + Modelo/Linha + Gênero + Cor',
@@ -112,7 +112,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.4.3',
+          id: '4.22.4.3',
           nome: 'Aprimorar com ChatGPT (opcional)',
           passos: [
             'Colar a descrição nas colunas da planilha que usam ChatGPT para gerar:',
@@ -124,13 +124,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.5',
+      id: '4.22.5',
       nome: 'Cadastro na Plataforma VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '1.5.1',
+          id: '4.22.5.1',
           nome: 'Buscar o Produto por EAN na VTEX',
           passos: [
             'Inserir o EAN resgatado anteriormente',
@@ -138,7 +138,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.5.2',
+          id: '4.22.5.2',
           nome: 'Preencher Dados do Produto',
           passos: [
             'Informar: Marca',
@@ -147,7 +147,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.5.3',
+          id: '4.22.5.3',
           nome: 'Inserir Título, Meta Tag e Palavras-Chave',
           passos: [
             'Copiar o título e metadados da planilha de descrição',
@@ -156,7 +156,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.5.4',
+          id: '4.22.5.4',
           nome: 'Cadastro de Numeração, Cor e Referência',
           passos: [
             'Acessar aba SKU e preencher: Grade de tamanhos',
@@ -166,7 +166,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.5.5',
+          id: '4.22.5.5',
           nome: 'Salvar Cadastro',
           passos: [
             'Após revisão completa, clicar em "Salvar"'
@@ -175,13 +175,13 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.6',
+      id: '4.22.6',
       nome: 'Atualização Final na Planilha',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Cadastro'],
       tarefas: [
         {
-          id: '1.6.1',
+          id: '4.22.6.1',
           nome: 'Marcar Cadastro como Finalizado',
           passos: [
             'Voltar à planilha e preencher todos os campos restantes na linha do produto',
@@ -189,7 +189,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
           ]
         },
         {
-          id: '1.6.2',
+          id: '4.22.6.2',
           nome: 'Verificação Online',
           passos: [
             'Após indexação da VTEX, validar se o produto está visível no site',
@@ -202,7 +202,7 @@ export const cadastroProdutoUmP: ProcessoDetalhado = {
 };
 
 export const cadastroProdutoTresPIn: ProcessoDetalhado = {
-  id: 'CAD-002',
+  id: 'CAD-04.23',
   nome: 'Cadastro de Produto 3P IN',
   descricao: 'Produto cadastrado na plataforma Conecta.Lá, com dados fornecidos pelo time comercial: ID do produto, SKU pai e título base',
   icon: FileText,
@@ -215,13 +215,13 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '2.1',
+      id: '4.23.1',
       nome: 'Categorização do Produto na Conecta.Lá',
       nivel: 'Operacional',
       ferramentas: ['Conecta.Lá'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '4.23.1.1',
           nome: 'Identificar Produtos Incompletos',
           passos: [
             'Acessar a plataforma Conecta.Lá',
@@ -233,7 +233,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.2',
+          id: '4.23.1.2',
           nome: 'Editar Produto e Escolher Categoria Correta',
           passos: [
             'Pesquisar o produto pelo ID',
@@ -242,7 +242,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.1.3',
+          id: '4.23.1.3',
           nome: 'Preencher Atributos Obrigatórios',
           passos: [
             'Informar dados obrigatórios da ficha técnica: Cor',
@@ -254,13 +254,13 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '4.23.2',
       nome: 'Publicação para Canal de Venda',
       nivel: 'Operacional',
       ferramentas: ['Conecta.Lá'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '4.23.2.1',
           nome: 'Selecionar Produto para Publicação',
           passos: [
             'Ir ao menu: Produtos → Gerenciar Publicação → Publicação de Produto',
@@ -271,7 +271,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.2.2',
+          id: '4.23.2.2',
           nome: 'Publicar Produto para o Canal GRUPO OSCAR',
           passos: [
             'Na coluna lateral, clicar em PUBLICAR',
@@ -282,13 +282,13 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.3',
+      id: '4.23.3',
       nome: 'Curadoria e Aprovação',
       nivel: 'Operacional',
       ferramentas: ['Conecta.Lá'],
       tarefas: [
         {
-          id: '2.3.1',
+          id: '4.23.3.1',
           nome: 'Acessar Tela de Curadoria',
           passos: [
             'Ir ao menu: Produtos → Gerenciar Publicação → Curadoria → Aprovação de Produtos',
@@ -298,7 +298,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.2',
+          id: '4.23.3.2',
           nome: 'Conferir Informações do Produto',
           passos: [
             'Conferir se os seguintes dados estão corretos: Título',
@@ -310,7 +310,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.3.3',
+          id: '4.23.3.3',
           nome: 'Aprovar Produto para Publicação Final',
           passos: [
             'Clicar em "Aprovar" para validar',
@@ -321,13 +321,13 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.4',
+      id: '4.23.4',
       nome: 'Geração e Otimização de Descrição',
       nivel: 'Operacional',
       ferramentas: ['Planilha de Descrição', 'ChatGPT'],
       tarefas: [
         {
-          id: '2.4.1',
+          id: '4.23.4.1',
           nome: 'Preencher Informações na Planilha',
           passos: [
             'Preencher na planilha de descrição: ID do Produto',
@@ -336,14 +336,14 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.2',
+          id: '4.23.4.2',
           nome: 'Estruturar Título com SEO',
           passos: [
             'Estruturar o título conforme padrão: Tipo do produto + Marca + Modelo/Linha + Gênero + Cor principal'
           ]
         },
         {
-          id: '2.4.3',
+          id: '4.23.4.3',
           nome: 'Aprimorar Texto com ChatGPT',
           passos: [
             'Colar a descrição da planilha no ChatGPT e gerar versões otimizadas',
@@ -351,7 +351,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.4.4',
+          id: '4.23.4.4',
           nome: 'Gerar Descrição HTML Automática',
           passos: [
             'Planilha gera automaticamente a descrição HTML na coluna AC após preenchimento dos campos anteriores'
@@ -360,13 +360,13 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.5',
+      id: '4.23.5',
       nome: 'Inserção na VTEX e Ajustes Finais',
       nivel: 'Operacional',
       ferramentas: ['VTEX', 'Planilha de Descrição'],
       tarefas: [
         {
-          id: '2.5.1',
+          id: '4.23.5.1',
           nome: 'Inserir Descrição no Produto VTEX',
           passos: [
             'Copiar o conteúdo HTML da coluna AC da planilha',
@@ -375,7 +375,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.5.2',
+          id: '4.23.5.2',
           nome: 'Preencher Campos de SEO e Palavras Similares',
           passos: [
             'Título da Página: colar o título do produto',
@@ -386,7 +386,7 @@ export const cadastroProdutoTresPIn: ProcessoDetalhado = {
           ]
         },
         {
-          id: '2.5.3',
+          id: '4.23.5.3',
           nome: 'Ajustar Imagens e Replicar para SKUs',
           passos: [
             'Verificar imagens trazidas pela Conecta.Lá',
