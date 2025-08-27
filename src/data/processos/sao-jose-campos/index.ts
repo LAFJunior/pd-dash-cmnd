@@ -2,7 +2,7 @@ import { Package, Search, Truck, ClipboardList, Archive, CheckCircle, FileText, 
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const reposicaoArmazenamentoEstoque: ProcessoDetalhado = {
-  id: 'CDS-001',
+  id: 'CDS-05.1',
   nome: 'Reposição e Armazenamento de Estoque',
   descricao: 'Produtos recebidos após separações, devoluções ou movimentações internas',
   icon: Package,
@@ -71,7 +71,7 @@ export const reposicaoArmazenamentoEstoque: ProcessoDetalhado = {
 };
 
 export const separacaoProdutos: ProcessoDetalhado = {
-  id: 'CDS-002',
+  id: 'CDS-05.2',
   nome: 'Separação de Produtos',
   descricao: 'Pedido de separação gerado por e-commerce, influenciador, loja ou estoque mínimo',
   icon: Search,
@@ -194,7 +194,7 @@ export const separacaoProdutos: ProcessoDetalhado = {
 };
 
 export const remanejamentoLojas: ProcessoDetalhado = {
-  id: 'CDS-003',
+  id: 'CDS-05.3',
   nome: 'Remanejamento entre Lojas',
   descricao: 'Redistribuição de produtos entre filiais para otimizar vendas e exposição',
   icon: Truck,
@@ -296,7 +296,7 @@ export const remanejamentoLojas: ProcessoDetalhado = {
 };
 
 export const recebimentoNotasFiscais: ProcessoDetalhado = {
-  id: 'CDS-004',
+  id: 'CDS-05.4',
   nome: 'Recebimento e Inclusão de Notas Fiscais',
   descricao: 'Recebimento físico de produtos e registro de notas fiscais no sistema',
   icon: FileText,
@@ -406,7 +406,7 @@ export const recebimentoNotasFiscais: ProcessoDetalhado = {
 };
 
 export const contagemOrganizacaoEstoque: ProcessoDetalhado = {
-  id: 'CDS-005',
+  id: 'CDS-05.5',
   nome: 'Contagem e Organização de Estoque',
   descricao: 'Contagem periódica e organização sistemática do estoque',
   icon: BarChart3,
@@ -516,7 +516,7 @@ export const contagemOrganizacaoEstoque: ProcessoDetalhado = {
 };
 
 export const conferenciaProduto: ProcessoDetalhado = {
-  id: 'CDS-006',
+  id: 'CDS-05.6',
   nome: 'Conferência de Produto',
   descricao: 'Verificação da qualidade e condições de produtos recebidos',
   icon: CheckCircle,
@@ -572,7 +572,7 @@ export const conferenciaProduto: ProcessoDetalhado = {
 };
 
 export const separacaoInsumos: ProcessoDetalhado = {
-  id: 'CDS-007',
+  id: 'CDS-05.7',
   nome: 'Separação de Insumos',
   descricao: 'Preparação e envio de materiais e insumos para as lojas',
   icon: Box,
@@ -656,7 +656,7 @@ export const separacaoInsumos: ProcessoDetalhado = {
 };
 
 export const separacaoProdutoGeral: ProcessoDetalhado = {
-  id: 'CDS-008',
+  id: 'CDS-05.8',
   nome: 'Separação de Produto (Geral)',
   descricao: 'Processo geral de separação de produtos para diversos destinos',
   icon: Layers,
@@ -755,7 +755,7 @@ export const separacaoProdutoGeral: ProcessoDetalhado = {
 };
 
 export const ecommerce: ProcessoDetalhado = {
-  id: 'CDS-009',
+  id: 'CDS-05.9',
   nome: 'E-commerce',
   descricao: 'Processamento de pedidos de venda via site, marketplaces ou canal digital',
   icon: ShoppingCart,
@@ -872,7 +872,7 @@ export const ecommerce: ProcessoDetalhado = {
 };
 
 export const organizacaoEstoque: ProcessoDetalhado = {
-  id: 'CDS-010',
+  id: 'CDS-05.10',
   nome: 'Organização do Estoque',
   descricao: 'Organização sistemática de produtos recebidos no estoque',
   icon: Warehouse,
@@ -968,7 +968,7 @@ export const organizacaoEstoque: ProcessoDetalhado = {
 };
 
 export const armazenamentoMercadoria: ProcessoDetalhado = {
-  id: 'CDS-011',
+  id: 'CDS-05.11',
   nome: 'Armazenamento de Mercadoria no Estoque',
   descricao: 'Processo de armazenamento de mercadorias recebidas de fornecedores',
   icon: Archive,
@@ -1054,7 +1054,7 @@ export const armazenamentoMercadoria: ProcessoDetalhado = {
 };
 
 export const recebimentoMercadoriaLoja: ProcessoDetalhado = {
-  id: 'CDS-012',
+  id: 'CDS-05.12',
   nome: 'Recebimento de Mercadoria de Loja',
   descricao: 'Recebimento e tratamento de produtos enviados pelas lojas',
   icon: Users,
@@ -1133,7 +1133,7 @@ export const recebimentoMercadoriaLoja: ProcessoDetalhado = {
 };
 
 export const cargaDescargaCaminhao: ProcessoDetalhado = {
-  id: 'CDS-013',
+  id: 'CDS-05.13',
   nome: 'Carga e Descarga de Caminhão',
   descricao: 'Operações de carga e descarga de mercadorias via transporte interno',
   icon: Truck,
