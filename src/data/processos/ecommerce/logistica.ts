@@ -3,7 +3,7 @@ import { Package, Headphones, Truck, BarChart2, Repeat, FileSearch, Clock, Alert
 import { ProcessoDetalhado } from '@/types/processo';
 
 export const operacoesAftersale: ProcessoDetalhado = {
-  id: 'LOG-001',
+  id: 'LOG-04.1',
   nome: 'Operações no Sistema Aftersale',
   descricao: 'Demanda de atualização cadastral ou necessidade de extração/atualização de dados referentes a devoluções e reversas via plataforma Aftersale',
   icon: Package,
@@ -14,13 +14,13 @@ export const operacoesAftersale: ProcessoDetalhado = {
   sistemas_utilizados: ['Aftersale', 'Google Sheets', 'Jira', 'Looker Studio'],
   subprocessos: [
     {
-      id: '1.1',
+      id: '4.1.1',
       nome: 'Cadastro e Atualização de Lojas',
       nivel: 'Operacional',
       ferramentas: ['Plataforma Aftersale'],
       tarefas: [
         {
-          id: '1.1.1',
+          id: '4.1.1.1',
           nome: 'Atualizar informações cadastrais das lojas',
           passos: [
             'Acessar: https://admin.troquefacil.com.br/settings',
@@ -37,13 +37,13 @@ export const operacoesAftersale: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.2',
+      id: '4.1.2',
       nome: 'Exportar Base de Dados da Aftersale',
       nivel: 'Operacional',
       ferramentas: ['Plataforma Aftersale'],
       tarefas: [
         {
-          id: '1.2.1',
+          id: '4.1.2.1',
           nome: 'Exportar produtos com entregas realizadas',
           passos: [
             'Acessar: https://admin.troquefacil.com.br/login',
@@ -60,13 +60,13 @@ export const operacoesAftersale: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.3',
+      id: '4.1.3',
       nome: 'Atualizar Base no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets', 'Jira'],
       tarefas: [
         {
-          id: '1.3.1',
+          id: '4.1.3.1',
           nome: 'Atualizar informações da planilha de devoluções',
           passos: [
             'Acessar planilha compartilhada de devoluções',
@@ -81,13 +81,13 @@ export const operacoesAftersale: ProcessoDetalhado = {
       ]
     },
     {
-      id: '1.4',
+      id: '4.1.4',
       nome: 'Atualizar Dados no Looker Studio',
       nivel: 'Operacional',
       ferramentas: ['Google Looker Studio'],
       tarefas: [
         {
-          id: '1.4.1',
+          id: '4.1.4.1',
           nome: 'Validar indicadores e tomar ações',
           passos: [
             'Acessar: Looker Studio ➞ Relatório IFC',
@@ -102,7 +102,7 @@ export const operacoesAftersale: ProcessoDetalhado = {
 };
 
 export const chamadosTecnicos: ProcessoDetalhado = {
-  id: 'LOG-002',
+  id: 'LOG-04.2',
   nome: 'Chamados Técnicos e Operacionais',
   descricao: 'Identificação de problemas operacionais, falhas sistémicas ou necessidade de suporte técnico',
   icon: Headphones,
@@ -115,13 +115,13 @@ export const chamadosTecnicos: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '2.1',
+      id: '4.2.1',
       nome: 'Abertura de Chamados na Infracommerce no Jira',
       nivel: 'Operacional',
       ferramentas: ['Jira (Infracommerce)'],
       tarefas: [
         {
-          id: '2.1.1',
+          id: '4.2.1.1',
           nome: 'Registrar chamado no Jira',
           passos: [
             'Acessar: https://infracommerce.atlassian.net/servicedesk/customer/user/login',
@@ -136,13 +136,13 @@ export const chamadosTecnicos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.2',
+      id: '4.2.2',
       nome: 'Abertura de Chamados no Topdesk',
       nivel: 'Operacional',
       ferramentas: ['Topdesk (Grupo Oscar)'],
       tarefas: [
         {
-          id: '2.2.1',
+          id: '4.2.2.1',
           nome: 'Registrar chamado no Topdesk',
           passos: [
             'Acessar: https://grupooscar.topdesk.net/tas/public/ssp/',
@@ -159,13 +159,13 @@ export const chamadosTecnicos: ProcessoDetalhado = {
       ]
     },
     {
-      id: '2.3',
+      id: '4.2.3',
       nome: 'Acompanhar Retornos e Atualizações',
       nivel: 'Operacional',
       ferramentas: ['Jira (Infracommerce)', 'Topdesk (Grupo Oscar)'],
       tarefas: [
         {
-          id: '2.3.1',
+          id: '4.2.3.1',
           nome: 'Monitorar chamados em aberto',
           passos: [
             'Acessar área "Meus chamados"',
@@ -180,7 +180,7 @@ export const chamadosTecnicos: ProcessoDetalhado = {
 };
 
 export const integracoesCorreios: ProcessoDetalhado = {
-  id: 'LOG-003',
+  id: 'LOG-04.3',
   nome: 'Integrações com Correios (CWS)',
   descricao: 'Necessidade de gerar ou atualizar chave de API dos Correios',
   icon: Truck,
@@ -193,13 +193,13 @@ export const integracoesCorreios: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '3.1',
+      id: '4.3.1',
       nome: 'Acessar o Portal CWS dos Correios',
       nivel: 'Operacional',
       ferramentas: ['Portal CWS Correios'],
       tarefas: [
         {
-          id: '3.1.1',
+          id: '4.3.1.1',
           nome: 'Gerar nova chave de acesso',
           passos: [
             'Acessar: https://cws.correios.com.br/',
@@ -216,7 +216,7 @@ export const integracoesCorreios: ProcessoDetalhado = {
 };
 
 export const analiseOperacionalPowerBI: ProcessoDetalhado = {
-  id: 'LOG-004',
+  id: 'LOG-04.4',
   nome: 'Análise Operacional com Power BI (IFC)',
   descricao: 'Necessidade de analisar indicadores de operação da Infracommerce',
   icon: BarChart2,
@@ -250,7 +250,7 @@ export const analiseOperacionalPowerBI: ProcessoDetalhado = {
 };
 
 export const exportacaoReversasIFC: ProcessoDetalhado = {
-  id: 'LOG-005',
+  id: 'LOG-04.5',
   nome: 'Exportação e Tratamento de Reversas IFC',
   descricao: 'Demanda de controle de reversas com base na data de solicitação',
   icon: Repeat,
@@ -263,13 +263,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
   frequencia: 'Semanal',
   subprocessos: [
     {
-      id: '5.1',
+      id: '4.5.1',
       nome: 'Exportar Reversas na Aftersale',
       nivel: 'Operacional',
       ferramentas: ['Plataforma Aftersale'],
       tarefas: [
         {
-          id: '5.1.1',
+          id: '4.5.1.1',
           nome: 'Filtrar e exportar reversas',
           passos: [
             'Acessar: https://admin.troquefacil.com.br/login',
@@ -284,13 +284,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.2',
+      id: '4.5.2',
       nome: 'Atualizar Dados no Excel',
       nivel: 'Operacional',
       ferramentas: ['Excel', 'Google Sheets'],
       tarefas: [
         {
-          id: '5.2.1',
+          id: '4.5.2.1',
           nome: 'Atualizar planilhas locais',
           passos: [
             'Colar pedidos nas planilhas: Base After',
@@ -303,7 +303,7 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.3',
+      id: '4.5.3',
       nome: 'Atualizar Tabela Dinâmica',
       nivel: 'Operacional',
       ferramentas: ['Excel', 'Google Sheets'],
@@ -320,7 +320,7 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.4',
+      id: '4.5.4',
       nome: 'Atualizar Dashboard de Reversas IFC',
       nivel: 'Operacional',
       ferramentas: ['Looker Studio'],
@@ -337,13 +337,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.5',
+      id: '4.5.5',
       nome: 'Atualizar Base no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '5.5.1',
+          id: '4.5.5.1',
           nome: 'Subir e tratar planilha no Sheets',
           passos: [
             'Acessar: Planilha Reversas IFC_v3',
@@ -355,13 +355,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.6',
+      id: '4.5.6',
       nome: 'Atualizar Dinâmicas no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Excel', 'Google Sheets'],
       tarefas: [
         {
-          id: '5.6.1',
+          id: '4.5.6.1',
           nome: 'Garantir atualizações',
           passos: [
             'Validar se a dinâmica está atualizada',
@@ -371,13 +371,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.7',
+      id: '4.5.7',
       nome: 'Atualizar Looker Studio',
       nivel: 'Operacional',
       ferramentas: ['Looker Studio'],
       tarefas: [
         {
-          id: '5.7.1',
+          id: '4.5.7.1',
           nome: 'Atualizar dados no dashboard',
           passos: [
             'Acessar: https://lookerstudio.google.com/navigation/reporting',
@@ -388,13 +388,13 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '5.8',
+      id: '4.5.8',
       nome: 'Revisar Gráficos',
       nivel: 'Operacional',
       ferramentas: ['Looker Studio'],
       tarefas: [
         {
-          id: '5.8.1',
+          id: '4.5.8.1',
           nome: 'Conferir legibilidade',
           passos: [
             'Validar se os gráficos estão legíveis',
@@ -407,7 +407,7 @@ export const exportacaoReversasIFC: ProcessoDetalhado = {
 };
 
 export const relatoriosExtravioGFL: ProcessoDetalhado = {
-  id: 'LOG-006',
+  id: 'LOG-04.6',
   nome: 'Relatórios de Extravio e Ressarcimento – GFL',
   descricao: 'Identificação de pedidos extraviados, necessidade de solicitar ressarcimento e acompanhar pagamento',
   icon: FileSearch,
@@ -420,13 +420,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
   frequencia: 'Semanal',
   subprocessos: [
     {
-      id: '6.1',
+      id: '4.6.1',
       nome: 'Exportar Pedidos no Portal GFL',
       nivel: 'Operacional',
       ferramentas: ['Portal GFL'],
       tarefas: [
         {
-          id: '6.1.1',
+          id: '4.6.1.1',
           nome: 'Exportar pedidos com status "A indenizar"',
           passos: [
             'Acessar: https://gfl.sinclog.com.br/EntregasRelatorios/RelatorioGeralEntregas',
@@ -441,13 +441,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.2',
+      id: '4.6.2',
       nome: 'Verificar Valor de Frete no Portal GFL',
       nivel: 'Operacional',
       ferramentas: ['Portal GFL'],
       tarefas: [
         {
-          id: '6.2.1',
+          id: '4.6.2.1',
           nome: 'Consultar valor de frete por pedido',
           passos: [
             'Acessar: https://gfl.sinclog.com.br/Financeiro/PreFaturaCTe',
@@ -462,13 +462,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.3',
+      id: '4.6.3',
       nome: 'Preencher a Nota de Débito – Valor do Pedido',
       nivel: 'Operacional',
       ferramentas: ['Planilha Google Sheets'],
       tarefas: [
         {
-          id: '6.3.1',
+          id: '4.6.3.1',
           nome: 'Inserir valores do pedido e nota fiscal',
           passos: [
             'Atualizar: Valor dos produtos',
@@ -481,13 +481,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.4',
+      id: '4.6.4',
       nome: 'Preencher a Nota de Débito – Valor do Frete',
       nivel: 'Operacional',
       ferramentas: ['Planilha Google Sheets'],
       tarefas: [
         {
-          id: '6.4.1',
+          id: '4.6.4.1',
           nome: 'Inserir valores do frete e nota fiscal',
           passos: [
             'Repetir preenchimento com foco nos dados da cobrança de frete'
@@ -496,13 +496,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.5',
+      id: '4.6.5',
       nome: 'Enviar Solicitação de Ressarcimento por E-mail',
       nivel: 'Operacional',
       ferramentas: ['E-mail Corporativo'],
       tarefas: [
         {
-          id: '6.5.1',
+          id: '4.6.5.1',
           nome: 'Preparar e enviar a solicitação',
           passos: [
             'Salvar arquivos da ND em .xlsx e .pdf',
@@ -512,13 +512,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.6',
+      id: '4.6.6',
       nome: 'Registrar Pedidos no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Planilha Google Sheets'],
       tarefas: [
         {
-          id: '6.6.1',
+          id: '4.6.6.1',
           nome: 'Atualizar planilha de controle',
           passos: [
             'Acessar: Planilha GFL Extravios',
@@ -530,13 +530,13 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
       ]
     },
     {
-      id: '6.7',
+      id: '4.6.7',
       nome: 'Solicitar Comprovante de Pagamento',
       nivel: 'Operacional',
       ferramentas: ['Portal GFL'],
       tarefas: [
         {
-          id: '6.7.1',
+          id: '4.6.7.1',
           nome: 'Acompanhar e cobrar GFL',
           passos: [
             'Verificar prazo de resposta',
@@ -549,7 +549,7 @@ export const relatoriosExtravioGFL: ProcessoDetalhado = {
 };
 
 export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
-  id: 'LOG-007',
+  id: 'LOG-04.7',
   nome: 'Pendências de Faturamento e Entrega (VTEX e Infracommerce)',
   descricao: 'Extração de pedidos pendentes e necessidade de análise e atualização de status',
   icon: Clock,
@@ -562,13 +562,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
   frequencia: 'Diária',
   subprocessos: [
     {
-      id: '7.1',
+      id: '4.7.1',
       nome: 'Filtrar Pedidos Pendentes de Faturamento no Excel',
       nivel: 'Operacional',
       ferramentas: ['Excel'],
       tarefas: [
         {
-          id: '7.1.1',
+          id: '4.7.1.1',
           nome: 'Identificar pedidos não faturados',
           passos: [
             'Abrir planilha do IFC',
@@ -580,13 +580,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.2',
+      id: '4.7.2',
       nome: 'Atualizar Base de Dados no Google Sheets 1',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '7.2.1',
+          id: '4.7.2.1',
           nome: 'Copiar e colar dados',
           passos: [
             'Acessar: Pendências Vtex – Sheets 1',
@@ -596,13 +596,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.3',
+      id: '4.7.3',
       nome: 'Verificar Duplicidade no Google Sheets 1',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '7.3.1',
+          id: '4.7.3.1',
           nome: 'Validar alterações de status',
           passos: [
             'Analisar o que não duplicou',
@@ -614,13 +614,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.4',
+      id: '4.7.4',
       nome: 'Filtrar Pedidos Pendentes de Entrega',
       nivel: 'Operacional',
       ferramentas: ['Excel'],
       tarefas: [
         {
-          id: '7.4.1',
+          id: '4.7.4.1',
           nome: 'Identificar pedidos sem entrega',
           passos: [
             'No Excel: Status de pedido: "Faturado"',
@@ -632,13 +632,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.5',
+      id: '4.7.5',
       nome: 'Atualizar Base de Dados no Google Sheets 2',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '7.5.1',
+          id: '4.7.5.1',
           nome: 'Copiar dados da etapa anterior',
           passos: [
             'Acessar: Sheets 2 ➞ Pendências VTEX',
@@ -648,13 +648,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.6',
+      id: '4.7.6',
       nome: 'Verificar Duplicidade no Google Sheets 2',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '7.6.1',
+          id: '4.7.6.1',
           nome: 'Repetir validação',
           passos: [
             'Identificar dados não duplicados',
@@ -666,13 +666,13 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '7.7',
+      id: '4.7.7',
       nome: 'Analisar Tabela Dinâmica',
       nivel: 'Operacional',
       ferramentas: ['Excel'],
       tarefas: [
         {
-          id: '7.7.1',
+          id: '4.7.7.1',
           nome: 'Consolidar informações',
           passos: [
             'Revisar retorno de chamados',
@@ -687,7 +687,7 @@ export const pendenciasFaturamentoVTEX: ProcessoDetalhado = {
 };
 
 export const gestaoPedidosNC: ProcessoDetalhado = {
-  id: 'LOG-008',
+  id: 'LOG-04.8',
   nome: 'Gestão de Pedidos Não Conformes (NC)',
   descricao: 'Exportação de pedidos do Metabase e identificação de pedidos com problemas (erro no faturamento, troca de loja, cancelamento etc.)',
   icon: AlertCircle,
@@ -700,13 +700,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
   frequencia: 'Diária',
   subprocessos: [
     {
-      id: '8.1',
+      id: '4.8.1',
       nome: 'Exportar Base de Dados no Metabase',
       nivel: 'Operacional',
       ferramentas: ['Metabase Sentry'],
       tarefas: [
         {
-          id: '8.1.1',
+          id: '4.8.1.1',
           nome: 'Baixar relatório de pedidos',
           passos: [
             'Acessar: Metabase ➞ Painel NC',
@@ -717,13 +717,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.2',
+      id: '4.8.2',
       nome: 'Atualizar Base de Dados no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '8.2.1',
+          id: '4.8.2.1',
           nome: 'Subir arquivo no Google Sheets',
           passos: [
             'Acessar: KPI - Produtos NC_GO_v8',
@@ -735,13 +735,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.3',
+      id: '4.8.3',
       nome: 'Analisar Pedidos Pendentes',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '8.3.1',
+          id: '4.8.3.1',
           nome: 'Avaliar status críticos',
           passos: [
             'Filtrar pedidos com status: Aguardando resolução',
@@ -759,13 +759,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.4',
+      id: '4.8.4',
       nome: 'Atualizar Planilha NC',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '8.4.1',
+          id: '4.8.4.1',
           nome: 'Consolidar informações',
           passos: [
             'Preencher dados dos pedidos e histórico de tratativas',
@@ -778,13 +778,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.5',
+      id: '4.8.5',
       nome: 'Analisar Pedidos no Sentry',
       nivel: 'Operacional',
       ferramentas: ['Sentry'],
       tarefas: [
         {
-          id: '8.5.1',
+          id: '4.8.5.1',
           nome: 'Conferir logística e movimentação',
           passos: [
             'Acessar: https://sentryhub.com.br/shipment',
@@ -796,13 +796,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.6',
+      id: '4.8.6',
       nome: 'Adicionar aos Chamados Topdesk',
       nivel: 'Operacional',
       ferramentas: ['Topdesk'],
       tarefas: [
         {
-          id: '8.6.1',
+          id: '4.8.6.1',
           nome: 'Reportar problemas de faturamento',
           passos: [
             'Acessar: https://grupooscar.topdesk.net/tas/public/login/form',
@@ -813,13 +813,13 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.7',
+      id: '4.8.7',
       nome: 'Finalizar Cancelamento na VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '8.7.1',
+          id: '4.8.7.1',
           nome: 'Encerrar pedidos com troca de loja',
           passos: [
             'Acessar: https://grupooscar.myvtex.com/admin/orders',
@@ -834,7 +834,7 @@ export const gestaoPedidosNC: ProcessoDetalhado = {
 };
 
 export const exportacaoPedidosVTEX: ProcessoDetalhado = {
-  id: 'LOG-009',
+  id: 'LOG-04.9',
   nome: 'Exportação e Controle de Pedidos na VTEX',
   descricao: 'Necessidade de consolidar os pedidos da VTEX para análise e atualização de status',
   icon: ListOrdered,
@@ -847,13 +847,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
   frequencia: 'Semanal',
   subprocessos: [
     {
-      id: '9.1',
+      id: '4.9.1',
       nome: 'Exportar Pedidos na VTEX',
       nivel: 'Operacional',
       ferramentas: ['VTEX'],
       tarefas: [
         {
-          id: '9.1.1',
+          id: '4.9.1.1',
           nome: 'Baixar pedidos filtrados',
           passos: [
             'Acessar: https://grupooscar.myvtex.com/admin/orders',
@@ -869,13 +869,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '9.2',
+      id: '4.9.2',
       nome: 'Atualizar Base de Dados no Excel',
       nivel: 'Operacional',
       ferramentas: ['Excel'],
       tarefas: [
         {
-          id: '9.2.1',
+          id: '4.9.2.1',
           nome: 'Preparar dados para análise',
           passos: [
             'Acessar e-mail e baixar arquivos exportados',
@@ -891,13 +891,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '9.3',
+      id: '4.9.3',
       nome: 'Atualizar Dados no Google Sheets',
       nivel: 'Operacional',
       ferramentas: ['Google Sheets'],
       tarefas: [
         {
-          id: '9.3.1',
+          id: '4.9.3.1',
           nome: 'Subir base no Google Sheets',
           passos: [
             'Acessar: Faturamento ➞ Ecommerce_v5',
@@ -909,13 +909,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '9.4',
+      id: '4.9.4',
       nome: 'Atualizar Tabelas Dinâmicas',
       nivel: 'Operacional',
       ferramentas: ['Excel'],
       tarefas: [
         {
-          id: '9.4.1',
+          id: '4.9.4.1',
           nome: 'Validar dinamismo e fórmulas',
           passos: [
             'Abrir aba de tabelas dinâmicas',
@@ -926,13 +926,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '9.5',
+      id: '4.9.5',
       nome: 'Atualizar Dados no Looker Studio',
       nivel: 'Operacional',
       ferramentas: ['Looker Studio'],
       tarefas: [
         {
-          id: '9.5.1',
+          id: '4.9.5.1',
           nome: 'Atualizar visualizações de pedidos',
           passos: [
             'Acessar: https://lookerstudio.google.com/reporting/cfdea30a-5338-472a-80b8-6f3769c9ab63/page/FakIF/edit',
@@ -943,13 +943,13 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '9.6',
+      id: '4.9.6',
       nome: 'Revisar Gráficos no Looker Studio',
       nivel: 'Operacional',
       ferramentas: ['Looker Studio'],
       tarefas: [
         {
-          id: '9.6.1',
+          id: '4.9.6.1',
           nome: 'Conferir exibição dos gráficos',
           passos: [
             'Verificar legibilidade e precisão visual',
@@ -962,7 +962,7 @@ export const exportacaoPedidosVTEX: ProcessoDetalhado = {
 };
 
 export const logisticaFreteVTEX: ProcessoDetalhado = {
-  id: 'LOG-010',
+  id: 'LOG-04.10',
   nome: 'Logística e Estratégias de Frete na VTEX',
   descricao: 'Demanda de cadastro e manutenção de regras logísticas: docas, políticas de envio, pontos de retirada, tabelas de frete, promoções e taxas',
   icon: Truck,
@@ -975,13 +975,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '10.1',
+      id: '4.10.1',
       nome: 'Cadastro de Estratégias de Envio – Docas',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.1.1',
+          id: '4.10.1.1',
           nome: 'Criar nova doca',
           passos: [
             'Acessar: https://grupooscar0001.myvtex.com/admin/shipping-strategy/beta/docks',
@@ -996,13 +996,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.2',
+      id: '4.10.2',
       nome: 'Cadastro de Feriados',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.2.1',
+          id: '4.10.2.1',
           nome: 'Incluir feriados no sistema',
           passos: [
             'Acessar: https://grupooscar0006.myvtex.com/admin/logistics#/holidays',
@@ -1016,13 +1016,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.3',
+      id: '4.10.3',
       nome: 'Cadastro de Políticas de Envio',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.3.1',
+          id: '4.10.3.1',
           nome: 'Criar nova política de envio',
           passos: [
             'Acessar: https://grupooscar0001.myvtex.com/admin/shipping-strategy/beta',
@@ -1035,13 +1035,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.4',
+      id: '4.10.4',
       nome: 'Cadastro/Atualização de Pontos de Retirada',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.4.1',
+          id: '4.10.4.1',
           nome: 'Cadastrar ponto de retirada',
           passos: [
             'Acessar: https://grupooscar0001.myvtex.com/admin/pickup-points',
@@ -1055,13 +1055,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.5',
+      id: '4.10.5',
       nome: 'Cadastro de Promoções na VTEX',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.5.1',
+          id: '4.10.5.1',
           nome: 'Criar nova promoção',
           passos: [
             'Acessar: https://grupooscar.myvtex.com/admin/promotions',
@@ -1081,13 +1081,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.6',
+      id: '4.10.6',
       nome: 'Download das Tabelas de Frete',
       nivel: 'Operacional',
       ferramentas: ['Google Drive'],
       tarefas: [
         {
-          id: '10.6.1',
+          id: '4.10.6.1',
           nome: 'Baixar e organizar tabelas',
           passos: [
             'Acessar: Google Drive - Tabelas de Frete',
@@ -1100,13 +1100,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.7',
+      id: '4.10.7',
       nome: 'Ajustes nas Tabelas de Frete (Excel)',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX', 'Excel'],
       tarefas: [
         {
-          id: '10.7.1',
+          id: '4.10.7.1',
           nome: 'Preparar tabela conforme padrão VTEX',
           passos: [
             'Verificar número de linhas (< 65.000)',
@@ -1121,13 +1121,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.8',
+      id: '4.10.8',
       nome: 'Upload da Tabela na VTEX',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX', 'Excel'],
       tarefas: [
         {
-          id: '10.8.1',
+          id: '4.10.8.1',
           nome: 'Subir tabela compactada na política de envio',
           passos: [
             'Acessar: https://grupooscar0001.myvtex.com/admin/shipping-strategy/beta',
@@ -1142,13 +1142,13 @@ export const logisticaFreteVTEX: ProcessoDetalhado = {
       ]
     },
     {
-      id: '10.9',
+      id: '4.10.9',
       nome: 'Ajustar Taxa de Frete Adicional',
       nivel: 'Operacional',
       ferramentas: ['Plataforma VTEX'],
       tarefas: [
         {
-          id: '10.9.1',
+          id: '4.10.9.1',
           nome: 'Editar taxa de frete global',
           passos: [
             'Acessar: https://grupooscar0001.myvtex.com/admin/logistics#/config',
