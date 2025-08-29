@@ -13,6 +13,9 @@ import { processosDefeito } from '@/data/processos/defeito';
 import { processosSaoJoseCampos } from '@/data/processos/sao-jose-campos';
 import { processosFiscal } from '@/data/processos/fiscal';
 import { processosCompras } from '@/data/processos/compras';
+import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
+import PilaresControladoria from './PilaresControladoria';
+import PilaresAuditoria from './PilaresAuditoria';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -21,6 +24,7 @@ interface ProcessosDepartamentoProps {
 
 const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departamento, pilarSelecionado }) => {
   const [processoExpandido, setProcessoExpandido] = useState<string | null>(null);
+  const [pilarSelecionadoLocal, setPilarSelecionado] = useState<string>('');
 
   const processosPorPilar: {[key: string]: any[]} = {
     'Logística': processosEcommerce['Logística'] || [],
@@ -45,7 +49,11 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Obrigações Federais': processosFiscal.filter(p => p.id.includes('03.4') || p.id.includes('03.8') || p.id.includes('03.9') || p.id.includes('03.10') || p.id.includes('03.11') || p.id.includes('03.12')),
     'Obrigações Estaduais': processosFiscal.filter(p => p.id.includes('03.5') || p.id.includes('03.7')),
     'Simples Nacional': processosFiscal.filter(p => p.id.includes('03.6')),
-    'Pernambuco': processosFiscal.filter(p => p.id.includes('03.13'))
+    'Pernambuco': processosFiscal.filter(p => p.id.includes('03.13')),
+    
+    // Processos de Auditoria
+    'Auditor': processosAuditor,
+    'Conferente': processosConferente
   };
 
   const obterTodosProcessosEcommerce = () => {
@@ -861,6 +869,152 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
           {processoExpandido && (
             <ProcessoDetalhe
               processo={processosFiscal.find(p => p.id === processoExpandido)!}
+              onClose={() => setProcessoExpandido(null)}
+            />
+          )}
+        </div>
+      );
+  }
+
+  // Auditoria
+    if (departamento.toLowerCase().includes('auditoria')) {
+      return (
+        <div className="space-y-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Processos do Departamento de Auditoria</h2>
+            <p className="text-gray-600 mb-6">Controle, conformidade e gestão de riscos</p>
+            
+            <PilaresAuditoria 
+              onPilarSelect={setPilarSelecionado}
+              pilarSelecionado={pilarSelecionadoLocal}
+            />
+          </div>
+          
+          {pilarSelecionadoLocal && (
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                Processos do Pilar: {pilarSelecionadoLocal}
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {processosPorPilar[pilarSelecionadoLocal]?.map((processo) => {
+                  const IconComponent = processo.icon;
+                  const temSubprocessos = processo.subprocessos && processo.subprocessos.length > 0;
+                  
+                  return (
+                    <div
+                      key={processo.id}
+                      className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
+                      style={{ borderLeftColor: processo.cor }}
+                      onClick={() => temSubprocessos && handleProcessoClick(processo.id)}
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="flex-shrink-0">
+                          <IconComponent size={24} style={{ color: processo.cor }} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+                              {processo.id}
+                            </span>
+                            <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                              processo.nivel === 'Estratégico' ? 'bg-red-100 text-red-800' :
+                              processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-green-100 text-green-800'
+                            }`}>
+                              {processo.nivel}
+                            </span>
+                          </div>
+                          <h4 className="text-lg font-semibold text-gray-800 mb-2 leading-tight">
+                            {processo.nome}
+                          </h4>
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {processo.descricao}
+                          </p>
+                          {temSubprocessos && (
+                            <div className="flex items-center mt-2 text-blue-600 text-sm">
+                              <span>Ver detalhes</span>
+                              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {processosPorPilar[pilarSelecionadoLocal]?.length === 0 && (
+                <div className="text-center py-8">
+                  <p className="text-gray-500">Nenhum processo encontrado para este pilar.</p>
+                </div>
+              )}
+            </div>
+          )}
+          
+          {!pilarSelecionadoLocal && (
+            <div className="mt-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                Todos os Processos de Auditoria
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {processosAuditoria.map((processo) => {
+                  const IconComponent = processo.icon;
+                  const temSubprocessos = processo.subprocessos && processo.subprocessos.length > 0;
+                  
+                  return (
+                    <div
+                      key={processo.id}
+                      className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
+                      style={{ borderLeftColor: processo.cor }}
+                      onClick={() => temSubprocessos && handleProcessoClick(processo.id)}
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="flex-shrink-0">
+                          <IconComponent size={24} style={{ color: processo.cor }} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+                              {processo.id}
+                            </span>
+                            <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                              processo.nivel === 'Estratégico' ? 'bg-red-100 text-red-800' :
+                              processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-green-100 text-green-800'
+                            }`}>
+                              {processo.nivel}
+                            </span>
+                          </div>
+                          <h4 className="text-lg font-semibold text-gray-800 mb-2 leading-tight">
+                            {processo.nome}
+                          </h4>
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {processo.descricao}
+                          </p>
+                          {temSubprocessos && (
+                            <div className="flex items-center mt-2 text-blue-600 text-sm">
+                              <span>Ver detalhes</span>
+                              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          
+          {processoExpandido && (
+            <ProcessoDetalhe
+              processo={encontrarProcessoDetalhado(processoExpandido)!}
               onClose={() => setProcessoExpandido(null)}
             />
           )}
