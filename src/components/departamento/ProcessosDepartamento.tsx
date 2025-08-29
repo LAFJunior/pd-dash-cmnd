@@ -95,6 +95,12 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       return processoControladoria;
     }
 
+    // Verifica nos processos de Auditoria
+    const processoAuditoria = processosAuditoria.find(p => p.id === id);
+    if (processoAuditoria) {
+      return processoAuditoria;
+    }
+
     // Depois verifica nos processos detalhados do E-commerce  
     const todosProcessos = departamento.toLowerCase().includes('controladoria') 
       ? obterTodosProcessosControladoria()
@@ -906,7 +912,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                       key={processo.id}
                       className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
                       style={{ borderLeftColor: processo.cor }}
-                      onClick={() => temSubprocessos && handleProcessoClick(processo.id)}
+                      onClick={() => temSubprocessos && handleProcessoClick(processo)}
                     >
                       <div className="flex items-start space-x-3">
                         <div className="flex-shrink-0">
@@ -970,7 +976,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                       key={processo.id}
                       className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
                       style={{ borderLeftColor: processo.cor }}
-                      onClick={() => temSubprocessos && handleProcessoClick(processo.id)}
+                      onClick={() => temSubprocessos && handleProcessoClick(processo)}
                     >
                       <div className="flex items-start space-x-3">
                         <div className="flex-shrink-0">

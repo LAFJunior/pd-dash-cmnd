@@ -51,35 +51,35 @@ const FluxoAuditoria = () => {
         
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {etapas.map((etapa, index) => {
         const IconComponent = etapa.icon;
         const isLast = index === etapas.length - 1;
         return <div key={etapa.id} className="relative">
               <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className={`${etapa.cor} text-white p-3 rounded-full`}>
-                      <IconComponent size={24} />
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-center mb-3">
+                    <div className={`${etapa.cor} text-white p-2 rounded-full`}>
+                      <IconComponent size={20} />
                     </div>
                   </div>
                   
-                  <div className="text-center space-y-2">
+                  <div className="text-center space-y-1">
                     <div className="flex items-center justify-center space-x-2">
                       <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2 py-1 rounded-full">
                         {etapa.id}
                       </span>
                     </div>
                     
-                    <h4 className="font-bold text-gray-800 text-lg">
+                    <h4 className="font-bold text-gray-800 text-base">
                       {etapa.titulo}
                     </h4>
                     
-                    <p className="text-sm text-gray-600 font-medium">
+                    <p className="text-xs text-gray-600 font-medium">
                       {etapa.subtitulo}
                     </p>
                     
-                    <p className="text-sm text-gray-500 leading-relaxed">
+                    <p className="text-xs text-gray-500 leading-relaxed">
                       {etapa.descricao}
                     </p>
                   </div>
