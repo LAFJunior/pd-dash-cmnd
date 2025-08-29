@@ -1118,7 +1118,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     id: "7.20",
     nome: "Controle de OTB e Verba de Compras",
     descricao: "Controle estratégico do orçamento e verba disponível para compras (Open-to-Buy)",
-    nivel: "Estratégico",
+    nivel: "Tático",
     icon: ClipboardList,
     cor: "bg-neutral-500",
     entrada: "Orçamento anual/semestral por departamento, bandeira e categoria, planejamento de compras e pedidos em andamento e valores já utilizados",
@@ -1128,7 +1128,7 @@ export const processosCompras: ProcessoDetalhado[] = [
       {
         id: "7.20.1",
         nome: "Montagem e atualização do controle de verba",
-        nivel: "Estratégico",
+        nivel: "Tático",
         ferramentas: ["Excel"],
         tarefas: [
           {
@@ -1152,7 +1152,7 @@ export const processosCompras: ProcessoDetalhado[] = [
       {
         id: "7.20.2",
         nome: "Alinhamento com financeiro e aprovação de compras",
-        nivel: "Estratégico",
+        nivel: "Tático",
         ferramentas: ["E-mail"],
         tarefas: [
           {
