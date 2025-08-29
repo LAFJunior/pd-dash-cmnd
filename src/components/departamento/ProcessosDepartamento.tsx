@@ -885,10 +885,18 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
   // Auditoria
     if (departamento.toLowerCase().includes('auditoria')) {
       return (
-        <div className="space-y-6">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Processos do Departamento de Auditoria</h2>
-            <p className="text-gray-600 mb-6">Controle, conformidade e gestão de riscos</p>
+        <div className="space-y-8">
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-lg text-center">
+            <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+            <p className="text-purple-100">Departamento Auditoria - {processosAuditoria.length} processos mapeados</p>
+          </div>
+          
+          {/* Seção dos Pilares da Auditoria */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Pilares da Auditoria</h3>
+              <p className="text-gray-600">Selecione um pilar para visualizar os processos específicos</p>
+            </div>
             
             <PilaresAuditoria 
               onPilarSelect={setPilarSelecionado}
@@ -897,8 +905,8 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
           </div>
           
           {pilarSelecionadoLocal && (
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 Processos do Pilar: {pilarSelecionadoLocal}
               </h3>
               
@@ -910,7 +918,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                   return (
                     <div
                       key={processo.id}
-                      className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
+                      className={`bg-gray-50 p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg hover:bg-white ${temSubprocessos ? 'hover:bg-gray-100' : ''}`}
                       style={{ borderLeftColor: processo.cor }}
                       onClick={() => temSubprocessos && handleProcessoClick(processo)}
                     >
@@ -920,7 +928,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center space-x-2 mb-2">
-                            <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+                            <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded">
                               {processo.id}
                             </span>
                             <span className={`text-xs px-2 py-1 rounded-full font-medium ${
@@ -961,8 +969,8 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
           )}
           
           {!pilarSelecionadoLocal && (
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 Todos os Processos de Auditoria
               </h3>
               
@@ -974,7 +982,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                   return (
                     <div
                       key={processo.id}
-                      className={`bg-white p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg ${temSubprocessos ? 'hover:bg-gray-50' : ''}`}
+                      className={`bg-gray-50 p-4 rounded-lg shadow-md border-l-4 cursor-pointer transition-all duration-200 hover:shadow-lg hover:bg-white ${temSubprocessos ? 'hover:bg-gray-100' : ''}`}
                       style={{ borderLeftColor: processo.cor }}
                       onClick={() => temSubprocessos && handleProcessoClick(processo)}
                     >
@@ -984,7 +992,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center space-x-2 mb-2">
-                            <span className="bg-gray-100 text-gray-800 text-xs font-medium px-2 py-1 rounded">
+                            <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded">
                               {processo.id}
                             </span>
                             <span className={`text-xs px-2 py-1 rounded-full font-medium ${
