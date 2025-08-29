@@ -13,6 +13,7 @@ import { processosDefeito } from '@/data/processos/defeito';
 import { processosSaoJoseCampos } from '@/data/processos/sao-jose-campos';
 import { processosFiscal } from '@/data/processos/fiscal';
 import { processosCompras } from '@/data/processos/compras';
+import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -40,8 +41,8 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Recuperação de receitas': processosControladoriaDetalhados.filter(p => p.id.includes('02.7')),
 
     // Processos específicos da Auditoria
-    'Auditor': processosControladoriaDetalhados.filter(p => p.id.includes('02.1') || p.id.includes('02.2')),
-    'Conferente': processosControladoriaDetalhados.filter(p => p.id.includes('02.1') || p.id.includes('02.2')),
+    'Auditor': processosAuditor,
+    'Conferente': processosConferente,
     
     // Processos do Fiscal
     'Importação e Escrituração': processosFiscal.filter(p => p.id.includes('03.1') || p.id.includes('03.2')),
@@ -448,9 +449,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     }
 
     // Exibe todos os processos de auditoria quando nenhum pilar está selecionado
-    const todosProcessosAuditoria = processosControladoriaDetalhados.filter(p => 
-      p.id.includes('02.1') || p.id.includes('02.2')
-    );
+    const todosProcessosAuditoria = processosAuditoria;
 
     return (
       <div className="space-y-6">
