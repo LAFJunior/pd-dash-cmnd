@@ -10,6 +10,7 @@ import FluxoFiscal from '@/components/departamento/FluxoFiscal';
 import ProcessosDepartamento from '@/components/departamento/ProcessosDepartamento';
 import PilaresEcommerce from '@/components/departamento/PilaresEcommerce';
 import PilaresControladoria from '@/components/departamento/PilaresControladoria';
+import PilaresAuditoria from '@/components/departamento/PilaresAuditoria';
 import PilaresDepartamentoPessoal from '@/components/departamento/PilaresDepartamentoPessoal';
 import CentroCusto from '@/components/departamento/CentroCusto';
 import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
@@ -51,7 +52,8 @@ const DetalheDepartamento = () => {
       'sao-jose-esporte-club': 'São José Esporte Club',
       'estadio-martins-pereira': 'Estádio Martins Pereira',
       'instituicoes-financeiras': 'Instituições Financeiras',
-      'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)'
+      'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)',
+      'auditoria': 'Auditoria'
     };
     const urlLowerCase = urlNome.toLowerCase();
     if (mapeamentoEspecial[urlLowerCase]) {
@@ -64,6 +66,7 @@ const DetalheDepartamento = () => {
   const nomeDepartamento = converterUrlParaNome(nome || '');
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
+  const isAuditoria = nomeDepartamento.toLowerCase().includes('auditoria');
   const isFinanceiroVarejo = nomeDepartamento.toLowerCase().includes('financeiro') && nomeDepartamento.toLowerCase().includes('varejo');
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   const isSaoJoseEsporteClub = nomeDepartamento.toLowerCase().includes('são josé esporte club');
@@ -170,6 +173,19 @@ const DetalheDepartamento = () => {
                 </CardHeader>
                 <CardContent>
                   <PilaresControladoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
+                </CardContent>
+              </Card>}
+
+            {/* Pilares da Auditoria - Só exibe para Auditoria */}
+            {isAuditoria && <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Puzzle className="text-orange-600" size={24} />
+                    Pilares da Auditoria
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <PilaresAuditoria onPilarSelect={setPilarSelecionado} pilarSelecionado={pilarSelecionado} />
                 </CardContent>
               </Card>}
 

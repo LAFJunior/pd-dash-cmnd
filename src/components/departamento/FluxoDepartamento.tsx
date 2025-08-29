@@ -8,6 +8,7 @@ import FluxoDefeito from './FluxoDefeito';
 import FluxoSaoJoseCampos from './FluxoSaoJoseCampos';
 import FluxoRH from './FluxoRH';
 import FluxoCompras from './FluxoCompras';
+import FluxoAuditoria from './FluxoAuditoria';
 
 interface FluxoDepartamentoProps {
   departamento: string;
@@ -44,6 +45,10 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
 
   if (departamento.toLowerCase().includes('compras')) {
     return <FluxoCompras />;
+  }
+
+  if (departamento.toLowerCase().includes('auditoria')) {
+    return <FluxoAuditoria />;
   }
 
   return (
