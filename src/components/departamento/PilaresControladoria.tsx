@@ -9,12 +9,15 @@ interface PilaresControladoriaProps {
 
 const PilaresControladoria: React.FC<PilaresControladoriaProps> = ({ onPilarSelect, pilarSelecionado }) => {
   const pilares = [
-    { nome: 'Auditor', icon: Search, cor: 'bg-blue-500 hover:bg-blue-600' },
-    { nome: 'Conferente', icon: Scale, cor: 'bg-green-500 hover:bg-green-600' }
+    { nome: 'Apoio a loja', icon: Store, cor: 'bg-blue-500 hover:bg-blue-600' },
+    { nome: 'Auditoria', icon: Search, cor: 'bg-green-500 hover:bg-green-600' },
+    { nome: 'Conciliação', icon: Scale, cor: 'bg-purple-500 hover:bg-purple-600' },
+    { nome: 'Contrato e despesas', icon: FileText, cor: 'bg-orange-500 hover:bg-orange-600' },
+    { nome: 'Recuperação de receitas', icon: TrendingUp, cor: 'bg-red-500 hover:bg-red-600' }
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {pilares.map((pilar) => {
         const IconComponent = pilar.icon;
         const isSelected = pilarSelecionado === pilar.nome;
