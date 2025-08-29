@@ -37,7 +37,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Marketplace': processosEcommerce['Marketplace'] || [],
     'Produto': processosEcommerce['Produto'] || [],
     
-    'Auditoria': processosControladoriaDetalhados.filter(p => p.id.includes('02.1') || p.id.includes('02.2')),
+    'Auditoria Interna': processosControladoriaDetalhados.filter(p => p.id.includes('02.1') || p.id.includes('02.2')),
     'Apoio a loja': processosControladoriaDetalhados.filter(p => p.id.includes('02.3')),
     'Conciliação': processosControladoriaDetalhados.filter(p => p.id.includes('02.4') || p.id.includes('02.5')),
     'Contrato e despesas': processosControladoriaDetalhados.filter(p => p.id.includes('02.6') || p.id.includes('02.8')),
@@ -52,7 +52,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     'Pernambuco': processosFiscal.filter(p => p.id.includes('03.13')),
     
     // Processos de Auditoria
-    'Auditor': processosAuditor,
+    'Auditoria': processosAuditor,
     'Conferente': processosConferente
   };
 
@@ -71,7 +71,7 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
 
   const obterTodosProcessosControladoria = () => {
     const todosProcessos: any[] = [];
-    const pilaresControladoria = ['Auditoria', 'Apoio a loja', 'Conciliação', 'Contrato e despesas', 'Recuperação de receitas'];
+    const pilaresControladoria = ['Auditoria Interna', 'Apoio a loja', 'Conciliação', 'Contrato e despesas', 'Recuperação de receitas'];
     
     pilaresControladoria.forEach(pilar => {
       if (processosPorPilar[pilar]) {

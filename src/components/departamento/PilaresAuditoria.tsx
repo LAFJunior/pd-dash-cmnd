@@ -8,7 +8,7 @@ interface PilaresAuditoriaProps {
 
 const PilaresAuditoria: React.FC<PilaresAuditoriaProps> = ({ onPilarSelect, pilarSelecionado }) => {
   const pilares = [
-    { nome: 'Auditor', icon: Search, cor: 'bg-blue-500 hover:bg-blue-600' },
+    { nome: 'Auditoria', icon: Search, cor: 'bg-blue-500 hover:bg-blue-600' },
     { nome: 'Conferente', icon: FileCheck, cor: 'bg-green-500 hover:bg-green-600' }
   ];
 
