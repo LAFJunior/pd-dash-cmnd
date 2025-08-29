@@ -51,7 +51,9 @@ const PilaresAuditoria: React.FC<PilaresAuditoriaProps> = ({
                 <div className="space-y-2">
                   
                   <ul className="space-y-1">
-                    {pilar.processos.map((processo, idx) => {})}
+                    {pilar.processos.map((processo, idx) => (
+                      <li key={idx} className="text-sm text-gray-600">• {processo}</li>
+                    ))}
                   </ul>
                 </div>
                 
