@@ -14,6 +14,7 @@ import { processosSaoJoseCampos } from '@/data/processos/sao-jose-campos';
 import { processosFiscal } from '@/data/processos/fiscal';
 import { processosCompras } from '@/data/processos/compras';
 import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
+import { processosContabil } from '@/data/processos/contabil';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -1018,6 +1019,73 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         </div>
       );
     }
+  }
+
+  // Add handling for Contábil department
+  if (departamento.toLowerCase().includes('contábil') || departamento.toLowerCase().includes('contabil')) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-teal-100">Departamento Contábil - {processosContabil.length} processos mapeados</p>
+        </div>
+        
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {processosContabil.map((processo, index) => {
+            const IconComponent = processo.icon;
+            const temDetalhes = processo.subprocessos && processo.subprocessos.length > 0;
+            
+            return (
+              <div
+                key={processo.id}
+                className={`bg-white p-6 rounded-lg shadow-md border-l-4 ${processo.cor} transition-transform hover:scale-105 ${
+                  temDetalhes ? 'cursor-pointer hover:shadow-lg' : ''
+                }`}
+                onClick={() => temDetalhes && handleProcessoClick(processo)}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`p-3 rounded-lg ${processo.cor.replace('border-l', 'bg').replace('-500', '-100')}`}>
+                    <IconComponent size={24} className={processo.cor.replace('border-l-', 'text-').replace('-500', '-600')} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-1">
+                      {processo.id}
+                    </h4>
+                    <h5 className="text-md font-medium text-gray-800 mb-2">
+                      {processo.nome}
+                    </h5>
+                    <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                      {processo.descricao}
+                    </p>
+                    <div className="flex flex-col space-y-1">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                        processo.nivel === 'Estratégico' ? 'bg-red-100 text-red-800' :
+                        processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}>
+                        {processo.nivel}
+                      </span>
+                      {temDetalhes && (
+                        <span className="text-xs text-teal-600 font-medium">
+                          Clique para detalhes
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={encontrarProcessoDetalhado(processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
   }
 
   return (
