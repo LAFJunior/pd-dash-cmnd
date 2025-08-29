@@ -14,8 +14,10 @@ import { processosSaoJoseCampos } from '@/data/processos/sao-jose-campos';
 import { processosFiscal } from '@/data/processos/fiscal';
 import { processosCompras } from '@/data/processos/compras';
 import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
+import { processosContabil } from '@/data/processos/contabil';
 import PilaresControladoria from './PilaresControladoria';
 import PilaresAuditoria from './PilaresAuditoria';
+import PilaresContabil from './PilaresContabil';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -25,6 +27,10 @@ interface ProcessosDepartamentoProps {
 const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departamento, pilarSelecionado }) => {
   const [processoExpandido, setProcessoExpandido] = useState<string | null>(null);
   const [pilarSelecionadoLocal, setPilarSelecionado] = useState<string>('');
+
+  // Separar processos de Contábil por nível
+  const processosContabilOperacional = processosContabil.filter(p => p.nivel === 'Operacional');
+  const processosContabilEstrategico = processosContabil.filter(p => p.nivel === 'Tático' || p.nivel === 'Estratégico');
 
   const processosPorPilar: {[key: string]: any[]} = {
     'Logística': processosEcommerce['Logística'] || [],
@@ -53,7 +59,11 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     
     // Processos de Auditoria
     'Auditoria': processosAuditor,
-    'Conferente': processosConferente
+    'Conferente': processosConferente,
+
+    // Processos de Contábil
+    'Operacional': processosContabilOperacional,
+    'Estratégico': processosContabilEstrategico
   };
 
   const obterTodosProcessosEcommerce = () => {
@@ -63,6 +73,19 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
     pilaresEcommerce.forEach(pilar => {
       if (processosEcommerce[pilar]) {
         todosProcessos.push(...processosEcommerce[pilar]);
+      }
+    });
+    
+    return todosProcessos;
+  };
+
+  const obterTodosProcessosContabil = () => {
+    const todosProcessos: any[] = [];
+    const pilaresContabil = ['Operacional', 'Estratégico'];
+    
+    pilaresContabil.forEach(pilar => {
+      if (processosPorPilar[pilar]) {
+        todosProcessos.push(...processosPorPilar[pilar]);
       }
     });
     
@@ -880,6 +903,61 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
           )}
         </div>
       );
+  }
+
+  // Contábil
+  if (departamento.toLowerCase().includes('contábil') || departamento.toLowerCase().includes('contabil')) {
+    return (
+      <div className="space-y-8">
+        <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-blue-100">Departamento Contábil - {processosContabil.length} processos mapeados</p>
+        </div>
+        
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <PilaresContabil 
+            onPilarSelect={setPilarSelecionado}
+            pilarSelecionado={pilarSelecionadoLocal}
+          />
+        </div>
+        
+        {pilarSelecionadoLocal && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {processosPorPilar[pilarSelecionadoLocal]?.map((processo) => {
+              const IconComponent = processo.icon;
+              return (
+                <div key={processo.id} className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden cursor-pointer`}
+                  onClick={() => processo.subprocessos && setProcessoExpandido(processo.id)}>
+                  <div className={`${processo.cor} p-4`}>
+                    <div className="flex items-center justify-between text-white">
+                      <IconComponent size={24} />
+                      <span className="text-xs bg-white/20 px-2 py-1 rounded">{processo.id}</span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">{processo.nome}</h4>
+                    <p className="text-sm text-gray-600 mb-3">{processo.descricao}</p>
+                    <span className={`px-2 py-1 rounded text-xs font-medium ${
+                      processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                      processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                      'bg-green-100 text-green-800'}`}>
+                      {processo.nivel}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={processosContabil.find(p => p.id === processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
   }
 
   // Auditoria
