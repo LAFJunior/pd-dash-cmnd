@@ -6,8 +6,6 @@ import { processosDefeito } from './defeito';
 import { processosSaoJoseCampos } from './sao-jose-campos';
 import { processosFiscal } from './fiscal';
 import { processosCompras } from './compras';
-import { processosAuditoria } from './auditoria';
-import { processosContabil } from './contabil';
 
 // Função para extrair todos os processos dos pilares do e-commerce
 const extrairProcessosEcommerce = (): ProcessoDetalhado[] => {
@@ -30,9 +28,7 @@ export const todosOsProcessos: ProcessoDetalhado[] = [
   ...processosDefeito,
   ...processosSaoJoseCampos,
   ...processosFiscal,
-  ...processosCompras,
-  ...processosAuditoria,
-  ...processosContabil
+  ...processosCompras
 ];
 
 // Função para contar processos por nível
