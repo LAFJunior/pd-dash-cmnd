@@ -301,7 +301,7 @@ export const acompanhamentoRegionais: ProcessoDetalhado = {
 };
 
 export const gestaoEquipe: ProcessoDetalhado = {
-  id: '08.9',
+  id: '08.8',
   nome: 'Gestão da Equipe de Auditoria',
   descricao: 'Coordenação e gestão do time de auditoria',
   nivel: 'Tático',
@@ -312,7 +312,7 @@ export const gestaoEquipe: ProcessoDetalhado = {
   sistemas_utilizados: ['Excel'],
   subprocessos: [
     {
-      id: '8.9.1',
+      id: '8.8.1',
       nome: 'Organização da Equipe',
       nivel: 'Tático',
       ferramentas: ['Excel', 'Reuniões', 'Feedback'],
@@ -334,7 +334,7 @@ export const gestaoEquipe: ProcessoDetalhado = {
 
 // Processos do Pilar Conferente
 export const auditoriaEstoqueConferente: ProcessoDetalhado = {
-  id: '08.10',
+  id: '08.9',
   nome: 'Auditoria de Estoque – Conferente de Loja',
   descricao: 'Processo de auditoria de estoque executado pelo conferente de loja',
   nivel: 'Operacional',
@@ -345,7 +345,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
   sistemas_utilizados: ['Coletor Opticon', 'Mega', 'Excel'],
   subprocessos: [
     {
-      id: '8.10.1',
+      id: '8.9.1',
       nome: 'Preparação dos Equipamentos',
       nivel: 'Operacional',
       ferramentas: ['Opticon', 'Arquivos de estoque'],
@@ -362,7 +362,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.10.2',
+      id: '8.9.2',
       nome: 'Contagem de Produtos',
       nivel: 'Operacional',
       ferramentas: ['Opticon'],
@@ -379,7 +379,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.10.3',
+      id: '8.9.3',
       nome: 'Consolidação e Geração de Relatórios',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Relatórios de inventário'],
@@ -395,7 +395,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.10.4',
+      id: '8.9.4',
       nome: 'Análise de Divergências',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Kardex'],
@@ -413,7 +413,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.10.5',
+      id: '8.9.5',
       nome: 'Finalização da Auditoria',
       nivel: 'Operacional',
       ferramentas: ['Mural', 'Documentos'],
@@ -433,7 +433,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
 };
 
 export const conferenciaDivergencias: ProcessoDetalhado = {
-  id: '08.11',
+  id: '08.10',
   nome: 'Conferência e Correção de Divergências de Estoque',
   descricao: 'Processo de verificação e correção de divergências de estoque',
   nivel: 'Operacional',
@@ -444,7 +444,7 @@ export const conferenciaDivergencias: ProcessoDetalhado = {
   sistemas_utilizados: ['Opticon', 'Mega'],
   subprocessos: [
     {
-      id: '8.11.1',
+      id: '8.10.1',
       nome: 'Verificação Física',
       nivel: 'Operacional',
       ferramentas: ['Opticon', 'Relatório de divergências'],
@@ -461,7 +461,7 @@ export const conferenciaDivergencias: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.11.2',
+      id: '8.10.2',
       nome: 'Ajuste de Estoque',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Sistema de justificativas'],
@@ -481,7 +481,7 @@ export const conferenciaDivergencias: ProcessoDetalhado = {
 };
 
 export const suporteAuditoria: ProcessoDetalhado = {
-  id: '08.12',
+  id: '08.11',
   nome: 'Suporte à Auditoria',
   descricao: 'Apoio técnico e operacional durante as auditorias',
   nivel: 'Operacional',
@@ -492,13 +492,13 @@ export const suporteAuditoria: ProcessoDetalhado = {
   sistemas_utilizados: ['Mega'],
   subprocessos: [
     {
-      id: '8.12.1',
+      id: '8.11.1',
       nome: 'Apoio à Auditoria',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Kardex', 'Relatórios'],
       tarefas: [
         {
-          id: '8.12.1.1',
+          id: '8.11.1.1',
           nome: 'Acompanhamento dos auditores',
           passos: [
             'Conferente acompanha os auditores na coleta de dados da operação',
@@ -508,7 +508,7 @@ export const suporteAuditoria: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.12.2',
+      id: '8.11.2',
       nome: 'Ação Corretiva',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Plano de ação'],
@@ -527,7 +527,7 @@ export const suporteAuditoria: ProcessoDetalhado = {
 };
 
 export const contagemInventario: ProcessoDetalhado = {
-  id: '08.13',
+  id: '08.12',
   nome: 'Contagem de Estoque para Inventário Rotativo',
   descricao: 'Processo de contagem sistemática para inventário rotativo',
   nivel: 'Operacional',
@@ -538,13 +538,13 @@ export const contagemInventario: ProcessoDetalhado = {
   sistemas_utilizados: ['Opticon', 'Mega'],
   subprocessos: [
     {
-      id: '8.13.1',
+      id: '8.12.1',
       nome: 'Preparação',
       nivel: 'Operacional',
       ferramentas: ['Opticon', 'Cronograma'],
       tarefas: [
         {
-          id: '8.13.1.1',
+          id: '8.12.1.1',
           nome: 'Organização do ambiente e equipamentos',
           passos: [
             'Carregar coletores Opticon',
@@ -554,13 +554,13 @@ export const contagemInventario: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.13.2',
+      id: '8.12.2',
       nome: 'Contagem',
       nivel: 'Operacional',
       ferramentas: ['Opticon'],
       tarefas: [
         {
-          id: '8.13.2.1',
+          id: '8.12.2.1',
           nome: 'Coleta de dados físicos',
           passos: [
             'Realizar contagem e registrar no coletor, validando cada item com atenção ao código e quantidade',
@@ -570,13 +570,13 @@ export const contagemInventario: ProcessoDetalhado = {
       ]
     },
     {
-      id: '8.13.3',
+      id: '8.12.3',
       nome: 'Ajuste de Resultados',
       nivel: 'Operacional',
       ferramentas: ['MEGA', 'Relatórios do sistema'],
       tarefas: [
         {
-          id: '8.13.3.1',
+          id: '8.12.3.1',
           nome: 'Análise de diferenças',
           passos: [
             'Corrigir as diferenças encontradas com base na conferência física e relatórios do sistema'
