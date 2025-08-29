@@ -23,9 +23,9 @@ const initialNodes: Node[] = [
     data: { 
       label: (
         <div className="text-center">
-          <div className="text-lg">📄</div>
-          <div className="font-medium">Recebimento</div>
-          <div className="text-xs text-gray-600">Documentação e relatórios</div>
+          <div className="text-lg">📋</div>
+          <div className="font-medium">Planejamento</div>
+          <div className="text-xs text-gray-600">Coordenação</div>
         </div>
       ) 
     },
@@ -34,20 +34,20 @@ const initialNodes: Node[] = [
       color: 'white',
       border: 'none',
       borderRadius: '12px',
-      width: 150,
+      width: 160,
       height: 80,
     },
   },
   {
     id: '2',
     type: 'default',
-    position: { x: 250, y: 150 },
+    position: { x: 250, y: 140 },
     data: { 
       label: (
         <div className="text-center">
-          <div className="text-lg">👁️</div>
-          <div className="font-medium">Análise</div>
-          <div className="text-xs text-gray-600">Validação e conferência</div>
+          <div className="text-lg">⚡</div>
+          <div className="font-medium">Execução</div>
+          <div className="text-xs text-gray-600">Auditores e conferentes</div>
         </div>
       ) 
     },
@@ -56,20 +56,64 @@ const initialNodes: Node[] = [
       color: 'white',
       border: 'none',
       borderRadius: '12px',
-      width: 150,
+      width: 160,
       height: 80,
     },
   },
   {
     id: '3',
     type: 'default',
-    position: { x: 250, y: 275 },
+    position: { x: 250, y: 255 },
     data: { 
       label: (
         <div className="text-center">
-          <div className="text-lg">✅</div>
-          <div className="font-medium">Aprovação</div>
-          <div className="text-xs text-gray-600">Decisão e autorização</div>
+          <div className="text-lg">🔧</div>
+          <div className="font-medium">Tratamento</div>
+          <div className="text-xs text-gray-600">Estoque/caixa/chamados</div>
+        </div>
+      ) 
+    },
+    style: {
+      background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '12px',
+      width: 160,
+      height: 80,
+    },
+  },
+  {
+    id: '4',
+    type: 'default',
+    position: { x: 250, y: 370 },
+    data: { 
+      label: (
+        <div className="text-center">
+          <div className="text-lg">⚠️</div>
+          <div className="font-medium">Identificação</div>
+          <div className="text-xs text-gray-600">Não conformidades</div>
+        </div>
+      ) 
+    },
+    style: {
+      background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '12px',
+      width: 160,
+      height: 80,
+    },
+  },
+  {
+    id: '5',
+    type: 'default',
+    position: { x: 250, y: 485 },
+    data: { 
+      label: (
+        <div className="text-center">
+          <div className="text-lg">📊</div>
+          <div className="font-medium">Encerramento</div>
+          <div className="text-xs text-gray-600">Topdesk, relatórios</div>
         </div>
       ) 
     },
@@ -78,20 +122,20 @@ const initialNodes: Node[] = [
       color: 'white',
       border: 'none',
       borderRadius: '12px',
-      width: 150,
+      width: 160,
       height: 80,
     },
   },
   {
-    id: '4',
+    id: '6',
     type: 'default',
-    position: { x: 250, y: 400 },
+    position: { x: 250, y: 600 },
     data: { 
       label: (
         <div className="text-center">
-          <div className="text-lg">⚙️</div>
-          <div className="font-medium">Execução</div>
-          <div className="text-xs text-gray-600">Lançamento e processamento</div>
+          <div className="text-lg">🔄</div>
+          <div className="font-medium">Acompanhamento</div>
+          <div className="text-xs text-gray-600">Melhoria contínua</div>
         </div>
       ) 
     },
@@ -100,29 +144,7 @@ const initialNodes: Node[] = [
       color: 'white',
       border: 'none',
       borderRadius: '12px',
-      width: 150,
-      height: 80,
-    },
-  },
-  {
-    id: '5',
-    type: 'default',
-    position: { x: 250, y: 525 },
-    data: { 
-      label: (
-        <div className="text-center">
-          <div className="text-lg">🗂️</div>
-          <div className="font-medium">Arquivo</div>
-          <div className="text-xs text-gray-600">Armazenamento e registro</div>
-        </div>
-      ) 
-    },
-    style: {
-      background: 'linear-gradient(135deg, #6b7280, #4b5563)',
-      color: 'white',
-      border: 'none',
-      borderRadius: '12px',
-      width: 150,
+      width: 160,
       height: 80,
     },
   },
@@ -159,10 +181,10 @@ const initialEdges: Edge[] = [
     target: '4',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#22c55e', strokeWidth: 2 },
+    style: { stroke: '#f59e0b', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: '#22c55e',
+      color: '#f59e0b',
     },
   },
   {
@@ -171,10 +193,22 @@ const initialEdges: Edge[] = [
     target: '5',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#a855f7', strokeWidth: 2 },
+    style: { stroke: '#ef4444', strokeWidth: 2 },
     markerEnd: {
       type: MarkerType.ArrowClosed,
-      color: '#a855f7',
+      color: '#ef4444',
+    },
+  },
+  {
+    id: 'e5-6',
+    source: '5',
+    target: '6',
+    type: 'smoothstep',
+    animated: true,
+    style: { stroke: '#22c55e', strokeWidth: 2 },
+    markerEnd: {
+      type: MarkerType.ArrowClosed,
+      color: '#22c55e',
     },
   },
 ];
@@ -191,7 +225,7 @@ const FluxoControladoria = () => {
   return (
     <Card className="w-full h-full">
       <CardContent>
-        <div style={{ width: '100%', height: '500px' }}>
+        <div style={{ width: '100%', height: '600px' }}>
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -210,26 +244,30 @@ const FluxoControladoria = () => {
         
         <div className="mt-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
           <h4 className="font-semibold text-center mb-3">Legenda do Fluxo</h4>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-blue-700 rounded"></div>
-              <span>Recebimento</span>
+              <span>Planejamento</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-gradient-to-r from-yellow-500 to-yellow-700 rounded"></div>
-              <span>Análise</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-700 rounded"></div>
-              <span>Aprovação</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-700 rounded"></div>
               <span>Execução</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-gradient-to-r from-gray-500 to-gray-700 rounded"></div>
-              <span>Arquivo</span>
+              <div className="w-4 h-4 bg-gradient-to-r from-amber-500 to-amber-700 rounded"></div>
+              <span>Tratamento</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-gradient-to-r from-red-500 to-red-700 rounded"></div>
+              <span>Identificação</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-green-700 rounded"></div>
+              <span>Encerramento</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-purple-700 rounded"></div>
+              <span>Acompanhamento</span>
             </div>
           </div>
         </div>
