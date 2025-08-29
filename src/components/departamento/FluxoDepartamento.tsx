@@ -41,6 +41,15 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
     return <FluxoRH />;
   }
 
+  if (departamento.toLowerCase().includes('compras')) {
+    return (
+      <div className="bg-gray-50 p-6 rounded-lg text-center">
+        <FileText className="mx-auto mb-4 text-gray-400" size={48} />
+        <p className="text-gray-600">Fluxo de processos em desenvolvimento para este departamento.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-50 p-6 rounded-lg text-center">
       <FileText className="mx-auto mb-4 text-gray-400" size={48} />
