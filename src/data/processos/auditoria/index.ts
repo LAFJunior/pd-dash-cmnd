@@ -3,7 +3,7 @@ import { Search, CheckCircle, ClipboardCheck, Eye, Settings, AlertTriangle, User
 
 // Processos do Pilar Auditor
 export const auditoriaEstoque: ProcessoDetalhado = {
-  id: '08.1',
+  id: 'AUD-08.1',
   nome: 'Auditoria de Estoque',
   descricao: 'Processo de auditoria física de estoque incluindo contagem, análise de divergências e finalização',
   nivel: 'Operacional',
@@ -101,7 +101,7 @@ export const auditoriaEstoque: ProcessoDetalhado = {
 };
 
 export const auditoriaCaixa: ProcessoDetalhado = {
-  id: '08.2',
+  id: 'AUD-08.2',
   nome: 'Auditoria de Caixa',
   descricao: 'Processo de auditoria de valores em caixas e cofres da loja',
   nivel: 'Operacional',
@@ -147,7 +147,7 @@ export const auditoriaCaixa: ProcessoDetalhado = {
 };
 
 export const atendimentoChamados: ProcessoDetalhado = {
-  id: '08.3',
+  id: 'AUD-08.3',
   nome: 'Atendimento de Chamados (Topdesk)',
   descricao: 'Atendimento técnico aos chamados da loja via sistema Topdesk',
   nivel: 'Operacional',
@@ -178,7 +178,7 @@ export const atendimentoChamados: ProcessoDetalhado = {
 };
 
 export const planejamentoAuditorias: ProcessoDetalhado = {
-  id: '08.4',
+  id: 'AUD-08.4',
   nome: 'Planejamento de Auditorias (Coordenador)',
   descricao: 'Elaboração de cronograma e planejamento estratégico das auditorias',
   nivel: 'Tático',
@@ -209,7 +209,7 @@ export const planejamentoAuditorias: ProcessoDetalhado = {
 };
 
 export const execucaoAuditorias: ProcessoDetalhado = {
-  id: '08.5',
+  id: 'AUD-08.5',
   nome: 'Execução das Auditorias Internas (Coordenador + Time)',
   descricao: 'Realização e supervisão das auditorias conforme cronograma',
   nivel: 'Tático',
@@ -239,7 +239,7 @@ export const execucaoAuditorias: ProcessoDetalhado = {
 };
 
 export const identificacaoRiscos: ProcessoDetalhado = {
-  id: '08.6',
+  id: 'AUD-08.6',
   nome: 'Identificação de Riscos e Não Conformidades',
   descricao: 'Análise e classificação de riscos identificados nas auditorias',
   nivel: 'Tático',
@@ -270,7 +270,7 @@ export const identificacaoRiscos: ProcessoDetalhado = {
 };
 
 export const acompanhamentoRegionais: ProcessoDetalhado = {
-  id: '08.7',
+  id: 'AUD-08.7',
   nome: 'Acompanhamento com Regionais e Diretores',
   descricao: 'Monitoramento e follow-up das ações corretivas',
   nivel: 'Tático',
@@ -301,7 +301,7 @@ export const acompanhamentoRegionais: ProcessoDetalhado = {
 };
 
 export const gestaoEquipe: ProcessoDetalhado = {
-  id: '08.8',
+  id: 'AUD-08.8',
   nome: 'Gestão da Equipe de Auditoria',
   descricao: 'Coordenação e gestão do time de auditoria',
   nivel: 'Tático',
@@ -334,7 +334,7 @@ export const gestaoEquipe: ProcessoDetalhado = {
 
 // Processos do Pilar Conferente
 export const auditoriaEstoqueConferente: ProcessoDetalhado = {
-  id: '08.9',
+  id: 'AUD-08.9',
   nome: 'Auditoria de Estoque – Conferente de Loja',
   descricao: 'Processo de auditoria de estoque executado pelo conferente de loja',
   nivel: 'Operacional',
@@ -433,7 +433,7 @@ export const auditoriaEstoqueConferente: ProcessoDetalhado = {
 };
 
 export const conferenciaDivergencias: ProcessoDetalhado = {
-  id: '08.10',
+  id: 'AUD-08.10',
   nome: 'Conferência e Correção de Divergências de Estoque',
   descricao: 'Processo de verificação e correção de divergências de estoque',
   nivel: 'Operacional',
@@ -481,7 +481,7 @@ export const conferenciaDivergencias: ProcessoDetalhado = {
 };
 
 export const suporteAuditoria: ProcessoDetalhado = {
-  id: '08.11',
+  id: 'AUD-08.11',
   nome: 'Suporte à Auditoria',
   descricao: 'Apoio técnico e operacional durante as auditorias',
   nivel: 'Operacional',
@@ -527,7 +527,7 @@ export const suporteAuditoria: ProcessoDetalhado = {
 };
 
 export const contagemInventario: ProcessoDetalhado = {
-  id: '08.12',
+  id: 'AUD-08.12',
   nome: 'Contagem de Estoque para Inventário Rotativo',
   descricao: 'Processo de contagem sistemática para inventário rotativo',
   nivel: 'Operacional',
