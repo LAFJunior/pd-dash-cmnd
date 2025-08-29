@@ -24,6 +24,20 @@ export { geracaoECD };
 export { geracaoECF };
 export { apuracaoLucroReal };
 
+// Debug: Check which processes are undefined
+console.log('Contabil processes debug:', {
+  lancamentoDespesas: !!lancamentoDespesas,
+  apuracaoPisCofins: !!apuracaoPisCofins,
+  conferenciaCaixas: !!conferenciaCaixas,
+  importacaoExtratosBancarios: !!importacaoExtratosBancarios,
+  integracaoFiscal: !!integracaoFiscal,
+  fechamentoContabilMensal: !!fechamentoContabilMensal,
+  conciliacaoReceitas: !!conciliacaoReceitas,
+  geracaoECD: !!geracaoECD,
+  geracaoECF: !!geracaoECF,
+  apuracaoLucroReal: !!apuracaoLucroReal
+});
+
 // Array consolidado dos processos detalhados da Controladoria
 export const processosContabilDetalhados: ProcessoDetalhado[] = [
   lancamentoDespesas,
@@ -36,7 +50,7 @@ export const processosContabilDetalhados: ProcessoDetalhado[] = [
   geracaoECD,
   geracaoECF,
   apuracaoLucroReal
-];
+].filter(processo => processo !== undefined);
 
 // Lista de todos os processos do departamento Contábil (para compatibilidade)
 export const processosContabil: ProcessoDetalhado[] = processosContabilDetalhados;
