@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Calendar } from 'lucide-react';
 
 export const planejamentoFerias: ProcessoDetalhado = {
-  id: '12.6',
+  id: 'DP-012.6',
   nome: 'Planejamento de Férias',
   descricao: 'Gestão completa do planejamento e processamento de férias dos colaboradores',
   nivel: 'Operacional',
