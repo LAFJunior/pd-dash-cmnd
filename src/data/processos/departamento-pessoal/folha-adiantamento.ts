@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { CreditCard } from 'lucide-react';
 
 export const folhaAdiantamento: ProcessoDetalhado = {
-  id: '12.3',
+  id: 'DP-012.3',
   nome: 'Folha de Adiantamento',
   descricao: 'Processamento simplificado da folha de adiantamento com base no cadastro de colaboradores ativos',
   nivel: 'Operacional',
