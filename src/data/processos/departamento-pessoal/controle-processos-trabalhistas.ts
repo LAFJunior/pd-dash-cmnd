@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Scale } from 'lucide-react';
 
 export const controleProcessosTrabalhistas: ProcessoDetalhado = {
-  id: '12.9',
+  id: 'DP-012.9',
   nome: 'Controle de Processos Trabalhistas',
   descricao: 'Monitoramento e controle de processos trabalhistas com consulta diária no DJE e fornecimento de documentação para defesa',
   nivel: 'Operacional',
