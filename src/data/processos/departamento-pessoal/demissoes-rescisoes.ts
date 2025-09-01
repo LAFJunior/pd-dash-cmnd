@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { UserMinus } from 'lucide-react';
 
 export const demissoesRescisoes: ProcessoDetalhado = {
-  id: '12.5',
+  id: 'DP-012.5',
   nome: 'Demissões e Rescisões',
   descricao: 'Processo completo de desligamento de colaboradores com cálculo de verbas rescisórias e documentação legal',
   nivel: 'Operacional',
