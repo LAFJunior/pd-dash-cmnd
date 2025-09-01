@@ -30,7 +30,7 @@ import {
 
 export const processosCompras: ProcessoDetalhado[] = [
   {
-    id: "7.1",
+    id: "COM-07.1",
     nome: "Planejamento de Compras",
     descricao: "Planejamento semestral e anual de compras baseado em análises de vendas, estoque e metas comerciais",
     nivel: "Tático",
@@ -133,7 +133,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.2",
+    id: "COM-07.2",
     nome: "Programação de Pedidos",
     descricao: "Programação e montagem de pedidos baseados no planejamento de compras",
     nivel: "Tático",
@@ -205,7 +205,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.3",
+    id: "COM-07.3",
     nome: "Emissão e Envio de Pedido de Compras",
     descricao: "Emissão formal e envio de pedidos de compras no sistema",
     nivel: "Operacional",
@@ -270,7 +270,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.4",
+    id: "COM-07.4",
     nome: "Cadastro de Produto",
     descricao: "Cadastro de novos produtos no sistema após confirmação do pedido",
     nivel: "Operacional",
@@ -317,7 +317,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.5",
+    id: "COM-07.5",
     nome: "Agendamento e Recebimento de Mercadorias",
     descricao: "Controle de agendamento e recebimento de mercadorias nos centros de distribuição",
     nivel: "Operacional",
@@ -372,7 +372,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.6",
+    id: "COM-07.6",
     nome: "Distribuição de Produtos aos CDs",
     descricao: "Planejamento e execução da distribuição de produtos recebidos para os centros de distribuição",
     nivel: "Operacional",
@@ -418,7 +418,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.7",
+    id: "COM-07.7",
     nome: "Remanejamento de Produtos entre Lojas",
     descricao: "Redistribuição de produtos entre lojas baseada em análises de giro e cobertura",
     nivel: "Tático",
@@ -471,7 +471,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.8",
+    id: "COM-07.8",
     nome: "Remarcação de Preço",
     descricao: "Alteração de preços de produtos conforme estratégia comercial ou correções de custo",
     nivel: "Operacional",
@@ -525,7 +525,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.9",
+    id: "COM-07.9",
     nome: "Devolução e Indenização de Produtos",
     descricao: "Tratamento de produtos com defeito através de devoluções ou indenizações",
     nivel: "Operacional",
@@ -587,7 +587,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.10",
+    id: "COM-07.10",
     nome: "Gestão de Despesas",
     descricao: "Controle e aprovação de despesas relacionadas ao departamento de compras",
     nivel: "Operacional",
@@ -647,7 +647,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.11",
+    id: "COM-07.11",
     nome: "Gestão de Campanhas e Ações de Marketing",
     descricao: "Planejamento e execução de campanhas comerciais em datas sazonais",
     nivel: "Tático",
@@ -702,7 +702,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.12",
+    id: "COM-07.12",
     nome: "Gestão de Produtos para Shooting e Influenciadores",
     descricao: "Seleção e controle de produtos destinados a campanhas de marketing e influenciadores",
     nivel: "Tático",
@@ -749,7 +749,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.13",
+    id: "COM-07.13",
     nome: "Cobertura Mensal e Análise de Estoque",
     descricao: "Análise mensal da cobertura de estoque por família e loja",
     nivel: "Tático",
@@ -795,7 +795,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.14",
+    id: "COM-07.14",
     nome: "Fechamento de Consignados",
     descricao: "Apuração e fechamento mensal de vendas consignadas",
     nivel: "Operacional",
@@ -841,7 +841,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.15",
+    id: "COM-07.15",
     nome: "Negociação Financeira com Fornecedores",
     descricao: "Negociação de ajustes financeiros e resolução de divergências com fornecedores",
     nivel: "Tático",
@@ -902,7 +902,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.16",
+    id: "COM-07.16",
     nome: "Gestão de Sortimento e Reposição de Produtos",
     descricao: "Gerenciamento contínuo do sortimento e reposição baseada em performance de vendas",
     nivel: "Tático",
@@ -963,7 +963,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.17",
+    id: "COM-07.17",
     nome: "Gestão de Performance por Categoria",
     descricao: "Monitoramento e ações corretivas baseadas na performance de categorias de produtos",
     nivel: "Tático",
@@ -1023,7 +1023,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.18",
+    id: "COM-07.18",
     nome: "Apoio às Lojas e Gestão de Estoque da Loja",
     descricao: "Suporte operacional para resolução de problemas de estoque e divergências nas lojas",
     nivel: "Operacional",
@@ -1060,7 +1060,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.19",
+    id: "COM-07.19",
     nome: "Suporte a Eventos, Vitrines e Visual Merchandising",
     descricao: "Coordenação de produtos e materiais para eventos, vitrines e ações de visual merchandising",
     nivel: "Tático",
@@ -1115,7 +1115,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.20",
+    id: "COM-07.20",
     nome: "Controle de OTB e Verba de Compras",
     descricao: "Controle estratégico do orçamento e verba disponível para compras (Open-to-Buy)",
     nivel: "Tático",
@@ -1168,7 +1168,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.21",
+    id: "COM-07.21",
     nome: "Controle de Ordem de Compra e Planejamento de Entregas",
     descricao: "Organização e acompanhamento das ordens de compra e cronograma de entregas",
     nivel: "Tático",
@@ -1205,7 +1205,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.22",
+    id: "COM-07.22",
     nome: "Projetos e Indicadores Estratégicos (OKR, IA, CMV, PEG)",
     descricao: "Acompanhamento de indicadores estratégicos e projetos do departamento",
     nivel: "Tático",
@@ -1242,7 +1242,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.23",
+    id: "COM-07.23",
     nome: "Participação em Workshops e Desenvolvimento de Conteúdo",
     descricao: "Criação e execução de workshops para apresentação de coleções e estratégias",
     nivel: "Tático",
@@ -1279,7 +1279,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.24",
+    id: "COM-07.24",
     nome: "Integração com Infra (Infracommerce e Vtex)",
     descricao: "Controle e acompanhamento de pedidos destinados ao canal digital",
     nivel: "Operacional",
@@ -1316,7 +1316,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.25",
+    id: "COM-07.25",
     nome: "Gestão de Amostras",
     descricao: "Controle de recebimento, destinação e retorno de amostras de produtos",
     nivel: "Operacional",
@@ -1353,7 +1353,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.26",
+    id: "COM-07.26",
     nome: "Planejamento Mensal Visual (PDF para Lojas)",
     descricao: "Criação de material visual mensal para orientação das lojas",
     nivel: "Tático",
@@ -1390,7 +1390,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.27",
+    id: "COM-07.27",
     nome: "Vitrine Piloto",
     descricao: "Montagem de vitrine modelo para padronização nas lojas",
     nivel: "Operacional",
@@ -1475,7 +1475,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.28",
+    id: "COM-07.28",
     nome: "Confecção de Manual",
     descricao: "Criação de manuais de vitrine e VM baseados na vitrine piloto",
     nivel: "Operacional",
@@ -1513,7 +1513,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.29",
+    id: "COM-07.29",
     nome: "Correção de Campanha",
     descricao: "Validação e correção da aplicação de campanhas nas lojas",
     nivel: "Operacional",
@@ -1545,7 +1545,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.30",
+    id: "COM-07.30",
     nome: "Análise de Concorrência",
     descricao: "Pesquisa e análise de ações comerciais e visuais da concorrência",
     nivel: "Operacional",
@@ -1583,7 +1583,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.31",
+    id: "COM-07.31",
     nome: "Planilhamento de Peças de VM",
     descricao: "Planejamento e solicitação de peças de visual merchandising para campanhas",
     nivel: "Operacional",
@@ -1614,7 +1614,7 @@ export const processosCompras: ProcessoDetalhado[] = [
     ]
   },
   {
-    id: "7.32",
+    id: "COM-07.32",
     nome: "Visitas às Lojas e Apoio Operacional Presencial",
     descricao: "Visitas técnicas às lojas para diagnóstico e correção de problemas operacionais",
     nivel: "Tático",
