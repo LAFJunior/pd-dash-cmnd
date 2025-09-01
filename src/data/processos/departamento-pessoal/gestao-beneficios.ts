@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Heart } from 'lucide-react';
 
 export const gestaoBeneficios: ProcessoDetalhado = {
-  id: '12.7',
+  id: 'DP-012.7',
   nome: 'Gestão de Benefícios e Convênios',
   descricao: 'Gestão completa dos benefícios e convênios dos colaboradores, incluindo inclusões, alterações e cancelamentos',
   nivel: 'Operacional',
