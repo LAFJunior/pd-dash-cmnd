@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Users } from 'lucide-react';
 
 export const admissaoColaboradores: ProcessoDetalhado = {
-  id: '12.1',
+  id: 'DP-012.1',
   nome: 'Admissão de Novos Colaboradores',
   descricao: 'Processo completo de admissão de novos colaboradores com validação de documentação, cadastro no sistema e integração legal',
   nivel: 'Operacional',
