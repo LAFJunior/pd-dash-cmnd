@@ -94,6 +94,43 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
       return processoControladoria;
     }
 
+    // Verifica nos processos de Auditoria
+    if (departamento.toLowerCase().includes('auditoria')) {
+      const processoAuditoria = processosAuditoria.find(p => p.id === id);
+      if (processoAuditoria) {
+        return processoAuditoria;
+      }
+    }
+
+    // Verifica nos outros departamentos específicos
+    if (departamento.toLowerCase().includes('compras')) {
+      return processosCompras.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('financeiro')) {
+      return processosFinanceiro.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('defeito')) {
+      return processosDefeito.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('são josé dos campos')) {
+      return processosSaoJoseCampos.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('fiscal')) {
+      return processosFiscal.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('contábil') || departamento.toLowerCase().includes('contabil')) {
+      return processosContabil.find(p => p.id === id);
+    }
+
+    if (departamento.toLowerCase().includes('departamento pessoal') || departamento.toLowerCase().includes('dp')) {
+      return processosDepartamentoPessoal.find(p => p.id === id);
+    }
+
     // Depois verifica nos processos detalhados do E-commerce  
     const todosProcessos = departamento.toLowerCase().includes('controladoria') 
       ? obterTodosProcessosControladoria()
