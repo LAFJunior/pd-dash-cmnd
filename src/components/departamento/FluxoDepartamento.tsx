@@ -40,7 +40,8 @@ const FluxoDepartamento: React.FC<FluxoDepartamentoProps> = ({ departamento }) =
     return <FluxoSaoJoseCampos />;
   }
 
-  if (departamento.toLowerCase().includes('recursos humanos') || departamento.toLowerCase().includes('rh')) {
+  if (departamento.toLowerCase().includes('recursos humanos') || departamento.toLowerCase().includes('rh') || 
+      departamento.toLowerCase().includes('departamento pessoal') || departamento.toLowerCase().includes('dp')) {
     return <FluxoRH />;
   }
 

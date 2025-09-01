@@ -15,6 +15,7 @@ import { processosFiscal } from '@/data/processos/fiscal';
 import { processosCompras } from '@/data/processos/compras';
 import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
 import { processosContabil } from '@/data/processos/contabil';
+import { processosDepartamentoPessoal } from '@/data/processos/departamento-pessoal';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -1082,6 +1083,74 @@ const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departame
         {processoExpandido && (
           <ProcessoDetalhe
             processo={processosContabil.find(p => p.id === processoExpandido)!}
+            onClose={() => setProcessoExpandido(null)}
+          />
+        )}
+      </div>
+    );
+  }
+
+  // Add handling for Departamento Pessoal (DP)
+  if (departamento.toLowerCase().includes('departamento pessoal') || departamento.toLowerCase().includes('dp')) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-lg text-center">
+          <h3 className="text-xl font-bold mb-2">Mapeamento de Processos</h3>
+          <p className="text-purple-100">Departamento Pessoal (DP) - {processosDepartamentoPessoal.length} processos mapeados</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {processosDepartamentoPessoal.map((processo) => {
+            const IconComponent = processo.icon;
+            const temDetalhes = processo.subprocessos && processo.subprocessos.length > 0;
+            
+            return (
+              <div
+                key={processo.id}
+                className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden ${temDetalhes ? 'cursor-pointer' : ''}`}
+                onClick={() => temDetalhes && setProcessoExpandido(processo.id)}
+              >
+                <div className={`${processo.cor} p-4`}>
+                  <div className="flex items-center justify-between text-white">
+                    <IconComponent size={24} />
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded">
+                      {processo.id}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">
+                    {processo.nome}
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {processo.descricao}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className={`px-2 py-1 rounded text-xs font-medium ${
+                        processo.nivel === 'Estratégico' ? 'bg-blue-100 text-blue-800' :
+                        processo.nivel === 'Tático' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-green-100 text-green-800'
+                      }`}
+                    >
+                      {processo.nivel}
+                    </span>
+                    {temDetalhes && (
+                      <span className="text-xs text-blue-600 font-medium">
+                        Clique para detalhes
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {processoExpandido && (
+          <ProcessoDetalhe
+            processo={processosDepartamentoPessoal.find(p => p.id === processoExpandido)!}
             onClose={() => setProcessoExpandido(null)}
           />
         )}
