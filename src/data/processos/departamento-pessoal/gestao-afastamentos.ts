@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { UserX } from 'lucide-react';
 
 export const gestaoAfastamentos: ProcessoDetalhado = {
-  id: '12.8',
+  id: 'DP-012.8',
   nome: 'Gestão de Afastamentos',
   descricao: 'Gestão completa dos afastamentos de colaboradores, desde o recebimento até o controle de retorno',
   nivel: 'Operacional',
