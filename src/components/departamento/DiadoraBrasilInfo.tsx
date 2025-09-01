@@ -1,17 +1,19 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Globe, MapPin, Calendar, Trophy, Target, Users } from 'lucide-react';
-
 export const DiadoraBrasilInfo: React.FC = () => {
-  return (
-    <div className="space-y-6 p-6">
+  return <div className="space-y-6 p-6">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
           Diadora Brasil
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          Tradição italiana no esporte brasileiro
-        </p>
+        <p className="text-xl text-gray-600 dark:text-gray-400">Tradição italiana no esporte brasileiro
+
+
+Desde abril de 2022, o Grupo Oscar, firmou um contrato exclusivo de licenciamento e distribuição da marca no Brasil.
+
+
+      </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -168,12 +170,7 @@ export const DiadoraBrasilInfo: React.FC = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Conheça mais sobre os produtos e novidades da Diadora Brasil
               </p>
-              <a
-                href="https://www.diadorabrasil.com.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-              >
+              <a href="https://www.diadorabrasil.com.br" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
                 <Globe className="h-4 w-4" />
                 Visitar Site Oficial
               </a>
@@ -181,6 +178,5 @@ export const DiadoraBrasilInfo: React.FC = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 };
