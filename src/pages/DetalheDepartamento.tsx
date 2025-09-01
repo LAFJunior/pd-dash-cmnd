@@ -17,6 +17,7 @@ import LojasResponsaveis from '@/components/departamento/LojasResponsaveis';
 import RecicalceInfo from '@/components/departamento/RecicalceInfo';
 import SaoJoseEsporteClubInfo from '@/components/departamento/SaoJoseEsporteClubInfo';
 import EstadioMartinsPereira from '@/components/departamento/EstadioMartinsPereira';
+import { DiadoraBrasilInfo } from '@/components/departamento/DiadoraBrasilInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
 const DetalheDepartamento = () => {
@@ -51,6 +52,7 @@ const DetalheDepartamento = () => {
       't-i-projetos': 'T.I Projetos',
       'sao-jose-esporte-club': 'São José Esporte Club',
       'estadio-martins-pereira': 'Estádio Martins Pereira',
+      'diadora-brasil': 'Diadora Brasil',
       'instituicoes-financeiras': 'Instituições Financeiras',
       'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)',
       'auditoria': 'Auditoria'
@@ -71,6 +73,7 @@ const DetalheDepartamento = () => {
   const isRecicalce = nomeDepartamento.toLowerCase().includes('recicalce');
   const isSaoJoseEsporteClub = nomeDepartamento.toLowerCase().includes('são josé esporte club');
   const isEstadioMartinsPereira = nomeDepartamento.toLowerCase().includes('estádio martins pereira');
+  const isDiadoraBrasil = nomeDepartamento.toLowerCase().includes('diadora brasil');
   const isFiscal = nomeDepartamento.toLowerCase().includes('fiscal');
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
@@ -96,6 +99,8 @@ const DetalheDepartamento = () => {
         isSaoJoseEsporteClub ? <SaoJoseEsporteClubInfo /> : 
         /* Conteúdo específico para Estádio Martins Pereira */
         isEstadioMartinsPereira ? <EstadioMartinsPereira /> : 
+        /* Conteúdo específico para Diadora Brasil */
+        isDiadoraBrasil ? <DiadoraBrasilInfo /> : 
         /* Conteúdo específico para Lojas */
         isLojas ? <LojaVirtual /> : <>
             {/* Estrutura do Departamento */}
