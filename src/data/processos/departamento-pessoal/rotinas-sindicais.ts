@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { FileText } from 'lucide-react';
 
 export const rotinasSindicais: ProcessoDetalhado = {
-  id: '12.4',
+  id: 'DP-012.4',
   nome: 'Rotinas Sindicais e Obrigações Legais',
   descricao: 'Geração de guias de recolhimento e cumprimento das obrigações sindicais e governamentais',
   nivel: 'Operacional',
