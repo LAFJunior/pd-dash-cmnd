@@ -7,7 +7,7 @@ export const apuracaoPisCofins: ProcessoDetalhado = {
   descricao: 'Processo de coleta, cálculo e consolidação dos valores de PIS e COFINS',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-green-500',
+  cor: 'bg-gradient-to-br from-green-500 to-green-600',
   entrada: 'Dados de compras, entradas, vendas e saídas obtidos da Consulta de Apuração do Sistema Fiscal e planilha fiscal consolidada',
   saida: 'Valores de PIS e COFINS apurados e registrados conforme legislação vigente',
   sistemas_utilizados: ['Sistema Fiscal (Consulta da Apuração)', 'Planilha Fiscal (Google Sheets)', 'Excel'],

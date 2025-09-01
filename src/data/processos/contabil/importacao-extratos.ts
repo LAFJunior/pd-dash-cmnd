@@ -7,7 +7,7 @@ export const importacaoExtratosBancarios: ProcessoDetalhado = {
   descricao: 'Processo de importação e conciliação de extratos bancários no sistema Prosoft',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-orange-500',
+  cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
   entrada: 'Extratos bancários em Excel enviados pelo Financeiro, acesso ao Sistema Prosoft',
   saida: 'Extratos bancários importados corretamente no sistema Prosoft e saldos conciliados',
   sistemas_utilizados: ['Sistema Prosoft (balancete, razão, importação Excel)', 'Pasta compartilhada de extratos bancários (G:)'],

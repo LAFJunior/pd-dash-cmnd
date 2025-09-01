@@ -7,7 +7,7 @@ export const integracaoFiscal: ProcessoDetalhado = {
   descricao: 'Processo de integração fiscal entre os módulos Fiscal e Contábil do sistema',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-red-500',
+  cor: 'bg-gradient-to-br from-red-500 to-red-600',
   entrada: 'Notas fiscais de entrada e saída do período, acesso aos módulos Fiscal e Contábil do sistema',
   saida: 'Integração fiscal do mês realizada e lançamentos liberados corretamente na contabilidade',
   sistemas_utilizados: ['Módulo Fiscal', 'Módulo Contábil', 'Relatórios de CFOP', 'ECF e CF-e SAT'],

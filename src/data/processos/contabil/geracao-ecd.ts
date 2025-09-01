@@ -7,7 +7,7 @@ export const geracaoECD: ProcessoDetalhado = {
   descricao: 'Processo de geração, validação e transmissão da ECD para a Receita Federal',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-purple-500',
+  cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
   entrada: 'Lançamentos contábeis encerrados no DOMÍNIO; plano de contas referencial da Receita Federal; livros Diário e Razão; saldos patrimoniais e de resultado',
   saida: 'Arquivo ECD gerado, validado, assinado e transmitido com sucesso. Recibo salvo e documentação organizada para fiscalização e auditoria',
   sistemas_utilizados: ['DOMÍNIO', 'PVA SPED ECD (Receita Federal)', 'Certificado digital', 'Drive Corporativo', 'Pastas contábeis'],

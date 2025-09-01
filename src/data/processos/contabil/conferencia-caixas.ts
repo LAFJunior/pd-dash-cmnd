@@ -7,7 +7,7 @@ export const conferenciaCaixas: ProcessoDetalhado = {
   descricao: 'Processo de conferência e validação dos movimentos de caixa PDV, Loja e Tesouraria',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-purple-500',
+  cor: 'bg-gradient-to-br from-purple-500 to-purple-600',
   entrada: 'Relatórios do Mega de faturamento, sangria de caixa, extratos de conta dinheiro, movimentações de transferência entre lojas e financeiro',
   saida: 'Movimentações de caixas (PDV, Loja e Tesouraria) conferidas e saldos validados',
   sistemas_utilizados: ['Sistema Mega', 'Relatórios de faturamento', 'Sangria de caixa', 'Extrato de conta dinheiro', 'Relatórios de lançamentos e movimentações financeiras'],

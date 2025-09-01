@@ -7,7 +7,7 @@ export const apuracaoLucroReal: ProcessoDetalhado = {
   descricao: 'Processo de apuração trimestral do Lucro Real com cálculo de IRPJ e CSLL',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-red-500',
+  cor: 'bg-gradient-to-br from-red-500 to-red-600',
   entrada: 'Balancetes mensais encerrados, ECD entregue, plano de contas atualizado, ajustes de adição/exclusão, base de cálculo de IRPJ e CSLL, e documentos fiscais que impactam na apuração do lucro',
   saida: 'Apuração trimestral do Lucro Real realizada, IRPJ e CSLL devidamente calculados, guias emitidas e documentos arquivados conforme exigência fiscal',
   sistemas_utilizados: ['DOMÍNIO', 'Planilha de controle de tributos', 'Relatórios do balancete', 'Certificado digital', 'Servidor interno (Drive G:)'],

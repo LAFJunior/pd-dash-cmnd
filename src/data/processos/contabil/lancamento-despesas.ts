@@ -7,7 +7,7 @@ export const lancamentoDespesas: ProcessoDetalhado = {
   descricao: 'Processo de identificação, organização e lançamento de despesas das lojas Arezzo e Anacapri',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-blue-500',
+  cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
   entrada: 'Comprovantes físicos ou digitais de despesas das lojas Arezzo e Anacapri',
   saida: 'Despesas lançadas corretamente no Excel e comprovantes arquivados',
   sistemas_utilizados: ['Seta', 'Excel', 'Planilha de códigos terceiros', 'Caixa física de arquivos'],

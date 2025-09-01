@@ -7,7 +7,7 @@ export const fechamentoContabilMensal: ProcessoDetalhado = {
   descricao: 'Processo completo de fechamento contábil mensal com integrações, conciliações e validações',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-blue-500',
+  cor: 'bg-gradient-to-br from-blue-500 to-blue-600',
   entrada: 'Documentos financeiros, extratos bancários (formato OFX), relatórios do Mega, planilhas de despesas, integrações fiscais, lançamentos manuais e automáticos, planilha de receitas por adquirente',
   saida: 'Fechamento contábil mensal concluído com integrações importadas, conciliações bancárias finalizadas, lançamentos complementares registrados, relatórios validados e documentação organizada para auditoria',
   sistemas_utilizados: ['DOMÍNIO', 'Mega', 'GetNet', 'Fiabilité', 'Equals', 'Arquivos OFX', 'Pasta G:'],

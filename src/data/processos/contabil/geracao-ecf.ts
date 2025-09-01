@@ -7,7 +7,7 @@ export const geracaoECF: ProcessoDetalhado = {
   descricao: 'Processo de geração e transmissão da ECF com apuração do IRPJ e CSLL',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-orange-500',
+  cor: 'bg-gradient-to-br from-orange-500 to-orange-600',
   entrada: 'ECD entregue, plano de contas referencial vinculado, dados contábeis do DOMÍNIO, informações de apuração do IRPJ e CSLL, informações de contas referenciais, e histórico de prejuízos fiscais e compensações',
   saida: 'ECF gerada, validada, assinada e transmitida à Receita Federal com recibo arquivado. Escrituração pronta para auditoria fiscal',
   sistemas_utilizados: ['DOMÍNIO', 'PVA ECF (Receita Federal)', 'Planilhas de controle de IRPJ/CSLL', 'Certificado digital', 'Drive Corporativo', 'Pastas contábeis'],

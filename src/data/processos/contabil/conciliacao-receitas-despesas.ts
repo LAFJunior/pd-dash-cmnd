@@ -7,7 +7,7 @@ export const conciliacaoReceitas: ProcessoDetalhado = {
   descricao: 'Processo de conciliação e validação de receitas e despesas operacionais',
   nivel: 'Operacional',
   icon: FileText,
-  cor: 'border-l-green-500',
+  cor: 'bg-gradient-to-br from-green-500 to-green-600',
   entrada: 'Receitas e despesas lançadas no Mega; relatórios financeiros; documentos fiscais; extratos bancários; arquivos processados no sistema contábil DOMÍNIO',
   saida: 'Receitas e despesas conciliadas no DOMÍNIO; divergências tratadas com ajustes registrados e documentação salva para auditoria',
   sistemas_utilizados: ['DOMÍNIO', 'Mega', 'Planilhas do Financeiro', 'Equals', 'GetNet', 'Fiabilité', 'Arquivos OFX', 'Drive Corporativo', 'Google Sheets'],
