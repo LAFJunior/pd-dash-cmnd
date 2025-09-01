@@ -2,7 +2,7 @@ import { ProcessoDetalhado } from '@/types/processo';
 import { Calculator } from 'lucide-react';
 
 export const folhaPagamento: ProcessoDetalhado = {
-  id: '12.2',
+  id: 'DP-012.2',
   nome: 'Folha de Pagamento',
   descricao: 'Processamento completo da folha de pagamento com consolidação de informações, integração de dados e conferência final',
   nivel: 'Operacional',
