@@ -424,7 +424,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-admissao-ciee',
+    id: 'RH-11.10',
     nome: 'Processo 11.10: Admissão Jovem Aprendiz – CIEE',
     descricao: 'Processo de admissão de jovens aprendizes via CIEE',
     nivel: 'Operacional',
@@ -434,13 +434,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Jovem aprendiz contratado formalmente, matriculado, com contrato assinado, documentação registrada e integrado à equipe da loja',
     subprocessos: [
       {
-        id: 'rh-ciee-verificacao',
+        id: '11.10.1',
         nome: 'Verificação de Turmas',
         nivel: 'Operacional',
         ferramentas: ['CIEE'],
         tarefas: [
           {
-            id: 'rh-ciee-contato',
+            id: '11.10.1.1',
             nome: 'Contato com o CIEE',
             passos: [
               'Entrar em contato com o CIEE para verificar a disponibilidade de turmas',
@@ -456,7 +456,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-admissao-fundhas',
+    id: 'RH-11.11',
     nome: 'Processo 11.11: Admissão Jovem Aprendiz – FUNDHAS',
     descricao: 'Processo de admissão de jovens aprendizes via FUNDHAS',
     nivel: 'Operacional',
@@ -466,13 +466,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Jovem aprendiz contratado, com matrícula confirmada, documentação assinada e integrado à loja',
     subprocessos: [
       {
-        id: 'rh-fundhas-sinalizacao',
+        id: '11.11.1',
         nome: 'Sinalização de Vaga',
         nivel: 'Operacional',
         ferramentas: ['Formulário online da FUNDHAS'],
         tarefas: [
           {
-            id: 'rh-fundhas-comunicacao',
+            id: '11.11.1.1',
             nome: 'Comunicação com a FUNDHAS',
             passos: [
               'RH sinaliza a vaga por meio de formulário eletrônico disponibilizado pela instituição'
@@ -487,7 +487,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-contratacao-estagiarios',
+    id: 'RH-11.12',
     nome: 'Processo 11.12: Contratação de Estagiários',
     descricao: 'Processo de contratação de estagiários via CIEE',
     nivel: 'Operacional',
@@ -497,13 +497,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Estagiário contratado, contrato assinado e arquivado, e comunicação concluída com todas as áreas envolvidas',
     subprocessos: [
       {
-        id: 'rh-estagiarios-processo',
+        id: '11.12.1',
         nome: 'Abertura e condução do processo seletivo ou formalização do contrato',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Portal do CIEE', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-estagiarios-gestao',
+            id: '11.12.1.1',
             nome: 'Gestão do processo de contratação do estagiário',
             passos: [
               'Receber chamado via TopDesk com dados da vaga (atividades, carga horária, data de início)',
@@ -523,7 +523,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-onboarding',
+    id: 'RH-11.13',
     nome: 'Processo 11.13: Onboarding de Novos Colaboradores',
     descricao: 'Integração institucional de novos colaboradores',
     nivel: 'Tático',
@@ -533,13 +533,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Colaboradores integrados institucionalmente, com conhecimento da cultura e políticas da empresa e documentação arquivada',
     subprocessos: [
       {
-        id: 'rh-onboarding-planejamento',
+        id: '11.13.1',
         nome: 'Planejamento e execução da integração institucional',
         nivel: 'Operacional',
         ferramentas: ['Google Meet', 'PowerPoint', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-onboarding-integracao',
+            id: '11.13.1.1',
             nome: 'Condução da integração institucional',
             passos: [
               'Consultar a planilha de colaboradores ativos para identificar os recém-admitidos e datas de início',
@@ -559,7 +559,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-integracao-gestores',
+    id: 'RH-11.14',
     nome: 'Processo 11.14: Integração de Novos Gestores',
     descricao: 'Integração específica para novos gestores com foco em processos administrativos',
     nivel: 'Tático',
@@ -569,13 +569,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Gestores integrados, com compreensão dos processos administrativos da loja, documentos assinados e arquivados',
     subprocessos: [
       {
-        id: 'rh-integracao-planejamento',
+        id: '11.14.1',
         nome: 'Planejamento e execução da integração para novos gestores',
         nivel: 'Operacional',
         ferramentas: ['E-mail', 'Google Meet', 'Google Forms', 'WhatsApp'],
         tarefas: [
           {
-            id: 'rh-integracao-conducao',
+            id: '11.14.1.1',
             nome: 'Condução da integração',
             passos: [
               'Consultar planilha de novos gestores para verificar datas de início',
@@ -594,7 +594,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-biometria-backoffice',
+    id: 'RH-11.15',
     nome: 'Processo 11.15: Cadastro de Biometria para Acesso ao Prédio – Backoffice',
     descricao: 'Cadastro de biometria para controle de acesso de colaboradores do backoffice',
     nivel: 'Operacional',
@@ -604,13 +604,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Biometria cadastrada com sucesso, colaborador com acesso autorizado ao prédio',
     subprocessos: [
       {
-        id: 'rh-biometria-registro',
+        id: '11.15.1',
         nome: 'Registro e coleta de biometria',
         nivel: 'Operacional',
         ferramentas: ['Sistema de controle de acesso', 'Leitor biométrico'],
         tarefas: [
           {
-            id: 'rh-biometria-cadastro',
+            id: '11.15.1.1',
             nome: 'Realização do cadastro',
             passos: [
               'Acessar o sistema de controle de acesso',
@@ -628,7 +628,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-checklist-gestor',
+    id: 'RH-11.16',
     nome: 'Processo 11.16: Checklist do Gestor – Treinamentos em Loja',
     descricao: 'Acompanhamento dos treinamentos práticos executados pelo gestor com novo colaborador',
     nivel: 'Operacional',
@@ -638,13 +638,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Checklist preenchido e arquivado, comprovando a execução dos treinamentos em loja',
     subprocessos: [
       {
-        id: 'rh-checklist-acompanhamento',
+        id: '11.16.1',
         nome: 'Acompanhamento dos treinamentos práticos',
         nivel: 'Operacional',
         ferramentas: ['E-mail', 'WhatsApp'],
         tarefas: [
           {
-            id: 'rh-checklist-execucao',
+            id: '11.16.1.1',
             nome: 'Execução do checklist de treinamentos',
             passos: [
               'Regional entrega checklist ao gestor da loja após integração',
@@ -663,7 +663,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-gestao-uniforme',
+    id: 'RH-11.17',
     nome: 'Processo 11.17: Gestão de Uniforme',
     descricao: 'Planejamento, cotação e distribuição de uniformes corporativos',
     nivel: 'Tático',
@@ -673,13 +673,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Uniformes entregues, com data de início definida e comunicação efetuada',
     subprocessos: [
       {
-        id: 'rh-uniforme-planejamento',
+        id: '11.17.1',
         nome: 'Planejamento, cotação e distribuição',
         nivel: 'Operacional',
         ferramentas: ['Excel', 'E-mail', 'Sistema Mega'],
         tarefas: [
           {
-            id: 'rh-uniforme-coordenacao',
+            id: '11.17.1.1',
             nome: 'Coordenação da troca de uniforme',
             passos: [
               'Iniciar planejamento 3 meses antes, enviando planilha para preenchimento nas lojas (nome, cargo, tamanho)',
@@ -699,7 +699,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-avaliacao-experiencia',
+    id: 'RH-11.18',
     nome: 'Processo 11.18: Avaliação de Experiência de Novos Gestores e Colaboradores do BackOffice',
     descricao: 'Acompanhamento e avaliação de colaboradores em período de experiência',
     nivel: 'Tático',
@@ -709,13 +709,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Avaliações registradas, documentadas e utilizadas como base para monitoramento do desempenho inicial',
     subprocessos: [
       {
-        id: 'rh-avaliacao-coleta',
+        id: '11.18.1',
         nome: 'Coleta e registro das avaliações',
         nivel: 'Operacional',
         ferramentas: ['Google Forms', 'Excel', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-avaliacao-acompanhamento',
+            id: '11.18.1.1',
             nome: 'Acompanhamento dos períodos de 45 e 90 dias',
             passos: [
               'Consultar planilha de ativos para identificar colaboradores/gestores em experiência',
@@ -734,7 +734,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-planilhas-internas',
+    id: 'RH-11.19',
     nome: 'Processo 11.19: Atualização de Planilhas Internas do RH',
     descricao: 'Manutenção e atualização periódica das planilhas internas com dados dos colaboradores',
     nivel: 'Operacional',
@@ -744,13 +744,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Planilha RH atualizada e padronizada, servindo de base para outros processos internos e demandas de outros departamentos',
     subprocessos: [
       {
-        id: 'rh-planilhas-coleta',
+        id: '11.19.1',
         nome: 'Coleta e atualização das informações',
         nivel: 'Operacional',
         ferramentas: ['Sistema Senior', 'Excel'],
         tarefas: [
           {
-            id: 'rh-planilhas-atualizacao',
+            id: '11.19.1.1',
             nome: 'Atualização periódica da planilha RH',
             passos: [
               'Acessar o sistema Senior e gerar relatório por centro de custo (nº 118), filtrando por empresa (09, 101, 1200, 5000)',
@@ -770,7 +770,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-cotas-aprendiz',
+    id: 'RH-11.20',
     nome: 'Processo 11.20: Cotas de Jovem Aprendiz',
     descricao: 'Controle e manutenção das cotas de jovens aprendizes por loja',
     nivel: 'Operacional',
@@ -780,13 +780,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Diagnóstico atualizado das necessidades de reposição de jovens aprendizes por loja',
     subprocessos: [
       {
-        id: 'rh-cotas-manutencao',
+        id: '11.20.1',
         nome: 'Manutenção e análise mensal da planilha',
         nivel: 'Operacional',
         ferramentas: ['Planilha de Cotas (Excel)'],
         tarefas: [
           {
-            id: 'rh-cotas-atualizacao',
+            id: '11.20.1.1',
             nome: 'Atualização e uso da planilha de cotas',
             passos: [
               'Atualizar mensalmente a planilha com as informações das lojas e quantidade de aprendizes a repor',
@@ -802,7 +802,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-autorizacao-promocao',
+    id: 'RH-11.21',
     nome: 'Processo 11.21: Autorização de Promoção',
     descricao: 'Análise e autorização formal de promoções solicitadas',
     nivel: 'Tático',
@@ -812,13 +812,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Promoção autorizada, formalizada e comunicada à loja',
     subprocessos: [
       {
-        id: 'rh-autorizacao-analise',
+        id: '11.21.1',
         nome: 'Análise da Documentação',
         nivel: 'Operacional',
         ferramentas: ['TopDesk'],
         tarefas: [
           {
-            id: 'rh-autorizacao-conferencia',
+            id: '11.21.1.1',
             nome: 'Conferência dos documentos obrigatórios',
             passos: [
               'Verificar anexos do chamado: Ficha Curricular, Fale um Pouco Sobre Você, Redação, MP – Movimentação de Pessoal e Histórico Escolar'
@@ -827,13 +827,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-autorizacao-validacao',
+        id: '11.21.2',
         nome: 'Validação dos Requisitos',
         nivel: 'Operacional',
         ferramentas: ['TopDesk'],
         tarefas: [
           {
-            id: 'rh-autorizacao-elegibilidade',
+            id: '11.21.2.1',
             nome: 'Avaliação da elegibilidade',
             passos: [
               'Analisar a adequação salarial conforme política interna',
@@ -849,7 +849,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-comunicado-desligamento',
+    id: 'RH-11.22',
     nome: 'Processo 11.22: Envio de Comunicado de Desligamento',
     descricao: 'Comunicação formal de desligamentos para colaboradores com acesso estratégico',
     nivel: 'Operacional',
@@ -859,13 +859,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Comunicado de desligamento enviado, continuidade operacional garantida',
     subprocessos: [
       {
-        id: 'rh-comunicado-avaliacao',
+        id: '11.22.1',
         nome: 'Avaliação da Situação',
         nivel: 'Operacional',
         ferramentas: ['TopDesk'],
         tarefas: [
           {
-            id: 'rh-comunicado-verificacao',
+            id: '11.22.1.1',
             nome: 'Verificação dos dados no chamado',
             passos: [
               'Conferir: nome completo, função, data do desligamento, responsável temporário e e-mail do substituto'
@@ -874,13 +874,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-comunicado-elaboracao',
+        id: '11.22.2',
         nome: 'Elaboração e Envio',
         nivel: 'Operacional',
         ferramentas: ['E-mail'],
         tarefas: [
           {
-            id: 'rh-comunicado-formal',
+            id: '11.22.2.1',
             nome: 'Comunicação formal de desligamento',
             passos: [
               'Redigir e enviar o comunicado para: diretoria, regionais, gerentes de loja e gestores do backoffice'
@@ -895,7 +895,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-promocao-salarial',
+    id: 'RH-11.23',
     nome: 'Processo 11.23: Promoção Salarial',
     descricao: 'Processamento de alterações salariais no sistema',
     nivel: 'Operacional',
@@ -905,20 +905,20 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Salário atualizado no sistema, com registro rastreável e conforme políticas da empresa',
     subprocessos: [
       {
-        id: 'rh-salarial-validacao',
+        id: '11.23.1',
         nome: 'Validação de Informações',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Senior'],
         tarefas: [
           {
-            id: 'rh-salarial-conferencia',
+            id: '11.23.1.1',
             nome: 'Conferência dos dados no chamado',
             passos: [
               'Verificar: nome, registro, funções atual e nova, novo salário, e data de início da vigência'
             ]
           },
           {
-            id: 'rh-salarial-atualizacao',
+            id: '11.23.1.2',
             nome: 'Atualização no Sistema',
             passos: [
               'Acessar módulo de Administração de Pessoal, buscar colaborador e atualizar salário com motivo e vigência'
