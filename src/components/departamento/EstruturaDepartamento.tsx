@@ -1092,6 +1092,72 @@ const EstruturaDepartamento: React.FC<{
         </div>
       </div>;
   }
+
+  // Recursos Humanos / RH
+  if (departamentoNormalizado.includes('recursos-humanos') || departamentoNormalizado.includes('rh')) {
+    return (
+      <div className="p-8 bg-muted/30 min-h-screen">
+        {/* Estrutura do RH */}
+        <div className="max-w-6xl mx-auto">
+          
+          {/* Primeira linha - Gestora e Coordenadora */}
+          <div className="flex flex-col items-center gap-8 mb-12">
+            {/* Gestora RH */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[320px] max-w-[380px]">
+              <h2 className="text-2xl font-bold mb-2 tracking-wider">MARIA MACEDO</h2>
+              <div className="text-lg mb-4 font-medium tracking-wide">GESTORA RH</div>
+              <div className="text-sm mb-2">maria.macedo@grupooscar.com.br</div>
+              <div className="text-sm">(12) 99193-1537</div>
+            </div>
+
+            {/* Coordenadora */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[320px] max-w-[380px]">
+              <h2 className="text-2xl font-bold mb-2 tracking-wider">VIVIAN MARTINS</h2>
+              <div className="text-lg mb-4 font-medium tracking-wide">COORDENADORA</div>
+              <div className="text-sm mb-2">vivian.martins@grupooscar.com.br</div>
+              <div className="text-sm">Ramal: 4250</div>
+            </div>
+          </div>
+
+          {/* Segunda linha - Analistas e Assistente */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+            {/* Samara Silva */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
+              <h2 className="text-xl font-bold mb-2 tracking-wide">SAMARA SILVA</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <div className="text-sm mb-2">samara.silva@grupooscar.com.br</div>
+              <div className="text-sm">Ramal: 4252</div>
+            </div>
+
+            {/* Helen Ramos */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
+              <h2 className="text-xl font-bold mb-2 tracking-wide">HELEN RAMOS</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <div className="text-sm mb-2">helen.ramos@grupooscar.com.br</div>
+              <div className="text-sm">(51) 8050-0755</div>
+            </div>
+
+            {/* Ana Clara */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
+              <h2 className="text-xl font-bold mb-2 tracking-wide">ANA CLARA</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <div className="text-sm mb-2">ana.clara@grupooscar.com.br</div>
+              <div className="text-sm">Ramal: 4717</div>
+            </div>
+
+            {/* Giovana Medeiros */}
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
+              <h2 className="text-xl font-bold mb-2 tracking-wide">GIOVANA MEDEIROS</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">ASSISTENTE</div>
+              <div className="text-sm mb-2">rh@grupooscar.com.br</div>
+              <div className="text-sm">Ramal: 4236</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return <div className="p-6 text-center">
       <h2 className="text-2xl font-bold mb-4">Departamento: {departamento}</h2>
       <p className="text-gray-600 mb-4">Estrutura organizacional não disponível para este departamento.</p>
