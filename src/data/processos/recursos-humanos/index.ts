@@ -3,7 +3,7 @@ import { Users, Target, GraduationCap, FileText, BarChart3, Award, Calendar, Mes
 
 export const processosRecursosHumanos: ProcessoDetalhado[] = [
   {
-    id: 'rh-promocao',
+    id: 'RH-11.1',
     nome: 'Processo 11.1: Promoção (RH)',
     descricao: 'Processo de análise, aprovação e formalização de promoções de colaboradores',
     nivel: 'Tático',
@@ -13,13 +13,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Colaborador promovido com alterações salariais e registro em carteira, carta formal recebida e treinamento aplicado quando aplicável',
     subprocessos: [
       {
-        id: 'rh-promocao-analise',
+        id: '11.1.1',
         nome: 'Análise de RH – Promoção',
         nivel: 'Operacional',
         ferramentas: ['Senior', 'TopDesk'],
         tarefas: [
           {
-            id: 'rh-promocao-analise-inicial',
+            id: '11.1.1.1',
             nome: 'Recebimento e análise inicial',
             passos: [
               'Receber todos os pedidos de promoção no prazo de 01 a 10 de cada mês',
@@ -29,7 +29,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
             ]
           },
           {
-            id: 'rh-promocao-documentacao',
+            id: '11.1.1.2',
             nome: 'Documentação e testes (promoções aprovadas)',
             passos: [
               'Solicitar preenchimento dos templates conforme cargo',
@@ -39,14 +39,14 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
             ]
           },
           {
-            id: 'rh-promocao-aprovacao',
+            id: '11.1.1.3',
             nome: 'Aprovação final',
             passos: [
               'Enviar o processo completo para validação da coordenadora de RH'
             ]
           },
           {
-            id: 'rh-promocao-carta',
+            id: '11.1.1.4',
             nome: 'Criação da carta de promoção',
             passos: [
               'Gerar a carta de promoção (template do RH) e anexar no chamado',
@@ -56,13 +56,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-promocao-comunicacao-dp',
+        id: '11.1.2',
         nome: 'Comunicação ao DP',
         nivel: 'Operacional',
         ferramentas: ['Excel'],
         tarefas: [
           {
-            id: 'rh-promocao-atualizacao-dados',
+            id: '11.1.2.1',
             nome: 'Atualização de dados cadastrais',
             passos: [
               'Preencher planilha compartilhada com os dados de todos os promovidos para atualização de folha e registro em carteira'
@@ -77,7 +77,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-recrutamento-selecao',
+    id: 'RH-11.2',
     nome: 'Processo 11.2: Pedido de Recrutamento e Seleção – RH',
     descricao: 'Processo completo de recrutamento e seleção de candidatos para vagas',
     nivel: 'Tático',
@@ -87,13 +87,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Vaga divulgada, candidatos avaliados e aprovados, documentação enviada ao DP e integração organizada para o início do novo colaborador',
     subprocessos: [
       {
-        id: 'rh-recrutamento-job-description',
+        id: '11.2.1',
         nome: 'Estruturação do Job Description da Vaga',
         nivel: 'Operacional',
         ferramentas: ['Canva', 'Sólides', 'LinkedIn', 'Facebook', 'WhatsApp'],
         tarefas: [
           {
-            id: 'rh-recrutamento-divulgacao',
+            id: '11.2.1.1',
             nome: 'Divulgação da vaga',
             passos: [
               'Definir requisitos, responsabilidades e salário conforme política de cargos',
@@ -104,13 +104,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-recrutamento-triagem',
+        id: '11.2.2',
         nome: 'Triagem e Seleção',
         nivel: 'Operacional',
         ferramentas: ['E-mail', 'WhatsApp', 'Sólides'],
         tarefas: [
           {
-            id: 'rh-recrutamento-triagem-curriculos',
+            id: '11.2.2.1',
             nome: 'Triagem de currículos',
             passos: [
               'Realizar triagem de currículos recebidos via e-mail, WhatsApp e Sólides',
@@ -119,7 +119,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
             ]
           },
           {
-            id: 'rh-recrutamento-entrevistas',
+            id: '11.2.2.2',
             nome: 'Entrevistas e seleção final',
             passos: [
               'Agendar entrevistas com gestores e aplicar testes (quando necessário)',
@@ -137,7 +137,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-divulgacao-vagas-loja',
+    id: 'RH-11.3',
     nome: 'Processo 11.3: Divulgação de Vagas Loja',
     descricao: 'Processo de divulgação de vagas específicas para lojas',
     nivel: 'Operacional',
@@ -147,13 +147,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Vaga divulgada conforme solicitação; a captação de currículos é responsabilidade da loja',
     subprocessos: [
       {
-        id: 'rh-divulgacao-estruturacao',
+        id: '11.3.1',
         nome: 'Estruturação do Job Description da Vaga',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Sólides', 'Canva', 'E-mail', 'WhatsApp', 'LinkedIn', 'Facebook'],
         tarefas: [
           {
-            id: 'rh-divulgacao-publicacao',
+            id: '11.3.1.1',
             nome: 'Divulgação da vaga',
             passos: [
               'Definir requisitos, responsabilidades e salário conforme política de cargos',
@@ -170,7 +170,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-entrevista-desligamento',
+    id: 'RH-11.4',
     nome: 'Processo 11.4: Entrevista de Desligamento',
     descricao: 'Aplicação de entrevista de desligamento para coleta de feedback',
     nivel: 'Operacional',
@@ -180,13 +180,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Entrevista de desligamento aplicada e registrada para análise de dados',
     subprocessos: [
       {
-        id: 'rh-entrevista-acompanhamento',
+        id: '11.4.1',
         nome: 'Acompanhamento de desligamento',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Formulário Google', 'E-mail', 'WhatsApp'],
         tarefas: [
           {
-            id: 'rh-entrevista-aplicacao',
+            id: '11.4.1.1',
             nome: 'Aplicação da entrevista de desligamento',
             passos: [
               'Reservar sala de reunião para aplicação da entrevista, conforme data e horário informados pelo gestor',
@@ -202,7 +202,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-indicadores-mensais',
+    id: 'RH-11.5',
     nome: 'Processo 11.5: Elaboração de Indicadores Mensais',
     descricao: 'Consolidação de indicadores de desligamento, turnover e absenteísmo',
     nivel: 'Tático',
@@ -212,13 +212,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Indicadores de desligamento, turnover e absenteísmo consolidados e enviados à diretoria',
     subprocessos: [
       {
-        id: 'rh-indicadores-entrevista',
+        id: '11.5.1',
         nome: 'Entrevista de desligamento (cobrança e registro)',
         nivel: 'Operacional',
         ferramentas: ['Google Forms'],
         tarefas: [
           {
-            id: 'rh-indicadores-transformar-dados',
+            id: '11.5.1.1',
             nome: 'Transformar dados de entrevistas de desligamento em indicadores',
             passos: [
               'Cobrar regionais das lojas que não aplicaram entrevistas de desligamento',
@@ -229,13 +229,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-indicadores-turnover',
+        id: '11.5.2',
         nome: 'Turnover e absenteísmo',
         nivel: 'Operacional',
         ferramentas: ['Senior', 'Power BI', 'Canva'],
         tarefas: [
           {
-            id: 'rh-indicadores-relatorio',
+            id: '11.5.2.1',
             nome: 'Transformação de dados da Senior e Power BI',
             passos: [
               'Criar relatório no Canva com base nos dados da Senior e Power BI',
@@ -252,7 +252,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-avaliacao-desempenho',
+    id: 'RH-11.6',
     nome: 'Processo 11.6: Avaliação de Desempenho Anual',
     descricao: 'Estruturação e aplicação da avaliação de desempenho anual dos colaboradores',
     nivel: 'Tático',
@@ -262,20 +262,20 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Avaliação de desempenho estruturada, aplicada e acompanhada, com dados disponíveis para análises e planos de desenvolvimento',
     subprocessos: [
       {
-        id: 'rh-avaliacao-estrutura',
+        id: '11.6.1',
         nome: 'Estrutura de Avaliação de Desempenho',
         nivel: 'Tático',
         ferramentas: ['Sólides'],
         tarefas: [
           {
-            id: 'rh-avaliacao-configuracao',
+            id: '11.6.1.1',
             nome: 'Configuração da estrutura na plataforma Sólides',
             passos: [
               'Configurar a estrutura de avaliação com base nas competências pré-determinadas pela gerência de RH e diretoria'
             ]
           },
           {
-            id: 'rh-avaliacao-avaliadores',
+            id: '11.6.1.2',
             nome: 'Configuração de avaliadores e avaliados',
             passos: [
               'Configurar os avaliadores e avaliados na plataforma',
@@ -284,7 +284,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
             ]
           },
           {
-            id: 'rh-avaliacao-treinamento',
+            id: '11.6.1.3',
             nome: 'Treinamento dos participantes',
             passos: [
               'Definir datas e horários para treinamento dos colaboradores e gestores',
@@ -292,7 +292,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
             ]
           },
           {
-            id: 'rh-avaliacao-disparo',
+            id: '11.6.1.4',
             nome: 'Disparo da Avaliação de Desempenho',
             passos: [
               'Enviar avaliação aos colaboradores e gestores',
@@ -308,7 +308,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-9box',
+    id: 'RH-11.7',
     nome: 'Processo 11.7: 9BOX',
     descricao: 'Elaboração da matriz 9BOX para categorização de colaboradores por performance e comportamento',
     nivel: 'Tático',
@@ -318,13 +318,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Relatórios 9BOX elaborados por diretoria e regional, subsidiando planos de sucessão e desenvolvimento de talentos',
     subprocessos: [
       {
-        id: 'rh-9box-elaboracao',
+        id: '11.7.1',
         nome: 'Elaboração do 9BOX',
         nivel: 'Tático',
         ferramentas: ['Sólides', 'Excel', 'Canva'],
         tarefas: [
           {
-            id: 'rh-9box-aplicacao',
+            id: '11.7.1.1',
             nome: 'Aplicação da matriz 9BOX',
             passos: [
               'Aplicar matriz 9BOX com os gestores, utilizando os resultados da avaliação de desempenho',
@@ -341,7 +341,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-treinamento-gerencia',
+    id: 'RH-11.8',
     nome: 'Processo 11.8: Treinamento para Gerência de Loja',
     descricao: 'Capacitação de gerentes em temas de RH e DP',
     nivel: 'Tático',
@@ -351,13 +351,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Treinamentos elaborados e aplicados, com indicadores de presença e aproveitamento consolidados',
     subprocessos: [
       {
-        id: 'rh-treinamento-gestao',
+        id: '11.8.1',
         nome: 'Gestão de treinamentos de RH e DP aplicados nas lojas',
         nivel: 'Operacional',
         ferramentas: ['Excel', 'PowerPoint', 'Canva', 'WhatsApp', 'Google Meet'],
         tarefas: [
           {
-            id: 'rh-treinamento-organizacao',
+            id: '11.8.1.1',
             nome: 'Organização e aplicação de treinamentos',
             passos: [
               'Elaborar conteúdos de treinamento relacionados aos processos e sistemas de RH e Departamento Pessoal',
@@ -376,7 +376,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-admissao-senac',
+    id: 'RH-11.9',
     nome: 'Processo 11.9: Admissão Jovem Aprendiz – SENAC',
     descricao: 'Processo de admissão de jovens aprendizes via SENAC',
     nivel: 'Operacional',
@@ -386,13 +386,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Jovem aprendiz contratado, matriculado, documentado, registrado no sistema e integrado à equipe da loja',
     subprocessos: [
       {
-        id: 'rh-senac-verificacao',
+        id: '11.9.1',
         nome: 'Verificação de Turmas',
         nivel: 'Operacional',
         ferramentas: ['E-mail'],
         tarefas: [
           {
-            id: 'rh-senac-disponibilidade',
+            id: '11.9.1.1',
             nome: 'Verificação de disponibilidade no SENAC',
             passos: [
               'Entrar em contato com o SENAC por e-mail',
@@ -402,13 +402,13 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       },
       {
-        id: 'rh-senac-acionamento',
+        id: '11.9.2',
         nome: 'Acionamento do Gestor da Loja',
         nivel: 'Operacional',
         ferramentas: ['E-mail', 'WhatsApp'],
         tarefas: [
           {
-            id: 'rh-senac-comunicacao',
+            id: '11.9.2.1',
             nome: 'Comunicação com o gestor para iniciar seleção',
             passos: [
               'Informar gestor sobre turmas disponíveis',

@@ -1,0 +1,50 @@
+// Script to update RH process IDs systematically
+// This maps the old IDs to new numbered IDs
+
+const idMapping = {
+  // Main processes
+  'rh-promocao': 'RH-11.1',
+  'rh-recrutamento-selecao': 'RH-11.2',
+  'rh-divulgacao-vagas-loja': 'RH-11.3',
+  'rh-entrevista-desligamento': 'RH-11.4',
+  'rh-indicadores-mensais': 'RH-11.5',
+  'rh-avaliacao-desempenho': 'RH-11.6',
+  'rh-9box': 'RH-11.7',
+  'rh-treinamento-gerencia': 'RH-11.8',
+  'rh-admissao-senac': 'RH-11.9',
+  'rh-admissao-ciee': 'RH-11.10',
+  'rh-admissao-fundhas': 'RH-11.11',
+  'rh-contratacao-estagiarios': 'RH-11.12',
+  'rh-onboarding': 'RH-11.13',
+  'rh-integracao-gestores': 'RH-11.14',
+  'rh-biometria-backoffice': 'RH-11.15',
+  'rh-checklist-gestor': 'RH-11.16',
+  'rh-gestao-uniforme': 'RH-11.17',
+  'rh-avaliacao-experiencia': 'RH-11.18',
+  'rh-planilhas-internas': 'RH-11.19',
+  'rh-cotas-aprendiz': 'RH-11.20',
+  'rh-autorizacao-promocao': 'RH-11.21',
+  'rh-comunicado-desligamento': 'RH-11.22',
+  'rh-promocao-salarial': 'RH-11.23',
+  'rh-transferencia-centro-custo': 'RH-11.24',
+  'rh-treinamento-gestores': 'RH-11.25',
+  'rh-visita-lojas': 'RH-11.26',
+  'rh-promocao-encarregado': 'RH-11.27',
+  'rh-evento-diretrizes': 'RH-11.28',
+  'rh-trilhamento-senac': 'RH-11.29',
+  'rh-despesas-mega': 'RH-11.30',
+  'rh-pit-inovacao': 'RH-11.31',
+  'rh-peg-excelencia': 'RH-11.32',
+  'rh-capacitacao-lideranca': 'RH-11.33',
+  'rh-gamificacao-vendas': 'RH-11.34',
+  'rh-comunicacao-interna': 'RH-11.35',
+  'rh-pesquisa-clima': 'RH-11.36',
+  'rh-quadro-vagas': 'RH-11.37',
+  'rh-controle-documentos': 'RH-11.38',
+  'rh-gestao-talentos': 'RH-11.39',
+  'rh-desenvolvimento-carreira': 'RH-11.40',
+  'rh-wellbeing': 'RH-11.41',
+  'rh-compliance-trabalhista': 'RH-11.42'
+};
+
+console.log('ID mapping for RH processes:', idMapping);
