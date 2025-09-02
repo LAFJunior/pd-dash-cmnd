@@ -16,6 +16,7 @@ import { processosCompras } from '@/data/processos/compras';
 import { processosAuditoria, processosAuditor, processosConferente } from '@/data/processos/auditoria';
 import { processosContabil } from '@/data/processos/contabil';
 import { processosDepartamentoPessoal } from '@/data/processos/departamento-pessoal';
+import { processosRecursosHumanos } from '@/data/processos/recursos-humanos';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
