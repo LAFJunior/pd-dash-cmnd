@@ -8,7 +8,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de análise, aprovação e formalização de promoções de colaboradores',
     nivel: 'Tático',
     icon: TrendingUp,
-    cor: '#8B5CF6',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de promoção via chamado no TopDesk',
     saida: 'Colaborador promovido com alterações salariais e registro em carteira, carta formal recebida e treinamento aplicado quando aplicável',
     subprocessos: [
@@ -82,7 +82,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo completo de recrutamento e seleção de candidatos para vagas',
     nivel: 'Tático',
     icon: Target,
-    cor: '#10B981',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de contratação recebida via chamado no TopDesk (aba "Contratação")',
     saida: 'Vaga divulgada, candidatos avaliados e aprovados, documentação enviada ao DP e integração organizada para o início do novo colaborador',
     subprocessos: [
@@ -142,7 +142,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de divulgação de vagas específicas para lojas',
     nivel: 'Operacional',
     icon: Megaphone,
-    cor: '#F59E0B',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de divulgação de vaga recebida via chamado no TopDesk',
     saida: 'Vaga divulgada conforme solicitação; a captação de currículos é responsabilidade da loja',
     subprocessos: [
@@ -175,7 +175,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Aplicação de entrevista de desligamento para coleta de feedback',
     nivel: 'Operacional',
     icon: MessageSquare,
-    cor: '#EF4444',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de entrevista de desligamento recebida via e-mail ou chamado no TopDesk',
     saida: 'Entrevista de desligamento aplicada e registrada para análise de dados',
     subprocessos: [
@@ -207,7 +207,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Consolidação de indicadores de desligamento, turnover e absenteísmo',
     nivel: 'Estratégico',
     icon: BarChart3,
-    cor: '#3B82F6',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação da diretoria (atividade mensal)',
     saida: 'Indicadores de desligamento, turnover e absenteísmo consolidados e enviados à diretoria',
     subprocessos: [
@@ -257,7 +257,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Estruturação e aplicação da avaliação de desempenho anual dos colaboradores',
     nivel: 'Estratégico',
     icon: Award,
-    cor: '#8B5CF6',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação da diretoria (atividade anual)',
     saida: 'Avaliação de desempenho estruturada, aplicada e acompanhada, com dados disponíveis para análises e planos de desenvolvimento',
     subprocessos: [
@@ -313,7 +313,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Elaboração da matriz 9BOX para categorização de colaboradores por performance e comportamento',
     nivel: 'Estratégico',
     icon: PieChart,
-    cor: '#06B6D4',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Dados consolidados da Avaliação de Desempenho',
     saida: 'Relatórios 9BOX elaborados por diretoria e regional, subsidiando planos de sucessão e desenvolvimento de talentos',
     subprocessos: [
@@ -346,7 +346,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Capacitação de gerentes em temas de RH e DP',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: '#10B981',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Necessidade de capacitação em temas de RH e DP',
     saida: 'Treinamentos elaborados e aplicados, com indicadores de presença e aproveitamento consolidados',
     subprocessos: [
