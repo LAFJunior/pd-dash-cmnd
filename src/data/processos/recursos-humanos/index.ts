@@ -8,7 +8,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de análise, aprovação e formalização de promoções de colaboradores',
     nivel: 'Tático',
     icon: TrendingUp,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de promoção via chamado no TopDesk',
     saida: 'Colaborador promovido com alterações salariais e registro em carteira, carta formal recebida e treinamento aplicado quando aplicável',
     subprocessos: [
@@ -82,7 +82,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo completo de recrutamento e seleção de candidatos para vagas',
     nivel: 'Tático',
     icon: Target,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de contratação recebida via chamado no TopDesk (aba "Contratação")',
     saida: 'Vaga divulgada, candidatos avaliados e aprovados, documentação enviada ao DP e integração organizada para o início do novo colaborador',
     subprocessos: [
@@ -142,7 +142,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de divulgação de vagas específicas para lojas',
     nivel: 'Operacional',
     icon: Megaphone,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de divulgação de vaga recebida via chamado no TopDesk',
     saida: 'Vaga divulgada conforme solicitação; a captação de currículos é responsabilidade da loja',
     subprocessos: [
@@ -175,7 +175,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Aplicação de entrevista de desligamento para coleta de feedback',
     nivel: 'Operacional',
     icon: MessageSquare,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação de entrevista de desligamento recebida via e-mail ou chamado no TopDesk',
     saida: 'Entrevista de desligamento aplicada e registrada para análise de dados',
     subprocessos: [
@@ -207,7 +207,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Consolidação de indicadores de desligamento, turnover e absenteísmo',
     nivel: 'Tático',
     icon: BarChart3,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação da diretoria (atividade mensal)',
     saida: 'Indicadores de desligamento, turnover e absenteísmo consolidados e enviados à diretoria',
     subprocessos: [
@@ -257,7 +257,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Estruturação e aplicação da avaliação de desempenho anual dos colaboradores',
     nivel: 'Tático',
     icon: Award,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação da diretoria (atividade anual)',
     saida: 'Avaliação de desempenho estruturada, aplicada e acompanhada, com dados disponíveis para análises e planos de desenvolvimento',
     subprocessos: [
@@ -313,7 +313,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Elaboração da matriz 9BOX para categorização de colaboradores por performance e comportamento',
     nivel: 'Tático',
     icon: PieChart,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Dados consolidados da Avaliação de Desempenho',
     saida: 'Relatórios 9BOX elaborados por diretoria e regional, subsidiando planos de sucessão e desenvolvimento de talentos',
     subprocessos: [
@@ -346,7 +346,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Capacitação de gerentes em temas de RH e DP',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Necessidade de capacitação em temas de RH e DP',
     saida: 'Treinamentos elaborados e aplicados, com indicadores de presença e aproveitamento consolidados',
     subprocessos: [
@@ -381,7 +381,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de admissão de jovens aprendizes via SENAC',
     nivel: 'Operacional',
     icon: UserPlus,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Necessidade de reposição de aprendiz, identificada por meio da planilha mensal de controle de cotas de jovens aprendizes',
     saida: 'Jovem aprendiz contratado, matriculado, documentado, registrado no sistema e integrado à equipe da loja',
     subprocessos: [
@@ -429,7 +429,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de admissão de jovens aprendizes via CIEE',
     nivel: 'Operacional',
     icon: UserPlus,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Necessidade de reposição de aprendiz, identificada por meio da planilha de controle de cotas atualizada',
     saida: 'Jovem aprendiz contratado formalmente, matriculado, com contrato assinado, documentação registrada e integrado à equipe da loja',
     subprocessos: [
@@ -461,7 +461,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de admissão de jovens aprendizes via FUNDHAS',
     nivel: 'Operacional',
     icon: UserPlus,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Identificação de vaga aberta para aprendiz na loja',
     saida: 'Jovem aprendiz contratado, com matrícula confirmada, documentação assinada e integrado à loja',
     subprocessos: [
@@ -492,7 +492,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo de contratação de estagiários via CIEE',
     nivel: 'Operacional',
     icon: Briefcase,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Solicitação de contratação feita pelo gestor/loja via chamado na plataforma TopDesk',
     saida: 'Estagiário contratado, contrato assinado e arquivado, e comunicação concluída com todas as áreas envolvidas',
     subprocessos: [
@@ -528,7 +528,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Integração institucional de novos colaboradores',
     nivel: 'Tático',
     icon: UserCheck,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Confirmação de nova admissão, identificada por meio da atualização da planilha de colaboradores ativos, com indicação da data de início',
     saida: 'Colaboradores integrados institucionalmente, com conhecimento da cultura e políticas da empresa e documentação arquivada',
     subprocessos: [
@@ -564,7 +564,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Integração específica para novos gestores com foco em processos administrativos',
     nivel: 'Tático',
     icon: Users,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Atualização da planilha de novos gestores, com nomes e datas de início',
     saida: 'Gestores integrados, com compreensão dos processos administrativos da loja, documentos assinados e arquivados',
     subprocessos: [
@@ -599,7 +599,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Cadastro de biometria para controle de acesso de colaboradores do backoffice',
     nivel: 'Operacional',
     icon: Shield,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Início do colaborador no backoffice, com dados disponíveis para registro no sistema de acesso',
     saida: 'Biometria cadastrada com sucesso, colaborador com acesso autorizado ao prédio',
     subprocessos: [
@@ -633,7 +633,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Acompanhamento dos treinamentos práticos executados pelo gestor com novo colaborador',
     nivel: 'Operacional',
     icon: CheckCircle,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Conclusão da integração institucional e início do colaborador na loja',
     saida: 'Checklist preenchido e arquivado, comprovando a execução dos treinamentos em loja',
     subprocessos: [
@@ -668,7 +668,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Planejamento, cotação e distribuição de uniformes corporativos',
     nivel: 'Tático',
     icon: Settings,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Início do planejamento da troca de coleção de uniformes',
     saida: 'Uniformes entregues, com data de início definida e comunicação efetuada',
     subprocessos: [
@@ -704,7 +704,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Acompanhamento e avaliação de colaboradores em período de experiência',
     nivel: 'Tático',
     icon: Clock,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Identificação de novos colaboradores e gestores via planilha de ativos e controle de datas de admissão',
     saida: 'Avaliações registradas, documentadas e utilizadas como base para monitoramento do desempenho inicial',
     subprocessos: [
@@ -739,7 +739,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Manutenção e atualização periódica das planilhas internas com dados dos colaboradores',
     nivel: 'Operacional',
     icon: FileText,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Necessidade de manter dados atualizados dos colaboradores do Grupo Oscar',
     saida: 'Planilha RH atualizada e padronizada, servindo de base para outros processos internos e demandas de outros departamentos',
     subprocessos: [
@@ -775,7 +775,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Controle e manutenção das cotas de jovens aprendizes por loja',
     nivel: 'Operacional',
     icon: Users,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Dados atualizados sobre aprendizes e necessidades de reposição por loja',
     saida: 'Diagnóstico atualizado das necessidades de reposição de jovens aprendizes por loja',
     subprocessos: [
@@ -807,7 +807,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Análise e autorização formal de promoções solicitadas',
     nivel: 'Tático',
     icon: TrendingUp,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Recebimento de solicitações de promoção via chamado no sistema TopDesk',
     saida: 'Promoção autorizada, formalizada e comunicada à loja',
     subprocessos: [
@@ -854,7 +854,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Comunicação formal de desligamentos para colaboradores com acesso estratégico',
     nivel: 'Operacional',
     icon: Mail,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Solicitação recebida via chamado TopDesk para colaborador com acesso estratégico',
     saida: 'Comunicado de desligamento enviado, continuidade operacional garantida',
     subprocessos: [
@@ -900,7 +900,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processamento de alterações salariais no sistema',
     nivel: 'Operacional',
     icon: DollarSign,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Solicitação de diretores ou gerentes via chamado no TopDesk',
     saida: 'Salário atualizado no sistema, com registro rastreável e conforme políticas da empresa',
     subprocessos: [
@@ -938,7 +938,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processamento de transferências de colaboradores entre centros de custo',
     nivel: 'Operacional',
     icon: MapPin,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Solicitação feita por gerente regional ou diretor via chamado no TopDesk',
     saida: 'Transferência efetivada com rastreabilidade, sem impacto contábil imprevisto',
     subprocessos: [
@@ -971,7 +971,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Capacitação de gestores em temas técnicos e comportamentais',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Identificação de necessidade por RH e gestores',
     saida: 'Gestores treinados, registros arquivados e feedback consolidado para melhorias contínuas',
     subprocessos: [
@@ -1017,7 +1017,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Visitas estratégicas às lojas para acolhimento e alinhamento',
     nivel: 'Tático',
     icon: MapPin,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Planejamento estratégico conforme necessidade local',
     saida: 'Vínculo fortalecido com a operação, escuta ativa e ajustes baseados nas visitas',
     subprocessos: [
@@ -1064,7 +1064,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processo específico para promoção de colaboradores a encarregado de loja',
     nivel: 'Tático',
     icon: Users,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Solicitação via chamado no TopDesk feita pelo gestor direto',
     saida: 'Promoção formalizada com análise técnica e comportamental, e plano de desenvolvimento definido',
     subprocessos: [
@@ -1110,7 +1110,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Organização do evento anual de diretrizes da empresa',
     nivel: 'Tático',
     icon: PartyPopper,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Início do planejamento em agosto para realização no início do ano seguinte',
     saida: 'Evento institucional realizado com alinhamento estratégico e reconhecimento de colaboradores',
     subprocessos: [
@@ -1149,7 +1149,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Organização do programa de trilhamento para lideranças via SENAC',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Planejamento em setembro do ano anterior',
     saida: 'Programa concluído com alto índice de participação, desenvolvimento de lideranças e continuidade garantida',
     subprocessos: [
@@ -1187,7 +1187,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Gestão de despesas departamentais no sistema Mega',
     nivel: 'Operacional',
     icon: DollarSign,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Recebimento mensal dos boletos do departamento',
     saida: 'Despesas cadastradas corretamente, com aprovação segura e dentro do prazo',
     subprocessos: [
@@ -1220,7 +1220,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Coordenação do programa anual de inovação e transformação',
     nivel: 'Estratégico',
     icon: Zap,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início do ciclo anual do programa com definição do calendário e revisão do regulamento',
     saida: 'Projeto vencedor premiado e encaminhado para implementação; ciclo encerrado com registro completo',
     subprocessos: [
@@ -1253,7 +1253,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Gestão do programa de excelência com indicadores de performance',
     nivel: 'Estratégico',
     icon: Star,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início do ciclo semestral com definição de indicadores',
     saida: 'Premiação distribuída conforme desempenho e critérios definidos',
     subprocessos: [
@@ -1300,7 +1300,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Gestão do programa de excelência em serviços',
     nivel: 'Tático',
     icon: Award,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início de ciclo com definição de indicadores',
     saida: 'Resultado validado, registrado e compartilhado internamente com reconhecimento à equipe',
     subprocessos: [
@@ -1333,7 +1333,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Reconhecimento de colaboradores por tempo de serviço',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Colaboradores completando múltiplos de 5 anos de empresa',
     saida: 'Colaboradores homenageados com entrega simbólica e/ou financeira',
     subprocessos: [
@@ -1366,7 +1366,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Programa de incentivo à indicação de colaboradores',
     nivel: 'Operacional',
     icon: Users,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Indicação bem-sucedida de novo colaborador',
     saida: 'Bonificação liberada ao colaborador após aprovação da indicação',
     subprocessos: [
@@ -1432,7 +1432,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Processamento de alterações de centro de custo via sistema',
     nivel: 'Operacional',
     icon: Settings,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Solicitação via chamado TopDesk pelo Gerente Regional',
     saida: 'Alteração formalizada, respeitando o quadro e orçamento vigente',
     subprocessos: [
@@ -1567,7 +1567,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     descricao: 'Coordenação e atualização dos benefícios corporativos',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'hsl(var(--purple-primary))',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Necessidade de atualização e comunicação sobre benefícios',
     saida: 'Benefícios atualizados, bem comunicados e alinhados com fornecedores',
     subprocessos: [
