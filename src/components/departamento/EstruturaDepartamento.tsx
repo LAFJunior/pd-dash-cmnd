@@ -1094,7 +1094,7 @@ const EstruturaDepartamento: React.FC<{
   }
 
   // Recursos Humanos / RH
-  if (departamentoNormalizado.includes('recursos-humanos') || departamentoNormalizado.includes('rh')) {
+  if (departamentoNormalizado.includes('recursos-humanos') || departamentoNormalizado.includes('recursos humanos') || departamentoNormalizado.includes('rh')) {
     return (
       <div className="p-8 bg-muted/30 min-h-screen">
         {/* Estrutura do RH */}
