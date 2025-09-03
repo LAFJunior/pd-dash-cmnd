@@ -4,7 +4,7 @@ import { Users, Target, GraduationCap, FileText, BarChart3, Award, Calendar, Mes
 export const processosRecursosHumanos: ProcessoDetalhado[] = [
   {
     id: 'RH-11.1',
-    nome: 'Processo 11.1: Promoção (RH)',
+    nome: 'Promoção (RH)',
     descricao: 'Processo de análise, aprovação e formalização de promoções de colaboradores',
     nivel: 'Tático',
     icon: TrendingUp,
@@ -78,7 +78,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.2',
-    nome: 'Processo 11.2: Pedido de Recrutamento e Seleção – RH',
+    nome: 'Pedido de Recrutamento e Seleção – RH',
     descricao: 'Processo completo de recrutamento e seleção de candidatos para vagas',
     nivel: 'Tático',
     icon: Target,
@@ -138,7 +138,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.3',
-    nome: 'Processo 11.3: Divulgação de Vagas Loja',
+    nome: 'Divulgação de Vagas Loja',
     descricao: 'Processo de divulgação de vagas específicas para lojas',
     nivel: 'Operacional',
     icon: Megaphone,
@@ -171,7 +171,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.4',
-    nome: 'Processo 11.4: Entrevista de Desligamento',
+    nome: 'Entrevista de Desligamento',
     descricao: 'Aplicação de entrevista de desligamento para coleta de feedback',
     nivel: 'Operacional',
     icon: MessageSquare,
@@ -203,7 +203,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.5',
-    nome: 'Processo 11.5: Elaboração de Indicadores Mensais',
+    nome: 'Elaboração de Indicadores Mensais',
     descricao: 'Consolidação de indicadores de desligamento, turnover e absenteísmo',
     nivel: 'Tático',
     icon: BarChart3,
@@ -253,7 +253,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.6',
-    nome: 'Processo 11.6: Avaliação de Desempenho Anual',
+    nome: 'Avaliação de Desempenho Anual',
     descricao: 'Estruturação e aplicação da avaliação de desempenho anual dos colaboradores',
     nivel: 'Tático',
     icon: Award,
@@ -309,7 +309,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.7',
-    nome: 'Processo 11.7: 9BOX',
+    nome: '9BOX',
     descricao: 'Elaboração da matriz 9BOX para categorização de colaboradores por performance e comportamento',
     nivel: 'Tático',
     icon: PieChart,
@@ -342,7 +342,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.8',
-    nome: 'Processo 11.8: Treinamento para Gerência de Loja',
+    nome: 'Treinamento para Gerência de Loja',
     descricao: 'Capacitação de gerentes em temas de RH e DP',
     nivel: 'Tático',
     icon: GraduationCap,
@@ -377,7 +377,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.9',
-    nome: 'Processo 11.9: Admissão Jovem Aprendiz – SENAC',
+    nome: 'Admissão Jovem Aprendiz – SENAC',
     descricao: 'Processo de admissão de jovens aprendizes via SENAC',
     nivel: 'Operacional',
     icon: UserPlus,
@@ -425,7 +425,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.10',
-    nome: 'Processo 11.10: Admissão Jovem Aprendiz – CIEE',
+    nome: 'Admissão Jovem Aprendiz – CIEE',
     descricao: 'Processo de admissão de jovens aprendizes via CIEE',
     nivel: 'Operacional',
     icon: UserPlus,
@@ -457,7 +457,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.11',
-    nome: 'Processo 11.11: Admissão Jovem Aprendiz – FUNDHAS',
+    nome: 'Admissão Jovem Aprendiz – FUNDHAS',
     descricao: 'Processo de admissão de jovens aprendizes via FUNDHAS',
     nivel: 'Operacional',
     icon: UserPlus,
@@ -488,7 +488,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.12',
-    nome: 'Processo 11.12: Contratação de Estagiários',
+    nome: 'Contratação de Estagiários',
     descricao: 'Processo de contratação de estagiários via CIEE',
     nivel: 'Operacional',
     icon: Briefcase,
@@ -524,7 +524,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.13',
-    nome: 'Processo 11.13: Onboarding de Novos Colaboradores',
+    nome: 'Onboarding de Novos Colaboradores',
     descricao: 'Integração institucional de novos colaboradores',
     nivel: 'Tático',
     icon: UserCheck,
@@ -560,7 +560,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.14',
-    nome: 'Processo 11.14: Integração de Novos Gestores',
+    nome: 'Integração de Novos Gestores',
     descricao: 'Integração específica para novos gestores com foco em processos administrativos',
     nivel: 'Tático',
     icon: Users,
@@ -595,7 +595,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.15',
-    nome: 'Processo 11.15: Cadastro de Biometria para Acesso ao Prédio – Backoffice',
+    nome: 'Cadastro de Biometria para Acesso ao Prédio – Backoffice',
     descricao: 'Cadastro de biometria para controle de acesso de colaboradores do backoffice',
     nivel: 'Operacional',
     icon: Shield,
@@ -629,7 +629,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.16',
-    nome: 'Processo 11.16: Checklist do Gestor – Treinamentos em Loja',
+    nome: 'Checklist do Gestor – Treinamentos em Loja',
     descricao: 'Acompanhamento dos treinamentos práticos executados pelo gestor com novo colaborador',
     nivel: 'Operacional',
     icon: CheckCircle,
@@ -664,7 +664,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.17',
-    nome: 'Processo 11.17: Gestão de Uniforme',
+    nome: 'Gestão de Uniforme',
     descricao: 'Planejamento, cotação e distribuição de uniformes corporativos',
     nivel: 'Tático',
     icon: Settings,
@@ -700,7 +700,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.18',
-    nome: 'Processo 11.18: Avaliação de Experiência de Novos Gestores e Colaboradores do BackOffice',
+    nome: 'Avaliação de Experiência de Novos Gestores e Colaboradores do BackOffice',
     descricao: 'Acompanhamento e avaliação de colaboradores em período de experiência',
     nivel: 'Tático',
     icon: Clock,
@@ -735,7 +735,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.19',
-    nome: 'Processo 11.19: Atualização de Planilhas Internas do RH',
+    nome: 'Atualização de Planilhas Internas do RH',
     descricao: 'Manutenção e atualização periódica das planilhas internas com dados dos colaboradores',
     nivel: 'Operacional',
     icon: FileText,
@@ -771,7 +771,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.20',
-    nome: 'Processo 11.20: Cotas de Jovem Aprendiz',
+    nome: 'Cotas de Jovem Aprendiz',
     descricao: 'Controle e manutenção das cotas de jovens aprendizes por loja',
     nivel: 'Operacional',
     icon: Users,
@@ -803,7 +803,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.21',
-    nome: 'Processo 11.21: Autorização de Promoção',
+    nome: 'Autorização de Promoção',
     descricao: 'Análise e autorização formal de promoções solicitadas',
     nivel: 'Tático',
     icon: TrendingUp,
@@ -850,7 +850,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.22',
-    nome: 'Processo 11.22: Envio de Comunicado de Desligamento',
+    nome: 'Envio de Comunicado de Desligamento',
     descricao: 'Comunicação formal de desligamentos para colaboradores com acesso estratégico',
     nivel: 'Operacional',
     icon: Mail,
@@ -896,7 +896,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.23',
-    nome: 'Processo 11.23: Promoção Salarial',
+    nome: 'Promoção Salarial',
     descricao: 'Processamento de alterações salariais no sistema',
     nivel: 'Operacional',
     icon: DollarSign,
@@ -934,7 +934,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.24',
-    nome: 'Processo 11.24: Transferência de Centro de Custo',
+    nome: 'Transferência de Centro de Custo',
     descricao: 'Processamento de transferências de colaboradores entre centros de custo',
     nivel: 'Operacional',
     icon: MapPin,
@@ -968,11 +968,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.25',
-    nome: 'Processo 11.25: Treinamento de Gestores',
+    nome: 'Treinamento de Gestores',
     descricao: 'Capacitação de gestores em temas técnicos e comportamentais',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Identificação de necessidade por RH e gestores',
     saida: 'Gestores treinados, registros arquivados e feedback consolidado para melhorias contínuas',
     subprocessos: [
@@ -1002,11 +1002,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.26',
-    nome: 'Processo 11.26: Visita às Lojas',
+    nome: 'Visita às Lojas',
     descricao: 'Acompanhamento presencial das operações e fortalecimento do vínculo com equipes',
     nivel: 'Tático',
     icon: MapPin,
-    cor: 'bg-gradient-to-r from-green-500 to-emerald-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Planejamento estratégico conforme necessidade local',
     saida: 'Vínculo fortalecido com a operação, escuta ativa e ajustes baseados nas visitas',
     subprocessos: [
@@ -1036,11 +1036,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.27',
-    nome: 'Processo 11.27: Promoção para Encarregado de Loja',
+    nome: 'Promoção para Encarregado de Loja',
     descricao: 'Processo específico de promoção para função de encarregado com avaliação técnica e comportamental',
     nivel: 'Tático',
     icon: TrendingUp,
-    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Solicitação via chamado no TopDesk feita pelo gestor direto',
     saida: 'Promoção formalizada com análise técnica e comportamental, e plano de desenvolvimento definido',
     subprocessos: [
@@ -1071,11 +1071,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.28',
-    nome: 'Processo 11.28: Evento Diretrizes',
+    nome: 'Evento Diretrizes',
     descricao: 'Organização do evento anual de diretrizes corporativas',
     nivel: 'Estratégico',
     icon: Calendar,
-    cor: 'bg-gradient-to-r from-indigo-500 to-purple-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Início do planejamento em agosto para realização no início do ano seguinte',
     saida: 'Evento institucional realizado com alinhamento estratégico e reconhecimento de colaboradores',
     subprocessos: [
@@ -1105,11 +1105,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.29',
-    nome: 'Processo 11.29: Evento Trilhamento SENAC',
+    nome: 'Evento Trilhamento SENAC',
     descricao: 'Programa de desenvolvimento de lideranças em parceria com SENAC',
     nivel: 'Estratégico',
     icon: GraduationCap,
-    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Planejamento em setembro do ano anterior',
     saida: 'Programa concluído com alto índice de participação, desenvolvimento de lideranças e continuidade garantida',
     subprocessos: [
@@ -1139,11 +1139,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.30',
-    nome: 'Processo 11.30: Despesas – Cadastro e Aprovação no Sistema Mega',
+    nome: 'Despesas – Cadastro e Aprovação no Sistema Mega',
     descricao: 'Gestão de despesas do departamento de RH no sistema corporativo',
     nivel: 'Operacional',
     icon: DollarSign,
-    cor: 'bg-gradient-to-r from-red-500 to-pink-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
     entrada: 'Recebimento mensal dos boletos do departamento',
     saida: 'Despesas cadastradas corretamente, com aprovação segura e dentro do prazo',
     subprocessos: [
@@ -1173,11 +1173,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.31',
-    nome: 'Processo 11.31: PIT – Programa de Inovação Aplicada e Transformação',
+    nome: 'PIT – Programa de Inovação Aplicada e Transformação',
     descricao: 'Coordenação do programa anual de inovação e transformação',
     nivel: 'Estratégico',
     icon: Zap,
-    cor: 'bg-gradient-to-r from-yellow-500 to-orange-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início do ciclo anual do programa com definição do calendário e revisão do regulamento',
     saida: 'Projeto vencedor premiado e encaminhado para implementação; ciclo encerrado com registro completo',
     subprocessos: [
@@ -1210,11 +1210,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.32',
-    nome: 'Processo 11.32: PEG – Programa de Excelência e Gestão',
+    nome: 'PEG – Programa de Excelência e Gestão',
     descricao: 'Gestão do programa de excelência com indicadores de performance',
     nivel: 'Estratégico',
     icon: Star,
-    cor: 'bg-gradient-to-r from-blue-500 to-cyan-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início do ciclo semestral com definição de indicadores',
     saida: 'Premiação distribuída conforme desempenho e critérios definidos',
     subprocessos: [
@@ -1245,11 +1245,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.33',
-    nome: 'Processo 11.33: PES – Padrão de Excelência nos Serviços',
+    nome: 'PES – Padrão de Excelência nos Serviços',
     descricao: 'Gestão do programa de excelência em serviços',
     nivel: 'Tático',
     icon: Award,
-    cor: 'bg-gradient-to-r from-green-500 to-teal-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Início de ciclo com definição de indicadores',
     saida: 'Resultado validado, registrado e compartilhado internamente com reconhecimento à equipe',
     subprocessos: [
@@ -1279,11 +1279,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.34',
-    nome: 'Processo 11.34: Prêmio Tempo de Empresa',
+    nome: 'Prêmio Tempo de Empresa',
     descricao: 'Reconhecimento de colaboradores por tempo de serviço',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'bg-gradient-to-r from-purple-500 to-pink-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Colaboradores completando múltiplos de 5 anos de empresa',
     saida: 'Colaboradores homenageados com entrega simbólica e/ou financeira',
     subprocessos: [
@@ -1314,11 +1314,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.35',
-    nome: 'Processo 11.35: Prêmio Indique 1 Amigo',
+    nome: 'Prêmio Indique 1 Amigo',
     descricao: 'Programa de incentivo à indicação de colaboradores',
     nivel: 'Operacional',
     icon: Users,
-    cor: 'bg-gradient-to-r from-orange-500 to-red-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Indicação bem-sucedida de novo colaborador',
     saida: 'Bonificação liberada ao colaborador após aprovação da indicação',
     subprocessos: [
@@ -1348,11 +1348,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.36',
-    nome: 'Processo 11.36: Quadro de Vagas',
+    nome: 'Quadro de Vagas',
     descricao: 'Gestão do quadro de vagas conforme orçamento anual',
     nivel: 'Operacional',
     icon: Building2,
-    cor: 'bg-gradient-to-r from-gray-500 to-slate-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Definição orçamentária anual da Diretoria',
     saida: 'Quadro de vagas registrado, respeitando o orçamento anual',
     subprocessos: [
@@ -1381,11 +1381,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.37',
-    nome: 'Processo 11.37: Alteração de Centro de Custo',
+    nome: 'Alteração de Centro de Custo',
     descricao: 'Processamento de alterações de centro de custo via sistema',
     nivel: 'Operacional',
     icon: Settings,
-    cor: 'bg-gradient-to-r from-indigo-500 to-blue-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Solicitação via chamado TopDesk pelo Gerente Regional',
     saida: 'Alteração formalizada, respeitando o quadro e orçamento vigente',
     subprocessos: [
@@ -1415,11 +1415,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.38',
-    nome: 'Processo 11.38: Endomarketing – Datas Sazonais e Aniversariantes',
+    nome: 'Endomarketing – Datas Sazonais e Aniversariantes',
     descricao: 'Gestão de ações de endomarketing e eventos comemorativos',
     nivel: 'Tático',
     icon: PartyPopper,
-    cor: 'bg-gradient-to-r from-pink-500 to-rose-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Definição das datas comemorativas e aniversariantes do trimestre',
     saida: 'Ações comemorativas executadas com engajamento e feedback dos colaboradores',
     subprocessos: [
@@ -1449,11 +1449,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.39',
-    nome: 'Processo 11.39: Squad de Comunicação',
+    nome: 'Squad de Comunicação',
     descricao: 'Gestão dos canais internos de comunicação corporativa',
     nivel: 'Tático',
     icon: Globe,
-    cor: 'bg-gradient-to-r from-cyan-500 to-blue-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Necessidade de organizar os canais internos com foco em vendas e loja',
     saida: 'Comunicação alinhada, ativa e segmentada por canal e público',
     subprocessos: [
@@ -1483,11 +1483,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.40',
-    nome: 'Processo 11.40: Evento Trimestral',
+    nome: 'Evento Trimestral',
     descricao: 'Organização de eventos trimestrais corporativos',
     nivel: 'Tático',
     icon: Calendar,
-    cor: 'bg-gradient-to-r from-violet-500 to-purple-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Recebimento das diretrizes do Diretor Operacional',
     saida: 'Evento realizado conforme diretrizes e orçamento aprovado',
     subprocessos: [
@@ -1517,11 +1517,11 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
 
   {
     id: 'RH-11.41',
-    nome: 'Processo 11.41: Gestão de Benefícios',
+    nome: 'Gestão de Benefícios',
     descricao: 'Coordenação e atualização dos benefícios corporativos',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'bg-gradient-to-r from-emerald-500 to-green-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
     entrada: 'Necessidade de atualização e comunicação sobre benefícios',
     saida: 'Benefícios atualizados, bem comunicados e alinhados com fornecedores',
     subprocessos: [
