@@ -933,7 +933,7 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-transferencia-centro-custo',
+    id: 'RH-11.24',
     nome: 'Processo 11.24: Transferência de Centro de Custo',
     descricao: 'Processamento de transferências de colaboradores entre centros de custo',
     nivel: 'Operacional',
@@ -943,18 +943,19 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
     saida: 'Transferência efetivada com rastreabilidade, sem impacto contábil imprevisto',
     subprocessos: [
       {
-        id: 'rh-transferencia-validacao',
+        id: '11.24.1',
         nome: 'Validação da Solicitação',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Senior', 'Mega', 'Excel'],
         tarefas: [
           {
-            id: 'rh-transferencia-conferencia',
+            id: '11.24.1.1',
             nome: 'Conferência de dados e prazo',
             passos: [
               'Verificar nome, ponto, função, loja de origem e destino, cargo e prazo (preferencialmente até dia 30 ou 17)',
               'Validar se a loja destino possui orçamento aprovado no módulo de Vagas e Orçamento',
-              'Registrar solicitação em planilha interna RH/DP e programar alteração para o 1º dia útil do mês seguinte'
+              'Registrar solicitação em planilha interna RH/DP e programar alteração para o 1º dia útil do mês seguinte',
+              'Realizar alteração no Senior e Mega no 1º dia útil do mês'
             ]
           }
         ]
@@ -966,86 +967,61 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-treinamento-gestores',
+    id: 'RH-11.25',
     nome: 'Processo 11.25: Treinamento de Gestores',
     descricao: 'Capacitação de gestores em temas técnicos e comportamentais',
     nivel: 'Tático',
     icon: GraduationCap,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    cor: 'bg-gradient-to-r from-blue-500 to-indigo-600',
     entrada: 'Identificação de necessidade por RH e gestores',
     saida: 'Gestores treinados, registros arquivados e feedback consolidado para melhorias contínuas',
     subprocessos: [
       {
-        id: 'rh-treinamento-planejamento',
+        id: '11.25.1',
         nome: 'Planejamento',
-        nivel: 'Operacional',
+        nivel: 'Tático',
         ferramentas: ['E-mail', 'Google Forms'],
         tarefas: [
           {
-            id: 'rh-treinamento-definicao',
+            id: '11.25.1.1',
             nome: 'Definição dos temas e público',
             passos: [
-              'Definir temas técnicos (ex: seleção, promoção, desligamento) e comportamentais (ex: liderança, escuta ativa)'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'rh-treinamento-preparacao',
-        nome: 'Preparação',
-        nivel: 'Operacional',
-        ferramentas: ['PowerPoint', 'Canva'],
-        tarefas: [
-          {
-            id: 'rh-treinamento-logistica',
-            nome: 'Organização logística',
-            passos: [
-              'Definir formato (online ou presencial), elaborar convite e preparar conteúdo'
+              'Definir temas técnicos (ex: seleção, promoção, desligamento) e comportamentais (ex: liderança, escuta ativa)',
+              'Definir formato (online ou presencial), elaborar convite e preparar conteúdo',
+              'Ministrar o conteúdo com troca de experiências e espaço para dúvidas',
+              'Aplicar formulário de avaliação e checklist de presença'
             ]
           }
         ]
       }
     ],
     sistemas_utilizados: ['E-mail', 'Google Forms'],
-    tempo_execucao: '2-4 horas por treinamento',
+    tempo_execucao: '2-4 horas',
     frequencia: 'Trimestral'
   },
 
   {
-    id: 'rh-visita-lojas',
+    id: 'RH-11.26',
     nome: 'Processo 11.26: Visita às Lojas',
-    descricao: 'Visitas estratégicas às lojas para acolhimento e alinhamento',
+    descricao: 'Acompanhamento presencial das operações e fortalecimento do vínculo com equipes',
     nivel: 'Tático',
     icon: MapPin,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    cor: 'bg-gradient-to-r from-green-500 to-emerald-600',
     entrada: 'Planejamento estratégico conforme necessidade local',
     saida: 'Vínculo fortalecido com a operação, escuta ativa e ajustes baseados nas visitas',
     subprocessos: [
       {
-        id: 'rh-visita-acolhimento',
+        id: '11.26.1',
         nome: 'Acolhimento e Observação',
         nivel: 'Operacional',
-        ferramentas: ['Comunicação verbal', 'Anotações internas'],
+        ferramentas: ['Comunicação verbal', 'anotações internas'],
         tarefas: [
           {
-            id: 'rh-visita-observacao',
+            id: '11.26.1.1',
             nome: 'Chegada e observação do ambiente',
             passos: [
-              'Apresentação à equipe, observação não invasiva de uniforme, aparência, quadro de avisos'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'rh-visita-alinhamento',
-        nome: 'Alinhamento com Liderança',
-        nivel: 'Operacional',
-        ferramentas: ['Comunicação verbal'],
-        tarefas: [
-          {
-            id: 'rh-visita-conversa',
-            nome: 'Conversa com o tripé de liderança',
-            passos: [
+              'Apresentação à equipe, observação não invasiva de uniforme, aparência, quadro de avisos',
+              'Conversa com o tripé de liderança',
               'Reforçar boas práticas, tirar dúvidas e orientar sobre RH',
               'Reforçar apoio do RH e registrar informalmente percepções e demandas'
             ]
@@ -1053,157 +1029,138 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
         ]
       }
     ],
-    sistemas_utilizados: ['Comunicação verbal', 'Anotações internas'],
+    sistemas_utilizados: ['Comunicação verbal', 'anotações internas'],
     tempo_execucao: '2-3 horas',
-    frequencia: 'Mensal/Trimestral'
+    frequencia: 'Conforme necessidade'
   },
 
   {
-    id: 'rh-promocao-encarregado',
+    id: 'RH-11.27',
     nome: 'Processo 11.27: Promoção para Encarregado de Loja',
-    descricao: 'Processo específico para promoção de colaboradores a encarregado de loja',
+    descricao: 'Processo específico de promoção para função de encarregado com avaliação técnica e comportamental',
     nivel: 'Tático',
-    icon: Users,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    icon: TrendingUp,
+    cor: 'bg-gradient-to-r from-purple-500 to-violet-600',
     entrada: 'Solicitação via chamado no TopDesk feita pelo gestor direto',
     saida: 'Promoção formalizada com análise técnica e comportamental, e plano de desenvolvimento definido',
     subprocessos: [
       {
-        id: 'rh-encarregado-entrevista',
-        nome: 'Entrevista',
-        nivel: 'Operacional',
-        ferramentas: ['Google Meet', 'Presencial'],
+        id: '11.27.1',
+        nome: 'Entrevista e Avaliação',
+        nivel: 'Tático',
+        ferramentas: ['TopDesk', 'Matcher', 'Excel'],
         tarefas: [
           {
-            id: 'rh-encarregado-agendamento',
-            nome: 'Agendamento e realização da entrevista',
+            id: '11.27.1.1',
+            nome: 'Processo de avaliação completo',
             passos: [
-              'Conduzir entrevista técnica e comportamental presencial ou online'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'rh-encarregado-avaliacao',
-        nome: 'Avaliação Comportamental',
-        nivel: 'Operacional',
-        ferramentas: ['Matcher'],
-        tarefas: [
-          {
-            id: 'rh-encarregado-perfil',
-            nome: 'Análise de perfil',
-            passos: [
-              'Gerar e analisar profiler com relatório Matcher e enviar apostila de PDI'
+              'Conduzir entrevista técnica e comportamental presencial ou online',
+              'Gerar e analisar profiler com relatório Matcher e enviar apostila de PDI',
+              'Encaminhar para validação do Diretor Operacional e Gerente Regional',
+              'Devolutiva ao candidato feita pelo gestor direto, com foco construtivo',
+              'RH envia carta de promoção, atualiza planilha RH/DP e encerra o chamado'
             ]
           }
         ]
       }
     ],
     sistemas_utilizados: ['TopDesk', 'Matcher', 'Excel'],
-    tempo_execucao: '5-7 dias',
+    tempo_execucao: '7-10 dias',
     frequencia: 'Conforme demanda'
   },
 
   {
-    id: 'rh-evento-diretrizes',
+    id: 'RH-11.28',
     nome: 'Processo 11.28: Evento Diretrizes',
-    descricao: 'Organização do evento anual de diretrizes da empresa',
-    nivel: 'Tático',
-    icon: PartyPopper,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    descricao: 'Organização do evento anual de diretrizes corporativas',
+    nivel: 'Estratégico',
+    icon: Calendar,
+    cor: 'bg-gradient-to-r from-indigo-500 to-purple-600',
     entrada: 'Início do planejamento em agosto para realização no início do ano seguinte',
     saida: 'Evento institucional realizado com alinhamento estratégico e reconhecimento de colaboradores',
     subprocessos: [
       {
-        id: 'rh-diretrizes-planejamento',
-        nome: 'Planejamento e Orçamentos',
-        nivel: 'Tático',
+        id: '11.28.1',
+        nome: 'Planejamento e Execução',
+        nivel: 'Estratégico',
         ferramentas: ['E-mail', 'Eventos presenciais'],
         tarefas: [
           {
-            id: 'rh-diretrizes-cotacoes',
-            nome: 'Cotações e definição do tema',
+            id: '11.28.1.1',
+            nome: 'Organização completa do evento',
             passos: [
-              'Cotações de espaço, palestrantes, estúdio, alimentação, kits, premiações'
-            ]
-          },
-          {
-            id: 'rh-diretrizes-logistica',
-            nome: 'Logística Organização dos detalhes',
-            passos: [
-              'Logística de viagem e alimentação',
-              'Participação de 120 pessoas presencialmente; demais online'
+              'Cotações de espaço, palestrantes, estúdio, alimentação, kits, premiações',
+              'Logística de viagem e alimentação; Participação de 120 pessoas presencialmente; demais online',
+              'Palestra, metas, premiação, encerramento com integração',
+              'Agradecimentos, compartilhamento de gravações, feedback, relatório de melhorias'
             ]
           }
         ]
       }
     ],
     sistemas_utilizados: ['E-mail', 'Eventos presenciais'],
-    tempo_execucao: '120-150 dias',
+    tempo_execucao: '4-5 meses',
     frequencia: 'Anual'
   },
 
   {
-    id: 'rh-trilhamento-senac',
+    id: 'RH-11.29',
     nome: 'Processo 11.29: Evento Trilhamento SENAC',
-    descricao: 'Organização do programa de trilhamento para lideranças via SENAC',
-    nivel: 'Tático',
+    descricao: 'Programa de desenvolvimento de lideranças em parceria com SENAC',
+    nivel: 'Estratégico',
     icon: GraduationCap,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    cor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
     entrada: 'Planejamento em setembro do ano anterior',
     saida: 'Programa concluído com alto índice de participação, desenvolvimento de lideranças e continuidade garantida',
     subprocessos: [
       {
-        id: 'rh-trilhamento-estruturacao',
-        nome: 'Estruturação',
-        nivel: 'Tático',
+        id: '11.29.1',
+        nome: 'Estruturação do Programa',
+        nivel: 'Estratégico',
         ferramentas: ['WhatsApp', 'Google Drive', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-trilhamento-publico',
-            nome: 'Definição de público e temas',
+            id: '11.29.1.1',
+            nome: 'Organização completa do programa',
             passos: [
-              'Gerentes, encarregados, líderes; temas sobre liderança e inteligência emocional'
-            ]
-          },
-          {
-            id: 'rh-trilhamento-turmas',
-            nome: 'Organização das turmas e cronogramas',
-            passos: [
-              'Máximo de 35 pessoas por turma, criação de calendário, exclusão de datas críticas'
+              'Gerentes, encarregados, líderes; temas sobre liderança e inteligência emocional',
+              'Máximo de 35 pessoas por turma, criação de calendário, exclusão de datas críticas',
+              'Grupos de WhatsApp por turma, avaliações ao final dos módulos, controle de presença',
+              'Exigência de 100% de presença, envio por e-mail, registro no Drive e continuidade anual'
             ]
           }
         ]
       }
     ],
     sistemas_utilizados: ['WhatsApp', 'Google Drive', 'E-mail'],
-    tempo_execucao: '12 meses',
+    tempo_execucao: '6-8 meses',
     frequencia: 'Anual'
   },
 
   {
-    id: 'rh-despesas-mega',
+    id: 'RH-11.30',
     nome: 'Processo 11.30: Despesas – Cadastro e Aprovação no Sistema Mega',
-    descricao: 'Gestão de despesas departamentais no sistema Mega',
+    descricao: 'Gestão de despesas do departamento de RH no sistema corporativo',
     nivel: 'Operacional',
     icon: DollarSign,
-    cor: 'bg-gradient-to-r from-yellow-500 to-amber-600',
+    cor: 'bg-gradient-to-r from-red-500 to-pink-600',
     entrada: 'Recebimento mensal dos boletos do departamento',
     saida: 'Despesas cadastradas corretamente, com aprovação segura e dentro do prazo',
     subprocessos: [
       {
-        id: 'rh-despesas-cadastro',
-        nome: 'Cadastro',
+        id: '11.30.1',
+        nome: 'Cadastro no Sistema',
         nivel: 'Operacional',
         ferramentas: ['Mega', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-despesas-registro',
-            nome: 'Registro no sistema Mega',
+            id: '11.30.1.1',
+            nome: 'Registro e aprovação',
             passos: [
               'Cadastro individual com dados corretos: centro de custo, vencimento, tipo de despesa',
               'Enviar print do sistema e informações por e-mail para aprovação',
-              'Lançar com nota fiscal, respeitando o prazo mínimo de 7 dias'
+              'Lançar com nota fiscal, respeitando o prazo mínimo de 7 dias',
+              'Validação do gerente e da controladoria no sistema'
             ]
           }
         ]
@@ -1215,28 +1172,32 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-pit-inovacao',
+    id: 'RH-11.31',
     nome: 'Processo 11.31: PIT – Programa de Inovação Aplicada e Transformação',
     descricao: 'Coordenação do programa anual de inovação e transformação',
     nivel: 'Estratégico',
     icon: Zap,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-yellow-500 to-orange-600',
     entrada: 'Início do ciclo anual do programa com definição do calendário e revisão do regulamento',
     saida: 'Projeto vencedor premiado e encaminhado para implementação; ciclo encerrado com registro completo',
     subprocessos: [
       {
-        id: 'rh-pit-kickoff',
-        nome: 'Kick Off com Liderança',
-        nivel: 'Tático',
-        ferramentas: ['WhatsApp', 'Formulários', 'Drive'],
+        id: '11.31.1',
+        nome: 'Ciclo Completo do Programa',
+        nivel: 'Estratégico',
+        ferramentas: ['WhatsApp', 'Formulários', 'Drive', 'Recursos logísticos'],
         tarefas: [
           {
-            id: 'rh-pit-organizacao',
-            nome: 'Organização da primeira etapa',
+            id: '11.31.1.1',
+            nome: 'Gestão do programa completo',
             passos: [
-              'Ajuste do calendário e planejamento da estrutura',
-              'Alinhamento com líderes e definição de coordenadores',
-              'Envio de convites e regulamento atualizado'
+              'Ajuste do calendário e planejamento da estrutura; Alinhamento com líderes e definição de coordenadores',
+              'Apresentação de temas dos projetos e abertura de inscrições; Seleção dos participantes',
+              'Apresentação dos grupos, entrega de kits e início dos encontros semanais',
+              'Condução dos projetos com apoio especializado; Levantamento e solicitação de uniformes',
+              'Apresentação preliminar e coleta de sugestões para ajustes finais',
+              'Apresentação dos projetos à banca; Escolha do projeto vencedor',
+              'Reunião de avaliação com equipe organizadora e fechamento da edição'
             ]
           }
         ]
@@ -1248,42 +1209,30 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-peg-excelencia',
+    id: 'RH-11.32',
     nome: 'Processo 11.32: PEG – Programa de Excelência e Gestão',
     descricao: 'Gestão do programa de excelência com indicadores de performance',
     nivel: 'Estratégico',
     icon: Star,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-blue-500 to-cyan-600',
     entrada: 'Início do ciclo semestral com definição de indicadores',
     saida: 'Premiação distribuída conforme desempenho e critérios definidos',
     subprocessos: [
       {
-        id: 'rh-peg-definicao',
-        nome: 'Definição e Divulgação',
-        nivel: 'Tático',
+        id: '11.32.1',
+        nome: 'Gestão do Programa',
+        nivel: 'Estratégico',
         ferramentas: ['Power BI', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-peg-indicadores',
-            nome: 'Atualização dos indicadores',
+            id: '11.32.1.1',
+            nome: 'Ciclo completo do programa',
             passos: [
-              'Direção define os indicadores e envia manuais atualizados às regionais'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'rh-peg-acompanhamento',
-        nome: 'Acompanhamento',
-        nivel: 'Operacional',
-        ferramentas: ['Power BI'],
-        tarefas: [
-          {
-            id: 'rh-peg-monitoramento',
-            nome: 'Monitoramento mensal',
-            passos: [
-              'Regionais acompanham os resultados no Power BI',
-              'Apuração mensal ou semestral, conforme o indicador'
+              'Direção define os indicadores e envia manuais atualizados às regionais',
+              'Regionais acompanham os resultados no Power BI; Apuração mensal ou semestral',
+              'RH envia consolidação à Regional para validação; Dados encaminhados à Diretoria Financeira',
+              'Valor de 30% a 100% do salário conforme pontuação; Pagamento até o 20º dia útil',
+              'Resultados disponíveis no BI com filtros por loja, regional e período'
             ]
           }
         ]
@@ -1295,28 +1244,29 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-pes-servicos',
+    id: 'RH-11.33',
     nome: 'Processo 11.33: PES – Padrão de Excelência nos Serviços',
     descricao: 'Gestão do programa de excelência em serviços',
     nivel: 'Tático',
     icon: Award,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-green-500 to-teal-600',
     entrada: 'Início de ciclo com definição de indicadores',
     saida: 'Resultado validado, registrado e compartilhado internamente com reconhecimento à equipe',
     subprocessos: [
       {
-        id: 'rh-pes-definicao',
-        nome: 'Definição e Divulgação',
-        nivel: 'Operacional',
+        id: '11.33.1',
+        nome: 'Definição e Execução',
+        nivel: 'Tático',
         ferramentas: ['Power BI', 'Excel', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-pes-indicadores',
-            nome: 'Compartilhamento dos indicadores',
+            id: '11.33.1.1',
+            nome: 'Gestão do programa',
             passos: [
-              'Atualização dos indicadores e manuais',
-              'Envio para as Regionais',
-              'RH registra dados na planilha oficial com base no Power BI ou fornecidos pela Gestão da Informação'
+              'Atualização dos indicadores e manuais; Envio para as Regionais',
+              'RH registra dados na planilha oficial com base no Power BI',
+              'Resultados enviados para validação com a loja e Regional',
+              'Loja reúne a equipe para celebrar resultado; Foto do momento enviada ao RH'
             ]
           }
         ]
@@ -1328,28 +1278,30 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-premio-tempo-empresa',
+    id: 'RH-11.34',
     nome: 'Processo 11.34: Prêmio Tempo de Empresa',
     descricao: 'Reconhecimento de colaboradores por tempo de serviço',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-purple-500 to-pink-600',
     entrada: 'Colaboradores completando múltiplos de 5 anos de empresa',
     saida: 'Colaboradores homenageados com entrega simbólica e/ou financeira',
     subprocessos: [
       {
-        id: 'rh-premio-levantamento',
-        nome: 'Levantamento',
-        nivel: 'Operacional',
+        id: '11.34.1',
+        nome: 'Levantamento e Premiação',
+        nivel: 'Tático',
         ferramentas: ['Planilhas de homenagens', 'PIX', 'Drive'],
         tarefas: [
           {
-            id: 'rh-premio-identificacao',
-            nome: 'Identificação dos homenageados',
+            id: '11.34.1.1',
+            nome: 'Processo completo de reconhecimento',
             passos: [
               'RH cruza base de dados atual com planilhas anteriores e envia às Regionais para validação',
               'Cotação e validação dos itens pela Diretoria e Gestão de RH',
-              'Envio das lembranças às unidades antes ou durante o evento de fim de ano'
+              'Envio das lembranças às unidades antes ou durante o evento de fim de ano',
+              'Cadastro das despesas após validação da Diretoria Financeira; Pagamento via PIX',
+              'Cerimônia durante a confraternização de Natal'
             ]
           }
         ]
@@ -1361,28 +1313,29 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-indique-amigo',
+    id: 'RH-11.35',
     nome: 'Processo 11.35: Prêmio Indique 1 Amigo',
     descricao: 'Programa de incentivo à indicação de colaboradores',
     nivel: 'Operacional',
     icon: Users,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-orange-500 to-red-600',
     entrada: 'Indicação bem-sucedida de novo colaborador',
     saida: 'Bonificação liberada ao colaborador após aprovação da indicação',
     subprocessos: [
       {
-        id: 'rh-indique-verificacao',
+        id: '11.35.1',
         nome: 'Verificação de Elegibilidade',
         nivel: 'Operacional',
         ferramentas: ['TopDesk'],
         tarefas: [
           {
-            id: 'rh-indique-validacao',
-            nome: 'Validação de critérios',
+            id: '11.35.1.1',
+            nome: 'Validação e pagamento',
             passos: [
               'Nome do colaborador indicado deve constar na ficha curricular do indicado',
               'Indicado deve ser aprovado no processo e período de experiência',
-              'Após 2 meses, abrir chamado no TopDesk com formulário, ficha e documentação'
+              'Após 2 meses, abrir chamado no TopDesk com formulário, ficha e documentação',
+              'Verificar documentos; Cadastrar despesa e enviar para aprovação'
             ]
           }
         ]
@@ -1394,23 +1347,23 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-quadro-vagas',
-    nome: 'Processo 11.37: Quadro de Vagas',
+    id: 'RH-11.36',
+    nome: 'Processo 11.36: Quadro de Vagas',
     descricao: 'Gestão do quadro de vagas conforme orçamento anual',
     nivel: 'Operacional',
     icon: Building2,
-    cor: '#EF4444',
+    cor: 'bg-gradient-to-r from-gray-500 to-slate-600',
     entrada: 'Definição orçamentária anual da Diretoria',
     saida: 'Quadro de vagas registrado, respeitando o orçamento anual',
     subprocessos: [
       {
-        id: 'rh-quadro-lancamento',
+        id: '11.36.1',
         nome: 'Lançamento no Sistema',
         nivel: 'Operacional',
         ferramentas: ['Sistema Senior', 'Planilha Orçamentária'],
         tarefas: [
           {
-            id: 'rh-quadro-cadastro',
+            id: '11.36.1.1',
             nome: 'Cadastro no Senior',
             passos: [
               'Acessar módulo Quadro de Vagas',
@@ -1427,23 +1380,23 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-alteracao-centro-custo',
-    nome: 'Processo 11.38: Alteração de Centro de Custo',
+    id: 'RH-11.37',
+    nome: 'Processo 11.37: Alteração de Centro de Custo',
     descricao: 'Processamento de alterações de centro de custo via sistema',
     nivel: 'Operacional',
     icon: Settings,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-indigo-500 to-blue-600',
     entrada: 'Solicitação via chamado TopDesk pelo Gerente Regional',
     saida: 'Alteração formalizada, respeitando o quadro e orçamento vigente',
     subprocessos: [
       {
-        id: 'rh-alteracao-validacao',
+        id: '11.37.1',
         nome: 'Validação',
         nivel: 'Operacional',
         ferramentas: ['TopDesk', 'Planilhas no Drive'],
         tarefas: [
           {
-            id: 'rh-alteracao-checagem',
+            id: '11.37.1.1',
             nome: 'Checagem de vaga',
             passos: [
               'Verificar se há vaga no destino',
@@ -1461,28 +1414,29 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-endomarketing',
-    nome: 'Endomarketing – Datas Sazonais e Aniversariantes',
+    id: 'RH-11.38',
+    nome: 'Processo 11.38: Endomarketing – Datas Sazonais e Aniversariantes',
     descricao: 'Gestão de ações de endomarketing e eventos comemorativos',
     nivel: 'Tático',
     icon: PartyPopper,
-    cor: '#10B981',
+    cor: 'bg-gradient-to-r from-pink-500 to-rose-600',
     entrada: 'Definição das datas comemorativas e aniversariantes do trimestre',
     saida: 'Ações comemorativas executadas com engajamento e feedback dos colaboradores',
     subprocessos: [
       {
-        id: 'rh-endomarketing-datas',
-        nome: 'Datas Sazonais',
-        nivel: 'Operacional',
+        id: '11.38.1',
+        nome: 'Datas Sazonais e Eventos',
+        nivel: 'Tático',
         ferramentas: ['Planilhas Drive', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-endomarketing-planejamento',
+            id: '11.38.1.1',
             nome: 'Planejamento e execução',
             passos: [
               'Cotar e aprovar brindes com antecedência',
               'Alinhar entrega com fornecedores e enviar às lojas',
-              'Aplicar pesquisa de satisfação pós-ação'
+              'Aplicar pesquisa de satisfação pós-ação',
+              'Validar lista com gestores; Cotações, roteiro e execução do evento comemorativo'
             ]
           }
         ]
@@ -1494,29 +1448,29 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-squad-comunicacao',
-    nome: 'Squad de Comunicação',
+    id: 'RH-11.39',
+    nome: 'Processo 11.39: Squad de Comunicação',
     descricao: 'Gestão dos canais internos de comunicação corporativa',
     nivel: 'Tático',
     icon: Globe,
-    cor: '#06B6D4',
+    cor: 'bg-gradient-to-r from-cyan-500 to-blue-600',
     entrada: 'Necessidade de organizar os canais internos com foco em vendas e loja',
     saida: 'Comunicação alinhada, ativa e segmentada por canal e público',
     subprocessos: [
       {
-        id: 'rh-squad-audax',
-        nome: 'Audax',
-        nivel: 'Operacional',
+        id: '11.39.1',
+        nome: 'Gestão de Canais',
+        nivel: 'Tático',
         ferramentas: ['Audax', 'Google Drive', 'LinkedIn'],
         tarefas: [
           {
-            id: 'rh-squad-conteudo',
+            id: '11.39.1.1',
             nome: 'Gestão de conteúdo',
             passos: [
               'Definir calendário editorial',
               'Criar conteúdo para stories com base nas demandas das áreas',
-              'RH monitora atualizações e acessos com e-mail secundário',
-              'RH planeja conteúdo com Marketing'
+              'RH monitora atualizações e acessos com e-mail secundário; Departamentos alimentam suas pastas',
+              'RH planeja conteúdo com Marketing; Validação e publicação nas datas definidas'
             ]
           }
         ]
@@ -1528,23 +1482,23 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-evento-trimestral',
-    nome: 'Evento Trimestral',
+    id: 'RH-11.40',
+    nome: 'Processo 11.40: Evento Trimestral',
     descricao: 'Organização de eventos trimestrais corporativos',
     nivel: 'Tático',
     icon: Calendar,
-    cor: '#8B5CF6',
+    cor: 'bg-gradient-to-r from-violet-500 to-purple-600',
     entrada: 'Recebimento das diretrizes do Diretor Operacional',
     saida: 'Evento realizado conforme diretrizes e orçamento aprovado',
     subprocessos: [
       {
-        id: 'rh-evento-planejamento',
-        nome: 'Planejamento e Cotações',
-        nivel: 'Operacional',
+        id: '11.40.1',
+        nome: 'Planejamento e Execução',
+        nivel: 'Tático',
         ferramentas: ['Sistema de pagamentos', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-evento-organizacao',
+            id: '11.40.1.1',
             nome: 'Organização do evento',
             passos: [
               'Cotação e reserva de local, alimentação e hospedagem',
@@ -1562,23 +1516,23 @@ export const processosRecursosHumanos: ProcessoDetalhado[] = [
   },
 
   {
-    id: 'rh-gestao-beneficios',
-    nome: 'Processo 11.42: Gestão de Benefícios',
+    id: 'RH-11.41',
+    nome: 'Processo 11.41: Gestão de Benefícios',
     descricao: 'Coordenação e atualização dos benefícios corporativos',
     nivel: 'Tático',
     icon: Gift,
-    cor: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    cor: 'bg-gradient-to-r from-emerald-500 to-green-600',
     entrada: 'Necessidade de atualização e comunicação sobre benefícios',
     saida: 'Benefícios atualizados, bem comunicados e alinhados com fornecedores',
     subprocessos: [
       {
-        id: 'rh-beneficios-reuniao',
+        id: '11.41.1',
         nome: 'Reunião com Fornecedores',
-        nivel: 'Operacional',
+        nivel: 'Tático',
         ferramentas: ['Reuniões', 'Ações de Divulgação', 'E-mail'],
         tarefas: [
           {
-            id: 'rh-beneficios-alinhamento',
+            id: '11.41.1.1',
             nome: 'Alinhamento de condições',
             passos: [
               'RH agenda reuniões com fornecedores para atualizações',
