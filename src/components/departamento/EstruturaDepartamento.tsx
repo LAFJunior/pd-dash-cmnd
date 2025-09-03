@@ -1103,7 +1103,7 @@ const EstruturaDepartamento: React.FC<{
           {/* Primeira linha - Gestora e Coordenadora */}
           <div className="flex flex-col items-center gap-8 mb-12">
             {/* Gestora RH */}
-            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[320px] max-w-[380px]">
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px]">
               <h2 className="text-2xl font-bold mb-2 tracking-wider">MARIA MACEDO</h2>
               <div className="text-lg mb-4 font-medium tracking-wide">GESTORA RH</div>
               <div className="text-sm mb-2">maria.macedo@grupooscar.com.br</div>
@@ -1111,7 +1111,7 @@ const EstruturaDepartamento: React.FC<{
             </div>
 
             {/* Coordenadora */}
-            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[320px] max-w-[380px]">
+            <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px]">
               <h2 className="text-2xl font-bold mb-2 tracking-wider">VIVIAN MARTINS</h2>
               <div className="text-lg mb-4 font-medium tracking-wide">COORDENADORA</div>
               <div className="text-sm mb-2">vivian.martins@grupooscar.com.br</div>
