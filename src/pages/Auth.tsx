@@ -166,26 +166,26 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-5">
-      <div className="w-full max-w-[500px]">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="w-full max-w-[450px]">
         {/* Logo */}
-        <div className="text-left mb-10">
-          <h1 className="text-[2.8rem] font-normal tracking-[3px] text-black uppercase leading-tight">
+        <div className="text-left mb-6">
+          <h1 className="text-[2.4rem] font-normal tracking-[3px] text-black uppercase leading-tight">
             <span className="block text-[1.2rem] font-light tracking-[1px]">GRUPO</span>
             <span>OSCAR</span>
           </h1>
         </div>
 
         {/* Card */}
-        <div className="bg-[#f8f9fa] rounded-xl p-10 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+        <div className="bg-[#f8f9fa] rounded-xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-2xl font-semibold mb-2 text-black">Acesso aos Processos Digitais</h2>
             <p className="text-gray-600 text-[0.95rem]">Entre com o e-mail corporativo</p>
           </div>
 
           {/* Tabs */}
-          <div className="flex mb-8 rounded-lg overflow-hidden bg-[#e9ecef]">
+          <div className="flex mb-6 rounded-lg overflow-hidden bg-[#e9ecef]">
             <button
               className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all ${
                 activeTab === 'login' 
@@ -210,14 +210,14 @@ const Auth: React.FC = () => {
 
           {/* Error Alert */}
           {error && (
-            <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
               <p className="text-red-700 text-sm">{error}</p>
             </div>
           )}
 
           {/* Login Form */}
           {activeTab === 'login' && (
-            <form onSubmit={handleLogin} className="space-y-5">
+            <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block mb-2 font-medium text-black">Email</label>
                 <input
@@ -225,7 +225,7 @@ const Auth: React.FC = () => {
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
                   placeholder="Digite seu e-mail"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
@@ -237,7 +237,7 @@ const Auth: React.FC = () => {
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
                   placeholder="Digite sua senha"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
@@ -245,7 +245,7 @@ const Auth: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-[14px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
+                className="w-full py-[12px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
               >
                 {loading ? 'ENTRANDO...' : 'ENTRAR'}
               </button>
@@ -254,7 +254,7 @@ const Auth: React.FC = () => {
 
           {/* Register Form */}
           {activeTab === 'register' && (
-            <form onSubmit={handleSignup} className="space-y-5">
+            <form onSubmit={handleSignup} className="space-y-4">
               <div>
                 <label className="block mb-2 font-medium text-black">Nome Completo</label>
                 <input
@@ -262,7 +262,7 @@ const Auth: React.FC = () => {
                   value={signupFullName}
                   onChange={(e) => setSignupFullName(e.target.value)}
                   placeholder="Seu nome completo"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
@@ -272,7 +272,7 @@ const Auth: React.FC = () => {
                 <select
                   value={signupCargo}
                   onChange={(e) => setSignupCargo(e.target.value)}
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 >
                   <option value="">Selecione seu cargo</option>
@@ -287,7 +287,7 @@ const Auth: React.FC = () => {
                 <select
                   value={signupDepartment}
                   onChange={(e) => setSignupDepartment(e.target.value)}
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 >
                   <option value="">Selecione seu departamento</option>
@@ -304,7 +304,7 @@ const Auth: React.FC = () => {
                   value={signupEmail}
                   onChange={(e) => setSignupEmail(e.target.value)}
                   placeholder="Digite seu e-mail"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
@@ -316,7 +316,7 @@ const Auth: React.FC = () => {
                   value={signupPassword}
                   onChange={(e) => setSignupPassword(e.target.value)}
                   placeholder="Criar senha"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                   minLength={6}
                 />
@@ -329,7 +329,7 @@ const Auth: React.FC = () => {
                   value={signupConfirmPassword}
                   onChange={(e) => setSignupConfirmPassword(e.target.value)}
                   placeholder="Confirme sua senha"
-                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
@@ -337,7 +337,7 @@ const Auth: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-[14px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
+                className="w-full py-[12px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
               >
                 {loading ? 'CRIANDO CONTA...' : 'CRIAR CONTA'}
               </button>
