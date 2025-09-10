@@ -1,33 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Building2, LogIn, UserPlus } from 'lucide-react';
 import { toast } from 'sonner';
 
+const CARGOS = [
+  { value: 'diretoria', label: 'Diretor' },
+  { value: 'gestao', label: 'Gestor / Gerente / Header' },
+  { value: 'coordenacao', label: 'Coordenador / Supervisor / Líder' },
+  { value: 'analista', label: 'Analista / Técnico / Especialista' },
+  { value: 'assistente', label: 'Assistente / Auxiliar / Operacional' }
+];
+
 const DEPARTMENTS = [
-  'E-Commerce',
-  'Financeiro',
-  'Recursos Humanos',
-  'Departamento Pessoal',
   'Auditoria',
-  'Controladoria',
+  'Compras', 
   'Contábil',
-  'Fiscal',
-  'Compras',
+  'Controladoria',
+  'Departamento Pessoal (DP)',
   'Defeito',
-  'São José dos Campos'
+  'E-commerce',
+  'Festcard',
+  'Financeiro Varejo',
+  'Fiscal',
+  'Loja',
+  'Marketing',
+  'Recursos Humanos (RH)',
+  'CD/Operações (S. J. dos Campos)',
+  'Suprimentos',
+  'SAC',
+  'T.I Desenvolvimento',
+  'T.I Operações',
+  'T.I Projetos e Inovações'
 ];
 
 const Auth: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState('login');
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -40,8 +49,10 @@ const Auth: React.FC = () => {
 
   // Estados para Cadastro
   const [signupFullName, setSignupFullName] = useState('');
+  const [signupCargo, setSignupCargo] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
+  const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
   const [signupDepartment, setSignupDepartment] = useState('');
 
   useEffect(() => {
@@ -91,8 +102,21 @@ const Auth: React.FC = () => {
     setLoading(true);
     setError('');
 
+    // Validações
     if (!signupDepartment) {
       setError('Por favor, selecione um departamento.');
+      setLoading(false);
+      return;
+    }
+
+    if (!signupCargo) {
+      setError('Por favor, selecione um cargo.');
+      setLoading(false);
+      return;
+    }
+
+    if (signupPassword !== signupConfirmPassword) {
+      setError('As senhas não coincidem.');
       setLoading(false);
       return;
     }
@@ -107,7 +131,8 @@ const Auth: React.FC = () => {
           emailRedirectTo: redirectUrl,
           data: {
             full_name: signupFullName,
-            department: signupDepartment
+            department: signupDepartment,
+            cargo: signupCargo
           }
         }
       });
@@ -126,8 +151,10 @@ const Auth: React.FC = () => {
         toast.success('Cadastro realizado! Verifique seu email para confirmar a conta.');
         // Limpar formulário
         setSignupFullName('');
+        setSignupCargo('');
         setSignupEmail('');
         setSignupPassword('');
+        setSignupConfirmPassword('');
         setSignupDepartment('');
       }
     } catch (err) {
@@ -139,140 +166,185 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <div className="mx-auto mb-4 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-            <Building2 className="h-6 w-6 text-white" />
+    <div className="min-h-screen bg-white flex items-center justify-center p-5">
+      <div className="w-full max-w-[500px]">
+        {/* Logo */}
+        <div className="text-left mb-10">
+          <h1 className="text-[2.8rem] font-normal tracking-[3px] text-black uppercase leading-tight">
+            <span className="block text-[1.2rem] font-light tracking-[1px]">GRUPO</span>
+            <span>OSCAR</span>
+          </h1>
+        </div>
+
+        {/* Card */}
+        <div className="bg-[#f8f9fa] rounded-xl p-10 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-2 text-black">Acesso aos Processos Digitais</h2>
+            <p className="text-gray-600 text-[0.95rem]">Entre com o e-mail corporativo</p>
           </div>
-          <CardTitle className="text-2xl font-bold">Mapeamento de Processos</CardTitle>
-          <p className="text-gray-600">Sistema de Gestão Departamental</p>
-        </CardHeader>
-        
-        <CardContent>
-          <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login" className="flex items-center gap-2">
-                <LogIn size={16} />
-                Login
-              </TabsTrigger>
-              <TabsTrigger value="signup" className="flex items-center gap-2">
-                <UserPlus size={16} />
-                Cadastro
-              </TabsTrigger>
-            </TabsList>
 
-            {error && (
-              <Alert className="mt-4 border-red-200 bg-red-50">
-                <AlertDescription className="text-red-700">
-                  {error}
-                </AlertDescription>
-              </Alert>
-            )}
+          {/* Tabs */}
+          <div className="flex mb-8 rounded-lg overflow-hidden bg-[#e9ecef]">
+            <button
+              className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all ${
+                activeTab === 'login' 
+                  ? 'bg-[#c82333] text-white' 
+                  : 'bg-[#e9ecef] text-gray-600 hover:bg-[#dee2e6]'
+              }`}
+              onClick={() => setActiveTab('login')}
+            >
+              Entrar
+            </button>
+            <button
+              className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all ${
+                activeTab === 'register' 
+                  ? 'bg-[#c82333] text-white' 
+                  : 'bg-[#e9ecef] text-gray-600 hover:bg-[#dee2e6]'
+              }`}
+              onClick={() => setActiveTab('register')}
+            >
+              Cadastre-se
+            </button>
+          </div>
 
-            <TabsContent value="login">
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div>
-                  <Label htmlFor="login-email">Email</Label>
-                  <Input
-                    id="login-email"
-                    type="email"
-                    value={loginEmail}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="login-password">Senha</Label>
-                  <Input
-                    id="login-password"
-                    type="password"
-                    value={loginPassword}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                    placeholder="Digite sua senha"
-                    required
-                  />
-                </div>
+          {/* Error Alert */}
+          {error && (
+            <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-red-700 text-sm">{error}</p>
+            </div>
+          )}
 
-                <Button 
-                  type="submit" 
-                  className="w-full" 
-                  disabled={loading}
+          {/* Login Form */}
+          {activeTab === 'login' && (
+            <form onSubmit={handleLogin} className="space-y-5">
+              <div>
+                <label className="block mb-2 font-medium text-black">Email</label>
+                <input
+                  type="email"
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                  placeholder="Digite seu e-mail"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 font-medium text-black">Senha</label>
+                <input
+                  type="password"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="Digite sua senha"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-[14px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
+              >
+                {loading ? 'ENTRANDO...' : 'ENTRAR'}
+              </button>
+            </form>
+          )}
+
+          {/* Register Form */}
+          {activeTab === 'register' && (
+            <form onSubmit={handleSignup} className="space-y-5">
+              <div>
+                <label className="block mb-2 font-medium text-black">Nome Completo</label>
+                <input
+                  type="text"
+                  value={signupFullName}
+                  onChange={(e) => setSignupFullName(e.target.value)}
+                  placeholder="Seu nome completo"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 font-medium text-black">Cargo</label>
+                <select
+                  value={signupCargo}
+                  onChange={(e) => setSignupCargo(e.target.value)}
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
                 >
-                  {loading ? 'Entrando...' : 'Entrar'}
-                </Button>
-              </form>
-            </TabsContent>
+                  <option value="">Selecione seu cargo</option>
+                  {CARGOS.map(cargo => (
+                    <option key={cargo.value} value={cargo.value}>{cargo.label}</option>
+                  ))}
+                </select>
+              </div>
 
-            <TabsContent value="signup">
-              <form onSubmit={handleSignup} className="space-y-4">
-                <div>
-                  <Label htmlFor="signup-name">Nome Completo</Label>
-                  <Input
-                    id="signup-name"
-                    type="text"
-                    value={signupFullName}
-                    onChange={(e) => setSignupFullName(e.target.value)}
-                    placeholder="Seu nome completo"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="signup-email">Email</Label>
-                  <Input
-                    id="signup-email"
-                    type="email"
-                    value={signupEmail}
-                    onChange={(e) => setSignupEmail(e.target.value)}
-                    placeholder="seu@email.com"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="signup-password">Senha</Label>
-                  <Input
-                    id="signup-password"
-                    type="password"
-                    value={signupPassword}
-                    onChange={(e) => setSignupPassword(e.target.value)}
-                    placeholder="Mínimo 6 caracteres"
-                    required
-                    minLength={6}
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="signup-department">Departamento</Label>
-                  <Select value={signupDepartment} onValueChange={setSignupDepartment} required>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione seu departamento" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {DEPARTMENTS.map((department) => (
-                        <SelectItem key={department} value={department}>
-                          {department}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full" 
-                  disabled={loading}
+              <div>
+                <label className="block mb-2 font-medium text-black">Departamento</label>
+                <select
+                  value={signupDepartment}
+                  onChange={(e) => setSignupDepartment(e.target.value)}
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
                 >
-                  {loading ? 'Cadastrando...' : 'Criar Conta'}
-                </Button>
-              </form>
-            </TabsContent>
-          </Tabs>
-        </CardContent>
-      </Card>
+                  <option value="">Selecione seu departamento</option>
+                  {DEPARTMENTS.map(department => (
+                    <option key={department} value={department}>{department}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block mb-2 font-medium text-black">Email</label>
+                <input
+                  type="email"
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
+                  placeholder="Digite seu e-mail"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 font-medium text-black">Criar Senha</label>
+                <input
+                  type="password"
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
+                  placeholder="Criar senha"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                  minLength={6}
+                />
+              </div>
+
+              <div>
+                <label className="block mb-2 font-medium text-black">Confirmar Senha</label>
+                <input
+                  type="password"
+                  value={signupConfirmPassword}
+                  onChange={(e) => setSignupConfirmPassword(e.target.value)}
+                  placeholder="Confirme sua senha"
+                  className="w-full p-[14px_16px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-[14px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5"
+              >
+                {loading ? 'CRIANDO CONTA...' : 'CRIAR CONTA'}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
