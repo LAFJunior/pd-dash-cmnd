@@ -17,6 +17,7 @@ import { processosAuditoria, processosAuditor, processosConferente } from '@/dat
 import { processosContabil } from '@/data/processos/contabil';
 import { processosDepartamentoPessoal } from '@/data/processos/departamento-pessoal';
 import { processosRecursosHumanos } from '@/data/processos/recursos-humanos';
+import { usePermissions } from '@/hooks/usePermissions';
 
 interface ProcessosDepartamentoProps {
   departamento: string;
@@ -25,6 +26,16 @@ interface ProcessosDepartamentoProps {
 
 const ProcessosDepartamento: React.FC<ProcessosDepartamentoProps> = ({ departamento, pilarSelecionado }) => {
   const [processoExpandido, setProcessoExpandido] = useState<string | null>(null);
+  const { canViewProcesses, loading } = usePermissions();
+
+  // Se não tem permissão, não renderiza nada (controle já feito na página pai)
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (!canViewProcesses(departamento)) {
+    return null;
+  }
 
   const processosPorPilar: {[key: string]: any[]} = {
     'Logística': processosEcommerce['Logística'] || [],

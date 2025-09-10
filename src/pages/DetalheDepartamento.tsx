@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow } from 'lucide-react';
+import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow, Lock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
@@ -20,6 +20,7 @@ import EstadioMartinsPereira from '@/components/departamento/EstadioMartinsPerei
 import { DiadoraBrasilInfo } from '@/components/departamento/DiadoraBrasilInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
+import { usePermissions } from '@/hooks/usePermissions';
 const DetalheDepartamento = () => {
   const {
     nome
@@ -28,6 +29,7 @@ const DetalheDepartamento = () => {
   }>();
   const navigate = useNavigate();
   const [pilarSelecionado, setPilarSelecionado] = useState<string>('');
+  const { canViewProcesses, loading: permissionsLoading } = usePermissions();
 
   // Função para converter URL em nome do departamento
   const converterUrlParaNome = (urlNome: string) => {
@@ -268,16 +270,37 @@ const DetalheDepartamento = () => {
                 </CardContent>
               </Card>}
 
-            {/* Processos Realizados */}
+            {/* Processos Realizados - Com controle de acesso */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ClipboardList className="text-purple-600" size={24} />
                   Mapeamento de Processos
+                  {!permissionsLoading && !canViewProcesses(nomeDepartamento) && (
+                    <Lock className="text-gray-400" size={16} />
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
+                {permissionsLoading ? (
+                  <div className="flex items-center justify-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
+                    <span className="ml-2 text-gray-600">Verificando permissões...</span>
+                  </div>
+                ) : canViewProcesses(nomeDepartamento) ? (
+                  <ProcessosDepartamento departamento={nomeDepartamento} pilarSelecionado={pilarSelecionado} />
+                ) : (
+                  <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                    <Lock className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">Acesso Restrito</h3>
+                    <p className="text-gray-600 mb-4">
+                      Você só pode visualizar os processos detalhados do seu próprio departamento.
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      Entre em contato com o administrador para solicitar acesso a outros departamentos.
+                    </p>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </>}

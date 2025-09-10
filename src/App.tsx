@@ -15,6 +15,8 @@ import AgenteIA from "./pages/AgenteIA";
 import NotFound from "./pages/NotFound";
 import DocumentacaoPD from "./pages/DocumentacaoPD";
 import Documentacao from "./pages/Documentacao";
+import Auth from "./pages/Auth";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -24,20 +26,25 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/mapa-contexto" element={<MapaContexto />} />
-            <Route path="/mapa-lojas" element={<MapaLojas />} />
-            <Route path="/departamentos" element={<Departamentos />} />
-            <Route path="/departamentos/:nome" element={<DetalheDepartamento />} />
-            <Route path="/colaboradores" element={<Colaboradores />} />
-            <Route path="/agente-ia" element={<AgenteIA />} />
-          <Route path="/docs-pd" element={<DocumentacaoPD />} />
-          <Route path="/documentacao" element={<Documentacao />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/*" element={
+            <Layout>
+              <Routes>
+                <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                <Route path="/mapa-contexto" element={<ProtectedRoute><MapaContexto /></ProtectedRoute>} />
+                <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
+                <Route path="/departamentos" element={<ProtectedRoute><Departamentos /></ProtectedRoute>} />
+                <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
+                <Route path="/colaboradores" element={<ProtectedRoute><Colaboradores /></ProtectedRoute>} />
+                <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
+                <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
+                <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Layout>
+          } />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

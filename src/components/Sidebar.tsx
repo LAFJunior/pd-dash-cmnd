@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
@@ -10,8 +9,13 @@ import {
   ChevronLeft,
   Store,
   BookOpen,
-  FileText
+  FileText,
+  LogOut
 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import { usePermissions } from '@/hooks/usePermissions';
 
 interface MenuItemProps {
   to: string;
@@ -36,6 +40,19 @@ const MenuItem: React.FC<MenuItemProps> = ({ to, icon, text, collapsed }) => {
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const { profile, isAdmin } = usePermissions();
+
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      toast.success('Logout realizado com sucesso!');
+      navigate('/auth');
+    } catch (error) {
+      console.error('Erro no logout:', error);
+      toast.error('Erro ao fazer logout');
+    }
+  };
   
   return (
     <div className={`bg-sidebar h-screen ${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 flex flex-col`}>
@@ -51,7 +68,7 @@ const Sidebar = () => {
         </button>
       </div>
       
-      <div className="flex flex-col gap-1 p-2 flex-1">
+      <nav className="flex flex-col gap-1 p-2 flex-1">
         <MenuItem 
           to="/" 
           icon={<LayoutDashboard size={20} />} 
@@ -88,25 +105,48 @@ const Sidebar = () => {
           text="Agente IA Oscar" 
           collapsed={collapsed}
         />
-      </div>
+        
+        <div className="mt-4 pt-4 border-t border-sidebar-accent">
+          <MenuItem 
+            to="/docs-pd" 
+            icon={<BookOpen size={20} />} 
+            text="Docs - PD" 
+            collapsed={collapsed}
+          />
+          <MenuItem 
+            to="/documentacao" 
+            icon={<FileText size={20} />} 
+            text="Documentação" 
+            collapsed={collapsed}
+          />
+        </div>
+      </nav>
       
-      <div className="flex flex-col gap-1 p-2">
-        <MenuItem 
-          to="/docs-pd" 
-          icon={<BookOpen size={20} />} 
-          text="Docs - PD" 
-          collapsed={collapsed}
-        />
-        <MenuItem 
-          to="/documentacao" 
-          icon={<FileText size={20} />} 
-          text="Documentação" 
-          collapsed={collapsed}
-        />
-      </div>
-      
-      <div className={`px-4 py-2 text-xs text-white/50 ${collapsed ? 'text-center' : ''}`}>
-        {!collapsed && <p>© 2025 Processos Digitais</p>}
+      {/* Área de informações do usuário e logout */}
+      <div className="mt-auto p-4 border-t border-sidebar-accent">
+        {profile && (
+          <div className="mb-3">
+            {!collapsed && (
+              <div className="text-white text-sm">
+                <p className="font-medium truncate">{profile.full_name}</p>
+                <p className="text-sidebar-foreground/70 text-xs truncate">{profile.department}</p>
+                {isAdmin && (
+                  <span className="text-xs bg-yellow-600 text-white px-2 py-0.5 rounded mt-1 inline-block">
+                    Admin
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+        
+        <button
+          onClick={handleLogout}
+          className={`w-full flex items-center gap-3 p-3 text-white hover:bg-sidebar-accent rounded-lg transition-colors ${collapsed ? 'justify-center' : ''}`}
+        >
+          <LogOut size={20} />
+          {!collapsed && <span>Sair</span>}
+        </button>
       </div>
     </div>
   );
