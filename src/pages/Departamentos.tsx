@@ -14,7 +14,7 @@ const departamentosBackoffice = [
   "Fiscal",
   "Marketing",
   "Recursos Humanos (RH)",
-  "CD/Operações (São José dos Campos)",
+  "CD/Operações (S. J. dos Campos)",
   "Suprimentos",
   "SAC",
   "T.I Desenvolvimento",
