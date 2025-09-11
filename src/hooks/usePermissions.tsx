@@ -75,6 +75,8 @@ export const usePermissions = () => {
     return true;
   };
 
+  const isSuperAdmin = profile?.email === 'luiz.ferreira@grupooscar.com.br';
+
   return {
     profile,
     loading,
@@ -82,6 +84,7 @@ export const usePermissions = () => {
     canViewStructure,
     canViewFlow,
     isAdmin: profile?.role === 'admin',
+    isSuperAdmin,
     userDepartment: profile?.department || null,
     isAuthenticated: !!profile
   };

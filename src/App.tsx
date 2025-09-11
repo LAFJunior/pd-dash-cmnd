@@ -15,6 +15,7 @@ import AgenteIA from "./pages/AgenteIA";
 import NotFound from "./pages/NotFound";
 import DocumentacaoPD from "./pages/DocumentacaoPD";
 import Documentacao from "./pages/Documentacao";
+import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -40,6 +41,7 @@ const App = () => (
                 <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
                 <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
                 <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />
+                <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>

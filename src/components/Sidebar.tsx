@@ -10,7 +10,8 @@ import {
   Store,
   BookOpen,
   FileText,
-  LogOut
+  LogOut,
+  Shield
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
@@ -41,7 +42,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ to, icon, text, collapsed }) => {
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
-  const { profile, isAdmin } = usePermissions();
+  const { profile, isAdmin, isSuperAdmin } = usePermissions();
 
   const handleLogout = async () => {
     try {
@@ -118,6 +119,14 @@ const Sidebar = () => {
               to="/documentacao" 
               icon={<FileText size={20} />} 
               text="Documentação" 
+              collapsed={collapsed}
+            />
+          )}
+          {isSuperAdmin && (
+            <MenuItem 
+              to="/admin" 
+              icon={<Shield size={20} />} 
+              text="Admin" 
               collapsed={collapsed}
             />
           )}
