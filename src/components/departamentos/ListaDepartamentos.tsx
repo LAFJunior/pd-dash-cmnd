@@ -52,7 +52,7 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
       // Mapear casos especiais primeiro
       const mapeamentoEspecial: {[key: string]: string} = {
         'E-Commerce': 'e-commerce',
-        'CD/Operações (S. J. dos Campos)': 'sao-jose-dos-campos',
+        'CD/Operações (S. J. dos Campos)': 'CD/Operações (S. J. dos Campos)',
         'Departamento Pessoal (DP)': 'departamento-pessoal',
         'Recursos Humanos (RH)': 'recursos-humanos',
         'T.I Desenvolvimento': 't-i-desenvolvimento',
