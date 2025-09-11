@@ -180,7 +180,7 @@ const Auth: React.FC = () => {
         <div className="bg-[#f8f9fa] rounded-xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
           {/* Header */}
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-semibold mb-2 text-black">Acesso aos Processos Digitais</h2>
+            <h2 className="text-2xl font-semibold mb-2 text-black">Processos Digitais</h2>
             <p className="text-gray-600 text-[0.95rem]">Entre com o e-mail corporativo</p>
           </div>
 
