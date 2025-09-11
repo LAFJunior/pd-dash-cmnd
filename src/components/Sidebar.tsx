@@ -113,12 +113,14 @@ const Sidebar = () => {
             text="Docs - PD" 
             collapsed={collapsed}
           />
-          <MenuItem 
-            to="/documentacao" 
-            icon={<FileText size={20} />} 
-            text="Documentação" 
-            collapsed={collapsed}
-          />
+          {isAdmin && (
+            <MenuItem 
+              to="/documentacao" 
+              icon={<FileText size={20} />} 
+              text="Documentação" 
+              collapsed={collapsed}
+            />
+          )}
         </div>
       </nav>
       
