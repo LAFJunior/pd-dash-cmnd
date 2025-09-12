@@ -10,7 +10,7 @@ const Colaboradores = () => {
       </div>
       
       <div className="bg-card rounded-lg shadow-lg p-8 overflow-x-auto">
-        <div className="min-w-[1200px]">
+        <div className="min-w-[2400px]">
           {/* CEO */}
           <div className="flex flex-col items-center mb-10">
             <div className="bg-[#8B1538] text-white px-8 py-6 rounded-lg text-center font-bold text-xl shadow-lg">
@@ -20,9 +20,9 @@ const Colaboradores = () => {
           </div>
 
           {/* Diretores */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
+          <div className="flex gap-4 justify-start items-start">
             {/* Marcio - Diretor */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Marcio<br/>Diretor
               </div>
@@ -37,7 +37,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Sônia - Diretora */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Sônia<br/>Diretora
               </div>
@@ -49,7 +49,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Nelson - Diretor */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Nelson<br/>Diretor
               </div>
@@ -62,7 +62,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Renan - Diretor */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Renan<br/>Diretor
               </div>
@@ -73,7 +73,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Naiche - Diretor */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Naiche<br/>Diretor
               </div>
@@ -86,7 +86,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Helena - Diretora */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Helena<br/>Diretora
               </div>
@@ -96,7 +96,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Romilton - Diretor Op. */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Romilton<br/>Diretor Op.
               </div>
@@ -110,7 +110,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Farias - Diretor Op. */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Farias<br/>Diretor Op.
               </div>
@@ -123,7 +123,7 @@ const Colaboradores = () => {
             </div>
 
             {/* Cerutti - Diretor Op. */}
-            <div className="flex flex-col items-center min-w-[220px]">
+            <div className="flex flex-col items-center w-[220px] flex-shrink-0">
               <div className="bg-[#8B1538] text-white px-6 py-4 rounded-lg text-center font-bold text-sm shadow-md mb-4 w-full">
                 Cerutti<br/>Diretor Op.
               </div>
