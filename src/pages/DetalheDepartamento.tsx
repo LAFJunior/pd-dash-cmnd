@@ -43,7 +43,7 @@ const DetalheDepartamento = () => {
       'ecommerce': 'E-Commerce',
       'contbil': 'Contábil',
       'contabil': 'Contábil',
-      'sao-jose-dos-campos': 'São José dos Campos (CD/Operações)',
+      'sao-jose-dos-campos': 'CD/Operações (S. J. dos Campos)',
       'são-jose-dos-campos': 'São José dos Campos (CD/Operações)',
       'cdoperaes': 'São José dos Campos (CD/Operações)',
       'cd-operacoes': 'São José dos Campos (CD/Operações)',
