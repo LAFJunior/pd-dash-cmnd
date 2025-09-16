@@ -51,7 +51,7 @@ const DetalheDepartamento = () => {
       'recursos-humanos': 'Recursos Humanos (RH)',
       't-i-desenvolvimento': 'T.I Desenvolvimento',
       't-i-operacoes': 'T.I Operações',
-      't-i-projetos': 'T.I Projetos',
+      't-i-projetos': 'T.I Projetos e Inovações',
       'sao-jose-esporte-club': 'São José Esporte Club',
       'estadio-martins-pereira': 'Estádio Martins Pereira',
       'diadora-brasil': 'Diadora Brasil',

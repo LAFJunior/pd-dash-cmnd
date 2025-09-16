@@ -57,7 +57,7 @@ const ListaDepartamentos: React.FC<ListaDepartamentosProps> = ({
         'Recursos Humanos (RH)': 'recursos-humanos',
         'T.I Desenvolvimento': 't-i-desenvolvimento',
         'T.I Operações': 't-i-operacoes',
-        'T.I Projetos': 't-i-projetos',
+        'T.I Projetos e Inovações': 't-i-projetos',
         'São José Esporte Club': 'sao-jose-esporte-club',
         'Estádio Martins Pereira': 'estadio-martins-pereira',
         'Instituições Financeiras': 'instituicoes-financeiras',
