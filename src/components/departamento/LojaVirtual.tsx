@@ -108,44 +108,33 @@ const LojaVirtual = () => {
             </TabsList>
 
             <TabsContent value="entrada" className="mt-4">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <Store className="text-green-600" />
-                  (em desenvolvimento)
+                  Recursos para Frente da Loja
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <Card>
-                    <CardContent className="p-4">
-                      
-                      <div className="mt-2">
-                        
-                        
+                
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Recursos e informativos para otimizar os processos da frente da loja, incluindo operações de PDV, atendimento ao cliente e procedimentos de checkout.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <Card className="p-4 hover:shadow-md transition-shadow">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <CreditCard className="text-blue-600 h-5 w-5" />
+                        <h4 className="font-medium text-sm">Alterar Cliente PDV Checkout</h4>
                       </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          
-                          
-                        </div>
-                        
-                      </div>
-                      
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          
-                          
-                        </div>
-                        
-                      </div>
-                      
-                    </CardContent>
+                      <p className="text-xs text-muted-foreground">
+                        Informativo referente ao novo fluxo para alterar as informações do cliente
+                      </p>
+                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1JjR42DT7_d1woTlRi4mGF-yEVDZYWVK6', '_blank')}>
+                        <Download className="h-4 w-4 mr-2" />
+                        Baixar PDF
+                      </Button>
+                    </div>
                   </Card>
                 </div>
               </div>
