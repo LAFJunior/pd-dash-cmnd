@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      department_analytics: {
+        Row: {
+          accessed_at: string | null
+          created_at: string | null
+          department_name: string
+          id: string
+          session_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          accessed_at?: string | null
+          created_at?: string | null
+          department_name: string
+          id?: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          accessed_at?: string | null
+          created_at?: string | null
+          department_name?: string
+          id?: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      pdf_analytics: {
+        Row: {
+          created_at: string | null
+          department_name: string | null
+          downloaded_at: string | null
+          id: string
+          pdf_title: string
+          pdf_url: string
+          session_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          department_name?: string | null
+          downloaded_at?: string | null
+          id?: string
+          pdf_title: string
+          pdf_url: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          department_name?: string | null
+          downloaded_at?: string | null
+          id?: string
+          pdf_title?: string
+          pdf_url?: string
+          session_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -44,6 +104,45 @@ export type Database = {
           role?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      video_analytics: {
+        Row: {
+          completed: boolean | null
+          created_at: string | null
+          department_name: string | null
+          id: string
+          play_duration_seconds: number | null
+          play_started_at: string | null
+          session_id: string | null
+          user_id: string | null
+          video_file_name: string
+          video_title: string | null
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string | null
+          department_name?: string | null
+          id?: string
+          play_duration_seconds?: number | null
+          play_started_at?: string | null
+          session_id?: string | null
+          user_id?: string | null
+          video_file_name: string
+          video_title?: string | null
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string | null
+          department_name?: string | null
+          id?: string
+          play_duration_seconds?: number | null
+          play_started_at?: string | null
+          session_id?: string | null
+          user_id?: string | null
+          video_file_name?: string
+          video_title?: string | null
         }
         Relationships: []
       }

@@ -5,8 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { AnalyticsDashboard } from '@/components/admin/AnalyticsDashboard';
 import { toast } from 'sonner';
-import { Shield, Key, RefreshCw } from 'lucide-react';
+import { Shield, Key, RefreshCw, BarChart3 } from 'lucide-react';
 
 interface UserProfile {
   id: string;
@@ -122,89 +124,106 @@ const Admin = () => {
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
+        <h1 className="text-3xl font-bold flex items-center gap-2">
           <Shield className="h-8 w-8" />
           Administração do Sistema
         </h1>
-        <p className="text-gray-600 mt-2">Gerenciamento de usuários e senhas</p>
+        <p className="text-muted-foreground mt-2">Painel completo para super administradores</p>
       </div>
 
-      <div className="grid gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Key className="h-5 w-5" />
-              Reset de Senhas de Usuários
-            </CardTitle>
-            <CardDescription>
-              Como super administrador, você pode resetar as senhas de qualquer usuário do sistema.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {users.map((user) => (
-                <div key={user.id} className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex-1">
-                    <h3 className="font-medium">{user.full_name}</h3>
-                    <p className="text-sm text-gray-500">{user.email}</p>
-                    <p className="text-xs text-gray-400">{user.department} • {user.role}</p>
-                  </div>
-                  
-                  {selectedUser === user.user_id ? (
-                    <div className="flex items-center gap-2">
-                      <div className="flex flex-col gap-2">
-                        <Label htmlFor="newPassword" className="text-sm">Nova Senha</Label>
-                        <Input
-                          id="newPassword"
-                          type="password"
-                          value={newPassword}
-                          onChange={(e) => setNewPassword(e.target.value)}
-                          placeholder="Digite a nova senha"
-                          className="w-48"
-                        />
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        <div className="h-5"></div> {/* Spacer for alignment */}
-                        <div className="flex gap-2">
-                          <Button
-                            onClick={() => handleResetPassword(user.user_id)}
-                            disabled={resetting === user.user_id}
-                            size="sm"
-                          >
-                            {resetting === user.user_id ? (
-                              <RefreshCw className="animate-spin h-4 w-4" />
-                            ) : (
-                              'Confirmar'
-                            )}
-                          </Button>
-                          <Button
-                            onClick={() => {
-                              setSelectedUser(null);
-                              setNewPassword('');
-                            }}
-                            variant="outline"
-                            size="sm"
-                          >
-                            Cancelar
-                          </Button>
+      <Tabs defaultValue="analytics" className="space-y-6">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="analytics" className="flex items-center gap-2">
+            <BarChart3 className="h-4 w-4" />
+            Métricas
+          </TabsTrigger>
+          <TabsTrigger value="users" className="flex items-center gap-2">
+            <Key className="h-4 w-4" />
+            Usuários
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="analytics">
+          <AnalyticsDashboard />
+        </TabsContent>
+
+        <TabsContent value="users">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Key className="h-5 w-5" />
+                Reset de Senhas de Usuários
+              </CardTitle>
+              <CardDescription>
+                Como super administrador, você pode resetar as senhas de qualquer usuário do sistema.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {users.map((user) => (
+                  <div key={user.id} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div className="flex-1">
+                      <h3 className="font-medium">{user.full_name}</h3>
+                      <p className="text-sm text-muted-foreground">{user.email}</p>
+                      <p className="text-xs text-muted-foreground">{user.department} • {user.role}</p>
+                    </div>
+                    
+                    {selectedUser === user.user_id ? (
+                      <div className="flex items-center gap-2">
+                        <div className="flex flex-col gap-2">
+                          <Label htmlFor="newPassword" className="text-sm">Nova Senha</Label>
+                          <Input
+                            id="newPassword"
+                            type="password"
+                            value={newPassword}
+                            onChange={(e) => setNewPassword(e.target.value)}
+                            placeholder="Digite a nova senha"
+                            className="w-48"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-2">
+                          <div className="h-5"></div> {/* Spacer for alignment */}
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => handleResetPassword(user.user_id)}
+                              disabled={resetting === user.user_id}
+                              size="sm"
+                            >
+                              {resetting === user.user_id ? (
+                                <RefreshCw className="animate-spin h-4 w-4" />
+                              ) : (
+                                'Confirmar'
+                              )}
+                            </Button>
+                            <Button
+                              onClick={() => {
+                                setSelectedUser(null);
+                                setNewPassword('');
+                              }}
+                              variant="outline"
+                              size="sm"
+                            >
+                              Cancelar
+                            </Button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ) : (
-                    <Button
-                      onClick={() => setSelectedUser(user.user_id)}
-                      variant="outline"
-                      size="sm"
-                    >
-                      Resetar Senha
-                    </Button>
-                  )}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+                    ) : (
+                      <Button
+                        onClick={() => setSelectedUser(user.user_id)}
+                        variant="outline"
+                        size="sm"
+                      >
+                        Resetar Senha
+                      </Button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

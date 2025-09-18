@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow, Lock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,6 +21,7 @@ import { DiadoraBrasilInfo } from '@/components/departamento/DiadoraBrasilInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
 import { usePermissions } from '@/hooks/usePermissions';
+import { useAnalytics } from '@/hooks/useAnalytics';
 const DetalheDepartamento = () => {
   const {
     nome
@@ -30,6 +31,7 @@ const DetalheDepartamento = () => {
   const navigate = useNavigate();
   const [pilarSelecionado, setPilarSelecionado] = useState<string>('');
   const { canViewProcesses, loading: permissionsLoading } = usePermissions();
+  const { trackDepartmentAccess, trackPDFDownload } = useAnalytics();
 
   // Função para converter URL em nome do departamento
   const converterUrlParaNome = (urlNome: string) => {
@@ -68,6 +70,18 @@ const DetalheDepartamento = () => {
     return urlNome.split('-').map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1)).join(' ');
   };
   const nomeDepartamento = converterUrlParaNome(nome || '');
+  
+  // Track department access
+  useEffect(() => {
+    if (nomeDepartamento) {
+      trackDepartmentAccess(nomeDepartamento);
+    }
+  }, [nomeDepartamento, trackDepartmentAccess]);
+
+  const handlePDFDownload = (url: string, title: string) => {
+    trackPDFDownload(title, url, nomeDepartamento);
+    window.open(url, '_blank');
+  };
   const isEcommerce = nomeDepartamento.toLowerCase().includes('e-commerce');
   const isControladoria = nomeDepartamento.toLowerCase().includes('controladoria');
   const isAuditoria = nomeDepartamento.toLowerCase().includes('auditoria');
@@ -225,7 +239,7 @@ const DetalheDepartamento = () => {
                         <div className="flex-1 space-y-2">
                           <h4 className="font-medium text-gray-900">Manual - Gestão de Ponto</h4>
                           <p className="text-sm text-gray-600">Principais funcionalidades existentes na nova Plataforma de Gestão de Ponto.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', '_blank')}>
+                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', 'Manual - Gestão de Ponto')}>
                             <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                             </svg>
@@ -241,7 +255,7 @@ const DetalheDepartamento = () => {
                         <div className="flex-1 space-y-2">
                           <h4 className="font-medium text-gray-900">Processos de Admissão</h4>
                           <p className="text-sm text-gray-600">Documentação completa dos processos de admissão de colaboradores.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => window.open('/processos_admissao_dp.pdf', '_blank')}>
+                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('/processos_admissao_dp.pdf', 'Processos de Admissão')}>
                             <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                             </svg>
@@ -257,7 +271,7 @@ const DetalheDepartamento = () => {
                         <div className="flex-1 space-y-2">
                           <h4 className="font-medium text-gray-900">Processo Cálculo de Folha</h4>
                           <p className="text-sm text-gray-600">Procedimentos e metodologia para cálculo da folha de pagamento.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => window.open('/processo_calculo_folha_dp.pdf', '_blank')}>
+                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('/processo_calculo_folha_dp.pdf', 'Processo Cálculo de Folha')}>
                             <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                             </svg>

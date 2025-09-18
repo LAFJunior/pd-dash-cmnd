@@ -5,8 +5,15 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import VideoPlayer from '@/components/VideoPlayer';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { Store, Users, Target, TrendingUp, BookOpen, Package, ShoppingCart, UserCheck, Star, PlayCircle, Award, BarChart3, MessageSquare, CheckCircle, Clock, Trophy, ChevronDown, BookOpenCheck, UserCog, Settings, Eye, GraduationCap, CheckSquare, Download, CreditCard, Building } from 'lucide-react';
 const LojaVirtual = () => {
+  const { trackPDFDownload } = useAnalytics();
+
+  const handlePDFDownload = (url: string, title: string) => {
+    trackPDFDownload(title, url, 'Lojas');
+    window.open(url, '_blank');
+  };
   const [areaAtiva, setAreaAtiva] = useState('entrada');
 
   // Dados simulados de performance
@@ -130,7 +137,7 @@ const LojaVirtual = () => {
                       <p className="text-xs text-muted-foreground">
                         Informativo referente ao novo fluxo para alterar as informações do cliente
                       </p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1JjR42DT7_d1woTlRi4mGF-yEVDZYWVK6', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1JjR42DT7_d1woTlRi4mGF-yEVDZYWVK6', 'Alterar Cliente PDV Checkout')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1031,7 +1038,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Encarregado de Vendas</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para coordenação da equipe de vendas</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1ZNao3V4MIUYO-1d0QOHVcbgirIARJNet', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1ZNao3V4MIUYO-1d0QOHVcbgirIARJNet', 'Check-list para Coordenação de Vendas')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1045,7 +1052,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gestor 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão moderna de loja</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=1JA5aLhqaM08kHGEL-4KNld0VLYfYIk16', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=1JA5aLhqaM08kHGEL-4KNld0VLYfYIk16', 'Check-list para Gestão de Loja')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1059,7 +1066,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Caixa 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para operações de caixa</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1HvlqeFEpcA8Jbf1X5tq_5KwT-E_l2PCc', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1HvlqeFEpcA8Jbf1X5tq_5KwT-E_l2PCc', 'Check-list para Operações de Caixa')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1073,7 +1080,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Líder de Estoque 3.0</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão de estoque</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1AuTkBPQHrHb91CjdcfvtuOTS3Sf3Nf3P', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1AuTkBPQHrHb91CjdcfvtuOTS3Sf3Nf3P', 'Check-list para Gestão de Estoque')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1087,7 +1094,7 @@ const LojaVirtual = () => {
                         <h4 className="font-medium text-sm">Gerente Regional</h4>
                       </div>
                       <p className="text-xs text-muted-foreground">Check-list para gestão regional</p>
-                      <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1yaga3epMxyBbit3fPlcWxwUHzXJzzT4I', '_blank')}>
+                      <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1yaga3epMxyBbit3fPlcWxwUHzXJzzT4I', 'Check-list para Gestão Regional')}>
                         <Download className="h-4 w-4 mr-2" />
                         Baixar PDF
                       </Button>
@@ -1110,7 +1117,7 @@ const LojaVirtual = () => {
                           <h4 className="font-medium text-sm">Programa de Vendas e Atendimento – PVA</h4>
                         </div>
                         <p className="text-xs text-muted-foreground">Material completo do programa de vendas</p>
-                        <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1ZYI2kPo3_g49CSK5Exu9ahKXic2xhLRR', '_blank')}>
+                        <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1ZYI2kPo3_g49CSK5Exu9ahKXic2xhLRR', 'Material Programa de Vendas')}>
                           <Download className="h-4 w-4 mr-2" />
                           Baixar PDF
                         </Button>
@@ -1124,7 +1131,7 @@ const LojaVirtual = () => {
                           <h4 className="font-medium text-sm">Programa de Gestão de Lojas – PGL</h4>
                         </div>
                         <p className="text-xs text-muted-foreground">Material completo do programa de gestão</p>
-                        <Button size="sm" className="w-full" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1ZBKcQ2VWJZz83c6BZ22wvcIV1jYr6tdA', '_blank')}>
+                        <Button size="sm" className="w-full" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1ZBKcQ2VWJZz83c6BZ22wvcIV1jYr6tdA', 'Material Programa de Gestão')}>
                           <Download className="h-4 w-4 mr-2" />
                           Baixar PDF
                         </Button>
