@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { PlayCircle, AlertCircle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+// @ts-ignore
+import Hls from 'hls.js';
 
 interface VideoPlayerProps {
   fileName?: string;
@@ -23,7 +25,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { trackVideoPlay, trackVideoCompletion } = useAnalytics();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const hlsRef = useRef<any>(null);
 
+  // Efeito para obter a URL do vídeo
   useEffect(() => {
     const getVideoUrl = async () => {
       try {
@@ -32,8 +37,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
         // Se tiver URL externa, usa diretamente
         if (externalUrl) {
+          console.log('Usando URL externa:', externalUrl);
           setVideoUrl(externalUrl);
-          setIsLoading(false);
           return;
         }
 
@@ -66,6 +71,57 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
     getVideoUrl();
   }, [fileName, externalUrl, bucketName]);
+
+  // Efeito para configurar HLS quando o vídeo está pronto
+  useEffect(() => {
+    if (videoUrl && videoRef.current && externalUrl?.includes('.m3u8')) {
+      const video = videoRef.current;
+      
+      // Limpa instância anterior do HLS
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+        hlsRef.current = null;
+      }
+
+      if (Hls.isSupported()) {
+        console.log('HLS suportado, carregando com hls.js:', videoUrl);
+        const hls = new Hls({
+          enableWorker: false,
+          lowLatencyMode: true,
+          backBufferLength: 90
+        });
+        
+        hlsRef.current = hls;
+        
+        hls.loadSource(videoUrl);
+        hls.attachMedia(video);
+        
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          console.log('Manifesto HLS carregado com sucesso');
+        });
+        
+        hls.on(Hls.Events.ERROR, (event: any, data: any) => {
+          console.error('Erro HLS:', data);
+          if (data.fatal) {
+            setError('Erro ao reproduzir vídeo HLS');
+          }
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        console.log('HLS nativo suportado');
+        video.src = videoUrl;
+      } else {
+        setError('Formato de vídeo não suportado');
+      }
+    }
+
+    // Cleanup function
+    return () => {
+      if (hlsRef.current) {
+        hlsRef.current.destroy();
+        hlsRef.current = null;
+      }
+    };
+  }, [videoUrl, externalUrl]);
 
   const handlePlay = () => {
     const videoId = fileName || externalUrl || 'unknown';
@@ -104,14 +160,23 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   return (
     <Card className="w-full overflow-hidden">
       <video
+        ref={videoRef}
         controls
         preload="metadata"
         className="w-full aspect-video object-cover"
-        onError={() => setError('Erro ao reproduzir vídeo')}
+        onError={(e) => {
+          console.error('Erro na reprodução do vídeo:', e);
+          setError('Erro ao reproduzir vídeo');
+        }}
         onPlay={handlePlay}
         onEnded={handleEnded}
+        onLoadStart={() => console.log('Iniciando carregamento do vídeo:', videoUrl)}
+        onCanPlay={() => console.log('Vídeo pronto para reproduzir:', videoUrl)}
       >
-        <source src={videoUrl} type={externalUrl?.includes('.m3u8') ? "application/x-mpegURL" : "video/mp4"} />
+        {/* Para vídeos não-HLS, usa source tag normal */}
+        {videoUrl && !externalUrl?.includes('.m3u8') && (
+          <source src={videoUrl} type="video/mp4" />
+        )}
         Seu navegador não suporta reprodução de vídeo.
       </video>
     </Card>
