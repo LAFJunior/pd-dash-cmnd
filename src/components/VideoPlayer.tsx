@@ -5,7 +5,8 @@ import { PlayCircle, AlertCircle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 interface VideoPlayerProps {
-  fileName: string;
+  fileName?: string;
+  externalUrl?: string;
   bucketName?: string;
   title?: string;
   departmentName?: string;
@@ -13,6 +14,7 @@ interface VideoPlayerProps {
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ 
   fileName, 
+  externalUrl,
   bucketName = 'lojas-vds',
   title,
   departmentName
@@ -28,6 +30,19 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         setIsLoading(true);
         setError(null);
 
+        // Se tiver URL externa, usa diretamente
+        if (externalUrl) {
+          setVideoUrl(externalUrl);
+          setIsLoading(false);
+          return;
+        }
+
+        // Se não tiver fileName nem externalUrl, erro
+        if (!fileName) {
+          throw new Error('Nenhuma fonte de vídeo fornecida');
+        }
+
+        // Usar Supabase para fileName
         const { data, error: storageError } = await supabase.storage
           .from(bucketName)
           .createSignedUrl(fileName, 3600); // URL válida por 1 hora
@@ -50,15 +65,18 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     };
 
     getVideoUrl();
-  }, [fileName, bucketName]);
+  }, [fileName, externalUrl, bucketName]);
 
   const handlePlay = () => {
-    trackVideoPlay(fileName, title || fileName, departmentName);
+    const videoId = fileName || externalUrl || 'unknown';
+    const videoTitle = title || fileName || externalUrl || 'unknown';
+    trackVideoPlay(videoId, videoTitle, departmentName);
   };
 
   const handleEnded = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = event.currentTarget;
-    trackVideoCompletion(fileName, Math.floor(video.duration || 0));
+    const videoId = fileName || externalUrl || 'unknown';
+    trackVideoCompletion(videoId, Math.floor(video.duration || 0));
   };
 
   if (isLoading) {
@@ -93,7 +111,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         onPlay={handlePlay}
         onEnded={handleEnded}
       >
-        <source src={videoUrl} type="video/mp4" />
+        <source src={videoUrl} type={externalUrl?.includes('.m3u8') ? "application/x-mpegURL" : "video/mp4"} />
         Seu navegador não suporta reprodução de vídeo.
       </video>
     </Card>

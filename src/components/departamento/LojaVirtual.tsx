@@ -772,23 +772,23 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - Pré-resquisitos do Líder</h4>
-                              <VideoPlayer fileName="VOCE-GESTOR-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/VOCE-GESTOR-1/VOCE-GESTOR-1_player.m3u8" title="Você Gestor - Pré-requisitos do Líder" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - 10 Competência do Gestor</h4>
-                              <VideoPlayer fileName="VOCE-GESTOR-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/VOCE-GESTOR-2/VOCE-GESTOR-2_player.m3u8" title="Você Gestor - 10 Competência do Gestor" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - Prática</h4>
-                              <VideoPlayer fileName="VOCE-GESTOR-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/VOCE-GESTOR-3/VOCE-GESTOR-3_player.m3u8" title="Você Gestor - Prática" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - Líderança</h4>
-                              <VideoPlayer fileName="VOCE-GESTOR-4.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/VOCE-GESTOR-4/VOCE-GESTOR-4_player.m3u8" title="Você Gestor - Liderança" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-blue-700">Você Gestor - Administração do Tempo</h4>
-                              <VideoPlayer fileName="VOCE-GESTOR-5.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/VOCE-GESTOR-5/VOCE-GESTOR-5_player.m3u8" title="Você Gestor - Administração do Tempo" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
@@ -817,27 +817,27 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Melhores Resultados</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-1/Gerencia-Operacional-1_player.m3u8" title="Gerência Operacional - Melhores Resultados" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Onde Moram Os Seus Problemas</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-2/Gerencia-Operacional-2_player.m3u8" title="Gerência Operacional - Onde Moram Os Seus Problemas" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Foco no Atendimento</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-3/Gerencia-Operacional-3_player.m3u8" title="Gerência Operacional - Foco no Atendimento" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Quadros Informativos</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-4.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-4/Gerencia-Operacional-4_player.m3u8" title="Gerência Operacional - Quadros Informativos" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Disciplina</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-5.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-5/Gerencia-Operacional-5_player.m3u8" title="Gerência Operacional - Disciplina" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-green-700">Gerência Operacional - Arquivos e Pastas do Gestor</h4>
-                              <VideoPlayer fileName="Gerencia-Operacional-6.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Gerencia-Operacional-6/Gerencia-Operacional-6_player.m3u8" title="Gerência Operacional - Arquivos e Pastas do Gestor" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
@@ -866,27 +866,27 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Estrutura de Loja</h4>
-                              <VideoPlayer fileName="Seu-Time-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-1/Seu-Time-1_player.m3u8" title="Seu Time - Estrutura de Loja" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Funções do seu Time</h4>
-                              <VideoPlayer fileName="Seu-Time-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-2/Seu-Time-2_player.m3u8" title="Seu Time - Funções do seu Time" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Analisando seu Time</h4>
-                              <VideoPlayer fileName="Seu-Time-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-3/Seu-Time-3_player.m3u8" title="Seu Time - Analisando seu Time" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - F.O.P'.s</h4>
-                              <VideoPlayer fileName="Seu-Time-4.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-4/Seu-Time-4_player.m3u8" title="Seu Time - F.O.P's" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Sem Falhas</h4>
-                              <VideoPlayer fileName="Seu-Time-5.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-5/Seu-Time-5_player.m3u8" title="Seu Time - Sem Falhas" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-orange-700">Seu Time - Disposição para Cumprir Normas</h4>
-                              <VideoPlayer fileName="Seu-Time-6.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Seu-Time-6/Seu-Time-6_player.m3u8" title="Seu Time - Disposição para Cumprir Normas" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
@@ -915,15 +915,15 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Chegando na Meta</h4>
-                              <VideoPlayer fileName="Acompanhamento-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Acompanhamento-1/Acompanhamento-1_player.m3u8" title="Acompanhamento - Chegando na Meta" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Como Extrair Informações</h4>
-                              <VideoPlayer fileName="Acompanhamento-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Acompanhamento-2/Acompanhamento-2_player.m3u8" title="Acompanhamento - Como Extrair Informações" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-purple-700">Acompanhamento - Dados Estatísticos</h4>
-                              <VideoPlayer fileName="Acompanhamento-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Acompanhamento-3/Acompanhamento-3_player.m3u8" title="Acompanhamento - Dados Estatísticos" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
@@ -952,19 +952,19 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-yellow-700">Evolução - Compromentimento</h4>
-                              <VideoPlayer fileName="Evolucao-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Evolucao-1/Evolucao-1_player.m3u8" title="Evolução - Comprometimento" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-yellow-700">Evolução - Feedback</h4>
-                              <VideoPlayer fileName="Evolucao-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Evolucao-2/Evolucao-2_player.m3u8" title="Evolução - Feedback" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-yellow-700">Evolução - Formulário Quinzenal</h4>
-                              <VideoPlayer fileName="Evolucao-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Evolucao-3/Evolucao-3_player.m3u8" title="Evolução - Formulário Quinzenal" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-yellow-700">Evolução - Jogos e Competições</h4>
-                              <VideoPlayer fileName="Evolucao-4.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Evolucao-4/Evolucao-4_player.m3u8" title="Evolução - Jogos e Competições" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
@@ -993,19 +993,19 @@ const LojaVirtual = () => {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-teal-700">Treinamento - Seleção</h4>
-                              <VideoPlayer fileName="Treinamento-1.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Treinamento-1/Treinamento-1_player.m3u8" title="Treinamento - Seleção" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-teal-700">Treinamento - Definições de Treinamentos</h4>
-                              <VideoPlayer fileName="Treinamento-2.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Treinamento-2/Treinamento-2_player.m3u8" title="Treinamento - Definições de Treinamentos" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-teal-700">Treinamento - Multiplicador</h4>
-                              <VideoPlayer fileName="Treinamento-3.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Treinamento-3/Treinamento-3_player.m3u8" title="Treinamento - Multiplicador" departmentName="Lojas" />
                             </div>
                             <div className="space-y-2">
                               <h4 className="text-sm font-medium text-teal-700">Treinamento - Treinamento de Sucesso</h4>
-                              <VideoPlayer fileName="Treinamento-4.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/Treinamento-4/Treinamento-4_player.m3u8" title="Treinamento - Treinamento de Sucesso" departmentName="Lojas" />
                             </div>
                           </div>
                         </CardContent>
