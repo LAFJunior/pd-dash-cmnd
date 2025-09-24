@@ -261,7 +261,7 @@ const LojaVirtual = () => {
                         <CardContent className="pt-6 space-y-4">
                           <div className="space-y-4">
                             <div className="w-full max-w-[540px] mx-auto">
-                              <VideoPlayer fileName="PVA Introducao.mp4" />
+                              <VideoPlayer externalUrl="https://midia.pd.oscarcloud.com.br/videos/PVA - INTRODUCAO/PVA - INTRODUCAO_player.m3u8" title="PVA - Introdução" departmentName="Lojas" />
                             </div>
                             <div className="container mx-auto px-4">
                               <Collapsible>
@@ -532,23 +532,23 @@ const LojaVirtual = () => {
                   {[{
                   letra: "O",
                   titulo: "ORGANIZE SEU DIA",
-                  file: "PVA O.mp4"
+                  externalUrl: "https://midia.pd.oscarcloud.com.br/videos/PVA - LETRA O (ORGANIZE SEU DIA)/PVA - LETRA O (ORGANIZE SEU DIA)_player.m3u8"
                 }, {
                   letra: "S",
                   titulo: "SEJA BEM VINDO A OSCAR",
-                  file: "PVA S.mp4"
+                  externalUrl: "https://midia.pd.oscarcloud.com.br/videos/PVA - LETRA S (SEJA BEM VINDO A OSCAR)/PVA - LETRA S (SEJA BEM VINDO A OSCAR)_player.m3u8"
                 }, {
                   letra: "C",
                   titulo: "CONSTRUA O PERFIL DO CLIENTE",
-                  file: "PVA C.mp4"
+                  externalUrl: "https://midia.pd.oscarcloud.com.br/videos/PVA - LETRA C (CONSTRUA O PERFIL DO CLIENTE)/PVA - LETRA C (CONSTRUA O PERFIL DO CLIENTE)_player.m3u8"
                 }, {
                   letra: "A",
                   titulo: "APRESENTE E ADICIONE",
-                  file: "PVA A.mp4"
+                  externalUrl: "https://midia.pd.oscarcloud.com.br/videos/PVA - LETRA A (APRESENTE E ADICIONE)/PVA - LETRA A (APRESENTE E ADICIONE)_player.m3u8"
                 }, {
                   letra: "R",
                   titulo: "RETORNE O FECHAMENTO E PÓS VENDA",
-                  file: "PVA R.mp4"
+                  externalUrl: "https://midia.pd.oscarcloud.com.br/videos/PVA - LETRA R (RETORNE O FECHAMENTO E PÓS VENDA)/PVA - LETRA R (RETORNE O FECHAMENTO E PÓS VENDA)_player.m3u8"
                 }].map(item => <Collapsible key={item.letra}>
                       <CollapsibleTrigger asChild>
                         <Card className="border-blue-200 bg-blue-50 cursor-pointer hover:bg-blue-100 transition-colors">
@@ -568,7 +568,7 @@ const LojaVirtual = () => {
                           <CardContent className="pt-6 space-y-4">
                             <div className="space-y-4">
                               <div className="w-full max-w-[540px] mx-auto">
-                                <VideoPlayer fileName={item.file} />
+                                <VideoPlayer externalUrl={item.externalUrl} title={`PVA - Letra ${item.letra} (${item.titulo})`} departmentName="Lojas" />
                               </div >
                               <div className="container mx-auto px-4">
                                 <Button variant="outline" className="flex items-center gap-2" disabled>
