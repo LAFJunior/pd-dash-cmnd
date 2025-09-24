@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, ImageIcon, MicIcon, XCircle } from 'lucide-react';
+import { Send, Bot, ImageIcon, FileTextIcon, XCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -14,7 +14,7 @@ interface Message {
   role: 'user' | 'assistant';
   timestamp: Date;
   media?: {
-    type: 'image' | 'audio';
+    type: 'image' | 'document';
     url: string;
     fileName: string;
   };
@@ -55,11 +55,11 @@ const AgenteIA = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [mediaFile, setMediaFile] = useState<File | null>(null);
   const [mediaPreview, setMediaPreview] = useState<string | null>(null);
-  const [mediaType, setMediaType] = useState<'image' | 'audio' | null>(null);
+  const [mediaType, setMediaType] = useState<'image' | 'document' | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const audioInputRef = useRef<HTMLInputElement>(null);
+  const documentInputRef = useRef<HTMLInputElement>(null);
 
   // Salva mensagens no sessionStorage sempre que o estado mudar
   useEffect(() => {
@@ -90,7 +90,7 @@ const AgenteIA = () => {
     // Se tiver um arquivo de mídia, adicione ao objeto de mensagem
     if (mediaFile && mediaPreview) {
       userMessage.media = {
-        type: mediaType as 'image' | 'audio',
+        type: mediaType as 'image' | 'document',
         url: mediaPreview,
         fileName: mediaFile.name
       };
@@ -281,15 +281,16 @@ const AgenteIA = () => {
     });
   };
 
-  // Função para lidar com o upload de áudio
-  const handleAudioUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Função para lidar com o upload de documentos
+  const handleDocumentUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Verifica se o arquivo é um áudio
-    if (!file.type.startsWith('audio/')) {
+    // Verifica se o arquivo é um documento válido
+    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+    if (!validTypes.includes(file.type)) {
       toast.error('Arquivo inválido', {
-        description: 'Por favor, selecione um arquivo de áudio.'
+        description: 'Por favor, selecione um PDF, DOC, DOCX ou TXT.'
       });
       return;
     }
@@ -303,17 +304,17 @@ const AgenteIA = () => {
       return;
     }
 
-    // Cria uma URL para o áudio
+    // Cria uma URL para o documento
     const reader = new FileReader();
     reader.onload = e => {
       const result = e.target?.result as string;
       setMediaPreview(result);
-      setMediaType('audio');
+      setMediaType('document');
     };
     reader.readAsDataURL(file);
     setMediaFile(file);
-    toast.success('Áudio carregado', {
-      description: 'Áudio pronto para ser enviado.'
+    toast.success('Documento carregado', {
+      description: 'Documento pronto para ser enviado.'
     });
   };
 
@@ -353,11 +354,11 @@ const AgenteIA = () => {
                       </p>
                     </div>}
                   
-                  {message.media && message.media.type === 'audio' && <div className="mb-2">
-                      <audio controls src={message.media.url} className="w-full max-w-xs" />
-                      <p className="text-xs mt-1 opacity-70">
-                        {message.media.fileName}
-                      </p>
+                  {message.media && message.media.type === 'document' && <div className="mb-2">
+                      <div className="flex items-center gap-2 p-2 bg-gray-200 rounded">
+                        <FileTextIcon size={16} />
+                        <span className="text-sm">{message.media.fileName}</span>
+                      </div>
                     </div>}
                   
                   <p className="whitespace-pre-wrap">{message.content}</p>
@@ -398,8 +399,11 @@ const AgenteIA = () => {
                 <img src={mediaPreview} alt="Preview da imagem" className="h-32 rounded-md object-contain" />
               </div>}
             
-            {mediaType === 'audio' && <div className="mt-2">
-                <audio controls src={mediaPreview} className="w-full" />
+            {mediaType === 'document' && <div className="mt-2">
+                <div className="flex items-center gap-2 p-2 bg-gray-200 rounded">
+                  <FileTextIcon size={16} />
+                  <span className="text-sm">{mediaFile?.name}</span>
+                </div>
               </div>}
           </div>}
         
@@ -418,12 +422,12 @@ const AgenteIA = () => {
                 <ImageIcon size={18} />
               </Button>
               
-              {/* Input invisível para áudios */}
-              <input ref={audioInputRef} type="file" accept="audio/*" onChange={handleAudioUpload} className="hidden" />
+              {/* Input invisível para documentos */}
+              <input ref={documentInputRef} type="file" accept=".pdf,.doc,.docx,.txt" onChange={handleDocumentUpload} className="hidden" />
               
-              {/* Botão para acionar o upload de áudio */}
-              <Button onClick={() => audioInputRef.current?.click()} variant="outline" className="h-10 aspect-square p-0" title="Enviar áudio" disabled={isLoading || mediaFile !== null}>
-                <MicIcon size={18} />
+              {/* Botão para acionar o upload de documento */}
+              <Button onClick={() => documentInputRef.current?.click()} variant="outline" className="h-10 aspect-square p-0" title="Enviar documento" disabled={isLoading || mediaFile !== null}>
+                <FileTextIcon size={18} />
               </Button>
               
               {/* Botão de enviar mensagem */}
