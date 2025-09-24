@@ -61,9 +61,34 @@ const AgenteIA = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const documentInputRef = useRef<HTMLInputElement>(null);
 
-  // Salva mensagens no sessionStorage sempre que o estado mudar
+  // Salva mensagens no sessionStorage sempre que o estado mudar (sem mídia para evitar QuotaExceededError)
   useEffect(() => {
-    sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(messages));
+    try {
+      // Remove mídia das mensagens antes de salvar para evitar exceder a quota
+      const messagesWithoutMedia = messages.map(msg => ({
+        ...msg,
+        media: undefined // Remove conteúdo de mídia do armazenamento
+      }));
+      
+      // Limita a 50 mensagens mais recentes para economizar espaço
+      const recentMessages = messagesWithoutMedia.slice(-50);
+      
+      sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(recentMessages));
+    } catch (error) {
+      // Se falhar (QuotaExceededError), limpa o histórico e tenta novamente
+      console.warn('Erro ao salvar histórico, limpando dados antigos:', error);
+      sessionStorage.removeItem(CHAT_HISTORY_KEY);
+      try {
+        // Salva apenas as 10 mensagens mais recentes sem mídia
+        const limitedMessages = messages.slice(-10).map(msg => ({
+          ...msg,
+          media: undefined
+        }));
+        sessionStorage.setItem(CHAT_HISTORY_KEY, JSON.stringify(limitedMessages));
+      } catch (finalError) {
+        console.error('Falha final ao salvar histórico:', finalError);
+      }
+    }
   }, [messages]);
 
   // Limpa o histórico quando o componente é desmontado (usuário sai da página)
