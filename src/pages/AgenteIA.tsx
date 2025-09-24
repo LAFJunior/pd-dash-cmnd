@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 // Interface para as mensagens
 interface Message {
@@ -122,11 +123,28 @@ const AgenteIA = () => {
   const handleN8nResponse = async (userMessage: Message) => {
     setIsLoading(true);
     try {
+      // Obter dados do usuário autenticado
+      const { data: { user } } = await supabase.auth.getUser();
+      let userProfile = null;
+      
+      if (user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('full_name, department, role, email')
+          .eq('user_id', user.id)
+          .single();
+        userProfile = profile;
+      }
+
       // Preparar dados para enviar ao webhook
       const requestData: any = {
         message: userMessage.content,
-        userId: 'user-' + Math.random().toString(36).substr(2, 9),
-        timestamp: new Date().toISOString()
+        userId: user?.id || 'anonymous-' + Math.random().toString(36).substr(2, 9),
+        timestamp: new Date().toISOString(),
+        full_name: userProfile?.full_name || 'Usuário Anônimo',
+        role: userProfile?.role || 'guest',
+        department: userProfile?.department || 'Não informado',
+        email: userProfile?.email || user?.email || 'Não informado'
       };
 
       // Se houver um arquivo de mídia, adicione informações do arquivo
