@@ -21,7 +21,7 @@ interface Message {
 }
 
 // URL do webhook n8n
-const N8N_WEBHOOK_URL = 'https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-chat';
+const N8N_WEBHOOK_URL = 'https://n8n.pd.oscarcloud.com.br/webhook-test/processos-digitais-chat';
 
 // Chave para armazenar o histórico no sessionStorage
 const CHAT_HISTORY_KEY = 'oscar_chat_history';
