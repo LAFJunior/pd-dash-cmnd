@@ -385,23 +385,36 @@ const Festcard = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-4">
                   <TrendingUp className="text-green-600" size={20} />
-                  <h3 className="text-lg font-semibold">Treinamentos de Vendas (3 vídeos)</h3>
+                  <h3 className="text-lg font-semibold">Treinamentos de Vendas (4 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 3 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-green-500 to-teal-600 rounded-lg mb-3 flex items-center justify-center">
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-1">Vendas {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Técnicas de vendas</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "1° Passo – Empréstimo Pessoal Oscar – Como enviar um cpf para pré Análise no sistema viacerta!",
+                      description: "Aprenda como enviar o CPF do cliente para a pré-análise no sistema Viacerta e inicie a simulação do crédito.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Vendas - 1° Passo – Empréstimo Pessoal Oscar – Como enviar um cpf para pré Análise no sistema viacerta!/Vendas - 1° Passo – Empréstimo Pessoal Oscar – Como enviar um cpf para pré Análise no sistema viacerta!_player.m3u8"
+                    },
+                    {
+                      title: "2° Passo – Como preencher toda a proposta com os dados do Cliente",
+                      description: "Insira todos os dados do cliente no sistema, como informações pessoais, endereço, renda e documentos, para concluir a proposta de empréstimo.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Vendas - 2° Passo – Como preencher toda a proposta com os dados do Cliente/Vendas - 2° Passo – Como preencher toda a proposta com os dados do Cliente_player.m3u8"
+                    },
+                    {
+                      title: "3 ° Passo – Como realizar a efetivação da proposta VIACERTA",
+                      description: "Finalize a proposta no sistema Viacerta, validando os dados inseridos e confirmando a contratação do empréstimo pelo cliente.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Vendas - 3 ° Passo – Como realizar a efetivação da proposta VIACERTA/Vendas - 3 ° Passo – Como realizar a efetivação da proposta VIACERTA_player.m3u8"
+                    },
+                    {
+                      title: "Viacerta – como acessar a base de cliente no sistema viacerta !",
+                      description: "No video a seguir, iremos ensinar passo a passo sobre como puxar a base de cliente e também como filtrar por loja no sistema viacerta.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Vendas - Viacerta_como acessar a base de cliente no sistema viacerta !/Vendas - Viacerta_como acessar a base de cliente no sistema viacerta !_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-green-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
