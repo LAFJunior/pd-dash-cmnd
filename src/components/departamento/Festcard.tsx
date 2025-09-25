@@ -463,7 +463,7 @@ const Festcard = () => {
                   <Globe className="text-teal-600" size={20} />
                   <h3 className="text-lg font-semibold">Treinamentos E-commerce 3.0 (6 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
                   {[
                     {
                       title: "F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR",
@@ -496,25 +496,11 @@ const Festcard = () => {
                       videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Vendas 3.0 passo a passo/E-commerce 3.0 - Vendas 3.0 passo a passo_player.m3u8"
                     }
                   ].map((video, index) => (
-                    <Card key={index} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg mb-3 flex items-center justify-center cursor-pointer"
-                             onClick={() => window.open(video.videoUrl, '_blank')}>
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-2 line-clamp-2">{video.title}</h4>
-                        <p className="text-xs text-muted-foreground mb-3 line-clamp-3">{video.description}</p>
-                        <Button 
-                          variant="outline" 
-                          size="sm" 
-                          className="w-full text-xs"
-                          onClick={() => window.open(video.videoUrl, '_blank')}
-                        >
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-teal-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
