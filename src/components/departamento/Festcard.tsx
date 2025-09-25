@@ -463,16 +463,53 @@ const Festcard = () => {
                   <Globe className="text-teal-600" size={20} />
                   <h3 className="text-lg font-semibold">Treinamentos E-commerce 3.0 (6 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 6 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    {
+                      title: "F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR",
+                      description: "Conteúdo com as principais informações, dúvidas e respostas sobre o tema CARTÃO PRESENTE OSCAR.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR/E-commerce 3.0 - F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR_player.m3u8"
+                    },
+                    {
+                      title: "Manual do Clube Carioca",
+                      description: "Conteúdo sobre como adicionar clientes, alterar cadastros, resgatar pontos e dar todas as informações sobre o Clube Carioca durante suas vendas, além de um passo a passo completo com telas do Mega.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Manual do Clube Carioca/E-commerce 3.0 - Manual do Clube Carioca_player.m3u8"
+                    },
+                    {
+                      title: "Manual do Clube Gaston e Paquetá",
+                      description: "Conteúdo sobre como adicionar clientes, alterar cadastros, resgatar pontos e dar todas as informações sobre o Clube Gaston e Paquetá durante suas vendas, além de um passo a passo completo com telas do Mega.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Manual do Clube Gaston e Paquetá/E-commerce 3.0 - Manual do Clube Gaston e Paquetá_player.m3u8"
+                    },
+                    {
+                      title: "Manual do Clube Oscar",
+                      description: "Conteúdo sobre como adicionar clientes, alterar cadastros, resgatar pontos e dar todas as informações sobre o Clube Oscar durante suas vendas, além de um passo a passo completo com telas do Mega.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Manual do Clube Oscar/E-commerce 3.0 - Manual do Clube Oscar_player.m3u8"
+                    },
+                    {
+                      title: "Manual do Scarlen Mais",
+                      description: "Conteúdo sobre como adicionar clientes, alterar cadastros, resgatar pontos e dar todas as informações sobre o Scarlen Mais durante suas vendas, além de um passo a passo completo com telas do Mega.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Manual do Scarlen Mais/E-commerce 3.0 - Manual do Scarlen Mais_player.m3u8"
+                    },
+                    {
+                      title: "Vendas 3.0 passo a passo",
+                      description: "Conteúdo de passo a passo completo para vender no Sales App (Vtex) e domine o processo de vendas no 3.0. Aprenda ou revise as melhores práticas para garantir sucesso nas suas transações!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/E-commerce 3.0 - Vendas 3.0 passo a passo/E-commerce 3.0 - Vendas 3.0 passo a passo_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <Card key={index} className="hover:shadow-md transition-shadow">
                       <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg mb-3 flex items-center justify-center">
+                        <div className="aspect-video bg-gradient-to-br from-teal-500 to-cyan-600 rounded-lg mb-3 flex items-center justify-center cursor-pointer"
+                             onClick={() => window.open(video.videoUrl, '_blank')}>
                           <PlayCircle className="text-white" size={32} />
                         </div>
-                        <h4 className="font-medium text-sm mb-1">E-commerce 3.0 {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Vendas digitais</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
+                        <h4 className="font-medium text-sm mb-2 line-clamp-2">{video.title}</h4>
+                        <p className="text-xs text-muted-foreground mb-3 line-clamp-3">{video.description}</p>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="w-full text-xs"
+                          onClick={() => window.open(video.videoUrl, '_blank')}
+                        >
                           <PlayCircle size={12} className="mr-1" />
                           Assistir
                         </Button>
