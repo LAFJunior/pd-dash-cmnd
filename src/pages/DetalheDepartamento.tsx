@@ -20,6 +20,7 @@ import EstadioMartinsPereira from '@/components/departamento/EstadioMartinsPerei
 import { DiadoraBrasilInfo } from '@/components/departamento/DiadoraBrasilInfo';
 import EstruturaSaoJoseCampos from '@/components/departamento/EstruturaSaoJoseCampos';
 import LojaVirtual from '@/components/departamento/LojaVirtual';
+import Festcard from '@/components/departamento/Festcard';
 import { usePermissions } from '@/hooks/usePermissions';
 import { useAnalytics } from '@/hooks/useAnalytics';
 const DetalheDepartamento = () => {
@@ -59,7 +60,8 @@ const DetalheDepartamento = () => {
       'diadora-brasil': 'Diadora Brasil',
       'instituicoes-financeiras': 'Instituições Financeiras',
       'sapucaia-cd-operacoes': 'Sapucaia (CD/Operações)',
-      'auditoria': 'Auditoria'
+      'auditoria': 'Auditoria',
+      'festcard': 'Festcard'
     };
     const urlLowerCase = urlNome.toLowerCase();
     if (mapeamentoEspecial[urlLowerCase]) {
@@ -94,6 +96,7 @@ const DetalheDepartamento = () => {
   const isSaoJoseCampos = nomeDepartamento.toLowerCase().includes('são josé dos campos') || nomeDepartamento.toLowerCase().includes('cd/operações');
   const isDepartamentoPessoal = nomeDepartamento.toLowerCase().includes('departamento pessoal') || nomeDepartamento.toLowerCase().includes('dp');
   const isLojas = nomeDepartamento.toLowerCase().includes('lojas');
+  const isFestcard = nomeDepartamento.toLowerCase().includes('festcard');
   console.log('URL param:', nome);
   console.log('Nome do departamento convertido:', nomeDepartamento);
   return <div className="animate-fade-in">
@@ -118,7 +121,9 @@ const DetalheDepartamento = () => {
         /* Conteúdo específico para Diadora Brasil */
         isDiadoraBrasil ? <DiadoraBrasilInfo /> : 
         /* Conteúdo específico para Lojas */
-        isLojas ? <LojaVirtual /> : <>
+        isLojas ? <LojaVirtual /> : 
+        /* Conteúdo específico para Festcard */
+        isFestcard ? <Festcard /> : <>
             {/* Estrutura do Departamento */}
             <Card>
               <CardHeader>
