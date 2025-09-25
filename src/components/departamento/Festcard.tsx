@@ -487,65 +487,82 @@ const Festcard = () => {
       </Card>
 
       {/* Mapeamento de Processos */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <FileText className="text-green-600" size={20} />
-            Mapeamento de Processos Festcard
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              Processos mapeados do Festcard para otimização e padronização das operações.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                {
-                  title: "Processo de Aprovação de Crédito",
-                  desc: "Fluxo completo desde solicitação até aprovação",
-                  icon: Star,
-                  color: "text-yellow-600"
-                },
-                {
-                  title: "Processo de Atendimento SAC",
-                  desc: "Protocolo de atendimento ao cliente",
-                  icon: HeadphonesIcon,
-                  color: "text-blue-600"
-                },
-                {
-                  title: "Processo de Cobrança",
-                  desc: "Metodologia de recuperação de crédito",
-                  icon: Phone,
-                  color: "text-red-600"
-                },
-                {
-                  title: "Processo de Relacionamento",
-                  desc: "Gestão do relacionamento com clientes",
-                  icon: UserCheck,
-                  color: "text-green-600"
-                }
-              ].map((processo, index) => (
-                <Card key={index} className="hover:shadow-md transition-shadow">
-                  <CardContent className="p-4">
-                    <div className="flex items-start gap-3">
-                      <processo.icon className={`${processo.color} mt-1`} size={20} />
-                      <div className="flex-1">
-                        <h4 className="font-medium">{processo.title}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{processo.desc}</p>
-                        <Button variant="outline" size="sm" className="mt-3">
-                          Ver Processo Detalhado
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+      <div className="mt-8">
+        <div className="flex items-center gap-2 mb-6">
+          <FileText className="h-6 w-6 text-primary" />
+          <h2 className="text-2xl font-bold text-foreground">Mapeamento de Processos</h2>
+        </div>
+        
+        {/* Banner do departamento */}
+        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-lg mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-xl font-bold">Mapeamento de Processos</h3>
+              <p className="text-orange-100">Departamento Festcard - 4 processos mapeados</p>
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            {
+              id: 'FEST-001',
+              nome: "Aprovação de Crédito",
+              descricao: "Fluxo completo desde solicitação até aprovação do crédito para portadores Festcard",
+              nivel: "Tático",
+              icon: Star
+            },
+            {
+              id: 'FEST-002',
+              nome: "Atendimento SAC",
+              descricao: "Protocolo de atendimento ao cliente com foco em resolução de demandas",
+              nivel: "Operacional",
+              icon: HeadphonesIcon
+            },
+            {
+              id: 'FEST-003',
+              nome: "Cobrança e Recuperação",
+              descricao: "Metodologia de recuperação de crédito e negociação com clientes inadimplentes",
+              nivel: "Operacional",
+              icon: Phone
+            },
+            {
+              id: 'FEST-004',
+              nome: "Gestão de Relacionamento",
+              descricao: "Gestão do relacionamento com clientes e programas de fidelização",
+              nivel: "Estratégico",
+              icon: UserCheck
+            }
+          ].map((processo) => (
+            <Card key={processo.id} className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+                    processo.id === 'FEST-001' ? 'bg-blue-100 text-blue-600' :
+                    processo.id === 'FEST-002' ? 'bg-green-100 text-green-600' :
+                    processo.id === 'FEST-003' ? 'bg-purple-100 text-purple-600' :
+                    'bg-orange-100 text-orange-600'
+                  }`}>
+                    <processo.icon className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-foreground mb-2">{processo.nome}</h3>
+                    <p className="text-sm text-muted-foreground mb-4">{processo.descricao}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full font-medium">
+                        {processo.nivel}
+                      </span>
+                      <Button variant="link" size="sm" className="text-blue-600 hover:text-blue-800 p-0 h-auto">
+                        Clique para detalhes
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
