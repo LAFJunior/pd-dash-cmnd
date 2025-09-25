@@ -335,21 +335,44 @@ const Festcard = () => {
                   <Phone className="text-red-600" size={20} />
                   <h3 className="text-lg font-semibold">Treinamentos de Cobrança (6 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 6 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-red-500 to-orange-600 rounded-lg mb-3 flex items-center justify-center">
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-1">Cobrança {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Técnicas de cobrança eficaz</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "Acordo de Boleto Pendente",
+                      description: "A parcela poderá ser paga em loja, via pix ou pelo próprio banco (Boleto). No campo observações se estiver um numeral, significa que o atendimento foi via chat, caso não tenha o acordo foi feito via ligação.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança -  Acordo de Boleto Pendente/Cobrança -  Acordo de Boleto Pendente_player.m3u8"
+                    },
+                    {
+                      title: "Acordo Liquidado",
+                      description: "Quando o cliente paga a entrada da renegociação, o nome do mesmo já é retirado do SPC em 3 dias úteis. Para pagamento da entrada da renegociação em loja ou PIX, o cadastro é liberado em até 24 horas. Pagamento da entrada da renegociação via boleto, a liberação ocorre em até 5 dias úteis (dependendo da compensação bancária).",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança -  Acordo Liquidado/Cobrança -  Acordo Liquidado_player.m3u8"
+                    },
+                    {
+                      title: "Lançamento de acordo acima de 180 dias",
+                      description: "No sistema CobranSaaS é possível validar todas as informações do cliente e interações realizadas com ele. Acordos acima de 180 dias de atraso, sempre será no formato de boleto, e o mesmo só poderá voltar a comprar com o cartão FestCard após a quitação total do débito. O cartão só será liberado após constar a baixa no sistema.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança -  Lançamento de acordo acima de 180 dias/Cobrança -  Lançamento de acordo acima de 180 dias_player.m3u8"
+                    },
+                    {
+                      title: "Renegociação em Fatura Concluída",
+                      description: "Para verificar a data de vencimento das próximas parcelas precisa seguir o seguinte caminho: Assim que estiver no cadastro do cliente > clicar em contrato no cobransaas > selecionar colunas > data da operação, feito isso irá aparecer a data da operação, na qual pode-se definir a data do próximo vencimento. Veja um pequeno exemplo abaixo: Se o vencimento da fatura é todo dia 26, o corte é todo dia 16, com essa informação, é só validar na negociação no Cobransaas para qual dia está a próxima parcela e validar se é antes ou depois do dia do corte (16).",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança -  Renegociação em Fatura Concluída/Cobrança -  Renegociação em Fatura Concluída_player.m3u8"
+                    },
+                    {
+                      title: "Renegociação em Fatura Pendente",
+                      description: "Faturas em atraso de 64 a 179 dias terão o cartão desbloqueado 24 horas após o pagamento da entrada da renegociação, feito isso o cliente já pode voltar a comprar. Atenção: Conforme a dívida consta ativa, e necessário seguir o corte e vencimento da FATURA!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança -  Renegociação em Fatura Pendente/Cobrança -  Renegociação em Fatura Pendente_player.m3u8"
+                    },
+                    {
+                      title: "Acordo Boleto já lançado",
+                      description: "Cliente com até 179 dias de atraso negociando e pagando a entrada, o mesmo volta para a fatura e o cartão é desbloqueado após o pagamento constar em sistema. Cliente com mais de 180 dias de atraso, terá seu cartão desbloqueado apenas quando realizar a QUITAÇÃO total do débito. Quando o cliente realiza o pagamento do boleto via pix, o mesmo precisa entrar em contato pelo chat da Festcard > OPÇÃO 6 DA URA DE ATENDIMENTO (ENVIAR COMPROVANTE DE PAGAMENTO) aguardar ser atendido e nos encaminhar para localizarmos e realizarmos a baixa.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cobrança - Acordo Boleto já lançado/Cobrança - Acordo Boleto já lançado_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-red-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
