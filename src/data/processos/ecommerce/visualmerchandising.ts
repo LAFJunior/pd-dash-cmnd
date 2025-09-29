@@ -469,7 +469,7 @@ export const transferenciaProdutosLojas: ProcessoDetalhado = {
 
 // Processo 7
 export const recebimentoProdutosEstudio: ProcessoDetalhado = {
-  id: 'EST-04.38',
+  id: 'EST-04.39',
   nome: 'Recebimento e Inclusão de Produtos no Estúdio',
   descricao: 'Receber e registrar novos produtos no estúdio para fotografia.',
   icon: Box,
@@ -482,13 +482,13 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
   frequencia: 'Conforme demanda',
   subprocessos: [
     {
-      id: '4.38.1',
+      id: '4.39.1',
       nome: 'Recebimento Físico',
       nivel: 'Operacional',
       ferramentas: ['Planilha de controle'],
       tarefas: [
         {
-          id: '4.38.1.1',
+          id: '4.39.1.1',
           nome: 'Conferir Produtos',
           passos: [
             'Verificar condições físicas.',
@@ -496,7 +496,7 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.38.1.2',
+          id: '4.39.1.2',
           nome: 'Registrar Entrada',
           passos: [
             'Inserir dados na planilha.',
@@ -506,13 +506,13 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
       ]
     },
     {
-      id: '4.38.2',
+      id: '4.39.2',
       nome: 'Organização Interna',
       nivel: 'Operacional',
       ferramentas: ['Etiquetas', 'Prateleiras'],
       tarefas: [
         {
-          id: '4.38.2.1',
+          id: '4.39.2.1',
           nome: 'Etiquetar Produtos',
           passos: [
             'Gerar etiqueta com código, origem e destino.',
@@ -520,7 +520,7 @@ export const recebimentoProdutosEstudio: ProcessoDetalhado = {
           ]
         },
         {
-          id: '4.38.2.2',
+          id: '4.39.2.2',
           nome: 'Armazenar por Prioridade',
           passos: [
             'Separar por tipo de demanda.',

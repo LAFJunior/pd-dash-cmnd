@@ -92,56 +92,56 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div 
           onClick={() => setFiltroNivel('todos')}
-          className={`cursor-pointer transition-all duration-200 transform hover:scale-105 ${
-            filtroNivel === 'todos' ? 'ring-2 ring-blue-500 shadow-lg' : 'hover:shadow-md'
+          className={`cursor-pointer transition-all duration-300 ${
+            filtroNivel === 'todos' ? 'scale-[1.02]' : 'hover:shadow-md'
           }`}
         >
           <CardProcesso 
             titulo="Todos os Processos" 
             quantidade={contadorFiltrado.total}
-            className={`bg-processo-todos ${filtroNivel === 'todos' ? 'border-blue-500' : ''}`}
+            className={`bg-processo-todos transition-all duration-300 ${filtroNivel === 'todos' ? 'border-2 border-primary shadow-lg' : 'border-2 border-transparent'}`}
             iconRight={<ChartBarIcon size={20} />}
           />
         </div>
         
         <div 
           onClick={() => setFiltroNivel('Estratégico')}
-          className={`cursor-pointer transition-all duration-200 transform hover:scale-105 ${
-            filtroNivel === 'Estratégico' ? 'ring-2 ring-blue-500 shadow-lg' : 'hover:shadow-md'
+          className={`cursor-pointer transition-all duration-300 ${
+            filtroNivel === 'Estratégico' ? 'scale-[1.02]' : 'hover:shadow-md'
           }`}
         >
           <CardProcesso 
             titulo="Processos Estratégicos" 
             quantidade={contadorFiltrado.estrategicos}
-            className={`bg-processo-estrategicos ${filtroNivel === 'Estratégico' ? 'border-blue-500' : ''}`}
+            className={`bg-processo-estrategicos transition-all duration-300 ${filtroNivel === 'Estratégico' ? 'border-2 border-primary shadow-lg' : 'border-2 border-transparent'}`}
             iconRight={<ChartPieIcon size={20} />}
           />
         </div>
         
         <div 
           onClick={() => setFiltroNivel('Tático')}
-          className={`cursor-pointer transition-all duration-200 transform hover:scale-105 ${
-            filtroNivel === 'Tático' ? 'ring-2 ring-blue-500 shadow-lg' : 'hover:shadow-md'
+          className={`cursor-pointer transition-all duration-300 ${
+            filtroNivel === 'Tático' ? 'scale-[1.02]' : 'hover:shadow-md'
           }`}
         >
           <CardProcesso 
             titulo="Processos Táticos" 
             quantidade={contadorFiltrado.taticos}
-            className={`bg-processo-taticos ${filtroNivel === 'Tático' ? 'border-blue-500' : ''}`}
+            className={`bg-processo-taticos transition-all duration-300 ${filtroNivel === 'Tático' ? 'border-2 border-primary shadow-lg' : 'border-2 border-transparent'}`}
             iconRight={<ClipboardListIcon size={20} />}
           />
         </div>
         
         <div 
           onClick={() => setFiltroNivel('Operacional')}
-          className={`cursor-pointer transition-all duration-200 transform hover:scale-105 ${
-            filtroNivel === 'Operacional' ? 'ring-2 ring-blue-500 shadow-lg' : 'hover:shadow-md'
+          className={`cursor-pointer transition-all duration-300 ${
+            filtroNivel === 'Operacional' ? 'scale-[1.02]' : 'hover:shadow-md'
           }`}
         >
           <CardProcesso 
             titulo="Processos Operacionais" 
             quantidade={contadorFiltrado.operacionais}
-            className={`bg-processo-operacionais ${filtroNivel === 'Operacional' ? 'border-blue-500' : ''}`}
+            className={`bg-processo-operacionais transition-all duration-300 ${filtroNivel === 'Operacional' ? 'border-2 border-primary shadow-lg' : 'border-2 border-transparent'}`}
             iconRight={<UsersIcon size={20} />}
           />
         </div>

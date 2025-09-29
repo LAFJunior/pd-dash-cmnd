@@ -514,7 +514,7 @@ export const suporteAuditoria: ProcessoDetalhado = {
       ferramentas: ['MEGA', 'Plano de ação'],
       tarefas: [
         {
-          id: '8.12.2.1',
+          id: '8.11.2.1',
           nome: 'Correção imediata de falhas',
           passos: [
             'Quando identificadas falhas ou incoerências, realiza ajustes pontuais no estoque',
