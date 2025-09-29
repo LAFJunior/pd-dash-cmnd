@@ -1,14 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import CardProcesso from '@/components/dashboard/CardProcesso';
-import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon, Building2, Filter } from 'lucide-react';
+import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon, Building2, DollarSign, FileText, ShoppingCart, Truck, Users, CreditCard, Megaphone, Computer, Scale, HeadphonesIcon, Store, AlertTriangle } from 'lucide-react';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { useProcessosCount } from '@/hooks/useProcessosCount';
 import { todosOsProcessos } from '@/data/processos';
 import { ProcessoSubprocesso, ProcessoTarefa } from '@/types/processo';
-import { DepartamentosDrawer } from '@/components/dashboard/DepartamentosDrawer';
 
 type FiltroNivel = 'todos' | 'Estratégico' | 'Tático' | 'Operacional';
 type FiltroDepartamento = 'todos' | string;
@@ -17,11 +14,21 @@ const Dashboard = () => {
   const { total, estrategicos, taticos, operacionais } = useProcessosCount();
   const [filtroNivel, setFiltroNivel] = useState<FiltroNivel>('todos');
   const [filtroDepartamento, setFiltroDepartamento] = useState<FiltroDepartamento>('todos');
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const handleSelectDepartamento = (dept: string) => {
-    setFiltroDepartamento(dept);
-  };
+  // Departamentos com ícones
+  const departamentos = [
+    { nome: 'Controladoria', icone: FileText, cor: 'bg-blue-500' },
+    { nome: 'E-commerce', icone: ShoppingCart, cor: 'bg-orange-500' },
+    { nome: 'Financeiro', icone: DollarSign, cor: 'bg-green-500' },
+    { nome: 'Defeito', icone: AlertTriangle, cor: 'bg-red-500' },
+    { nome: 'São José Campos', icone: Building2, cor: 'bg-indigo-500' },
+    { nome: 'Fiscal', icone: Scale, cor: 'bg-purple-500' },
+    { nome: 'Compras', icone: Truck, cor: 'bg-cyan-500' },
+    { nome: 'Auditoria', icone: FileText, cor: 'bg-gray-500' },
+    { nome: 'Contábil', icone: FileText, cor: 'bg-emerald-500' },
+    { nome: 'Departamento Pessoal', icone: Users, cor: 'bg-teal-500' },
+    { nome: 'Recursos Humanos', icone: Users, cor: 'bg-pink-500' }
+  ];
 
   // Mapear departamento baseado no ID do processo
   const obterDepartamento = (processoId: string): string => {
@@ -76,33 +83,10 @@ const Dashboard = () => {
 
   return (
     <div className="animate-fade-in">
-      <div className="mb-6 flex items-start justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-muted-foreground">Visão geral dos processos corporativos</p>
-        </div>
-        
-        <Button
-          onClick={() => setDrawerOpen(true)}
-          variant="outline"
-          className="gap-2"
-        >
-          <Building2 className="w-4 h-4" />
-          Explorar Departamentos
-          {filtroDepartamento !== 'todos' && (
-            <Badge variant="secondary" className="ml-1">
-              {filtroDepartamento}
-            </Badge>
-          )}
-        </Button>
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <p className="text-gray-500">Visão geral dos processos corporativos</p>
       </div>
-      
-      <DepartamentosDrawer
-        open={drawerOpen}
-        onOpenChange={setDrawerOpen}
-        filtroDepartamento={filtroDepartamento}
-        onSelectDepartamento={handleSelectDepartamento}
-      />
       
       {/* Filtros de Nível - Estilo Power BI */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -163,6 +147,53 @@ const Dashboard = () => {
         </div>
       </div>
 
+      {/* Seção de Departamentos - Estilo Power BI */}
+      <Card className="bg-white p-6 mb-8">
+        <h3 className="text-lg font-semibold mb-4">Departamentos</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+          <div 
+            onClick={() => setFiltroDepartamento('todos')}
+            className={`cursor-pointer p-3 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+              filtroDepartamento === 'todos' 
+                ? 'border-blue-500 bg-blue-50 shadow-lg' 
+                : 'border-gray-200 hover:border-gray-300'
+            }`}
+          >
+            <div className="flex flex-col items-center text-center">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
+                filtroDepartamento === 'todos' ? 'bg-blue-500' : 'bg-gray-400'
+              }`}>
+                <Building2 className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xs font-medium">Todos</span>
+            </div>
+          </div>
+          {departamentos.map((dept) => {
+            const IconeComponent = dept.icone;
+            return (
+              <div 
+                key={dept.nome}
+                onClick={() => setFiltroDepartamento(dept.nome)}
+                className={`cursor-pointer p-3 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                  filtroDepartamento === dept.nome 
+                    ? 'border-blue-500 bg-blue-50 shadow-lg' 
+                    : 'border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
+                    filtroDepartamento === dept.nome ? 'bg-blue-500' : dept.cor
+                  }`}>
+                    <IconeComponent className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-xs font-medium">{dept.nome}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Card>
+      
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <div className="space-y-6">
