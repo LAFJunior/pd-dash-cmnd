@@ -32,21 +32,23 @@ const Dashboard = () => {
 
   // Mapear departamento baseado no ID do processo
   const obterDepartamento = (processoId: string): string => {
-    if (processoId.startsWith('CTRL')) return 'Controladoria';
-    if (processoId.startsWith('EC')) return 'E-commerce';
-    if (processoId.startsWith('FIN')) return 'Financeiro';
-    if (processoId.startsWith('DEF')) return 'Defeito';
-    if (processoId.startsWith('SJC')) return 'São José Campos';
-    if (processoId.startsWith('FISC')) return 'Fiscal';
-    if (processoId.startsWith('COMP')) return 'Compras';
-    if (processoId.startsWith('AUD')) return 'Auditoria';
-    if (processoId.startsWith('CONT')) return 'Contábil';
-    if (processoId.startsWith('DP')) return 'Departamento Pessoal';
-    if (processoId.startsWith('RH')) return 'Recursos Humanos';
-    if (processoId.startsWith('FEST')) return 'Festcard';
-    if (processoId.startsWith('MKT')) return 'Marketing';
-    if (processoId.startsWith('TI')) return 'T.I';
-    if (processoId.startsWith('LJ')) return 'Lojas';
+    if (processoId.startsWith('CON-')) return 'Controladoria';
+    if (processoId.startsWith('LOG-') || processoId.startsWith('EST-') || 
+        processoId.startsWith('VM-') || processoId.startsWith('SAC-') || 
+        processoId.startsWith('COM1P-') || processoId.startsWith('FIN-') || 
+        processoId.startsWith('CAD-') || processoId.startsWith('V30-')) return 'E-commerce';
+    if (processoId.startsWith('CDS-')) return 'São José Campos';
+    if (processoId.startsWith('FIS-')) return 'Fiscal';
+    if (processoId.startsWith('COM-')) return 'Compras';
+    if (processoId.startsWith('DEF-')) return 'Defeito';
+    if (processoId.startsWith('AUD-')) return 'Auditoria';
+    if (processoId.startsWith('CONT-')) return 'Contábil';
+    if (processoId.startsWith('DP-')) return 'Departamento Pessoal';
+    if (processoId.startsWith('RH-')) return 'Recursos Humanos';
+    if (processoId.startsWith('FEST-')) return 'Festcard';
+    if (processoId.startsWith('MKT-')) return 'Marketing';
+    if (processoId.startsWith('TI-')) return 'T.I';
+    if (processoId.startsWith('LJ-')) return 'Lojas';
     return 'Outros';
   };
 
