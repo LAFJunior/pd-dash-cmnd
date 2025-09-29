@@ -1,0 +1,21 @@
+{
+  "info": "Departamento responsável por vendas online, marketplace e operações digitais.",
+  "processes": [
+    {
+      "nome": "Cadastro de Produtos",
+      "descricao": "Cadastro e manutenção de produtos no e-commerce"
+    },
+    {
+      "nome": "Comercial 1P",
+      "descricao": "Gestão comercial de produtos próprios"
+    },
+    {
+      "nome": "Logística E-commerce",
+      "descricao": "Operações logísticas para vendas online"
+    },
+    {
+      "nome": "Visual Merchandising",
+      "descricao": "Apresentação visual dos produtos online"
+    }
+  ]
+}

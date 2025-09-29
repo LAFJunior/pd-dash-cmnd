@@ -1,0 +1,21 @@
+{
+  "info": "Departamento responsável por folha de pagamento, admissões, demissões e benefícios.",
+  "processes": [
+    {
+      "nome": "Folha de Pagamento",
+      "descricao": "Processamento da folha de pagamento mensal"
+    },
+    {
+      "nome": "Admissão de Colaboradores",
+      "descricao": "Processo de contratação de novos funcionários"
+    },
+    {
+      "nome": "Gestão de Benefícios",
+      "descricao": "Administração de benefícios dos colaboradores"
+    },
+    {
+      "nome": "Planejamento de Férias",
+      "descricao": "Controle e planejamento de férias"
+    }
+  ]
+}

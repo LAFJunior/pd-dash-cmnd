@@ -1,0 +1,21 @@
+{
+  "info": "Departamento responsável por escrituração contábil, apurações fiscais e obrigações acessórias.",
+  "processes": [
+    {
+      "nome": "Fechamento Mensal",
+      "descricao": "Processo de fechamento contábil mensal"
+    },
+    {
+      "nome": "Apuração PIS/COFINS",
+      "descricao": "Cálculo e apuração de PIS e COFINS"
+    },
+    {
+      "nome": "Geração ECD",
+      "descricao": "Geração da Escrituração Contábil Digital"
+    },
+    {
+      "nome": "Conciliação de Receitas",
+      "descricao": "Conciliação de receitas e despesas"
+    }
+  ]
+}

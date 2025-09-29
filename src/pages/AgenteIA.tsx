@@ -20,8 +20,8 @@ interface Message {
   };
 }
 
-// URL do webhook n8n
-const N8N_WEBHOOK_URL = 'https://n8n.pd.oscarcloud.com.br/webhook-test/processos-digitais-chat';
+// URL do backend local do chat
+const CHAT_API_URL = 'http://localhost:5000/chat';
 
 // Chave para armazenar o histórico no sessionStorage
 const CHAT_HISTORY_KEY = 'oscar_chat_history';
@@ -185,13 +185,20 @@ const AgenteIA = () => {
         }
       }
 
-      // Enviar a mensagem para o webhook n8n
-      const response = await fetch(N8N_WEBHOOK_URL, {
+      // Enviar a mensagem para o backend local
+      const response = await fetch(CHAT_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(requestData)
+        body: JSON.stringify({
+          message: userMessage.content,
+          user_info: {
+            name: userProfile?.full_name || 'Usuário Anônimo',
+            department: userProfile?.department || 'Não informado',
+            role: userProfile?.role || 'guest'
+          }
+        })
       });
       if (!response.ok) {
         throw new Error(`Erro na resposta do webhook: ${response.status}`);
@@ -200,25 +207,8 @@ const AgenteIA = () => {
       // Processar a resposta do webhook
       const data = await response.json();
 
-      // Verificar se há uma resposta no objeto retornado
-      let responseContent = '';
-
-      // Verificar primeiramente se há um campo output na resposta
-      if (data.output) {
-        responseContent = data.output;
-      }
-      // Se o webhook retornou uma resposta específica, use-a
-      else if (data.response) {
-        responseContent = data.response;
-      }
-      // Se o webhook retornou uma mensagem, use-a 
-      else if (data.message) {
-        responseContent = data.message;
-      }
-      // Caso contrário, use uma resposta padrão
-      else {
-        responseContent = 'Recebi sua mensagem e estou processando. Entrarei em contato em breve.';
-      }
+      // Processar a resposta do backend
+      const responseContent = data.response || 'Desculpe, não consegui processar sua mensagem no momento.';
 
       // Adiciona a resposta do assistente
       const assistantMessage: Message = {
@@ -229,7 +219,7 @@ const AgenteIA = () => {
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
-      console.error('Erro ao se comunicar com o webhook:', error);
+      console.error('Erro ao se comunicar com o backend:', error);
 
       // Adiciona uma mensagem de erro
       const errorMessage: Message = {

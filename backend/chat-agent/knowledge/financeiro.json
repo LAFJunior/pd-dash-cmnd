@@ -1,0 +1,21 @@
+{
+  "info": "Departamento responsável por gestão financeira, fluxo de caixa e análises econômicas.",
+  "processes": [
+    {
+      "nome": "Fluxo de Caixa",
+      "descricao": "Controle e projeção do fluxo de caixa"
+    },
+    {
+      "nome": "Análise Financeira",
+      "descricao": "Análises e relatórios financeiros"
+    },
+    {
+      "nome": "Contas a Pagar",
+      "descricao": "Gestão de pagamentos e fornecedores"
+    },
+    {
+      "nome": "Contas a Receber",
+      "descricao": "Gestão de recebimentos e clientes"
+    }
+  ]
+}
