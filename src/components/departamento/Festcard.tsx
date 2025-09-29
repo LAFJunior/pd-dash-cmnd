@@ -293,13 +293,14 @@ const Festcard = () => {
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="comercial">
-            <TabsList className="grid w-full grid-cols-7">
+            <TabsList className="grid w-full grid-cols-8">
               <TabsTrigger value="comercial">Comercial</TabsTrigger>
               <TabsTrigger value="cobranca">Cobrança</TabsTrigger>
               <TabsTrigger value="cards">Cards</TabsTrigger>
               <TabsTrigger value="vendas">Vendas</TabsTrigger>
               <TabsTrigger value="frente-loja">Frente de Loja</TabsTrigger>
               <TabsTrigger value="ti">T.I</TabsTrigger>
+              <TabsTrigger value="cartao-festcard">Cartão FestCard</TabsTrigger>
               <TabsTrigger value="ecommerce">E-commerce 3.0</TabsTrigger>
             </TabsList>
 
@@ -307,23 +308,71 @@ const Festcard = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-4">
                   <ShoppingCart className="text-blue-600" size={20} />
-                  <h3 className="text-lg font-semibold">Treinamentos Comerciais (12 vídeos)</h3>
+                  <h3 className="text-lg font-semibold">Treinamentos Comerciais (11 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 12 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-3 flex items-center justify-center">
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-1">Comercial {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Estratégias comerciais Festcard</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR",
+                      description: "O Vídeo ao lado contém as principais informações, dúvidas e respostas sobre o tema CARTÃO PRESENTE OSCAR.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR/Comercial - F.A.Q Perguntas e respostas frequentes CARTÃO PRESENTE OSCAR_player.m3u8"
+                    },
+                    {
+                      title: "Manual APP Aceito Aqui – Nosso Aplicativo de Vendas",
+                      description: "No vídeo a seguir iremos mostrar um manual com todas as instruções sobre o nosso aplicativo de vendas, o nosso ACEITO AQUI.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Manual APP Aceito Aqui – Nosso Aplicativo de Vendas/Comercial - Manual APP Aceito Aqui – Nosso Aplicativo de Vendas_player.m3u8"
+                    },
+                    {
+                      title: "MANUAL GERENTES DIGITAIS",
+                      description: "Manual de criação de postagens e anúncios para a plataforma Gerentes Digitais. Aqui está o passo a passo de como realizar o trafego pago de suas postagens nas redes sociais, com o trafego pago conseguimos alcançar clientes em potencial de compra, clientes que tem interesse em sapatos, bolsas, acessórios, e inclusive crédito!!!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Manual gerentes digitais/Comercial - Manual gerentes digitais_player.m3u8"
+                    },
+                    {
+                      title: "Principais vantagens de vender com Cartão FestCard",
+                      description: "O Cartão FestCard, possui muitas vantagens para quem vende e para quem compra, ofertar o cartão significa maior aumento no número de vendas, ticket médio, fidelização do cliente, maior aumento de limite para o cliente, maior parcelamento e muito mais vantagens exclusivas. Conheça algumas vantagens que podem servir como argumento de venda!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Principais vantagens de vender com Cartão FestCard/Comercial - Principais vantagens de vender com Cartão FestCard_player.m3u8"
+                    },
+                    {
+                      title: "Quais os canais de atendimento do Vale Saúde Sempre?",
+                      description: "Para entrar em contato com a Central de Atendimento da Vale Saúde Sempre, ligue para (11)3003-0256 ou se preferir o mesmo número para WhatsApp. Para conferir a rede de atendimento disponível para os clientes do Vale Saúde Sempre, acesse: https://redeatendimento.valesaudesempre.com.br/ ou confira pelo aplicativo Vale Saúde Sempre.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Quais os canais de atendimento do Vale Saúde Sempre/Comercial - Quais os canais de atendimento do Vale Saúde Sempre_player.m3u8"
+                    },
+                    {
+                      title: "Roteiro operacional Crédito Pessoal",
+                      description: "Na cartilha a seguir falaremos sobre: - DOCUMENTAÇÃO NECESSÁRIA - PÚBLICO ALVO - POLÍTICA DE CRÉDITO - PASSO A PASSO COMO CADASTRAR UMA PROPOSTA",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Roteiro operacional Crédito Pessoal/Comercial - Roteiro operacional Crédito Pessoal_player.m3u8"
+                    },
+                    {
+                      title: "Super Troco na Prática",
+                      description: "Descubra como oferecer o Super Troco de forma simples e eficaz! Junte-se à nossa equipe para uma demonstração prática e descomplicada.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Super Troco na Prática/Comercial - Super Troco na Prática_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Pagface pagamento via reconhecimento facial Cartão Festcard",
+                      description: "O vídeo acima trata-se de um treinamento sobre como realizar o pagamento via reconhecimento facial pelo Pagface! No vídeo temos um passo a passo de como operar esse procedimento pelo pdv de loja!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Treinamento Pagface pagamento via reconhecimento facial Cartão Festcard/Comercial - Treinamento Pagface pagamento via reconhecimento facial Cartão Festcard_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Sancor Seguros",
+                      description: "No vídeo ao lado, temos um treinamento sobre os novos produtos financeiros (Seguros) Sancor",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Treinamento Sancor Seguros/Comercial - Treinamento Sancor Seguros_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Super Troco Oscar",
+                      description: "Explore este treinamento altamente prático sobre o inovador Super Troco Oscar.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Treinamento Super Troco Oscar/Comercial - Treinamento Super Troco Oscar_player.m3u8"
+                    },
+                    {
+                      title: "Viacerta – como acessar a base de cliente no sistema viacerta !",
+                      description: "No video a seguir, iremos ensinar passo a passo sobre como puxar a base de cliente e também como filtrar por loja no sistema viacerta.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Comercial - Viacerta – como acessar a base de cliente no sistema viacerta !/Comercial - Viacerta – como acessar a base de cliente no sistema viacerta !_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-blue-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -382,23 +431,36 @@ const Festcard = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-4">
                   <CardIcon className="text-purple-600" size={20} />
-                  <h3 className="text-lg font-semibold">Treinamentos Cards (3 vídeos)</h3>
+                  <h3 className="text-lg font-semibold">Treinamentos Cards (4 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 3 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg mb-3 flex items-center justify-center">
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-1">Cards {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Operação de cartões</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "Como gerar cartão virtual para compras online e lojas credenciadas?",
+                      description: "Primeiro é necessário logar no App FestCard, em seguida clicar em pagar compras, depois em seguida receberá um código de validação no celular, com o número basta validar e acessar o cartão virtual. Importante lembrar que o código CVV expira em 120 segundos.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cards - Como gerar cartão virtual para compras online e lojas credenciadas/Cards - Como gerar cartão virtual para compras online e lojas credenciadas_player.m3u8"
+                    },
+                    {
+                      title: "Datas de corte e melhor data de compra",
+                      description: "Cada vencimento da fatura, possui uma data de corte, a visualização é feita pelo Sistema Cards ou para acesso do cliente no aplicativo FestCard. Data de vencimento / Data de corte / Melhor data de compra: 01/21/22, 06/26/27, 11/01/02, 16/06/07, 21/11/12, 26/16/17. Exemplo: Cliente com data de vencimento 21, caso a compra seja feita no dia 11/03, a primeira parcela vem para 21/03. Agora se a compra for realizada pelo cliente em 12/03, a primeira parcela da compra vai para 21/04.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cards - Datas de corte e melhor data de compra/Cards - Datas de corte e melhor data de compra_player.m3u8"
+                    },
+                    {
+                      title: "Procedimento para Redefinir a Senha do Cliente pelo Cards",
+                      description: "Para fazer a redefinição de senha do cliente via Cards, é necessário, seguir o passo a passo e validar todas as informações para que os dados estejam corretos.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cards - Procedimento para Redefinir a Senha do Cliente pelo Cards/Cards - Procedimento para Redefinir a Senha do Cliente pelo Cards_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Serviços Financeiros FESTCARD",
+                      description: "A seguir, treinamento de Serviços Financeiros Festcard, saiba algumas das principais informações na hora de ofertar!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cards - Treinamento Serviços Financeiros FESTCARD/Cards - Treinamento Serviços Financeiros FESTCARD_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-purple-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -449,21 +511,39 @@ const Festcard = () => {
                   <Store className="text-orange-600" size={20} />
                   <h3 className="text-lg font-semibold">Treinamentos Frente de Loja (5 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <Card key={i} className="hover:shadow-md transition-shadow">
-                      <CardContent className="p-4">
-                        <div className="aspect-video bg-gradient-to-br from-orange-500 to-red-600 rounded-lg mb-3 flex items-center justify-center">
-                          <PlayCircle className="text-white" size={32} />
-                        </div>
-                        <h4 className="font-medium text-sm mb-1">Frente de Loja {i + 1}</h4>
-                        <p className="text-xs text-muted-foreground">Operação na frente de loja</p>
-                        <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                          <PlayCircle size={12} className="mr-1" />
-                          Assistir
-                        </Button>
-                      </CardContent>
-                    </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "Solicitação de senha (CPF) cliente Cartão FestCard",
+                      description: "Solicitação de senha (CPF) por parte do cliente. Sempre que houver solicitação de senha(CPF) por parte do cliente, deverá ser solicitado o documento original com foto e reemissão do contrato, solicitar assinatura em fotos. Temos que reforçar esse procedimento de segurança com todas as lojas para evitar fraudes.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Frente de Loja - Solicitação de senha (CPF) cliente Cartão FestCard/Frente de Loja - Solicitação de senha (CPF) cliente Cartão FestCard_player.m3u8"
+                    },
+                    {
+                      title: "Queda de sistema no momento do pagamento",
+                      description: "Caiu o sistema do frente de loja na hora do pagamento de carnê, foi debitado o valor mas não consta no sistema, o que fazer? Neste caso é necessário entrar em contato com setor de Controladoria para validar o pagamento e realizar a baixa no sistema.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Frente de Loja - Queda de sistema no momento do pagamento/Frente de Loja - Queda de sistema no momento do pagamento_player.m3u8"
+                    },
+                    {
+                      title: "O que é o termo \"a rogo\" e para que serve?",
+                      description: "O termo \"a rogo\" é uma expressão usada em documentos formais para indicar que uma pessoa está autorizando outra pessoa a agir em seu nome. Isso pode ocorrer mesmo que a pessoa que está dando a autorização esteja presente no local. Por exemplo, se uma pessoa não pode assinar um documento por motivos justificáveis, ela pode pedir a outra pessoa para assinar \"a rogo\". É importante lembrar que a pessoa que está assinando o documento em nome de outra pessoa é responsável legalmente pelo que está sendo assinado. Lembrando que o funcionário não pode assinar pelo cliente em loja.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Frente de Loja - O que é o termo \"a rogo\" e para que serve/Frente de Loja - O que é o termo \"a rogo\" e para que serve_player.m3u8"
+                    },
+                    {
+                      title: "Erro 19 no frente de loja, o que fazer?",
+                      description: "Motivo: parcela de compra menor que R$5,00 ou compra de mesmo valor processada no mesmo dia. Parcela menor que R$5,00: O cartão FestCard aceita pagamento a partir de R$5,00 por parcela, qualquer compra processada com valor menor que esse não será concluída portanto, necessário passar um valor maior. Compra de mesmo valor já processada: É necessário verificar se a compra atual não está no mesmo valor que a anterior, o sistema barra com venda duplicada. Caso não se inclua nestas situações, deverá seguir o procedimento de reiniciar o sistema ou passar a venda em outro terminal, caso o erro persista.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Frente de Loja - Erro 19 no frente de loja, o que fazer/Frente de Loja - Erro 19 no frente de loja, o que fazer_player.m3u8"
+                    },
+                    {
+                      title: "Como acessar o Chat para desbloqueio de cadastro",
+                      description: "Para acessar o Chat exclusivo para lojas Oscar/JÔ e Carioca é necessário abrir o Frente de Loja e ir até a opção Ajuda, em seguida selecionar o link referente a loja. Esse canal deve ser usado durante a semana e aos domingos o acesso é exclusivamente por este caminho.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Frente de Loja - Como acessar o Chat para desbloqueio de cadastro/Frente de Loja - Como acessar o Chat para desbloqueio de cadastro_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-orange-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -473,22 +553,76 @@ const Festcard = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-4">
                   <Computer className="text-indigo-600" size={20} />
-                  <h3 className="text-lg font-semibold">Treinamentos T.I (1 vídeo)</h3>
+                  <h3 className="text-lg font-semibold">Treinamentos T.I (3 vídeos)</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  <Card className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-4">
-                      <div className="aspect-video bg-gradient-to-br from-indigo-500 to-blue-600 rounded-lg mb-3 flex items-center justify-center">
-                        <PlayCircle className="text-white" size={32} />
-                      </div>
-                      <h4 className="font-medium text-sm mb-1">T.I Festcard</h4>
-                      <p className="text-xs text-muted-foreground">Sistemas e tecnologia</p>
-                      <Button variant="outline" size="sm" className="w-full mt-2 text-xs">
-                        <PlayCircle size={12} className="mr-1" />
-                        Assistir
-                      </Button>
-                    </CardContent>
-                  </Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "Como pesquisar Pedido no Mega?",
+                      description: "Passo a passo de como pesquisar o pedido de compras no sistema Mega no ato do recebimento da Nota Fiscal na loja.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Estoque - Como pesquisar Pedido no Mega/Estoque - Como pesquisar Pedido no Mega_player.m3u8"
+                    },
+                    {
+                      title: "Como solicitar a nota fiscal de um cliente?",
+                      description: "A solicitação de nota fiscal deve ser enviada para sac@oscarcalcados.com.br. O pedido deve vir acompanhado das seguintes informações: - Nome do cliente - CPF - Data da compra - Número do orçamento E loja, caso a compra não tenha sido realizada na loja que está enviando o email. Importante! Inserir o CPF na nota em todas as vendas para evitar solicitações de nota fiscal sem chave de acesso.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Mega - Como solicitar a nota fiscal de um cliente/Mega - Como solicitar a nota fiscal de um cliente_player.m3u8"
+                    },
+                    {
+                      title: "Pesquisa de satisfação de atendimento",
+                      description: "Tutorial realizado pela nossa equipe, incentivando os colaboradores a realizarem a pesquisa de satisfação de atendimento, através do Topdesk, lembrando que é possível avaliar todos os setores que já utilizam a ferramenta. Por favor compartilhem com suas equipes.",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/T.I - Pesquisa de satisfação de atendimento/T.I - Pesquisa de satisfação de atendimento_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-indigo-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="cartao-festcard" className="mt-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 mb-4">
+                  <CreditCard className="text-purple-600" size={20} />
+                  <h3 className="text-lg font-semibold">Treinamentos Cartão FestCard (5 vídeos)</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+                  {[
+                    {
+                      title: "Como Acionar a base Empréstimo Pessoal!",
+                      description: "A seguir teremos um passo a passe de como realizar o acionamento de BASE, mais conhecido como a ativação do lead onde o próprio colaborador entra em contato com o cliente com potencial de Empréstimo!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cartão FestCard - Como Acionar a base Empréstimo Pessoal!/Cartão FestCard - Como Acionar a base Empréstimo Pessoal!_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Clube vai e volta Festcard",
+                      description: "A seguir treinamento Clube vai e volta, conheça mais sobre este produto festcard para assertividade para ofertar!!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cartão FestCard - Treinamento Clube vai e volta Festcard/Cartão FestCard - Treinamento Clube vai e volta Festcard_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Sancor Seguros Festcard",
+                      description: "A seguir você vai entender tudo sobre os seguros Sancor e os principais dados sobre como ofertar!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cartão FestCard - Treinamento Sancor Seguros Festcard/Cartão FestCard - Treinamento Sancor Seguros Festcard_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento Vale Saúde Festcard",
+                      description: "Neste treinamento iremos abordar os principais pontos e gatilhos na hora de ofertar o clube de saúde da Família!",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cartão FestCard - Treinamento Vale Saúde Festcard/Cartão FestCard - Treinamento Vale Saúde Festcard_player.m3u8"
+                    },
+                    {
+                      title: "Treinamento OdontoFest",
+                      description: "A seguir, iremos abordar algumas informações sobre nosso produto OdontoFest",
+                      videoUrl: "https://midia.pd.oscarcloud.com.br/videos/Cartão FestCardl - Treinamento OdontoFest/Cartão FestCardl - Treinamento OdontoFest_player.m3u8"
+                    }
+                  ].map((video, index) => (
+                    <div key={index} className="space-y-2">
+                      <h4 className="text-sm font-medium text-purple-700">{video.title}</h4>
+                      <VideoPlayer externalUrl={video.videoUrl} title={video.title} departmentName="Festcard" />
+                      <p className="text-xs text-muted-foreground">{video.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </TabsContent>
