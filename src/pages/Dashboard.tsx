@@ -201,7 +201,7 @@ const Dashboard = () => {
           <div className="space-y-6">
             
             {/* Seção de Subprocessos */}
-            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
+            <Card className="bg-white p-6 max-h-[410px] flex flex-col">
               <h3 className="text-lg font-semibold mb-4">
                 Subprocessos: 
                 {filtroNivel !== 'todos' && (
@@ -212,7 +212,7 @@ const Dashboard = () => {
                 )}
               </h3>
               <div className="overflow-x-auto flex-1">
-                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+                <div className="max-h-[330px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -246,7 +246,7 @@ const Dashboard = () => {
             </Card>
             
             {/* Seção de Tarefas */}
-            <Card className="bg-white p-6 max-h-[400px] flex flex-col">
+            <Card className="bg-white p-6 max-h-[410px] flex flex-col">
               <h3 className="text-lg font-semibold mb-4">
                 Tarefas: 
                 {filtroNivel !== 'todos' && (
@@ -257,7 +257,7 @@ const Dashboard = () => {
                 )}
               </h3>
               <div className="overflow-x-auto flex-1">
-                <div className="max-h-[320px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+                <div className="max-h-[330px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -280,7 +280,7 @@ const Dashboard = () => {
           </div>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md p-6 flex flex-col max-h-[1248px]">
+        <div className="bg-white rounded-lg shadow-md p-6 flex flex-col max-h-[820px]">
           <h3 className="text-lg font-semibold mb-4">
             Processos 
             {filtroNivel !== 'todos' && (
@@ -291,7 +291,7 @@ const Dashboard = () => {
             )}
           </h3>
           <div className="overflow-x-auto flex-1">
-            <div className="max-h-[1168px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
+            <div className="max-h-[740px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100/50 [&::-webkit-scrollbar-thumb]:bg-gray-300/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-gray-400/50">
               <Table>
                 <TableHeader>
                   <TableRow>
