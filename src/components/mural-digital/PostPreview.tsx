@@ -38,16 +38,17 @@ const PostPreview = ({ open, onOpenChange, title, content, category, attachments
     return labels[category as keyof typeof labels] || category;
   };
 
-  const getImageClasses = () => {
-    switch (imageSize) {
+  const getImageClasses = (attachmentSize?: ImageSize) => {
+    const size = attachmentSize || imageSize || 'small';
+    switch (size) {
       case 'small':
-        return 'max-w-[300px] mx-auto object-contain';
+        return 'max-w-[300px] h-auto mx-auto object-contain';
       case 'fit':
-        return 'w-full max-h-[600px] object-contain';
+        return 'w-full max-w-2xl h-auto mx-auto object-contain';
       case 'original':
-        return 'max-w-full object-contain';
+        return 'max-w-none h-auto mx-auto object-contain';
       default:
-        return 'max-w-[300px] mx-auto object-contain';
+        return 'max-w-[300px] h-auto mx-auto object-contain';
     }
   };
 
@@ -90,7 +91,7 @@ const PostPreview = ({ open, onOpenChange, title, content, category, attachments
                       <img 
                         src={attachment.url} 
                         alt="Anexo" 
-                        className={`rounded-lg ${getImageClasses()}`}
+                        className={`rounded-lg ${getImageClasses(attachment.size)}`}
                       />
                     )}
                     {attachment.type === 'video' && (

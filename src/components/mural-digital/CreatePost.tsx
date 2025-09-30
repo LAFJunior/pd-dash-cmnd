@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -30,6 +30,15 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
   const [linkUrl, setLinkUrl] = useState('');
   const [imageSize, setImageSize] = useState<ImageSize>('small');
   const [showPreview, setShowPreview] = useState(false);
+
+  // Atualiza o tamanho de todas as imagens quando a opção mudar
+  useEffect(() => {
+    setAttachments(prev => 
+      prev.map(att => 
+        att.type === 'image' ? { ...att, size: imageSize } : att
+      )
+    );
+  }, [imageSize]);
 
   if (!isMuralAdmin) return null;
 

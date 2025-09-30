@@ -224,15 +224,16 @@ const PostCard = ({ post, onUpdate }: PostCardProps) => {
             {post.attachments.map((attachment: any, index: number) => {
               const getImageClasses = () => {
                 if (attachment.type !== 'image') return '';
-                switch (attachment.size) {
+                const size = attachment.size || 'small';
+                switch (size) {
                   case 'small':
-                    return 'max-w-[300px] mx-auto object-contain';
+                    return 'max-w-[300px] h-auto mx-auto object-contain';
                   case 'fit':
-                    return 'w-full max-h-[600px] object-contain';
+                    return 'w-full max-w-2xl h-auto mx-auto object-contain';
                   case 'original':
-                    return 'max-w-full object-contain';
+                    return 'max-w-none h-auto mx-auto object-contain';
                   default:
-                    return 'max-w-[300px] mx-auto object-contain';
+                    return 'max-w-[300px] h-auto mx-auto object-contain';
                 }
               };
 
