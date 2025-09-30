@@ -10,7 +10,7 @@ import MapaContexto from "./pages/MapaContexto";
 import MapaLojas from "./pages/MapaLojas";
 import Departamentos from "./pages/Departamentos";
 import DetalheDepartamento from "./pages/DetalheDepartamento";
-import Colaboradores from "./pages/Colaboradores";
+import Organograma from "./pages/Organograma";
 import AgenteIA from "./pages/AgenteIA";
 import NotFound from "./pages/NotFound";
 import DocumentacaoPD from "./pages/DocumentacaoPD";
@@ -37,7 +37,7 @@ const App = () => (
                 <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
                 <Route path="/departamentos" element={<ProtectedRoute><Departamentos /></ProtectedRoute>} />
                 <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
-                <Route path="/colaboradores" element={<ProtectedRoute><Colaboradores /></ProtectedRoute>} />
+                <Route path="/organograma" element={<ProtectedRoute><Organograma /></ProtectedRoute>} />
                 <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
                 <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
                 <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />

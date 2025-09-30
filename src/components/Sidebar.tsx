@@ -95,9 +95,9 @@ const Sidebar = () => {
           collapsed={collapsed}
         />
         <MenuItem 
-          to="/colaboradores" 
+          to="/organograma" 
           icon={<Users size={20} />} 
-          text="Colaboradores" 
+          text="Organograma" 
           collapsed={collapsed}
         />
         <MenuItem 
