@@ -16,43 +16,71 @@ const MuralDigital = () => {
       setLoading(true);
       const { data: postsData, error } = await supabase
         .from('mural_posts')
-        .select(`
-          *,
-          author:profiles!mural_posts_author_id_fkey(full_name, department),
-          likes_count:mural_likes(count),
-          comments_count:mural_comments(count)
-        `)
+        .select('*')
         .order('is_pinned', { ascending: false })
         .order('created_at', { ascending: false });
 
       if (error) throw error;
 
+      if (!postsData) {
+        setPosts([]);
+        return;
+      }
+
+      // Buscar informações dos autores
+      const authorIds = postsData.map(post => post.author_id);
+      const { data: authorsData } = await supabase
+        .from('profiles')
+        .select('user_id, full_name, department')
+        .in('user_id', authorIds);
+
+      const authorsMap = new Map(
+        authorsData?.map(author => [author.user_id, author]) || []
+      );
+
+      // Buscar contagens de likes e comentários
+      const postIds = postsData.map(post => post.id);
+      
+      const { data: likesData } = await supabase
+        .from('mural_likes')
+        .select('post_id')
+        .in('post_id', postIds);
+
+      const { data: commentsData } = await supabase
+        .from('mural_comments')
+        .select('post_id')
+        .in('post_id', postIds);
+
+      const likesCount = new Map<string, number>();
+      likesData?.forEach(like => {
+        likesCount.set(like.post_id, (likesCount.get(like.post_id) || 0) + 1);
+      });
+
+      const commentsCount = new Map<string, number>();
+      commentsData?.forEach(comment => {
+        commentsCount.set(comment.post_id, (commentsCount.get(comment.post_id) || 0) + 1);
+      });
+
       // Verificar se usuário curtiu cada post
+      let likedPostIds = new Set<string>();
       if (profile) {
         const { data: userLikes } = await supabase
           .from('mural_likes')
           .select('post_id')
           .eq('user_id', profile.user_id);
 
-        const likedPostIds = new Set(userLikes?.map(like => like.post_id));
-
-        const enrichedPosts = postsData?.map(post => ({
-          ...post,
-          likes_count: post.likes_count?.[0]?.count || 0,
-          comments_count: post.comments_count?.[0]?.count || 0,
-          user_has_liked: likedPostIds.has(post.id)
-        }));
-
-        setPosts(enrichedPosts || []);
-      } else {
-        const enrichedPosts = postsData?.map(post => ({
-          ...post,
-          likes_count: post.likes_count?.[0]?.count || 0,
-          comments_count: post.comments_count?.[0]?.count || 0,
-          user_has_liked: false
-        }));
-        setPosts(enrichedPosts || []);
+        likedPostIds = new Set(userLikes?.map(like => like.post_id) || []);
       }
+
+      const enrichedPosts = postsData.map(post => ({
+        ...post,
+        author: authorsMap.get(post.author_id) || { full_name: 'Usuário Desconhecido', department: '' },
+        likes_count: likesCount.get(post.id) || 0,
+        comments_count: commentsCount.get(post.id) || 0,
+        user_has_liked: likedPostIds.has(post.id)
+      }));
+
+      setPosts(enrichedPosts);
     } catch (error) {
       console.error('Erro ao carregar posts:', error);
     } finally {
