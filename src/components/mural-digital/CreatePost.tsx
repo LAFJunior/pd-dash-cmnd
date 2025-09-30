@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Image, Video, Link as LinkIcon, X } from 'lucide-react';
+import { Image, Video, Link as LinkIcon, X, Eye } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { usePermissions } from '@/hooks/usePermissions';
+import ImageSizeSelector, { ImageSize } from './ImageSizeSelector';
+import PostPreview from './PostPreview';
 
 const MURAL_ADMIN_EMAILS = [
   'luiz.ferreira@grupooscar.com.br',
@@ -26,6 +28,8 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
   const [content, setContent] = useState('');
   const [attachments, setAttachments] = useState<any[]>([]);
   const [linkUrl, setLinkUrl] = useState('');
+  const [imageSize, setImageSize] = useState<ImageSize>('small');
+  const [showPreview, setShowPreview] = useState(false);
 
   if (!isMuralAdmin) return null;
 
@@ -73,7 +77,7 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setAttachments([...attachments, { type, url: reader.result }]);
+      setAttachments([...attachments, { type, url: reader.result, size: type === 'image' ? imageSize : undefined }]);
     };
     reader.readAsDataURL(file);
   };
@@ -89,9 +93,20 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
   };
 
   return (
-    <Card>
-      <CardContent className="p-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <>
+      <PostPreview
+        open={showPreview}
+        onOpenChange={setShowPreview}
+        title={title}
+        content={content}
+        category={category}
+        attachments={attachments}
+        imageSize={imageSize}
+      />
+      
+      <Card>
+        <CardContent className="p-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
           <Select value={category} onValueChange={setCategory}>
             <SelectTrigger>
               <SelectValue placeholder="Tipo de post" />
@@ -117,12 +132,16 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
             className="min-h-[120px]"
           />
 
+          {attachments.some(a => a.type === 'image') && (
+            <ImageSizeSelector value={imageSize} onChange={setImageSize} />
+          )}
+
           {attachments.length > 0 && (
             <div className="space-y-2">
               {attachments.map((attachment, index) => (
                 <div key={index} className="relative bg-muted p-3 rounded-lg flex items-center justify-between">
                   <span className="text-sm truncate flex-1">
-                    {attachment.type === 'link' ? attachment.url : `${attachment.type} anexado`}
+                    {attachment.type === 'link' ? attachment.url : `${attachment.type} anexado${attachment.size ? ` (${attachment.size})` : ''}`}
                   </span>
                   <Button
                     type="button"
@@ -189,12 +208,25 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
             </div>
           </div>
 
-          <Button type="submit" className="w-full" disabled={!content.trim()}>
-            Publicar
-          </Button>
+          <div className="flex gap-2">
+            <Button 
+              type="button" 
+              variant="outline" 
+              className="flex-1"
+              onClick={() => setShowPreview(true)}
+              disabled={!content.trim()}
+            >
+              <Eye size={16} className="mr-2" />
+              Prévia
+            </Button>
+            <Button type="submit" className="flex-1" disabled={!content.trim()}>
+              Publicar
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>
+    </>
   );
 };
 

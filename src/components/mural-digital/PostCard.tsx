@@ -221,21 +221,37 @@ const PostCard = ({ post, onUpdate }: PostCardProps) => {
 
         {post.attachments && post.attachments.length > 0 && (
           <div className="mb-4 space-y-2">
-            {post.attachments.map((attachment: any, index: number) => (
-              <div key={index}>
-                {attachment.type === 'image' && (
-                  <img src={attachment.url} alt="Anexo" className="rounded-lg max-h-96 w-full object-cover" />
-                )}
-                {attachment.type === 'video' && (
-                  <video src={attachment.url} controls className="rounded-lg w-full" />
-                )}
-                {attachment.type === 'link' && (
-                  <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                    {attachment.url}
-                  </a>
-                )}
-              </div>
-            ))}
+            {post.attachments.map((attachment: any, index: number) => {
+              const getImageClasses = () => {
+                if (attachment.type !== 'image') return '';
+                switch (attachment.size) {
+                  case 'small':
+                    return 'max-w-[300px] mx-auto object-contain';
+                  case 'fit':
+                    return 'w-full max-h-[600px] object-contain';
+                  case 'original':
+                    return 'max-w-full object-contain';
+                  default:
+                    return 'max-w-[300px] mx-auto object-contain';
+                }
+              };
+
+              return (
+                <div key={index} className="flex justify-center">
+                  {attachment.type === 'image' && (
+                    <img src={attachment.url} alt="Anexo" className={`rounded-lg ${getImageClasses()}`} />
+                  )}
+                  {attachment.type === 'video' && (
+                    <video src={attachment.url} controls className="rounded-lg w-full" />
+                  )}
+                  {attachment.type === 'link' && (
+                    <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      {attachment.url}
+                    </a>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
 

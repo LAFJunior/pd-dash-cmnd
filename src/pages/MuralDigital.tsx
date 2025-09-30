@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import CreatePost from '@/components/mural-digital/CreatePost';
 import PostCard from '@/components/mural-digital/PostCard';
 import FilterTabs from '@/components/mural-digital/FilterTabs';
+import MuralHeader from '@/components/mural-digital/MuralHeader';
 import { usePermissions } from '@/hooks/usePermissions';
 
 const MuralDigital = () => {
@@ -11,7 +12,7 @@ const MuralDigital = () => {
   const [loading, setLoading] = useState(true);
   const { profile } = usePermissions();
 
-  const loadPosts = async () => {
+  const loadPosts = useCallback(async () => {
     try {
       setLoading(true);
       const { data: postsData, error } = await supabase
@@ -86,7 +87,7 @@ const MuralDigital = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [profile]);
 
   useEffect(() => {
     loadPosts();
@@ -110,7 +111,7 @@ const MuralDigital = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [profile]);
+  }, [loadPosts]);
 
   const filteredPosts = useMemo(() => {
     if (activeFilter === 'todos') return posts;
@@ -129,12 +130,7 @@ const MuralDigital = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-8 mb-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl font-bold mb-2">Mural Digital Corporativo</h1>
-          <p className="text-lg opacity-90">Conectando nossa equipe, compartilhando sucessos</p>
-        </div>
-      </div>
+      <MuralHeader />
 
       <div className="max-w-4xl mx-auto px-4 pb-8">
         <div className="space-y-6">
