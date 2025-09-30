@@ -249,7 +249,7 @@ export type Database = {
     }
     Functions: {
       is_mural_admin: {
-        Args: { user_email: string }
+        Args: { user_id_param: string }
         Returns: boolean
       }
       promote_user_to_admin: {
