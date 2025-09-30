@@ -1,93 +1,125 @@
-# PD Dash CMND - Processos Digitais Grupo Oscar
+Sistema de Gestão de Processos Corporativos Sobre o Projeto
 
-Sistema de dashboard para visualização e gestão de processos digitais do Grupo Oscar, com chat integrado de IA.
+Sistema web desenvolvido para gerenciamento e visualização de processos corporativos. A plataforma oferece uma interface moderna e intuitiva para acompanhar fluxos de trabalho, estruturas departamentais e indicadores de desempenho organizacional. 🚀 Tecnologias Utilizadas
 
-## Estrutura do Projeto
+Frontend: React 18 + TypeScript + Vite
+UI/UX: Tailwind CSS + Radix UI + shadcn/ui
+Backend: Supabase (PostgreSQL + Auth + Edge Functions)
+Estado: TanStack React Query
+Roteamento: React Router DOM v6
+Formulários: React Hook Form + Zod
+Gráficos: Recharts
+Mapas: React Flow + Leaflet
+Temas: next-themes (Dark/Light mode)
+✨ Funcionalidades Principais 📊 Dashboard Executivo
 
-```
-pd-dash-cmnd/
-├── src/                    # Frontend React/TypeScript
-├── backend/               # Backend do sistema
-│   └── chat-agent/       # Agente IA de chat
-├── public/               # Arquivos estáticos
-├── supabase/            # Configurações do banco
-└── docs/                # Documentação
-```
+Visão geral de processos estratégicos, táticos e operacionais
+Gráficos interativos com métricas de performance
+Cards com indicadores-chave de cada departamento
+Tabelas detalhadas de subprocessos e tarefas
+🗺️ Mapa de Contexto
 
-## Funcionalidades
+Visualização interativa da estrutura organizacional
+Fluxos de trabalho entre departamentos
+Mapeamento de responsabilidades e interdependências
+🏪 Mapa de Lojas
 
-- 📊 Dashboard de processos por departamento
-- 🗺️ Mapa interativo de contexto organizacional
-- 🤖 **Agente IA Grupo Oscar** - Chat inteligente para suporte
-- 👥 Gestão de usuários e permissões
-- 📈 Analytics e relatórios
-- 📱 Interface responsiva
+Geolocalização de todas as unidades do grupo
+Informações detalhadas de cada loja
+Estrutura regional e hierárquica
+🏢 Gestão de Departamentos
 
-## Agente IA Grupo Oscar
+Controladoria: Conciliação bancária, gestão de contratos, despesas
+E-commerce: Gestão comercial, logística, visual merchandising
+Departamento Pessoal: Folha de pagamento, benefícios, rotinas sindicais
+Auditoria: Inventários, conferências, controle de qualidade
+Compras: Cotações, pedidos, cadastro de produtos
+Contábil: Fechamentos mensais, integrações fiscais, relatórios
+Financeiro: Fluxo de caixa, contas a pagar/receber
+Fiscal: Apurações tributárias, obrigações acessórias
+Recursos Humanos: Recrutamento, treinamentos, desenvolvimento
+São José dos Campos: Operações do Centro de Distribuição
+👥 Gestão de Colaboradores
 
-O sistema inclui um chat inteligente que conhece os processos do Grupo Oscar:
+Perfis detalhados com hierarquia organizacional
+Controle de permissões por departamento e função
+Sistema de autenticação seguro
+🤖 Agente IA Oscar
 
-### Conhecimento Base
-- Processos de Auditoria
-- Processos Contábeis
-- Processos de Controladoria
-- Departamento Pessoal
-- E-commerce
-- Processos Financeiros
+Assistente virtual para consultas sobre processos
+Integração com base de conhecimento corporativa
+📚 Centro de Documentação
 
-### Como usar
-1. Inicie o backend: `start-backend.bat`
-2. Acesse a aba "Agente IA" no dashboard
-3. Faça perguntas sobre processos, procedimentos e estrutura organizacional
+Biblioteca de processos organizados por departamento
+Manuais técnicos e operacionais
+Documentação PD (Processos e Desenvolvimento)
+⚙️ Painel Administrativo
 
-## Instalação e Execução
+Gestão completa de usuários (exclusivo para super admin)
+Reset de senhas e controle de acessos
+Configurações do sistema
+🏗️ Arquitetura do Sistema Frontend (React)
 
-### Frontend
-```bash
-npm install
-npm run dev
-```
+src/ ├── componentes/ # Componentes reutilizáveis ​​│ ├── ui/ # Sistema de design (shadcn/ui) │ ├── dashboard/ # Componentes do dashboard │ ├── departamento/ # Componentes departamentais │ └── mapa-contexto/ # Componentes de visualização ├── pages/ # Páginas da aplicação ├── hooks/ # Hooks customizados ├── data/ # Base de dados de processos ├── types/ # Definições TypeScript └── utils/ # Utilitários e helpers
 
-### Backend do Chat
-```bash
-# Windows
-start-backend.bat
+Backend (Supabase)
 
-# Ou manualmente:
-cd backend/chat-agent
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-```
+Autenticação: Sistema seguro com JWT
+Base de Dados: PostgreSQL com Row Level Security (RLS)
+Edge Functions: Funcionalidades serverless
+Políticas de Segurança: Controle granular de acesso
+Estrutura de Dados
 
-### Configuração
-1. Configure as variáveis de ambiente no `.env`
-2. Configure a chave da OpenAI no backend
-3. Configure o Supabase para autenticação
+Processos: Estratégicos, Táticos e Operacionais
+Subprocessos: Fluxos detalhados de cada área
+Tarefas: Atividades específicas com responsáveis
+Perfis: Usuários com permissões departamentais
+🔐 Segurança e Permissões
 
-## Tecnologias
+Autenticação obrigatória para todas as funcionalidades
+Controle de acesso baseado em departamentos
+Níveis de permissão: Usuário, Admin, Super Admin
+Row Level Security no banco de dados
+Validação de formulários com Zod
+🎨 Sistema de Design
 
-- **Frontend**: React, TypeScript, Tailwind CSS, Vite
-- **Backend**: Python, Flask, OpenAI API
-- **Banco**: Supabase (PostgreSQL)
-- **UI**: shadcn/ui, Lucide Icons
-- **Charts**: Recharts
-- **Maps**: React Flow
+Paleta de cores consistente com identidade corporativa
+Componentes responsivos para desktop e mobile
+Modo escuro/claro disponível
+Iconografia com Lucide React
+Tipografia otimizada para legibilidade
+📱 Responsabilidade
 
-## Desenvolvimento
+Interface adaptável para dispositivos móveis
+Navegação otimizada para touch
+Sidebar colapsível em telas menores
+Tabelas com scroll horizontal quando necessário
+🚦 Como executar pré-requisitos
 
-O projeto está organizado para facilitar o desenvolvimento e manutenção:
+Node.js 20+
+npm ou yarn
+Conta no Supabase configurada
+Instalação
 
-- Frontend e backend separados
-- Chat IA como módulo independente
-- Base de conhecimento em JSON
-- Interface moderna e responsiva
+Clone ou repositório
+clone do git [URL_DO_REPOSITORIO]
 
-## Contribuição
+Entre no diretório
+cd [NOME_DO_PROJETO]
 
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+Instalar as dependências
+instalação npm
+
+Configurar como variáveis ​​de ambiente
+cp .env.exemplo .env
+
+Execute em modo desenvolvimento
+npm executar dev
+
+Construir para Produção
+
+npm executar compilação
+
+Implantar com Docker
+
+docker build -t sistema-processos. docker run -p 80:80 sistema-processos
