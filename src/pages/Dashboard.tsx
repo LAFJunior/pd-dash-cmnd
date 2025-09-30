@@ -152,52 +152,53 @@ const Dashboard = () => {
       {/* Seção de Departamentos - Estilo Power BI */}
       <Card className="bg-white p-6 mb-8">
         <h3 className="text-lg font-semibold mb-4">Departamentos</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
-          <div 
+        <div className="flex flex-wrap gap-3">
+          <button 
             onClick={() => setFiltroDepartamento('todos')}
-            className={`cursor-pointer p-3 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+            className={`px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-200 hover:shadow-md hover:scale-[1.02] ${
               filtroDepartamento === 'todos' 
-                ? 'border-blue-500 bg-blue-50 shadow-lg' 
-                : 'border-gray-200 hover:border-gray-300'
+                ? 'bg-gray-600 shadow-lg scale-[1.02]' 
+                : 'bg-gray-400'
             }`}
           >
-            <div className="flex flex-col items-center text-center">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
-                filtroDepartamento === 'todos' ? 'bg-blue-500' : 'bg-gray-400'
-              }`}>
-                <Building2 className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xs font-medium">Todos</span>
-            </div>
-          </div>
+            Todos
+          </button>
           {departamentos.map((dept) => {
-            const IconeComponent = dept.icone;
+            const corMap: Record<string, string> = {
+              'bg-blue-500': 'bg-cyan-600',
+              'bg-orange-500': 'bg-red-500',
+              'bg-green-500': 'bg-emerald-500',
+              'bg-red-500': 'bg-blue-900',
+              'bg-indigo-500': 'bg-green-600',
+              'bg-purple-500': 'bg-sky-500',
+              'bg-cyan-500': 'bg-orange-500',
+              'bg-gray-500': 'bg-cyan-600',
+              'bg-emerald-500': 'bg-emerald-500',
+              'bg-teal-500': 'bg-purple-500',
+              'bg-pink-500': 'bg-red-400'
+            };
+            
+            const corFinal = filtroDepartamento === dept.nome ? 'bg-gray-700' : (corMap[dept.cor] || dept.cor);
+            
             return (
-              <div 
+              <button 
                 key={dept.nome}
                 onClick={() => setFiltroDepartamento(dept.nome)}
-                className={`cursor-pointer p-3 rounded-lg border-2 transition-all duration-200 hover:shadow-md ${
+                className={`px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-200 hover:shadow-md hover:scale-[1.02] ${
                   filtroDepartamento === dept.nome 
-                    ? 'border-blue-500 bg-blue-50 shadow-lg' 
-                    : 'border-gray-200 hover:border-gray-300'
+                    ? 'shadow-lg scale-[1.02] ' + corFinal
+                    : corFinal
                 }`}
               >
-                <div className="flex flex-col items-center text-center">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
-                    filtroDepartamento === dept.nome ? 'bg-blue-500' : dept.cor
-                  }`}>
-                    <IconeComponent className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-xs font-medium">{dept.nome}</span>
-                </div>
-              </div>
+                {dept.nome}
+              </button>
             );
           })}
         </div>
       </Card>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.8fr] gap-6">
+        <div>
           <div className="space-y-6">
             
             {/* Seção de Subprocessos */}
