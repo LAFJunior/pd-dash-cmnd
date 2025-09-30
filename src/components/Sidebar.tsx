@@ -11,7 +11,8 @@ import {
   BookOpen,
   FileText,
   LogOut,
-  Shield
+  Shield,
+  MessageSquare
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
@@ -70,6 +71,12 @@ const Sidebar = () => {
       </div>
       
       <nav className="flex flex-col gap-1 p-2 flex-1">
+        <MenuItem 
+          to="/mural-digital" 
+          icon={<MessageSquare size={20} />} 
+          text="Mural Digital" 
+          collapsed={collapsed}
+        />
         <MenuItem 
           to="/" 
           icon={<LayoutDashboard size={20} />} 

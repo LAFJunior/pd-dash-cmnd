@@ -17,6 +17,7 @@ import DocumentacaoPD from "./pages/DocumentacaoPD";
 import Documentacao from "./pages/Documentacao";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
+import MuralDigital from "./pages/MuralDigital";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/*" element={
             <Layout>
               <Routes>
+                <Route path="/mural-digital" element={<ProtectedRoute><MuralDigital /></ProtectedRoute>} />
                 <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                 <Route path="/mapa-contexto" element={<ProtectedRoute><MapaContexto /></ProtectedRoute>} />
                 <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
