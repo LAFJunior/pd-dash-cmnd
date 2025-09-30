@@ -6,7 +6,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Heart, MessageCircle, Pin, Trash2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { useMuralPermissions } from '@/hooks/useMuralPermissions';
+import { usePermissions } from '@/hooks/usePermissions';
+
+const MURAL_ADMIN_EMAILS = [
+  'luiz.ferreira@grupooscar.com.br',
+  'rh@grupooscar.com.br'
+];
 
 interface Author {
   full_name: string;
@@ -34,7 +39,8 @@ interface PostCardProps {
 }
 
 const PostCard = ({ post, onUpdate }: PostCardProps) => {
-  const { isMuralAdmin, profile } = useMuralPermissions();
+  const { profile } = usePermissions();
+  const isMuralAdmin = profile?.email ? MURAL_ADMIN_EMAILS.includes(profile.email) : false;
   const [showComments, setShowComments] = useState(false);
   const [newComment, setNewComment] = useState('');
   const [comments, setComments] = useState<any[]>([]);

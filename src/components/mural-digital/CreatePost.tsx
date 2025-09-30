@@ -7,14 +7,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Image, Video, Link as LinkIcon, X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { useMuralPermissions } from '@/hooks/useMuralPermissions';
+import { usePermissions } from '@/hooks/usePermissions';
+
+const MURAL_ADMIN_EMAILS = [
+  'luiz.ferreira@grupooscar.com.br',
+  'rh@grupooscar.com.br'
+];
 
 interface CreatePostProps {
   onPostCreated?: () => void;
 }
 
 const CreatePost = ({ onPostCreated }: CreatePostProps) => {
-  const { isMuralAdmin, profile } = useMuralPermissions();
+  const { profile } = usePermissions();
+  const isMuralAdmin = profile?.email ? MURAL_ADMIN_EMAILS.includes(profile.email) : false;
   const [category, setCategory] = useState('comunicacao');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
