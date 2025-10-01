@@ -26,8 +26,8 @@ export const useMuralPosts = (category?: string) => {
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ['mural-posts', category],
     queryFn: async () => {
-      // Query otimizada com JOINs e agregações
-      const { data: postsData, error } = await supabase
+      // Query otimizada com filtro no backend
+      let query = supabase
         .from('mural_posts')
         .select(`
           *,
@@ -35,6 +35,13 @@ export const useMuralPosts = (category?: string) => {
         `)
         .order('is_pinned', { ascending: false })
         .order('created_at', { ascending: false });
+      
+      // Aplica filtro no backend se necessário
+      if (category && category !== 'todos') {
+        query = query.eq('category', category);
+      }
+      
+      const { data: postsData, error } = await query;
 
       if (error) throw error;
       if (!postsData) return [];
@@ -78,7 +85,9 @@ export const useMuralPosts = (category?: string) => {
         user_has_liked: likedPostIds.has(post.id)
       })) as MuralPost[];
     },
-    staleTime: 1000 * 60 * 5, // 5 minutos
+    staleTime: 1000 * 60 * 10, // 10 minutos - cache mais longo
+    gcTime: 1000 * 60 * 30, // 30 minutos - mantém em cache mesmo sem uso
+    refetchOnWindowFocus: false, // Não recarrega ao focar janela
   });
 
   const togglePin = useMutation({
@@ -115,12 +124,8 @@ export const useMuralPosts = (category?: string) => {
     }
   });
 
-  const filteredPosts = category && category !== 'todos' 
-    ? posts.filter(post => post.category === category)
-    : posts;
-
   return {
-    posts: filteredPosts,
+    posts, // Já filtrado no backend
     isLoading,
     togglePin,
     deletePost

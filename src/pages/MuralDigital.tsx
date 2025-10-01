@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import CreatePost from '@/components/mural-digital/CreatePost';
 import PostCard from '@/components/mural-digital/PostCard';
@@ -24,8 +24,8 @@ const MuralDigital = () => {
           table: 'mural_posts'
         },
         () => {
-          // Apenas invalida cache, não recarrega tudo
           queryClient.invalidateQueries({ queryKey: ['mural-posts'] });
+          queryClient.invalidateQueries({ queryKey: ['mural-posts-counts'] });
         }
       )
       .on(
@@ -57,19 +57,34 @@ const MuralDigital = () => {
     };
   }, [queryClient]);
 
-  const postCounts = useMemo(() => {
-    const allPosts = queryClient.getQueryData(['mural-posts', 'todos']) as any[] || posts;
-    return {
-      todos: allPosts.length,
-      comunicacao: allPosts.filter(p => p.category === 'comunicacao').length,
-      celebracao: allPosts.filter(p => p.category === 'celebracao').length,
-      evento: allPosts.filter(p => p.category === 'evento').length,
-      campanha: allPosts.filter(p => p.category === 'campanha').length,
-    };
-  }, [posts, queryClient]);
+  // Cache inteligente para contadores
+  const { data: postCounts = { todos: 0, comunicacao: 0, celebracao: 0, evento: 0, campanha: 0 } } = useQuery({
+    queryKey: ['mural-posts-counts'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('mural_posts')
+        .select('category');
+      
+      if (error) throw error;
+      
+      const counts = { todos: 0, comunicacao: 0, celebracao: 0, evento: 0, campanha: 0 };
+      data?.forEach(post => {
+        counts.todos++;
+        if (post.category in counts) {
+          counts[post.category as keyof typeof counts]++;
+        }
+      });
+      
+      return counts;
+    },
+    staleTime: 1000 * 60 * 15, // 15 minutos - contadores mudam menos
+    gcTime: 1000 * 60 * 60, // 1 hora
+  });
 
   const handlePostCreated = () => {
+    // Invalida tanto posts quanto contadores
     queryClient.invalidateQueries({ queryKey: ['mural-posts'] });
+    queryClient.invalidateQueries({ queryKey: ['mural-posts-counts'] });
   };
 
   return (
