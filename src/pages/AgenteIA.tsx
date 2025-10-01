@@ -30,7 +30,6 @@ const AgenteIA = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, loading]);
-
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
@@ -126,13 +125,6 @@ const AgenteIA = () => {
     if (input.trim() && !loading) {
       handleSendMessage(input);
       setInput("");
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
     }
   };
 
