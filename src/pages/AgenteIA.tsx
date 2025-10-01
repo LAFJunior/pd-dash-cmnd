@@ -6,6 +6,9 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card } from '@/components/ui/card';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 // Interface para as mensagens
 interface Message {
@@ -20,8 +23,9 @@ interface Message {
   };
 }
 
-// URL do backend local do chat
-const CHAT_API_URL = 'http://localhost:5000/chat';
+// URL do edge function
+const SUPABASE_URL = 'https://vyykwityaigxofimbvqn.supabase.co';
+const EDGE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/agente-ia-oscar`;
 
 // Chave para armazenar o histórico no sessionStorage
 const CHAT_HISTORY_KEY = 'oscar_chat_history';
@@ -144,7 +148,7 @@ const AgenteIA = () => {
     toast.success('Histórico de conversa limpo');
   };
 
-  // Função para enviar mensagem para o n8n e processar a resposta
+  // Função para enviar mensagem para o edge function e processar a resposta
   const handleN8nResponse = async (userMessage: Message) => {
     setIsLoading(true);
     try {
@@ -161,53 +165,47 @@ const AgenteIA = () => {
         userProfile = profile;
       }
 
-      // Preparar dados para enviar ao webhook
+      // Preparar dados para enviar ao edge function
       const requestData: any = {
         message: userMessage.content,
-        userId: user?.id || 'anonymous-' + Math.random().toString(36).substr(2, 9),
-        timestamp: new Date().toISOString(),
-        full_name: userProfile?.full_name || 'Usuário Anônimo',
-        role: userProfile?.role || 'guest',
-        department: userProfile?.department || 'Não informado',
-        email: userProfile?.email || user?.email || 'Não informado'
+        userInfo: {
+          name: userProfile?.full_name || 'Usuário Anônimo',
+          department: userProfile?.department || 'Não informado',
+          role: userProfile?.role || 'guest',
+          email: userProfile?.email || user?.email || 'Não informado'
+        }
       };
 
       // Se houver um arquivo de mídia, adicione informações do arquivo
       if (userMessage.media) {
         requestData.mediaType = userMessage.media.type;
         requestData.fileName = userMessage.media.fileName;
-
-        // Para imagens ou áudio, podemos enviar a URL base64
-        // Nota: Para arquivos grandes, isso pode não ser a melhor abordagem
-        // Considere usar um upload para armazenamento em nuvem e enviar o link
         if (userMessage.media.url.startsWith('data:')) {
           requestData.mediaContent = userMessage.media.url;
         }
       }
 
-      // Enviar a mensagem para o backend local
-      const response = await fetch(CHAT_API_URL, {
+      // Enviar para o edge function
+      const response = await fetch(EDGE_FUNCTION_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          message: userMessage.content,
-          user_info: {
-            name: userProfile?.full_name || 'Usuário Anônimo',
-            department: userProfile?.department || 'Não informado',
-            role: userProfile?.role || 'guest'
-          }
-        })
+        body: JSON.stringify(requestData)
       });
+
       if (!response.ok) {
-        throw new Error(`Erro na resposta do webhook: ${response.status}`);
+        const errorData = await response.json();
+        
+        if (errorData.error === 'timeout') {
+          throw new Error('O servidor demorou muito para responder. Tente novamente.');
+        }
+        
+        throw new Error(errorData.message || `Erro: ${response.status}`);
       }
 
-      // Processar a resposta do webhook
+      // Processar a resposta
       const data = await response.json();
-
-      // Processar a resposta do backend
       const responseContent = data.response || 'Desculpe, não consegui processar sua mensagem no momento.';
 
       // Adiciona a resposta do assistente
@@ -218,10 +216,10 @@ const AgenteIA = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, assistantMessage]);
+      
     } catch (error) {
-      console.error('Erro ao se comunicar com o backend:', error);
+      console.error('Erro ao se comunicar com o Agente IA:', error);
 
-      // Adiciona uma mensagem de erro
       const errorMessage: Message = {
         id: Date.now().toString(),
         content: 'Desculpe, estou enfrentando problemas de conexão. Por favor, tente novamente mais tarde.',
@@ -229,8 +227,9 @@ const AgenteIA = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
-      toast.error('Falha na comunicação com o servidor', {
-        description: 'Não foi possível processar sua mensagem.'
+      
+      toast.error('Falha na comunicação', {
+        description: error instanceof Error ? error.message : 'Não foi possível processar sua mensagem.'
       });
     } finally {
       setIsLoading(false);
@@ -376,7 +375,58 @@ const AgenteIA = () => {
                       </div>
                     </div>}
                   
-                  <p className="whitespace-pre-wrap">{message.content}</p>
+                  {message.role === 'assistant' ? (
+                    <div className="prose prose-sm max-w-none dark:prose-invert">
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        rehypePlugins={[rehypeRaw]}
+                        components={{
+                          table: ({node, ...props}) => (
+                            <div className="overflow-x-auto my-2">
+                              <table className="min-w-full border-collapse border border-gray-300" {...props} />
+                            </div>
+                          ),
+                          th: ({node, ...props}) => (
+                            <th className="border border-gray-300 px-3 py-2 bg-gray-100 font-semibold text-left" {...props} />
+                          ),
+                          td: ({node, ...props}) => (
+                            <td className="border border-gray-300 px-3 py-2" {...props} />
+                          ),
+                          code: ({node, inline, ...props}: any) => 
+                            inline ? (
+                              <code className="bg-gray-200 px-1 py-0.5 rounded text-sm" {...props} />
+                            ) : (
+                              <code className="block bg-gray-800 text-gray-100 p-3 rounded-md overflow-x-auto text-sm" {...props} />
+                            ),
+                          p: ({node, ...props}) => (
+                            <p className="mb-2 last:mb-0" {...props} />
+                          ),
+                          ul: ({node, ...props}) => (
+                            <ul className="list-disc list-inside mb-2" {...props} />
+                          ),
+                          ol: ({node, ...props}) => (
+                            <ol className="list-decimal list-inside mb-2" {...props} />
+                          ),
+                          h1: ({node, ...props}) => (
+                            <h1 className="text-xl font-bold mb-2 mt-3" {...props} />
+                          ),
+                          h2: ({node, ...props}) => (
+                            <h2 className="text-lg font-bold mb-2 mt-3" {...props} />
+                          ),
+                          h3: ({node, ...props}) => (
+                            <h3 className="text-base font-bold mb-2 mt-2" {...props} />
+                          ),
+                          a: ({node, ...props}) => (
+                            <a className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
+                          ),
+                        }}
+                      >
+                        {message.content}
+                      </ReactMarkdown>
+                    </div>
+                  ) : (
+                    <p className="whitespace-pre-wrap">{message.content}</p>
+                  )}
                   <div className="text-xs mt-1 opacity-70 text-right">
                     {message.timestamp.toLocaleTimeString([], {
                   hour: '2-digit',

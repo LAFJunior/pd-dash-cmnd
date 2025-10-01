@@ -1,1 +1,4 @@
 project_id = "vyykwityaigxofimbvqn"
+
+[functions.agente-ia-oscar]
+verify_jwt = false
