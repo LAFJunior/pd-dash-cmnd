@@ -134,9 +134,9 @@ const AgenteIA = () => {
     toast.success('Histórico de conversa limpo');
   };
   return (
-    <div className="flex flex-col h-screen bg-gray-50 dark:bg-[#0f1218] text-gray-900 dark:text-white">
+    <div className="flex flex-col h-screen bg-white text-gray-900">
       {/* Header */}
-      <header className="sticky top-0 z-10 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 bg-zinc-700">
+      <header className="sticky top-0 z-10 backdrop-blur-md border-b border-gray-200 bg-white shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between px-0 py-[13px]">
           <div className="flex items-center gap-3 ml-12">
             <img 
@@ -145,19 +145,28 @@ const AgenteIA = () => {
               className="mix-blend-screen w-24 h-auto mx-auto object-fill" 
             />
           </div>
-          <Button variant="outline" onClick={clearChatHistory} className="h-9 mr-4">
+          <Button variant="outline" onClick={clearChatHistory} className="h-9 mr-4 border-gray-300 text-gray-700 hover:bg-gray-100">
             Limpar Conversa
           </Button>
         </div>
       </header>
+
+      {/* Title Section */}
+      <div className="bg-white border-b border-gray-200 py-6">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-3xl font-bold text-gray-900 text-center">
+            Agente IA Grupo Oscar!
+          </h1>
+        </div>
+      </div>
       
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto bg-zinc-900">
+      <div className="flex-1 overflow-y-auto bg-white">
         <div className="max-w-4xl mx-auto px-4 flex flex-col h-full">
           {messages.length === 0 ? (
             <div className="flex flex-1 items-center justify-center">
-              <span className="text-xl text-slate-200 font-medium">
-                Bem-vindo ao Agente IA Grupo Oscar!
+              <span className="text-lg text-gray-500">
+                Faça uma pergunta para começar...
               </span>
             </div>
           ) : (
@@ -192,7 +201,7 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Input */}
-      <div className="sticky bottom-0 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 bg-zinc-700">
+      <div className="sticky bottom-0 backdrop-blur-md border-t border-gray-200 bg-white shadow-lg">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
         </div>
@@ -273,9 +282,9 @@ const ChatMessage = ({
 
         <div className="max-w-full break-words">
           {isUser ? (
-            <p className="whitespace-pre-wrap leading-relaxed text-white">{displayedContent}</p>
+            <p className="whitespace-pre-wrap leading-relaxed text-gray-900 bg-gray-100 px-4 py-2 rounded-lg">{displayedContent}</p>
           ) : (
-            <div className="markdown-content text-black bg-white p-3 rounded-lg">
+            <div className="markdown-content text-black bg-gray-50 p-3 rounded-lg border border-gray-200">
               {isThinking ? (
                 <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
@@ -305,8 +314,8 @@ const ChatMessage = ({
         </div>
 
         {isUser && (
-          <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-zinc-600">
-            <UserRound className="h-4 w-4 text-white" />
+          <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-200 border border-gray-300">
+            <UserRound className="h-4 w-4 text-gray-700" />
           </div>
         )}
       </div>
@@ -349,13 +358,13 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
   return (
     <div className="relative">
       <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow bg-gray-200">
+        <div className="relative flex items-center rounded-2xl border border-gray-300 shadow-lg hover:shadow-xl transition-shadow bg-white">
           <div className="flex items-center gap-1 p-3">
             <Button 
               type="button" 
               variant="ghost" 
               size="icon" 
-              className="h-8 w-8 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" 
+              className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
               disabled={isLoading}
             >
               <Paperclip className="h-4 w-4" />
@@ -365,7 +374,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
               type="button" 
               variant="ghost" 
               size="icon" 
-              className="h-8 w-8 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" 
+              className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
               disabled={isLoading}
             >
               <Image className="h-4 w-4" />
@@ -379,7 +388,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Digite sua mensagem..."
-            className="flex-1 min-h-[20px] max-h-[200px] resize-none border-0 bg-transparent px-0 py-3 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="flex-1 min-h-[20px] max-h-[200px] resize-none border-0 bg-transparent px-0 py-3 text-gray-900 placeholder-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0"
             disabled={isLoading}
             rows={1}
           />
@@ -400,7 +409,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
                 type="button" 
                 variant="ghost" 
                 size="icon" 
-                className="h-8 w-8 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" 
+                className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" 
                 disabled={isLoading}
               >
                 <Mic className="h-4 w-4" />
@@ -411,7 +420,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
         </div>
       </form>
       
-      <p className="text-xs text-center mt-2 text-slate-100">
+      <p className="text-xs text-center mt-2 text-gray-600">
         O Agente de IA do Grupo Oscar está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
       </p>
     </div>
