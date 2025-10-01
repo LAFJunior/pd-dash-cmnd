@@ -4,9 +4,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Heart, MessageCircle, Pin, Trash2 } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'sonner';
 import { usePermissions } from '@/hooks/usePermissions';
+import { usePostLike } from '@/hooks/usePostLike';
+import { usePostComments } from '@/hooks/usePostComments';
+import { useMuralPosts } from '@/hooks/useMuralPosts';
 
 const MURAL_ADMIN_EMAILS = [
   'luiz.ferreira@grupooscar.com.br',
@@ -35,117 +36,48 @@ interface Post {
 
 interface PostCardProps {
   post: Post;
-  onUpdate?: () => void;
 }
 
-const PostCard = ({ post, onUpdate }: PostCardProps) => {
+const PostCard = ({ post }: PostCardProps) => {
   const { profile } = usePermissions();
   const isMuralAdmin = profile?.email ? MURAL_ADMIN_EMAILS.includes(profile.email) : false;
   const [showComments, setShowComments] = useState(false);
   const [newComment, setNewComment] = useState('');
-  const [comments, setComments] = useState<any[]>([]);
-  const [isLiked, setIsLiked] = useState(post.user_has_liked || false);
-  const [likesCount, setLikesCount] = useState(post.likes_count || 0);
+  
+  const { togglePin, deletePost } = useMuralPosts();
+  const likeMutation = usePostLike(post.id, profile?.user_id || '');
+  const { comments, addComment } = usePostComments(post.id, showComments);
 
-  const handleLike = async () => {
+  const handleLike = () => {
     if (!profile) return;
-
-    try {
-      if (isLiked) {
-        await supabase
-          .from('mural_likes')
-          .delete()
-          .eq('post_id', post.id)
-          .eq('user_id', profile.user_id);
-        setIsLiked(false);
-        setLikesCount(prev => prev - 1);
-      } else {
-        await supabase
-          .from('mural_likes')
-          .insert({ post_id: post.id, user_id: profile.user_id });
-        setIsLiked(true);
-        setLikesCount(prev => prev + 1);
-      }
-    } catch (error) {
-      console.error('Erro ao curtir:', error);
-      toast.error('Erro ao curtir o post');
-    }
+    likeMutation.mutate(post.user_has_liked);
   };
 
-  const loadComments = async () => {
-    const { data } = await supabase
-      .from('mural_comments')
-      .select(`
-        *,
-        author:profiles!mural_comments_author_id_fkey(full_name, department)
-      `)
-      .eq('post_id', post.id)
-      .order('created_at', { ascending: true });
-    
-    setComments(data || []);
-  };
-
-  const handleToggleComments = async () => {
-    if (!showComments) {
-      await loadComments();
-    }
+  const handleToggleComments = () => {
     setShowComments(!showComments);
   };
 
-  const handleAddComment = async () => {
+  const handleAddComment = () => {
     if (!newComment.trim() || !profile) return;
-
-    try {
-      await supabase
-        .from('mural_comments')
-        .insert({
-          post_id: post.id,
-          author_id: profile.user_id,
-          content: newComment
-        });
-      
-      setNewComment('');
-      await loadComments();
-      toast.success('Comentário adicionado!');
-    } catch (error) {
-      console.error('Erro ao comentar:', error);
-      toast.error('Erro ao adicionar comentário');
-    }
+    addComment.mutate(
+      { content: newComment, authorId: profile.user_id },
+      {
+        onSuccess: () => {
+          setNewComment('');
+        }
+      }
+    );
   };
 
-  const handleTogglePin = async () => {
+  const handleTogglePin = () => {
     if (!isMuralAdmin) return;
-
-    try {
-      await supabase
-        .from('mural_posts')
-        .update({ is_pinned: !post.is_pinned })
-        .eq('id', post.id);
-      
-      toast.success(post.is_pinned ? 'Post desafixado' : 'Post fixado');
-      onUpdate?.();
-    } catch (error) {
-      console.error('Erro ao fixar post:', error);
-      toast.error('Erro ao fixar post');
-    }
+    togglePin.mutate({ postId: post.id, isPinned: post.is_pinned });
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (!isMuralAdmin) return;
     if (!confirm('Deseja realmente excluir este post?')) return;
-
-    try {
-      await supabase
-        .from('mural_posts')
-        .delete()
-        .eq('id', post.id);
-      
-      toast.success('Post excluído com sucesso');
-      onUpdate?.();
-    } catch (error) {
-      console.error('Erro ao excluir post:', error);
-      toast.error('Erro ao excluir post');
-    }
+    deletePost.mutate(post.id);
   };
 
   const getCategoryColor = () => {
@@ -261,10 +193,11 @@ const PostCard = ({ post, onUpdate }: PostCardProps) => {
             variant="ghost"
             size="sm"
             onClick={handleLike}
-            className={isLiked ? 'text-red-500' : ''}
+            className={post.user_has_liked ? 'text-red-500' : ''}
+            disabled={likeMutation.isPending}
           >
-            <Heart size={18} className={isLiked ? 'fill-current' : ''} />
-            <span className="ml-2">{likesCount}</span>
+            <Heart size={18} className={post.user_has_liked ? 'fill-current' : ''} />
+            <span className="ml-2">{post.likes_count}</span>
           </Button>
           <Button
             variant="ghost"
@@ -302,7 +235,10 @@ const PostCard = ({ post, onUpdate }: PostCardProps) => {
                   placeholder="Escreva um comentário..."
                   className="min-h-[60px]"
                 />
-                <Button onClick={handleAddComment} disabled={!newComment.trim()}>
+                <Button 
+                  onClick={handleAddComment} 
+                  disabled={!newComment.trim() || addComment.isPending}
+                >
                   Enviar
                 </Button>
               </div>
