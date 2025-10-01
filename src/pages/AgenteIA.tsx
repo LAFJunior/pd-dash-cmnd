@@ -137,24 +137,22 @@ const AgenteIA = () => {
     <div className="flex flex-col h-screen bg-white text-gray-900">
       {/* Header */}
       <header className="sticky top-0 z-10 backdrop-blur-md border-b border-gray-200 bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto flex items-center justify-end px-4 py-4">
+        <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-3">
+            <img 
+              alt="Grupo Oscar Logo" 
+              src="/lovable-uploads/8d123358-879a-4bd0-8c59-94020f57ed0c.jpg" 
+              className="mix-blend-screen w-24 h-auto object-fill" 
+            />
+            <h1 className="text-2xl font-bold text-gray-900">
+              Agente IA Grupo Oscar!
+            </h1>
+          </div>
           <Button variant="outline" onClick={clearChatHistory} className="h-9 border-gray-300 text-gray-700 hover:bg-gray-100">
             Limpar Conversa
           </Button>
         </div>
       </header>
-
-      {/* Title Section */}
-      <div className="bg-white border-b border-gray-200 py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Agente IA Grupo Oscar
-          </h1>
-          <p className="text-lg text-gray-500">
-            Assistente de Inteligência Artificial para processos
-          </p>
-        </div>
-      </div>
       
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto bg-white">
