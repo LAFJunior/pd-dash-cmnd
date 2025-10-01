@@ -157,4 +157,25 @@
   svg.mapa-contexto {
     @apply w-full h-auto;
   }
+
+  /* Animação de digitação para o chat */
+  .typing-indicator {
+    @apply flex items-center space-x-1;
+  }
+
+  .typing-indicator span {
+    @apply w-2 h-2 bg-blue-400 rounded-full animate-pulse;
+  }
+
+  .typing-indicator span:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 300ms;
+  }
 }
