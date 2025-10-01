@@ -72,7 +72,7 @@ const AgenteIA = () => {
     // 4. Call backend for AI response
     let assistantContent = "";
     try {
-      const response = await fetch("https://n8n.pd.oscarcloud.com.br/webhook-test/processos-digitais-chat", {
+      const response = await fetch("https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -244,7 +244,7 @@ const ChatMessage = ({
     if (!isTyping || isUser || !isNewMessage) return;
     if (currentIndex < processedContent.length) {
       const char = processedContent[currentIndex];
-      const delay = char === '.' || char === '!' || char === '?' ? 100 : char === ',' || char === ';' ? 80 : char === ' ' ? 10 : 20;
+      const delay = char === '.' || char === '!' || char === '?' ? 70 : char === ',' || char === ';' ? 50 : char === ' ' ? 10 : 20;
       const timeoutId = setTimeout(() => {
         setDisplayedContent(processedContent.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
@@ -275,7 +275,7 @@ const ChatMessage = ({
           {isUser ? (
             <p className="whitespace-pre-wrap leading-relaxed text-white">{displayedContent}</p>
           ) : (
-            <div className="markdown-content text-white">
+            <div className="markdown-content text-black bg-white p-3 rounded-lg">
               {isThinking ? (
                 <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
@@ -284,18 +284,18 @@ const ChatMessage = ({
                 </div>
               ) : (
                 <ReactMarkdown components={{
-                  p: ({ children }) => <p className="mb-3 last:mb-0 leading-relaxed text-white">{children}</p>,
-                  h1: ({ children }) => <h1 className="text-xl font-bold mb-3 text-white">{children}</h1>,
-                  h2: ({ children }) => <h2 className="text-lg font-bold mb-2 text-white">{children}</h2>,
-                  h3: ({ children }) => <h3 className="text-base font-bold mb-2 text-white">{children}</h3>,
-                  strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
-                  em: ({ children }) => <em className="italic text-white">{children}</em>,
-                  ol: ({ children }) => <ol className="list-decimal list-inside mb-3 ml-4 text-white">{children}</ol>,
-                  ul: ({ children }) => <ul className="list-disc list-inside mb-3 ml-4 text-white">{children}</ul>,
-                  li: ({ children }) => <li className="leading-relaxed text-white">{children}</li>,
-                  code: ({ children }) => <code className="bg-gray-700 px-1 py-0.5 rounded text-sm font-mono text-white">{children}</code>,
-                  pre: ({ children }) => <pre className="bg-gray-700 p-3 rounded-lg overflow-x-auto mb-3 text-white">{children}</pre>,
-                  blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-white">{children}</blockquote>
+                  p: ({ children }) => <p className="mb-3 last:mb-0 leading-relaxed text-black">{children}</p>,
+                  h1: ({ children }) => <h1 className="text-xl font-bold mb-3 text-black">{children}</h1>,
+                  h2: ({ children }) => <h2 className="text-lg font-bold mb-2 text-black">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-base font-bold mb-2 text-black">{children}</h3>,
+                  strong: ({ children }) => <strong className="font-bold text-black">{children}</strong>,
+                  em: ({ children }) => <em className="italic text-black">{children}</em>,
+                  ol: ({ children }) => <ol className="list-decimal list-inside mb-3 ml-4 text-black">{children}</ol>,
+                  ul: ({ children }) => <ul className="list-disc list-inside mb-3 ml-4 text-black">{children}</ul>,
+                  li: ({ children }) => <li className="leading-relaxed text-black">{children}</li>,
+                  code: ({ children }) => <code className="bg-gray-700 px-1 py-0.5 rounded text-sm font-mono text-black">{children}</code>,
+                  pre: ({ children }) => <pre className="bg-gray-700 p-3 rounded-lg overflow-x-auto mb-3 text-black">{children}</pre>,
+                  blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
                 }}>
                   {displayedContent}
                 </ReactMarkdown>
@@ -412,7 +412,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
       </form>
       
       <p className="text-xs text-center mt-2 text-slate-100">
-        O Agente IA Grupo Oscar está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
+        O Agente de IA do Grupo Oscar está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
       </p>
     </div>
   );
