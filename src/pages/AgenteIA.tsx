@@ -23,9 +23,8 @@ interface Message {
   };
 }
 
-// URL do edge function
-const SUPABASE_URL = 'https://vyykwityaigxofimbvqn.supabase.co';
-const EDGE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/agente-ia-oscar`;
+// URL direto do webhook n8n
+const N8N_WEBHOOK_URL = 'https://n8n.pd.oscarcloud.com.br/webhook-test/processos-digitais-chat';
 
 // Chave para armazenar o histórico no sessionStorage
 const CHAT_HISTORY_KEY = 'oscar_chat_history';
@@ -148,7 +147,7 @@ const AgenteIA = () => {
     toast.success('Histórico de conversa limpo');
   };
 
-  // Função para enviar mensagem para o edge function e processar a resposta
+  // Função para enviar mensagem direto para o webhook n8n
   const handleN8nResponse = async (userMessage: Message) => {
     setIsLoading(true);
     try {
@@ -165,10 +164,11 @@ const AgenteIA = () => {
         userProfile = profile;
       }
 
-      // Preparar dados para enviar ao edge function
+      // Preparar dados para enviar direto ao n8n
       const requestData: any = {
         message: userMessage.content,
-        userInfo: {
+        timestamp: new Date().toISOString(),
+        user: {
           name: userProfile?.full_name || 'Usuário Anônimo',
           department: userProfile?.department || 'Não informado',
           role: userProfile?.role || 'guest',
@@ -178,15 +178,15 @@ const AgenteIA = () => {
 
       // Se houver um arquivo de mídia, adicione informações do arquivo
       if (userMessage.media) {
-        requestData.mediaType = userMessage.media.type;
-        requestData.fileName = userMessage.media.fileName;
-        if (userMessage.media.url.startsWith('data:')) {
-          requestData.mediaContent = userMessage.media.url;
-        }
+        requestData.media = {
+          type: userMessage.media.type,
+          fileName: userMessage.media.fileName,
+          content: userMessage.media.url.startsWith('data:') ? userMessage.media.url : undefined
+        };
       }
 
-      // Enviar para o edge function
-      const response = await fetch(EDGE_FUNCTION_URL, {
+      // Enviar direto para o webhook n8n
+      const response = await fetch(N8N_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -204,9 +204,9 @@ const AgenteIA = () => {
         throw new Error(errorData.message || `Erro: ${response.status}`);
       }
 
-      // Processar a resposta
+      // Processar a resposta do n8n
       const data = await response.json();
-      const responseContent = data.response || 'Desculpe, não consegui processar sua mensagem no momento.';
+      const responseContent = data.response || data.message || 'Desculpe, não consegui processar sua mensagem no momento.';
 
       // Adiciona a resposta do assistente
       const assistantMessage: Message = {
