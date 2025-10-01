@@ -6,7 +6,6 @@ import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Paperclip, Image, Mic } from "lucide-react";
-import { AIIcon } from "@/components/AIIcon";
 
 interface Message {
   id: string;
@@ -170,8 +169,12 @@ const AgenteIA = () => {
               ))}
               {loading && (
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-                    <AIIcon size={32} />
+                  <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+                    <img 
+                      src="/lovable-uploads/iconeIA.jpg" 
+                      alt="IA" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -256,8 +259,13 @@ const ChatMessage = ({
     <div className={`group relative ${isUser ? "ml-auto max-w-[80%]" : "mr-auto max-w-full"}`}>
       <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
         {shouldShowAIIcon && (
-          <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
-            <AIIcon size={32} />
+          <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+            <img
+              src="/lovable-uploads/iconeIA.jpg"
+              alt="IA"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
           </div>
         )}
 
