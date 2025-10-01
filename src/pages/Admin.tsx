@@ -65,7 +65,7 @@ const Admin = () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       
-      const response = await fetch('/supabase/functions/v1/reset-user-password', {
+      const response = await fetch('https://vyykwityaigxofimbvqn.supabase.co/functions/v1/reset-user-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
