@@ -7,7 +7,7 @@ const CARGOS = [{
   label: 'Diretor'
 }, {
   value: 'gestao',
-  label: 'Gestor / Gerente / Header'
+  label: 'Gestor / Gerente / Head'
 }, {
   value: 'coordenacao',
   label: 'Coordenador / Supervisor / Líder'
