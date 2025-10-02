@@ -17,40 +17,45 @@ import DocumentacaoPD from "./pages/DocumentacaoPD";
 import Documentacao from "./pages/Documentacao";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
+import ResetPassword from "./pages/ResetPassword";
 import MuralDigital from "./pages/MuralDigital";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/*" element={
-            <Layout>
-              <Routes>
-                <Route path="/mural-digital" element={<ProtectedRoute><MuralDigital /></ProtectedRoute>} />
-                <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-                <Route path="/mapa-contexto" element={<ProtectedRoute><MapaContexto /></ProtectedRoute>} />
-                <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
-                <Route path="/departamentos" element={<ProtectedRoute><Departamentos /></ProtectedRoute>} />
-                <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
-                <Route path="/organograma" element={<ProtectedRoute><Organograma /></ProtectedRoute>} />
-                <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
-                <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
-                <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />
-                <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Layout>
-          } />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/*" element={
+              <Layout>
+                <Routes>
+                  <Route path="/mural-digital" element={<ProtectedRoute><MuralDigital /></ProtectedRoute>} />
+                  <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                  <Route path="/mapa-contexto" element={<ProtectedRoute><MapaContexto /></ProtectedRoute>} />
+                  <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
+                  <Route path="/departamentos" element={<ProtectedRoute><Departamentos /></ProtectedRoute>} />
+                  <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
+                  <Route path="/organograma" element={<ProtectedRoute><Organograma /></ProtectedRoute>} />
+                  <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
+                  <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
+                  <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />
+                  <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Layout>
+            } />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

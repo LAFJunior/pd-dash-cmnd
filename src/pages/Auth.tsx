@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import ForgotPasswordDialog from '@/components/ForgotPasswordDialog';
 const CARGOS = [{
   value: 'diretoria',
   label: 'Diretor'
@@ -40,6 +41,7 @@ const Auth: React.FC = () => {
   const [signupPassword, setSignupPassword] = useState('');
   const [signupConfirmPassword, setSignupConfirmPassword] = useState('');
   const [signupDepartment, setSignupDepartment] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   useEffect(() => {
     // Verificar se usuário já está logado
     const checkUser = async () => {
@@ -201,7 +203,7 @@ const Auth: React.FC = () => {
               <div className="text-right mt-3">
                 <button
                   type="button"
-                  onClick={() => toast.info('Funcionalidade em desenvolvimento')}
+                  onClick={() => setShowForgotPassword(true)}
                   className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   Esqueci minha senha
@@ -252,6 +254,12 @@ const Auth: React.FC = () => {
               </button>
             </form>}
         </div>
+        
+        {/* Dialog de recuperação de senha */}
+        <ForgotPasswordDialog 
+          isOpen={showForgotPassword} 
+          onClose={() => setShowForgotPassword(false)} 
+        />
       </div>
     </div>;
 };
