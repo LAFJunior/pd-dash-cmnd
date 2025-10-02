@@ -158,7 +158,7 @@ const Auth: React.FC = () => {
         <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
           
           {/* Logo */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-8 h-32 overflow-hidden">
             <img 
               src="/lovable-uploads/logo_pd.png" 
               alt="Logo" 
@@ -196,6 +196,17 @@ const Auth: React.FC = () => {
               <button type="submit" disabled={loading} className="w-full py-[14px] bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-xl font-semibold text-base uppercase tracking-[0.5px] transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60">
                 {loading ? 'ENTRANDO...' : 'ENTRAR'}
               </button>
+
+              {/* Esqueci minha senha */}
+              <div className="text-right mt-3">
+                <button
+                  type="button"
+                  onClick={() => toast.info('Funcionalidade em desenvolvimento')}
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  Esqueci minha senha
+                </button>
+              </div>
             </form>}
 
           {/* Register Form */}
