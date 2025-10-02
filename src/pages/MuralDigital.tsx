@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import CreatePost from '@/components/mural-digital/CreatePost';
 import PostCard from '@/components/mural-digital/PostCard';
+import { PostCardSkeleton } from '@/components/mural-digital/PostCardSkeleton';
 import FilterTabs from '@/components/mural-digital/FilterTabs';
 import MuralHeader from '@/components/mural-digital/MuralHeader';
 import { useMuralPosts } from '@/hooks/useMuralPosts';
@@ -102,9 +103,10 @@ const MuralDigital = () => {
           />
 
           {isLoading ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-              <p className="mt-4 text-muted-foreground">Carregando posts...</p>
+            <div className="space-y-6">
+              {[1, 2, 3].map((i) => (
+                <PostCardSkeleton key={i} />
+              ))}
             </div>
           ) : posts.length === 0 ? (
             <div className="text-center py-12">

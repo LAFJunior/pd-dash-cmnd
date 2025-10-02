@@ -26,13 +26,10 @@ export const useMuralPosts = (category?: string) => {
   const { data: posts = [], isLoading } = useQuery({
     queryKey: ['mural-posts', category],
     queryFn: async () => {
-      // Query otimizada com filtro no backend
+      // Buscar posts primeiro
       let query = supabase
         .from('mural_posts')
-        .select(`
-          *,
-          author:profiles!mural_posts_author_id_fkey(full_name, department)
-        `)
+        .select('*')
         .order('is_pinned', { ascending: false })
         .order('created_at', { ascending: false });
       
@@ -44,9 +41,21 @@ export const useMuralPosts = (category?: string) => {
       const { data: postsData, error } = await query;
 
       if (error) throw error;
-      if (!postsData) return [];
+      if (!postsData || postsData.length === 0) return [];
+
+      // Buscar autores dos posts
+      const authorIds = [...new Set(postsData.map(post => post.author_id))];
+      const { data: authorsData } = await supabase
+        .from('profiles')
+        .select('user_id, full_name, department')
+        .in('user_id', authorIds);
+
+      const authorsMap = new Map(
+        authorsData?.map(author => [author.user_id, author]) || []
+      );
 
       const postIds = postsData.map(post => post.id);
+      const { data: { user } } = await supabase.auth.getUser();
       
       // Buscar contagens em paralelo
       const [likesData, commentsData, userLikesData] = await Promise.all([
@@ -58,11 +67,11 @@ export const useMuralPosts = (category?: string) => {
           .from('mural_comments')
           .select('post_id')
           .in('post_id', postIds),
-        supabase
+        user ? supabase
           .from('mural_likes')
           .select('post_id')
           .in('post_id', postIds)
-          .eq('user_id', (await supabase.auth.getUser()).data.user?.id || '')
+          .eq('user_id', user.id) : Promise.resolve({ data: [] })
       ]);
 
       const likesCount = new Map<string, number>();
@@ -79,15 +88,15 @@ export const useMuralPosts = (category?: string) => {
 
       return postsData.map(post => ({
         ...post,
-        author: post.author || { full_name: 'Usuário Desconhecido', department: '' },
+        author: authorsMap.get(post.author_id) || { full_name: 'Usuário Desconhecido', department: '' },
         likes_count: likesCount.get(post.id) || 0,
         comments_count: commentsCount.get(post.id) || 0,
         user_has_liked: likedPostIds.has(post.id)
       })) as MuralPost[];
     },
-    staleTime: 1000 * 60 * 10, // 10 minutos - cache mais longo
-    gcTime: 1000 * 60 * 30, // 30 minutos - mantém em cache mesmo sem uso
-    refetchOnWindowFocus: false, // Não recarrega ao focar janela
+    staleTime: 1000 * 60 * 5, // 5 minutos
+    gcTime: 1000 * 60 * 15, // 15 minutos
+    refetchOnWindowFocus: false,
   });
 
   const togglePin = useMutation({

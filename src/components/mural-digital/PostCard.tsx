@@ -172,10 +172,20 @@ const PostCard = ({ post }: PostCardProps) => {
               return (
                 <div key={index} className="flex justify-center">
                   {attachment.type === 'image' && (
-                    <img src={attachment.url} alt="Anexo" className={`rounded-lg ${getImageClasses()}`} />
+                    <img 
+                      src={attachment.url} 
+                      alt="Anexo" 
+                      className={`rounded-lg ${getImageClasses()}`}
+                      loading="lazy"
+                    />
                   )}
                   {attachment.type === 'video' && (
-                    <video src={attachment.url} controls className="rounded-lg w-full" />
+                    <video 
+                      src={attachment.url} 
+                      controls 
+                      className="rounded-lg w-full"
+                      preload="metadata"
+                    />
                   )}
                   {attachment.type === 'link' && (
                     <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
