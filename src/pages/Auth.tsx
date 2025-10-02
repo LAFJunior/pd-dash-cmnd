@@ -162,7 +162,7 @@ const Auth: React.FC = () => {
             <img 
               src="/lovable-uploads/logo_pd.png" 
               alt="Logo" 
-              className="w-28 h-28 object-contain"
+              className="w-36 h-36 object-contain"
             />
           </div>
 
