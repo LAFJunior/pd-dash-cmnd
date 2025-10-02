@@ -139,8 +139,16 @@ const AgenteIA = () => {
       <header className="sticky top-0 z-10 backdrop-blur-md border-b border-gray-200 bg-white shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+              <img 
+                src="/Logo_pd.png" 
+                alt="Logo PD" 
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
             <h1 className="text-2xl font-bold text-gray-900">
-              Agente IA Grupo Oscar!
+              Agente de Processos
             </h1>
           </div>
           <Button variant="outline" onClick={clearChatHistory} className="h-9 border-gray-300 text-gray-700 hover:bg-gray-100">
@@ -171,9 +179,10 @@ const AgenteIA = () => {
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                     <img 
-                      src="/lovable-uploads/iconeIA.jpg" 
-                      alt="IA" 
+                      src="/Logo_pd.png" 
+                      alt="Agente de Processos" 
                       className="w-full h-full object-cover"
+                      loading="eager"
                     />
                   </div>
                   <div className="typing-indicator mt-1">
@@ -261,8 +270,8 @@ const ChatMessage = ({
         {shouldShowAIIcon && (
           <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
             <img
-              src="/lovable-uploads/iconeIA.jpg"
-              alt="IA"
+              src="/Logo_pd.png"
+              alt="Agente de Processos"
               className="w-full h-full object-cover"
               loading="eager"
             />
@@ -410,7 +419,7 @@ const ChatInput = ({ onSendMessage, isLoading }: ChatInputProps) => {
       </form>
       
       <p className="text-xs text-center mt-2 text-gray-600">
-        O Agente de IA do Grupo Oscar está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
+        O Agente de Processos está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
       </p>
     </div>
   );
