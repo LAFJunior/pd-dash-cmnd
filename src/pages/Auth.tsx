@@ -152,30 +152,17 @@ const Auth: React.FC = () => {
       setLoading(false);
     }
   };
-  return <div className="min-h-screen bg-white flex items-center justify-center p-4">
+  return <div className="min-h-screen bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center p-4">
       <div className="w-full max-w-[450px]">
-        {/* Logo */}
-        <div className="text-left mb-6">
-          <h1 className="text-[2.4rem] font-normal tracking-[3px] text-black uppercase leading-tight">
-            <span className="block text-[1.2rem] font-light tracking-[1px]">GRUPO</span>
-            <span>OSCAR</span>
-          </h1>
-        </div>
-
         {/* Card */}
-        <div className="bg-[#f8f9fa] rounded-xl p-6 shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-semibold mb-2 text-black">Processos Digitais</h2>
-            <p className="text-gray-600 text-[0.95rem]">Entre com e-mail corporativo</p>
-          </div>
+        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
 
           {/* Tabs */}
-          <div className="flex mb-6 rounded-lg overflow-hidden bg-[#e9ecef]">
-            <button className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all ${activeTab === 'login' ? 'bg-[#c82333] text-white' : 'bg-[#e9ecef] text-gray-600 hover:bg-[#dee2e6]'}`} onClick={() => setActiveTab('login')}>
+          <div className="flex gap-2 mb-6">
+            <button className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all duration-300 rounded-xl ${activeTab === 'login' ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`} onClick={() => setActiveTab('login')}>
               Entrar
             </button>
-            <button className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all ${activeTab === 'register' ? 'bg-[#c82333] text-white' : 'bg-[#e9ecef] text-gray-600 hover:bg-[#dee2e6]'}`} onClick={() => setActiveTab('register')}>
+            <button className={`flex-1 py-3 px-5 text-center font-medium text-base transition-all duration-300 rounded-xl ${activeTab === 'register' ? 'bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`} onClick={() => setActiveTab('register')}>
               Cadastre-se
             </button>
           </div>
@@ -189,15 +176,15 @@ const Auth: React.FC = () => {
           {activeTab === 'login' && <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block mb-2 font-medium text-black">Email</label>
-                <input type="email" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} placeholder="Digite seu e-mail" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required />
+                <input type="email" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} placeholder="Digite seu e-mail" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required />
               </div>
 
               <div>
                 <label className="block mb-2 font-medium text-black">Senha</label>
-                <input type="password" value={loginPassword} onChange={e => setLoginPassword(e.target.value)} placeholder="Digite sua senha" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required />
+                <input type="password" value={loginPassword} onChange={e => setLoginPassword(e.target.value)} placeholder="Digite sua senha" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required />
               </div>
 
-              <button type="submit" disabled={loading} className="w-full py-[12px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5">
+              <button type="submit" disabled={loading} className="w-full py-[14px] bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-xl font-semibold text-base uppercase tracking-[0.5px] transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60">
                 {loading ? 'ENTRANDO...' : 'ENTRAR'}
               </button>
             </form>}
@@ -206,12 +193,12 @@ const Auth: React.FC = () => {
           {activeTab === 'register' && <form onSubmit={handleSignup} className="space-y-4">
               <div>
                 <label className="block mb-2 font-medium text-black">Nome Completo</label>
-                <input type="text" value={signupFullName} onChange={e => setSignupFullName(e.target.value)} placeholder="Seu nome completo" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required />
+                <input type="text" value={signupFullName} onChange={e => setSignupFullName(e.target.value)} placeholder="Seu nome completo" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required />
               </div>
 
               <div>
                 <label className="block mb-2 font-medium text-black">Cargo</label>
-                <select value={signupCargo} onChange={e => setSignupCargo(e.target.value)} className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required>
+                <select value={signupCargo} onChange={e => setSignupCargo(e.target.value)} className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required>
                   <option value="">Selecione seu cargo</option>
                   {CARGOS.map(cargo => <option key={cargo.value} value={cargo.value}>{cargo.label}</option>)}
                 </select>
@@ -219,7 +206,7 @@ const Auth: React.FC = () => {
 
               <div>
                 <label className="block mb-2 font-medium text-black">Departamento</label>
-                <select value={signupDepartment} onChange={e => setSignupDepartment(e.target.value)} className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required>
+                <select value={signupDepartment} onChange={e => setSignupDepartment(e.target.value)} className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required>
                   <option value="">Selecione seu departamento</option>
                   {DEPARTMENTS.map(department => <option key={department} value={department}>{department}</option>)}
                 </select>
@@ -227,20 +214,20 @@ const Auth: React.FC = () => {
 
               <div>
                 <label className="block mb-2 font-medium text-black">Email</label>
-                <input type="email" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} placeholder="Digite seu e-mail" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required />
+                <input type="email" value={signupEmail} onChange={e => setSignupEmail(e.target.value)} placeholder="Digite seu e-mail" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required />
               </div>
 
               <div>
                 <label className="block mb-2 font-medium text-black">Criar Senha</label>
-                <input type="password" value={signupPassword} onChange={e => setSignupPassword(e.target.value)} placeholder="Criar senha" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required minLength={6} />
+                <input type="password" value={signupPassword} onChange={e => setSignupPassword(e.target.value)} placeholder="Criar senha" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required minLength={6} />
               </div>
 
               <div>
                 <label className="block mb-2 font-medium text-black">Confirmar Senha</label>
-                <input type="password" value={signupConfirmPassword} onChange={e => setSignupConfirmPassword(e.target.value)} placeholder="Confirme sua senha" className="w-full p-[12px_14px] border-2 border-[#e9ecef] rounded-lg text-base bg-white text-black transition-colors focus:outline-none focus:border-blue-500" required />
+                <input type="password" value={signupConfirmPassword} onChange={e => setSignupConfirmPassword(e.target.value)} placeholder="Confirme sua senha" className="w-full p-[14px_16px] border-2 border-gray-200 rounded-xl text-base bg-white text-black transition-all focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20" required />
               </div>
 
-              <button type="submit" disabled={loading} className="w-full py-[12px] bg-[#dc3545] hover:bg-[#c82333] disabled:opacity-50 text-white rounded-lg font-semibold text-base uppercase tracking-[0.5px] transition-all hover:-translate-y-0.5">
+              <button type="submit" disabled={loading} className="w-full py-[14px] bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 disabled:opacity-50 text-white rounded-xl font-semibold text-base uppercase tracking-[0.5px] transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60">
                 {loading ? 'CRIANDO CONTA...' : 'CRIAR CONTA'}
               </button>
             </form>}
