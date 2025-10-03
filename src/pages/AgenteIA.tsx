@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Paperclip, Image, Mic } from "lucide-react";
+import iconPD from "@/assets/icon_pd.png";
 interface Message {
   id: string;
   content: string;
@@ -154,7 +155,7 @@ const AgenteIA = () => {
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
               {loading && <div className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-                    <img src="/Logo_pd.png" alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
+                    <img src={iconPD} alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -227,7 +228,7 @@ const ChatMessage = ({
   return <div className={`group relative ${isUser ? "ml-auto max-w-[80%]" : "mr-auto max-w-full"}`}>
       <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
         {shouldShowAIIcon && <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-            <img src="/Logo_pd.png" alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
+            <img src={iconPD} alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
           </div>}
 
         <div className="max-w-full break-words">
