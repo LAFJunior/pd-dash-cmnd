@@ -1,22 +1,12 @@
 import muralBg from '@/assets/mural-bg.png';
-import { useState } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 
 const MuralHeader = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <div className="mb-8">
-      <div className="relative h-48 md:h-64 bg-muted overflow-hidden">
-        {!imageLoaded && (
-          <Skeleton className="absolute inset-0" />
-        )}
-        <img 
-          src={muralBg}
-          alt="Mural Digital Corporativo"
-          className="w-full h-full object-contain"
-          loading="eager"
-          onLoad={() => setImageLoaded(true)}
+      <div className="relative h-48 md:h-64 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${muralBg})` }}
         />
       </div>
       <div className="bg-background border-b py-8">
