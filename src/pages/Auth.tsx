@@ -160,11 +160,13 @@ const Auth: React.FC = () => {
         <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
           
           {/* Logo */}
-          <div className="flex justify-center mb-8 h-32 overflow-hidden">
+          <div className="flex justify-center items-center mb-8 h-32">
             <img 
               src="/lovable-uploads/logo_pd.png" 
               alt="Logo" 
-              className="w-44 h-44 object-contain"
+              className="h-28 w-auto object-contain"
+              loading="eager"
+              decoding="sync"
             />
           </div>
 
