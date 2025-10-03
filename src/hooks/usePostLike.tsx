@@ -49,6 +49,10 @@ export const usePostLike = (postId: string, userId: string) => {
         queryClient.setQueryData(['mural-posts'], context.previousPosts);
       }
       toast.error('Erro ao curtir o post');
+    },
+    onSuccess: () => {
+      // Invalidate queries to ensure fresh data
+      queryClient.invalidateQueries({ queryKey: ['mural-posts'] });
     }
   });
 };
