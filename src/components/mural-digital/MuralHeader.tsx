@@ -1,4 +1,4 @@
-import muralBg from '@/assets/mural-bg.jpg';
+import muralBg from '@/assets/mural-bg.png';
 
 const MuralHeader = () => {
   return (
