@@ -18,8 +18,8 @@ const directors: Director[] = [
     team: [
       { name: 'Maria', role: 'Gestora DP' },
       { name: 'Edison', role: 'Gestor Contábil e Fiscal' },
-      { name: 'Vilma', role: 'Gestora Controladoria' },
-      { name: 'Flávia', role: 'Gestora Financeiro' },
+      { name: 'Vilma', role: 'Coordenaodora de Controladoria' },
+      { name: 'Flávia', role: 'Gerente Financeiro Varejo' },
       { name: 'Marlene', role: 'Gestora Suprimentos' },
       { name: 'Cleber', role: 'Gestor C.D/Defeitos' },
     ],
@@ -36,9 +36,9 @@ const directors: Director[] = [
     name: 'Nelson',
     title: 'Diretor',
     team: [
-      { name: 'Renê', role: 'Gestor T.I' },
-      { name: 'Rafael', role: 'Gestor Fábrica' },
-      { name: 'Sérgio', role: 'Gerente de Projetos' },
+      { name: 'Renê', role: 'Gerente de Operações T.I' },
+      { name: 'Rafael', role: 'Head de Desenvolvimento' },
+      { name: 'Sérgio', role: 'Head de Inovação e Projetos' },
       { name: 'Carlos', role: 'Gestor Fast Card' },
     ],
   },
