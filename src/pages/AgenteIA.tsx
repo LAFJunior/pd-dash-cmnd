@@ -273,10 +273,10 @@ const ChatMessage = ({
             }) => <li className="leading-relaxed text-black">{children}</li>,
             code: ({
               children
-            }) => <code className="bg-gray-700 px-1 py-0.5 rounded text-sm font-mono text-black">{children}</code>,
+            }) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300">{children}</code>,
             pre: ({
               children
-            }) => <pre className="bg-gray-700 p-3 rounded-lg overflow-x-auto mb-3 text-black">{children}</pre>,
+            }) => <pre className="bg-gray-100 p-3 rounded-lg overflow-x-auto mb-3 text-gray-900 border border-gray-300">{children}</pre>,
             blockquote: ({
               children
             }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
