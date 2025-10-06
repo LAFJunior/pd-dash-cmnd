@@ -1,7 +1,7 @@
 // Mapeamento entre departamentos do usuário e nomes na aplicação
 export const DEPARTMENT_MAPPING: Record<string, string[]> = {
   'ecommerce': ['E-Commerce', 'e-commerce'],
-  'financeiro': ['Financeiro', 'Financeiro Varejo'],
+  'financeiro': ['Financeiro', 'Financeiro Varejo', 'financeiro varejo'],
   'rh': ['Recursos Humanos', 'Recursos Humanos (RH)'],
   'dp': ['Departamento Pessoal', 'Departamento Pessoal (DP)'],
   'auditoria': ['Auditoria'],
@@ -10,7 +10,7 @@ export const DEPARTMENT_MAPPING: Record<string, string[]> = {
   'fiscal': ['Fiscal'],
   'compras': ['Compras'],
   'defeito': ['Defeito'],
-  'cd': ['São José dos Campos']
+  'cd': ['São José dos Campos', 'CD/Operações (S. J. dos Campos)', 'São José Campos', 'CD/Operações', 'sao jose dos campos', 'cd operacoes']
 };
 
 // Função para verificar se usuário pode ver processos do departamento

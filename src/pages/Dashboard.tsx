@@ -19,9 +19,9 @@ const Dashboard = () => {
   const departamentos = [
     { nome: 'Controladoria', icone: FileText, cor: 'bg-blue-500' },
     { nome: 'E-commerce', icone: ShoppingCart, cor: 'bg-orange-500' },
-    { nome: 'Financeiro', icone: DollarSign, cor: 'bg-green-500' },
+    { nome: 'Financeiro Varejo', icone: DollarSign, cor: 'bg-green-500' },
     { nome: 'Defeito', icone: AlertTriangle, cor: 'bg-red-500' },
-    { nome: 'São José Campos', icone: Building2, cor: 'bg-indigo-500' },
+    { nome: 'CD/Operações (S. J. dos Campos)', icone: Building2, cor: 'bg-indigo-500' },
     { nome: 'Fiscal', icone: Scale, cor: 'bg-purple-500' },
     { nome: 'Compras', icone: Truck, cor: 'bg-cyan-500' },
     { nome: 'Auditoria', icone: FileText, cor: 'bg-gray-500' },
@@ -37,7 +37,7 @@ const Dashboard = () => {
         processoId.startsWith('VM-') || processoId.startsWith('SAC-') || 
         processoId.startsWith('COM1P-') || processoId.startsWith('FIN-') || 
         processoId.startsWith('CAD-') || processoId.startsWith('V30-')) return 'E-commerce';
-    if (processoId.startsWith('CDS-')) return 'São José Campos';
+    if (processoId.startsWith('CDS-')) return 'CD/Operações (S. J. dos Campos)';
     if (processoId.startsWith('FIS-')) return 'Fiscal';
     if (processoId.startsWith('COM-')) return 'Compras';
     if (processoId.startsWith('DEF-')) return 'Defeito';
