@@ -140,9 +140,9 @@ const AgenteIA = () => {
         <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
             
-            <h1 className="text-2xl font-bold text-gray-900">
-              Agente de Processos
-            </h1>
+        <h1 className="text-2xl font-bold text-gray-900">
+          Oscar Digital
+        </h1>
           </div>
           <Button variant="outline" onClick={clearChatHistory} className="h-9 border-gray-300 text-gray-700 hover:bg-gray-100">
             Limpar Conversa
@@ -152,16 +152,16 @@ const AgenteIA = () => {
       
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto bg-white">
-        <div className="max-w-4xl mx-auto px-4 flex flex-col h-full">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col h-full pt-4">
           {messages.length === 0 ? <div className="flex flex-1 items-center justify-center">
               <span className="text-lg text-gray-500">
                 Faça uma pergunta para começar...
               </span>
-            </div> : <div className="py-6 space-y-6">
+            </div> : <div className="pb-6 space-y-6">
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
               {loading && <div className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-                    <img src={iconPD} alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
+                    <img src={iconPD} alt="Oscar Digital" className="w-full h-full object-cover" loading="eager" />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -343,7 +343,7 @@ const ChatInput = ({
             </Button>
           </div>
 
-          <Textarea ref={textareaRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Digite sua mensagem..." className="flex-1 min-h-[20px] max-h-[200px] resize-none border-0 bg-transparent px-0 py-3 text-gray-900 placeholder-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0" disabled={isLoading} rows={1} />
+          <Textarea ref={textareaRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Pergunte ao Oscar Digital sobre processos..." className="flex-1 min-h-[20px] max-h-[200px] resize-none border-0 bg-transparent px-0 py-3 text-gray-900 placeholder-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0" disabled={isLoading} rows={1} />
 
           <div className="flex items-center gap-1 p-3">
             {input.trim() ? <Button type="submit" size="icon" className="h-8 w-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg" disabled={isLoading || !input.trim()}>

@@ -81,7 +81,7 @@ serve(async (req) => {
     console.error('Erro no agente-ia-oscar:', error);
 
     // Trata timeout
-    if (error.name === 'AbortError') {
+    if (error instanceof Error && error.name === 'AbortError') {
       return new Response(
         JSON.stringify({
           success: false,
