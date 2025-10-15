@@ -69,7 +69,13 @@ const AgenteIA = () => {
     // 4. Call backend for AI response
     let assistantContent = "";
     try {
-      const response = await fetch("https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais", {
+      // Determinar qual webhook usar baseado no role do usuário
+      const isAdmin = userProfile?.role === 'admin';
+      const webhookUrl = isAdmin 
+        ? "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-admin"
+        : "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-user";
+      
+      const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
