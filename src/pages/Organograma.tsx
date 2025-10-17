@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface TeamMember {
-  name: string;
   lines: string[]; // cada linha separada
 }
 
@@ -109,7 +108,8 @@ const Organograma = () => {
         </p>
       </div>
 
-      <div className="max-w-[1400px] mx-auto">
+      <div className="w-full overflow-x-auto">
+        <div className="min-w-[1400px] mx-auto">
         {/* CEO */}
         <div className="relative mb-[50px]">
           <div className="bg-[#8B1538] text-white text-center py-8 px-6 text-3xl font-bold">
@@ -122,9 +122,9 @@ const Organograma = () => {
         <div className="relative">
           <div className="absolute left-0 right-0 -top-[25px] h-0.5 border-t-2 border-dotted border-gray-800"></div>
 
-          <div className="flex justify-between gap-2.5 flex-wrap">
+          <div className="flex justify-between gap-2.5">
             {directors.map((director, index) => (
-              <div key={index} className="flex-1 relative min-w-[140px]">
+              <div key={index} className="flex-1 relative min-w-[150px] max-w-[160px]">
                 <div className="absolute left-1/2 -translate-x-1/2 -top-[25px] w-0.5 h-[25px] border-l-2 border-dotted border-gray-800"></div>
 
                 <div className="relative mb-5">
@@ -145,7 +145,7 @@ const Organograma = () => {
                         }`}
                       ></div>
 
-                      <div className="bg-[#6B7280] text-white py-3 px-2 text-xs text-center leading-tight whitespace-pre-line">
+                      <div className="bg-[#6B7280] text-white py-3 px-2 text-[10px] text-center leading-tight whitespace-pre-line">
                         {member.lines.map((line, i) => (
                           <React.Fragment key={i}>
                             {line}
@@ -160,6 +160,7 @@ const Organograma = () => {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
