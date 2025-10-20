@@ -379,7 +379,7 @@ const EstruturaDepartamento: React.FC<{
             Qualidade
           </div>
           <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
-            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Thiago Nascimento</h3>
               <div className="text-[13px] text-gray-700 mb-2">Tester</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">thiago.nascimento@giraffasoff.com.br</div>
