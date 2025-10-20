@@ -346,25 +346,25 @@ const EstruturaDepartamento: React.FC<{
             Desenvolvedores
           </div>
           <div className="flex flex-wrap justify-center items-center gap-[15px] min-h-[80px] mt-[15px]">
-            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Mateus Oliveira</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">mateus.oliveira@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Alysonn Araújo</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">alysonn.araujo@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Rodolfo Pelarin</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">rodolfo.pelarin@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Joao Paulo</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">joao.tochoze@giraffasoff.com.br</div>
