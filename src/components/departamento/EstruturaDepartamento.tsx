@@ -261,6 +261,88 @@ const EstruturaDepartamento: React.FC<{
       </div>;
   }
 
+  // T.I Desenvolvimento
+  if (departamento === "T.I Desenvolvimento" || departamento === "TI Desenvolvimento") {
+    return (
+      <div className="w-full max-w-6xl mx-auto py-10">
+        {/* Head */}
+        <div className="flex justify-center mb-6">
+          <div className="bg-[#545454] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Rafael Fernandes</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Head</div>
+            <div className="text-xs underline mb-0.5">rafael.fernandes@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 98147-3270</div>
+          </div>
+        </div>
+
+        {/* Segunda linha - Product Manager e SRE */}
+        <div className="flex flex-wrap justify-center gap-6 mb-6">
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Marcos Santos</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Product Manager</div>
+            <div className="text-xs underline mb-0.5">marcos.santos@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 98824-7444</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Fagner Cardoso</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">SRE</div>
+            <div className="text-xs underline mb-0.5">fagner.cardoso@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 98239-9419</div>
+          </div>
+        </div>
+
+        {/* Terceira linha - Product Owner e Tech Leader */}
+        <div className="flex flex-wrap justify-center gap-6 mb-6">
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Joao Constantino</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Product Owner</div>
+            <div className="text-xs underline mb-0.5">joao.constantinoe@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 98197-3592</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Victor Migoto</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Tech Leader</div>
+            <div className="text-xs underline mb-0.5">vitor.gouvese@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
+          </div>
+        </div>
+
+        {/* Quarta linha - Developers */}
+        <div className="flex flex-wrap justify-center gap-6">
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Mateus Oliveira</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
+            <div className="text-xs underline mb-0.5">mateus.oliveira@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Alisson</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
+            <div className="text-xs underline mb-0.5">alyssom.araujo@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Rodolfo Pelarin</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
+            <div className="text-xs underline mb-0.5">rodolfo.pelarin@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-xl font-bold mb-0.5 tracking-wide">Joao Paulo</h2>
+            <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
+            <div className="text-xs underline mb-0.5">joao.bertoline@datashelf.com.br</div>
+            <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (departamentoNormalizado.includes('são josé dos campos') || departamentoNormalizado.includes('sao jose dos campos')) {
     return <div className="p-6">
         
