@@ -266,123 +266,123 @@ const EstruturaDepartamento: React.FC<{
     return (
       <div className="w-full max-w-[800px] mx-auto py-10 px-4 space-y-5">
         {/* Gerência */}
-        <div className="bg-[#D3D3D3] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#D3D3D3] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Gerencia
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Rafael Fernandes</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Rafael Fernandes</h3>
               <div className="text-[13px] text-gray-700 mb-2">Head</div>
-              <div className="text-[11px] text-gray-800 mb-1">rafael.fernandes@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">rafael.fernandes@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 98147-3270</div>
             </div>
           </div>
         </div>
 
         {/* Portfólio de projetos */}
-        <div className="bg-[#FFB84D] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#FFB84D] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Portfólio de projetos
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Marcos Santos</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Marcos Santos</h3>
               <div className="text-[13px] text-gray-700 mb-2">Product Manager</div>
-              <div className="text-[11px] text-gray-800 mb-1">marcos.santos@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">marcos.santos@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 98874-7444</div>
             </div>
           </div>
         </div>
 
         {/* Arquitetura */}
-        <div className="bg-[#D4A5D8] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#D4A5D8] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Arquetetura
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Fagner Cardoso</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Fagner Cardoso</h3>
               <div className="text-[13px] text-gray-700 mb-2">SPE</div>
-              <div className="text-[11px] text-gray-800 mb-1">fagner.cardoso@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">fagner.cardoso@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 98738-8413</div>
             </div>
           </div>
         </div>
 
         {/* PO */}
-        <div className="bg-[#90EE90] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#90EE90] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             PO
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Joao Constantino</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Joao Constantino</h3>
               <div className="text-[13px] text-gray-700 mb-2">Product Owner</div>
-              <div className="text-[11px] text-gray-800 mb-1">joao.constantino@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">joao.constantino@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 98197-9257</div>
             </div>
           </div>
         </div>
 
         {/* Liderança Técnica */}
-        <div className="bg-[#87CEEB] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#87CEEB] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Liderança Tecnica
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Victor Migoto</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Victor Migoto</h3>
               <div className="text-[13px] text-gray-700 mb-2">Tech Leader</div>
-              <div className="text-[11px] text-gray-800 mb-1">victor.gomes@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">victor.gomes@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
           </div>
         </div>
 
         {/* Desenvolvedores */}
-        <div className="bg-[#FFD966] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#FFD966] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Desenvolvedores
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-4 mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Mateus Oliveira</h3>
+          <div className="flex flex-wrap justify-center items-center gap-[15px] min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Mateus Oliveira</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
-              <div className="text-[11px] text-gray-800 mb-1">mateus.oliveira@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">mateus.oliveira@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Alysson</h3>
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Alysonn Araújo</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
-              <div className="text-[11px] text-gray-800 mb-1">alysson.moraes@oscar.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">alysonn.araujo@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Rodolfo Pelarin</h3>
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Rodolfo Pelarin</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
-              <div className="text-[11px] text-gray-800 mb-1">rodolfo.pelarin@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">rodolfo.pelarin@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Joao Paulo</h3>
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[160px] max-w-[180px] flex-1">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Joao Paulo</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
-              <div className="text-[11px] text-gray-800 mb-1">joao.tochoze@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">joao.tochoze@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
           </div>
         </div>
 
         {/* Qualidade */}
-        <div className="bg-[#FF8C42] rounded-[20px] p-8 relative">
-          <div className="absolute top-4 left-6 text-sm font-bold text-gray-800">
+        <div className="bg-[#FF8C42] rounded-[20px] px-[30px] py-[25px] relative">
+          <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
             Qualidade
           </div>
-          <div className="flex justify-center items-center mt-4">
-            <div className="bg-white rounded-[15px] px-6 py-4 text-center shadow-md min-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-1">Thiago Nascimento</h3>
+          <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
+            <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Thiago Nascimento</h3>
               <div className="text-[13px] text-gray-700 mb-2">Tester</div>
-              <div className="text-[11px] text-gray-800 mb-1">thiago.nascimento@giraffasoff.com.br</div>
+              <div className="text-[11px] text-gray-800 mb-[3px]">thiago.nascimento@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
           </div>
