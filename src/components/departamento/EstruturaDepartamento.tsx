@@ -310,7 +310,7 @@ const EstruturaDepartamento: React.FC<{
         </div>
 
         {/* Quarta linha - Developers */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex justify-center gap-6 overflow-x-auto">
           <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
             <h2 className="text-xl font-bold mb-0.5 tracking-wide">Mateus Oliveira</h2>
             <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
