@@ -45,7 +45,7 @@ const directors: Director[] = [
     name: 'Renan',
     title: 'Diretor',
     team: [
-      { lines: ['', 'E-commerce', ''] },
+      { lines: ['', 'E-commerce', '', '' ] },
       { lines: ['Helena', 'Gestora', 'Marketing'] },
     ],
   },
