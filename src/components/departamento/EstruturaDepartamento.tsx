@@ -268,7 +268,7 @@ const EstruturaDepartamento: React.FC<{
         {/* Gerência */}
         <div className="bg-[#D3D3D3] rounded-[20px] px-[30px] py-[25px] relative">
           <div className="absolute top-[15px] left-[25px] text-sm font-bold text-gray-800">
-            Gerencia
+            Gerência
           </div>
           <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
             <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
@@ -303,7 +303,7 @@ const EstruturaDepartamento: React.FC<{
           <div className="flex justify-center items-center min-h-[80px] mt-[15px]">
             <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px]">
               <h3 className="text-base font-bold text-gray-800 mb-[3px]">Fagner Cardoso</h3>
-              <div className="text-[13px] text-gray-700 mb-2">SPE</div>
+              <div className="text-[13px] text-gray-700 mb-2">SRE</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">fagner.cardoso@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 98738-8413</div>
             </div>
@@ -365,7 +365,7 @@ const EstruturaDepartamento: React.FC<{
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
             </div>
             <div className="bg-white rounded-[15px] px-6 py-[15px] text-center shadow-md min-w-[200px] max-w-[200px]">
-              <h3 className="text-base font-bold text-gray-800 mb-[3px]">Joao Paulo</h3>
+              <h3 className="text-base font-bold text-gray-800 mb-[3px]">João Paulo</h3>
               <div className="text-[13px] text-gray-700 mb-2">Developer</div>
               <div className="text-[11px] text-gray-800 mb-[3px]">joao.tochoze@giraffasoff.com.br</div>
               <div className="text-xs font-bold text-gray-800">(12) 00000-00000</div>
@@ -1045,8 +1045,8 @@ const EstruturaDepartamento: React.FC<{
         sections: [{
           brand: "OSCAR - CARIOCA - PAQUETÁ - GASTON",
           people: [{
-            name: "CARLA (COMPRADOR)",
-            email: "CARLA.VIANA@GRUPOOSCAR.COM.BR",
+            name: "VALMIR (COMPRADOR)",
+            email: "VALMIR.JUNIOR@GRUPOOSCAR.COM.BR",
             phone: "(12) 99235-2438"
           }, {
             name: "JENIFER (ANALISTA)",
@@ -1266,16 +1266,16 @@ const EstruturaDepartamento: React.FC<{
           <div className="flex flex-col items-center gap-8 mb-12">
             {/* Gestora RH */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px]">
-              <h2 className="text-2xl font-bold mb-2 tracking-wider">MARIA MACEDO</h2>
-              <div className="text-lg mb-4 font-medium tracking-wide">GESTORA RH</div>
+              <h2 className="text-2xl font-bold mb-2 tracking-wider">Maria Macedo</h2>
+              <div className="text-lg mb-4 font-medium tracking-wide">Gestora</div>
               <div className="text-sm mb-2">maria.macedo@grupooscar.com.br</div>
               <div className="text-sm">(12) 99193-1537</div>
             </div>
 
             {/* Coordenadora */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px]">
-              <h2 className="text-2xl font-bold mb-2 tracking-wider">VIVIAN MARTINS</h2>
-              <div className="text-lg mb-4 font-medium tracking-wide">COORDENADORA</div>
+              <h2 className="text-2xl font-bold mb-2 tracking-wider">Vivian Martins</h2>
+              <div className="text-lg mb-4 font-medium tracking-wide">Coodenadora</div>
               <div className="text-sm mb-2">vivian.martins@grupooscar.com.br</div>
               <div className="text-sm">Ramal: 4250</div>
             </div>
@@ -1285,32 +1285,32 @@ const EstruturaDepartamento: React.FC<{
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
             {/* Samara Silva */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
-              <h2 className="text-xl font-bold mb-2 tracking-wide">SAMARA SILVA</h2>
-              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <h2 className="text-xl font-bold mb-2 tracking-wide">Samara Silva</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">Analista</div>
               <div className="text-sm mb-2">samara.silva@grupooscar.com.br</div>
               <div className="text-sm">Ramal: 4252</div>
             </div>
 
             {/* Helen Ramos */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
-              <h2 className="text-xl font-bold mb-2 tracking-wide">HELEN RAMOS</h2>
-              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <h2 className="text-xl font-bold mb-2 tracking-wide">Helen Ramos</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">Analista</div>
               <div className="text-sm mb-2">helen.ramos@grupooscar.com.br</div>
               <div className="text-sm">(51) 8050-0755</div>
             </div>
 
             {/* Ana Clara */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
-              <h2 className="text-xl font-bold mb-2 tracking-wide">ANA CLARA</h2>
-              <div className="text-base mb-4 font-medium tracking-wide">ANALISTA</div>
+              <h2 className="text-xl font-bold mb-2 tracking-wide">Ana Clara</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">Analista</div>
               <div className="text-sm mb-2">ana.clara@grupooscar.com.br</div>
               <div className="text-sm">Ramal: 4717</div>
             </div>
 
             {/* Giovana Medeiros */}
             <div className="bg-gradient-to-br from-red-800 to-red-900 text-white rounded-3xl p-8 text-center shadow-lg min-w-[280px] max-w-[320px] w-full">
-              <h2 className="text-xl font-bold mb-2 tracking-wide">GIOVANA MEDEIROS</h2>
-              <div className="text-base mb-4 font-medium tracking-wide">ASSISTENTE</div>
+              <h2 className="text-xl font-bold mb-2 tracking-wide">Giovana Medeiros</h2>
+              <div className="text-base mb-4 font-medium tracking-wide">Assistente</div>
               <div className="text-sm mb-2">rh@grupooscar.com.br</div>
               <div className="text-sm">Ramal: 4236</div>
             </div>
