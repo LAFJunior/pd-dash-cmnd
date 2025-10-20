@@ -229,6 +229,38 @@ const EstruturaDepartamento: React.FC<{
         </div>
       </div>;
   }
+  if (departamentoNormalizado.includes('t.i projetos') || departamentoNormalizado.includes('ti projetos') || departamentoNormalizado.includes('pmo')) {
+    return <div className="p-6">
+        
+        {/* Head - PMO */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-[#545454] text-white rounded-[25px] px-9 py-5 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-[28px] font-bold mb-1 tracking-wide">Sérgio Nascimento</h2>
+            <div className="text-[22px] font-normal mb-2 tracking-wide">Head | PMO</div>
+            <div className="text-sm underline mb-1">sergio.nascimento@grupooscar.com.br</div>
+            <div className="text-[13px] font-bold tracking-wide">(12) 98147-3270</div>
+          </div>
+        </div>
+
+        {/* Equipe */}
+        <div className="flex flex-wrap justify-center gap-8">
+          <div className="bg-[#737373] text-white rounded-[25px] px-9 py-5 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-[28px] font-bold mb-1 tracking-wide">Geraldo Netto</h2>
+            <div className="text-[22px] font-normal mb-2 tracking-wide">Analista de Projetos</div>
+            <div className="text-sm underline mb-1">geraldo.netto@grupooscar.com.br</div>
+            <div className="text-[13px] font-bold tracking-wide">(12) 997407-6667</div>
+          </div>
+
+          <div className="bg-[#737373] text-white rounded-[25px] px-9 py-5 text-center shadow-lg min-w-[280px] max-w-[380px]">
+            <h2 className="text-[28px] font-bold mb-1 tracking-wide">Luiz Junior</h2>
+            <div className="text-[22px] font-normal mb-2 tracking-wide">Aux. Processos</div>
+            <div className="text-sm underline mb-1">luiz.ferreira@grupooscar.com.br</div>
+            <div className="text-[13px] font-bold tracking-wide">(12) 99228-5691</div>
+          </div>
+        </div>
+      </div>;
+  }
+
   if (departamentoNormalizado.includes('são josé dos campos') || departamentoNormalizado.includes('sao jose dos campos')) {
     return <div className="p-6">
         
