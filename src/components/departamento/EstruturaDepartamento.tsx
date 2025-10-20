@@ -310,29 +310,29 @@ const EstruturaDepartamento: React.FC<{
         </div>
 
         {/* Quarta linha - Developers */}
-        <div className="flex justify-center gap-6 overflow-x-auto">
-          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+        <div className="flex justify-center gap-4 overflow-x-auto">
+          <div className="bg-[#737373] text-white rounded-[25px] px-6 py-3 text-center shadow-lg min-w-[240px] max-w-[320px]">
             <h2 className="text-xl font-bold mb-0.5 tracking-wide">Mateus Oliveira</h2>
             <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
             <div className="text-xs underline mb-0.5">mateus.oliveira@datashelf.com.br</div>
             <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
           </div>
 
-          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+          <div className="bg-[#737373] text-white rounded-[25px] px-6 py-3 text-center shadow-lg min-w-[240px] max-w-[320px]">
             <h2 className="text-xl font-bold mb-0.5 tracking-wide">Alisson</h2>
             <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
             <div className="text-xs underline mb-0.5">alyssom.araujo@datashelf.com.br</div>
             <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
           </div>
 
-          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+          <div className="bg-[#737373] text-white rounded-[25px] px-6 py-3 text-center shadow-lg min-w-[240px] max-w-[320px]">
             <h2 className="text-xl font-bold mb-0.5 tracking-wide">Rodolfo Pelarin</h2>
             <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
             <div className="text-xs underline mb-0.5">rodolfo.pelarin@datashelf.com.br</div>
             <div className="text-xs font-bold tracking-wide">(12) 0000-0000</div>
           </div>
 
-          <div className="bg-[#737373] text-white rounded-[25px] px-8 py-3 text-center shadow-lg min-w-[280px] max-w-[380px]">
+          <div className="bg-[#737373] text-white rounded-[25px] px-6 py-3 text-center shadow-lg min-w-[240px] max-w-[320px]">
             <h2 className="text-xl font-bold mb-0.5 tracking-wide">Joao Paulo</h2>
             <div className="text-base font-normal mb-1.5 tracking-wide">Developer</div>
             <div className="text-xs underline mb-0.5">joao.bertoline@datashelf.com.br</div>
