@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { X, Plus, ZoomIn, ZoomOut, Maximize2, RotateCcw } from 'lucide-react';
+import { X, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -49,16 +49,6 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
     x2: number;
     y2: number;
   } | null>(null);
-
-  // Estados para zoom e pan
-  const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
-  const [isPanning, setIsPanning] = useState(false);
-  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const MIN_ZOOM = 0.3;
-  const MAX_ZOOM = 3;
 
   // Inicialização dos dados
   useEffect(() => {
@@ -492,7 +482,6 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
   }, [editMode, creatingConexao, departamentos]);
   const handleMouseUp = useCallback(() => {
     setDraggedDep(null);
-    setIsPanning(false);
   }, []);
   const handleRemoveConexao = useCallback((conexaoId: string) => {
     if (editMode) {
@@ -632,56 +621,6 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
         {tempConexao && <path d={`M ${tempConexao.x1} ${tempConexao.y1} C ${tempConexao.x1 + 50} ${tempConexao.y1}, ${tempConexao.x2 - 50} ${tempConexao.y2}, ${tempConexao.x2} ${tempConexao.y2}`} fill="none" stroke="#333" strokeWidth="1" strokeDasharray="5,5" />}
       </g>;
   }, [conexoes, tempConexao, editMode, getDepartamentoPorId, handleRemoveConexao]);
-  // Funções de zoom e pan
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    const delta = e.deltaY * -0.001;
-    const newZoom = Math.min(Math.max(zoom + delta, MIN_ZOOM), MAX_ZOOM);
-    setZoom(newZoom);
-  }, [zoom]);
-
-  const handlePanStart = useCallback((e: React.MouseEvent) => {
-    if (!editMode || (!e.shiftKey && !e.ctrlKey && draggedDep === null)) {
-      setIsPanning(true);
-      setPanStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
-    }
-  }, [editMode, pan, draggedDep]);
-
-  const handlePanMove = useCallback((e: React.MouseEvent) => {
-    if (isPanning) {
-      setPan({
-        x: e.clientX - panStart.x,
-        y: e.clientY - panStart.y
-      });
-    }
-  }, [isPanning, panStart]);
-
-  const handleZoomIn = useCallback(() => {
-    setZoom(prev => Math.min(prev + 0.2, MAX_ZOOM));
-  }, []);
-
-  const handleZoomOut = useCallback(() => {
-    setZoom(prev => Math.max(prev - 0.2, MIN_ZOOM));
-  }, []);
-
-  const handleResetView = useCallback(() => {
-    setZoom(1);
-    setPan({ x: 0, y: 0 });
-  }, []);
-
-  const handleFitToScreen = useCallback(() => {
-    if (containerRef.current) {
-      const container = containerRef.current.getBoundingClientRect();
-      const svgWidth = 1500;
-      const svgHeight = 850;
-      const scaleX = container.width / svgWidth;
-      const scaleY = container.height / svgHeight;
-      const newZoom = Math.min(scaleX, scaleY) * 0.95;
-      setZoom(Math.min(Math.max(newZoom, MIN_ZOOM), MAX_ZOOM));
-      setPan({ x: 0, y: 0 });
-    }
-  }, []);
-
   const criarAreasGrupo = useCallback(() => {
     // BackOffice área
     const backOfficeArea = {
@@ -731,92 +670,26 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({
         </text>
       </g>;
   }, []);
-  return <div className="relative w-full h-[800px]" ref={containerRef}>
-      {/* Controles de Zoom */}
-      <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 bg-white p-2 rounded-lg shadow-md border">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleZoomIn}
-          title="Aumentar Zoom"
-          className="h-8 w-8"
-        >
-          <ZoomIn className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleZoomOut}
-          title="Diminuir Zoom"
-          className="h-8 w-8"
-        >
-          <ZoomOut className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleResetView}
-          title="Resetar Visualização"
-          className="h-8 w-8"
-        >
-          <RotateCcw className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={handleFitToScreen}
-          title="Ajustar à Tela"
-          className="h-8 w-8"
-        >
-          <Maximize2 className="h-4 w-4" />
-        </Button>
-        <div className="text-xs text-center mt-1 px-1 py-1 bg-muted rounded">
-          {Math.round(zoom * 100)}%
-        </div>
-      </div>
-
-      {/* Container do SVG com scroll */}
-      <div 
-        className="w-full h-full overflow-hidden border border-gray-200 rounded-lg shadow-inner bg-white"
-        onWheel={handleWheel}
-        onMouseDown={handlePanStart}
-        onMouseMove={(e) => {
-          handlePanMove(e);
-          handleMouseMove(e as any);
-        }}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        style={{ cursor: isPanning ? 'grabbing' : 'grab' }}
-      >
-        <svg 
-          ref={svgRef} 
-          width="1500" 
-          height="850" 
-          viewBox="0 0 1500 850" 
-          className="mx-auto"
-          style={{
-            transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
-            transformOrigin: 'center center',
-            transition: isPanning ? 'none' : 'transform 0.1s ease-out'
-          }}
-        >
-          {/* Definições para efeitos visuais */}
-          <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-            </marker>
-          </defs>
-          
-          {/* Áreas dos grupos */}
-          {criarAreasGrupo()}
-          
-          {/* Conexões entre departamentos */}
-          {criarConexoes()}
-          
-          {/* Departamentos */}
-          {departamentos.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
-        </svg>
-      </div>
+  return <div className="w-full overflow-auto">
+      {editMode}
+      
+      <svg ref={svgRef} width="1500" height="850" viewBox="0 0 1500 850" className="mx-auto border border-gray-200 rounded-lg shadow-inner bg-white" onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
+        {/* Definições para efeitos visuais */}
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+          </marker>
+        </defs>
+        
+        {/* Áreas dos grupos */}
+        {criarAreasGrupo()}
+        
+        {/* Conexões entre departamentos */}
+        {criarConexoes()}
+        
+        {/* Departamentos */}
+        {departamentos.map((departamento, index) => criarCaixaDepartamento(departamento, index))}
+      </svg>
       
       {/* Dialog para editar departamentos */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
