@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Paperclip, Image, Mic } from "lucide-react";
 import iconPD from "@/assets/icon_pd.png";
+import { Card } from "@/components/ui/card";
+import { getSuggestionsByDepartment } from "@/data/chat-suggestions";
 interface Message {
   id: string;
   content: string;
@@ -14,45 +16,97 @@ interface Message {
   timestamp: Date;
   isPending?: boolean;
 }
+const STORAGE_KEY = 'oscar-digital-chat-messages';
+
 const AgenteIA = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastGeneratedMessageId, setLastGeneratedMessageId] = useState<string | null>(null);
+  const [userDepartment, setUserDepartment] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
     });
   };
+
   useEffect(() => {
     scrollToBottom();
   }, [messages, loading]);
+
+  // Carregar mensagens do localStorage ao montar
+  useEffect(() => {
+    const savedMessages = localStorage.getItem(STORAGE_KEY);
+    if (savedMessages) {
+      try {
+        const parsed = JSON.parse(savedMessages);
+        // Converter timestamps de string para Date
+        const messagesWithDates = parsed.map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp)
+        }));
+        setMessages(messagesWithDates);
+      } catch (error) {
+        console.error('Erro ao carregar mensagens:', error);
+      }
+    }
+  }, []);
+
+  // Salvar mensagens no localStorage sempre que mudarem
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    const loadUserProfile = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('department')
+          .eq('user_id', user.id)
+          .single();
+        
+        if (profile) {
+          setUserDepartment(profile.department);
+        }
+      }
+    };
+    
+    loadUserProfile();
+  }, []);
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
       textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
     }
   }, [input]);
+
   const appendMessage = (msg: Message) => {
     setMessages(prev => [...prev, msg]);
   };
+
+  const clearChatHistory = () => {
+    setMessages([]);
+    localStorage.removeItem(STORAGE_KEY);
+    setLastGeneratedMessageId(null);
+    toast.success('Histórico de conversa limpo');
+  };
+
   const handleSendMessage = async (content: string) => {
     if (!content.trim()) return;
     setLoading(true);
 
     // Obter dados do usuário autenticado
-    const {
-      data: {
-        user
-      }
-    } = await supabase.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
     let userProfile = null;
     if (user) {
-      const {
-        data: profile
-      } = await supabase.from('profiles').select('full_name, department, role, email').eq('user_id', user.id).single();
+      const { data: profile } = await supabase.from('profiles').select('full_name, department, role, email').eq('user_id', user.id).single();
       userProfile = profile;
     }
 
@@ -122,6 +176,7 @@ const AgenteIA = () => {
     setLastGeneratedMessageId(assistantMessageId);
     setLoading(false);
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !loading) {
@@ -129,35 +184,38 @@ const AgenteIA = () => {
       setInput("");
     }
   };
-  const clearChatHistory = () => {
-    setMessages([]);
-    setLastGeneratedMessageId(null);
-    toast.success('Histórico de conversa limpo');
-  };
-  return <div className="flex flex-col h-screen bg-white text-gray-900">
+
+  return (
+    <div className="flex flex-col h-screen bg-gray-100">
       {/* Header */}
-      <header className="sticky top-0 z-10 backdrop-blur-md border-b border-gray-200 bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
+      <header className="sticky top-0 z-10 backdrop-blur-xl border-b bg-background/80 shadow-sm">
+        <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            
-        <h1 className="text-2xl font-bold text-gray-900">
-          Oscar Digital
-        </h1>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+              <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Oscar Digital
+              </h1>
+              <p className="text-xs text-muted-foreground">Seu assistente inteligente</p>
+            </div>
           </div>
-          <Button variant="outline" onClick={clearChatHistory} className="h-9 border-gray-300 text-gray-700 hover:bg-gray-100">
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={clearChatHistory} 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
             Limpar Conversa
           </Button>
         </div>
       </header>
       
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto bg-white">
-        <div className="max-w-4xl mx-auto px-4 flex flex-col h-full pt-4">
-          {messages.length === 0 ? <div className="flex flex-1 items-center justify-center">
-              <span className="text-lg text-gray-500">
-                Faça uma pergunta para começar...
-              </span>
-            </div> : <div className="pb-6 space-y-6">
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col h-full py-8">
+          {messages.length === 0 ? <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} /> : <div className="pb-6 space-y-6">
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
               {loading && <div className="flex items-start gap-4">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
@@ -175,12 +233,13 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Input */}
-      <div className="sticky bottom-0 backdrop-blur-md border-t border-gray-200 bg-white shadow-lg">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+      <div className="sticky bottom-0 backdrop-blur-xl border-t bg-background/80 shadow-2xl">
+        <div className="max-w-4xl mx-auto px-6 py-6">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 // ChatMessage Component
@@ -197,10 +256,13 @@ const ChatMessage = ({
   const [isThinking, setIsThinking] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const isUser = message.role === "user";
+
   const processContent = (content: string) => {
     return content.replace(/\\n\\n/g, '\n\n').replace(/\\n/g, '\n');
   };
+
   const processedContent = processContent(message.content);
+
   useEffect(() => {
     if (isUser || !isNewMessage) {
       setDisplayedContent(processedContent);
@@ -216,6 +278,7 @@ const ChatMessage = ({
     }, 200);
     return () => clearTimeout(thinkingTimer);
   }, [message, isUser, processedContent, isNewMessage]);
+
   useEffect(() => {
     if (!isTyping || isUser || !isNewMessage) return;
     if (currentIndex < processedContent.length) {
@@ -230,15 +293,19 @@ const ChatMessage = ({
       setIsTyping(false);
     }
   }, [currentIndex, isTyping, isUser, processedContent, isNewMessage]);
+
   const shouldShowAIIcon = !isUser && (!isNewMessage || isThinking || isTyping || displayedContent.length > 0);
-  return <div className={`group relative ${isUser ? "ml-auto max-w-[80%]" : "mr-auto max-w-full"}`}>
+
+  return <div className={`group relative ${isUser ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}`}>
       <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
-        {shouldShowAIIcon && <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-            <img src={iconPD} alt="Agente de Processos" className="w-full h-full object-cover" loading="eager" />
+        {shouldShowAIIcon && <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0 shadow-lg">
+            <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" />
           </div>}
 
         <div className="max-w-full break-words">
-          {isUser ? <p className="whitespace-pre-wrap leading-relaxed text-gray-900 bg-gray-100 px-4 py-2 rounded-lg">{displayedContent}</p> : <div className="markdown-content text-black bg-gray-50 p-3 rounded-lg border border-gray-200">
+          {isUser ? <div className="bg-primary text-primary-foreground px-5 py-3 rounded-2xl shadow-sm">
+              <p className="whitespace-pre-wrap leading-relaxed">{displayedContent}</p>
+            </div> : <div className="markdown-content bg-card text-card-foreground p-4 rounded-2xl border shadow-sm">
               {isThinking ? <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
               animationDelay: '0ms'
@@ -292,8 +359,8 @@ const ChatMessage = ({
             </div>}
         </div>
 
-        {isUser && <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-200 border border-gray-300">
-            <UserRound className="h-4 w-4 text-gray-700" />
+        {isUser && <div className="w-10 h-10 rounded-xl bg-muted/50 flex items-center justify-center flex-shrink-0 border shadow-sm">
+            <UserRound className="h-5 w-5 text-muted-foreground" />
           </div>}
       </div>
     </div>;
@@ -331,35 +398,112 @@ const ChatInput = ({
   };
   return <div className="relative">
       <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center rounded-2xl border border-gray-300 shadow-lg hover:shadow-xl transition-shadow bg-white">
-          <div className="flex items-center gap-1 p-3">
-            <Button type="button" variant="ghost" size="icon" className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" disabled={isLoading}>
-              <Paperclip className="h-4 w-4" />
+        <div className="relative flex items-center rounded-3xl border-2 shadow-xl hover:shadow-2xl transition-all bg-background/50 backdrop-blur-sm focus-within:border-primary/50">
+          <div className="flex items-center gap-1 pl-4 pr-2 py-3">
+            <Button 
+              type="button" 
+              variant="ghost" 
+              size="icon" 
+              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+              disabled={isLoading}
+            >
+              <Paperclip className="h-5 w-5" />
               <span className="sr-only">Anexar arquivo</span>
             </Button>
-            <Button type="button" variant="ghost" size="icon" className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" disabled={isLoading}>
-              <Image className="h-4 w-4" />
+            <Button 
+              type="button" 
+              variant="ghost" 
+              size="icon" 
+              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+              disabled={isLoading}
+            >
+              <Image className="h-5 w-5" />
               <span className="sr-only">Adicionar imagem</span>
             </Button>
           </div>
 
-          <Textarea ref={textareaRef} value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown} placeholder="Pergunte ao Oscar Digital sobre processos..." className="flex-1 min-h-[20px] max-h-[200px] resize-none border-0 bg-transparent px-0 py-3 text-gray-900 placeholder-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0" disabled={isLoading} rows={1} />
+          <Textarea 
+            ref={textareaRef} 
+            value={input} 
+            onChange={e => setInput(e.target.value)} 
+            onKeyDown={handleKeyDown} 
+            placeholder="Pergunte ao Oscar Digital sobre processos..." 
+            className="flex-1 min-h-[24px] max-h-[200px] resize-none border-0 bg-transparent px-2 py-4 placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 text-base" 
+            disabled={isLoading} 
+            rows={1} 
+          />
 
-          <div className="flex items-center gap-1 p-3">
-            {input.trim() ? <Button type="submit" size="icon" className="h-8 w-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg" disabled={isLoading || !input.trim()}>
-                <Send className="h-4 w-4" />
+          <div className="flex items-center gap-1 pr-4 pl-2 py-3">
+            {input.trim() ? <Button 
+                type="submit" 
+                size="icon" 
+                className="h-10 w-10 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-xl transition-all" 
+                disabled={isLoading || !input.trim()}
+              >
+                <Send className="h-5 w-5" />
                 <span className="sr-only">Enviar mensagem</span>
-              </Button> : <Button type="button" variant="ghost" size="icon" className="h-8 w-8 text-gray-600 hover:text-gray-900 hover:bg-gray-100" disabled={isLoading}>
-                <Mic className="h-4 w-4" />
+              </Button> : <Button 
+                type="button" 
+                variant="ghost" 
+                size="icon" 
+                className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+                disabled={isLoading}
+              >
+                <Mic className="h-5 w-5" />
                 <span className="sr-only">Gravar áudio</span>
               </Button>}
           </div>
         </div>
       </form>
       
-      <p className="text-xs text-center mt-2 text-gray-600">
-        O Agente de Processos está em desenvolvimento, pode cometer erros. Considere verificar informações importantes.
+      <p className="text-xs text-center mt-3 text-muted-foreground/80">
+        O Oscar Digital está em desenvolvimento e pode cometer erros. Verifique informações importantes.
       </p>
     </div>;
 };
+// EmptyState Component
+const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text: string) => void; userDepartment: string | null }) => {
+  const suggestions = getSuggestionsByDepartment(userDepartment);
+
+  return (
+    <div className="flex flex-col items-center justify-center h-full space-y-8 py-12">
+      <div className="text-center space-y-3">
+        <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-2xl">
+          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" />
+        </div>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          Olá! Como posso ajudar?
+        </h2>
+        <p className="text-muted-foreground max-w-md">
+          Faça perguntas sobre processos, documentação e procedimentos da empresa
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
+        {suggestions.map((suggestion, index) => (
+          <Card
+            key={index}
+            className="p-5 cursor-pointer hover:shadow-xl hover:scale-[1.02] transition-all duration-300 border-2 hover:border-primary/50 bg-card/50 backdrop-blur-sm group"
+            onClick={() => onSuggestClick(suggestion.prompt)}
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                <suggestion.icon className="h-6 w-6 text-primary" />
+              </div>
+              <div className="flex-1 space-y-1">
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {suggestion.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {suggestion.description}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default AgenteIA;

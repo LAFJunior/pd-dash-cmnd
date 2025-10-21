@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import CardProcesso from '@/components/dashboard/CardProcesso';
+import { GlossarioCorporativo } from '@/components/dashboard/GlossarioCorporativo';
 import { ChartBarIcon, ChartPieIcon, ClipboardListIcon, UsersIcon, Building2, DollarSign, FileText, ShoppingCart, Truck, Users, CreditCard, Megaphone, Computer, Scale, HeadphonesIcon, Store, AlertTriangle } from 'lucide-react';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
@@ -196,6 +197,9 @@ const Dashboard = () => {
           })}
         </div>
       </Card>
+      
+      {/* Glossário Corporativo */}
+      <GlossarioCorporativo />
       
       <div className="grid grid-cols-1 lg:grid-cols-[1fr,1.8fr] gap-6">
         <div>
