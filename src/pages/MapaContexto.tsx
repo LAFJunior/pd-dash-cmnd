@@ -108,6 +108,10 @@ const MapaContexto = () => {
             style={{
               transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
               transition: isPanning ? 'none' : 'transform 0.1s ease-out',
+              imageRendering: '-webkit-optimize-contrast',
+              WebkitFontSmoothing: 'antialiased',
+              backfaceVisibility: 'hidden',
+              transformStyle: 'preserve-3d',
             }}
             draggable={false}
           />
