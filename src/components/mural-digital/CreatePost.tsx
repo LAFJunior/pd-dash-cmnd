@@ -81,8 +81,27 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
     }
   };
 
+  const getVideoDuration = (file: File): Promise<number> => {
+    return new Promise((resolve, reject) => {
+      const video = document.createElement('video');
+      video.preload = 'metadata';
+      
+      video.onloadedmetadata = () => {
+        window.URL.revokeObjectURL(video.src);
+        resolve(video.duration);
+      };
+      
+      video.onerror = () => {
+        reject(new Error('Erro ao ler metadados do vídeo'));
+      };
+      
+      video.src = URL.createObjectURL(file);
+    });
+  };
+
   const uploadVideoToStorage = async (file: File): Promise<string> => {
     const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
+    const MAX_VIDEO_DURATION = 300; // 5 minutos em segundos
     
     // Validar tamanho
     if (file.size > MAX_VIDEO_SIZE) {
@@ -93,6 +112,16 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
     const validFormats = ['video/mp4', 'video/webm', 'video/ogg'];
     if (!validFormats.includes(file.type)) {
       throw new Error('Formato não suportado! Use MP4, WebM ou OGG');
+    }
+
+    // Validar duração
+    const duration = await getVideoDuration(file);
+    if (duration > MAX_VIDEO_DURATION) {
+      const minutes = Math.floor(duration / 60);
+      const seconds = Math.floor(duration % 60);
+      throw new Error(
+        `Vídeo muito longo (${minutes}m ${seconds}s)! Limite: 5 minutos`
+      );
     }
 
     const fileExt = file.name.split('.').pop();
@@ -216,6 +245,12 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
               ))}
             </div>
           )}
+
+          <div className="mb-2">
+            <p className="text-xs text-muted-foreground">
+              <strong>Limitações de vídeos:</strong> Tamanho do arquivo: 100MB | Duração máxima: 5 minutos
+            </p>
+          </div>
 
           <div className="flex items-center gap-2">
             <input
