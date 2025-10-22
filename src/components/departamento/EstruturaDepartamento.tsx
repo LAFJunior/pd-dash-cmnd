@@ -506,8 +506,8 @@ const EstruturaDepartamento: React.FC<{
                   <div className="text-sm opacity-90"> XXX - RAMAL</div>
                 </div>
                 <div className="bg-blue-400 p-3 rounded text-center">
-                  <div className="font-semibold">RAFAELA</div>
-                  <div className="text-sm opacity-90">RAFAELA.FERREIRA@GRUPOOSCAR.COM.BR</div>
+                  <div className="font-semibold">CAMILA</div>
+                  <div className="text-sm opacity-90">CAMILA.SILVA@GRUPOOSCAR.COM.BR</div>
                   <div className="text-sm opacity-90">XXX  - RAMAL</div>
                 </div>
                 <div className="bg-blue-300 p-3 rounded">
@@ -543,6 +543,16 @@ const EstruturaDepartamento: React.FC<{
                   <div className="text-sm opacity-90">NAIMARA.CAMARGO@GRUPOOSCAR.COM.BR</div>
                   <div className="text-sm opacity-90">-XXX- RAMAL</div>
                 </div>
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">YASMIM</div>
+                  <div className="text-sm opacity-90">YASMIM.CAMPOS@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">-XXX- RAMAL</div>
+                </div>
+                <div className="bg-green-400 p-3 rounded text-center">
+                  <div className="font-semibold">ANA SIMÂO</div>
+                  <div className="text-sm opacity-90">ANA.SIMÃO@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">-XXX- RAMAL</div>
+                </div>                
                 <div className="bg-green-300 p-3 rounded">
                   <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS</div>
                   <div className="grid grid-cols-2 gap-2 text-sm">
@@ -576,8 +586,8 @@ const EstruturaDepartamento: React.FC<{
                   <div className="text-sm opacity-90">XXX - RAMAL</div>
                 </div>
                 <div className="bg-red-400 p-3 rounded text-center">
-                  <div className="font-semibold">CAMILLA</div>
-                  <div className="text-sm opacity-90">CAMILLA.SILVA@GRUPOOSCAR.COM.BR</div>
+                  <div className="font-semibold">SUELLYN</div>
+                  <div className="text-sm opacity-90">SUELLYN.BRANDAO@GRUPOOSCAR.COM.BR</div>
                   <div className="text-sm opacity-90">(XXX - RAMAL</div>
                 </div>
                 <div className="bg-red-300 p-3 rounded">
@@ -585,7 +595,7 @@ const EstruturaDepartamento: React.FC<{
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Artemis</div>
                     <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Clovis</div>
-                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Viviane</div>
+                    <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Elaine</div>
                     <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Jorge</div>
                     <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Katiane</div>
                     <div className="bg-white text-red-600 p-2 rounded text-center font-medium">Patricia</div>
