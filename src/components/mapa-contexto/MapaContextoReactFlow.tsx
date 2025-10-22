@@ -30,7 +30,6 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
   // Definindo os nós baseados na imagem fornecida
   const initialNodes: Node[] = [
     // BackOffice - Lado esquerdo
-    { id: 'franquias', type: 'department', position: { x: 50, y: 100 }, data: { label: 'Franquias', color: '#E8E8E8', width: 80, height: 40 } },
     { id: 'auditoria', type: 'department', position: { x: 200, y: 100 }, data: { label: 'Auditoria', color: '#E8E8E8', width: 80, height: 50 } },
     { id: 'contabil', type: 'department', position: { x: 350, y: 100 }, data: { label: 'Contábil', color: '#E8E8E8', width: 80, height: 50 } },
     { id: 'recursos-humanos', type: 'department', position: { x: 500, y: 50 }, data: { label: 'Recursos Humanos', color: '#E8E8E8', width: 100, height: 60 } },
@@ -59,7 +58,6 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
     // Quarta linha
     { id: 'ti-projetos', type: 'department', position: { x: 200, y: 550 }, data: { label: 'T.I. Projetos e Inovações', color: '#D4E6D4', width: 90, height: 50 } },
     { id: 'festcard', type: 'department', position: { x: 350, y: 550 }, data: { label: 'Festcard', color: '#D4D4E8', width: 80, height: 50 } },
-    { id: 'suprimentos', type: 'department', position: { x: 500, y: 550 }, data: { label: 'Suprimentos', color: '#D4D4E8', width: 80, height: 50 } },
     { id: 'defeitos', type: 'department', position: { x: 650, y: 550 }, data: { label: 'Defeitos', color: '#F0E8D4', width: 80, height: 50 } },
     
     // Clientes - Lado direito
@@ -107,7 +105,6 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
     // Conexões com T.I. e projetos
     { id: 'e12', source: 'desenvolvimento', target: 'ti-projetos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     { id: 'e13', source: 'ti-operacoes', target: 'festcard', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e14', source: 'controladoria', target: 'suprimentos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     { id: 'e15', source: 'sao-jose-campos', target: 'defeitos', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     
     // Conexões com clientes/externos
@@ -122,7 +119,6 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
     
     // Conexões financeiras
     { id: 'e22', source: 'festcard', target: 'diretorias-financeiras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
-    { id: 'e23', source: 'suprimentos', target: 'diretorias-financeiras', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     { id: 'e24', source: 'diretorias-financeiras', target: 'credysystem', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     
     // Conexões CD/Operação
@@ -130,7 +126,6 @@ const MapaContextoReactFlow: React.FC<MapaContextoReactFlowProps> = ({ editMode 
     { id: 'e26', source: 'infl-ecommerce', target: 'ecommerce', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     
     // Conexões internas
-    { id: 'e27', source: 'franquias', target: 'dissolve-brasil', type: 'straight', markerEnd: { type: MarkerType.ArrowClosed } },
     { id: 'e28', source: 'caixa', target: 'financeiro', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
     { id: 'e29', source: 'vendas', target: 'marketing', type: 'smoothstep', markerEnd: { type: MarkerType.ArrowClosed } },
   ];

@@ -105,7 +105,6 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       { id: "controladoria", titulo: "Controladoria", x: 700, y: 220, width: 130, height: 60, color: corBack, tipo: "backoffice", conexoes: ["compras", "contabil", "fiscal", "financeiro"] },
 
       { id: "marketing", titulo: "MARKETING", x: 980, y: 180, width: 150, height: 70, color: corBack, tipo: "backoffice", conexoes: ["ecommerce", "lojas", "clientes", "categorias"] },
-      { id: "sac", titulo: "SAC", x: 980, y: 270, width: 120, height: 60, color: corBack, tipo: "backoffice", conexoes: ["clientes", "ecommerce", "lojas"] },
       { id: "defeitos", titulo: "Defeitos", x: 980, y: 350, width: 120, height: 60, color: corBack, tipo: "backoffice", conexoes: ["lojas", "cd-operacoes", "clientes"] },
 
       // Blocos de TI (rodapé do backoffice)
@@ -159,8 +158,7 @@ const MapaInterativo: React.FC<MapaInterativoProps> = ({ editMode }) => {
       // Parceiros Comerciais genéricos (categorias)
       { id: "categorias", titulo: "Categorias", x: 1040, y: 720, width: 150, height: 60, color: corParceiros, tipo: "parceiros", conexoes: ["compras", "marketing", "lojas"] },
 
-      // Franquias / Diadora (lado esquerdo interno)
-      { id: "franquias", titulo: "Franquias", x: 210, y: 170, width: 140, height: 70, color: corParceiros, tipo: "parceiros", conexoes: ["lojas", "compras"] },
+      // Diadora (lado esquerdo interno)
       { id: "diadora-brasil", titulo: "Diadora Brasil", x: 210, y: 250, width: 140, height: 60, color: corParceiros, tipo: "parceiros", conexoes: ["compras"] },
     ];
 

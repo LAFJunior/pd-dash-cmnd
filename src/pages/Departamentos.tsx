@@ -15,8 +15,6 @@ const departamentosBackoffice = [
   "Marketing",
   "Recursos Humanos (RH)",
   "CD/Operações (S. J. dos Campos)",
-  "Suprimentos",
-  "SAC",
   "T.I Desenvolvimento",
   "T.I Operações",
   "T.I Projetos e Inovações"
@@ -27,18 +25,9 @@ const departamentosVarejo = [
   "E-Commerce",
   "Estádio Martins Pereira",
   "Festcard",
-  "Franquias",
   "Lojas",
   "Recicalce",
   "São José Esporte Club"
-];
-
-const parceirosComerciais = [
-  "Clientes",
-  "CredSytem",
-  "Fornecedores",
-  "Infracommerce ",
-  "Instituições Financeiras"
 ];
 
 const Departamentos = () => {
@@ -83,7 +72,7 @@ const Departamentos = () => {
         <p className="text-gray-500">Visualize e gerencie os departamentos da organização</p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ListaDepartamentos 
           titulo="BackOffice" 
           items={departamentosBackoffice} 
@@ -96,13 +85,6 @@ const Departamentos = () => {
           items={departamentosVarejo} 
           color="#499B54"
           selectedItem={selectedDepartamento && tipo === 'varejo' ? selectedDepartamento : undefined}
-        />
-        
-        <ListaDepartamentos 
-          titulo="Parceiros Comerciais" 
-          items={parceirosComerciais} 
-          color="#E39D25"
-          selectedItem={selectedDepartamento && tipo === 'parceiros' ? selectedDepartamento : undefined}
         />
       </div>
     </div>
