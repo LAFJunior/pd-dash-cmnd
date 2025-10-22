@@ -498,17 +498,17 @@ const EstruturaDepartamento: React.FC<{
                 <div className="bg-blue-400 p-3 rounded text-center">
                   <div className="font-semibold">SIMONE REITANO(ANALISTA)</div>
                   <div className="text-sm opacity-90">SIMONE.REITANO@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">XXX  - RAMAL</div>
+                  <div className="text-sm opacity-90">4235  - RAMAL</div>
                 </div>
                 <div className="bg-blue-400 p-3 rounded text-center">
                   <div className="font-semibold">FABIANA (BIA)</div>
                   <div className="text-sm opacity-90">FABIANA.SILVA@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90"> XXX - RAMAL</div>
+                  <div className="text-sm opacity-90"> 4402 - RAMAL</div>
                 </div>
                 <div className="bg-blue-400 p-3 rounded text-center">
-                  <div className="font-semibold">CAMILA</div>
-                  <div className="text-sm opacity-90">CAMILA.SILVA@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">XXX  - RAMAL</div>
+                  <div className="font-semibold">CAMILLA</div>
+                  <div className="text-sm opacity-90">CAMILLA.SILVA@GRUPOOSCAR.COM.BR</div>
+                  <div className="text-sm opacity-90">4234  - RAMAL</div>
                 </div>
                 <div className="bg-blue-300 p-3 rounded">
                   <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS E BACKOFFICE</div>
@@ -536,22 +536,22 @@ const EstruturaDepartamento: React.FC<{
                 <div className="bg-green-400 p-3 rounded text-center">
                   <div className="font-semibold">ANA CAROLINA</div>
                   <div className="text-sm opacity-90">ANA.VELOSO@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">XXX- RAMAL</div>
+                  <div className="text-sm opacity-90">4237- RAMAL</div>
                 </div>
                 <div className="bg-green-400 p-3 rounded text-center">
                   <div className="font-semibold">NAIMARA</div>
                   <div className="text-sm opacity-90">NAIMARA.CAMARGO@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">-XXX- RAMAL</div>
+                  <div className="text-sm opacity-90">-4231 - RAMAL</div>
                 </div>
                 <div className="bg-green-400 p-3 rounded text-center">
                   <div className="font-semibold">YASMIM</div>
                   <div className="text-sm opacity-90">YASMIM.CAMPOS@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">-XXX- RAMAL</div>
+                  <div className="text-sm opacity-90">-4245 - RAMAL</div>
                 </div>
                 <div className="bg-green-400 p-3 rounded text-center">
                   <div className="font-semibold">ANA SIMÂO</div>
                   <div className="text-sm opacity-90">ANA.SIMÃO@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">-XXX- RAMAL</div>
+                  <div className="text-sm opacity-90">-4254 - RAMAL</div>
                 </div>                
                 <div className="bg-green-300 p-3 rounded">
                   <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS</div>
@@ -578,17 +578,17 @@ const EstruturaDepartamento: React.FC<{
                 <div className="bg-red-400 p-3 rounded text-center">
                   <div className="font-semibold">FABIANA (ANALISTA)</div>
                   <div className="text-sm opacity-90">FABIANA.FERREIRA@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">XXX - RAMAL</div>
+                  <div className="text-sm opacity-90">4242 - RAMAL</div>
                 </div>
                 <div className="bg-red-400 p-3 rounded text-center">
                   <div className="font-semibold">NICOLLE</div>
                   <div className="text-sm opacity-90">NICOLLE.OLIVEIRA@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">XXX - RAMAL</div>
+                  <div className="text-sm opacity-90">4448 - RAMAL</div>
                 </div>
                 <div className="bg-red-400 p-3 rounded text-center">
                   <div className="font-semibold">SUELLYN</div>
                   <div className="text-sm opacity-90">SUELLYN.BRANDAO@GRUPOOSCAR.COM.BR</div>
-                  <div className="text-sm opacity-90">(XXX - RAMAL</div>
+                  <div className="text-sm opacity-90">4249 - RAMAL</div>
                 </div>
                 <div className="bg-red-300 p-3 rounded">
                   <div className="font-semibold text-center mb-3">ATENDIMENTO AOS REGIONAIS</div>
