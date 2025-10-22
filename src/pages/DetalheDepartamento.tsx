@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow, Lock } from 'lucide-react';
+import { ArrowLeft, Users, GitBranch, ClipboardList, Puzzle, Building2, Workflow, Lock, UserCheck, Calculator, Download } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import EstruturaDepartamento from '@/components/departamento/EstruturaDepartamento';
@@ -237,54 +237,50 @@ const DetalheDepartamento = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    <div className="bg-white border rounded-lg p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-start gap-3">
-                        <input type="checkbox" className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300" defaultChecked />
-                        <div className="flex-1 space-y-2">
-                          <h4 className="font-medium text-gray-900">Manual - Gestão de Ponto</h4>
-                          <p className="text-sm text-gray-600">Principais funcionalidades existentes na nova Plataforma de Gestão de Ponto.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', 'Manual - Gestão de Ponto')}>
-                            <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                            </svg>
-                            Baixar PDF
-                          </Button>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Card className="border-blue-200 hover:border-blue-400 hover:shadow-lg transition-all">
+                      <CardHeader>
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 bg-blue-100 rounded-lg">
+                            <UserCheck className="text-blue-600 h-6 w-6" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-gray-900">Processos de Admissão</h4>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Documentação completa dos processos de admissão de colaboradores.
+                        </p>
+                        <Button size="sm" className="w-full" onClick={() => handlePDFDownload('/processos_admissao_dp.pdf', 'Processos de Admissão')}>
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar PDF
+                        </Button>
+                      </CardContent>
+                    </Card>
 
-                    <div className="bg-white border rounded-lg p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-start gap-3">
-                        <input type="checkbox" className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300" defaultChecked />
-                        <div className="flex-1 space-y-2">
-                          <h4 className="font-medium text-gray-900">Processos de Admissão</h4>
-                          <p className="text-sm text-gray-600">Documentação completa dos processos de admissão de colaboradores.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('/processos_admissao_dp.pdf', 'Processos de Admissão')}>
-                            <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                            </svg>
-                            Baixar PDF
-                          </Button>
+                    <Card className="border-green-200 hover:border-green-400 hover:shadow-lg transition-all">
+                      <CardHeader>
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 bg-green-100 rounded-lg">
+                            <Calculator className="text-green-600 h-6 w-6" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-gray-900">Processo Cálculo de Folha</h4>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-white border rounded-lg p-4 hover:shadow-md transition-shadow">
-                      <div className="flex items-start gap-3">
-                        <input type="checkbox" className="mt-1 h-4 w-4 text-blue-600 rounded border-gray-300" defaultChecked />
-                        <div className="flex-1 space-y-2">
-                          <h4 className="font-medium text-gray-900">Processo Cálculo de Folha</h4>
-                          <p className="text-sm text-gray-600">Procedimentos e metodologia para cálculo da folha de pagamento.</p>
-                          <Button variant="default" size="sm" className="bg-gray-800 hover:bg-gray-900 text-white" onClick={() => handlePDFDownload('/processo_calculo_folha_dp.pdf', 'Processo Cálculo de Folha')}>
-                            <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                            </svg>
-                            Baixar PDF
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Procedimentos e metodologia para cálculo da folha de pagamento.
+                        </p>
+                        <Button size="sm" className="w-full" onClick={() => handlePDFDownload('/processo_calculo_folha_dp.pdf', 'Processo Cálculo de Folha')}>
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar PDF
+                        </Button>
+                      </CardContent>
+                    </Card>
                   </div>
                 </CardContent>
               </Card>}

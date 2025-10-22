@@ -1019,6 +1019,46 @@ const LojaVirtual = () => {
 
             <TabsContent value="treinamento" className="mt-4">
               <div className="space-y-6">
+                {/* Nova Seção: Processos de Ponto */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold flex items-center gap-2 mb-4">
+                    <Clock className="text-purple-600" />
+                    Processos de Ponto
+                  </h3>
+                  
+                  <div className="bg-muted/50 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Principais funcionalidades e procedimentos da nova Plataforma de Gestão de Ponto.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <Card className="p-4 hover:shadow-md transition-shadow">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <Clock className="text-purple-600 h-5 w-5" />
+                          <h4 className="font-medium text-sm">Manual - Gestão de Ponto</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Principais funcionalidades existentes na nova Plataforma de Gestão de Ponto.
+                        </p>
+                        <Button 
+                          size="sm" 
+                          className="w-full" 
+                          onClick={() => handlePDFDownload(
+                            'https://drive.google.com/uc?export=download&id=1r-kP7cj2L0SPZLIPkV7IyyBDKpzKhS1D', 
+                            'Manual - Gestão de Ponto'
+                          )}
+                        >
+                          <Download className="h-4 w-4 mr-2" />
+                          Baixar PDF
+                        </Button>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Check-Lists (Lojas) */}
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <BookOpen className="text-orange-600" />
                   Check-Lists (Lojas)
