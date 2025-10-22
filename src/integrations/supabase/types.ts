@@ -248,14 +248,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      is_mural_admin: {
-        Args: { user_id_param: string }
-        Returns: boolean
-      }
-      promote_user_to_admin: {
-        Args: { user_email: string }
-        Returns: string
-      }
+      is_mural_admin: { Args: { user_id_param: string }; Returns: boolean }
+      promote_user_to_admin: { Args: { user_email: string }; Returns: string }
     }
     Enums: {
       [_ in never]: never

@@ -30,6 +30,7 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
   const [linkUrl, setLinkUrl] = useState('');
   const [imageSize, setImageSize] = useState<ImageSize>('small');
   const [showPreview, setShowPreview] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   // Atualiza o tamanho de todas as imagens quando a opção mudar
   useEffect(() => {
@@ -80,15 +81,66 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, type: 'image' | 'video') => {
+  const uploadVideoToStorage = async (file: File): Promise<string> => {
+    const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
+    
+    // Validar tamanho
+    if (file.size > MAX_VIDEO_SIZE) {
+      throw new Error('Vídeo muito grande! Limite: 100MB');
+    }
+
+    // Validar formato
+    const validFormats = ['video/mp4', 'video/webm', 'video/ogg'];
+    if (!validFormats.includes(file.type)) {
+      throw new Error('Formato não suportado! Use MP4, WebM ou OGG');
+    }
+
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+    const filePath = `${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from('mural-videos')
+      .upload(filePath, file, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (uploadError) throw uploadError;
+    return filePath;
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, type: 'image' | 'video') => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setAttachments([...attachments, { type, url: reader.result, size: type === 'image' ? imageSize : undefined }]);
-    };
-    reader.readAsDataURL(file);
+    if (type === 'video') {
+      setIsUploading(true);
+      try {
+        const filePath = await uploadVideoToStorage(file);
+        setAttachments([...attachments, { 
+          type: 'video', 
+          path: filePath,
+          name: file.name
+        }]);
+        toast.success('Vídeo enviado com sucesso!');
+      } catch (error: any) {
+        console.error('Erro ao fazer upload:', error);
+        toast.error(error.message || 'Erro ao fazer upload do vídeo');
+      } finally {
+        setIsUploading(false);
+      }
+    } else {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAttachments([...attachments, { 
+          type, 
+          url: reader.result, 
+          size: type === 'image' ? imageSize : undefined 
+        }]);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleAddLink = () => {
@@ -223,13 +275,13 @@ const CreatePost = ({ onPostCreated }: CreatePostProps) => {
               variant="outline" 
               className="flex-1"
               onClick={() => setShowPreview(true)}
-              disabled={!content.trim()}
+              disabled={!content.trim() || isUploading}
             >
               <Eye size={16} className="mr-2" />
               Prévia
             </Button>
-            <Button type="submit" className="flex-1" disabled={!content.trim()}>
-              Publicar
+            <Button type="submit" className="flex-1" disabled={!content.trim() || isUploading}>
+              {isUploading ? 'Enviando vídeo...' : 'Publicar'}
             </Button>
           </div>
         </form>

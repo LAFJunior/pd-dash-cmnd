@@ -8,6 +8,7 @@ import { usePermissions } from '@/hooks/usePermissions';
 import { usePostLike } from '@/hooks/usePostLike';
 import { usePostComments } from '@/hooks/usePostComments';
 import { useMuralPosts } from '@/hooks/useMuralPosts';
+import VideoPlayer from '@/components/VideoPlayer';
 
 const MURAL_ADMIN_EMAILS = [
   'luiz.ferreira@grupooscar.com.br',
@@ -180,12 +181,20 @@ const PostCard = ({ post }: PostCardProps) => {
                     />
                   )}
                   {attachment.type === 'video' && (
-                    <video 
-                      src={attachment.url} 
-                      controls 
-                      className="rounded-lg w-full"
-                      preload="metadata"
-                    />
+                    attachment.path ? (
+                      <VideoPlayer 
+                        fileName={attachment.path}
+                        bucketName="mural-videos"
+                        title={post.title || 'Vídeo do Mural'}
+                      />
+                    ) : attachment.url ? (
+                      <video 
+                        src={attachment.url} 
+                        controls 
+                        className="rounded-lg w-full"
+                        preload="metadata"
+                      />
+                    ) : null
                   )}
                   {attachment.type === 'link' && (
                     <a href={attachment.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
