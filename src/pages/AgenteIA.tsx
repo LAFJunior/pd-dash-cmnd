@@ -283,7 +283,7 @@ const ChatMessage = ({
     if (!isTyping || isUser || !isNewMessage) return;
     if (currentIndex < processedContent.length) {
       const char = processedContent[currentIndex];
-      const delay = char === '.' || char === '!' || char === '?' ? 70 : char === ',' || char === ';' ? 50 : char === ' ' ? 10 : 20;
+      const delay = char === '.' || char === '!' || char === '?' ? 35 : char === ',' || char === ';' ? 25 : char === ' ' ? 5 : 10;
       const timeoutId = setTimeout(() => {
         setDisplayedContent(processedContent.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
@@ -298,9 +298,9 @@ const ChatMessage = ({
 
   return <div className={`group relative ${isUser ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}`}>
       <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
-        {shouldShowAIIcon && <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center flex-shrink-0 shadow-lg">
-            <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" />
-          </div>}
+        {shouldShowAIIcon && <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
+          <img src={iconPD} alt="Oscar Digital" className="w-5 h-5 object-contain" loading="eager" />
+            </div>
 
         <div className="max-w-full break-words">
           {isUser ? <div className="bg-primary text-primary-foreground px-5 py-3 rounded-2xl shadow-sm">
@@ -359,9 +359,9 @@ const ChatMessage = ({
             </div>}
         </div>
 
-        {isUser && <div className="w-10 h-10 rounded-xl bg-muted/50 flex items-center justify-center flex-shrink-0 border shadow-sm">
-            <UserRound className="h-5 w-5 text-muted-foreground" />
-          </div>}
+        {isUser && <div className="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center flex-shrink-0">
+       <UserRound className="h-4 w-4 text-black" />
+        </div>
       </div>
     </div>;
 };
