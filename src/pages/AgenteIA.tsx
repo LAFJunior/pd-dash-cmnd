@@ -186,7 +186,7 @@ const AgenteIA = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-3rem)] bg-gray-100 -m-6">
+    <div className="flex flex-col h-screen bg-gray-100">
       {/* Header */}
       <header className="sticky top-0 z-10 backdrop-blur-xl border-b bg-background/80 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
