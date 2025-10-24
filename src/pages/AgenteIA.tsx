@@ -191,8 +191,8 @@ const AgenteIA = () => {
       <header className="sticky top-0 z-10 backdrop-blur-xl border-b bg-background/80 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
-              <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" />
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src={iconPD} alt="Oscar Digital" className="w-10 h-10 object-contain" />
             </div>
             <div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
@@ -218,7 +218,7 @@ const AgenteIA = () => {
           {messages.length === 0 ? <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} /> : <div className="pb-6 space-y-6">
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
               {loading && <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                     <img src={iconPD} alt="Oscar Digital" className="w-full h-full object-cover" loading="eager" />
                   </div>
                   <div className="typing-indicator mt-1">
@@ -299,13 +299,13 @@ const ChatMessage = ({
   return <div className={`group relative ${isUser ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}`}>
       <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
         {shouldShowAIIcon && (
-          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
-            <img src={iconPD} alt="Oscar Digital" className="w-5 h-5 object-contain" loading="eager" />
+          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
+            <img src={iconPD} alt="Oscar Digital" className="w-7 h-7 object-contain" loading="eager" />
           </div>
         )}
 
         <div className="max-w-full break-words">
-          {isUser ? <div className="bg-[#2f2f2f] text-white px-5 py-3.5 rounded-2xl rounded-tr-md shadow-sm max-w-[80%] ml-auto">
+          {isUser ? <div className="bg-[#F3F4F6] text-black px-5 py-3.5 rounded-2xl rounded-tr-md shadow-sm max-w-[80%] ml-auto">
               <p className="whitespace-pre-wrap leading-relaxed text-[15px]">{displayedContent}</p>
             </div> : <div className="markdown-content bg-transparent text-foreground px-2 py-1">
               {isThinking ? <div className="flex items-center space-x-1">
