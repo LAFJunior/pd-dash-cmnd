@@ -305,9 +305,9 @@ const ChatMessage = ({
         )}
 
         <div className="max-w-full break-words">
-          {isUser ? <div className="bg-primary text-primary-foreground px-5 py-3 rounded-2xl shadow-sm">
-              <p className="whitespace-pre-wrap leading-relaxed">{displayedContent}</p>
-            </div> : <div className="markdown-content bg-card text-card-foreground p-4 rounded-2xl border shadow-sm">
+          {isUser ? <div className="bg-[#2f2f2f] text-white px-5 py-3.5 rounded-2xl rounded-tr-md shadow-sm max-w-[80%] ml-auto">
+              <p className="whitespace-pre-wrap leading-relaxed text-[15px]">{displayedContent}</p>
+            </div> : <div className="markdown-content bg-transparent text-foreground px-2 py-1">
               {isThinking ? <div className="flex items-center space-x-1">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
               animationDelay: '0ms'
