@@ -186,7 +186,7 @@ const AgenteIA = () => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-100 -m-6">
+    <div className="flex flex-col min-h-[calc(100vh-3rem)] bg-gray-100 -m-6">
       {/* Header */}
       <header className="sticky top-0 z-10 backdrop-blur-xl border-b bg-background/80 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
@@ -213,7 +213,7 @@ const AgenteIA = () => {
       </header>
       
       {/* Chat Messages */}
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-6 flex flex-col h-full py-8">
           {messages.length === 0 ? <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} /> : <div className="pb-6 space-y-6">
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
