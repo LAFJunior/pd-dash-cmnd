@@ -186,9 +186,9 @@ const AgenteIA = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-3rem)] bg-gray-100 -m-6">
+    <div className="flex flex-col h-full bg-white -m-6 min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-10 backdrop-blur-xl border-b bg-background/80 shadow-sm">
+      <header className="sticky top-0 z-10 backdrop-blur-xl border-b border-gray-200 bg-white/95 shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center">
@@ -213,7 +213,7 @@ const AgenteIA = () => {
       </header>
       
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         <div className="max-w-4xl mx-auto px-6 flex flex-col h-full py-8">
           {messages.length === 0 ? <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} /> : <div className="pb-6 space-y-6">
               {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
@@ -233,7 +233,7 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Input */}
-      <div className="sticky bottom-0 backdrop-blur-xl border-t bg-background/80 shadow-2xl">
+      <div className="sticky bottom-0 backdrop-blur-xl border-t border-gray-200 bg-white/95 shadow-lg">
         <div className="max-w-4xl mx-auto px-6 py-6">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
         </div>
@@ -402,7 +402,7 @@ const ChatInput = ({
   };
   return <div className="relative">
       <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center rounded-3xl border-2 shadow-xl hover:shadow-2xl transition-all bg-background/50 backdrop-blur-sm focus-within:border-primary/50">
+        <div className="relative flex items-center rounded-3xl border-2 border-gray-200 shadow-md hover:shadow-lg transition-all bg-white backdrop-blur-sm focus-within:border-primary focus-within:shadow-xl">
           <div className="flex items-center gap-1 pl-4 pr-2 py-3">
             <Button 
               type="button" 
