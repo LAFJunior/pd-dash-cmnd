@@ -178,4 +178,21 @@
   .typing-indicator span:nth-child(3) {
     animation-delay: 300ms;
   }
+
+  /* Mermaid diagrams */
+  .mermaid svg {
+    @apply mx-auto max-w-full h-auto;
+  }
+
+  .mermaid .node rect,
+  .mermaid .node circle,
+  .mermaid .node ellipse,
+  .mermaid .node polygon {
+    @apply stroke-2;
+  }
+
+  .mermaid text {
+    font-family: ui-sans-serif, system-ui, sans-serif !important;
+    font-size: 14px;
+  }
 }

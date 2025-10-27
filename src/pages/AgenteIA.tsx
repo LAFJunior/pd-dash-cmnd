@@ -9,6 +9,7 @@ import { Send, Paperclip, Image, Mic } from "lucide-react";
 import iconPD from "@/assets/icon_pd.png";
 import { Card } from "@/components/ui/card";
 import { getSuggestionsByDepartment } from "@/data/chat-suggestions";
+import { MermaidRenderer } from "@/components/MermaidRenderer";
 interface Message {
   id: string;
   content: string;
@@ -346,12 +347,42 @@ const ChatMessage = ({
             li: ({
               children
             }) => <li className="leading-relaxed text-black">{children}</li>,
-            code: ({
-              children
-            }) => <code className="bg-gray-200 px-1 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300">{children}</code>,
-            pre: ({
-              children
-            }) => <pre className="bg-gray-100 p-3 rounded-lg overflow-x-auto mb-3 text-gray-900 border border-gray-300">{children}</pre>,
+            code: ({ node, inline, className, children, ...props }: any) => {
+              const match = /language-(\w+)/.exec(className || "");
+              const codeContent = String(children).replace(/\n$/, '');
+
+              // Detectar e renderizar Mermaid
+              if (!inline && match?.[1] === "mermaid") {
+                return <MermaidRenderer code={codeContent} />;
+              }
+
+              // Código inline (palavras com `backticks`)
+              if (inline) {
+                return (
+                  <code 
+                    className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300"
+                    {...props}
+                  >
+                    {children}
+                  </code>
+                );
+              }
+
+              // Blocos de código normais (outras linguagens)
+              return (
+                <code 
+                  className="text-sm font-mono text-gray-900"
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            },
+            pre: ({ children }: any) => (
+              <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
+                {children}
+              </pre>
+            ),
             blockquote: ({
               children
             }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
