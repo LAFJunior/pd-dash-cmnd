@@ -353,7 +353,11 @@ const ChatMessage = ({
 
               // Detectar e renderizar Mermaid
               if (!inline && match?.[1] === "mermaid") {
-                return <MermaidRenderer code={codeContent} />;
+                return (
+                  <code {...props} className={`${className || ''} mermaid-code`}>
+                    {codeContent}
+                  </code>
+                );
               }
 
               // Código inline (palavras com `backticks`)
@@ -378,11 +382,22 @@ const ChatMessage = ({
                 </code>
               );
             },
-            pre: ({ children }: any) => (
-              <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
-                {children}
-              </pre>
-            ),
+            pre: ({ children }: any) => {
+              // Check if this is a Mermaid diagram
+              const codeElement = typeof children === 'object' && children?.props;
+              const codeClassName = codeElement?.className || '';
+              
+              if (codeClassName.includes('language-mermaid')) {
+                const mermaidContent = String(codeElement?.children || '').replace(/\n$/, '');
+                return <MermaidRenderer code={mermaidContent} />;
+              }
+              
+              return (
+                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
+                  {children}
+                </pre>
+              );
+            },
             blockquote: ({
               children
             }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
