@@ -30,7 +30,8 @@ const AgenteIA = () => {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
+      block: "end"
     });
   };
 
@@ -187,9 +188,9 @@ const AgenteIA = () => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white -m-6 min-h-screen">
+    <div className="flex flex-col h-full bg-white min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-10 backdrop-blur-xl border-b border-gray-200 bg-white/95 shadow-sm">
+      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white shadow-sm">
         <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center">
@@ -214,11 +215,21 @@ const AgenteIA = () => {
       </header>
       
       {/* Chat Messages */}
-      <div className="flex-1">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col h-full py-8">
-          {messages.length === 0 ? <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} /> : <div className="pb-6 space-y-6">
-              {messages.map(message => <ChatMessage key={message.id} message={message} isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} />)}
-              {loading && <div className="flex items-start gap-4">
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-6 py-8">
+          {messages.length === 0 ? (
+            <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
+          ) : (
+            <div className="space-y-6">
+              {messages.map(message => (
+                <ChatMessage 
+                  key={message.id} 
+                  message={message} 
+                  isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} 
+                />
+              ))}
+              {loading && (
+                <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                     <img src={iconPD} alt="Oscar Digital" className="w-full h-full object-cover" loading="eager" />
                   </div>
@@ -227,14 +238,16 @@ const AgenteIA = () => {
                     <span></span>
                     <span></span>
                   </div>
-                </div>}
-            </div>}
-          <div ref={messagesEndRef} />
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+          )}
         </div>
       </div>
       
       {/* Chat Input */}
-      <div className="sticky bottom-0 backdrop-blur-xl border-t border-gray-200 bg-white/95 shadow-lg">
+      <div className="sticky bottom-0 border-t border-gray-200 bg-white shadow-lg">
         <div className="max-w-4xl mx-auto px-6 py-6">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
         </div>
