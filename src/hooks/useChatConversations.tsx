@@ -64,7 +64,7 @@ export const useChatConversations = () => {
       .order('created_at', { ascending: true });
 
     if (!error && data) {
-      setMessages(data);
+      setMessages(data as Message[]);
     }
     setLoading(false);
   };
@@ -107,7 +107,7 @@ export const useChatConversations = () => {
       .single();
 
     if (!error && data) {
-      setMessages(prev => [...prev, data]);
+      setMessages(prev => [...prev, data as Message]);
 
       // Atualiza timestamp da conversa
       await supabase

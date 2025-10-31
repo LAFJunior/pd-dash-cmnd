@@ -38,7 +38,6 @@ const AgenteIA = () => {
   const [userDepartment, setUserDepartment] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const scrollToBottom = () => {
@@ -84,12 +83,6 @@ const AgenteIA = () => {
     
     loadUserProfile();
   }, []);
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
-    }
-  }, [input]);
 
   const appendMessage = (msg: Message) => {
     setMessages(prev => [...prev, msg]);
@@ -213,10 +206,19 @@ const AgenteIA = () => {
   };
 
   const handleNewChat = () => {
-    clearCurrentConversation();
-    setMessages([]);
-    setLastGeneratedMessageId(null);
-    toast.success('Novo chat iniciado');
+    if (messages.length > 0) {
+      if (window.confirm('Tem certeza que deseja iniciar um novo chat? A conversa atual será salva.')) {
+        clearCurrentConversation();
+        setMessages([]);
+        setLastGeneratedMessageId(null);
+        toast.success('Novo chat iniciado');
+      }
+    } else {
+      clearCurrentConversation();
+      setMessages([]);
+      setLastGeneratedMessageId(null);
+      toast.success('Novo chat iniciado');
+    }
   };
 
   return (
@@ -227,6 +229,13 @@ const AgenteIA = () => {
           Oscar Digital
         </div>
         <div className="flex items-center gap-3">
+          <button
+            onClick={handleNewChat}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600"
+            title="Novo chat"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
           <button
             onClick={() => setSidebarOpen(true)}
             className="bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
@@ -239,7 +248,7 @@ const AgenteIA = () => {
 
       {/* Chat Messages */}
       <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6">
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="w-full">
           {messages.length === 0 ? (
             <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
           ) : (
@@ -252,9 +261,9 @@ const AgenteIA = () => {
                 />
               ))}
               {loading && (
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0">
-                    <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchpriority="high" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0">
+                      <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchPriority="high" />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -271,7 +280,7 @@ const AgenteIA = () => {
       
       {/* Chat Input */}
       <div className="bg-white border-t-0 px-6 py-1.5">
-        <div className="max-w-4xl mx-auto">
+        <div className="w-full">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
         </div>
       </div>
@@ -393,13 +402,13 @@ const ChatMessage = ({
 
   const shouldShowAIIcon = !isUser && (!isNewMessage || isThinking || isTyping || displayedContent.length > 0);
 
-  return <div className={`flex gap-4 max-w-4xl mx-auto w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
+  return <div className={`flex gap-4 w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
       {/* Avatar */}
       <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? "bg-blue-500" : "bg-white border border-gray-200"}`}>
         {isUser ? (
           <span className="text-white font-semibold text-sm">U</span>
         ) : shouldShowAIIcon ? (
-          <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchpriority="high" />
+          <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchPriority="high" />
         ) : null}
       </div>
 
@@ -496,13 +505,8 @@ const ChatInput = ({
   isLoading
 }: ChatInputProps) => {
   const [input, setInput] = useState("");
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
-    }
-  }, [input]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
@@ -510,7 +514,7 @@ const ChatInput = ({
       setInput("");
     }
   };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
@@ -520,7 +524,7 @@ const ChatInput = ({
       <form onSubmit={handleSubmit} className="">
         <div className="bg-white border border-gray-300 rounded-3xl flex items-center px-5 py-3 transition-all focus-within:border-blue-500 focus-within:shadow-lg">
           <input 
-            ref={textareaRef}
+            ref={inputRef}
             value={input} 
             onChange={e => setInput(e.target.value)} 
             onKeyDown={handleKeyDown} 
@@ -552,7 +556,7 @@ const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text:
     <div className="flex flex-col items-center justify-center h-full space-y-8 py-12">
       <div className="text-center space-y-3">
         <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-2xl">
-          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" loading="eager" fetchpriority="high" />
+          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" loading="eager" fetchPriority="high" />
         </div>
         <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
           Olá! Como posso ajudar?
@@ -562,7 +566,7 @@ const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text:
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
         {suggestions.map((suggestion, index) => (
           <Card
             key={index}
