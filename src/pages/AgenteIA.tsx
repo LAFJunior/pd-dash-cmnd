@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from "sonner";
+import { useChatConversations } from '@/hooks/useChatConversations';
 import { UserRound, MessageCircle, X, Edit2, Trash2, Plus } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
@@ -17,9 +18,20 @@ interface Message {
   timestamp: Date;
   isPending?: boolean;
 }
-const STORAGE_KEY = 'oscar-digital-chat-messages';
 
 const AgenteIA = () => {
+  const {
+    conversations,
+    currentConversationId,
+    messages: dbMessages,
+    loading: dbLoading,
+    setCurrentConversationId,
+    createConversation,
+    saveMessage,
+    deleteConversation,
+    clearCurrentConversation
+  } = useChatConversations();
+
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastGeneratedMessageId, setLastGeneratedMessageId] = useState<string | null>(null);
@@ -28,20 +40,6 @@ const AgenteIA = () => {
   const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [conversations, setConversations] = useState([
-    "Meu papel no Inside Out - T.I Projetos",
-    "Estratégias de implementação digital",
-    "Análise de documentos DOU e PIT",
-    "Negociação de horas e projetos",
-    "Arquitetura de engajamento interno",
-    "Integrações CRM e APIs vendas",
-    "Escolha de tecnologias modernas",
-    "Deploy e infraestrutura cloud",
-    "Gamificação e módulos de cupom",
-    "Marketing digital integrado",
-    "Transformação digital corporativa",
-    "Embaixadores digitais da marca"
-  ]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
@@ -54,30 +52,19 @@ const AgenteIA = () => {
     scrollToBottom();
   }, [messages, loading]);
 
-  // Carregar mensagens do localStorage ao montar
+  // Sincronizar mensagens do banco
   useEffect(() => {
-    const savedMessages = localStorage.getItem(STORAGE_KEY);
-    if (savedMessages) {
-      try {
-        const parsed = JSON.parse(savedMessages);
-        // Converter timestamps de string para Date
-        const messagesWithDates = parsed.map((msg: any) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp)
-        }));
-        setMessages(messagesWithDates);
-      } catch (error) {
-        console.error('Erro ao carregar mensagens:', error);
-      }
+    if (dbMessages.length > 0) {
+      setMessages(dbMessages.map(msg => ({
+        id: msg.id,
+        content: msg.content,
+        role: msg.role,
+        timestamp: new Date(msg.created_at)
+      })));
+    } else if (!currentConversationId) {
+      setMessages([]);
     }
-  }, []);
-
-  // Salvar mensagens no localStorage sempre que mudarem
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-    }
-  }, [messages]);
+  }, [dbMessages, currentConversationId]);
 
   useEffect(() => {
     const loadUserProfile = async () => {
@@ -109,10 +96,10 @@ const AgenteIA = () => {
   };
 
   const clearChatHistory = () => {
+    clearCurrentConversation();
     setMessages([]);
-    localStorage.removeItem(STORAGE_KEY);
     setLastGeneratedMessageId(null);
-    toast.success('Histórico de conversa limpo');
+    toast.success('Nova conversa iniciada');
   };
 
   const handleSendMessage = async (content: string) => {
@@ -127,6 +114,16 @@ const AgenteIA = () => {
       userProfile = profile;
     }
 
+    // Criar ou usar conversa existente
+    let convId = currentConversationId;
+    if (!convId) {
+      convId = await createConversation(content);
+      if (!convId) {
+        setLoading(false);
+        return;
+      }
+    }
+
     // 1. Add user message immediately (pending)
     const userMessage: Message = {
       id: `user-${Date.now()}`,
@@ -136,6 +133,9 @@ const AgenteIA = () => {
       isPending: true
     };
     appendMessage(userMessage);
+
+    // Salvar mensagem do usuário
+    await saveMessage(convId, content, 'user');
 
     // 4. Call backend for AI response
     let assistantContent = "";
@@ -191,6 +191,10 @@ const AgenteIA = () => {
     };
     appendMessage(assistantMessage);
     setLastGeneratedMessageId(assistantMessageId);
+
+    // Salvar resposta da IA
+    await saveMessage(convId, assistantContent, 'assistant');
+
     setLoading(false);
   };
 
@@ -202,23 +206,15 @@ const AgenteIA = () => {
     }
   };
 
-  const deleteConversation = (index: number) => {
+  const handleDeleteConversation = (id: string) => {
     if (window.confirm('Tem certeza que deseja excluir esta conversa?')) {
-      setConversations(prev => prev.filter((_, i) => i !== index));
-    }
-  };
-
-  const renameConversation = (index: number) => {
-    const currentName = conversations[index];
-    const newName = window.prompt('Renomear conversa:', currentName);
-    if (newName && newName.trim()) {
-      setConversations(prev => prev.map((conv, i) => i === index ? newName.trim() : conv));
+      deleteConversation(id);
     }
   };
 
   const handleNewChat = () => {
+    clearCurrentConversation();
     setMessages([]);
-    localStorage.removeItem(STORAGE_KEY);
     setLastGeneratedMessageId(null);
     toast.success('Novo chat iniciado');
   };
@@ -312,29 +308,22 @@ const AgenteIA = () => {
         </div>
 
         <div className="flex-1 overflow-y-auto p-3">
-          {conversations.map((conversation, index) => (
+          {conversations.map((conversation) => (
             <div
-              key={index}
-              className="group px-4 py-3.5 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 mb-1 flex justify-between items-center text-gray-700 text-sm"
+              key={conversation.id}
+              onClick={() => setCurrentConversationId(conversation.id)}
+              className={`group px-4 py-3.5 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 mb-1 flex justify-between items-center text-gray-700 text-sm ${
+                currentConversationId === conversation.id ? 'bg-gray-100' : ''
+              }`}
             >
               <span className="flex-1 truncate mr-2">
-                {conversation}
+                {conversation.title}
               </span>
               <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    renameConversation(index);
-                  }}
-                  className="p-1.5 hover:bg-gray-200 rounded transition-colors text-gray-600"
-                  title="Renomear"
-                >
-                  <Edit2 className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    deleteConversation(index);
+                    handleDeleteConversation(conversation.id);
                   }}
                   className="p-1.5 hover:bg-gray-200 rounded transition-colors text-gray-600"
                   title="Excluir"
