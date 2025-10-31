@@ -128,7 +128,7 @@ const AgenteIA = () => {
       // Determinar qual webhook usar baseado no role do usuário
       const isAdmin = userProfile?.role === 'admin';
       const webhookUrl = isAdmin 
-        ? "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-admin"
+        ? "https://webhook.pd.oscarcloud.com.br/webhook/dp-develop"
         : "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-user";
       
       const response = await fetch(webhookUrl, {
