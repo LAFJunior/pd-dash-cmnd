@@ -26,7 +26,7 @@ const AgenteIA = () => {
   const [userDepartment, setUserDepartment] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [conversations, setConversations] = useState([
     "Meu papel no Inside Out - T.I Projetos",
@@ -97,6 +97,12 @@ const AgenteIA = () => {
     
     loadUserProfile();
   }, []);
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+    }
+  }, [input]);
 
   const appendMessage = (msg: Message) => {
     setMessages(prev => [...prev, msg]);
@@ -107,16 +113,6 @@ const AgenteIA = () => {
     localStorage.removeItem(STORAGE_KEY);
     setLastGeneratedMessageId(null);
     toast.success('Histórico de conversa limpo');
-  };
-
-  const createNewChat = () => {
-    if (messages.length > 0) {
-      const confirmNew = window.confirm('Deseja iniciar uma nova conversa? A conversa atual será salva no histórico.');
-      if (!confirmNew) return;
-    }
-    setMessages([]);
-    setLastGeneratedMessageId(null);
-    toast.success('Nova conversa iniciada');
   };
 
   const handleSendMessage = async (content: string) => {
@@ -227,17 +223,7 @@ const AgenteIA = () => {
         <div className="text-lg font-semibold text-slate-800">
           Oscar Digital
         </div>
-        <div className="flex items-center gap-3">
-          <button 
-            onClick={createNewChat}
-            className="bg-slate-800 text-white p-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
-            title="Novo Chat"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <line x1="5" y1="12" x2="19" y2="12"/>
-            </svg>
-          </button>
+        <div className="flex items-center gap-4">
           <button 
             onClick={() => setSidebarOpen(true)}
             className="bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
@@ -249,7 +235,7 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6">
+      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6 chat-container">
         <div className="max-w-4xl mx-auto w-full">
           {messages.length === 0 ? (
             <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
@@ -505,8 +491,13 @@ const ChatInput = ({
   isLoading
 }: ChatInputProps) => {
   const [input, setInput] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-  
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+    }
+  }, [input]);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
@@ -514,19 +505,17 @@ const ChatInput = ({
       setInput("");
     }
   };
-  
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
     }
   };
-  
   return <div className="">
       <form onSubmit={handleSubmit} className="">
         <div className="bg-white border border-gray-300 rounded-3xl flex items-center px-5 py-3 transition-all focus-within:border-blue-500 focus-within:shadow-lg">
           <input 
-            ref={inputRef}
+            ref={textareaRef}
             value={input} 
             onChange={e => setInput(e.target.value)} 
             onKeyDown={handleKeyDown} 
