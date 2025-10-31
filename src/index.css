@@ -197,27 +197,6 @@
   }
 
   /* Estilos específicos para o chat Oscar Digital */
-  .chat-container {
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 #f1f5f9;
-  }
-
-  .chat-container::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .chat-container::-webkit-scrollbar-track {
-    background: #f1f5f9;
-  }
-
-  .chat-container::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-  }
-
-  .chat-container::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
 
   /* Efeito glassmorphism para a sidebar */
   .sidebar-glass {

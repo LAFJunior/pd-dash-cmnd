@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from "sonner";
-import { UserRound, MessageCircle, X, Edit2, Trash2 } from "lucide-react";
+import { UserRound, MessageCircle, X, Edit2, Trash2, Plus } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -216,15 +216,22 @@ const AgenteIA = () => {
     }
   };
 
+  const handleNewChat = () => {
+    setMessages([]);
+    localStorage.removeItem(STORAGE_KEY);
+    setLastGeneratedMessageId(null);
+    toast.success('Novo chat iniciado');
+  };
+
   return (
-    <div className="flex flex-col h-screen bg-white overflow-hidden">
+    <div className="flex flex-col h-screen bg-white">
       {/* Header */}
       <div className="bg-white border-b-0 px-6 py-4 flex justify-between items-center shadow-sm">
         <div className="text-lg font-semibold text-slate-800">
           Oscar Digital
         </div>
-        <div className="flex items-center gap-4">
-          <button 
+        <div className="flex items-center gap-3">
+          <button
             onClick={() => setSidebarOpen(true)}
             className="bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
           >
@@ -233,25 +240,25 @@ const AgenteIA = () => {
           </button>
         </div>
       </div>
-      
+
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6 chat-container">
+      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6">
         <div className="max-w-4xl mx-auto w-full">
           {messages.length === 0 ? (
             <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
           ) : (
             <div className="space-y-6">
               {messages.map(message => (
-                <ChatMessage 
-                  key={message.id} 
-                  message={message} 
-                  isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} 
+                <ChatMessage
+                  key={message.id}
+                  message={message}
+                  isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"}
                 />
               ))}
               {loading && (
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-semibold text-sm">O</span>
+                  <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0">
+                    <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchpriority="high" />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -284,20 +291,29 @@ const AgenteIA = () => {
       {/* Sidebar */}
       <div className={`fixed top-0 right-0 w-80 h-full sidebar-glass shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
-          <div className="text-lg font-semibold text-slate-800">
-            Conversas
+          <div className="flex items-center gap-3">
+            <div className="text-lg font-semibold text-slate-800">
+              Conversas
+            </div>
+            <button
+              onClick={handleNewChat}
+              className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
+              title="Novo chat"
+            >
+              <Plus className="w-4 h-4" />
+            </button>
           </div>
-          <button 
+          <button
             onClick={() => setSidebarOpen(false)}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto p-3">
           {conversations.map((conversation, index) => (
-            <div 
+            <div
               key={index}
               className="group px-4 py-3.5 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 mb-1 flex justify-between items-center text-gray-700 text-sm"
             >
@@ -305,7 +321,7 @@ const AgenteIA = () => {
                 {conversation}
               </span>
               <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button 
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
                     renameConversation(index);
@@ -315,7 +331,7 @@ const AgenteIA = () => {
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
-                <button 
+                <button
                   onClick={(e) => {
                     e.stopPropagation();
                     deleteConversation(index);
@@ -390,11 +406,11 @@ const ChatMessage = ({
 
   return <div className={`flex gap-4 max-w-4xl mx-auto w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
       {/* Avatar */}
-      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? "bg-blue-500" : "bg-slate-800"}`}>
+      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? "bg-blue-500" : "bg-white border border-gray-200"}`}>
         {isUser ? (
           <span className="text-white font-semibold text-sm">U</span>
         ) : shouldShowAIIcon ? (
-          <span className="text-white font-semibold text-sm">O</span>
+          <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchpriority="high" />
         ) : null}
       </div>
 
@@ -547,7 +563,7 @@ const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text:
     <div className="flex flex-col items-center justify-center h-full space-y-8 py-12">
       <div className="text-center space-y-3">
         <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-2xl">
-          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" />
+          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" loading="eager" fetchpriority="high" />
         </div>
         <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
           Olá! Como posso ajudar?
