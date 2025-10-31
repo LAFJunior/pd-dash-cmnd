@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from "sonner";
-import { UserRound } from "lucide-react";
+import { UserRound, MessageCircle, X, Edit2, Trash2 } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,6 +27,21 @@ const AgenteIA = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [conversations, setConversations] = useState([
+    "Meu papel no Inside Out - T.I Projetos",
+    "Estratégias de implementação digital",
+    "Análise de documentos DOU e PIT",
+    "Negociação de horas e projetos",
+    "Arquitetura de engajamento interno",
+    "Integrações CRM e APIs vendas",
+    "Escolha de tecnologias modernas",
+    "Deploy e infraestrutura cloud",
+    "Gamificação e módulos de cupom",
+    "Marketing digital integrado",
+    "Transformação digital corporativa",
+    "Embaixadores digitais da marca"
+  ]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
@@ -187,36 +202,41 @@ const AgenteIA = () => {
     }
   };
 
+  const deleteConversation = (index: number) => {
+    if (window.confirm('Tem certeza que deseja excluir esta conversa?')) {
+      setConversations(prev => prev.filter((_, i) => i !== index));
+    }
+  };
+
+  const renameConversation = (index: number) => {
+    const currentName = conversations[index];
+    const newName = window.prompt('Renomear conversa:', currentName);
+    if (newName && newName.trim()) {
+      setConversations(prev => prev.map((conv, i) => i === index ? newName.trim() : conv));
+    }
+  };
+
   return (
-    <div className="flex flex-col h-full bg-white min-h-screen">
+    <div className="flex flex-col h-screen bg-white overflow-hidden">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white shadow-sm">
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center">
-              <img src={iconPD} alt="Oscar Digital" className="w-10 h-10 object-contain" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Oscar Digital
-              </h1>
-              <p className="text-xs text-muted-foreground">Seu assistente inteligente</p>
-            </div>
-          </div>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={clearChatHistory} 
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Limpar Conversa
-          </Button>
+      <div className="bg-white border-b-0 px-6 py-4 flex justify-between items-center shadow-sm">
+        <div className="text-lg font-semibold text-slate-800">
+          Oscar Digital
         </div>
-      </header>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={() => setSidebarOpen(true)}
+            className="bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Conversas
+          </button>
+        </div>
+      </div>
       
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6 chat-container">
+        <div className="max-w-4xl mx-auto w-full">
           {messages.length === 0 ? (
             <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
           ) : (
@@ -230,8 +250,8 @@ const AgenteIA = () => {
               ))}
               {loading && (
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
-                    <img src={iconPD} alt="Oscar Digital" className="w-full h-full object-cover" loading="eager" />
+                  <div className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-semibold text-sm">O</span>
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -247,9 +267,67 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Input */}
-      <div className="sticky bottom-0 border-t border-gray-200 bg-white shadow-lg">
-        <div className="max-w-4xl mx-auto px-6 py-6">
+      <div className="bg-white border-t-0 px-6 py-1.5">
+        <div className="max-w-4xl mx-auto">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
+        </div>
+      </div>
+
+      {/* Sidebar Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-30 z-40 transition-opacity"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`fixed top-0 right-0 w-80 h-full sidebar-glass shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
+          <div className="text-lg font-semibold text-slate-800">
+            Conversas
+          </div>
+          <button 
+            onClick={() => setSidebarOpen(false)}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <div className="flex-1 overflow-y-auto p-3">
+          {conversations.map((conversation, index) => (
+            <div 
+              key={index}
+              className="group px-4 py-3.5 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 mb-1 flex justify-between items-center text-gray-700 text-sm"
+            >
+              <span className="flex-1 truncate mr-2">
+                {conversation}
+              </span>
+              <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    renameConversation(index);
+                  }}
+                  className="p-1.5 hover:bg-gray-200 rounded transition-colors text-gray-600"
+                  title="Renomear"
+                >
+                  <Edit2 className="w-4 h-4" />
+                </button>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteConversation(index);
+                  }}
+                  className="p-1.5 hover:bg-gray-200 rounded transition-colors text-gray-600"
+                  title="Excluir"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -310,119 +388,93 @@ const ChatMessage = ({
 
   const shouldShowAIIcon = !isUser && (!isNewMessage || isThinking || isTyping || displayedContent.length > 0);
 
-  return <div className={`group relative ${isUser ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}`}>
-      <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
-        {shouldShowAIIcon && (
-          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
-            <img src={iconPD} alt="Oscar Digital" className="w-7 h-7 object-contain" loading="eager" />
+  return <div className={`flex gap-4 max-w-4xl mx-auto w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
+      {/* Avatar */}
+      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? "bg-blue-500" : "bg-slate-800"}`}>
+        {isUser ? (
+          <span className="text-white font-semibold text-sm">U</span>
+        ) : shouldShowAIIcon ? (
+          <span className="text-white font-semibold text-sm">O</span>
+        ) : null}
+      </div>
+
+      {/* Message Content */}
+      <div className="flex-1">
+        {isUser ? (
+          <div className="bg-gray-100 text-slate-800 px-5 py-4 rounded-2xl max-w-full">
+            <p className="whitespace-pre-wrap leading-relaxed">{displayedContent}</p>
           </div>
-        )}
+        ) : (
+          <div className="bg-transparent text-slate-800 px-0 py-4">
+            {isThinking ? (
+              <div className="flex items-center space-x-1">
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
+              </div>
+            ) : (
+              <ReactMarkdown components={{
+                p: ({ children }) => <p className="mb-3 last:mb-0 leading-relaxed text-gray-700">{children}</p>,
+                h1: ({ children }) => <h1 className="text-xl font-bold mb-3 text-slate-800">{children}</h1>,
+                h2: ({ children }) => <h2 className="text-lg font-bold mb-2 text-slate-800">{children}</h2>,
+                h3: ({ children }) => <h3 className="text-base font-semibold mb-3 text-slate-800">{children}</h3>,
+                strong: ({ children }) => <strong className="font-semibold text-slate-800">{children}</strong>,
+                em: ({ children }) => <em className="italic text-gray-700">{children}</em>,
+                ol: ({ children }) => <ol className="list-decimal list-inside mb-3 ml-5 text-gray-700">{children}</ol>,
+                ul: ({ children }) => <ul className="list-disc list-inside mb-3 ml-5 text-gray-700">{children}</ul>,
+                li: ({ children }) => <li className="leading-relaxed mb-2 text-gray-700">{children}</li>,
+                code: ({ node, inline, className, children, ...props }: any) => {
+                  const match = /language-(\w+)/.exec(className || "");
+                  const codeContent = String(children).replace(/\n$/, '');
 
-        <div className="max-w-full break-words">
-          {isUser ? <div className="bg-[#F3F4F6] text-black px-5 py-3.5 rounded-2xl rounded-tr-md shadow-sm max-w-[80%] ml-auto">
-              <p className="whitespace-pre-wrap leading-relaxed text-[15px]">{displayedContent}</p>
-            </div> : <div className="markdown-content bg-transparent text-foreground px-2 py-1">
-              {isThinking ? <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
-              animationDelay: '0ms'
-            }} />
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
-              animationDelay: '150ms'
-            }} />
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
-              animationDelay: '300ms'
-            }} />
-                </div> : <ReactMarkdown components={{
-            p: ({
-              children
-            }) => <p className="mb-3 last:mb-0 leading-relaxed text-black">{children}</p>,
-            h1: ({
-              children
-            }) => <h1 className="text-xl font-bold mb-3 text-black">{children}</h1>,
-            h2: ({
-              children
-            }) => <h2 className="text-lg font-bold mb-2 text-black">{children}</h2>,
-            h3: ({
-              children
-            }) => <h3 className="text-base font-bold mb-2 text-black">{children}</h3>,
-            strong: ({
-              children
-            }) => <strong className="font-bold text-black">{children}</strong>,
-            em: ({
-              children
-            }) => <em className="italic text-black">{children}</em>,
-            ol: ({
-              children
-            }) => <ol className="list-decimal list-inside mb-3 ml-4 text-black">{children}</ol>,
-            ul: ({
-              children
-            }) => <ul className="list-disc list-inside mb-3 ml-4 text-black">{children}</ul>,
-            li: ({
-              children
-            }) => <li className="leading-relaxed text-black">{children}</li>,
-            code: ({ node, inline, className, children, ...props }: any) => {
-              const match = /language-(\w+)/.exec(className || "");
-              const codeContent = String(children).replace(/\n$/, '');
+                  if (!inline && match?.[1] === "mermaid") {
+                    return (
+                      <code {...props} className={`${className || ''} mermaid-code`}>
+                        {codeContent}
+                      </code>
+                    );
+                  }
 
-              // Detectar e renderizar Mermaid
-              if (!inline && match?.[1] === "mermaid") {
-                return (
-                  <code {...props} className={`${className || ''} mermaid-code`}>
-                    {codeContent}
-                  </code>
-                );
-              }
+                  if (inline) {
+                    return (
+                      <code 
+                        className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300"
+                        {...props}
+                      >
+                        {children}
+                      </code>
+                    );
+                  }
 
-              // Código inline (palavras com `backticks`)
-              if (inline) {
-                return (
-                  <code 
-                    className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300"
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              }
-
-              // Blocos de código normais (outras linguagens)
-              return (
-                <code 
-                  className="text-sm font-mono text-gray-900"
-                  {...props}
-                >
-                  {children}
-                </code>
-              );
-            },
-            pre: ({ children }: any) => {
-              // Check if this is a Mermaid diagram
-              const codeElement = typeof children === 'object' && children?.props;
-              const codeClassName = codeElement?.className || '';
-              
-              if (codeClassName.includes('language-mermaid')) {
-                const mermaidContent = String(codeElement?.children || '').replace(/\n$/, '');
-                return <MermaidRenderer code={mermaidContent} />;
-              }
-              
-              return (
-                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
-                  {children}
-                </pre>
-              );
-            },
-            blockquote: ({
-              children
-            }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
-          }}>
-                  {displayedContent}
-                </ReactMarkdown>}
-            </div>}
-        </div>
-
-        {isUser && (
-          <div className="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center flex-shrink-0">
-            <UserRound className="h-4 w-4 text-black" />
+                  return (
+                    <code 
+                      className="text-sm font-mono text-gray-900"
+                      {...props}
+                    >
+                      {children}
+                    </code>
+                  );
+                },
+                pre: ({ children }: any) => {
+                  const codeElement = typeof children === 'object' && children?.props;
+                  const codeClassName = codeElement?.className || '';
+                  
+                  if (codeClassName.includes('language-mermaid')) {
+                    const mermaidContent = String(codeElement?.children || '').replace(/\n$/, '');
+                    return <MermaidRenderer code={mermaidContent} />;
+                  }
+                  
+                  return (
+                    <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
+                      {children}
+                    </pre>
+                  );
+                },
+                blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-gray-700">{children}</blockquote>
+              }}>
+                {displayedContent}
+              </ReactMarkdown>
+            )}
           </div>
         )}
       </div>
@@ -459,67 +511,30 @@ const ChatInput = ({
       handleSubmit(e);
     }
   };
-  return <div className="relative">
-      <form onSubmit={handleSubmit} className="relative">
-        <div className="relative flex items-center rounded-3xl border-2 border-gray-200 shadow-md hover:shadow-lg transition-all bg-white backdrop-blur-sm focus-within:border-primary focus-within:shadow-xl">
-          <div className="flex items-center gap-1 pl-4 pr-2 py-3">
-            <Button 
-              type="button" 
-              variant="ghost" 
-              size="icon" 
-              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
-              disabled={isLoading}
-            >
-              <Paperclip className="h-5 w-5" />
-              <span className="sr-only">Anexar arquivo</span>
-            </Button>
-            <Button 
-              type="button" 
-              variant="ghost" 
-              size="icon" 
-              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
-              disabled={isLoading}
-            >
-              <Image className="h-5 w-5" />
-              <span className="sr-only">Adicionar imagem</span>
-            </Button>
-          </div>
-
-          <Textarea 
-            ref={textareaRef} 
+  return <div className="">
+      <form onSubmit={handleSubmit} className="">
+        <div className="bg-white border border-gray-300 rounded-3xl flex items-center px-5 py-3 transition-all focus-within:border-blue-500 focus-within:shadow-lg">
+          <input 
+            ref={textareaRef}
             value={input} 
             onChange={e => setInput(e.target.value)} 
             onKeyDown={handleKeyDown} 
-            placeholder="Pergunte ao Oscar Digital sobre processos..." 
-            className="flex-1 min-h-[24px] max-h-[200px] resize-none border-0 bg-transparent px-2 py-4 placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 text-base" 
-            disabled={isLoading} 
-            rows={1} 
+            placeholder="Pergunte qualquer coisa..." 
+            className="flex-1 bg-transparent border-0 outline-none text-base text-gray-800 placeholder-gray-500 pl-2" 
+            disabled={isLoading}
           />
-
-          <div className="flex items-center gap-1 pr-4 pl-2 py-3">
-            {input.trim() ? <Button 
-                type="submit" 
-                size="icon" 
-                className="h-10 w-10 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-xl transition-all" 
-                disabled={isLoading || !input.trim()}
-              >
-                <Send className="h-5 w-5" />
-                <span className="sr-only">Enviar mensagem</span>
-              </Button> : <Button 
-                type="button" 
-                variant="ghost" 
-                size="icon" 
-                className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
-                disabled={isLoading}
-              >
-                <Mic className="h-5 w-5" />
-                <span className="sr-only">Gravar áudio</span>
-              </Button>}
-          </div>
+          
+          <button 
+            type="submit"
+            disabled={isLoading || !input.trim()}
+            className="bg-slate-800 hover:bg-slate-700 text-white p-2.5 rounded-full transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed ml-3"
+          >
+            <Send className="w-4 h-4" />
+          </button>
         </div>
       </form>
       
-      <p className="text-xs text-center mt-3 text-muted-foreground/80">
+      <p className="text-xs text-center mt-3 text-gray-500">
         O Oscar Digital está em desenvolvimento e pode cometer erros. Verifique informações importantes.
       </p>
     </div>;
