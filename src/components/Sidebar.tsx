@@ -12,8 +12,7 @@ import {
   FileText,
   LogOut,
   Shield,
-  MessageSquare,
-  GraduationCap
+  MessageSquare
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
@@ -94,12 +93,6 @@ const Sidebar = () => {
           to="/mapa-lojas" 
           icon={<Store size={20} />} 
           text="Mapa das Lojas" 
-          collapsed={collapsed}
-        />
-        <MenuItem 
-          to="/lojas" 
-          icon={<GraduationCap size={20} />} 
-          text="Oscar Academy" 
           collapsed={collapsed}
         />
         <MenuItem 

@@ -8,8 +8,6 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import MapaContexto from "./pages/MapaContexto";
 import MapaLojas from "./pages/MapaLojas";
-import Lojas from "./pages/Lojas";
-import LojaDetalhe from "./pages/LojaDetalhe";
 import Departamentos from "./pages/Departamentos";
 import DetalheDepartamento from "./pages/DetalheDepartamento";
 import Organograma from "./pages/Organograma";
@@ -43,8 +41,6 @@ const App = () => (
                   <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                   <Route path="/mapa-contexto" element={<ProtectedRoute><MapaContexto /></ProtectedRoute>} />
                   <Route path="/mapa-lojas" element={<ProtectedRoute><MapaLojas /></ProtectedRoute>} />
-                  <Route path="/lojas" element={<ProtectedRoute><Lojas /></ProtectedRoute>} />
-                  <Route path="/lojas/:id" element={<ProtectedRoute><LojaDetalhe /></ProtectedRoute>} />
                   <Route path="/departamentos" element={<ProtectedRoute><Departamentos /></ProtectedRoute>} />
                   <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
                   <Route path="/organograma" element={<ProtectedRoute><Organograma /></ProtectedRoute>} />

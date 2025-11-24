@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from "sonner";
-import { useChatConversations } from '@/hooks/useChatConversations';
-import { UserRound, MessageCircle, X, Edit2, Trash2, Plus } from "lucide-react";
+import { UserRound } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,27 +17,16 @@ interface Message {
   timestamp: Date;
   isPending?: boolean;
 }
+const STORAGE_KEY = 'oscar-digital-chat-messages';
 
 const AgenteIA = () => {
-  const {
-    conversations,
-    currentConversationId,
-    messages: dbMessages,
-    loading: dbLoading,
-    setCurrentConversationId,
-    createConversation,
-    saveMessage,
-    deleteConversation,
-    clearCurrentConversation
-  } = useChatConversations();
-
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const [lastGeneratedMessageId, setLastGeneratedMessageId] = useState<string | null>(null);
   const [userDepartment, setUserDepartment] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [input, setInput] = useState("");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({
@@ -51,19 +39,30 @@ const AgenteIA = () => {
     scrollToBottom();
   }, [messages, loading]);
 
-  // Sincronizar mensagens do banco
+  // Carregar mensagens do localStorage ao montar
   useEffect(() => {
-    if (dbMessages.length > 0) {
-      setMessages(dbMessages.map(msg => ({
-        id: msg.id,
-        content: msg.content,
-        role: msg.role,
-        timestamp: new Date(msg.created_at)
-      })));
-    } else if (!currentConversationId) {
-      setMessages([]);
+    const savedMessages = localStorage.getItem(STORAGE_KEY);
+    if (savedMessages) {
+      try {
+        const parsed = JSON.parse(savedMessages);
+        // Converter timestamps de string para Date
+        const messagesWithDates = parsed.map((msg: any) => ({
+          ...msg,
+          timestamp: new Date(msg.timestamp)
+        }));
+        setMessages(messagesWithDates);
+      } catch (error) {
+        console.error('Erro ao carregar mensagens:', error);
+      }
     }
-  }, [dbMessages, currentConversationId]);
+  }, []);
+
+  // Salvar mensagens no localStorage sempre que mudarem
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    }
+  }, [messages]);
 
   useEffect(() => {
     const loadUserProfile = async () => {
@@ -83,16 +82,22 @@ const AgenteIA = () => {
     
     loadUserProfile();
   }, []);
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+    }
+  }, [input]);
 
   const appendMessage = (msg: Message) => {
     setMessages(prev => [...prev, msg]);
   };
 
   const clearChatHistory = () => {
-    clearCurrentConversation();
     setMessages([]);
+    localStorage.removeItem(STORAGE_KEY);
     setLastGeneratedMessageId(null);
-    toast.success('Nova conversa iniciada');
+    toast.success('Histórico de conversa limpo');
   };
 
   const handleSendMessage = async (content: string) => {
@@ -107,16 +112,6 @@ const AgenteIA = () => {
       userProfile = profile;
     }
 
-    // Criar ou usar conversa existente
-    let convId = currentConversationId;
-    if (!convId) {
-      convId = await createConversation(content);
-      if (!convId) {
-        setLoading(false);
-        return;
-      }
-    }
-
     // 1. Add user message immediately (pending)
     const userMessage: Message = {
       id: `user-${Date.now()}`,
@@ -127,16 +122,13 @@ const AgenteIA = () => {
     };
     appendMessage(userMessage);
 
-    // Salvar mensagem do usuário
-    await saveMessage(convId, content, 'user');
-
     // 4. Call backend for AI response
     let assistantContent = "";
     try {
       // Determinar qual webhook usar baseado no role do usuário
       const isAdmin = userProfile?.role === 'admin';
       const webhookUrl = isAdmin 
-        ? "https://webhook.pd.oscarcloud.com.br/webhook/dp-develop"
+        ? "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-admin"
         : "https://webhook.pd.oscarcloud.com.br/webhook/processos-digitais-user";
       
       const response = await fetch(webhookUrl, {
@@ -184,10 +176,6 @@ const AgenteIA = () => {
     };
     appendMessage(assistantMessage);
     setLastGeneratedMessageId(assistantMessageId);
-
-    // Salvar resposta da IA
-    await saveMessage(convId, assistantContent, 'assistant');
-
     setLoading(false);
   };
 
@@ -199,71 +187,51 @@ const AgenteIA = () => {
     }
   };
 
-  const handleDeleteConversation = (id: string) => {
-    if (window.confirm('Tem certeza que deseja excluir esta conversa?')) {
-      deleteConversation(id);
-    }
-  };
-
-  const handleNewChat = () => {
-    if (messages.length > 0) {
-      if (window.confirm('Tem certeza que deseja iniciar um novo chat? A conversa atual será salva.')) {
-        clearCurrentConversation();
-        setMessages([]);
-        setLastGeneratedMessageId(null);
-        toast.success('Novo chat iniciado');
-      }
-    } else {
-      clearCurrentConversation();
-      setMessages([]);
-      setLastGeneratedMessageId(null);
-      toast.success('Novo chat iniciado');
-    }
-  };
-
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className="flex flex-col h-full bg-white min-h-screen">
       {/* Header */}
-      <div className="bg-white border-b-0 px-6 py-4 flex justify-between items-center shadow-sm">
-        <div className="text-lg font-semibold text-slate-800">
-          Oscar Digital
-        </div>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={handleNewChat}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600"
-            title="Novo chat"
+      <header className="sticky top-0 z-10 border-b border-gray-200 bg-white shadow-sm">
+        <div className="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 flex items-center justify-center">
+              <img src={iconPD} alt="Oscar Digital" className="w-10 h-10 object-contain" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                Oscar Digital
+              </h1>
+              <p className="text-xs text-muted-foreground">Seu assistente inteligente</p>
+            </div>
+          </div>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={clearChatHistory} 
+            className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Plus className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="bg-slate-800 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors flex items-center gap-2"
-          >
-            <MessageCircle className="w-4 h-4" />
-            Conversas
-          </button>
+            Limpar Conversa
+          </Button>
         </div>
-      </div>
-
+      </header>
+      
       {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-6">
-        <div className="w-full">
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-6 py-8">
           {messages.length === 0 ? (
             <EmptyState onSuggestClick={handleSendMessage} userDepartment={userDepartment} />
           ) : (
             <div className="space-y-6">
               {messages.map(message => (
-                <ChatMessage
-                  key={message.id}
-                  message={message}
-                  isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"}
+                <ChatMessage 
+                  key={message.id} 
+                  message={message} 
+                  isNewMessage={message.id === lastGeneratedMessageId && message.role === "assistant"} 
                 />
               ))}
               {loading && (
-                  <div className="flex items-start gap-4">
-                    <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0">
-                      <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchPriority="high" />
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
+                    <img src={iconPD} alt="Oscar Digital" className="w-full h-full object-cover" loading="eager" />
                   </div>
                   <div className="typing-indicator mt-1">
                     <span></span>
@@ -279,69 +247,9 @@ const AgenteIA = () => {
       </div>
       
       {/* Chat Input */}
-      <div className="bg-white border-t-0 px-6 py-1.5">
-        <div className="w-full">
+      <div className="sticky bottom-0 border-t border-gray-200 bg-white shadow-lg">
+        <div className="max-w-4xl mx-auto px-6 py-6">
           <ChatInput onSendMessage={handleSendMessage} isLoading={loading} />
-        </div>
-      </div>
-
-      {/* Sidebar Overlay */}
-      {sidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-30 z-40 transition-opacity"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <div className={`fixed top-0 right-0 w-80 h-full sidebar-glass shadow-2xl z-50 flex flex-col transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="text-lg font-semibold text-slate-800">
-              Conversas
-            </div>
-            <button
-              onClick={handleNewChat}
-              className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
-              title="Novo chat"
-            >
-              <Plus className="w-4 h-4" />
-            </button>
-          </div>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <div className="flex-1 overflow-y-auto p-3">
-          {conversations.map((conversation) => (
-            <div
-              key={conversation.id}
-              onClick={() => setCurrentConversationId(conversation.id)}
-              className={`group px-4 py-3.5 rounded-lg cursor-pointer transition-colors hover:bg-gray-100 mb-1 flex justify-between items-center text-gray-700 text-sm ${
-                currentConversationId === conversation.id ? 'bg-gray-100' : ''
-              }`}
-            >
-              <span className="flex-1 truncate mr-2">
-                {conversation.title}
-              </span>
-              <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteConversation(conversation.id);
-                  }}
-                  className="p-1.5 hover:bg-gray-200 rounded transition-colors text-gray-600"
-                  title="Excluir"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>
@@ -402,93 +310,119 @@ const ChatMessage = ({
 
   const shouldShowAIIcon = !isUser && (!isNewMessage || isThinking || isTyping || displayedContent.length > 0);
 
-  return <div className={`flex gap-4 w-full ${isUser ? "flex-row-reverse" : "flex-row"}`}>
-      {/* Avatar */}
-      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? "bg-blue-500" : "bg-white border border-gray-200"}`}>
-        {isUser ? (
-          <span className="text-white font-semibold text-sm">U</span>
-        ) : shouldShowAIIcon ? (
-          <img src={iconPD} alt="Oscar Digital" className="w-6 h-6 object-contain" loading="eager" fetchPriority="high" />
-        ) : null}
-      </div>
-
-      {/* Message Content */}
-      <div className="flex-1">
-        {isUser ? (
-          <div className="bg-gray-100 text-slate-800 px-5 py-4 rounded-2xl max-w-full">
-            <p className="whitespace-pre-wrap leading-relaxed">{displayedContent}</p>
+  return <div className={`group relative ${isUser ? "ml-auto max-w-[85%]" : "mr-auto max-w-full"}`}>
+      <div className={`flex gap-4 ${isUser ? "justify-end" : "justify-start"}`}>
+        {shouldShowAIIcon && (
+          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 border border-gray-200">
+            <img src={iconPD} alt="Oscar Digital" className="w-7 h-7 object-contain" loading="eager" />
           </div>
-        ) : (
-          <div className="bg-transparent text-slate-800 px-0 py-4">
-            {isThinking ? (
-              <div className="flex items-center space-x-1">
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
-              </div>
-            ) : (
-              <ReactMarkdown components={{
-                p: ({ children }) => <p className="mb-3 last:mb-0 leading-relaxed text-gray-700">{children}</p>,
-                h1: ({ children }) => <h1 className="text-xl font-bold mb-3 text-slate-800">{children}</h1>,
-                h2: ({ children }) => <h2 className="text-lg font-bold mb-2 text-slate-800">{children}</h2>,
-                h3: ({ children }) => <h3 className="text-base font-semibold mb-3 text-slate-800">{children}</h3>,
-                strong: ({ children }) => <strong className="font-semibold text-slate-800">{children}</strong>,
-                em: ({ children }) => <em className="italic text-gray-700">{children}</em>,
-                ol: ({ children }) => <ol className="list-decimal list-inside mb-3 ml-5 text-gray-700">{children}</ol>,
-                ul: ({ children }) => <ul className="list-disc list-inside mb-3 ml-5 text-gray-700">{children}</ul>,
-                li: ({ children }) => <li className="leading-relaxed mb-2 text-gray-700">{children}</li>,
-                code: ({ node, inline, className, children, ...props }: any) => {
-                  const match = /language-(\w+)/.exec(className || "");
-                  const codeContent = String(children).replace(/\n$/, '');
+        )}
 
-                  if (!inline && match?.[1] === "mermaid") {
-                    return (
-                      <code {...props} className={`${className || ''} mermaid-code`}>
-                        {codeContent}
-                      </code>
-                    );
-                  }
+        <div className="max-w-full break-words">
+          {isUser ? <div className="bg-[#F3F4F6] text-black px-5 py-3.5 rounded-2xl rounded-tr-md shadow-sm max-w-[80%] ml-auto">
+              <p className="whitespace-pre-wrap leading-relaxed text-[15px]">{displayedContent}</p>
+            </div> : <div className="markdown-content bg-transparent text-foreground px-2 py-1">
+              {isThinking ? <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
+              animationDelay: '0ms'
+            }} />
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
+              animationDelay: '150ms'
+            }} />
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{
+              animationDelay: '300ms'
+            }} />
+                </div> : <ReactMarkdown components={{
+            p: ({
+              children
+            }) => <p className="mb-3 last:mb-0 leading-relaxed text-black">{children}</p>,
+            h1: ({
+              children
+            }) => <h1 className="text-xl font-bold mb-3 text-black">{children}</h1>,
+            h2: ({
+              children
+            }) => <h2 className="text-lg font-bold mb-2 text-black">{children}</h2>,
+            h3: ({
+              children
+            }) => <h3 className="text-base font-bold mb-2 text-black">{children}</h3>,
+            strong: ({
+              children
+            }) => <strong className="font-bold text-black">{children}</strong>,
+            em: ({
+              children
+            }) => <em className="italic text-black">{children}</em>,
+            ol: ({
+              children
+            }) => <ol className="list-decimal list-inside mb-3 ml-4 text-black">{children}</ol>,
+            ul: ({
+              children
+            }) => <ul className="list-disc list-inside mb-3 ml-4 text-black">{children}</ul>,
+            li: ({
+              children
+            }) => <li className="leading-relaxed text-black">{children}</li>,
+            code: ({ node, inline, className, children, ...props }: any) => {
+              const match = /language-(\w+)/.exec(className || "");
+              const codeContent = String(children).replace(/\n$/, '');
 
-                  if (inline) {
-                    return (
-                      <code 
-                        className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300"
-                        {...props}
-                      >
-                        {children}
-                      </code>
-                    );
-                  }
+              // Detectar e renderizar Mermaid
+              if (!inline && match?.[1] === "mermaid") {
+                return (
+                  <code {...props} className={`${className || ''} mermaid-code`}>
+                    {codeContent}
+                  </code>
+                );
+              }
 
-                  return (
-                    <code 
-                      className="text-sm font-mono text-gray-900"
-                      {...props}
-                    >
-                      {children}
-                    </code>
-                  );
-                },
-                pre: ({ children }: any) => {
-                  const codeElement = typeof children === 'object' && children?.props;
-                  const codeClassName = codeElement?.className || '';
-                  
-                  if (codeClassName.includes('language-mermaid')) {
-                    const mermaidContent = String(codeElement?.children || '').replace(/\n$/, '');
-                    return <MermaidRenderer code={mermaidContent} />;
-                  }
-                  
-                  return (
-                    <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
-                      {children}
-                    </pre>
-                  );
-                },
-                blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-gray-700">{children}</blockquote>
-              }}>
-                {displayedContent}
-              </ReactMarkdown>
-            )}
+              // Código inline (palavras com `backticks`)
+              if (inline) {
+                return (
+                  <code 
+                    className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800 border border-gray-300"
+                    {...props}
+                  >
+                    {children}
+                  </code>
+                );
+              }
+
+              // Blocos de código normais (outras linguagens)
+              return (
+                <code 
+                  className="text-sm font-mono text-gray-900"
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            },
+            pre: ({ children }: any) => {
+              // Check if this is a Mermaid diagram
+              const codeElement = typeof children === 'object' && children?.props;
+              const codeClassName = codeElement?.className || '';
+              
+              if (codeClassName.includes('language-mermaid')) {
+                const mermaidContent = String(codeElement?.children || '').replace(/\n$/, '');
+                return <MermaidRenderer code={mermaidContent} />;
+              }
+              
+              return (
+                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-3 border border-gray-300">
+                  {children}
+                </pre>
+              );
+            },
+            blockquote: ({
+              children
+            }) => <blockquote className="border-l-4 border-gray-600 pl-4 italic mb-3 text-black">{children}</blockquote>
+          }}>
+                  {displayedContent}
+                </ReactMarkdown>}
+            </div>}
+        </div>
+
+        {isUser && (
+          <div className="w-8 h-8 rounded-full bg-[#f3f4f6] flex items-center justify-center flex-shrink-0">
+            <UserRound className="h-4 w-4 text-black" />
           </div>
         )}
       </div>
@@ -505,8 +439,13 @@ const ChatInput = ({
   isLoading
 }: ChatInputProps) => {
   const [input, setInput] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-  
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
+    }
+  }, [input]);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() && !isLoading) {
@@ -514,36 +453,73 @@ const ChatInput = ({
       setInput("");
     }
   };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
     }
   };
-  return <div className="">
-      <form onSubmit={handleSubmit} className="">
-        <div className="bg-white border border-gray-300 rounded-3xl flex items-center px-5 py-3 transition-all focus-within:border-blue-500 focus-within:shadow-lg">
-          <input 
-            ref={inputRef}
+  return <div className="relative">
+      <form onSubmit={handleSubmit} className="relative">
+        <div className="relative flex items-center rounded-3xl border-2 border-gray-200 shadow-md hover:shadow-lg transition-all bg-white backdrop-blur-sm focus-within:border-primary focus-within:shadow-xl">
+          <div className="flex items-center gap-1 pl-4 pr-2 py-3">
+            <Button 
+              type="button" 
+              variant="ghost" 
+              size="icon" 
+              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+              disabled={isLoading}
+            >
+              <Paperclip className="h-5 w-5" />
+              <span className="sr-only">Anexar arquivo</span>
+            </Button>
+            <Button 
+              type="button" 
+              variant="ghost" 
+              size="icon" 
+              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+              disabled={isLoading}
+            >
+              <Image className="h-5 w-5" />
+              <span className="sr-only">Adicionar imagem</span>
+            </Button>
+          </div>
+
+          <Textarea 
+            ref={textareaRef} 
             value={input} 
             onChange={e => setInput(e.target.value)} 
             onKeyDown={handleKeyDown} 
-            placeholder="Pergunte qualquer coisa..." 
-            className="flex-1 bg-transparent border-0 outline-none text-base text-gray-800 placeholder-gray-500 pl-2" 
-            disabled={isLoading}
+            placeholder="Pergunte ao Oscar Digital sobre processos..." 
+            className="flex-1 min-h-[24px] max-h-[200px] resize-none border-0 bg-transparent px-2 py-4 placeholder:text-muted-foreground/60 focus-visible:ring-0 focus-visible:ring-offset-0 text-base" 
+            disabled={isLoading} 
+            rows={1} 
           />
-          
-          <button 
-            type="submit"
-            disabled={isLoading || !input.trim()}
-            className="bg-slate-800 hover:bg-slate-700 text-white p-2.5 rounded-full transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed ml-3"
-          >
-            <Send className="w-4 h-4" />
-          </button>
+
+          <div className="flex items-center gap-1 pr-4 pl-2 py-3">
+            {input.trim() ? <Button 
+                type="submit" 
+                size="icon" 
+                className="h-10 w-10 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-xl transition-all" 
+                disabled={isLoading || !input.trim()}
+              >
+                <Send className="h-5 w-5" />
+                <span className="sr-only">Enviar mensagem</span>
+              </Button> : <Button 
+                type="button" 
+                variant="ghost" 
+                size="icon" 
+                className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors" 
+                disabled={isLoading}
+              >
+                <Mic className="h-5 w-5" />
+                <span className="sr-only">Gravar áudio</span>
+              </Button>}
+          </div>
         </div>
       </form>
       
-      <p className="text-xs text-center mt-3 text-gray-500">
+      <p className="text-xs text-center mt-3 text-muted-foreground/80">
         O Oscar Digital está em desenvolvimento e pode cometer erros. Verifique informações importantes.
       </p>
     </div>;
@@ -556,7 +532,7 @@ const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text:
     <div className="flex flex-col items-center justify-center h-full space-y-8 py-12">
       <div className="text-center space-y-3">
         <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-2xl">
-          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" loading="eager" fetchPriority="high" />
+          <img src={iconPD} alt="Oscar Digital" className="w-12 h-12 object-contain" />
         </div>
         <h2 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
           Olá! Como posso ajudar?
@@ -566,7 +542,7 @@ const EmptyState = ({ onSuggestClick, userDepartment }: { onSuggestClick: (text:
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
         {suggestions.map((suggestion, index) => (
           <Card
             key={index}
