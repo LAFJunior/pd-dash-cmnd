@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  MapPin, 
-  Briefcase, 
-  Users, 
-  Bot, 
+import {
+  LayoutDashboard,
+  MapPin,
+  Briefcase,
+  Users,
+  Bot,
   ChevronLeft,
   Store,
   BookOpen,
   FileText,
   LogOut,
   Shield,
-  MessageSquare
+  MessageSquare,
+  GraduationCap
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
@@ -107,13 +108,19 @@ const Sidebar = () => {
           text="Organograma" 
           collapsed={collapsed}
         />
-        <MenuItem 
-          to="/agente-ia" 
-          icon={<Bot size={20} />} 
-          text="Agente IA Oscar" 
+        <MenuItem
+          to="/agente-ia"
+          icon={<Bot size={20} />}
+          text="Agente IA Oscar"
           collapsed={collapsed}
         />
-        
+        <MenuItem
+          to="/cursos"
+          icon={<GraduationCap size={20} />}
+          text="Cursos"
+          collapsed={collapsed}
+        />
+
         <div className="mt-4 pt-4 border-t border-sidebar-accent">
           <MenuItem 
             to="/docs-pd" 

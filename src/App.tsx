@@ -19,6 +19,8 @@ import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import ResetPassword from "./pages/ResetPassword";
 import MuralDigital from "./pages/MuralDigital";
+import Cursos from "./pages/Cursos";
+import CursoDetalhes from "./pages/CursoDetalhes";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./hooks/useAuth";
 
@@ -45,6 +47,8 @@ const App = () => (
                   <Route path="/departamentos/:nome" element={<ProtectedRoute><DetalheDepartamento /></ProtectedRoute>} />
                   <Route path="/organograma" element={<ProtectedRoute><Organograma /></ProtectedRoute>} />
                   <Route path="/agente-ia" element={<ProtectedRoute><AgenteIA /></ProtectedRoute>} />
+                  <Route path="/cursos" element={<ProtectedRoute><Cursos /></ProtectedRoute>} />
+                  <Route path="/cursos/:id" element={<ProtectedRoute><CursoDetalhes /></ProtectedRoute>} />
                   <Route path="/docs-pd" element={<ProtectedRoute><DocumentacaoPD /></ProtectedRoute>} />
                   <Route path="/documentacao" element={<ProtectedRoute><Documentacao /></ProtectedRoute>} />
                   <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
