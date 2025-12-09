@@ -116,6 +116,7 @@ const EstruturaDepartamento: React.FC<{
         {/* Nível 2 - Gerência */}
         <div className="flex justify-center gap-1 mb-4">
           <Colaborador nome="Flávia" cargo="Gerente" setor="Consultora Comercial" nivel={2} icon={<ShoppingCart size={18} />} />
+          <Colaborador nome="Pedro" cargo="Gerente" setor="Gerente Operaconal" nivel={2} icon={<ShoppingCart size={18} />} />
         </div>
 
         {/* Nível 3 - Coordenação */}
